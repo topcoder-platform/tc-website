@@ -55,14 +55,14 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Google announces 50 Google Code Jam Finalists</span><br />
-                        <span class="bodySubTitle"><em>Programmers from Around the World to Compete in Finals at Google Headquarters</em></span></p>
-                        </div>
-                        
-                        <p><strong>MOUNTAIN VIEW, Calif., October 5, 2004&#151;</strong>
-						Google Inc. today announced the 50 finalists in the second annual Google Code Jam, Google's online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems. The following finalists will be flown to Google headquarters to compete in the Championship Round on October 15:
-						</p>
+<div align="center">
+<p><span class="bodyTitle">Google announces 50 Google Code Jam Finalists</span><br />
+<span class="bodySubTitle"><em>Programmers from Around the World to Compete in Finals at Google Headquarters</em></span></p>
+</div>
+
+<p><strong>MOUNTAIN VIEW, Calif., October 5, 2004&#151;</strong>
+Google Inc. today announced the 50 finalists in the second annual Google Code Jam, Google's online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems. The following finalists will be flown to Google headquarters to compete in the Championship Round on October 15:
+</p>
 <ul>
 <li>Reid Barton, Arlington, Mass.</li>
 <li>Tomasz Czajka, West Lafayette, Ind.</li>
@@ -140,7 +140,7 @@ Eileen Rodriguez<br/>
 eileen@google.com
 </p>
 
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
                         
 

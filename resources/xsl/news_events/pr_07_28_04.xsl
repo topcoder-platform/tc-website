@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament</span><br />
-                        <span class="bodySubTitle"><em>$150,000 Prize Purse at Stake in World Championship of Competitive Coding</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., July 28, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament</span><br />
+<span class="bodySubTitle"><em>$150,000 Prize Purse at Stake in World Championship of Competitive Coding</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, Conn., July 28, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced Microsoft, (Nasdaq "MSFT"), as the title sponsor for the 2004 TopCoder Open. The 2004 TopCoder Open will bring the world's finest professional and collegiate programmers together in competition for international ranking, celebrity and a share of the $150,000 prize purse for Algorithm, Component Design and Development categories. The Onsite Finals will take place November 11th and 12th at the Santa Clara Marriott in Santa Clara, CA. Full registration details and rules are provided at:  http://www.topcoder.com/tco04 
 <br/><br/>
 "The Microsoft Development Team seeks passionate people who think big and dream big," said Kristen Roby, Senior Director, College Recruiting. "TopCoder's tournaments bring people and technology together in a powerful setting that highlights innovation, creativity and exploration. Microsoft is excited to be involved with such a highly competitive event."
@@ -75,8 +75,8 @@ Founded in 1975, Microsoft (Nasdaq "MSFT") is the worldwide leader in software, 
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br/><br/>
 TopCoder is a trademark of TopCoder, Inc. in the United States and other countries. All other product and company names herein may be trademarks of their respective owners.
-						</p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

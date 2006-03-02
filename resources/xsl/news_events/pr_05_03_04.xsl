@@ -55,10 +55,10 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">JAVAONE<sup>SM</sup> CODING CHALLENGE POWERED BY TOPCODER TO BE FEATURED AT JAVAONE, SUN'S 2004 WORLDWIDE JAVA DEVELOPER CONFERENCE<sup>SM</sup></span><br />
-                        <span class="bodySubTitle"><em>One of Highest Rated 2003 JavaOne Conference Events Back for Second Consecutive Year</em></span></p>
-                        </div>
+<div align="center">
+<p><span class="bodyTitle">JAVAONE<sup>SM</sup> CODING CHALLENGE POWERED BY TOPCODER TO BE FEATURED AT JAVAONE, SUN'S 2004 WORLDWIDE JAVA DEVELOPER CONFERENCE<sup>SM</sup></span><br />
+<span class="bodySubTitle"><em>One of Highest Rated 2003 JavaOne Conference Events Back for Second Consecutive Year</em></span></p>
+</div>
 
 <p><strong>GLASTONBURY, Conn., May 3, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that they are teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW), the creator of Java(TM) technology, to showcase development skills at the ninth annual 2004 JavaOneSM conference, scheduled for June 28-July 1 in San Francisco. Sun and TopCoder will be bringing Java technology programmers together for coding, competition and fun. TopCoder Inc.'s versatile competitive coding platform will power the conference's popular JavaOne Coding Challenge, one of the highest-rated attendee events in 2003. The coding competition will provide attendees with an exciting and challenging experience along with a chance to win prizes. TopCoder will also be promoting the event among its global membership of more than 38,000 professional and student programmers. For more information on the JavaOne conference, visit <A href="http://java.sun.com/javaone/sf">http://java.sun.com/javaone/sf</A>.
@@ -79,7 +79,7 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 <br/><br/>
 TopCoder is a registered trademark of TopCoder, Inc. in the United States and other countries
 </p>
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
 
 

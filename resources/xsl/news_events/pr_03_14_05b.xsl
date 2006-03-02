@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">LOGICLIBRARY TEAMS WITH TOPCODER TO ACCELERATE SERVICE-ORIENTED ARCHITECTURE (SOA) DEPLOYMENTS</span><br />
-                        <span class="bodySubTitle"><em>Leading Software Development Asset Management Provider Joins Forces with Pioneer of Competitive Component Development Methodology to Enable More Effective Software Reuse</em></span></p>
-                        </div>
+<div align="center">
+<p><span class="bodyTitle">LOGICLIBRARY TEAMS WITH TOPCODER TO ACCELERATE SERVICE-ORIENTED ARCHITECTURE (SOA) DEPLOYMENTS</span><br />
+<span class="bodySubTitle"><em>Leading Software Development Asset Management Provider Joins Forces with Pioneer of Competitive Component Development Methodology to Enable More Effective Software Reuse</em></span></p>
+</div>
 
-                        <p><strong>PITTSBURGH, PA, March 14, 2005&#151;</strong>
+<p><strong>PITTSBURGH, PA, March 14, 2005&#151;</strong>
 LogicLibrary&#174;, the leading provider of software development asset management tools, today announced a strategic partnership with TopCoder Software(TM), the leader in identifying, evaluating and mobilizing effective software development resources, to deliver cutting-edge software components for organizations building and managing reusable components and services, service-oriented architectures (SOAs) and other application development projects. This strategic partnership is intended to bolster the already impressive collection of "out-of-the box" content preinstalled with Logidex, driving a faster return on investment for LogicLibrary customers, while improving the market reach of TopCoder's competitively developed component catalogs.
 <br /><br />
 LogicLibrary's Logidex is a collaborative software development asset (SDA) management solution that simplifies the creation, integration, governance and security of enterprise applications throughout the complete application lifecycle, in both .NET and J2EE environments. The integration of Logidex with TopCoder's software component catalogs will give application developers and architects unparalleled resources for delivering custom applications built from existing assets. In addition to being able to discover and manage internal software assets, Logidex users will be able to search the TopCoder .NET and J2EE component catalogs for software assets that align with a company's business needs.
@@ -88,8 +88,8 @@ LogicLibrary has been positioned in the "Leader" quadrant in Gartner Inc.'s Magi
 LogicLibrary and Logidex are trademarks of LogicLibrary, Inc.
 <br /><br />
 All other brands and product names are trademarks or registered trademarks of their respective companies.
-      						</p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
 
 

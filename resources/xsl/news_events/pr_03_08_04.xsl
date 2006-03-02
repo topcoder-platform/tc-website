@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</span><br />
-                        <span class="bodySubTitle"><em>Visual Computing Technology Leader Continues Sponsorship with World Championship Scheduled for April 16th in Boston</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., March 8, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</span><br />
+<span class="bodySubTitle"><em>Visual Computing Technology Leader Continues Sponsorship with World Championship Scheduled for April 16th in Boston</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, Conn., March 8, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced NVIDIA Corporation (Nasdaq: NVDA), the worldwide leader in visual processing solutions, as a premier sponsor for its 2004 TopCoder Collegiate Challenge (TCCC 04).  The TCCC 04 will bring many of the world's finest student programmers together in competition for international ranking, notoriety and a share of the $100,000 prize purse for Algorithm, Component Design and Development categories. Details and rules are provided at: http://www.topcoder.com/tccc04.</p>
 
 <p>"NVIDIA truly believes that the TopCoder arena fosters an unparalleled competitive spirit among the most brilliant programmers in the world.  We are proud to be a part of this initiative again," said Daniel Rohrer, Manager of DirectX Graphics.  "Our corporate culture encourages innovation and excellence and the TopCoder competition model is a perfect complement to that philosophy."</p>
@@ -79,7 +79,7 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 
 <p>TopCoder is a trademark of TopCoder, Inc. in the United States and other countries.</p>
 
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
                         
 

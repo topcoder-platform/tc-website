@@ -55,48 +55,48 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <h3>TopCoder to Administer Contest at the 2003 JavaOne<span class="super">SM</span> Conference</h3>
-                        JavaOne<span class="super">SM</span> Coding Challenge will be Powered by TopCoder<span class="super">TM</span>
-                        </div>
+<div align="center">
+<h3>TopCoder to Administer Contest at the 2003 JavaOne<span class="super">SM</span> Conference</h3>
+JavaOne<span class="super">SM</span> Coding Challenge will be Powered by TopCoder<span class="super">TM</span>
+</div>
 
-                        <p><strong>GLASTONBURY, CT&#151;May 21, 2003&#151;</strong>TopCoder, Inc., the leader in promotion of 
-                        programming talent through online competition, today announced that Sun Microsystems, Inc. (NASDAQ: SUNW) has 
-                        selected the company to administer its JavaOne<span class="super">SM</span> Coding Challenge.  TopCoder's sophisticated competition engine has 
-                        been customized for Sun, allowing them to host the JavaOne Coding Challenge at their flagship developer conference.  
-                        The Challenge is open to all registered onsite attendees of the Conference, being held June 10-13, at the Moscone Center 
-                        in San Francisco, CA.</p>
+<p><strong>GLASTONBURY, CT&#151;May 21, 2003&#151;</strong>TopCoder, Inc., the leader in promotion of 
+programming talent through online competition, today announced that Sun Microsystems, Inc. (NASDAQ: SUNW) has 
+selected the company to administer its JavaOne<span class="super">SM</span> Coding Challenge.  TopCoder's sophisticated competition engine has 
+been customized for Sun, allowing them to host the JavaOne Coding Challenge at their flagship developer conference.  
+The Challenge is open to all registered onsite attendees of the Conference, being held June 10-13, at the Moscone Center 
+in San Francisco, CA.</p>
 
-                        <p>"TopCoder is pleased to have been selected to administer this contest," said Jack Hughes, Founder and Chairman of 
-                        TopCoder. "The JavaOne conference is the epicenter for all things Java<span class="super">TM</span> technology-related and we are happy to be 
-                        able to enhance the experience for programmers who attend the Conference.  Sun's commitment to Java technology is 
-                        evident in its continued improvements to the JavaOne conference and its support of TopCoder and its developer base."</p>
+<p>"TopCoder is pleased to have been selected to administer this contest," said Jack Hughes, Founder and Chairman of 
+TopCoder. "The JavaOne conference is the epicenter for all things Java<span class="super">TM</span> technology-related and we are happy to be 
+able to enhance the experience for programmers who attend the Conference.  Sun's commitment to Java technology is 
+evident in its continued improvements to the JavaOne conference and its support of TopCoder and its developer base."</p>
 
-                        <p>The JavaOne Coding Challenge offers attendees an opportunity to apply technical knowledge learned during Conference 
-                        technical sessions to real-world problems.  The Coding Challenge will center on the Conference themes of Mobility, 
-                        Enterprise Applications and Java Web Services.</p>
+<p>The JavaOne Coding Challenge offers attendees an opportunity to apply technical knowledge learned during Conference 
+technical sessions to real-world problems.  The Coding Challenge will center on the Conference themes of Mobility, 
+Enterprise Applications and Java Web Services.</p>
 
-                        <p>"Sun is dedicated to making the JavaOne conference the essential source for Java technology education and innovation," 
-                        said Mike Bellissimo, senior director, Sun Software Developer Marketing and Management.  "We are excited that TopCoder 
-                        will offer onsite attendees a practical application testing their knowledge of Java technology learned during the JavaOne 
-                        conference."</p>
+<p>"Sun is dedicated to making the JavaOne conference the essential source for Java technology education and innovation," 
+said Mike Bellissimo, senior director, Sun Software Developer Marketing and Management.  "We are excited that TopCoder 
+will offer onsite attendees a practical application testing their knowledge of Java technology learned during the JavaOne 
+conference."</p>
 
-                        <p>The 2003 JavaOne conference will be held June 10-13 at the Moscone Convention Center in San Francisco, CA.  
-                        More details on the Conference can be found at <A href="http://www.java.sun.com/javaone/sf" target="_blank">http://www.java.sun.com/javaone/sf.</A></p>
+<p>The 2003 JavaOne conference will be held June 10-13 at the Moscone Convention Center in San Francisco, CA.  
+More details on the Conference can be found at <A href="http://www.java.sun.com/javaone/sf" target="_blank">http://www.java.sun.com/javaone/sf.</A></p>
 
-                        <p><br /></p>
+<p><br /></p>
 
-                        <p><strong>About TopCoder, Inc.</strong><br />
-                        TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  
-                        TopCoder members extend across all professional and collegiate levels.  The attraction of competition and the associated 
-                        rewards create a powerful community of programmers.  Corporate partners access this member base for employment, 
-                        software development and sponsorship.  For registration details or information regarding TopCoder Software, TopCoder 
-                        Employment Services or sponsorship of TopCoder Events, please visit <a class="bodyText" href="http://www.topcoder.com">www.topcoder.com.</a></p>
+<p><strong>About TopCoder, Inc.</strong><br />
+TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  
+TopCoder members extend across all professional and collegiate levels.  The attraction of competition and the associated 
+rewards create a powerful community of programmers.  Corporate partners access this member base for employment, 
+software development and sponsorship.  For registration details or information regarding TopCoder Software, TopCoder 
+Employment Services or sponsorship of TopCoder Events, please visit <a class="bodyText" href="http://www.topcoder.com">www.topcoder.com.</a></p>
 
-                        <p>Sun, Sun Microsystems, Java and JavaOne are trademarks or registered trademarks of Sun Microsystems, Inc. in the 
-                        United States and other countries.</p>
+<p>Sun, Sun Microsystems, Java and JavaOne are trademarks or registered trademarks of Sun Microsystems, Inc. in the 
+United States and other countries.</p>
 
-                        <p>###</p>
+<p>###</p>
 
                         <p><br /></p>
 

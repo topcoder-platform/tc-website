@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</span><br />
-                        <span class="bodySubTitle"><em>Algorithm, Design and Development Competition Winners Take Home $150,000</em></span></p>
-                        </div>
-                        
-                        <p><strong>SANTA CLARA, CA, November 15, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</span><br />
+<span class="bodySubTitle"><em>Algorithm, Design and Development Competition Winners Take Home $150,000</em></span></p>
+</div>
+
+<p><strong>SANTA CLARA, CA, November 15, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Tomasz Czajka of Stalowej, Poland, Adrian Nicolae Carcu of Bistrita, Romania, and Jin GuanZhou of HangZhou City, China have won the Algorithm, Design and Development Competitions of the 2004 TopCoder Open, sponsored by Microsoft, held at the Marriott Hotel in Santa Clara, CA on November 12th. Czajka beat 23 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $20,000 grand prize in the Algorithm Competition.  Carcu and GuanZhou took home $20,000 and $10,000 respectively as the Component Design and Development Champions. 
 <br/><br/>
 In the Algorithm Competition, the participants solve complex algorithmic problems using Java, C++, C#, or Visual Basic&#174;.  The Component Competitions challenge participants to design or develop re-useable Java and .Net software components.   
@@ -84,8 +84,8 @@ Founded in 1975, Microsoft (Nasdaq "MSFT") is the worldwide leader in software, 
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br/><br/>
 TopCoder is a trademark of TopCoder, Inc. in the United States and other countries. All other product and company names herein may be trademarks of their respective owners.
-						</p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

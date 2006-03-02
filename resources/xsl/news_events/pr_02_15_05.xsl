@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder Software(TM) Opens Access to Reusable Java(TM) and .NET(TM) Component Catalogs</span><br />
-                        <span class="bodySubTitle"><em>Competitive Software Development Leader Offers Free Subscriptions to Individual Developers for Non-Commercial Software Projects</em></span></p>
-                        </div>
+<div align="center">
+<p><span class="bodyTitle">TopCoder Software(TM) Opens Access to Reusable Java(TM) and .NET(TM) Component Catalogs</span><br />
+<span class="bodySubTitle"><em>Competitive Software Development Leader Offers Free Subscriptions to Individual Developers for Non-Commercial Software Projects</em></span></p>
+</div>
 
-                        <p><strong>GLASTONBURY, CT, February 15, 2005&#151;</strong>
+<p><strong>GLASTONBURY, CT, February 15, 2005&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced TopCoder Software is providing individual member developers free subscriptions to its full catalog of software components. TopCoder Software's free subscription permits non-commercial use of the entire catalog including over 200 Java and nearly 100 .NET components from any computer at any time. Eligible users will also be given unlimited access to TopCoder Software Customer Forums. For full details on free membership and registration, please visit http://software.topcoder.com/components/subscriptions.jsp.
 <br /><br />
 "Making our components available at no cost helps eliminate the economic barrier that has previously prevented some individual developers from using and benefiting from our catalogs," said Mike Morris, VP of Software Development at TopCoder Software. "We are giving developers a highly tested and thoroughly documented toolbox with an array of powerful tools they can use to build high quality software applications."
@@ -80,8 +80,8 @@ TopCoder Software is a trademark of TopCoder, Inc. in the United States and othe
 Java and J2EE are trademarks of Sun Microsystems, Inc. in the United States and other countries.
 <br /><br />
 .NET is a trademark of Microsoft Corp. in the United States and/or other countries.
-                        </p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
 
 

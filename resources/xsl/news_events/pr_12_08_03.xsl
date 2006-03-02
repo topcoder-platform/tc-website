@@ -55,91 +55,91 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</span><br />
-                        <span class="bodySubTitle"><em>Coding and Component Tournament winners take home $70,000</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., December 8, 2003&#151;</strong>
-                        TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, 
-                        today announced Tomasz Czajka of Warsaw, Poland, Tim Roberts of Cary, NC, and Rob Nielsen of Carters Ridge, Australia 
-                        have won the Coding and Component Tournaments of the 2003 TopCoder Open sponsored by Intel, held at the Mohegan Sun 
-                        Casino in Uncasville, CT on December 4-5.  Czajka beat 15 of the world's top computer programmers during the semifinal 
-                        and championship rounds for the $50,000 grand prize in the Coding Tournament.  Roberts and Nielsen each took home $10,000 
-                        as the Design and Development winners in the Component Tournament.</p>
+<div align="center">
+<p><span class="bodyTitle">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</span><br />
+<span class="bodySubTitle"><em>Coding and Component Tournament winners take home $70,000</em></span></p>
+</div>
 
-                        <p>The Coding Tournament was a timed competition where the participants solved complex algorithmic problems using 
-                        Java, C++, C# or VB.Net.  The Component Tournament was focused on software development where four participants were 
-                        provided general requirements and asked to design and develop re-useable software components.</p>
+<p><strong>GLASTONBURY, Conn., December 8, 2003&#151;</strong>
+TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, 
+today announced Tomasz Czajka of Warsaw, Poland, Tim Roberts of Cary, NC, and Rob Nielsen of Carters Ridge, Australia 
+have won the Coding and Component Tournaments of the 2003 TopCoder Open sponsored by Intel, held at the Mohegan Sun 
+Casino in Uncasville, CT on December 4-5.  Czajka beat 15 of the world's top computer programmers during the semifinal 
+and championship rounds for the $50,000 grand prize in the Coding Tournament.  Roberts and Nielsen each took home $10,000 
+as the Design and Development winners in the Component Tournament.</p>
 
-                        <p>At the start of the Coding tournament, Czajka was the #2 seed and the #2 rated member among more than 34,000 developers 
-                        in the TopCoder community.  As a result of his victory, he has secured his spot as the top rated TopCoder member.  Czajka "out-coded" 
-                        Jimmy Mardell from Stockholm, Sweden, Bogdan Stanescu from Fairfax, VA, and Jiqing Tang from Hong Kong in the Championship round.  
-                        The finalists earned a spot at the event by besting more than 1,000 other programmers from around the world in simultaneous, online 
-                        competitions.  Although TopCoder competitions offer competitors the choice of four programming languages, all of the finalists used C++ 
-                        in the Championship round.  "I couldn't be more excited about my win," said Czajka.  "TopCoder and Intel hosted a thrilling event, and I 
-                        am thankful to have been able to participate and ultimately win $50,000."</p>
+<p>The Coding Tournament was a timed competition where the participants solved complex algorithmic problems using 
+Java, C++, C# or VB.Net.  The Component Tournament was focused on software development where four participants were 
+provided general requirements and asked to design and develop re-useable software components.</p>
 
-                        <p>The Component Tournament was added to the TopCoder Open this year, expanding the scope from knowledge of algorithms to include 
-                        more robust software development. Roberts and Nielsen faced stiff competition in this part of the tournament, having to either design 
-                        or develop software that will be used in future applications.  Combined, they have contributed twelve individual reusable software 
-                        components to TopCoder's component catalogs.  About the competition, Roberts said he was thrilled to be participating in a tournament 
-                        where he could measure himself against a group of his peers.  Nielsen, on the other hand, was quite stunned by his victory saying, "The 
-                        competition was very tough.  I didn't expect to walk away with $10,000."</p>
+<p>At the start of the Coding tournament, Czajka was the #2 seed and the #2 rated member among more than 34,000 developers 
+in the TopCoder community.  As a result of his victory, he has secured his spot as the top rated TopCoder member.  Czajka "out-coded" 
+Jimmy Mardell from Stockholm, Sweden, Bogdan Stanescu from Fairfax, VA, and Jiqing Tang from Hong Kong in the Championship round.  
+The finalists earned a spot at the event by besting more than 1,000 other programmers from around the world in simultaneous, online 
+competitions.  Although TopCoder competitions offer competitors the choice of four programming languages, all of the finalists used C++ 
+in the Championship round.  "I couldn't be more excited about my win," said Czajka.  "TopCoder and Intel hosted a thrilling event, and I 
+am thankful to have been able to participate and ultimately win $50,000."</p>
 
-                        <p>"Intel congratulates the three winners of the TopCoder Open, and all who participated in the event worldwide" said Monique Torres, 
-                        Intel&#174; Developer Services Campaigns and Promotions Manager.  "We are excited to have been part of such an exciting tournament 
-                        and to have increased the awareness of Intel Developer Services among TopCoder's member base."</p>
+<p>The Component Tournament was added to the TopCoder Open this year, expanding the scope from knowledge of algorithms to include 
+more robust software development. Roberts and Nielsen faced stiff competition in this part of the tournament, having to either design 
+or develop software that will be used in future applications.  Combined, they have contributed twelve individual reusable software 
+components to TopCoder's component catalogs.  About the competition, Roberts said he was thrilled to be participating in a tournament 
+where he could measure himself against a group of his peers.  Nielsen, on the other hand, was quite stunned by his victory saying, "The 
+competition was very tough.  I didn't expect to walk away with $10,000."</p>
 
-                        <p>The semi-finalists of the Coding Tournament were as follows:</p>
+<p>"Intel congratulates the three winners of the TopCoder Open, and all who participated in the event worldwide" said Monique Torres, 
+Intel&#174; Developer Services Campaigns and Promotions Manager.  "We are excited to have been part of such an exciting tournament 
+and to have increased the awareness of Intel Developer Services among TopCoder's member base."</p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                  <td class="sidebarText" width="50%">Reid Barton, Arlington, MA, US</td><td class="sidebarText" width="50%">David Pecora, Chapel Hill, NC, US</td>
-               </tr>
-               <tr>
-                  <td class="sidebarText">Nathan Bronson, Chapel Hill, NC, US</td><td class="sidebarText">Tom Sirgedas, Ann Arbor, MI, US</td>
-               </tr>
-               <tr>
-                  <td class="sidebarText">Ambrose Feinstein, Orlando, FL, US</td><td class="sidebarText">Ben Wilhelm, Seattle, WA, US</td>
-               </tr>
-               <tr>
-                  <td class="sidebarText">Oleksandr Grushetskyy, Kiev, Ukraine</td><td class="sidebarText">Mathijs Vogelzang, Groningen, Netherlands</td>
-               </tr>
-               <tr>
-                  <td class="sidebarText">Derek Kisman, Waterloo, Canada</td><td class="sidebarText">Eugene Vasilchenko, North Potomac, MD, US</td>
-               </tr>
-               <tr>
-                  <td class="sidebarText">Michael Haddox-Schatz, Williamsburg, VA, US</td><td class="sidebarText">Steve Newman, Portola Valley, CA, US</td>
-               </tr>
-            </table>
+<p>The semi-finalists of the Coding Tournament were as follows:</p>
 
-                        <p>The other two finalists in the Component Tournament were as follows:</p>
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr>
+<td class="sidebarText" width="50%">Reid Barton, Arlington, MA, US</td><td class="sidebarText" width="50%">David Pecora, Chapel Hill, NC, US</td>
+</tr>
+<tr>
+<td class="sidebarText">Nathan Bronson, Chapel Hill, NC, US</td><td class="sidebarText">Tom Sirgedas, Ann Arbor, MI, US</td>
+</tr>
+<tr>
+<td class="sidebarText">Ambrose Feinstein, Orlando, FL, US</td><td class="sidebarText">Ben Wilhelm, Seattle, WA, US</td>
+</tr>
+<tr>
+<td class="sidebarText">Oleksandr Grushetskyy, Kiev, Ukraine</td><td class="sidebarText">Mathijs Vogelzang, Groningen, Netherlands</td>
+</tr>
+<tr>
+<td class="sidebarText">Derek Kisman, Waterloo, Canada</td><td class="sidebarText">Eugene Vasilchenko, North Potomac, MD, US</td>
+</tr>
+<tr>
+<td class="sidebarText">Michael Haddox-Schatz, Williamsburg, VA, US</td><td class="sidebarText">Steve Newman, Portola Valley, CA, US</td>
+</tr>
+</table>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                  <td class="sidebarText" width="50%">Sergey Kalinichenko, San Francisco, CA</td><td class="sidebarText" width="50%">Pavlo Aksonov, Kiev, Ukraine</td>
-               </tr>
-            </table>
+<p>The other two finalists in the Component Tournament were as follows:</p>
 
-                        <p>The results of TopCoder's major tournaments, weekly competitions and component development projects create a global database of 
-                        objectively rated and talent-differentiated student and professional programmers.</p>
+<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<tr>
+<td class="sidebarText" width="50%">Sergey Kalinichenko, San Francisco, CA</td><td class="sidebarText" width="50%">Pavlo Aksonov, Kiev, Ukraine</td>
+</tr>
+</table>
 
-                        <p>"The addition of the Component Tournament to the TopCoder Open has increased the significance of this already premier competition," 
-                        said Jack Hughes, Founder and Chairman of TopCoder.  "The three champions crowned today are at the top of their fields and should be proud 
-                        of their individual accomplishments."</p>
+<p>The results of TopCoder's major tournaments, weekly competitions and component development projects create a global database of 
+objectively rated and talent-differentiated student and professional programmers.</p>
 
-                        <p><span class="bodySubTitle">About TopCoder, Inc.</span><br />
-                        TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  TopCoder members 
-                        extend across all professional and collegiate levels.  The attraction of competition and the associated rewards create a powerful community 
-                        of programmers.  Corporate partners access this member base for employment, software development and sponsorship.  For registration 
-                        details or information regarding TopCoder Software, TopCoder Employment Services or sponsorship of TopCoder Events, please visit www.topcoder.com 
-                        or call toll free 866-TOPCODER.</p>
+<p>"The addition of the Component Tournament to the TopCoder Open has increased the significance of this already premier competition," 
+said Jack Hughes, Founder and Chairman of TopCoder.  "The three champions crowned today are at the top of their fields and should be proud 
+of their individual accomplishments."</p>
 
-                        <p>TopCoder is a trademark of TopCoder, Inc. in the United States and other countries.</p>
-                        <p>Intel and Intel Developer Services are trademarks of Intel Corporation or its subsidiaries in the United States and other countries.</p>
+<p><span class="bodySubTitle">About TopCoder, Inc.</span><br />
+TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  TopCoder members 
+extend across all professional and collegiate levels.  The attraction of competition and the associated rewards create a powerful community 
+of programmers.  Corporate partners access this member base for employment, software development and sponsorship.  For registration 
+details or information regarding TopCoder Software, TopCoder Employment Services or sponsorship of TopCoder Events, please visit www.topcoder.com 
+or call toll free 866-TOPCODER.</p>
 
-                        <p><span class="bodySubTitle">Video Information</span></p>
+<p>TopCoder is a trademark of TopCoder, Inc. in the United States and other countries.</p>
+<p>Intel and Intel Developer Services are trademarks of Intel Corporation or its subsidiaries in the United States and other countries.</p>
+
+<p><span class="bodySubTitle">Video Information</span></p>
 
 <p>Monday, December 8th Time: 13:00 - 13:30 EST</p>
 
@@ -169,7 +169,7 @@ Color  PAL</p>
 
 <p>Standards will be converted by the originator.</p>
 
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
                         
 
