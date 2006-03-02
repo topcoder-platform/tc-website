@@ -31,7 +31,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="press_room"/>
+                <jsp:param name="node" value="features"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -41,8 +41,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <div style="margin: 0px 10px 0px 10px;">
 
 <jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="press_room"/>
-    <jsp:param name="title" value="TopCoder Press Release"/>
+    <jsp:param name="image" value="features"/>
+    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
 <div align="center">
