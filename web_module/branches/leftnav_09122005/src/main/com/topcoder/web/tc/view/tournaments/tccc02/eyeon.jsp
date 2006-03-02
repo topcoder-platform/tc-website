@@ -325,9 +325,9 @@ Although <A HREF="/tc?module=MemberProfile&cr=252076" CLASS="coderTextYellow">Wa
 <A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> was the Regional Quarterfinals winner of Room 20.  
 <A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> placed third in Room 16 with 706.21 final points in the Regional Semifinals.  
 <A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> was one of the 16 semifinalists in the 2001 TopCoder Invitational.  
-<A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> is tied for second with 25 <A HREF="/index?t=tournaments&c=srm_wins" CLASS="statText">Overall Room Wins</A>, 24 of which are Division I wins.  Two of the top-25 <A HREF="/index?t=tournaments&c=high_total_div1" CLASS="statText">Highest Point Totals</A> in Division I, including the eighth highest (1678.85), were earned by 
+<A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> is tied for second with 25 <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=srm_wins" CLASS="statText">Overall Room Wins</A>, 24 of which are Division I wins.  Two of the top-25 <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=high_total_div1" CLASS="statText">Highest Point Totals</A> in Division I, including the eighth highest (1678.85), were earned by 
 <A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A>, and 
-<A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> is ranked 16th in <A HREF="/index?t=tournaments&c=sub_acc" CLASS="statText">Submission Accuracy</A> (75.97%).  Will the experience of 
+<A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A> is ranked 16th in <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=sub_acc" CLASS="statText">Submission Accuracy</A> (75.97%).  Will the experience of 
 <A HREF="/tc?module=MemberProfile&cr=120816" CLASS="coderTextRed">malpt</A>, a Doctoral student and veteran of 51 SRMs, lead to a championship?
 </P>
                  </TD>

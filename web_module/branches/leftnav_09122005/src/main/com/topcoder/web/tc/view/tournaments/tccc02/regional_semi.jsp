@@ -49,7 +49,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
             </TR>          
                     <TR>
-                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: <!-- Single Round Match 69 - Feb 28, 2002 -->2002 TCCC Regional Semifinals - March 6</TD>
@@ -179,9 +179,9 @@ Room 4 was won by the number four seed, <A HREF="/tc?module=MemberProfile&cr=252
 
 <P>
 View the Top-10 room winners:<BR/>
-<A HREF="/index?t=tournaments&c=top_10_wins_regions" CLASS="statText">All Regions</A> 
-<!-- | <A HREF="/index?t=statistics&c=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
-<A HREF="/index?t=statistics&c=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/index?t=statistics&c=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_10_wins_regions" CLASS="statText">All Regions</A> 
+<!-- | <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
  --></P>
           </TD>
             </TR>            

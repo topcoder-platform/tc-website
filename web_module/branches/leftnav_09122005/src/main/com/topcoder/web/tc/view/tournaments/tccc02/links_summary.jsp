@@ -9,41 +9,41 @@
       <TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD WIDTH="70%" BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">TOURNAMENT LINKS:</TD> 
       
-      <TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&c=2002tccc_breakdown" CLASS="bodyText">-&#160;Bracket&#160;Update</A>&#160;&#160;</TD>
+      <TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=breakdown" CLASS="bodyText">-&#160;Bracket&#160;Update</A>&#160;&#160;</TD>
    </TR>                    
    <TR>
        <TD COLSPAN="3" VALIGN="top" BGCOLOR="#999999" WIDTH="100%" NOWRAP="0">
       <TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
       <TR>
          <TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 1:</B><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom1" CLASS="bodyText">Summary</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob1" CLASS="bodyText">Problems</A><BR/>         
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob1#log" CLASS="bodyText">Chrono Log</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom1#photo" CLASS="bodyText">Photos</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom1" CLASS="bodyText">Summary</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob1" CLASS="bodyText">Problems</A><BR/>         
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob1#log" CLASS="bodyText">Chrono Log</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom1#photo" CLASS="bodyText">Photos</A><BR/>
          </TD>      
          <TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 2:</B><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom2" CLASS="bodyText">Summary</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob2" CLASS="bodyText">Problems</A><BR/>         
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob2#log" CLASS="bodyText">Chrono Log</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom2#photo" CLASS="bodyText">Photos</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom2" CLASS="bodyText">Summary</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob2" CLASS="bodyText">Problems</A><BR/>         
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob2#log" CLASS="bodyText">Chrono Log</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom2#photo" CLASS="bodyText">Photos</A><BR/>
          </TD>
          <TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 3:</B><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom3" CLASS="bodyText">Summary</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob3" CLASS="bodyText">Problems</A><BR/>         
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob3#log" CLASS="bodyText">Chrono Log</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom3#photo" CLASS="bodyText">Photos</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom3" CLASS="bodyText">Summary</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob3" CLASS="bodyText">Problems</A><BR/>         
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob3#log" CLASS="bodyText">Chrono Log</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom3#photo" CLASS="bodyText">Photos</A><BR/>
          </TD>
          <TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 4:</B><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom4" CLASS="bodyText">Summary</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob4" CLASS="bodyText">Problems</A><BR/>         
-         - <A HREF="/index?t=statistics&c=2002tccc_semiprob4#log" CLASS="bodyText">Chrono Log</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_semiroom4#photo" CLASS="bodyText">Photos</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom4" CLASS="bodyText">Summary</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob4" CLASS="bodyText">Problems</A><BR/>         
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiprob4#log" CLASS="bodyText">Chrono Log</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=semiroom4#photo" CLASS="bodyText">Photos</A><BR/>
          </TD>                           
          <TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_champ" CLASS="bodyText">Summary</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_champprob" CLASS="bodyText">Problems</A><BR/>         
-         - <A HREF="/index?t=statistics&c=2002tccc_champprob#log" CLASS="bodyText">Chrono Log</A><BR/>
-         - <A HREF="/index?t=statistics&c=2002tccc_champ#photo" CLASS="bodyText">Photos</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champ" CLASS="bodyText">Summary</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champprob" CLASS="bodyText">Problems</A><BR/>         
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champprob#log" CLASS="bodyText">Chrono Log</A><BR/>
+         - <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=champ#photo" CLASS="bodyText">Photos</A><BR/>
          </TD>                  
         </TR>
         

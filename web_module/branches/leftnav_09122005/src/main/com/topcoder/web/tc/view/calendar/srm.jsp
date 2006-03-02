@@ -278,7 +278,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
                                             <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
                                             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
+                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
                                             <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
                                         </UL>
                                         <B>Eligibility:</B>
@@ -308,7 +308,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
                                             <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
                                             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
+                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
                                             <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
                                         </UL>
                                         <B>Eligibility:</B>
@@ -337,7 +337,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
                                             <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
                                             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
+                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
                                             <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
                                         </UL>
                                         <B>Eligibility:</B>

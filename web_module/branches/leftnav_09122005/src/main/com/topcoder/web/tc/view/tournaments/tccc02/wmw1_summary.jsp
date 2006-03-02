@@ -126,8 +126,8 @@ Another close battle took place in Room 2, as <A HREF="/tc?module=MemberProfile&
 
 <P>
 View the Top-10 Winners:<BR/>
-<A HREF="/index?t=statistics&c=top_10_wins_ne" CLASS="statText">Northeast Top-10</A> | <A HREF="/index?t=statistics&c=top_10_wins_se" CLASS="statText">Southeast Top-10</A><BR/>
-<A HREF="/index?t=statistics&c=top_10_wins_w" CLASS="statText">West Top-10</A> | <A HREF="/index?t=statistics&c=top_10_wins_mw" CLASS="statText">Midwest Top-10</A><BR/>
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_10_wins_ne" CLASS="statText">Northeast Top-10</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_10_wins_se" CLASS="statText">Southeast Top-10</A><BR/>
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_10_wins_w" CLASS="statText">West Top-10</A> | <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=top_10_wins_mw" CLASS="statText">Midwest Top-10</A><BR/>
 </P>
 </TD>
 </TR>
