@@ -219,8 +219,9 @@
             try {
                 summary = catalog.getCategorySummary(lngCategory);
             } catch (CatalogException e) {
-                //TODO send redirect
-                e.printStackTrace(new PrintWriter(out));
+                // plk
+                // redirect to an error page
+                response.sendRedirect("/attention/error_categorynotfound.jsp");
             }
             long rootCategory = summary.getParent();
             if (rootCategory == 0) {
@@ -236,8 +237,9 @@
                 summaries = new CategorySummary[cats.length];
                 for (int i = 0; i < summaries.length; i++) summaries[i] = catalog.getCategorySummary(cats[i].getId());
             } catch (CatalogException e) {
-                //TODO send redirect
-                e.printStackTrace(new PrintWriter(out));
+                // plk
+                // redirect to an error page
+                response.sendRedirect("/attention/error_categorynotfound.jsp");
             }
         }
     }

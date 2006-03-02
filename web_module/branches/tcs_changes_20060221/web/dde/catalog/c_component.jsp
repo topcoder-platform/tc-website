@@ -51,7 +51,15 @@
         if (lngComponent == 600191) response.sendRedirect("c_prodTools.jsp?comp=600191");
     }
 
-    ComponentDetail details = catalog.getComponentDetail(lngComponent, lngVersion);
+    ComponentDetail details = null;
+
+    try {
+        details = catalog.getComponentDetail(lngComponent, lngVersion);
+    } catch (Exception e) {
+        // plk
+        // redirect to an error page
+        response.sendRedirect("/attention/error_componentnotfound.jsp");
+    }
 
     long rootCategory = details.getSummary().getRootCategory();
     if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
