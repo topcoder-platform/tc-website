@@ -58,12 +58,12 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%">         
-                        <p><font size="4"><strong>Dynamic Programming</strong></font><br />
-                        Thursday, April 1, 2004</p>
+<p><font size="4"><strong>Dynamic Programming</strong></font><br />
+Thursday, April 1, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=299177"><strong>vorthys</strong></a><br />
-                        <span class="smallText"><em>TopCoder Member</em></span></p>
-                        
+<p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=299177"><strong>vorthys</strong></a><br />
+<span class="smallText"><em>TopCoder Member</em></span></p>
+
 <p><b>Introduction</b><br/>
 If you were to survey the reds, you would probably find that 9 out of
 10 of them recommend the study of dynamic programming as one of the
@@ -107,12 +107,12 @@ recursive algorithm can be written in pseudocode as
 
 <pre>
 function LCS(S, T) is
-    if S is empty or T is empty then return empty string
-    if first char of S == first char of T then
-        return (first char of S) + LCS(S - first char, T - first char)
-    otherwise // first chars are different
-        return longer of LCS(S - first char, T) and LCS(S, T - first char)
- </pre>
+if S is empty or T is empty then return empty string
+if first char of S == first char of T then
+return (first char of S) + LCS(S - first char, T - first char)
+otherwise // first chars are different
+return longer of LCS(S - first char, T) and LCS(S, T - first char)
+</pre>
 
 <p>
 In the first case, one or both of the strings is empty, so the longest
@@ -147,21 +147,21 @@ algorithm can be summarized as
 
 <pre>
 LCS("ABCDE", "FGHI")
-    = longer of { LCS("BCDE","FGHI"),
-            LCS("ABCDE","GHI") }
-    = longer of {
-        longer of { LCS("CDE","FGHI"),
-            LCS("BCDE","GHI") },
-        longer of { LCS("BCDE","GHI"),
-            LCS("ABCDE","HI") }}
-    = longer of {
-        longer of {
-            longer of { LCS("DE","FGHI"), LCS("CDE","GHI") },
-            longer of { LCS("CDE","GHI"), LCS("BCDE","HI") }},
-        longer of {
-            longer of { LCS("CDE","GHI"), LCS("BCDE","HI") },
-            longer of { LCS("BCDE","HI"), LCS("ABCDE","I") }}}
-    = ...
+= longer of { LCS("BCDE","FGHI"),
+LCS("ABCDE","GHI") }
+= longer of {
+longer of { LCS("CDE","FGHI"),
+LCS("BCDE","GHI") },
+longer of { LCS("BCDE","GHI"),
+LCS("ABCDE","HI") }}
+= longer of {
+longer of {
+longer of { LCS("DE","FGHI"), LCS("CDE","GHI") },
+longer of { LCS("CDE","GHI"), LCS("BCDE","HI") }},
+longer of {
+longer of { LCS("CDE","GHI"), LCS("BCDE","HI") },
+longer of { LCS("BCDE","HI"), LCS("ABCDE","I") }}}
+= ...
 </pre>
 
 <p>
@@ -202,20 +202,20 @@ depends on a "memo table" of answers indexed by pairs of strings:
 </p>
 
 <pre>
-  function MLCS(S, T) is
-    if the pair &lt;S,T&gt; is in the memo table then
-      lookup and return the answer associated with the pair &lt;S,T&gt;
-    otherwise
-      answer = LCS(S,T)  // <i>do the actual work for these inputs</i>
-      save answer in memo table with the pair &lt;S,T&gt;
-      return answer
+function MLCS(S, T) is
+if the pair &lt;S,T&gt; is in the memo table then
+lookup and return the answer associated with the pair &lt;S,T&gt;
+otherwise
+answer = LCS(S,T)  // <i>do the actual work for these inputs</i>
+save answer in memo table with the pair &lt;S,T&gt;
+return answer
 
-  function LCS(S, T) is
-    if S is empty or T is empty then return empty string
-    if first char of S == first char of T then
-      return (first char of S) + MLCS(S - first char, T - first char)
-    otherwise // <i>first chars are different</i>
-      return longer of MLCS(S - first char, T) and MLCS(S, T - first char)
+function LCS(S, T) is
+if S is empty or T is empty then return empty string
+if first char of S == first char of T then
+return (first char of S) + MLCS(S - first char, T - first char)
+otherwise // <i>first chars are different</i>
+return longer of MLCS(S - first char, T) and MLCS(S, T - first char)
 </pre>
 
 <p>
@@ -245,26 +245,26 @@ main function is now
 </p>
 
 <pre>
-  function MAIN-LCS(S, T) is
-    allocate an array A[0..length of S, 0..length of T]
-    initialize all entries in A to null
-    answer = LCS(0,0)
-    deallocate A
-    return answer
+function MAIN-LCS(S, T) is
+allocate an array A[0..length of S, 0..length of T]
+initialize all entries in A to null
+answer = LCS(0,0)
+deallocate A
+return answer
 </pre>
- with LCS and MLCS as local helper functions
+with LCS and MLCS as local helper functions
 <pre>
-  function MLCS(i, j) is
-    if A[i,j] == null then
-      A[i,j] = LCS(i,j)
-    return A[i,j]
+function MLCS(i, j) is
+if A[i,j] == null then
+A[i,j] = LCS(i,j)
+return A[i,j]
 
-  function LCS(i, j) is
-    if i == length of S or j == length of T then return empty string
-    if S[i] == T[j] then
-      return S[i] + MLCS(i+1, j)
-    otherwise
-      return longer of MLCS(i+1, j) and MLCS(i, j+1)
+function LCS(i, j) is
+if i == length of S or j == length of T then return empty string
+if S[i] == T[j] then
+return S[i] + MLCS(i+1, j)
+otherwise
+return longer of MLCS(i+1, j) and MLCS(i, j+1)
 </pre>
 
 <p>
@@ -298,19 +298,19 @@ Converting the previous algorithm to use DP is straightforward, except for one p
 </p>
 
 <pre>
-  function LCS(S, T) is
-    allocate an array A[0..length of S, 0..length of T]
-    for i = length of S downto 0 do
-      for j = length of T downto 0 do
-        if i == length of S or j == length of T then
-          A[i,j] = empty string
-        else if S[i] == T[j] then
-          A[i,j] = S[i] + A[i+1,j]
-        else
-          A[i,j] = longer of A[i+1,j] and A[i,j+1]
-    answer = A[0,0]
-    deallocate A
-    return answer
+function LCS(S, T) is
+allocate an array A[0..length of S, 0..length of T]
+for i = length of S downto 0 do
+for j = length of T downto 0 do
+if i == length of S or j == length of T then
+A[i,j] = empty string
+else if S[i] == T[j] then
+A[i,j] = S[i] + A[i+1,j]
+else
+A[i,j] = longer of A[i+1,j] and A[i,j+1]
+answer = A[0,0]
+deallocate A
+return answer
 </pre>
 
 <p>
@@ -322,29 +322,29 @@ you can see that the two algorithms really are doing the same thing.
 <table class="bodyText" cellpadding="0" cellspacing="0" border="0"> 
 <tr>
 <td class="bodyText" align="center">DP<br/>
- -------------------------------------------- </td>
+-------------------------------------------- </td>
 <td class="bodyText" align="center">Memoization<br/>
- -------------------------------------------- </td>
+-------------------------------------------- </td>
 </tr>
 <tr>
 <td class="bodyText">
 <pre>
- if i == length of S or j == length of T then 
-    A[i,j] = empty string 
- else if S[i] == T[j] then 
-    A[i,j] = S[i] + A[i+1,j] 
- else 
-    A[i,j] = longer of A[i+1,j] and A[i,j+1]
+if i == length of S or j == length of T then 
+A[i,j] = empty string 
+else if S[i] == T[j] then 
+A[i,j] = S[i] + A[i+1,j] 
+else 
+A[i,j] = longer of A[i+1,j] and A[i,j+1]
 </pre>
 </td>
 <td class="bodyText">
 <pre>
 if i == length of S or j == length of T then
-    return empty string
+return empty string
 if S[i] == T[j] then
-    return S[i] + MLCS(i+1,j)
+return S[i] + MLCS(i+1,j)
 otherwise
-    return longer of MLCS(i+1,j) and MLCS(i,j+1)
+return longer of MLCS(i+1,j) and MLCS(i,j+1)
 </pre>
 </td>
 </tr>
@@ -373,48 +373,48 @@ Fortunately, this is a very easy change to make.
 </p>
 
 <pre>
-  function LCS(S, T) is
-    allocate an array A[0..length of S, 0..length of T]
-    for i = 0 upto length of S do
-      for j = 0 upto length of T do
-        if i == 0 or j == 0 then
-          A[i,j] = empty string
-        else if S[i-1] == T[j-1] then
-          A[i,j] = A[i-1,j] + S[i-1]
-        else
-          A[i,j] = longer of A[i-1,j] and A[i,j-1]
-    answer = A[length of S,length of T]
-    deallocate A
-    return answer
+function LCS(S, T) is
+allocate an array A[0..length of S, 0..length of T]
+for i = 0 upto length of S do
+for j = 0 upto length of T do
+if i == 0 or j == 0 then
+A[i,j] = empty string
+else if S[i-1] == T[j-1] then
+A[i,j] = A[i-1,j] + S[i-1]
+else
+A[i,j] = longer of A[i-1,j] and A[i,j-1]
+answer = A[length of S,length of T]
+deallocate A
+return answer
 </pre>
 
 
- <p>
+<p>
 This answer is fine as is, but aficionados of DP often take the
 further step of initializing the base cases outside the main loop, as in
 the following version.
 </p>
 <pre>
-  function LCS(S, T) is
-    allocate an array A[0..length of S, 0..length of T]
+function LCS(S, T) is
+allocate an array A[0..length of S, 0..length of T]
 
-    // <i>initialize base cases</i>
-    for i = 0 upto length of S do
-      A[i,0] = empty string
-    for j = 0 upto length of T do
-      A[0,j] = empty string
+// <i>initialize base cases</i>
+for i = 0 upto length of S do
+A[i,0] = empty string
+for j = 0 upto length of T do
+A[0,j] = empty string
 
-    // <i>main loop</i>
-    for i = 1 upto length of S do
-      for j = 1 upto length of T do
-        if S[i-1] == T[j-1] then
-          A[i,j] = A[i-1,j] + S[i-1]
-        else
-          A[i,j] = longer of A[i-1,j] and A[i,j-1]
+// <i>main loop</i>
+for i = 1 upto length of S do
+for j = 1 upto length of T do
+if S[i-1] == T[j-1] then
+A[i,j] = A[i-1,j] + S[i-1]
+else
+A[i,j] = longer of A[i-1,j] and A[i,j-1]
 
-    answer = A[length of S,length of T]
-    deallocate A
-    return answer
+answer = A[length of S,length of T]
+deallocate A
+return answer
 </pre>
 
 
@@ -431,11 +431,11 @@ is the number of combinations of integers in C[1..i]
 that add up to m.
 </p>
 <pre>
-  function combos(i,m) is
-    if m = 0 then return 1
-    if i = 0 then return 0
-    if C[i] &gt; m then return combos(i-1,m)
-    else return combos(i-1,m) + combos(i-1,m-C[i])
+function combos(i,m) is
+if m = 0 then return 1
+if i = 0 then return 0
+if C[i] &gt; m then return combos(i-1,m)
+else return combos(i-1,m) + combos(i-1,m-C[i])
 </pre>
 
 <p>
@@ -455,28 +455,28 @@ an array A[0..K, 0..N].  We initialize the array from smaller values
 of i and m to bigger values.
 </p>
 <pre>
-  function combos(C) is
-    allocate an array A[0..K, 0..N]
+function combos(C) is
+allocate an array A[0..K, 0..N]
 
-    // <i>initialize base cases</i>
-    A[0,0] = 1
-    for m = 1 upto N do
-      A[0,m] = 0
+// <i>initialize base cases</i>
+A[0,0] = 1
+for m = 1 upto N do
+A[0,m] = 0
 
-    // <i>main loop</i>
-    for i = 1 upto K do
-      for m = 1 upto M do
-        if C[i] &gt; m then
-          A[i,m] = A[i-1,m]
-        else
-          A[i,m] = A[i-1,m] + A[i-1,m-C[i]]
+// <i>main loop</i>
+for i = 1 upto K do
+for m = 1 upto M do
+if C[i] &gt; m then
+A[i,m] = A[i-1,m]
+else
+A[i,m] = A[i-1,m] + A[i-1,m-C[i]]
 
-    answer = A[K,N]
-    deallocate A
-    return answer
+answer = A[K,N]
+deallocate A
+return answer
 </pre>
 
- <p>
+<p>
 This algorithm obviously takes O(K&#183;N) time and space.
 With a small amount of cleverness, we can reduce the space
 requirement to O(N).
@@ -490,25 +490,25 @@ With that hint, most people will go out and write the following code:
 </p>
 
 <pre>
-  function combos(C) is // <i><b>Warning: Buggy!</b></i>
-    allocate an array A[0..N]
+function combos(C) is // <i><b>Warning: Buggy!</b></i>
+allocate an array A[0..N]
 
-    // <i>initialize base cases</i>
-    A[0] = 1
-    for m = 1 upto N do
-      A[m] = 0
+// <i>initialize base cases</i>
+A[0] = 1
+for m = 1 upto N do
+A[m] = 0
 
-    // <i>main loop</i>
-    for i = 1 upto K do
-      for m = 1 upto N do
-        // if C[i] &gt; m then A[m] is unchanged
-        if C[i] &lt;= m then
-          A[m] = A[m] + A[m-C[i]]
+// <i>main loop</i>
+for i = 1 upto K do
+for m = 1 upto N do
+// if C[i] &gt; m then A[m] is unchanged
+if C[i] &lt;= m then
+A[m] = A[m] + A[m-C[i]]
 
-    answer = A[N]
-    deallocate A
-    return answer
- </pre>
+answer = A[N]
+deallocate A
+return answer
+</pre>
 
 <p>
 Unfortunately, there's a serious bug in this code that illustrates how
@@ -519,7 +519,7 @@ from C[1..i], whereas A[m..N] still holds the number of valid combinations
 of integers from C[1..i-1].  Now, look at the innermost assignment
 </p>
 <pre>
-        A[m] = A[m] + A[m-C[i]]
+A[m] = A[m] + A[m-C[i]]
 </pre>
 
 <p>
@@ -531,25 +531,25 @@ have not yet processed A[m-C[i]].  The corrected code is
 </p>
 
 <pre>
-  function combos(C) is
-    allocate an array A[0..N]
+function combos(C) is
+allocate an array A[0..N]
 
-    // <i>initialize base cases</i>
-    A[0] = 1
-    for m = 1 upto N do
-      A[0,m] = 0
+// <i>initialize base cases</i>
+A[0] = 1
+for m = 1 upto N do
+A[0,m] = 0
 
-    // <i>main loop</i>
-    for i = 1 upto K do
-      for m = N downto 1 do
-        // if C[i] &gt; m then A[m] is unchanged
-        if C[i] &lt;= m then
-          A[m] = A[m] + A[m-C[i]]
+// <i>main loop</i>
+for i = 1 upto K do
+for m = N downto 1 do
+// if C[i] &gt; m then A[m] is unchanged
+if C[i] &lt;= m then
+A[m] = A[m] + A[m-C[i]]
 
-    answer = A[N]
-    deallocate A
-    return answer
- </pre>
+answer = A[N]
+deallocate A
+return answer
+</pre>
 
 <p><span class="bodySubtitle">Summary</span><br/>
 Coming up with a DP algorithm involves three main steps.
@@ -573,9 +573,9 @@ or StripePainter (SRM 150 Div 1).
 
 <p>Good luck, and happy DP-ing!</p>
 
-                        <p><br/></p>
+<p><br/></p>
 
-                        <p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
+<p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
                     </td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>                                                                 

@@ -56,7 +56,6 @@
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
 <P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>To in-house or to out-source, that is the question</B></FONT><BR/>
-<!-- <I>qubits Became TopCoder's First $100,000 Champion One Year Ago This Week</I><BR/><BR/> -->
 Wednesday, June 12, 2002<BR/>
 By&#160;polgara,<I>TopCoder Member</I><BR/>
 </P>
