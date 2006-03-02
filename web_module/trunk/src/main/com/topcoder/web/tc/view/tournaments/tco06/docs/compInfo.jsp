@@ -41,7 +41,8 @@
                                 </li>
                                 <li>
                                 <p>
-                                    <span class=bodySubtitle>QUESTIONNAIRE</span> - View the <a href="/tc?module=ViewSurvey&sid=215">2006 TopCoder Open Questionnaire</a>. NOTE: All questions are mandatory. The answers may be included in the 2006 TCO Program or used in onsite introductions at TopCoder's sole discretion.
+                                    <span class=bodySubtitle>QUESTIONNAIRE</span> - View the <a href="/tc?module=ViewSurvey&sid=215">2006 TopCoder Open Questionnaire</a>. NOTE: All questions are mandatory. The answers to 1-15 may be included in the 2006 TCO Program or
+                                    used in onsite introductions, at TopCoder's sole discretion.  The answers to questions 16 - 21 will be provided to AMD.
                                 </p>
                                 </li>
                                 <li>
