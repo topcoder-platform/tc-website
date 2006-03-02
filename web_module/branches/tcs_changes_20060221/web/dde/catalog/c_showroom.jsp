@@ -222,7 +222,10 @@
                 //TODO send redirect
                 e.printStackTrace(new PrintWriter(out));
             }
-            long rootCategory = summary.getId();
+            long rootCategory = summary.getParent();
+            if (rootCategory = -1) {
+                rootCategory = summary.getId();
+            }
             if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
                 // plk
                 // redirect to an error page

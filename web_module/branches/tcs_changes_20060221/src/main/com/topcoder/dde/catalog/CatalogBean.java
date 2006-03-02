@@ -677,6 +677,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
+        long parent = -1;
         String name = null;
         String description = null;
         List components = new ArrayList();
@@ -684,7 +685,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         CategorySummary[] categories;
 
         StringBuffer query = new StringBuffer(200);
-        query.append("SELECT category_name, description ");
+        query.append("SELECT category_name, description, parent_category_id ");
         query.append("  FROM categories ");
         query.append(" WHERE category_id = ? ");
 
@@ -699,6 +700,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             else {
                 name = rs.getString(1);
                 description = rs.getString(2);
+                parent = rs.getString(3);
             }
 
         } finally {
@@ -803,7 +805,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
         }
 
-        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories);
+        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories, parent);
     }
 
     public ComponentSummary[] getAllComponents(boolean onlyPublic)

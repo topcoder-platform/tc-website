@@ -11,17 +11,24 @@ public class CategorySummary implements Serializable {
     private String description;
     private ComponentSummary[] components;
     private CategorySummary[] subcategories;
+    //plk
+    private long parent;
 
-    public CategorySummary(long id, String name, String description, ComponentSummary[] components, CategorySummary[] subcategories) {
+    public CategorySummary(long id, String name, String description, ComponentSummary[] components, CategorySummary[] subcategories, long parent) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.components = components;
         this.subcategories = subcategories;
+        this.parent = parent;
     }
 
     public long getId() {
         return id;
+    }
+
+    public long getParent() {
+        return parent;
     }
 
     public String getName() {
