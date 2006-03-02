@@ -373,11 +373,11 @@ function toggleTabs(id) {
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
       <td class="rtThreadCell">
       <input name="showRatings" value="true" id="showRatingsYes" type="radio"
-         <%= ("true".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
+         <%= (user.getProperty("showRatings") == null || "true".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
       <label for="showRatingsYes">Yes</label>
       &#160;
       <input name="showRatings" value="false" id="showRatingsNo" type="radio"
-         <%= (user.getProperty("showRatings") == null || "false".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
+         <%= ("false".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
       <label for="showRatingsNo">No</label>
       </td>
    </tr>

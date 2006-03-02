@@ -235,7 +235,7 @@ function displayVotes(messageID, posVotes, negVotes) {
             <%  } %>
             <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="creationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/></a>
          </div>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { %>
+         <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
              <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><jsp:getProperty name="message" property="subject"/></a>
          <%  } else { %>
              <jsp:getProperty name="message" property="subject"/>
@@ -247,7 +247,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) { 
+         <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { 
                 double avgRating = ratingManager.getMeanRating(message);
                 ratingCount = ratingManager.getRatingCount(message);
                 posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
