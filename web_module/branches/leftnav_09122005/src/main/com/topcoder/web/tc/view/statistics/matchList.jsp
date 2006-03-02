@@ -90,26 +90,26 @@ myForm.submit();
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" style="">
    <tr><td class="title" colspan="14">Algorithm Match Archive</td></tr>
    <tr>
-      <td>&#160;</td>
-      <td colspan="5">Div I</td>
-      <td colspan="5">Div II</td>
-      <td colspan="2">&#160;</td>
+      <td colspan="3" class="header">&#160;</td>
+      <td colspan="5" class="headerC">Div I</td>
+      <td colspan="5" class="headerC">Div II</td>
+      <td class="header">&#160;</td>
    </tr>
    <tr>
       <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</td>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I Winner</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Subs</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg Subs</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Division II Winner</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
       <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</td>
-      <td class="headerC">Forum</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
+      <td class="header" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I Winner</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Submissions</td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Challenges</td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
+      <td class="header" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Division II Winner</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Submissions</td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Challenges</td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
+      <td class="headerC">&#160;</td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%=list%>" id="resultRow">
@@ -121,16 +121,18 @@ long winner1 = (n1 == null ? -1 : n1.longValue()),
 winner2 = (n2 == null ? -1 : n2.longValue());
 %>
 <td class="value" nowrap="nowrap"><a href="/stat?c=round_overview&er=5&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></td>
+<td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
+<td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
 <% if (winner1 == -1) { %>
-<td class="value"></td>
+<td class="value">&#160;</td>
 <% } else { %>
 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<td class="value"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
-<td class="value"><rsc:item name="challengessuccessful1" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgchallengessuccessful1" row="<%=resultRow%>" format="0.00"/></td>
+<td class="valueR"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
+<td class="valueR"><rsc:item name="challengessuccessful1" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="avgchallengessuccessful1" row="<%=resultRow%>" format="0.00"/></td>
 
 <% if (winner2 == -1) { %>
 <td class="value">N/A</td>
@@ -138,13 +140,11 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
 <% } %>
 
-<td class="value"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgsubmitted2" row="<%=resultRow%>" format="0.00"/></td>
-<td class="value"><rsc:item name="challengessuccessful2" row="<%=resultRow%>"/></td>
-<td class="value"><rsc:item name="avgchallengessuccessful2" row="<%=resultRow%>" format="0.00"/></td>
+<td class="valueR"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="avgsubmitted2" row="<%=resultRow%>" format="0.00"/></td>
+<td class="valueR"><rsc:item name="challengessuccessful2" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="avgchallengessuccessful2" row="<%=resultRow%>" format="0.00"/></td>
 
-<td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
-<td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 <td class="valueC"><A HREF="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<rsc:item name="forum_id" row="<%=resultRow%>"/>" CLASS="statLink">discuss</a></td>
 </TR>
 <% even = !even;%>
