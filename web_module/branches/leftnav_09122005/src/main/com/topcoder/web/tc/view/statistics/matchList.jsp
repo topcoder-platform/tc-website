@@ -74,7 +74,7 @@ myForm.submit();
 
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="statistics_w"/>
-                    <jsp:param name="title" value="Single Round Match list"/>
+                    <jsp:param name="title" value="Match Archive"/>
                 </jsp:include>
 
                 <form name="matchListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
