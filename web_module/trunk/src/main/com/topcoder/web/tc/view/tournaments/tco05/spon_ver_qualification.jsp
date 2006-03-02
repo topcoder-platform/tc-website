@@ -49,7 +49,7 @@
                            Problem Set
                        </a>
                    </td>
-                   <td width="15%" align="right">
+                   <td width="30%" align="right">
                        <a href="/tc?module=SimpleStats&d1=tournaments&d2=tco05&d3=spon_ver_qualification&c=tco05_spon_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
