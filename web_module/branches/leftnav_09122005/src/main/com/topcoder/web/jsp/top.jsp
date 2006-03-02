@@ -60,7 +60,7 @@ div.topBar
 {
 background: #FFFFFF url(/i/interface/top_bg.gif) top center repeat-x;
 vertical-align: top;
-padding: 5px 10px 70px 3px;
+padding: 5px 10px 80px 3px;
 white-space: nowrap; 
 }
 div.launchPopUp

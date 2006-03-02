@@ -268,7 +268,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/index?t=tournaments&c=2002sunnetwork"><img src="/i/events/index_2002sunnetwork.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=javaone02&d2=summary"><img src="/i/events/index_2002sunnetwork.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>2002 SunNetwork&#153; Coding Challenge</strong></font></td>
                 </tr>
@@ -277,7 +277,7 @@
                         Sept 18-20, 2002<br />
                         Moscone Convention Center<br/>
                         San Francisco, California<br />
-                        <A href="/index?t=tournaments&c=2002sunnetwork">Summary</A>
+                        <A href="/pl/?module=Static&d1=javaone02&d2=summary">Summary</A>
                     </td>
                 </tr>
             </table>
