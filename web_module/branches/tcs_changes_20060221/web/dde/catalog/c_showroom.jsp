@@ -222,6 +222,7 @@
                 // plk
                 // redirect to an error page
                 response.sendRedirect("/attention/error_categorynotfound.jsp");
+                return;
             }
             long rootCategory = summary.getParent();
             if (rootCategory == 0) {
@@ -231,6 +232,7 @@
                 // plk
                 // redirect to an error page
                 response.sendRedirect("/attention/error_categorynotfound.jsp");
+                return;
             }
         } else {
             try {
@@ -240,6 +242,7 @@
                 // plk
                 // redirect to an error page
                 response.sendRedirect("/attention/error_categorynotfound.jsp");
+                return;
             }
         }
     }

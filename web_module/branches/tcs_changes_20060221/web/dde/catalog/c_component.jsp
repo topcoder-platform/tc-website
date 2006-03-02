@@ -59,6 +59,7 @@
         // plk
         // redirect to an error page
         response.sendRedirect("/attention/error_componentnotfound.jsp");
+        return;
     }
 
     long rootCategory = details.getSummary().getRootCategory();
@@ -66,6 +67,7 @@
         // plk
         // redirect to an error page
         response.sendRedirect("/attention/error_componentnotfound.jsp");
+        return;
     }
 
     lngVersion = Math.max(lngVersion, 0);
