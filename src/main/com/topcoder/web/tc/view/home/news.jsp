@@ -7,6 +7,19 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.02.06<br>7:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true">TCO06 Algorithm Qualification Round Results</A></span><br><br>
+      Results of the TCO06 Qualification Round.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505928" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.28.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_qual_byes">TCO06 Algorithm Competition Qualification Byes</A></span><br><br>
       TopCoder's Top 100 Algorithm Competitors just got a free ride to Round 1.
@@ -169,19 +182,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505920" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   </tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.15.06<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=jobs">TopCoder Software Chat Scheduled for Feb 15</A></span><br><br>
-      TopCoder Software will be in the arena at 7:00 PM to discuss full-time employment opportunities at TopCoder Software.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=about&d2=jobs">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505919" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
