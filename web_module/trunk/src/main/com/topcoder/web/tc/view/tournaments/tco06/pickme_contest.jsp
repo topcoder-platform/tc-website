@@ -46,7 +46,7 @@ Submit your story now! The deadline for submission is March 31, 2006, at 5:00PM 
 <span class="bodySubtitle">Rules:</span><br/>
 Each eligible member may make only one submission of 500 words or less.  Submissions over 500 words will not be taken into consideration.  Submissions must be in English and be a .doc, .pdf or .txt file.
 <br><br>
-The winner must be able to travel to Las Vegas, NV, USA from May 2 Ð May 6, 2006.  If the selected winner does not possess the necessary documents and/or visas to travel to the U.S. as of April 17, 2006, TopCoder will select another winner.
+The winner must be able to travel to Las Vegas, NV, USA from May 2 - May 6, 2006.  If the selected winner does not possess the necessary documents and/or visas to travel to the U.S. as of April 17, 2006, TopCoder will select another winner.
 <br><br>
 The winner will be required to submit blog entries on these dates and times:
 <br>
@@ -77,7 +77,7 @@ By participating in the contest and traveling to Las Vegas, a winner releases an
 In addition, the winner agrees to cooperate with TopCoder's publicity efforts, without further compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or similar future contests, and to use the statements made by, or attributed to, the winner relating to TopCoder and any and all rights to said use, without further compensation. Furthermore, the winner agrees to promptly notify TopCoder if a third-party, including a tournament sponsor, contacts the winner regarding employment opportunities and/or media interest as a result of the winner's participation in the contest. 
 <br><br>
 TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this contest, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder suspects competitors of tampering with the entry process, the operation of the Web site, or the contest process, or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the contest if it is not capable of completion as planned for any reason.  TopCoder reserves the right, in its sole discretion, to modify prior to or subsequent to posting on its website any weblog entry received from the winner.
-
+<br><br>
 <span class="bodySubtitle">Other</span><br/>
 The contest is void in whole or in part where prohibited by law.
 <br><br>
