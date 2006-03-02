@@ -63,12 +63,12 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 </TR>
 <TR>
-<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?RoundId=4070&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 68<!-- 2002 TCCC First Round W/MW --></A></TD>
+<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?RoundId=4070&t=schedule&c=srm" CLASS="statText">Single Round Match 68<!-- 2002 TCCC First Round W/MW --></A></TD>
 <TD VALIGN="middle" CLASS="statText">Thursday, February 27</TD>
 <TD VALIGN="middle" CLASS="statText">9:00pm EST</TD>
 </TR>
                     <TR>
-                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournaments&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournaments&c=tourny_sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR>
 <TR>
 <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: <!-- Single Round Match 67 - Feb 20, 2002 -->TCCC First Round W/MW- February 21, 2002</TD>
@@ -86,15 +86,15 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <TD VALIGN="top" COLSPAN="3" CLASS="statText">
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=129672" CLASS="coderTextRed">doeth</A>, the third seed in the region, was the top point-getter and winner of Room 19.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=129672" CLASS="coderTextRed">doeth</A> completed all three problems in the "Coding Phase" for 1419.02 points, and added an additional 150 in the "Challenge Phase", for a total of 1569.02.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=129672" CLASS="coderTextRed">doeth</A> made it to the Third Round of the 2001 TopCoder Invitational last fall, and is currently ranked third overall among all TopCoder members.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=129672" CLASS="coderTextRed">doeth</A>, the third seed in the region, was the top point-getter and winner of Room 19.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=129672" CLASS="coderTextRed">doeth</A> completed all three problems in the "Coding Phase" for 1419.02 points, and added an additional 150 in the "Challenge Phase", for a total of 1569.02.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=129672" CLASS="coderTextRed">doeth</A> made it to the Third Round of the 2001 TopCoder Invitational last fall, and is currently ranked third overall among all TopCoder members.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A>, runner-up in the 2001 Collegiate Challenge, champion of the 2001 Invitational, and top-seed in the region, advanced to the second round by winning Room 17.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A> finished with 1320.58 final points after completing all three problems for 1220.58 in the "Coding Phase", and earning 100 points for two successful challenges in the "Challenge Phase".
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=114443" CLASS="coderTextRed">jonmac</A>, runner-up in the 2001 Collegiate Challenge, champion of the 2001 Invitational, and top-seed in the region, advanced to the second round by winning Room 17.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=114443" CLASS="coderTextRed">jonmac</A> finished with 1320.58 final points after completing all three problems for 1220.58 in the "Coding Phase", and earning 100 points for two successful challenges in the "Challenge Phase".
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=264462" CLASS="coderTextGreen">shengbo2k</A>, the 52nd ranked coder in the region, was the lowest seed to win a room.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=264462" CLASS="coderTextGreen">shengbo2k</A> won Room 13 by completing the 250-point problem for 171.04 points in the "Coding Phase", and adding 50 points to that total with a successful challenge of the 500-point submission of nave in the "Challenge Phase", to finish with 221.04 final points.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=264462" CLASS="coderTextGreen">shengbo2k</A>, the 52nd ranked coder in the region, was the lowest seed to win a room.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=264462" CLASS="coderTextGreen">shengbo2k</A> won Room 13 by completing the 250-point problem for 171.04 points in the "Coding Phase", and adding 50 points to that total with a successful challenge of the 500-point submission of nave in the "Challenge Phase", to finish with 221.04 final points.
 </P>
 
 
@@ -113,21 +113,21 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <TR>
 <TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A> was the top-scorer in the MidWest region.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A> earned 1196.99 final points by correctly coding all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A>, the region's sixth seed, is no stranger to the Collegiate Challenge, having finished third overall in the 2001 TopCoder Collegiate Challenge in June of 2001, and winning $25,000.  
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=109965" CLASS="coderTextYellow">vulture</A> was the top-scorer in the MidWest region.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=109965" CLASS="coderTextYellow">vulture</A> earned 1196.99 final points by correctly coding all three problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=109965" CLASS="coderTextYellow">vulture</A>, the region's sixth seed, is no stranger to the Collegiate Challenge, having finished third overall in the 2001 TopCoder Collegiate Challenge in June of 2001, and winning $25,000.  
 </P>
 
 <P>
-The top-seed in the MidWest is <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A>, who finished second in Room 4 behind <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A>, the 47th seed.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> actually had more points than <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> (1046.55 to 997.68) after both completed all three problems in the "Coding Phase".  During the "Challenge Phase", however, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> was successful in challenging the 1000-point submission of pozdol for 50 points, giving <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> the room win over <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> by a very slim 1.13 points (1047.68 to 1046.55).
+The top-seed in the MidWest is <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A>, who finished second in Room 4 behind <A HREF="/?t=statistics&c=member_profile&Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A>, the 47th seed.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> actually had more points than <A HREF="/?t=statistics&c=member_profile&Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> (1046.55 to 997.68) after both completed all three problems in the "Coding Phase".  During the "Challenge Phase", however, <A HREF="/?t=statistics&c=member_profile&Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> was successful in challenging the 1000-point submission of pozdol for 50 points, giving <A HREF="/?t=statistics&c=member_profile&Coder_Id=251561" CLASS="coderTextBlue">Wolfgang</A> the room win over <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> by a very slim 1.13 points (1047.68 to 1046.55).
 </P>
 
 <P>
-Another close battle took place in Room 2, as <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157578" CLASS="coderTextGray">Radgast</A>, the region's 126th seed, nipped 49th ranked <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=260272" CLASS="coderTextBlue">rfu</A>, 253.45 to 245.16.  Since both coders gained 50 points in the "Challenge Phase", the difference in points occurred in the "Coding Phase", where <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157578" CLASS="coderTextGray">Radgast</A> was just one minute and 24 seconds quicker coding the 250-point problem.
+Another close battle took place in Room 2, as <A HREF="/?t=statistics&c=member_profile&Coder_Id=157578" CLASS="coderTextGray">Radgast</A>, the region's 126th seed, nipped 49th ranked <A HREF="/?t=statistics&c=member_profile&Coder_Id=260272" CLASS="coderTextBlue">rfu</A>, 253.45 to 245.16.  Since both coders gained 50 points in the "Challenge Phase", the difference in points occurred in the "Coding Phase", where <A HREF="/?t=statistics&c=member_profile&Coder_Id=157578" CLASS="coderTextGray">Radgast</A> was just one minute and 24 seconds quicker coding the 250-point problem.
 </P>
 
 <P>
 View the Top-10 Winners:<BR/>
-<A HREF="/index?t=statistics&amp;c=top_10_wins_ne" CLASS="statText">Northeast Top-10</A> | <A HREF="/index?t=statistics&amp;c=top_10_wins_se" CLASS="statText">Southeast Top-10</A><BR/>
-<A HREF="/index?t=statistics&amp;c=top_10_wins_w" CLASS="statText">West Top-10</A> | <A HREF="/index?t=statistics&amp;c=top_10_wins_mw" CLASS="statText">Midwest Top-10</A><BR/>
+<A HREF="/index?t=statistics&c=top_10_wins_ne" CLASS="statText">Northeast Top-10</A> | <A HREF="/index?t=statistics&c=top_10_wins_se" CLASS="statText">Southeast Top-10</A><BR/>
+<A HREF="/index?t=statistics&c=top_10_wins_w" CLASS="statText">West Top-10</A> | <A HREF="/index?t=statistics&c=top_10_wins_mw" CLASS="statText">Midwest Top-10</A><BR/>
 </P>
 </TD>
 </TR>

@@ -48,10 +48,10 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                     <TR>
-                      <TD COLSPAN="5" ALIGN="center"><A HREF="/index?t=tournaments&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                      <TD COLSPAN="5" ALIGN="center"><A HREF="/index?t=tournaments&c=tourny_sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR>
 <TR>
-<TD CLASS="statText" COLSPAN="5">Here is a view of the Top-10 room winners (All Regions) in the Regional Semifinals of the 2002 Sun &amp; TopCoder Collegiate Challenge.</TD>
+<TD CLASS="statText" COLSPAN="5">Here is a view of the Top-10 room winners (All Regions) in the Regional Semifinals of the 2002 Sun & TopCoder Collegiate Challenge.</TD>
 </TR>
 <TR>
 <TD COLSPAN="5"><IMG HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"/></TD>
@@ -74,8 +74,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=260835" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=260835" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">1223.49</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -90,8 +90,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=147102" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=114443" CLASS="coderTextRed">jonmac</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=147102" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">1107.87</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -106,8 +106,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=133846" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=262936" CLASS="coderTextRed">dgarthur</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=133846" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">1039.49</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -122,8 +122,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262935" CLASS="coderTextRed">derkuci</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=252281" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=262935" CLASS="coderTextRed">derkuci</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=252281" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">1029.63</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -138,8 +138,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=146723" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=146723" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">938.69</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -154,8 +154,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=154089" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=142795" CLASS="coderTextRed">Joe</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=154089" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">935.55</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -170,8 +170,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=260835" CLASS="coderTextRed">reid</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=156768" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=260835" CLASS="coderTextRed">reid</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=156768" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">925.52</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -186,8 +186,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=153479" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=153479" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">918.50</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -202,8 +202,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=147102" CLASS="coderTextRed">pl31415</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=159052" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=147102" CLASS="coderTextRed">pl31415</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=159052" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">847.55</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>
@@ -218,8 +218,8 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 </TR>
 <TR>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-<TD align="left" CLASS="statText"><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A></TD>
-<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&amp;rd=60&amp;cr=158837" CLASS="statText">View Code</A> --></TD>
+<TD align="left" CLASS="statText"><A HREF="/?t=statistics&c=member_profile&Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A></TD>
+<TD VALIGN="middle" CLASS="statText">&#160;<!-- <A HREF="/stat?c=coder_room_stats&rd=60&cr=158837" CLASS="statText">View Code</A> --></TD>
 <TD ALIGN="right" CLASS="statText">809.80</TD>
 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
 </TR>

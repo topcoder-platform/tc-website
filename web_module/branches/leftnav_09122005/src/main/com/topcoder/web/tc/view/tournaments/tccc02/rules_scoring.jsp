@@ -53,7 +53,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <DIV CLASS="statTextBig">Scoring and Advancing during Online Regional Rounds</DIV><BR/>
 After each round of competition, the winners from each of the assigned rooms will be identified and invited to compete at the next level of competition. 
 Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round 
-&#40; see <A HREF="/?RoundId=4025&amp;t=tournaments&amp;c=tourny_rules_structure" CLASS="statText">Competition Round Structure</A> &#41; for each coder.  In order to advance, 
+&#40; see <A HREF="/?RoundId=4025&t=tournaments&c=tourny_rules_structure" CLASS="statText">Competition Round Structure</A> &#41; for each coder.  In order to advance, 
 a coder must finish with a greater-than-zero point total.  The winners will be determined as follows:<BR/><BR/>
 <B>Online Regional Quarter-Final</B><UL>
 <LI>Up to 128 coders per region (totaling 512) will compete - 32 coders per region (totaling 128) will advance</LI><BR/>

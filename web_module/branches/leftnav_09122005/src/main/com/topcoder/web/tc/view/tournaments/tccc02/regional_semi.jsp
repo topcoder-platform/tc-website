@@ -49,7 +49,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
             </TR>          
                     <TR>
-                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                      <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: <!-- Single Round Match 69 - Feb 28, 2002 -->2002 TCCC Regional Semifinals - March 6</TD>
@@ -66,18 +66,18 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <P>
-Top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=147102" CLASS="coderTextRed">pl31415</A> won Room 5 by coding the 250 and 1000-point problems and finishing with 847.55 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="coderTextYellow">lbackstrom</A>, the 13th seed, earned a place as a wildcard in the regional championships by finishing second in the room with 786.10 points.  
+Top-seeded <A HREF="/?t=statistics&c=member_profile&Coder_Id=147102" CLASS="coderTextRed">pl31415</A> won Room 5 by coding the 250 and 1000-point problems and finishing with 847.55 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=159052" CLASS="coderTextYellow">lbackstrom</A>, the 13th seed, earned a place as a wildcard in the regional championships by finishing second in the room with 786.10 points.  
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A>, the second seed, earned 1223.49 final points by coding all three problems to win Room 6.  That point total was the highest of the round.  
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A>, the second seed, earned 1223.49 final points by coding all three problems to win Room 6.  That point total was the highest of the round.  
 </P>
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=263580" CLASS="coderTextYellow">enderx</A>, who is ranked 30th and is the long shot of the region, was the only other coder in the room to code all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=263580" CLASS="coderTextYellow">enderx</A> finished with 977.58 final points to finish second in the room and advance to the regional championships as a wildcard.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=263580" CLASS="coderTextYellow">enderx</A>, who is ranked 30th and is the long shot of the region, was the only other coder in the room to code all three problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=263580" CLASS="coderTextYellow">enderx</A> finished with 977.58 final points to finish second in the room and advance to the regional championships as a wildcard.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=260835" CLASS="coderTextRed">reid</A> was the top-seed in Room 8 and ended up winning that room with 925.52 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=260835" CLASS="coderTextRed">reid</A> coded the 250 and 1000-point problems.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=260835" CLASS="coderTextRed">reid</A> was the top-seed in Room 8 and ended up winning that room with 925.52 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=260835" CLASS="coderTextRed">reid</A> coded the 250 and 1000-point problems.
 </P>
 
                  </TD>
@@ -94,21 +94,21 @@ Top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=147102" CLA
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-Top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
- was the winner in Room 9.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
- coded the 250 and 1000-pointers and finished with 773.90 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=251289" CLASS="coderTextBlue">EtherMage</A>, who is ranked 99th and is the lowest ranked coder in the region and tournament, garnered a spot in the regional championships with a second place finish in the room. 
+Top-seeded <A HREF="/?t=statistics&c=member_profile&Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
+ was the winner in Room 9.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
+ coded the 250 and 1000-pointers and finished with 773.90 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=251289" CLASS="coderTextBlue">EtherMage</A>, who is ranked 99th and is the lowest ranked coder in the region and tournament, garnered a spot in the regional championships with a second place finish in the room. 
 </P>
 
 <P>
-The second seed, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A>, who had a region-high 1039.49 final points, won room 10.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A> was the only coder in the room to code all three problems.  2001 Invitational finalist <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=111202" CLASS="coderTextYellow">ColinMacLeod</A> finished second in the room and is headed to the regional championships. 
+The second seed, <A HREF="/?t=statistics&c=member_profile&Coder_Id=262936" CLASS="coderTextRed">dgarthur</A>, who had a region-high 1039.49 final points, won room 10.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=262936" CLASS="coderTextRed">dgarthur</A> was the only coder in the room to code all three problems.  2001 Invitational finalist <A HREF="/?t=statistics&c=member_profile&Coder_Id=111202" CLASS="coderTextYellow">ColinMacLeod</A> finished second in the room and is headed to the regional championships. 
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=135178" CLASS="coderTextYellow">Firewind</A>, the top-seed in the room and fourth ranked coder in the region, was the winner in Room 11. <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=135178" CLASS="coderTextYellow">Firewind</A> earned 726.85 final points by coding the 250 and 1000-point problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=265334" CLASS="coderTextYellow">levantri</A>, the seventh seed, coded the same problems as <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=135178" CLASS="coderTextYellow">Firewind</A> and added a successful challenge to finish a close second in the room with 708.95 final points.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=135178" CLASS="coderTextYellow">Firewind</A>, the top-seed in the room and fourth ranked coder in the region, was the winner in Room 11. <A HREF="/?t=statistics&c=member_profile&Coder_Id=135178" CLASS="coderTextYellow">Firewind</A> earned 726.85 final points by coding the 250 and 1000-point problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=265334" CLASS="coderTextYellow">levantri</A>, the seventh seed, coded the same problems as <A HREF="/?t=statistics&c=member_profile&Coder_Id=135178" CLASS="coderTextYellow">Firewind</A> and added a successful challenge to finish a close second in the room with 708.95 final points.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A>, the sixth seed, pulled off a minor upset by winning Room 12 with 809.80 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A> coded the 250 and 1000-pointers.  The top seed in the room was the fifth seed, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=156848" CLASS="coderTextYellow">TPcoder</A>, who finished second with 417.28 final points, but didn't make the regional championships.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A>, the sixth seed, pulled off a minor upset by winning Room 12 with 809.80 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=157628" CLASS="coderTextYellow">ShakeSpace</A> coded the 250 and 1000-pointers.  The top seed in the room was the fifth seed, <A HREF="/?t=statistics&c=member_profile&Coder_Id=156848" CLASS="coderTextYellow">TPcoder</A>, who finished second with 417.28 final points, but didn't make the regional championships.
 </P>
 
 
@@ -127,20 +127,20 @@ The second seed, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=26293
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A>, the top seed in the region and in the tournament, earned a region-high 1107.87 final points by coding all three problems and having one successful challenge, to win Room 13.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=113178" CLASS="coderTextRed">po</A> was the only other coder to code all three problems in the room.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=113178" CLASS="coderTextRed">po</A>
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=114443" CLASS="coderTextRed">jonmac</A>, the top seed in the region and in the tournament, earned a region-high 1107.87 final points by coding all three problems and having one successful challenge, to win Room 13.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=113178" CLASS="coderTextRed">po</A> was the only other coder to code all three problems in the room.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=113178" CLASS="coderTextRed">po</A>
  earned 931.86 points and finished second.
 </P>
 
 <P>
-Room 14 was won by <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A> the region's second seed.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A> coded the 250 and 1000-point problems and had one successful challenge to finish with 794.29 final points.
+Room 14 was won by <A HREF="/?t=statistics&c=member_profile&Coder_Id=114853" CLASS="coderTextRed">dmwright</A> the region's second seed.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=114853" CLASS="coderTextRed">dmwright</A> coded the 250 and 1000-point problems and had one successful challenge to finish with 794.29 final points.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A>, the second seeded coder in Room 15 and sixth seed in the region, was the upset winner.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A> coded the 250 and 1000-pointers and had two successful challenges, finishing with 918.50 final points.  The top seed in the room was <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=129672" CLASS="coderTextRed">doeth</A>, who was ranked third in the region.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=129672" CLASS="coderTextRed">doeth</A> finished with 290.87 final points, which wasn't enough to advance to the regional championships as a wildcard.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A>, the second seeded coder in Room 15 and sixth seed in the region, was the upset winner.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A> coded the 250 and 1000-pointers and had two successful challenges, finishing with 918.50 final points.  The top seed in the room was <A HREF="/?t=statistics&c=member_profile&Coder_Id=129672" CLASS="coderTextRed">doeth</A>, who was ranked third in the region.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=129672" CLASS="coderTextRed">doeth</A> finished with 290.87 final points, which wasn't enough to advance to the regional championships as a wildcard.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262935" CLASS="coderTextRed">derkuci</A>, the third seed in Room 16 and 13th seed in the region, was the winner with 1029.63 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262935" CLASS="coderTextRed">derkuci</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=120816" CLASS="coderTextRed">malpt</A>, the top seed in the room and fourth in the region, will be a wildcard after finishing third in the room with 706.21 final points.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=262935" CLASS="coderTextRed">derkuci</A>, the third seed in Room 16 and 13th seed in the region, was the winner with 1029.63 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=262935" CLASS="coderTextRed">derkuci</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=120816" CLASS="coderTextRed">malpt</A>, the top seed in the room and fourth in the region, will be a wildcard after finishing third in the room with 706.21 final points.
 </P>
 
                  </TD>
@@ -160,28 +160,28 @@ Room 14 was won by <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-Four of the top-six seeded coders won the four rooms in the MidWest region.  Top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> won Room 1 with 938.69 final points, the highest total for the region. <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A>, the eighth seed and a 2001 Collegiate Challenge finalist, finished second in the room with 619.81 points to advance to the regional championships as a wildcard.
+Four of the top-six seeded coders won the four rooms in the MidWest region.  Top-seeded <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> won Room 1 with 938.69 final points, the highest total for the region. <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=112441" CLASS="coderTextYellow">seacow</A>, the eighth seed and a 2001 Collegiate Challenge finalist, finished second in the room with 619.81 points to advance to the regional championships as a wildcard.
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A>, the second seed, won Room 2 with 935.55 final points.  Like <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> in Room 1, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154619" CLASS="coderTextBlue">hilfiger</A>, the 56th seed and Cinderella story of the region, will be a wildcard by finishing second with 684.05 points.  
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=142795" CLASS="coderTextRed">Joe</A>, the second seed, won Room 2 with 935.55 final points.  Like <A HREF="/?t=statistics&c=member_profile&Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A> in Room 1, <A HREF="/?t=statistics&c=member_profile&Coder_Id=142795" CLASS="coderTextRed">Joe</A> was the only coder in the room to code all three problems.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=154619" CLASS="coderTextBlue">hilfiger</A>, the 56th seed and Cinderella story of the region, will be a wildcard by finishing second with 684.05 points.  
 </P>
 
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A>, the sixth seed, was the upset winner in Room 3.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A> coded the 250 and 1000-point problems and earned 798.47 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112939" CLASS="coderTextYellow">zoidal</A>, the number three seed in the region and top seed in the room, finished third in the room with 687.58 final points. <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112939" CLASS="coderTextYellow">zoidal</A> coded the 250 and 1000-pointers, enough to advance to the regional championships as a wildcard.
+<A HREF="/?t=statistics&c=member_profile&Coder_Id=109965" CLASS="coderTextYellow">vulture</A>, the sixth seed, was the upset winner in Room 3.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=109965" CLASS="coderTextYellow">vulture</A> coded the 250 and 1000-point problems and earned 798.47 final points.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=112939" CLASS="coderTextYellow">zoidal</A>, the number three seed in the region and top seed in the room, finished third in the room with 687.58 final points. <A HREF="/?t=statistics&c=member_profile&Coder_Id=112939" CLASS="coderTextYellow">zoidal</A> coded the 250 and 1000-pointers, enough to advance to the regional championships as a wildcard.
 </P>
 
 <P>
-Room 4 was won by the number four seed, <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A>.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A> was the only coder in the room to code more than one problem.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A> coded the 250 and 1000-point problems and finished with 765.11 final points.  The big surprise in the MidWest was that the number five seed <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=151418" CLASS="coderTextYellow">ChaiBot</A> was eliminated.
+Room 4 was won by the number four seed, <A HREF="/?t=statistics&c=member_profile&Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A>.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A> was the only coder in the room to code more than one problem.  <A HREF="/?t=statistics&c=member_profile&Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A> coded the 250 and 1000-point problems and finished with 765.11 final points.  The big surprise in the MidWest was that the number five seed <A HREF="/?t=statistics&c=member_profile&Coder_Id=151418" CLASS="coderTextYellow">ChaiBot</A> was eliminated.
 </P>
 
 
 
 <P>
 View the Top-10 room winners:<BR/>
-<A HREF="/index?t=tournaments&amp;c=top_10_wins_regions" CLASS="statText">All Regions</A> 
-<!-- | <A HREF="/index?t=statistics&amp;c=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
-<A HREF="/index?t=statistics&amp;c=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/index?t=statistics&amp;c=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
+<A HREF="/index?t=tournaments&c=top_10_wins_regions" CLASS="statText">All Regions</A> 
+<!-- | <A HREF="/index?t=statistics&c=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
+<A HREF="/index?t=statistics&c=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/index?t=statistics&c=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
  --></P>
           </TD>
             </TR>            
