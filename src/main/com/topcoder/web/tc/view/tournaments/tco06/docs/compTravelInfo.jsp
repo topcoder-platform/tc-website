@@ -60,7 +60,7 @@
         <B><U>AIRPORT TRANSPORTATION:</U></B>
         <p>
 
-TopCoder will provide transportation to and from the airport and hotel. Further information on where to board upon
+TopCoder will provide transportation to and from the hotel and airport in Las Vegas. Further information on where to board upon
             your arrival at the airport will be indicated on your itinerary.
             </p>
 
@@ -201,7 +201,7 @@ TopCoder will provide transportation to and from the airport and hotel. Further 
                   For extended stays in the US, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.
                   Any extra expenses will be your responsibility (extra hotel nights, meals, higher air fares, etc.)
                   and will be deducted from your total TCO prize money won.  If your total TCO prize money is not
-                  sufficient to cover the additional costs, your will be responsible for remitting to TopCoder the
+                  sufficient to cover the additional costs, you will be responsible for remitting to TopCoder the
                   remainder of the cost.
               </td>
             </tr>

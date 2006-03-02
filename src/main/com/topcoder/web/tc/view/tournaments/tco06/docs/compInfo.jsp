@@ -52,7 +52,7 @@
 
                                 <li>
                                     <% if (info.getIntItem(0, "has_tax_form")==0) {%>
-                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276), scanned and
+                                        <p><strong>TAX FORM</strong> - must be faxed (to 860.657.4276), scanned and
                                         sent via email (<a href="mailto:payments@topcoder.com">payments@topcoder.com</a>), or
                                         postmarked on or before 9:00 PM EST on Friday, March 24.  If sent by mail,
                                         it must be received at TopCoder by April 21, 2006.</p>
