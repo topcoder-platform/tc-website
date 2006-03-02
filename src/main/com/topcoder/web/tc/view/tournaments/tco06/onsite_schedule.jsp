@@ -47,7 +47,7 @@
 <tr><td class="formTextEven" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextOdd">Component Design & Development 2</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Wildcard Round</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextOdd">Title Sponsor Evening Event</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">6:30pm - 10:00pm</td><td class="formTextOdd">AMD Evening Event</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
