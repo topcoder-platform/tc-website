@@ -700,7 +700,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             else {
                 name = rs.getString(1);
                 description = rs.getString(2);
-                parent = rs.getString(3);
+                parent = rs.getLong(3);
+
+                System.out.println("id: " + categoryId);
+                System.out.println("parent: " + parent);
             }
 
         } finally {
