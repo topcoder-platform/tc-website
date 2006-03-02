@@ -81,7 +81,7 @@
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_011805">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A> [January 18]<br/><br/></td></tr>
 <!-- 2004 -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
-<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_12_2004">TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TopCoder Collegiate Challenge</A> [December 20]<br/></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_122004">TopCoder&#174; Announces Yahoo! as Title Sponsor for 2005 TopCoder Collegiate Challenge</A> [December 20]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_111504">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</A> [November 15]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_110104">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174;</A> [November 1]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_100504">Google announces 50 Google Code Jam Finalists</A> [October 5]<br/></td></tr>
@@ -119,7 +119,7 @@
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_061703">Sweden Added to TopCoder Developer Community</A> [June 16]</td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_061603">Come In, We're Open</A> [June 16]</td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_052103_javaone">JavaOne Coding Challenge is Powered by TopCoder</A> [May 21]</td></tr>
-<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_052103_hs">Amity clinches High School Challenge</A> [May 21]</td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_052103">Amity clinches High School Challenge</A> [May 21]</td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_051403">TopCoder Challenges High School Students</A> [May 14]</td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_040703">David Arthur takes home the Collegiate Challenge crown</A> [April 7]</td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_031303">2003 Sun Microsystems TopCoder Collegiate Challenge</A> [March 13]</td></tr>

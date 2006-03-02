@@ -313,7 +313,7 @@
                             <li>Third place will receive $1,000.</li>
                         </ul>
 
-                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests">Active Contests</a> for you to choose from.</p></strong>
+                        <p>Get started today... There are plenty of <a href="/tc?module=ViewActiveContests&ph=112">Active Contests</a> for you to choose from.</p></strong>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
 

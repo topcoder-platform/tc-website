@@ -90,11 +90,11 @@ margin:0px auto;
 
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle">Software <A href="/tc?module=ViewActiveContests&pi=112" class="homeTitleLink">Design</A> and <A href="/tc?module=ViewActiveContests&pi=113" class="homeTitleLink">Development</A></td>
+            <td class="homeTitle">Software <A href="/tc?module=ViewActiveContests&ph=112" class="homeTitleLink">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113" class="homeTitleLink">Development</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&pi=112">Design</A> and <A href="/tc?module=ViewActiveContests&pi=113">Development</A> Competitions and get paid for what you build!</td>
+            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&ph=112">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113">Development</A> Competitions and get paid for what you build!</td>
          </tr>
 
          <tr>
