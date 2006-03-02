@@ -196,14 +196,14 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/index?t=tournaments&amp;c=tourny_tci_01"><img src="/i/tournament/photo_tci01.jpg" alt="2001 TCI" width="274" height="134" border="0" /></A></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tci01&d3=summary"><img src="/i/tournament/photo_tci01.jpg" alt="2001 TCI" width="274" height="134" border="0" /></A></td>
          <td width="100%">
          <span class="bodySubtitle">2001 TopCoder Invitational&#153;</span>
          <br><br>
          November 2-3<br />
          Foxwoods Resort Casino<br />
          Mashantucket, Connecticut<br />
-         <A href="/index?t=tournaments&amp;c=tourny_tci_01">Summary</A></p>
+         <A href="/tc?module=Static&d1=tournaments&d2=tci01&d3=summary">Summary</A></p>
          </td>
       </tr>
    </table>
@@ -212,14 +212,14 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/index?t=tournaments&amp;c=tourny_tccc_01"><img src="/i/tournament/photo_tccc01.jpg" alt="2001 TCCC" width="274" height="134" border="0" /></A></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc01&d3=summary"><img src="/i/tournament/photo_tccc01.jpg" alt="2001 TCCC" width="274" height="134" border="0" /></A></td>
          <td width="100%">
          <span class="bodySubtitle">2001 TopCoder Collegiate Challenge&#153;</span>
          <br><br>
          June 5-7<br />
          San Francisco Hilton and Towers<br/>
          San Francisco, California<br />
-         <A href="/index?t=tournaments&amp;c=tourny_tccc_01">Summary</A></p>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc01&d3=summary">Summary</A></p>
          </td>
       </tr>
    </table>

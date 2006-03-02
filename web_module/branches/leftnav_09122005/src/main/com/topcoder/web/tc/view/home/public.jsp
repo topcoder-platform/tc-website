@@ -32,7 +32,6 @@
 
 <!-- Center Column Begins -->
       <td width="100%" align="center">
-         <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
          <jsp:include page="big_promo.jsp" />
            <jsp:include page="news.jsp" />
            <jsp:include page="arena.jsp" />

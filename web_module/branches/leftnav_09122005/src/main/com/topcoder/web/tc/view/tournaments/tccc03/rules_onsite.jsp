@@ -122,7 +122,7 @@
                         <tr><td class="statText"><br />
                         <strong>Scoring and Advancing during Online Regional Rounds</strong><br/>
                         After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round  
-                        &#40; see <a href="/?t=tournaments&c=tccc03_rules_structure" class="statText">Competition Round Structure</a> &#41; for each coder. In order to advance, a coder must finish each round with a greater-than-zero point total. The structure of the online rounds is as follows:<br/><br/>
+                        &#40; see <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=rules_structure" class="statText">Competition Round Structure</a> &#41; for each coder. In order to advance, a coder must finish each round with a greater-than-zero point total. The structure of the online rounds is as follows:<br/><br/>
                         
                         <b>Online Regional Round One</b><ul>
                         <li>Up to 200 coders per region (totaling 1,000) will compete - A total of 500 competitors, comprised of 20 room winners and 80 wildcard competitors (based on total points across all rooms) per region, will advance to the next round.</li><br/>

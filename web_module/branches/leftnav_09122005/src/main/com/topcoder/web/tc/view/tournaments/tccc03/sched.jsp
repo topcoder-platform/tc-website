@@ -63,7 +63,7 @@
                     </tr>
 
                     <tr valign="middle">
-                      <td align="right" class="statText"><a class="statText" href="/index/?t=tournaments&c=tccc03_competitors&rds=4462,4464,4466"><strong>Competitors</strong></a></td>
+                      <td align="right" class="statText"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=competitors"><strong>Competitors</strong></a></td>
                       <td align="center" class="statText">200</td>
                       <td align="center" class="statText">200</td>
                       <td align="center" class="statText">200</td>
@@ -110,7 +110,7 @@
                     </tr>
                     
                     <tr valign="middle">
-                      <td align="right" class="statText"><a class="statText" href="/index/?t=tournaments&c=tccc03_competitors&rds=4472"></a>Competitors</td>
+                      <td align="right" class="statText"><a class="statText" href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=competitors"></a>Competitors</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
