@@ -22,6 +22,7 @@ import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -318,5 +319,15 @@ public class ForumsUtil {
                 pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
                 ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
                 messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
+    }
+    
+    public static boolean showRatings(User user) {
+        if (ForumConstants.defaultRatingsEnabled) {
+            // all registered users see ratings
+            return !("false".equals(user.getProperty("showRatings")));
+        } else {
+            // only users with explicitly chosen user setting see ratings
+            return "true".equals(user.getProperty("showRatings"));   
+        }
     }
 }
