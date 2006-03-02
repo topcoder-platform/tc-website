@@ -62,7 +62,6 @@
                 <tr><td class="normal"><img src="/images/headAttention.gif" alt="Attention" width="545" height="35" border="0" /></td></tr>
                 <tr><td class="subhead">The required component was not found</td></tr>
                 <tr><td class="normal">
-                        <p>There may be a problem with one of our servers.</p>
 
                         <p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> if the problem persists.</p>
                     </td>
