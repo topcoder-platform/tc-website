@@ -21,7 +21,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="topcoder_tournaments"/>
+                <jsp:param name="node" value="pbtc_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
