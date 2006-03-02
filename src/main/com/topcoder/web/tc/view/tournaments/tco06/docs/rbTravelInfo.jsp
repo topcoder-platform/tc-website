@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2005 TopCoder Open - Computer Programming Tournament</title>
+<title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
 </head>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -32,7 +32,7 @@
         <p>
         <B><U>HOTEL INFORMATION:</U></B><br />
         <br />
-          <a href="http://www.aladdincasino.com" target="blank">Aladdin Resort and Casino</a><br />
+          <a href="http://www.aladdincasino.com" target="blank">Aladdin Resort and Casino</a>*<br />
           3667 Las Vegas Blvd. S.<br />
           Las Vegas, NV 89109<br />
           877-333-9474<br />

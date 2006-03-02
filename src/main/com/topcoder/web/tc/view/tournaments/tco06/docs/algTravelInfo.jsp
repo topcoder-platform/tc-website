@@ -34,7 +34,7 @@
         <p>
         <B><U>HOTEL INFORMATION:</U></B><br />
         <br />
-            <a href="http://www.aladdincasino.com" target="blank">Aladdin Resort and Casino</a><br />
+            <a href="http://www.aladdincasino.com" target="blank">Aladdin Resort and Casino</a>*<br />
             3667 Las Vegas Blvd. S.<br />
             Las Vegas, NV 89109<br />
             877-333-9474<br />
