@@ -467,8 +467,7 @@ function toggleTabs(id) {
       </td>
    </tr>
 </table>
-<span id="infoRate">Use the [+] and [-] options in a post's header to rate the post positively or negatively. 
-When ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
+<span id="infoRate">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post.</span>
 <div align="right">
 <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
 </div></form>
