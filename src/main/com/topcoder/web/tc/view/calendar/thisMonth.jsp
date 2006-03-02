@@ -172,6 +172,7 @@ text-decoration: none;
             <strong>Match 293</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9814&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">18</td>
