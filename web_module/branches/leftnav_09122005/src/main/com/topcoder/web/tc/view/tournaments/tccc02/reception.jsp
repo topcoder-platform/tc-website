@@ -51,7 +51,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
-              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournaments&c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
             </TR> -->          
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Reception Summary</TD>
@@ -78,46 +78,46 @@ pleasantries will most likely turn to game-faces and trash talking.
 </P>
 
 <P>
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, the Southeast Regional champion, and 
-<A HREF="/index?t=tournaments&c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, the Southeast Regional champion, and 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
 the Northeast Regional champion, were the first coders 
 to arrive, and both are looking to make amends for lackluster performances as semifinalists in the 2001 TopCoder 
 Invitational.  "We call ourselves members of the Zero Club," said 
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, 
 referring to the fact that they both 
 failed to earn any points and finished last in their rooms at the Invitational.  "We can't do any worse," added 
-<A HREF="/index?t=tournaments&c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>.  
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>.  
 </P>
 
 <P>
 Two other returning semifinalists from the Invitational, 
-<A HREF="/index?t=tournaments&c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and 
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A>, are both battling physical ailments.  
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#ambrose" CLASS="bodyGeneric">ambrose</A> and 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#milhouse" CLASS="bodyGeneric">milhouse</A>, are both battling physical ailments.  
 "I've been sick this whole week and my contacts are bothering me," said 
-<A HREF="/index?t=tournaments&c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>.  "I'm mentally prepared, however, 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#ambrose" CLASS="bodyGeneric">ambrose</A>.  "I'm mentally prepared, however, 
 and I think the competition in my room is easier than in the Invitational."  
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> was a no-show at the reception 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> was a no-show at the reception 
 and unavailable for comment.  The word on the street is that he is suffering from food poisoning...will he show?
 </P>
 
 <P>
-First-time semifinalists <A HREF="/index?t=tournaments&c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> and <A HREF="/index?t=tournaments&c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>, 
+First-time semifinalists <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#Joe" CLASS="bodyGeneric">Joe</A> and <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>, 
 the MidWest Regional champion, were surprisingly confident in 
 their chances to win.  "I know that a lot of people will be watching, but I'm just going to block them out and get 
-into a zone," said <A HREF="/index?t=tournaments&c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> is feeling rather optimistic 
+into a zone," said <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#Joe" CLASS="bodyGeneric">Joe</A> is feeling rather optimistic 
 based on his success in the most recent Single Round Match.  
 "I won Room 3 on Monday, so my confidence is definitely high."   While 
-<A HREF="/index?t=tournaments&c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is as sanguine as 
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> and 
-<A HREF="/index?t=tournaments&c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is as sanguine as 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> and 
+<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon#Joe" CLASS="bodyGeneric">Joe</A>, 
 he plans on being careful as well.  "My strategy for the elimination rounds was to be cautious, rather than rush 
 and make mistakes, which is exactly what I plan to do on Friday."
 </P>
 
 <P>
-Tournament favorite <A HREF="/index?t=tournaments&c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was 
+Tournament favorite <A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs#dmwright" CLASS="bodyGeneric">dmwright</A> was 
 one of the last participants to show up for the reception, perhaps trying to psych
  out his opponents.  Despite his tournament experience and success, however, he is still humbled by his competition.  
  "I'm sure everyone here has beaten me in a match before, so I have to make sure that I don't make the same mistakes 
@@ -139,25 +139,25 @@ one of the last participants to show up for the reception, perhaps trying to psy
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR101')"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR102')"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR103')"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR104')"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR101.jpg"><IMG SRC="/i/2002tccc/SFR101_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR102.jpg"><IMG SRC="/i/2002tccc/SFR102_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR103.jpg"><IMG SRC="/i/2002tccc/SFR103_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="/i/2002tccc/SFR104.jpg"><IMG SRC="/i/2002tccc/SFR104_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
               </TD>
             </TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR105')"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR106')"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR107')"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR108')"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR105.jpg"><IMG SRC="/i/2002tccc/SFR105_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR106.jpg"><IMG SRC="/i/2002tccc/SFR106_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR107.jpg"><IMG SRC="/i/2002tccc/SFR107_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="/i/2002tccc/SFR108.jpg"><IMG SRC="/i/2002tccc/SFR108_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
               </TD>
             </TR>            
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR109')"><IMG SRC="/i/2002tccc/SFR109_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR110')"><IMG SRC="/i/2002tccc/SFR110_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
-<A HREF="javascript:open_window('/?t=pic&c=member&img=SFR111')"><IMG SRC="/i/2002tccc/SFR111_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR109.jpg"><IMG SRC="/i/2002tccc/SFR109_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR110.jpg"><IMG SRC="/i/2002tccc/SFR110_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="/i/2002tccc/SFR111.jpg"><IMG SRC="/i/2002tccc/SFR111_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
               </TD>
             </TR>                  
           </TABLE>

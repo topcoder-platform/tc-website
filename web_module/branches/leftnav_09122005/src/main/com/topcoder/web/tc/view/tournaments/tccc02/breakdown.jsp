@@ -52,7 +52,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">   
   <TR>
     <TD VALIGN="top" align="center"><!-- <DIV><IMG SRC="/i/semifinals_rooms.gif" ALT="" WIDTH="300" HEIGHT="36" BORDER="0"/>
-    </DIV> --><A HREF="/?t=tournaments&c=tourny_sched"><IMG SRC="/i/semi02_rooms.gif" ALT="" WIDTH="507" HEIGHT="312" BORDER="0" USEMAP="#semi02_rooms_Map" VSPACE="5"/></A></TD>
+    </DIV> --><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=sched"><IMG SRC="/i/semi02_rooms.gif" ALT="" WIDTH="507" HEIGHT="312" BORDER="0" USEMAP="#semi02_rooms_Map" VSPACE="5"/></A></TD>
     <!-- <TD VALIGN="top" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"></TD> -->
   </TR> 
 </TABLE>
@@ -78,7 +78,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <!-- Semifinal breakdown by regions --> 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif">   
   <TR>
-    <TD VALIGN="top" align="center"><A HREF="/?t=tournaments&c=tourny_sched"><IMG SRC="/i/sunsemi1_sm.gif" ALT="" WIDTH="267" HEIGHT="161" BORDER="0" VSPACE="5"/><IMG SRC="/i/sunsemi2_sm.gif" ALT="" WIDTH="217" HEIGHT="161" BORDER="0" VSPACE="5"/></A></TD>
+    <TD VALIGN="top" align="center"><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=sched"><IMG SRC="/i/sunsemi1_sm.gif" ALT="" WIDTH="267" HEIGHT="161" BORDER="0" VSPACE="5"/><IMG SRC="/i/sunsemi2_sm.gif" ALT="" WIDTH="217" HEIGHT="161" BORDER="0" VSPACE="5"/></A></TD>
     <!-- <TD VALIGN="top" COLSPAN="2" ALIGN="left" BGCOLOR="#FFFFFF"></TD> -->
   </TR> 
 </TABLE>
@@ -96,26 +96,26 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
     <TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="6" BORDER="0"/></TD>    
   </TR>   
   <TR>  
-    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=tournaments&c=2002tccc_favs"><IMG SRC="/i/tourny_badge_favs.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
+    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs"><IMG SRC="/i/tourny_badge_favs.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
     <IMG SRC="/i/m/dmwright_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&c=member_profile&Coder_Id=114853" CLASS="coderTextRed">dmwright</A><BR/>
-The big cheese.  The head honcho.  The top gun.  The dictionary defines a favorite as "a competitor judged most likely to win".  And win is exactly what the favorites have done so far in their TopCoder careers, as all of the favorites are among the top-25 in all-time room wins.  Let's take a deeper look at the four coders who have earned the distinction as favorites...<A HREF="/?t=statistics&c=2002tccc_favs" CLASS="statText">full&#160;story</A>
+<A HREF="/tc?module=MemberProfile&cr=114853" CLASS="coderTextRed">dmwright</A><BR/>
+The big cheese.  The head honcho.  The top gun.  The dictionary defines a favorite as "a competitor judged most likely to win".  And win is exactly what the favorites have done so far in their TopCoder careers, as all of the favorites are among the top-25 in all-time room wins.  Let's take a deeper look at the four coders who have earned the distinction as favorites...<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=favs" CLASS="statText">full&#160;story</A>
 </TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="1" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="33%"  ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=tournaments&c=2002tccc_cind"><IMG SRC="/i/tourny_badge_cind.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
+    <TD VALIGN="top" WIDTH="33%"  ALIGN="left" CLASS="statText"><DIV><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=cind"><IMG SRC="/i/tourny_badge_cind.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
     <IMG SRC="/i/m/ante_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&c=member_profile&Coder_Id=264869" CLASS="coderTextYellow">ante</A><BR/>
-Every competition has them.  The 1980 "Miracle on Ice" US Mens Ice Hockey Team, Buster Douglas, Rocky Balboa, the New England Patriots, and most recently Sarah Hughes.  They're what make tournaments fun, interesting and compelling. They also provide a ton of emotional drama.  It's the American way; everyone loves the underdog...<A HREF="/?t=statistics&c=2002tccc_cind" CLASS="statText">full&#160;story</A>
+<A HREF="/tc?module=MemberProfile&cr=264869" CLASS="coderTextYellow">ante</A><BR/>
+Every competition has them.  The 1980 "Miracle on Ice" US Mens Ice Hockey Team, Buster Douglas, Rocky Balboa, the New England Patriots, and most recently Sarah Hughes.  They're what make tournaments fun, interesting and compelling. They also provide a ton of emotional drama.  It's the American way; everyone loves the underdog...<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=cind" CLASS="statText">full&#160;story</A>
 </TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="1" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/index?t=tournaments&c=2002tccc_eyeon"><IMG SRC="/i/tourny_badge_eyeon.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
+    <TD VALIGN="top" WIDTH="33%" ALIGN="left" CLASS="statText"><DIV><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon"><IMG SRC="/i/tourny_badge_eyeon.gif" ALT="" WIDTH="150" HEIGHT="41" BORDER="0" VSPACE="4"/></A></DIV>
     <IMG SRC="/i/m/milhouse_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="8" VSPACE="1" ALIGN="left"/>
-<A HREF="/?t=statistics&c=member_profile&Coder_Id=154089" CLASS="coderTextRed">milhouse</A><BR/>    
-These are the coders that the top-seeds fear the most.  They are either TopCoder veterans, TopCoder tournament tested, those who had outstanding performances with top scores in the Regional Quarterfinals and/or Regional Semifinals, or all of the above...<A HREF="/?t=statistics&c=2002tccc_eyeon" CLASS="statText">full&#160;story</A></TD>   
+<A HREF="/tc?module=MemberProfile&cr=154089" CLASS="coderTextRed">milhouse</A><BR/>    
+These are the coders that the top-seeds fear the most.  They are either TopCoder veterans, TopCoder tournament tested, those who had outstanding performances with top scores in the Regional Quarterfinals and/or Regional Semifinals, or all of the above...<A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=eyeon" CLASS="statText">full&#160;story</A></TD>   
   </TR>
   <TR>  
     <TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="15" BORDER="0"/></TD>    

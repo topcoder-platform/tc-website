@@ -48,7 +48,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                     <TR>
-                      <TD COLSPAN="5" ALIGN="center"><A HREF="/index?t=tournaments&c=tourny_sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+                      <TD COLSPAN="5" ALIGN="center"><A HREF="/tc?module=Static&d1=tournaments&d2=tccc02&d3=sched"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR>
 <TR>
 <TD CLASS="statText" COLSPAN="5">Here is a view of the Top-10 highest point totals in the Northeast Region for the first round of the 2002 Sun & TopCoder Collegiate Challenge.</TD>
