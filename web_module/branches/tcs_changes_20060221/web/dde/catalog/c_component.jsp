@@ -51,7 +51,7 @@
         if (lngComponent == 600191) response.sendRedirect("c_prodTools.jsp?comp=600191");
     }
 
-    ComponentDetail details;
+    ComponentDetail details = null;
     try {
         details = catalog.getComponentDetail(lngComponent, lngVersion);
     } catch (Exception e) {
