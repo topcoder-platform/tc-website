@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder Announces Yahoo! as Title Sponsor for Annual International Programming Tournament</span><br />
-                        <span class="bodySubTitle"><em>Leading Global Internet Company Pairs with TopCoder to Determine Collegiate World Champions of Coding</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., February 16, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">TopCoder Announces Yahoo! as Title Sponsor for Annual International Programming Tournament</span><br />
+<span class="bodySubTitle"><em>Leading Global Internet Company Pairs with TopCoder to Determine Collegiate World Champions of Coding</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, Conn., February 16, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced Yahoo! Inc. as the title sponsor for the 2004 TopCoder Collegiate Challenge (TCCC). The 2004 TCCC will bring many of the world's finest student programmers together in competition for international ranking, notoriety and a share of the $100,000 prize purse for Algorithm, Component Design and Development categories. Details and rules are provided at:  <a href="/tccc04">http://www.topcoder.com/tccc04</a></p>
 
 <p>"Yahoo! is proud to sponsor the TopCoder Collegiate Challenge and showcase the programmers and developers of tomorrow as they put their skills to the test," said Libby Sartain, Senior Vice President, Human Resources and Chief People Yahoo.  "Many of the participants in this event are as fun, innovative and talented as our own employees and we are excited to have the Yahoo! team on-site to meet the competitors and witness their considerable coding capabilities."</p>
@@ -81,8 +81,8 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 
 <p>TopCoder is a trademark of TopCoder, Inc. in the United States and other countries</p>
 
-                        <p>###</p>
-                        <p><br /></p>
+<p>###</p>
+<p><br /></p>
                         
 
                     </td>

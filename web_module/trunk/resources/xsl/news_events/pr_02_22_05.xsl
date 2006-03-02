@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Semifinalists Announced for 2005 TopCoder Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
-                        <span class="bodySubTitle"><em>Coding Elite from 21 Colleges in 12 Countries to Meet at World Championship of Collegiate Programming Scheduled for March 10th and 11th in Santa Clara, CA</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, CT, February 22, 2005&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">Semifinalists Announced for 2005 TopCoder Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
+<span class="bodySubTitle"><em>Coding Elite from 21 Colleges in 12 Countries to Meet at World Championship of Collegiate Programming Scheduled for March 10th and 11th in Santa Clara, CA</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, CT, February 22, 2005&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo! This annual TopCoder tournament, the second collegiate challenge event sponsored by Yahoo!, is open to college students worldwide and will award cash prizes totaling $150,000. The tournament's semifinal and Championship rounds will be held March 10th and 11th at the Santa Clara Marriott in Santa Clara, CA. Full details are provided at: <A href="/tccc05">http://www.topcoder.com/tccc05</A>.
 <br /><br />
 "TopCoder tournaments traditionally attract the world's very top programming problem solvers," said Rob Hughes, President and COO of TopCoder, Inc. "It's always an impressive sight to see such an international representation of programming talent assembled in one place."
@@ -157,8 +157,8 @@ Over 1,300 students from around the world began competing in qualifying rounds o
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br /><br />
 TopCoder is a trademark of TopCoder, Inc. in the United States and other countries.
-                        </p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

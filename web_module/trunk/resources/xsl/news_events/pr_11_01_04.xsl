@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174;</span><br />
-                        <span class="bodySubTitle"><em>International Coding Elite From 12 Countries Will Compete for $150,000 Purse in Programming Championship</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., November 1, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174;</span><br />
+<span class="bodySubTitle"><em>International Coding Elite From 12 Countries Will Compete for $150,000 Purse in Programming Championship</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, Conn., November 1, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced the 31 international finalists who have advanced to the Championship rounds of the 2004 TopCoder Open sponsored by Microsoft. This annual TopCoder tournament, the first such event sponsored by Microsoft, was open to all programmers worldwide and carries a prize purse of $150,000. The tournament's Semifinal and Championship Rounds will be held November 11th and 12th at the Marriott Hotel in Santa Clara, California. For more information visit: <A href="http://www.topcoder.com/tco04">http://www.topcoder.com/tco04</A>.
 <br/><br/>
 The semifinalists endured numerous online elimination rounds to earn a trip to the prestigious onsite finals, and will now compete head-to-head over two days of intense competition to determine the winners who will share the $150,000 prize purse. The Algorithm competition will award $50,000 in cash, with the Component Design and Development competition awarding $100,000 in total cash prizes. 
@@ -169,8 +169,8 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 <br/><br/>
 TopCoder is a registered trademark of TopCoder, Inc. in the United States and other countries.
 
-						</p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

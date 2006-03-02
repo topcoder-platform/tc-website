@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</span><br />
-                        <span class="bodySubTitle"><em>Graphics and Communications Processors Leader Joins Elite Group of Sponsors for Top Programming Event</em></span></p>
-                        </div>
-                        
-                        <p><strong>GLASTONBURY, Conn., August 04, 2004&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</span><br />
+<span class="bodySubTitle"><em>Graphics and Communications Processors Leader Joins Elite Group of Sponsors for Top Programming Event</em></span></p>
+</div>
+
+<p><strong>GLASTONBURY, Conn., August 04, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that NVIDIA Corporation (Nasdaq: NVDA) has been named as a premier level sponsor for the 2004 TopCoder Open. This year's TopCoder Open will bring the world's finest professional and collegiate programmers together in competition for international ranking, celebrity and a share of the $150,000 prize purse for Algorithm, Component Design and Development categories. The Onsite Finals will take place November 11th and 12th at the Santa Clara Marriott in Santa Clara, CA. Full registration details and rules are provided at:  http://www.topcoder.com/tco04
 <br/><br/>
 "We are thrilled to be a part of this exciting coding competition for the 3rd consecutive year," said Daniel Rohrer, Manager of DirectX Graphics. "The characteristics that allow TopCoder competitors to be successful closely mirror qualities we look for in our engineers at NVIDIA - a drive to win, a razor-sharp mind, and a competitive spirit. We look forward to welcoming TopCoder's finalists to Silicon Valley in November, as well as seeing who prevails among the elite professional and university coders."
@@ -76,8 +76,8 @@ NVIDIA Corporation is a market leader in visual computing technology dedicated t
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br/><br/>
 TopCoder is a trademark of TopCoder, Inc. in the United States and other countries. All other product and company names herein may be trademarks of their respective owners.
-						</p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

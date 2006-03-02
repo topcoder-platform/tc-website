@@ -55,11 +55,11 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder Software Delivers Component-Based E-Commerce Solution to Stage Stores, Inc.</span><br />
-                        <span class="bodySubTitle"><em>Custom Web Application Enables Online Gift Card Service for Leading Retailer</em></span></p>
-                        </div>
-                        
+<div align="center">
+<p><span class="bodyTitle">TopCoder Software Delivers Component-Based E-Commerce Solution to Stage Stores, Inc.</span><br />
+<span class="bodySubTitle"><em>Custom Web Application Enables Online Gift Card Service for Leading Retailer</em></span></p>
+</div>
+
 <p><strong>GLASTONBURY, Conn., April 19, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Stage Stores, Inc. the Houston, Texas-based regional department store retailer, has successfully upgraded its website to allow online purchasing of gift cards using TopCoder Software, Inc.'s unique competitive development methodology and reusable component catalog.
 </p>
@@ -81,7 +81,7 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 <p>
 TopCoder is a trademark of TopCoder, Inc. in the United States and other countries.
 </p>
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
                         
 

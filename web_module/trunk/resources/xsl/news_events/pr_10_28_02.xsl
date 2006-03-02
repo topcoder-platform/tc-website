@@ -52,7 +52,7 @@
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <P><B>Field Announced for 2002 TopCoder Invitational</B><BR/>
-              Programmers From Around the World to Vie for a Share of $150,000</P>
+Programmers From Around the World to Vie for a Share of $150,000</P>
 
 <P>
 GLASTONBURY, CT., Oct. 28, 2002 - TopCoder, Inc., the leader in on-line programming competition and 
@@ -87,14 +87,14 @@ Although the tournament is open to both student and professional TopCoder member
 <P>
 This is the second annual Invitational, and fourth major programming tournament hosted by TopCoder.  TopCoder's previous tournaments, and the individuals who won each tournament, are:
 <UL>
-	<LI> 2001 TopCoder Collegiate Challenge (June 2001):  won by Jason Woolever, a graduate student from MIT and currently a Senior Research and Development Engineer at Synopsys, Inc. of Sunnyvale, California.  </LI>
-	<LI> 2001 TopCoder Invitational (November 2001): won by Jon McAlister, currently a senior at Stanford University</LI>
-	<LI> 2002 Sun Microsystems and TopCoder Collegiate Challenge (April 2002): won by Daniel Wright, currently a senior at Stanford University.</LI>
+<LI> 2001 TopCoder Collegiate Challenge (June 2001):  won by Jason Woolever, a graduate student from MIT and currently a Senior Research and Development Engineer at Synopsys, Inc. of Sunnyvale, California.  </LI>
+<LI> 2001 TopCoder Invitational (November 2001): won by Jon McAlister, currently a senior at Stanford University</LI>
+<LI> 2002 Sun Microsystems and TopCoder Collegiate Challenge (April 2002): won by Daniel Wright, currently a senior at Stanford University.</LI>
 </UL>
 </P>
- 
+
 <P>
- "TopCoder is the authority on identifying developers with specific skills and determining their proficiency within that skill set," said TopCoder chairman and founder, Jack Hughes.  "With our membership now representing over 20,000 collegiate and professional developers working in state of the art technologies from around the world, we have been extremely pleased with our growth.  It is amazing to watch developers at this skill level compete.  All of those that have made it to this round of 64 have shown themselves to be some of the best in the world."    
+"TopCoder is the authority on identifying developers with specific skills and determining their proficiency within that skill set," said TopCoder chairman and founder, Jack Hughes.  "With our membership now representing over 20,000 collegiate and professional developers working in state of the art technologies from around the world, we have been extremely pleased with our growth.  It is amazing to watch developers at this skill level compete.  All of those that have made it to this round of 64 have shown themselves to be some of the best in the world."    
 </P>
 
 <P><BR/></P>

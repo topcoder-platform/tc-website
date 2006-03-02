@@ -55,11 +55,11 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Champions Announced In 2004 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
-                        <span class="bodySubTitle"><em>Coding and Component Tournament Winners Take Home $100,000</em></span></p>
-                        </div>
-                        
+<div align="center">
+<p><span class="bodyTitle">Champions Announced In 2004 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
+<span class="bodySubTitle"><em>Coding and Component Tournament Winners Take Home $100,000</em></span></p>
+</div>
+
 <p><strong>BOSTON, MA., April 19, 2004&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Tomasz Czajka of Warsaw, Poland, Pavlo Aksonov of the Ukraine and Roman Koshlyak, also of the Ukraine, have won the Coding, Design and Development Component tournaments of the 2004 TopCoder Collegiate Challenge sponsored by Yahoo!, held at the Boston Park Plaza Hotel &amp; Towers in Boston, MA on April 16th. Czajka beat 23 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $25,000 grand prize in the Coding tournament.  Aksonov and Koshlyak took home $25,000 and $15,000 respectively as the Design and Development winners in the Component tournament. 
 </p>
@@ -124,7 +124,7 @@ TopCoder is the recognized leader in identifying, evaluating and mobilizing effe
 <p>
 TopCoder is a registered trademark of TopCoder, Inc. in the United States and other countries.
 </p>
-                        <p>###</p>
+<p>###</p>
                         <p><br /></p>
                         
 

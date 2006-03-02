@@ -55,12 +55,12 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">Champions Announced In 2005 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
-                        <span class="bodySubTitle"><em>Top Algorithm and Component Tournament Winners Take Home Over $150,000 in Prizes</em></span></p>
-                        </div>
-                        
-                        <p><strong>Santa Clara, CA, March 14, 2005&#151;</strong>
+<div align="center">
+<p><span class="bodyTitle">Champions Announced In 2005 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo!&#174;</span><br />
+<span class="bodySubTitle"><em>Top Algorithm and Component Tournament Winners Take Home Over $150,000 in Prizes</em></span></p>
+</div>
+
+<p><strong>Santa Clara, CA, March 14, 2005&#151;</strong>
 TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that Mathijs Vogelzang of the University of Groningen, The Netherlands, Adrian Nicolae Carcu of  the Babes-Bolyai Computer Science University, Romania, and Gary Linscott of Queens University, Canada have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!, held at the Santa Clara Marriott in Santa Clara, CA on March 11th. Vogelzang, known to the member base by his handle 'mathijs',  beat 23 of the world's top computer programmers during the onsite semifinal and Championship rounds for the $20,000 grand prize in the Algorithm tournament. Carcu or 'adic' as he known to the member base and Linscott, known as 'gladius' took home $25,000 and $13,000 respectively as the Design and Development winners in the Component tournament. 
 <br /><br />
 The Algorithm tournament was a timed competition where the participants solved complex algorithmic problems using Java, .Net, C++ or C#.  The Component tournament was focused on software design and development where the participants in each tournament were provided general requirements and asked to design or develop re-useable software components.   
@@ -170,8 +170,8 @@ The results of TopCoder's major tournaments, weekly competitions and component d
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br /><br />
 TopCoder is a registered trademark of TopCoder, Inc. in the United States and other countries.
-                              </p>
-                        <p>###</p>
+</p>
+<p>###</p>
                         <p><br /></p>
                         
 

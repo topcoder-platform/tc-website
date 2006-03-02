@@ -55,46 +55,46 @@
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
-                        <div align="center">
-                        <p><span class="bodyTitle">TopCoder Announces 2003 TopCoder Open</span><br />
-                        <span class="bodySubTitle"><em>$100,000 Tournament Will Crown World Programming Champion</em></span></p>
-                        </div>
+<div align="center">
+<p><span class="bodyTitle">TopCoder Announces 2003 TopCoder Open</span><br />
+<span class="bodySubTitle"><em>$100,000 Tournament Will Crown World Programming Champion</em></span></p>
+</div>
 
-                        <p><strong>GLASTONBURY, Conn., June 16, 2003&#151;</strong>TopCoder, Inc., the leader in on-line programming 
-                        competition and skills assessment, today announced its next major tournament, the 2003 TopCoder Open.  This coding event 
-                        will be open to programmers around the world and will award a total of $100,000 in cash prizes.  The tournament will begin 
-                        with online elimination rounds in October, and culminate on December 5 with the final rounds taking place live at Mohegan 
-                        Sun Casino in Uncasville, Connecticut, where the winner of the TopCoder Open will be awarded $50,000 and named the 2003 
-                        World Champion.</p>
+<p><strong>GLASTONBURY, Conn., June 16, 2003&#151;</strong>TopCoder, Inc., the leader in on-line programming 
+competition and skills assessment, today announced its next major tournament, the 2003 TopCoder Open.  This coding event 
+will be open to programmers around the world and will award a total of $100,000 in cash prizes.  The tournament will begin 
+with online elimination rounds in October, and culminate on December 5 with the final rounds taking place live at Mohegan 
+Sun Casino in Uncasville, Connecticut, where the winner of the TopCoder Open will be awarded $50,000 and named the 2003 
+World Champion.</p>
 
-                        <p>In the two qualifying rounds held in October, eligible TopCoder members will compete for 500 coveted spots in the 
-                        tournament.  These 500 will be narrowed to the final 16 through four successive online rounds.  The remaining 16 will 
-                        travel to the Mohegan Sun Casino to compete live on December 4 and 5, in the semi-final and final rounds, for the grand 
-                        prize and champion title.</p>
+<p>In the two qualifying rounds held in October, eligible TopCoder members will compete for 500 coveted spots in the 
+tournament.  These 500 will be narrowed to the final 16 through four successive online rounds.  The remaining 16 will 
+travel to the Mohegan Sun Casino to compete live on December 4 and 5, in the semi-final and final rounds, for the grand 
+prize and champion title.</p>
 
-                        <p>"The skill level in the TopCoder tournaments increases dramatically each year and from the caliber of competition 
-                        we've seen in recent weekly matches, the 2003 TopCoder Open will be no exception," said Jack Hughes, founder of 
-                        TopCoder, Inc.  "Once again, we are thrilled to bring together the world's best and brightest programmers for a tournament 
-                        that promises to deliver plenty of excitement and opportunity."</p>
+<p>"The skill level in the TopCoder tournaments increases dramatically each year and from the caliber of competition 
+we've seen in recent weekly matches, the 2003 TopCoder Open will be no exception," said Jack Hughes, founder of 
+TopCoder, Inc.  "Once again, we are thrilled to bring together the world's best and brightest programmers for a tournament 
+that promises to deliver plenty of excitement and opportunity."</p>
 
-                        <p>TopCoder's software developer member base exceeds 27,000 and encompasses more than 150 countries.  Membership 
-                        grows steadily at an average of more than 1,300 new members per month.  Participation in TopCoder tournaments that 
-                        includes both college and professional programmers has increased more than 300% between 2001 and 2002.  The 2003 
-                        TopCoder Open is the sixth major tournament hosted by TopCoder since inception in 2001.</p>
+<p>TopCoder's software developer member base exceeds 27,000 and encompasses more than 150 countries.  Membership 
+grows steadily at an average of more than 1,300 new members per month.  Participation in TopCoder tournaments that 
+includes both college and professional programmers has increased more than 300% between 2001 and 2002.  The 2003 
+TopCoder Open is the sixth major tournament hosted by TopCoder since inception in 2001.</p>
 
-                        <p><strong>Companies interested in sponsoring this worldwide event should contact Drew Vaughn at 866.867.2633, 
-                        <A href="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com</A> or visit www.topcoder.com.</strong></p>
+<p><strong>Companies interested in sponsoring this worldwide event should contact Drew Vaughn at 866.867.2633, 
+<A href="mailto:dvaughn@topcoder.com">dvaughn@topcoder.com</A> or visit www.topcoder.com.</strong></p>
 
-                        <p><br /></p>
+<p><br /></p>
 
-                        <p><strong>About TopCoder, Inc.</strong><br />
-                        TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  
-                        TopCoder members extend across all professional and collegiate levels.  The attraction of competition and the associated 
-                        rewards create a powerful community of programmers.  Corporate partners access this member base for employment, 
-                        software development and sponsorship.  For registration details or information regarding TopCoder Software, TopCoder 
-                        Employment Services or sponsorship of TopCoder Events, please visit <a class="bodyText" href="http://www.topcoder.com">www.topcoder.com.</a></p>
+<p><strong>About TopCoder, Inc.</strong><br />
+TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members.  
+TopCoder members extend across all professional and collegiate levels.  The attraction of competition and the associated 
+rewards create a powerful community of programmers.  Corporate partners access this member base for employment, 
+software development and sponsorship.  For registration details or information regarding TopCoder Software, TopCoder 
+Employment Services or sponsorship of TopCoder Events, please visit <a class="bodyText" href="http://www.topcoder.com">www.topcoder.com.</a></p>
 
-                        <p>###</p>
+<p>###</p>
 
                         <p><br /></p>
 
