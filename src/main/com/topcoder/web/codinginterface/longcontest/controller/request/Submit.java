@@ -178,8 +178,6 @@ public class Submit extends Base {
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
-                    if (language>0) {
-                    }
                 }
                 log.debug("set message in request to " + message);
                 request.setAttribute(Constants.LANGUAGES, getLanguages());
@@ -259,10 +257,12 @@ public class Submit extends Base {
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
                         language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
+/*
                 Request roomRequest = new Request();
                 roomRequest.setContentHandle("long_contest_find_room");
                 roomRequest.setProperty("rd", String.valueOf(rid));
                 long roomId = ((ResultSetContainer)getDataAccess().getData(roomRequest).get("long_contest_find_room")).getLongItem(0, "room_id");
+*/
 
                 LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
                 if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
@@ -305,6 +305,8 @@ public class Submit extends Base {
                     // The compilation timed out
                     log.debug("set message in session to code compilation request timed out");
                     request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
+                    request.getSession().setAttribute(Constants.CODE, code);
+                    request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
                     // Go back to coding.
                     closeProcessingPage(buildProcessorRequestString("Submit",
                             new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
