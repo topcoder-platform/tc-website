@@ -41,11 +41,12 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+<td class="bodyText" WIDTH="100%">
 
-            <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Development Review Board</strong></font></td></tr>
-            </table>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_development"/>
+    <jsp:param name="title" value="Meet the Development Review Board"/>
+</jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>

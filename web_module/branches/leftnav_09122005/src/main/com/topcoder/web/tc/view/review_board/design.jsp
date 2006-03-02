@@ -40,11 +40,12 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-
-            <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Design Review Board</strong></font></td></tr>
-            </table>
+        <td class="bodyText" width="99%">
+            
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Meet the Design Review Board"/>
+</jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
