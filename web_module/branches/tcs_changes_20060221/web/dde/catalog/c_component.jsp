@@ -57,7 +57,7 @@
     if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
         // plk
         // redirect to an error page
-        response.sendRedirect("error_componentnotfound.jsp");
+        response.sendRedirect("/attention/error_componentnotfound.jsp");
     }
 
     lngVersion = Math.max(lngVersion, 0);
