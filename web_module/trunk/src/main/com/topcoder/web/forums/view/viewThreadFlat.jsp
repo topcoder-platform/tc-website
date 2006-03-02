@@ -152,8 +152,6 @@ function displayVotes(messageID, posVotes, negVotes) {
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-<%=ForumConstants.defaultRatingsEnabled%>
-
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
