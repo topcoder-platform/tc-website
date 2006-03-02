@@ -225,6 +225,13 @@
    </table>
 
    <hr width="100%" size="1" noshade="noshade" />
+   <div align="center">
+      Also for Software Designers and Developers...<br>
+      <A href="/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Software Development Contest</A><br>
+      <A href="/tc?module=Static&d1=dev&d2=bonusContest1">Design Bonus Contest 1</A><br>
+      <A href="/tc?module=Static&d1=dev&d2=bonusContest2">Design Bonus Contest 2</A>
+   </div>
+   <hr width="100%" size="1" noshade="noshade" />
    <div align="center"><A href="mailto:sponsorships@topcoder.com">Sponsor a TopCoder tournament</A></div>
 
    <br><br>
