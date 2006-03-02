@@ -322,7 +322,8 @@ public class ForumsUtil {
     }
     
     public static boolean showRatings(User user) {
-        if (ForumConstants.defaultRatingsEnabled) {
+        boolean defaultRatingsEnabled = JiveGlobals.getJiveBooleanProperty("tc.default.ratings.enabled", true);
+        if (defaultRatingsEnabled) {
             // all registered users see ratings
             return !("false".equals(user.getProperty("showRatings")));
         } else {
