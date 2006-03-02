@@ -223,7 +223,7 @@
                 e.printStackTrace(new PrintWriter(out));
             }
             long rootCategory = summary.getParent();
-            if (rootCategory == -1) {
+            if (rootCategory == 0) {
                 rootCategory = summary.getId();
             }
             if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {

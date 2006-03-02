@@ -677,7 +677,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-        long parent = -1;
+        long parent = 0;
         String name = null;
         String description = null;
         List components = new ArrayList();
