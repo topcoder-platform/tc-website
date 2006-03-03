@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
@@ -15,6 +16,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
+
+    protected final static Logger log = Logger.getLogger(CreateProfile.class);
     protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
@@ -48,7 +51,10 @@ public class CreateProfile extends BaseSessionProcessor {
             throw(new TCWebException(e));
         }
 
-        setNextPage("?"+Constants.MODULE_KEY+"="+Constants.POPULATE_PROFILE_PROCESSOR);
+        String going =buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null);
+
+        log.debug("going to " + going);
+        setNextPage(going);
         setIsNextPageInContext(true);
     }
 }
