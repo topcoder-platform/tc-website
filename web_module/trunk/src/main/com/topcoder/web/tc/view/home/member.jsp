@@ -5,22 +5,11 @@
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
-<jsp:include page="../script.jsp" />
-<STYLE TYPE="text/css">
-.tco06Message
-{
-color: #FFFFFF;
-font-size: 11px;
-font-weight: normal;
-padding: 5px;
-background: #0F4377 url(/i/bg_calcell_tco06_gradient.gif) top center repeat-x;
-}
-A.tco06MessageLink:link{color: #DDDDFF;text-decoration: underline;}
-A.tco06MessageLink:visited{color: #AAAAFF;text-decoration: underline;}
-A.tco06MessageLink:hover{color: #FF0000;text-decoration: none;}
-A.tco06MessageLink:active{color: #FF0000;text-decoration: none;}
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
-</STYLE>
 </head>
 
 <body>
@@ -32,16 +21,15 @@ A.tco06MessageLink:active{color: #FF0000;text-decoration: none;}
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
 <!-- Left Column Begins-->
-<td width="180">
-   <jsp:include page="../includes/global_left.jsp">
-      <jsp:param name="level1" value="home"/>
-      <jsp:param name="level2" value=""/>
-   </jsp:include>
-</td>
+      <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competition_home"/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td> 
+<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -80,7 +68,7 @@ A.tco06MessageLink:active{color: #FF0000;text-decoration: none;}
       <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
       <tr><td><img src="/i/home_right_bottom.gif" width="180" height="20" border="0" /></td></tr>
    </table>
-   
+
    <p><br/></p>
  </td>
 <!-- Right Column Ends -->
@@ -97,4 +85,3 @@ A.tco06MessageLink:active{color: #FF0000;text-decoration: none;}
 </body>
 
 </html>
-

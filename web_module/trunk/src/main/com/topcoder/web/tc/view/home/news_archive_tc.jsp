@@ -5,7 +5,10 @@
 <head>
 <title>TopCoder News Archive</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,12 +21,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-      <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="level1" value=""/>
-            <jsp:param name="level2" value=""/>
-         </jsp:include>
-      </td>
+		<td width="180">
+			<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="m_competitions"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -50,7 +52,7 @@
 <tr class="bodyText"><td nowrap="nowrap">07.18.05 8:30 AM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.13.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.08.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=aug_05">August</A>, <A href="/tc?module=Static&d1=calendar&d2=sep_05">September</A>, and <A href="/tc?module=Static&d1=calendar&d2=oct_05">October</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.12.05 5:50 PM&#160;-&#160</td><td width="100%">Ratings have been updated</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.11.05 6:00 PM&#160;-&#160</td><td width="100%">New Member Profiles</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.09.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></td></tr>

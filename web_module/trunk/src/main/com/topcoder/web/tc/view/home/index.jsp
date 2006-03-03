@@ -91,11 +91,11 @@ margin:0px auto;
 
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=development&c=index" class="homeTitleLink">Software Competitions</A></td>
+            <td class="homeTitle">Software <A href="/tc?module=ViewActiveContests&ph=112" class="homeTitleLink">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113" class="homeTitleLink">Development</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText">Compete in software <A href="/?t=development&c=index">component</A> competitions and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
+            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&ph=112">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113">Development</A> Competitions and get paid for what you build!</td>
          </tr>
 
          <tr>
@@ -154,10 +154,10 @@ margin:0px auto;
       <td class="homeRightCol">
       <table border="0" cellpadding="0" cellspacing="0">
          <tr><td class="homeBigPromo">
-<%-- CNN 
+<%-- CNN
             <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
 --%>
-<%-- WSJ 
+<%-- WSJ
 --%>
             <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/home/wsj_020806_sm.gif" alt="The Wall Street Journal" border="0" /></A>
 <%-- SRM SPONSORSHIP
@@ -167,7 +167,7 @@ margin:0px auto;
             </map>
             <img src="/i/home/verisign_srm280.gif" alt="VeriSign" border="0" usemap="#srm_sponsor"/>
 --%>
-<%-- Intel MTCS 
+<%-- Intel MTCS
             <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
 --%>
          </td></tr>
@@ -207,7 +207,7 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="88" height="10" alt="Spartan Daily" border="0" /></div>
             SJSU codes a win <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">...more</A><br>[February 16]<br><br>
-            
+
             TopCoder High School Launches Global Programming Tournament in June <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">...more</A><br>[February 8]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="88" height="10" alt="Wall Street Journal" border="0" /></div>
@@ -216,7 +216,14 @@ margin:0px auto;
             TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
 
             TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>
+<<<<<<< index.jsp
                                         
+=======
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
+            Java Posse - Bill Goggin interview [PODCAST] <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">...more</A><br>[January 20]<br><br>
+
+>>>>>>> 1.215.2.1
             </td>
          </tr>
       </table>
@@ -229,7 +236,7 @@ margin:0px auto;
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=about&d2=contactus">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
          <br>

@@ -9,7 +9,10 @@
 <head>
 <title>Working at TopCoder</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -24,9 +27,8 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="jobs"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="working_tc"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -85,7 +87,10 @@ TopCoder is looking to hire a full-time software developer to design and impleme
 <li>You must be willing to relocate to the Hartford, CT area</li>
 </ul>
 
-<p>Check out what <b><font color="#FF9900">veredox</font></b>, newly hired TC member, has to say about <a href="/?t=tces&c=topcoder_veredox">working at TopCoder</a>.</p>
+                        <p>
+                        <a href="/tc?module=JobHit&jid=320&jt=4">Apply for this job.<a/>
+                        </p>
+                        <p><br /></p>
 
                         <p>
                         <a href="/tc?module=JobHit&jid=320&jt=4">Apply for this job.<a/>

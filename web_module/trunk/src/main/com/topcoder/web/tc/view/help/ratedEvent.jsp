@@ -5,6 +5,9 @@
 <title>TopCoder - Help</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="support"/>
-                <jsp:param name="level2" value="guide"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_how_to_compete"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -31,12 +33,10 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyText">
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="support"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Algorithm Competition Guide"/>
-        </jsp:include>
+         <jsp:include page="../page_title.jsp" >
+         <jsp:param name="image" value="alg_support_faqs"/>
+         <jsp:param name="title" value="How to compete"/>
+         </jsp:include>
 
       <h2>Competing in a TopCoder Rated Event</h2>
 
@@ -259,7 +259,7 @@
       <br /><br />
       Purposefully performing poorly during a rated event with the intention of artificially lowering your rating is considered very poor sportsmanship - and may result in account deactivation.
       <br /><br />
-      Modifying the Arena applet in any way is against the rules and may result in account deactivation. Attempting to digitally extract competitor's code during the challenge phase is considered cheating. 
+      Modifying the Arena applet in any way is against the rules and may result in account deactivation. Attempting to digitally extract competitor's code during the challenge phase is considered cheating.
       <br /><br />
       Obviously, TopCoder cannot identify all malicious behavior (we try hard, though), so we do rely on each member's sportsmanship and integrity.
       </p>

@@ -111,7 +111,9 @@ function checkInputs(){
                 </tr>
             </table>
 
+<%--
              <div align="center"><br>Required fields are in <strong>bold</strong><br/>&#160;</div>
+--%>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 

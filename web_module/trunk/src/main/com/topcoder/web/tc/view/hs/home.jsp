@@ -7,9 +7,10 @@
 <head>
     <title>TopCoder High School</title>
 
-    <jsp:include page="../script.jsp"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -23,10 +24,9 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitions"/>
+         </jsp:include>
         </td>
         <!-- Left Column Ends -->
 

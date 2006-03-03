@@ -1,16 +1,24 @@
+<%@ page import="com.topcoder.common.web.data.Navigation"%>
 <%@  page
   language="java"
   errorPage="/errorPage.jsp" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <%
+        Navigation n = (Navigation) session.getAttribute("navigation");
+    %>
+
 
 <html>
 
 <head>
 
-<title>Register for membership in TopCoder</title>
+<title>Registration</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -25,13 +33,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-<%--
-            <jsp:include page="left.jsp" />
---%>
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="profile"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%=n.getSessionInfo().isAnonymous()?"competition_reg":"competitor_update_profile"%>"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 

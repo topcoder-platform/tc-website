@@ -9,7 +9,10 @@
 <head>
 <title>Ultimate Software Development Contest</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -35,10 +38,8 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="contests"/>
-                <jsp:param name="level3" value="ultimate"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

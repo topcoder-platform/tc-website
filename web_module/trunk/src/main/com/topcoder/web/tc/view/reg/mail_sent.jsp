@@ -1,8 +1,12 @@
+<%@ page import="com.topcoder.common.web.data.Navigation"%>
 <%@  page
   language="java"
   errorPage="/errorPage.jsp" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <%
+        Navigation n = (Navigation) session.getAttribute("navigation");
+    %>
 
 <html>
 
@@ -10,10 +14,10 @@
 
 <title>Registration</title>
 
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-<link rel="stylesheet" type="text/css" href="/css/coders.css"/>
-
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -28,7 +32,9 @@
 
 <!-- Left Column Begins -->
       <td width="180">
-        <jsp:include page="left.jsp" />
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%=n.getSessionInfo().isAnonymous()?"competition_reg":"competitor_update_profile"%>"/>
+         </jsp:include>
       </td>
 <!-- Left Column Ends -->
 

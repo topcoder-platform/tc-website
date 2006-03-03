@@ -1,87 +1,87 @@
-<%@ page
-  language="java"
-  import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,
-          com.topcoder.shared.dataAccess.*,
-          com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.shared.util.ApplicationServer,
-          java.text.DecimalFormat,
-          java.util.ArrayList"
-%>
+         <%@ page
+         language="java"
+         import="com.topcoder.shared.dataAccess.*,
+                 com.topcoder.shared.dataAccess.resultSet.*,
+                 com.topcoder.shared.util.ApplicationServer,
+                 java.text.DecimalFormat,
+                 java.util.ArrayList"
+       %>
 
-<%@ taglib uri="struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<html>
- <head>
-   <title>TopCoder Statistics - Round Overview</title>
-   <jsp:include page="baseHRef.jsp" />
-   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-   <link rel="stylesheet" type="text/css" href="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
- </head>
-
-<body>
-   <jsp:include page="../top.jsp" />
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="round_overview"/>
+       <%@ taglib uri="struts-bean.tld" prefix="bean" %>
+       <%@ taglib uri="struts-logic.tld" prefix="logic" %>
+       <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+       <html>
+        <head>
+          <title>TopCoder Statistics - Round Overview</title>
+          <jsp:include page="baseHRef.jsp" />
+            <jsp:include page="/script.jsp" />
+            <jsp:include page="/style.jsp">
+              <jsp:param name="key" value="tc_stats"/>
             </jsp:include>
-        </td>
-<!-- Left Column Ends -->
+        </head>
 
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
+       <body>
+          <jsp:include page="../top.jsp" />
+
+       <table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr valign="top">
+       <!-- Left Column Begins-->
+               <td width="180">
+                   <jsp:include page="/includes/global_left.jsp">
+                      <jsp:param name="node" value="algo_match_overviews"/>
+                   </jsp:include>
+
+               </td>
+       <!-- Left Column Ends -->
+
+       <!-- Gutter -->
+               <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+       <!-- Gutter Ends -->
 
 
-<!-- Center Column Begins -->
-         <td class="bodyText" width="100%" align="center" style="padding: 12px 0px 0px 0px;">
+       <!-- Center Column Begins -->
+                <td class="bodyText" width="100%" align="center" style="padding: 12px 0px 0px 0px;">
 
-         <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
-           <tr>
-             <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
-             <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
-             <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</span></td>
-             <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
-           </tr>
-         </table>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" valign="top">
+                  <tr>
+                    <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
+                    <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
+                    <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</span></td>
+                    <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
+                  </tr>
+                </table>
 
 
-<script language="JavaScript">
-   function submitForm(){
-   var frm = document.coderRankForm;
-   frm.action = "/stat";
-    if (isNaN(parseInt(frm.er.value)))
-      alert(frm.er.value+" is not a valid integer");
-    else{
-      frm.er.value = parseInt(frm.er.value);
-      frm.submit();
-    }
-   }
-</script>
+       <script language="JavaScript">
+          function submitForm(){
+          var frm = document.coderRankForm;
+          frm.action = "/stat";
+           if (isNaN(parseInt(frm.er.value)))
+             alert(frm.er.value+" is not a valid integer");
+           else{
+             frm.er.value = parseInt(frm.er.value);
+             frm.submit();
+           }
+          }
+       </script>
 
 <% //common code that pulls out the request bean.
-    Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+           Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 %>
-<bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
+       <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
-    DecimalFormat df = new DecimalFormat("0.00");
-    DecimalFormat dfp = new DecimalFormat("0.00%");
-    ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
-    ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
-    ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
+           DecimalFormat df = new DecimalFormat("0.00");
+           DecimalFormat dfp = new DecimalFormat("0.00%");
+           ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
+           ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+           ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 
-    ResultSetContainer.ResultSetRow currentRow = null;
-    int topN = 5;
-    try{
-      topN = Integer.parseInt(srb.getProperty("er","5"));
-    }catch(Exception e){}
-    boolean lastMatch = request.getParameter("rd") == null;
+           ResultSetContainer.ResultSetRow currentRow = null;
+           int topN = 5;
+           try{
+             topN = Integer.parseInt(srb.getProperty("er","5"));
+           }catch(Exception e){}
+           boolean lastMatch = request.getParameter("rd") == null;
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
     if(topN<0)topN = 5;
     if(topN>1000)topN=1000;
@@ -149,9 +149,9 @@
              <td class="bodyText" valign="top">
 
 <%
-String currRound = roundID+"";
-ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
-pageContext.setAttribute("resultSetDates", rsc);
+       String currRound = roundID+"";
+       ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
+       pageContext.setAttribute("resultSetDates", rsc);
 %>
 <script language="JavaScript">
 <!--
@@ -170,15 +170,15 @@ function goTo(selection){
                                     <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
                                     <OPTION value="#">Select a Round:</OPTION>
 
-                                    <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+                                           <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
 
                                     <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                                               <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                                     <% } else { %>
-                                        <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                                               <OPTION value="/stat?c=round_overview&er=<%= topN %>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                                     <% } %>
 
-                                    </logic:iterate>
+                                           </logic:iterate>
 
                                     </SELECT>
                                     <%  if (forumID != -1) { %>
@@ -210,7 +210,7 @@ function goTo(selection){
                             for(int i = 0; i<topN;i++){%>
                             <tr>
                                 <%for(int j = 0; j<divisions;j++){
-                                    if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
+                                           if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
                                 %>
                                 <td></td>
                                 <td></td>
@@ -231,7 +231,7 @@ function goTo(selection){
                                 <%}%>
 
 <%  int currentRowPtr = 0;
-    for(int i = 0; i<divisions;i++){
+           for(int i = 0; i<divisions;i++){
 %>
          </table>
 
@@ -248,19 +248,19 @@ function goTo(selection){
 <%--             <td valign="middle" nowrap="0" width="15%" height="15" class="statText" align="right"></td> --%>
            </tr>
   <%
-      currentRow = percents.getRow(currentRowPtr);
-      int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
-      while(currentRowPtr<percents.size() &&
-              Integer.parseInt((currentRow = percents.getRow(currentRowPtr)).getItem("division_id").toString())==currentDivID){
-        currentRowPtr++;
-        String problemLevel = currentRow.getItem("problem_level").toString();
-        String problemName = currentRow.getItem("problem_name").toString();
-        int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
-        int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
-        int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
-        double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
-        String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
-        String avgPoints = df.format(total);
+             currentRow = percents.getRow(currentRowPtr);
+             int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
+             while(currentRowPtr<percents.size() &&
+                     Integer.parseInt((currentRow = percents.getRow(currentRowPtr)).getItem("division_id").toString())==currentDivID){
+               currentRowPtr++;
+               String problemLevel = currentRow.getItem("problem_level").toString();
+               String problemName = currentRow.getItem("problem_name").toString();
+               int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+               int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+               int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
+               double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+               String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
+               String avgPoints = df.format(total);
   %>
 
            <tr>
@@ -280,7 +280,7 @@ function goTo(selection){
            <tr>
              <td colspan="6" align="center" class="statText">
                                     <%if(!lastMatch){%>
-                                        <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
+                                               <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
                                     <%}%>
                                     <INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
 

@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -22,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+   <jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -75,7 +75,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7992&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7992">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">3</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
@@ -98,7 +98,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8005&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8005">Details</A><br/><br/></td>
         <td id="calendar">9</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">10</span><br />
@@ -107,7 +107,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7993&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7993">Details</A><br/><br/></td>
         <td id="calendar">11</td>
         <td id="calendar">12</td>
         <td id="calendar">13</td>
@@ -159,7 +159,7 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8012&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8012">Details</A><br/><br/></td>
         <td id="calendar">23</td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">24</span><br/>
@@ -181,7 +181,7 @@
             Compete: 12:00&#160;PM<br />
             Sponsored by:<br /><A href="http://software.topcoder.com/">TopCoder Software</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7994&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7994">Details</A><br/><br/></td>
     </tr>
     <tr> 
         <td id="calendar">28</td>
@@ -193,7 +193,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7995&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7995">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">31</span><br/>
             <strong>2005 TopCoder Open Algorithm Competition</strong><br/>

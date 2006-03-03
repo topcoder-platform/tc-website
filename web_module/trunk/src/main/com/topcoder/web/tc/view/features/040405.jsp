@@ -6,7 +6,11 @@
 <head>
 <title>TopCoder Feature Articles</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 <style type="text/css">
     .code
 {
@@ -35,10 +39,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="comp_tutorials"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="features"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -66,10 +69,10 @@ By&#160;<a class="bodyText" href="/tc?module=MemberProfile&cr=119676"><strong>Po
 The design competition has started to heat up recently and has been attracting a lot of new designers.  I thought this would be an ideal time to provide some advice about the TCS design process.  This four-part series will attempt to provide some constructive advice about the different phases in the design process.  This article will not attempt to provide you with strategies or to provide a design tutorial, it will simply describe how to make the most of each of the phases and provide some useful do's and dont's that my experience as both a designer and reviewer has seen.
 <br><br>
 <span class=bodySubtitle>First Timers</span><br/>
-The best advice I can give first time designers - expect to fail the first 1-3 project(s).  That is not a comment about a lack of skill sets or motivation but on the learning curve to the TCS process.  The reviewers have a base of experience they work from and expect certain 'things' in designs.  The first few projects will usually be focused on learning how the process works and what the reviewers expect in the submitted designs.  My advice to you is to carefully review all the posted <A href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">documentation</A> and keep the documents in mind while designing.  Of those documents, you should be thoroughly familiar with the reviewer guideline documents and the coloring standards.  Both of those are good insights into precisely what the reviewer will be looking for and will certainly reduce the number of 'failed' submission due to not understanding exactly what is expected.
+The best advice I can give first time designers - expect to fail the first 1-3 project(s).  That is not a comment about a lack of skill sets or motivation but on the learning curve to the TCS process.  The reviewers have a base of experience they work from and expect certain 'things' in designs.  The first few projects will usually be focused on learning how the process works and what the reviewers expect in the submitted designs.  My advice to you is to carefully review all the posted <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">documentation</A> and keep the documents in mind while designing.  Of those documents, you should be thoroughly familiar with the reviewer guideline documents and the coloring standards.  Both of those are good insights into precisely what the reviewer will be looking for and will certainly reduce the number of 'failed' submission due to not understanding exactly what is expected.
 <br><br>
 <span class=bodySubtitle>Selecting a Component</span><br/>
-There are usually about five design components posted each week with a fairly good split between java and C# (however, C# seems to be more favored).  You should read the specifications for each of them and generally choose one that you are familiar with (both the language and the concepts).  Do not sign up for the component immediately.  If you sign up for the component and later find out that the specification has a 'surprise' in it (surprise meaning some unexpected functionality or complication), your reliability rating will be affected if you don't complete it (see the <A href="/tc?module=Static&d1=dev&d2=support&d3=reliability">reliability rating details</A>).  Instead, use the time to refine your understanding of the specification by asking questions in the related forum.  The questions you ask should clarify your understanding of the specification and 'challenge' the PM if the specification is either in error or lacks some crucial point.  You should sign up for the component only after you fully understand the component and the full extent of work involved.
+There are usually about five design components posted each week with a fairly good split between java and C# (however, C# seems to be more favored).  You should read the specifications for each of them and generally choose one that you are familiar with (both the language and the concepts).  Do not sign up for the component immediately.  If you sign up for the component and later find out that the specification has a 'surprise' in it (surprise meaning some unexpected functionality or complication), your reliability rating will be affected if you don't complete it (see the <A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">reliability rating details</A>).  Instead, use the time to refine your understanding of the specification by asking questions in the related forum.  The questions you ask should clarify your understanding of the specification and 'challenge' the PM if the specification is either in error or lacks some crucial point.  You should sign up for the component only after you fully understand the component and the full extent of work involved.
 <br><br>
 <span class=bodySubtitle>Designing to Submission</span><br/>
 There are really three methods designers use for creating their designs.  
@@ -87,7 +90,7 @@ The submission deadline is looming and you won't be able to submit in time - wha
 <span class=bodySubtitle>Forums again</span><br/>
 The last advice that I'd like to give is to encourage you to use the forums throughout the design process.  I really feel that most designers fail here.  Questions about the specification will naturally arise as you are concentrating on the details.  Be sure to ask those questions to get the official PM response.  If you do not and simply make an assumption about some point, that assumption (whether right or wrong) will generally appear in the review.  Had the designer asked the PM about the issue during the design, then the issue would not arise in the review or if it did, the designer has recourse in pointing out the forum message to the reviewer.
 <br><br>
-<span class=bodySubtitle>What's coming up…</span><br/>
+<span class=bodySubtitle>What's coming upï¿½</span><br/>
 Over the next two weeks we'll start exploring the appeals phase by pointing out some of the common ways designers appeal decisions (both the good and the bad ways).  We'll then wrap up the series by explaining the final fixes phase and what lessons you should take away from the whole experience.
 <br/><br/>
 <A href="/tc?module=Static&d1=features&d2=041105">...continue to Section 2</A>

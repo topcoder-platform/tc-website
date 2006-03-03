@@ -9,9 +9,10 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Top Ranked Schools</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
  </HEAD>
  <BODY>
@@ -19,9 +20,9 @@
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="top_rated_algo"/>
+         </jsp:include>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
@@ -51,6 +52,12 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("School_Avg_Rating");
 pageContext.setAttribute("resultSet", rsc);
 %>
+               <div align="center" class="statText">
+                  <A href="/tc?module=AlgoRank" class="gMetal">Competitors</A> | 
+                  Schools | 
+                  <A href="/stat?c=country_avg_rating" class="gMetal">Countries</A>
+               </div>
+               <br><br>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>

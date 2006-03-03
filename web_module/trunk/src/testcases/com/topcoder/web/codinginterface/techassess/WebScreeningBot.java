@@ -109,7 +109,7 @@ public class WebScreeningBot {
                 e.printStackTrace();
             }
         }
-        
+
         errorText = "";
         shortError = "";
 
@@ -358,12 +358,12 @@ public class WebScreeningBot {
         log.info("Good Response from " + resp.getURL().toString());
         return true;
     }
-    
-    
-    
+
+
+
     private static final int COMPONENT_STATE_ID = 1710451;
     private static final int SUBMISSION_NUMBER_THRESHOLD = 900;
-    
+
     // delete submission records to avoid field overflows (submission_number, compile_count, etc)
     private void cleanup() {
         log.info("Performing cleanup...");
@@ -374,7 +374,7 @@ public class WebScreeningBot {
             e.printStackTrace();
             return;
         }
-        
+
         int submissionNumber = getSubmissionNumber(connection);
         log.info("submission_number = " + submissionNumber + ", threshold = " + SUBMISSION_NUMBER_THRESHOLD);
         if (submissionNumber >= SUBMISSION_NUMBER_THRESHOLD) {
@@ -382,18 +382,18 @@ public class WebScreeningBot {
             executeCleanupUpdate(connection, "delete from submission_class_file where component_state_id = ?;");
             executeCleanupUpdate(connection, "update component_state set submission_number = 1, compile_count = 1, test_count = 1 where component_state_id = ?;");
         }
-        
+
         try {
             connection.close();
         } catch (SQLException e) {}
         log.info("Cleanup complete");
     }
-    
+
     private Connection createConnection() throws SQLException{
         Connection connection = DBMS.getDirectConnection();
         return connection;
     }
-    
+
     private int getSubmissionNumber(Connection connection) {
         String query = "select submission_number from component_state where component_state_id = ?;";
         PreparedStatement statement = null;
@@ -419,7 +419,7 @@ public class WebScreeningBot {
         }
         return result;
     }
-    
+
     private int executeCleanupUpdate(Connection connection, String query) {
         log.info("Executing cleanup update: " + query);
         PreparedStatement statement = null;
@@ -439,7 +439,7 @@ public class WebScreeningBot {
         log.info(result + " records modified");
         return result;
     }
-    
+
     private PreparedStatement prepareStatement(Connection connection, String query) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, COMPONENT_STATE_ID);

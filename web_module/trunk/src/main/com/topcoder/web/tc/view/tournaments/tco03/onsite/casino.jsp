@@ -4,7 +4,11 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Mohegan Sun</title>
 
-<jsp:include page="../../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 
 </head>
 
@@ -19,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
+                <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->

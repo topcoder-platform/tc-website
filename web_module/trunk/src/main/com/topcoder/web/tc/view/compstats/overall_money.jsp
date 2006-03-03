@@ -15,7 +15,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="3">Highest Component Contest Overall Earners</td></tr>
-    <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR">Earnings</td></tr>
+    <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR">Earnings</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr class="<%=even?"dark":"light"%>">
@@ -27,7 +27,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> The top earners for all Design and Development contest prizes.
+<strong>Record:</strong> The top earners for all Design and Development contest prizes.  This includes royalties, contest prizes and tournament prizes but does not include reliability bonuses.
 </span>
 </div>
 </html>

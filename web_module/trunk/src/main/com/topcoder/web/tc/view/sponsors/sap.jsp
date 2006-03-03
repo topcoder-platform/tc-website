@@ -5,6 +5,9 @@
 <title>TopCoder Sponsor</title>
 
 <jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value=""/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -43,7 +45,7 @@ Can your company adapt quickly enough to respond to new challenges or seize new 
 <br><br>
 A comprehensive integration and application platform, SAP NetWeaver works with your existing IT infrastructure to enable and manage change. With SAP NetWeaver, you can flexibly and rapidly design, build, implement, and execute new business strategies and processes. The platform enables you to drive innovation throughout your organization by recomposing existing systems while maintaining a sustainable cost structure. You can also add innovative, industry-specific business processes with reduced risk to existing systems and a strong return on investment.
 <br><br>
-SAP NetWeaver unifies integration technologies into a single platform and is preintegrated with business applications, reducing the need for custom integration. The platform is based on industry standards and can be extended with commonly used development tools such as Java 2 Platform, Enterprise Edition (J2EE); Microsoft .NET; and IBM WebSphere. 
+SAP NetWeaver unifies integration technologies into a single platform and is preintegrated with business applications, reducing the need for custom integration. The platform is based on industry standards and can be extended with commonly used development tools such as Java 2 Platform, Enterprise Edition (J2EE); Microsoft .NET; and IBM WebSphere.
 <br><br>
 Learn more about SDN and SAP NetWeaver at <A href="/?t=sponsor&c=link&link=http://sdn.sap.com" target="_blank">http://sdn.sap.com</A>.
         <p><br></p>

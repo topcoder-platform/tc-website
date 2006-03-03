@@ -5,10 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <STYLE TYPE="text/css">
         #calendarTCO06
@@ -59,10 +59,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -151,7 +150,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9822&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>
         <td id="calendar">10</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">11</span><br />
@@ -159,7 +158,7 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9823&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9823">Details</A><br/><br/></td>
         <td id="calendar">12</td>
         <td id="calendar">13</td>
     </tr>
@@ -180,7 +179,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9824&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9824">Details</A><br/><br/></td>
         <td id="calendar">19</td>
         <td id="calendar">20</td>
     </tr>
@@ -197,9 +196,8 @@
             <strong>Match 304</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9825&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9825">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -213,7 +211,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign">VeriSign</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9826&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9826">Details</A><br/><br/></td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">

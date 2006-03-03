@@ -19,26 +19,13 @@
                         }
 //--></script>
 
-<br/>
-                <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
-                    <input type="hidden" name="module" value="AdvancedSearch"/>
-                    <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
-                    <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
-
-                    <tr valign="top">
-                        <td>
-                            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                                <tr>
-                                <td class="bodyText">
-                                Enter search criteria below then click the Search button. Search results matching the criteria
-                                selections will be returned. Click on a Handle to view information about the Coder.
-                                </td>
-                                </tr>
-                             </table>
-                          </tr>
-                       </td>
-                </table>
-
+<p align="left">
+<input type="hidden" name="module" value="AdvancedSearch"/>
+<input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
+<input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+Enter search criteria below then click the Search button. Search results matching the criteria
+selections will be returned. Click on a Handle to view information about the Coder.
+</p>
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" class="formFrame">
                     <tr valign="top">
                         <td colspan="2">

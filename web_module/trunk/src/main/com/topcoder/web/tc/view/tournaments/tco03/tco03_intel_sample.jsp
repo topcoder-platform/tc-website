@@ -4,8 +4,10 @@
 <head>
 <title>Official Drawing Rules for Intel&#174; Centrino&#153; Mobile Technology-based Notebook.</title>
 
-<jsp:include page="../../script.jsp" />
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>
