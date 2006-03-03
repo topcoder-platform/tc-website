@@ -28,6 +28,9 @@ public class ReviewProjectDetail extends Base {
             Request r = new Request();
             r.setContentHandle("review_project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+            int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+            getRequest().setAttribute("phase_id", new Integer(phase_id));
+
             r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
             Map results = getDataAccess().getData(r);
             ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");

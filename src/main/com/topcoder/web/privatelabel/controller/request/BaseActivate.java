@@ -5,8 +5,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.Constants;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 abstract public class BaseActivate extends RegistrationBase {
 

@@ -96,6 +96,9 @@ public class ProjectReviewApply extends Base {
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
                     Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
+            int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+            getRequest().setAttribute("phase_id", new Integer(phase_id));
+
             setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
             setNextPage(Constants.REVIEWER_TERMS);

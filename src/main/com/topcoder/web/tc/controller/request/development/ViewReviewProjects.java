@@ -8,6 +8,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -18,14 +20,22 @@ import java.util.Iterator;
  * Date: Feb 10, 2004
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
-
+    
+    private String PHASE_ID_KEY = Constants.PHASE_ID;
+    
     protected void developmentProcessing() throws TCWebException {
+        int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(PHASE_ID_KEY)));
+        if (!(phase_id == SoftwareComponent.DESIGN_PHASE || phase_id == SoftwareComponent.DEV_PHASE)) {
+            throw new TCWebException("Missing or invalid phase_id parameter (" + PHASE_ID_KEY + " expected)");
+        }
+        getRequest().setAttribute("phase_id", new Integer(phase_id));
+
         Request r = new Request();
         r.setContentHandle("review_projects");
         try {
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("review_projects");
             getRequest().setAttribute("projectList", rsc);
-
+            
             ResultSetContainer.ResultSetRow rsr = null;
             ArrayList prices = new ArrayList();
             for (Iterator it = rsc.iterator(); it.hasNext();) {
@@ -42,7 +52,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 }
             }
             getRequest().setAttribute("prices", prices);
-
+            
             RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
             Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
             if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
@@ -53,7 +63,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 getRequest().setAttribute("waitingToReview", Boolean.FALSE);
                 getRequest().setAttribute("waitingUntil", new String(""));
             }
-
+            
             //getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).get("tournament_review_projects"));
         } catch (TCWebException e) {
             throw e;
@@ -63,6 +73,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         setNextPage(Constants.REVIEW_PROJECTS);
         setIsNextPageInContext(true);
     }
-
-
+    
+    
 }

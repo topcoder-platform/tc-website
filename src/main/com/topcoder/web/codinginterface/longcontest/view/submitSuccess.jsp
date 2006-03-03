@@ -7,24 +7,26 @@
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
-<% String level2 = "topcoder";
-   String image = "long_comps_topcoder";
-    if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-        level2="topcoder_practice";
-    } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-        level2="intel_practice";
-        image = "long_comps_intel";
-    } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
-        level2="intel";
-        image = "long_comps_intel";
-    }
+<% String myNode = "long_compete";
+    String image = "long_comps_topcoder";
+     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+         myNode="long_practice";
+     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+         myNode="long_intelmtcs_practice";
+         image = "long_comps_intel";
+     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
+         myNode="long_intelmtcs_compete";
+         image = "long_comps_intel";
+     }
 %>
 
 <html>
 <head>
     <title>Submit Success</title>
-    <jsp:include page="script.jsp" />
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
@@ -36,10 +38,9 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="long_contests"/>
-                <jsp:param name="level2" value="<%=level2%>"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%=myNode%>"/>
+         </jsp:include>
         </td>
         <%-- Left Column Ends --%>
 

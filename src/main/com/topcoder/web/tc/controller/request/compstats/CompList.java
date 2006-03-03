@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
@@ -34,14 +35,14 @@ public class CompList extends Base {
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-            String phaseId = StringUtils.checkNull(getRequest().getParameter("pi"));
+            String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
 
             if (!"112".equals(phaseId) && !"113".equals(phaseId)) {
-                throw new TCWebException("Invalid phase_id (pi parameter)");
+                throw new TCWebException("Invalid phase_id (" + Constants.PHASE_ID + ") parameter)");
             }
 
             if ("".equals(numRecords)) {

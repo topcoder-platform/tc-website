@@ -43,4 +43,3 @@ public abstract class ResumeRegSubmit extends FullRegSubmit {
     protected abstract void handleActivation(SimpleRegInfo info, long userId) throws TCWebException;
 
 }
-

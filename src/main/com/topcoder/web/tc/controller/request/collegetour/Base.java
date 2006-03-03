@@ -56,7 +56,6 @@ abstract public class Base extends BaseProcessor {
                 getRequest().setAttribute(Constants.SCHOOL_ID, String.valueOf(schoolId));
                 getRequest().setAttribute(Constants.SCHOOL_NAME, rsc.getStringItem(0, "school_name"));
                 getRequest().setAttribute(Constants.ROUND_NAME, rsc.getStringItem(0, "round_name"));
-                getRequest().setAttribute(Constants.TIMEZONE, rsc.getStringItem(0, "timezone_desc"));
                 codingStart = (Timestamp)rsc.getItem(0, "coding_start").getResultData();
                 sysTestEnd = (Timestamp)rsc.getItem(0, "sys_test_end").getResultData();
                 regStart = (Timestamp)rsc.getItem(0, "reg_start").getResultData();
@@ -97,8 +96,8 @@ abstract public class Base extends BaseProcessor {
             }
 
             long startDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
-            long endDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_END_PROP_ID))));
-            long resultsDelta = Integer.parseInt(((String)map.get(new Integer(Constants.RESULTS_PROP_ID))));
+            long endDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
+            long resultsDelta = Integer.parseInt(((String)map.get(new Integer(Constants.EVENT_START_PROP_ID))));
 
             map.put(new Integer(Constants.EVENT_START_PROP_ID), new Timestamp(codingStart.getTime()+(startDelta*1000*60)));
             map.put(new Integer(Constants.EVENT_END_PROP_ID), new Timestamp(codingStart.getTime()+(endDelta*1000*60)));

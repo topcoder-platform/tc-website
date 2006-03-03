@@ -20,7 +20,7 @@ public class TCO06ComponentTerms extends TCO06AlgorithmTerms {
 
     public Calendar getEnd() {
         Calendar end = Calendar.getInstance();
-        end.set(2006, Calendar.FEBRUARY, 19, 9, 0);
+        end.set(2006, Calendar.FEBRUARY, 15, 9, 0);
         return end;
     }
 

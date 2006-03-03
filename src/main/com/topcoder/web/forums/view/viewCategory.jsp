@@ -17,7 +17,7 @@
                  java.util.Iterator,
                  java.util.Enumeration"
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -82,9 +82,10 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="script.jsp" />
+    <jsp:include page="script.jsp" />
+        <jsp:include page="/style.jsp">
+          <jsp:param name="key" value="tc_forums"/>
+        </jsp:include>
 
 </head>
 
@@ -100,9 +101,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
-                <jsp:param name="level1" value="forums"/>
-                <jsp:param name="level2" value="<%=forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
-                <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
+               <jsp:param name="node" value="forums"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -118,18 +117,20 @@
     
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td nowrap="nowrap" valign="top">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
        <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
-<tr>
-    <td><b>
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
         <%  if (category.getID() != forumCategory.getID()) { %>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
         <%  } else { %>
             <jsp:getProperty name="category" property="name"/>
         <%  } %> 

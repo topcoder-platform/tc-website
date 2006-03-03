@@ -62,14 +62,19 @@ public abstract class ForumsProcessor extends BaseProcessor {
                     isCategoryRead = false;
                 }
             }
+            if (category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) == null) {
+                log.debug("cateogry nav name is null " + category.getDescription());
+            }
             if (!isCategoryRead && category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) != null) {
                 unreadCategories.append(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)).append(',');
             }
         }
         if (unreadCategories.length() > 0) {
+            log.debug("unread:" + unreadCategories);
             getRequest().setAttribute("unreadCategories", 
                     unreadCategories.substring(0,unreadCategories.length()-1));
         } else {
+            log.debug("no unread categories");
             getRequest().setAttribute("unreadCategories", "");
         }
     }

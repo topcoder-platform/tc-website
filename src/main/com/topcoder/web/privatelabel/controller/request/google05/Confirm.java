@@ -2,16 +2,9 @@ package com.topcoder.web.privatelabel.controller.request.google05;
 
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author  dok

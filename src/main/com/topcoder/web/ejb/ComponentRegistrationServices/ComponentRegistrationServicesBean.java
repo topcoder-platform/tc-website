@@ -8,7 +8,6 @@ import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -518,4 +517,3 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     }
 }
-

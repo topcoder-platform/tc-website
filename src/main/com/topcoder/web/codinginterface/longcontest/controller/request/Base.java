@@ -74,6 +74,7 @@ public abstract class Base extends BaseProcessor {
     }
 
 
+
     protected void loadSponsorImage() throws Exception {
         log.debug("loadSponsorImage called...");
         String round = getRequest().getParameter(Constants.ROUND_ID);
@@ -304,5 +305,6 @@ public abstract class Base extends BaseProcessor {
             return !((ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, false).getData(r).get("round_exists")).isEmpty();
         }
     }
+
 }
 

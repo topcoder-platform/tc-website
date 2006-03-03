@@ -42,7 +42,7 @@ public class Main extends ForumsProcessor {
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
         }
-        
+
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
         getRequest().setAttribute("forumFactory", forumFactory);

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -49,13 +49,14 @@
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOff">Confirm</div>
          <div class="regBreadOn">Success</div>
+         <div class="regBreadOff">Activation</div>
       </td>
       <td valign="top" width="100%">
 
           You have successfully updated your account.
 
-         
-         <br><br><br><br><br><br><br><br><br><br><br><br><br>
+         <br><br>
+         <br><br><br><br><br>
          </td>
          </tr>
          </table>

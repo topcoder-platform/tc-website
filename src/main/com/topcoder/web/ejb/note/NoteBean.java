@@ -408,4 +408,3 @@ public class NoteBean extends BaseEJB {
 
 
 }
-

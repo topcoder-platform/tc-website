@@ -22,7 +22,6 @@ import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -211,9 +210,9 @@ public class ForumsUtil {
         }
         return null;
     }
-    
+
     // Returns forums in a category, with empty forums omitted or placed at the list's end.
-    public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter, 
+    public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyForums) {
         Iterator itForums = forumCategory.getForums(resultFilter);
         ArrayList forumsList = new ArrayList();
@@ -231,7 +230,7 @@ public class ForumsUtil {
         }
         return forumsList;
     }
-    
+
     // Returns one page of forums in a category
     public static ArrayList getForumsPage(ArrayList forumsList, int startIdx, int forumRange) {
         int endIdx = Math.min(startIdx+forumRange, forumsList.size());
@@ -241,7 +240,7 @@ public class ForumsUtil {
         }
         return pageList;
     }
-    
+
     // Returns the forum object's category hierarchy by increasing depth, starting from the root level.
     public static Iterator getCategoryTree(ForumCategory category) {
         ArrayList categoryList = new ArrayList();
@@ -260,7 +259,7 @@ public class ForumsUtil {
     public static Iterator getCategoryTree(ForumMessage message) {
         return getCategoryTree(message.getForum().getForumCategory());
     }
-    
+
     public static String display(int numItems, String itemName) {
         StringBuffer ret = new StringBuffer();
         ret.append(numItems);
@@ -271,7 +270,7 @@ public class ForumsUtil {
         }
         return ret.toString();
     }
-    
+
     public static boolean displayMemberPhoto(User user, User author) {
         boolean displayPhoto = true;
         if (user != null && "false".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) {
@@ -282,18 +281,18 @@ public class ForumsUtil {
         }
         return true;
     }
-    
+
     public static String createTextAreaBody(String body) {
         body = StringUtils.escapeHTMLTags(body);
         body = StringUtils.replace(body, "\"", "&quot;");
         return body;
     }
-    
+
     public static boolean isAdmin(User user) {
         if (user == null) return false;
         return user.isAuthorized(Permissions.SYSTEM_ADMIN);
     }
-    
+
     public static byte[] asciiGetBytes(String s) {
         int size = s.length();
         byte[] result = new byte[size];
@@ -302,25 +301,25 @@ public class ForumsUtil {
         }
         return result;
     }
-    
+
     public static boolean highlightPost(User user, double pct, double ratingCount) {
-        return (user != null && 
+        return (user != null &&
                 user.getProperty("ratingHighlightThreshold") != null &&
                 user.getProperty("ratingHighlightMinCount") != null &&
-                pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) && 
+                pct >= Integer.parseInt(user.getProperty("ratingHighlightThreshold")) &&
                 ratingCount >= Integer.parseInt(user.getProperty("ratingHighlightMinCount")));
     }
-    
+
     public static boolean collapsePost(User user, double pct, double ratingCount, double messageCount) {
-        return (user != null && 
+        return (user != null &&
                 user.getProperty("ratingCollapseThreshold") != null &&
                 user.getProperty("ratingCollapseMinCount") != null &&
                 user.getProperty("ratingCollapseMinMessages") != null &&
-                pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) && 
+                pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) &&
                 ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
                 messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
     }
-    
+
     public static boolean showRatings(User user) {
         boolean defaultRatingsEnabled = JiveGlobals.getJiveBooleanProperty("tc.default.ratings.enabled", true);
         if (defaultRatingsEnabled) {
@@ -328,7 +327,7 @@ public class ForumsUtil {
             return !("false".equals(user.getProperty("showRatings")));
         } else {
             // only users with explicitly chosen user setting see ratings
-            return "true".equals(user.getProperty("showRatings"));   
+            return "true".equals(user.getProperty("showRatings"));
         }
     }
 }
