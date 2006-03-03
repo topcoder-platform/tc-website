@@ -35,6 +35,7 @@
             <jsp:param name="title" value="Tournaments"/>
         </jsp:include>
 
+
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">02.28.06 7:00 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tco06&d3=alg_qualification&c=tco06_alg_qual&trans=true">TCO06 Algorithm Qualification Round Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.28.06 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_qual_byes">TCO06 Algorithm Competition Qualification Byes</A></td></tr>

@@ -12,7 +12,6 @@
       Now you can rate Forum posts with a +1 or -1.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505929" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
