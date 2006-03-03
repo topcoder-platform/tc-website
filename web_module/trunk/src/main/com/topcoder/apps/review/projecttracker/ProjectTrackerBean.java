@@ -39,6 +39,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.project.phases.TCPhase;
 import com.topcoder.apps.review.TCWorkdays;
 
+
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
@@ -588,8 +589,8 @@ public class ProjectTrackerBean implements SessionBean {
                                     "winner_id, overview, " +
                                     "notes, project_type_id, project_stat_id, notification_sent, " +
                                     "modify_user, modify_reason, level_id, autopilot_ind, " +
-                                    "cur_version) VALUES " +
-                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                                    "cur_version, rating_date) VALUES " +
+                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, (select end_date from phase_instance where cur_version = 1 and phase_id = 1 and project_id = ?))");
 
                     PhaseInstance[] piArr = project.getTimeline();
                     currentPhase = project.getCurrentPhase();
@@ -647,6 +648,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setString(11, reason);
                     ps.setLong(12, project.getLevelId());
                     ps.setBoolean(13, project.getAutoPilot());
+                    ps.setLong(14, project.getId());
                     int nr = ps.executeUpdate();
 
                     Common.close(ps);
@@ -2904,30 +2906,20 @@ public class ProjectTrackerBean implements SessionBean {
                 throw new EJBException("Couldn't get min score from config", e);
             }
             while (rsScores.next()) {
-                //todo this code doesn't handle ties.   it should, for both place and money
+                //the query above is first ordering by score, then by the number of submissions they beat.
+                //that is being used as the tie breaker.  if there is still a tie, then we have a problem.
                 double money = rsScores.getLong("price");
                 double score = rsScores.getDouble("score");
 
-                //increment place
-                place = place + 1;
-                if (place == 2) {
-                    money = Math.round((money * .5));
-                } else if (place != 1 || score < minScore) {
-                    money = 0;
-                }
-
-                //score
-                psInsertScores.setDouble(1, score);
-
-                //place
+                place++;
                 if (score < minScore) {
-                    psInsertScores.setNull(2, Types.INTEGER);
                     money = 0;
-                } else {
-                    psInsertScores.setInt(2, place);
+                } else if (place==2) {
+                    money = Math.round((money * .5));
                 }
-
-                //money
+                
+                psInsertScores.setDouble(1, score);
+                psInsertScores.setInt(2, place);
                 psInsertScores.setDouble(3, money);
                 psInsertScores.setLong(4, rsScores.getLong("submitter_id"));
                 psInsertScores.setLong(5, projectId);

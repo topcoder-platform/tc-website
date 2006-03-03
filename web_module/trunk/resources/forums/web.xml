@@ -56,6 +56,16 @@
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
     </taglib>
+    <taglib>
+        <taglib-uri>nav.tld</taglib-uri>
+        <taglib-location>/WEB-INF/nav.tld</taglib-location>
+    </taglib>
+
+    <error-page>
+         <error-code>404</error-code>
+         <location>/errorPage.jsp</location>
+    </error-page>
+
 
     <error-page>
          <error-code>404</error-code>
