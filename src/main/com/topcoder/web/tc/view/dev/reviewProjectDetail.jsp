@@ -186,7 +186,7 @@
                 <tr>
                     <td class="bodyText">
                     <p align="left">**** You may only apply for a new component review every six hours..</p>
-                    <p align="left"><a href="/tc?module=ViewReviewProjects">View all projects</a></p>
+                    <p align="left"><a href="/tc?module=ViewReviewProjects&amp;<%=Constants.PHASE_ID%>=<%=phase_id%>">View all projects</a></p>
                     </td>
                 </tr>
             </table>
