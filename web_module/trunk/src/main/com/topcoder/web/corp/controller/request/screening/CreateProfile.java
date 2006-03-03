@@ -51,10 +51,9 @@ public class CreateProfile extends BaseSessionProcessor {
             throw(new TCWebException(e));
         }
 
-        String going =buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null);
-
-        log.debug("going to " + going);
-        setNextPage(going);
+        setNextPage("testing" + "?" +
+                Constants.MODULE_KEY + "=" +
+                Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
     }
 }
