@@ -107,6 +107,8 @@
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=terms", "Terms, Revisions", "tc_terms"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=privacy", "Privacy Policy", "tc_privacy"));
 
+    request.setAttribute("tree", nav);
+
 %>
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 
@@ -139,4 +141,4 @@ function flipMenu(myMenuName){
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 <jsp:include page="/includes/modules/simpleSearch.jsp"/>
 </div>
-<div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div
+<div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
