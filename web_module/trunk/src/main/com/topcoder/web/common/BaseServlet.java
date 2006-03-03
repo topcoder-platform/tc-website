@@ -158,6 +158,7 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException();
                     }
 
+                    log.debug("path " + PATH);
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
