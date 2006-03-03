@@ -8,7 +8,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.03.06<br>11:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.03.06<br>12:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_030306">UBS TCO06 Sponsorship Press Release</A></span><br><br>
       "Financial Services Leader Becomes First Wall Street Firm to Participate at Premier Level with Top Global Coding Competition."
       </td>
