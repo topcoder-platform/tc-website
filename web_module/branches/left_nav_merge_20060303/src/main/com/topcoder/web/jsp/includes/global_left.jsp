@@ -107,8 +107,6 @@
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=terms", "Terms, Revisions", "tc_terms"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=privacy", "Privacy Policy", "tc_privacy"));
 
-<script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
-
 %>
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 
