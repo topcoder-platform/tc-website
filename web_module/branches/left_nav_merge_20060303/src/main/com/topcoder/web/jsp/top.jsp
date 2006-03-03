@@ -182,4 +182,4 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
    <%}%>
                &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
    </div>
-</div>>>>>>>> 1.56.2.16
+</div>

@@ -268,7 +268,6 @@
             <p class="regmiddle">All contestants will only be allowed to win once during the competitions.  We will monitor all contestants
             to ensure their eligibility, and that they have not won in any of the prior competitions during the 2004 JavaOne Coding Challenge.</p>
 
->>>>>>> 1.7.46.3
             <p class="regmiddle"><strong>Conditions of Participation</strong><br/>
 			By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder and Sun Microsystems,
 			which are final, binding and conclusive in all matters.</p>
