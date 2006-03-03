@@ -48,7 +48,7 @@ public class CreateProfile extends BaseSessionProcessor {
             throw(new TCWebException(e));
         }
 
-        setNextPage(buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null));
+        setNextPage("?"+Constants.MODULE_KEY+"="+Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
     }
 }
