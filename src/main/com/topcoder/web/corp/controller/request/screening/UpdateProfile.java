@@ -37,7 +37,8 @@ public class UpdateProfile extends BaseProfileProcessor {
             try {
                 getRequest().setAttribute(Constants.PROFILE_INFO, info);
                 if (!validateProfileInfo()) {
-                    setNextPage(buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null));
+                    setNextPage("testing" + "?" +
+                Constants.MODULE_KEY + "=" +Constants.POPULATE_PROFILE_PROCESSOR);
                     setIsNextPageInContext(true);
                     return;
                 }

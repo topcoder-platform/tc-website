@@ -45,7 +45,8 @@ public class UpdateSession extends BaseSessionProcessor {
                 //validate the info just in case someone tries to skip over
                 //setup page and commit no info from confirm page
                 if (!validateSessionInfo()) {
-                    setNextPage(buildProcessorURL(Constants.POPULATE_SESSION_PROCESSOR, null));
+                    setNextPage("testing" + "?" +
+                Constants.MODULE_KEY + "=" +Constants.POPULATE_SESSION_PROCESSOR);
                     setIsNextPageInContext(true);
                     return;
                 }
