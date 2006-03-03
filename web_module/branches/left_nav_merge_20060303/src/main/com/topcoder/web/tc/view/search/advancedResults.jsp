@@ -13,7 +13,10 @@
 
 <title>Member Search Results at TopCoder</title>
 
-<jsp:include page="../script.jsp"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <script language="JavaScript"><!--
   function next() {
@@ -42,10 +45,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="search"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="competitor_search"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -54,18 +56,21 @@
     <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
- <td class="bodyText"><img src="/i/clear.gif" width="510" height="10"border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="statisticsw"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Member Search Results"/>
-         </jsp:include>
+<td class="bodyText" style="padding:0px 10px 0px 10px;" align="center">
+
+<div style="width: 600px;">
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Find a Competitor"/>
+</jsp:include>
 
                       <form name="searchForm" method="get">
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
                           <jsp:include page="results.jsp"/>
                       </form>
+         <br><br>
+</div>
         </td>
 
 

@@ -175,6 +175,7 @@ public class Submit extends Base {
                     // Any code in the DB?
                     if (!lastCompilation.isEmpty()) {
                         code = lastCompilation.getStringItem(0, "compilation_text");
+
                     }
                     // put the updated values back into request
                     request.setAttribute(Constants.CODE, code);
@@ -281,6 +282,7 @@ public class Submit extends Base {
                 showProcessingPage();
 
                 try {
+
 
                     // Get the compilation response
                     LongCompileResponse res = receive(30 * 1000, uid, cid);
@@ -397,8 +399,10 @@ public class Submit extends Base {
             log.error("Error isUserRegistered user: " + userID + " for round: "
                     + roundID, e);
             throw e;
+
         }
         return ret;
+
     }
 
 

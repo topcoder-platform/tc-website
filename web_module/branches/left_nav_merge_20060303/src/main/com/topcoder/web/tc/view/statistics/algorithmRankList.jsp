@@ -7,9 +7,13 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
  <% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
 <html>
- <head>
-   <title>TopCoder Statistics - Coder Rankings</title>
-   <jsp:include page="../script.jsp" />
+<head>
+<title>TopCoder Statistics - Coder Rankings</title>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 <script type="text/javascript">
 function submitEnter(e) {
     var keycode;
@@ -43,10 +47,9 @@ function submitEnter(e) {
    <table width="100%" border="0" cellpadding="0" cellspacing="0">
      <tr>
        <td width="180" valign="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="coder_ratings"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="top_rated_algo"/>
+         </jsp:include>
        </td>
        <td width="10" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
        <td class="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" border="0"><BR/>
@@ -70,6 +73,13 @@ function submitEnter(e) {
                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
+
+               <div align="center" class="statText">
+                  Competitors | 
+                  <A href="/stat?c=school_avg_rating" class="gMetal">Schools</A> | 
+                  <A href="/stat?c=country_avg_rating" class="gMetal">Countries</A>
+               </div>
+               <br><br>
                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                  <tr>
                     <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
@@ -83,11 +93,11 @@ function submitEnter(e) {
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>" class="statText">Rank</a>
                    </td>
                    <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
-				   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Handle</a>
-				   </td>
+               <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Handle</a>
+               </td>
                    <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%">
-				   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Rating</a>
-				   </td>
+               <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Rating</a>
+               </td>
                    <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                  </tr>
 
@@ -113,7 +123,7 @@ function submitEnter(e) {
                    </td>
                  </tr>
                </table>
-			   </form>
+            </form>
              </td>
            </tr>
          </table>

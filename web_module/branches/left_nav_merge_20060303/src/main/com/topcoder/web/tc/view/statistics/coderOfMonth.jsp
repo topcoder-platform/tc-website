@@ -8,10 +8,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <% ResultSetContainer results = (ResultSetContainer)((Map)request.getAttribute("resultMap")).get("com_history"); %>
 
 </head>
@@ -25,12 +24,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="coder_of_month"/>
-			</jsp:include>
-		</td>
+      <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="coder_of_month"/>
+         </jsp:include>
+      </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->

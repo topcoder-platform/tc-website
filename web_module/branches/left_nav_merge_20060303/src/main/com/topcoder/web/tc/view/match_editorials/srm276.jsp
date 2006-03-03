@@ -7,11 +7,11 @@
 <head>
 <title>TopCoder Statistics</title>
 
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <jsp:include page="../script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
 </head>
-
 <body>
 
 <jsp:include page="../top.jsp" >
@@ -21,12 +21,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 <!-- Left Column Begins-->
-    <td width="180">
-    <jsp:include page="../includes/global_left.jsp">
-      <jsp:param name="level1" value="statistics"/>
-      <jsp:param name="level2" value="match_editorials"/>
-    </jsp:include>
-    </td>
+    <td width="180">	<jsp:include page="/includes/global_left.jsp">
+		<jsp:param name="node" value="algo_match_editorials"/>
+	</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->

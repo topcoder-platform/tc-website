@@ -4,7 +4,10 @@
 <head>
 <title>Tutor Transcripts</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="tutor_transcripts"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="tutor_trans"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -32,8 +34,8 @@
 
             <h2>SRM 208 Tutor Transcript</h2>
 
-			<table width="100%" border="0" cellspacing="0" class=bodyText>
-				<tr><td class=tutorHeader>Handle</td><td width="100%" class=tutorHeader>Comment</td></tr>
+         <table width="100%" border="0" cellspacing="0" class=bodyText>
+            <tr><td class=tutorHeader>Handle</td><td width="100%" class=tutorHeader>Comment</td></tr>
 <tr><td class=tutorOdd><b>Ryan</b></td><td class=tutorOdd>Hello</td></tr>
 <tr><td class=tutorEven><b>Bbazzarrakk</b></td><td class=tutorEven>Howdy.</td></tr>
 <tr><td class=tutorOdd><b>Dan[Popovici]</b></td><td class=tutorOdd>anyones cares to explain a solution for the Div 1 - 1000 ?</td></tr>
@@ -399,7 +401,7 @@
 
 
 
-			</table>
+         </table>
 
         </div>
         <p><br/></p>

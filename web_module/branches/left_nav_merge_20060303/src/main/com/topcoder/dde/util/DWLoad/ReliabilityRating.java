@@ -72,6 +72,7 @@ public class ReliabilityRating {
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
+            c.setAutoCommit(true);
 
             int incExMarked = tmp.markForInclusionAndExclusion(c);
             Set developers = tmp.getIncludedUsers(c, 113);
@@ -122,6 +123,7 @@ public class ReliabilityRating {
     public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
         //System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
         int ret = 0;
+
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         PreparedStatement insert = null;
@@ -483,6 +485,7 @@ public class ReliabilityRating {
     }
 
 
+
     /**
      * this first query is for projects before our reliability rule change.
      * in this case, anyone that has made a submission where reliabilty was in effect
@@ -522,6 +525,7 @@ public class ReliabilityRating {
             " and pr.project_id = p.project_id" +
             " and p.cur_version = 1" +
             " and p.project_type_id+111=?";
+
 
     private Set getIncludedUsers(Connection conn, long phaseId) throws SQLException {
 
@@ -607,6 +611,7 @@ public class ReliabilityRating {
             close(ps2);
         }
         return ret;
+
 
     }
 
@@ -705,6 +710,7 @@ public class ReliabilityRating {
     private int markForInclusionAndExclusion(Connection conn) throws SQLException {
 
 
+
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
@@ -721,6 +727,7 @@ public class ReliabilityRating {
             ps2 = conn.prepareStatement(getUnmarked);
             ps2.setInt(1, MIN_PASSING_SCORE);
             rs = ps2.executeQuery();
+
 
             ps3 = conn.prepareStatement(setReliability);
             while (rs.next()) {
@@ -788,11 +795,13 @@ public class ReliabilityRating {
                 ret[RELIABLE_COUNT_IDX]+=rs.getInt("reliability_ind");
                 if (rs.getString("reliability_ind")!=null) {
                     ret[MARKED_COUNT_IDX]++;
+
                 }
             }
         } finally {
             close(rs);
             close(ps);
+
         }
         return ret;
     }
@@ -836,8 +845,8 @@ public class ReliabilityRating {
             } catch (Exception ignore) {
                 ignore.printStackTrace();
             }
-        }
 
+        }
     }
 
     protected void close(PreparedStatement ps) {
@@ -850,6 +859,4 @@ public class ReliabilityRating {
         }
 
     }
-
-
 }

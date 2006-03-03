@@ -4,7 +4,11 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Summary - Component Final Round</title>
 
-<jsp:include page="../../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 
 </head>
 
@@ -17,10 +21,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
+        <td width="180">            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -57,7 +59,7 @@
 
             <h2>Pops is tops!</h2>
 
-            <p>by <A href="/tc?module=MemberProfile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            <p>by <A href="/tc?module=MemberProfile&cr=296145">srowen</A>, <em>TopCoder Member</em><br />
             Friday, December 5, 2003</p>
 
 <p>TCO COMPONENT DESIGN FINALS</p>
@@ -219,7 +221,7 @@ round and the reviewers unanimously named him the winner.</p>
 
             <h2>rnielsen crowned development champ</h2>
 
-            <p>by <A href="/tc?module=MemberProfile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            <p>by <A href="/tc?module=MemberProfile&cr=296145">srowen</A>, <em>TopCoder Member</em><br />
             Friday, December 5, 2003</p>
 
 <p>TCO COMPONENT DEVELOPMENT FINALS</p>

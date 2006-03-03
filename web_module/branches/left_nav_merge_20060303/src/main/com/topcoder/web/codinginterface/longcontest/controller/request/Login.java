@@ -112,6 +112,7 @@ public class Login extends Base {
 
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
+
         }
 
         String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -152,6 +153,7 @@ public class Login extends Base {
         result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
+
     }
 
 }

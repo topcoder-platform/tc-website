@@ -301,6 +301,7 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         return createUser(username, password, requestor, DATA_SOURCE);
     }
+
     public void removeUser(UserPrincipal user, TCSubject requestor)
             throws GeneralSecurityException {
         removeUser(user, requestor, DATA_SOURCE);

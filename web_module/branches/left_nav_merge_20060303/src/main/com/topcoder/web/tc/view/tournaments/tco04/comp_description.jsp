@@ -33,30 +33,30 @@
                 <li><strong>Onsite Review of Competition</strong><br />
                     November 12, 2004 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
                 <li><strong>Free Competition</strong><br />
-                <a href="/tc?module=ViewActiveContests">View eligible components</a></li>
+                <a href="/tc?module=ViewActiveContests&ph=112">View eligible components</a></li>
                 <li><strong>Open to all registered TopCoder members over the age of 18.</strong></li>
             </ul>
-            
+
             <p>See the official rules and regulations for more details.</p>
 
          <p><br/></p>
-            
+
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco04"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

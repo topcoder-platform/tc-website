@@ -11,10 +11,11 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Component Rating History</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="baseHRef.jsp" />
-   <jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
@@ -22,9 +23,9 @@
      <TR valign="top">
         <TD WIDTH="180">
 <!-- Left nav begins -->
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="m_competitor_stats"/>
+</jsp:include>
 <!-- Left nav ends -->
         </TD>
 

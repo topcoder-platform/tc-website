@@ -13,9 +13,10 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 <HTML>
 <HEAD>
    <TITLE>TopCoder Statistics - All-Time Wins</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <SCRIPT language="JavaScript">
 <!--
 function goTo(selection){
@@ -34,10 +35,9 @@ function goTo(selection){
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="quick_stats"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_recordbook"/>
+         </jsp:include>
         </TD>
 
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

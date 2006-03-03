@@ -3,11 +3,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<jsp:include page="/script.jsp" />
 
 <title>2006 TopCoder Open - Logo Design Contest</title>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 <style type="text/css">
 .pageSpacer
@@ -33,12 +34,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
-            </jsp:include>
-        </td>
+        <td width="180"><jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="topcoder_tournaments"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
