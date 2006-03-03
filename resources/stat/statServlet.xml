@@ -39,6 +39,8 @@
         <QuickStatItem url="/stat?c=most_consecutive_wins">Consecutive Wins</QuickStatItem>
         <QuickStatItem url="/stat?c=highest_accuracy">Submission Accuracy</QuickStatItem>
         <QuickStatItem url="/stat?c=best_challengers">Challenge Success</QuickStatItem>
+        <QuickStatItem url="/stat?c=division_wins">Division Wins</QuickStatItem>
+
     </QuickStatList>
     <ContentList>
         <ContentItem contentHandle="all_time_wins" nextPage="/statistics/allTimeWins.jsp" access="0"/>
@@ -72,6 +74,8 @@
         <ContentItem contentHandle="top_developers" nextPage="/statistics/topRankedDevelopers.jsp" access="0"/>
         <ContentItem contentHandle="consecutive_rating_increases" nextPage="/statistics/consecutiveRatingIncreases.jsp" access="0"/>
         <ContentItem contentHandle="reliability_history" nextPage="/statistics/reliabilityHistory.jsp" access="1"/>
+        <ContentItem contentHandle="division_wins" nextPage="/statistics/division_wins.jsp" access="0"/>
+        <ContentItem contentHandle="srm_division_wins" nextPage="/statistics/srm_division_wins.jsp" access="0"/>
     </ContentList>
     <GlobalError nextPage="/errorPage.jsp"/>
 </StatServlet>
