@@ -203,6 +203,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            TopCoder Names UBS as Premier Sponsor of 2006 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_030306">...more</A><br>[March 3]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="88" height="10" alt="Spartan Daily" border="0" /></div>
             SJSU codes a win <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">...more</A><br>[February 16]<br><br>
             
@@ -214,10 +216,7 @@ margin:0px auto;
             TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
 
             TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series <A href="/tc?module=Static&d1=pressroom&d2=pr_012306">...more</A><br>[January 23]<br><br>
-            
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="The Java Posse" border="0" /></div>
-            Java Posse - Bill Goggin interview [PODCAST] <A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">...more</A><br>[January 20]<br><br>
-                            
+                                        
             </td>
          </tr>
       </table>
