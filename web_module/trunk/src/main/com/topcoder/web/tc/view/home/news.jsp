@@ -5,6 +5,18 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+<%-------------------GENERAL TC NEWS-------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.02.06<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Ratings added to Forums</span><br><br>
+      Now you can rate Forum posts with a +1 or -1.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505929" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.02.06<br>7:00 PM</td>
@@ -171,18 +183,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.15.06<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">TCO06 Developer Forums Announced</A></span><br><br>
-      Check out the Developer Forums to be held during the TCO06 Tournament.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=dev_forums">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505920" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
 
 </table>
