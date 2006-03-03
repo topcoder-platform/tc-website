@@ -20,11 +20,8 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.utilities.forumConvert.ForumMessage;
 
 import java.util.Iterator;
 import java.util.ArrayList;
