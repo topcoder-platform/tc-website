@@ -22,14 +22,12 @@
       <td valign=top align=center>
       <div class=bodySpacer>
             
-<span class="bigTitle">Pick Me Contest</span>
-<br><br>
 <span class="bodySubtitle">Why do YOU deserve a trip to the finals in Las Vegas?</span>
 <br><br>
 Did you miss out on making it as a TCO finalist?  Still want to see the finals in Las Vegas anyway?  Here's your chance!
 <br><br>
 <span class="bodySubtitle">The contest:</span><br/>
-Write to us and tell us why you'd be a good candidate to come to Las Vegas and blog about the 2006 TopCoder¨ Open, Sponsored by AMD.  We want someone to join us at the finals and give a member's perspective on the competition, the atmosphere, and the city.  You'll win a trip to Las Vegas, as well as have your blog posted on the TCO website for everyone to read.  
+Write to us and tell us why you'd be a good candidate to come to Las Vegas and blog about the 2006 TopCoder&reg; Open, Sponsored by AMD.  We want someone to join us at the finals and give a member's perspective on the competition, the atmosphere, and the city.  You'll win a trip to Las Vegas, as well as have your blog posted on the TCO website for everyone to read.  
 <br><br>
 <span class="bodySubtitle">Who can compete:</span><br/>
 In order to be eligible, you must be a registered TopCoder member who is 18 years of age or older as of May 1, 2006.  
