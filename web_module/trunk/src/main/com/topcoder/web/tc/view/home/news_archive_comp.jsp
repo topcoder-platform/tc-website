@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -40,7 +41,7 @@
 <tr class="bodyText"><td nowrap="nowrap">01.11.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Design Review Scorecard Changes</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.08.05 11:25 AM - </td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_110805">TopCoder Software chat session from SRM 271</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.07.05 5:30 PM - </td><td width="100%">TopCoder Software chat session scheduled for SRM 271</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">10.27.05 11:05 AM - </td><td width="100%"><A href="/tc?module=CompList&pi=112">Design</A> and <A href="/tc?module=CompList&pi=113">Development</A> Contest Lists, Scorecard Details</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">10.27.05 11:05 AM - </td><td width="100%"><A href="/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=112">Design</A> and <A href="/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=113">Development</A> Contest Lists, Scorecard Details</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.05.05 9:25 AM - </td><td width="100%">Reliability Rating changes</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.26.05 3:00 PM - </td><td width="100%">Software Royalties updated in Member Profiles</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.17.05 8:00 PM - </td><td width="100%">New Statistics: Component Contest Details</td></tr>

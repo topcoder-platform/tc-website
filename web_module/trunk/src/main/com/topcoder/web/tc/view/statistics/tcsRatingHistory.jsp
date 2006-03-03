@@ -3,6 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
 
 %>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -59,7 +60,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
     &#160;|&#160;Rating History
-    &#160;|&#160;<A HREF="/stat?pi=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+    &#160;|&#160;<A HREF="/stat?<%=Constants.PHASE_ID%>=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
     </span>
 
 <% } else { %>
@@ -70,7 +71,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
     &#160;|&#160;Rating History
-    &#160;|&#160;<A HREF="/stat?pi=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+    &#160;|&#160;<A HREF="/stat?<%=Constants.PHASE_ID%>=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
     </span>
 
 <% } %>
@@ -116,7 +117,7 @@ if (srb.getProperty("sq")!=null){
   sortString+="&sc=" + srb.getProperty("sc");
   sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
-String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&pi=" + srb.getProperty("pi");
+String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&amp;"+Constants.PHASE_ID+"=" + srb.getProperty("pi");
 %>
 
     <% if (!bEmpty) { %>

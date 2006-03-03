@@ -3,6 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
 
 %>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -60,7 +61,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-&#160;|&#160;<A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
+&#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
 &#160;|&#160;Earnings History
 </span>
 
@@ -71,7 +72,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-&#160;|&#160;<A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
+&#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
 &#160;|&#160;Earnings History
 </span>
 
@@ -123,7 +124,7 @@ if (srb.getProperty("sq")!=null){
    sortString+="&sc=" + srb.getProperty("sc");
    sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
-String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+srb.getProperty("cr")+"&sq=component_history";
+String sSortUrl = "/stat?c=component_history&amp;"+Constants.PHASE_ID+"="+srb.getProperty("pi")+ "&cr="+srb.getProperty("cr")+"&sq=component_history";
 %>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" WIDTH="100%">
@@ -131,13 +132,13 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
       <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-         <a href="/stat?c=component_history&pi=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
+         <a href="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
          &lt;&lt; previous
       <% } %>
          &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-         <a href="/stat?c=component_history&pi=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
+         <a href="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
          next &gt;&gt;
       <% } %>
@@ -197,13 +198,13 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
       <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-         <a href="/stat?c=component_history&pi=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
+         <a href="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
          &lt;&lt; previous
       <% } %>
          &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-         <a href="/stat?c=component_history&pi=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
+         <a href="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=srb.getProperty("pi")%>&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
          next &gt;&gt;
       <% } %>

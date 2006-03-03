@@ -3,6 +3,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
 
 %>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -81,14 +82,14 @@ pageContext.setAttribute("resultRow", rsr);
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                      <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
-                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
+                     <A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
                      |
-                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
+                     <A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
                      |
 
-                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
+                     <A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
                      |
-                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
+                     <A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
                      |
                      <strong>Reliability Rating</strong>
                                 </TD>
