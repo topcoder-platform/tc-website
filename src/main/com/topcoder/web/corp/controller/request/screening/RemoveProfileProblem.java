@@ -16,9 +16,7 @@ public class RemoveProfileProblem extends BaseProfileProcessor {
         info.removeTestSetB(getRequest().getParameter(Constants.TEST_SET_B_REMOVE));
 
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
-        setNextPage("testing/" + "?" +
-                Constants.MODULE_KEY + "=" +
-                Constants.POPULATE_PROFILE_PROCESSOR);
+        setNextPage(buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null));
         setIsNextPageInContext(true);
     }
 }

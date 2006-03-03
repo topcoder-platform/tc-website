@@ -16,9 +16,7 @@ public class AddProfileProblems extends BaseProfileProcessor {
         info.addTestSetB(getRequest().getParameterValues(Constants.TEST_SET_B_ADD));
 
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
-        setNextPage("testing/" + "?" +
-                Constants.MODULE_KEY + "=" +
-                Constants.POPULATE_PROFILE_PROCESSOR);
+        setNextPage(buildProcessorURL(Constants.POPULATE_PROFILE_PROCESSOR, null));
         setIsNextPageInContext(true);
     }
 }
