@@ -63,7 +63,7 @@
                 <tr><td class="subhead">The required category was not found</td></tr>
                 <tr><td class="normal">
 
-                        <p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> if the problem persists.</p>
+                        <p>If you have any questions contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a>.</p>
                     </td>
                 </tr>
                 <tr><td height="40"><img src="/images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>

@@ -228,7 +228,8 @@
             if (rootCategory == 0) {
                 rootCategory = summary.getId();
             }
-            if (rootCategory != 5801777 && rootCategory != 5801776 && rootCategory != 8459260) {
+            if (rootCategory != Catalog.NET_CATALOG && rootCategory != Catalog.JAVA_CATALOG
+                && rootCategory != Catalog.FLASH_CATALOG) {
                 // plk
                 // redirect to an error page
                 response.sendRedirect("/attention/error_categorynotfound.jsp");
