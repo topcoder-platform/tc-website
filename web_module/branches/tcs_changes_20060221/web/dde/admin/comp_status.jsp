@@ -195,6 +195,7 @@
 
 	<%
 	    // plk
+        // Get only visible categories.
 	    Category[] categories = catalog.getBaseCategories(false);
         HashMap map = new HashMap();
         for (int i=0; i<categories.length; i++) {
