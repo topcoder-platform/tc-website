@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <STYLE TYPE="text/css">
 #calendarTCO06
 {
@@ -54,10 +55,9 @@ text-decoration: none;
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -76,7 +76,7 @@ text-decoration: none;
 
 <%-----CALENDAR TABLE------%>
 <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
-    <tr> 
+    <tr>
         <td id="calendarDays" width="14%">Sun</td>
         <td id="calendarDays" width="14%">Mon</td>
         <td id="calendarDays" width="14%">Tues</td>
@@ -85,8 +85,8 @@ text-decoration: none;
         <td id="calendarDays" width="14%">Fri</td>
         <td id="calendarDays" width="14%">Sat</td>
     </tr>
-  
-    <tr> 
+
+    <tr>
         <td id="calendarBlank">
             &#160;<br />
             &#160;<br />
@@ -118,8 +118,8 @@ text-decoration: none;
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
             </td>
     </tr>
-    
-    <tr> 
+
+    <tr>
         <td id="calendar">5</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">6</span><br />
@@ -145,13 +145,13 @@ text-decoration: none;
         <td id="calendar">10</td>
         <td id="calendar">11</td>
     </tr>
-    
-    <tr> 
+
+    <tr>
         <td id="calendar">12</td>
         <td id="calendar">13</td>
         <td id="calendar">14</td>
         <td id="calendarTCO06">
-            <span id="calendarTCO06Date">15</span><br/>            
+            <span id="calendarTCO06Date">15</span><br/>
             <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
             Online Round #3<br />
             Registration: 6:30 - 9:25 PM ET<br />
@@ -177,9 +177,9 @@ text-decoration: none;
             <A href="/?RoundId=9814&t=schedule&c=srm">Details</A><br/><br/></td>
         <td id="calendar">18</td>
     </tr>
-    
-<!-- with intel date -->    
-    <tr> 
+
+<!-- with intel date -->
+    <tr>
         <td id="calendar" rowspan="2">19</td>
         <td id="calendar" rowspan="2">20</td>
         <td id="calendar" rowspan="2">21</td>
@@ -191,7 +191,7 @@ text-decoration: none;
             Compete: 9:30 PM ET
             &#160;<br />
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>            
+            </td>
         <td id="calendarTCO06" rowspan="2">
             <span id="calendarTCO06Date">23</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
@@ -209,15 +209,15 @@ text-decoration: none;
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/?RoundId=9815&t=schedule&c=srm">Details</A><br/><br/></td>
     </tr>
-    <tr> 
+    <tr>
             <td id="calendarIntel">
             <strong>Intel Multi-threading Competition 3</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
     </tr>
-   
-    <tr> 
+
+    <tr>
         <td id="calendar">26</td>
         <td id="calendar">27</td>
         <td id="calendar">28</td>
@@ -245,7 +245,7 @@ text-decoration: none;
             &#160;<br />
             &#160;</td>
     </tr>
-        
+
 </table>
 
 </div>

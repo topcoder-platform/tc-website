@@ -4,6 +4,7 @@
                  java.util.Map" %>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -11,9 +12,9 @@
 <html>
 <head>
     <title>TopCoder Statistics</title>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -52,6 +53,25 @@
 
 %>
 
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr valign="top">
+<!-- Left Column Begins-->
+<td width="180">
+<jsp:include page="/includes/global_left.jsp">
+   <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_stats":"dev_stats"%>'/>
+</jsp:include>
+</td>
+
+
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+<TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
+
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Component Contest Details"/>
+</jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
@@ -93,10 +113,10 @@
                      %>
 
                      <% if (resultRow.getLongItem("project_id") == projectId) { %>
-                     <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/>
+                     <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
                      <% } else { %>
                      <A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>'
-                        class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></A>
+                        class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
                      <% } %>
                  </rsc:iterator>
 <% } %>
@@ -113,34 +133,37 @@
             Development Contest Details
         </td></tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Contest:</TD>
-            <TD class="stat" align="right" nowrap="nowrap"><rsc:item set="<%=projectInfo%>" name="component_name"/>
-                <rsc:item set="<%=projectInfo%>" name="version_text"/></TD>
+            <td class="cat" colspan="2">Contest:</TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Component:</TD>
-            <TD class="stat" align="right" nowrap="nowrap"><A
-                    href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
-                    class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A></TD>
+            <TD class="stat" colspan="2" align="left"><rsc:item set="<%=projectInfo%>" name="component_name"/>
+                <rsc:item set="<%=projectInfo%>" name="version_text"/><br><br></TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap" valign="top" style="padding-top: 3px">Catalog:</TD>
+            <td class="cat" colspan="2">Component:</TD>
+        </tr>
+        <tr>
+            <TD class="stat" colspan="2" align="left"><A href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
+                    class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A><br><br></TD>
+        </tr>
+        <tr>
+            <td class="cat" valign="top" style="padding-top: 3px">Catalog:</TD>
             <TD class="stat" align="right" valign="top" style="padding-top: 3px"><img src='<%=imgName%>'
                                                                                       alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>'
                                                                                       border="0"/></TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Registrants:</TD>
+            <td class="cat">Registrants:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries"
                                                      ifNull="unknown*"/></TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Submissions:</TD>
+            <td class="cat">Submissions:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions"
                                                      ifNull="unknown*"/></TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
+            <td class="cat" nowrap="nowrap">Submission %:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'"
                                                      ifNull="unknown*"/></TD>
         </tr>
@@ -149,7 +172,7 @@
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="unknown*"/></TD>
         </tr>
         <tr>
-            <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
+            <td class="cat" nowrap="nowrap">Passed %:</TD>
             <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'"
                                                      ifNull="unknown*"/></TD>
         </tr>
@@ -201,17 +224,18 @@
 
         </tr>
 
+      <%boolean even = true;%>
         <rsc:iterator list="<%=submissions%>" id="resultRow">
             <tr>
-                <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'
+                <TD class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'
                                                      context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
 
-                <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>"
                                                             format="MM.dd.yyyy" ifNull="unknown*"/></TD>
-                <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>"
                                                             format="MM.dd.yyyy" ifNull="unknown*"/></TD>
 
-                <TD class="statDk" align="right">
+                <TD class="<%=even?"statLt":"statDk"%>" align="right">
                     <% if (reviewers.isEmpty()) { %>
                         <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="uknown*"/>
                     <% } else { %>
@@ -221,7 +245,7 @@
                     </A>
                     <% } %>
                 </TD>
-                <TD class="statDk" align="left">
+                <TD class="<%=even?"statLt":"statDk"%>" align="left">
                     <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                     <img src="/i/stats/pass.gif" alt="pass" border="0"/>
                     <% } else { %>
@@ -232,34 +256,34 @@
 
 
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-                <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
                                                             ifNull="unknown*"/></TD>
-                <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
                                                                ifNull="unknown*"/></b></TD>
                 <% if(reviewers.isEmpty()) { %>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
                     </TD>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
                     </TD>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
                     </TD>
                 <% } else { %>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                         <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>'
                            class="bcLink">
                             <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
                         </A>
                     </TD>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                         <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(1, "reviewer_id")%>'
                            class="bcLink">
                             <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
                         </A>
                     </TD>
-                    <TD class="statDk" align="center">
+                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
                         <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(2, "reviewer_id")%>'
                            class="bcLink">
                             <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
@@ -268,15 +292,12 @@
                 <% } %>
 
                 <% } else { %>
-                <TD class="statDk" align="center">&nbsp;</TD>
-                <TD class="statDk" align="center">&nbsp;</TD>
-                <TD class="statDk" align="center">&nbsp;</TD>
-                <TD class="statDk" align="center">&nbsp;</TD>
-                <TD class="statDk" align="center">&nbsp;</TD>
+                <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
                 <% } %>
 
 
             </tr>
+        <%even=!even;%>
         </rsc:iterator>
     </table>
 </td>
@@ -287,14 +308,11 @@
 
 </td>
 <!-- Center Column Ends -->
-
-<!-- Right Column Begins -->
 <td width="170">
-    <jsp:include page="../public_right.jsp">
-        <jsp:param name="level1" value="privatelabel"/>
-    </jsp:include>
+   <jsp:include page="../public_right.jsp">
+      <jsp:param name="level1" value="default"/>
+   </jsp:include>
 </td>
-<!-- Right Column Ends -->
 
 <!-- Gutter -->
 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>

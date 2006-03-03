@@ -9,7 +9,10 @@
 <head>
 <title>About TopCoder - Overview</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -24,9 +27,8 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="overview"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="tc_overview"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -63,9 +65,9 @@
                         Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
                         with Divisions,</A> offer a more level
                         field of competition for newer members in order to build ratings and move into potential
-                        <A href="/index?t=tournaments&c=tourny_index">Tournament</A> opportunities.</li><br />
+                        <A href="/tc?module=Static&d1=tournaments&d2=home">Tournament</A> opportunities.</li><br />
 
-                        <li><A href="/?t=development&c=index"><strong>Development</strong></A><br />
+                        <li><A href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A><br />
                         Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions
                         for these challenging and potentially lucrative projects. Winning solutions are rewarded with cash payouts and royalties. For every
                         commercial sale, TopCoder will pay the members who designed and developed the component a percentage of the sale. </li><br />

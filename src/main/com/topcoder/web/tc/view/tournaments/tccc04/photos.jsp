@@ -4,7 +4,11 @@
 <head>
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Summary</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
 <script language="JavaScript" type="text/javascript">
@@ -85,10 +89,9 @@ function changeImage(place, imageIndex) {
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
-            </jsp:include>
-        </td>
+<jsp:param name="node" value="topcoder_tournaments"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->

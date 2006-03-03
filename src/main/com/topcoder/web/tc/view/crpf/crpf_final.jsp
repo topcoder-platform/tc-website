@@ -7,7 +7,9 @@
 <head>
 <title>TopCoder Charity Challenge</title>
 <jsp:include page="../script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/crpfStyle.css"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="crpf"/>
+</jsp:include>
 </head>
 
 <body>
@@ -20,9 +22,8 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="charity"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="charity_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

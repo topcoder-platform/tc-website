@@ -4,7 +4,11 @@
 <head>
 <title>TopCoder Employment Opportunities</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 
 </head>
 
@@ -19,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="openings"/>
+                <jsp:param name="node" value="employment_opps"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->

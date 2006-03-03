@@ -17,7 +17,10 @@
 <head>
 <title>Open Component Projects Available for Review</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -27,15 +30,15 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
+<% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="reviews"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%= phase_id == 112 ? "des_review" : "dev_review"%>"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -45,15 +48,10 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="development"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Components"/>
-        </jsp:include>
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
-
-
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design" : "comp_development"%>"/>
+    <jsp:param name="title" value="Review Opportunities"/>
+</jsp:include>
             <table cellspacing="0" cellpadding="0" width="530">
                 <tr>
                     <td class="bodyText" align="left">

@@ -13,10 +13,11 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Room Statistics</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <jsp:include page="baseHRef.jsp" />
    <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <script language="JavaScript">
 <!--
 function goTo(selection){
@@ -67,14 +68,13 @@ if (!forumIDStr.equals("")) {
      <TR>
        <TD WIDTH="180" VALIGN="top">
             <% if (sContentHandle.startsWith("coder_")&&!srb.getProperties().containsKey("rd")) { %>
-                <jsp:include page="../includes/global_left.jsp">
-                    <jsp:param name="level1" value="statistics"/>
-                    <jsp:param name="level2" value="my_last_match"/>
-                </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_match_overviews"/>
+         </jsp:include>
             <% } else { %>
-                <jsp:include page="../includes/global_left.jsp">
-                    <jsp:param name="level1" value="statistics"/>
-                </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_match_overviews"/>
+         </jsp:include>
             <% } %>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>

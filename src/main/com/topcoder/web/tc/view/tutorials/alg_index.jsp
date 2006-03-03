@@ -5,7 +5,11 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../script.jsp" />
+
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -19,10 +23,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="alg_tutorials"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_tutorials"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -40,7 +43,7 @@
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b"><strong>The Importance of Algorithms</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=importance_of_algorithms"><strong>The Importance of Algorithms</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="275071" context="algorithm"/>
@@ -58,7 +61,7 @@
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="276230" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_010505"><strong>Mathematics for TopCoders</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=math_for_topcoders"><strong>Mathematics for TopCoders</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
@@ -90,7 +93,7 @@
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="7465390" context="algorithm"/> & <tc-webtag:handle coderId="294328" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=features&d2=050305"><strong>Using Regular Expressions</strong></a>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=regularExpressions"><strong>Using Regular Expressions</strong></a>
             </td></tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="7371063" context="algorithm"/>

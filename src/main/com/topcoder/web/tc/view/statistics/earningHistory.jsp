@@ -10,22 +10,21 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
- <HEAD>
-   <TITLE>TopCoder Statistics</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-   <jsp:include page="../script.jsp" />
- </HEAD>
- <BODY>
+<HEAD>
+<TITLE>TopCoder Statistics</TITLE>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+<jsp:include page="../script.jsp" />
+</HEAD>
+<BODY>
    <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="earnings_history"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitor_stats"/>
+         </jsp:include>
        </TD>
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">

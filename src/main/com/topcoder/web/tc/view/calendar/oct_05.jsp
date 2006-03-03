@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -22,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+   <jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -72,7 +72,7 @@
             Compete: 12:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7999&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7999">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -86,7 +86,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8000&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8000">Details</A><br/><br/></td>
         <td id="calendar">6</td>
         <td id="calendar">7</td>
         <td id="calendar">8</td>
@@ -136,7 +136,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8001&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8001">Details</A><br/><br/></td>
         <td id="calendar">19</td>
         <td id="calendar">20</td>
         <td id="calendar">21</td>
@@ -154,7 +154,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8002&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8002">Details</A><br/><br/></td>
         <td id="calendar">27</td>
         <td id="calendar">28</td>
         <td id="calendar">29</td>

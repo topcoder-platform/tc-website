@@ -4,8 +4,10 @@
 <head>
 <title>Intel&#174; Centrino&#8482; mobile technology-based notebook</title>
 
-<jsp:include page="../../script.jsp" />
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>

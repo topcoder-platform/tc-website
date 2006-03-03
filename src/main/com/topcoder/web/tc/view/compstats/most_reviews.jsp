@@ -16,7 +16,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="3">Most Contests Reviewed</td></tr>
-    <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR">Reviews</td></tr>
+    <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR">Reviews</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr class="<%=even?"dark":"light"%>">

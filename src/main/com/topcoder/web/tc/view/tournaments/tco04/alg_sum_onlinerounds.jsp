@@ -32,23 +32,23 @@
                             <tr><td class="sidebarText">&#160;09.29.04</td><td class="sidebarText" nowrap="0">&#160;TCO04 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco04_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
                         </table>
          <p><br/></p>
-            
+
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco04"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -22,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+   <jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -68,7 +68,7 @@
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8067&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8067">Details</A><br/><br/></td>
         <td id="calendar">4</td>
         <td id="calendar">5</td>
     </tr>
@@ -83,7 +83,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="http://software.topcoder.com/">TopCoder Software</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8068&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8068">Details</A><br/><br/></td>
         <td id="calendar">9</td>
         <td id="calendar">10</td>
         <td id="calendar">11</td>
@@ -104,7 +104,7 @@
             Compete: 12:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8069&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8069">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -116,7 +116,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=sponsors&d2=sap">SAP</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8070&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8070">Details</A><br/><br/></td>
         <td id="calendar">22</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">23</span><br />
@@ -124,7 +124,7 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8071&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8071">Details</A><br/><br/></td>
         <td id="calendar">24</td>
         <td id="calendar">25</td>
         <td id="calendar">26</td>
@@ -140,7 +140,7 @@
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8072&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8072">Details</A><br/><br/></td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">

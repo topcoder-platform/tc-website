@@ -26,7 +26,11 @@
    padding: 3px 5px 3px 5px;
 }
 </STYLE>
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 
 </head>
 
@@ -39,12 +43,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="openings"/>
+        <td width="180">            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="employment_opps"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -135,7 +137,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">sql_lall: some like to remain anonymous</span></td></tr>
 <tr><td class="light"><b>dmks</b></td><td class="light">mmorris: Yes, I am one finalist of TCO design competion</td></tr>
 <tr><td class="dark"><b>itsp</b></td><td class="dark">AdamSelene: Yes</td></tr>
-<tr><td class="light"><b>sql_lall</b></td><td class="light">norton_gates: http://www.topcoder.com/?t=development&c=comp_meth</td></tr>
+<tr><td class="light"><b>sql_lall</b></td><td class="light">norton_gates: http://software.topcoder.com/components/methodology.jsp</td></tr>
 <tr><td class="dark"><span class="bigRed">mmorris</span></td><td class="dark"><span class="bigRed">felix_halim: an example of the systems include anything from building handheld phone software to Security Applications, to eCommerce websites, to financial trading and banking systems</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: I'm from Vietnam</td></tr>
 <tr><td class="dark"><span class="bigRed">mmorris</span></td><td class="dark"><span class="bigRed">dmks: are you coming onsite?</span></td></tr>
@@ -303,7 +305,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: Ant scripts are typically included and require minor alterations</span></td></tr>
 <tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">hubPL: the ant scripts are provided to you</span></td></tr>
 <tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">hubPL: there are tutorials to help with that</span></td></tr>
-<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/?&t=development&c=getting_started</span></td></tr>
+<tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: see this page: http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</span></td></tr>
 <tr><td class="dark"><b>hubPL</b></td><td class="dark">thanks:)</td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">Welcome!</span></td></tr>
 <tr><td class="dark"><b>gnosio</b></td><td class="dark">man ..i love ur arena applet..</td></tr>
@@ -420,7 +422,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>datawrangler</b></td><td class="light">mess: not quite sure how they work</td></tr>
 <tr><td class="dark"><b>hubPL</b></td><td class="dark">when I have a component to develop do I have to be aware of the pieces it's going to co-operate with?</td></tr>
 <tr><td class="light"><b>shoaib.soomro</b></td><td class="light">admins: oh .. these are industry wide implemented</td></tr>
-<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">datawrangler: there are a few tutorials http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation</span></td></tr>
+<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">datawrangler: there are a few tutorials <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">here</A></span></td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">hubPL: Everything you need to know will be included in the documentation</span></td></tr>
 <tr><td class="dark"><b>tc</b></td><td class="dark">kclune: And then enriched my .Net knowledge through dev/design competitions.</td></tr>
 <tr><td class="light"><b>karol1</b></td><td class="light">mess: many thanks :)</td></tr>
@@ -440,14 +442,14 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">paramindia: and mess =)</span></td></tr>
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: are you looking for application or component methodology?</span></td></tr>
 <tr><td class="light"><span class="bigRed">bwright</span></td><td class="light"><span class="bigRed">hubPL: this is for components http://software.topcoder.com/components/methodology.jsp</span></td></tr>
-<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: this is an overview of the components http://www.topcoder.com/index?t=development&c=comp_meth</span></td></tr>
-<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">datawrangler: this might help you too http://www.topcoder.com/index?t=development&c=comp_meth</span></td></tr>
+<tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">paramindia: this is an overview of the components http://software.topcoder.com/components/methodology.jsp</span></td></tr>
+<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">datawrangler: this might help you too http://software.topcoder.com/components/methodology.jsp</span></td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">mmorris: How many PM's and CA's currenlty work for TCS?</td></tr>
 <tr><td class="light"><span class="bigRed">bwright</span></td><td class="light"><span class="bigRed">gt494: ~25</span></td></tr>
 <tr><td class="dark"><b>sql_lall</b></td><td class="dark">kranjit: I recommend the tutorials (http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=comp_index)</td></tr>
 <tr><td class="light"><b>paramindia</b></td><td class="light">i went to that link and opened the PDF file</td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">bwright: How many more do you need?</td></tr>
-<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/?&t=development&c=getting_started</td></tr>
+<tr><td class="light"><b>sql_lall</b></td><td class="light">kranjit: as well as 'getting started': http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">that file that contains description</td></tr>
 <tr><td class="light"><b>datawrangler</b></td><td class="light">mess: thx - ill b in touch</td></tr>
 <tr><td class="dark"><b>paramindia</b></td><td class="dark">but i didn/t found any registartion link</td></tr>

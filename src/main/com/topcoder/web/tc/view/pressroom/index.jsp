@@ -4,7 +4,10 @@
 <head>
 <title>TopCoder Press Room</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>
@@ -18,8 +21,7 @@
 <%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="press_room"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
 <%-- Left Column Ends --%>
@@ -44,7 +46,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 <%-- UBS --%>
@@ -70,11 +72,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</A> </strong></font><br />
-                         "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder." <span class="prHead"> [February 16]</span></p>                   
+                         "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder." <span class="prHead"> [February 16]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- TCHS Global Tourney --%>
@@ -85,11 +87,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_020806">TopCoder High School Launches Global Programming Tournament in June</A> </strong></font><br />
-                        "Worldwide Contest From TopCoder Will Promote Problem Solving Skills in Math and Science Among High School-Age Students" <span class="prHead"> [February 8]</span></p>                   
+                        "Worldwide Contest From TopCoder Will Promote Problem Solving Skills in Math and Science Among High School-Age Students" <span class="prHead"> [February 8]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- WSJ --%>
@@ -115,11 +117,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A> </strong></font><br />
-                        "Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs" <span class="prHead"> [January 26]</span></p>                   
+                        "Software Development Magazine Recognizes CBD Best Practices and Engineering Discipline in TopCoder's Reusable .NET and Java Component Catalogs" <span class="prHead"> [January 26]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- Intel --%>
@@ -130,11 +132,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_012306">TopCoder Names Intel Corporation as First Sponsor of New Marathon Match Series</A> </strong></font><br />
-                        "Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments" <span class="prHead"> [January 23]</span></p>                   
+                        "Multi-Core Processing the Focus as New Format Promoting Optimization in Problem Solving is Added to TopCoder Schedule of Tournaments" <span class="prHead"> [January 23]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- Java Posse --%>
@@ -149,7 +151,7 @@
                     </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- BusinessWeek --%>
@@ -160,11 +162,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> </strong></font><br />
-                        "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher." <span class="prHead"> [January 13]</span></p>                   
+                        "The techno-spy agency has a greater need than ever for American math talent, but recruiting in the age of Google is a lot tougher." <span class="prHead"> [January 13]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%-- DNA India --%>
@@ -175,11 +177,11 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">Contest a coded message for job seekers</A> </strong></font><br />
-                        "Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests." <span class="prHead"> [January 12]</span></p>                   
+                        "Write a software to land that dream job straight out of college. Now Indian technology grads can win jobs and internships at tech majors by competing in coding contests." <span class="prHead"> [January 12]</span></p>
                         </td>
                 </tr>
             </table>
-            
+
             <hr width="100%" size="1" noshade="noshade" />
 
 <%--  TCO06 NSA --%>
@@ -211,12 +213,12 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-            
+
 <%-- 2005 --%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 <%--  TCO06 Verisign --%>
@@ -241,13 +243,13 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.forbes.com/home/work/2005/12/09/silicon-valley-hiring-cx_rr_1212hire.html" target="_blank">Help Wanted In Silicon Valley</A> </strong></font><br />
-                        For programmers, happy days are here again. But for their employers, fear is setting in. <span class="prHead"> [December 12]</span></p>                   
+                        For programmers, happy days are here again. But for their employers, fear is setting in. <span class="prHead"> [December 12]</span></p>
                         </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-  
+
 <%-- BusinessWeek --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -257,14 +259,14 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.businessweek.com/magazine/content/05_50/b3963021.htm" target="_blank">Rise Of A Powerhouse</A> </strong></font><br />
                         How the young knowledge workers of Central Europe are pushing the region to a new level.<br />
-                        They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx, a reticent Warsaw University student who wears his long hair in a ponytail and says his life's ambition is to "discover some interesting notion." 
-                        <span class="prHead"> [December 2]</span></p>                   
+                        They came from around the world, young men with handles like SnapDragon and Bladerunner attacking computing problems so complex that even experienced coders could only stare at the screen in bewilderment. Only one mastered the final algorithm problem: Eryk Kopczynski, a.k.a. Eryx, a reticent Warsaw University student who wears his long hair in a ponytail and says his life's ambition is to "discover some interesting notion."
+                        <span class="prHead"> [December 2]</span></p>
                         </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-  
+
 <%-- USA Today --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -279,7 +281,7 @@ A TopCoder survey on where members would prefer to work (given equal pay) is run
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
 <%-- Google Code Jam China --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -375,7 +377,7 @@ Tim "Pops" Roberts is an independent IT consultant who makes a pretty good livin
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=69982" target="_blank">Sorrowful state of software</A> </strong></font><br />
-"I think it’s critical to improve the level of quality," [Jack Hughes] said. Hughes has immersed himself in the development world for more than 15 years.<span class="prHead"> [October 17 - MHT]</span></p>
+"I think itï¿½s critical to improve the level of quality," [Jack Hughes] said. Hughes has immersed himself in the development world for more than 15 years.<span class="prHead"> [October 17 - MHT]</span></p>
                     </td>
                 </tr>
             </table>
@@ -464,7 +466,7 @@ Poland has just left the US behind and taken first place in TopCoder's country r
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></strong></font><br />
-The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoder’s components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution. <span class="prHead"> [September 6 - ADT]</span></p>
+The result of the partnership between LogicLibrary and TopCoder reached earlier this year is that TopCoderï¿½s components for Java and .NET are now stored in Logidex, LogicLibrary's collaborative SDA management solution. <span class="prHead"> [September 6 - ADT]</span></p>
                     </td>
                 </tr>
             </table>
@@ -493,7 +495,7 @@ The result of the partnership between LogicLibrary and TopCoder reached earlier 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank">Wanna codejam? May the best techie win</A></strong></font><br />
-It’s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. It’s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?<span class="prHead"> [August 28 - Times of India]</span></p>
+Itï¿½s the grand slam of programming or, as the tourney organiser calls it, 'the X-games of software development'. Itï¿½s gruelling and needs speed, accuracy and skill. Sounds like a sports contest?<span class="prHead"> [August 28 - Times of India]</span></p>
                     </td>
                 </tr>
             </table>
@@ -981,7 +983,7 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
                 </tr>
             </table>
 
-            
+
 
 
                     </td>

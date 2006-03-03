@@ -13,16 +13,20 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
 <% String waitingUntil = (String) request.getAttribute("waitingUntil"); %>
-<%List prices = (List)request.getAttribute("prices");%>
-<%ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
+<% List prices = (List)request.getAttribute("prices");%>
+<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
+<% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
+<% boolean design = phase_id == SoftwareComponent.DESIGN_PHASE; %>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
 <head>
 <title>Project Review</title>
 
-<jsp:include page="../script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -36,11 +40,10 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="reviews"/>
-            </jsp:include>
+         <%-- value is either des_review or dev_review --%>
+         <jsp:include page="/includes/global_left.jsp">
+               <jsp:param name="node" value='<%=phase_id == 112?"des_review":"dev_review"%>'/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -49,27 +52,25 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="center" class="bodyText">
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="development"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Components"/>
-        </jsp:include>
+        <td width="100%" class="bodyText">
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design":"comp_development"%>"/>
+    <jsp:param name="title" value="Review Opportunities"/>
+</jsp:include>
 
-            <p><h2 align="left">Review opportunities currently available!</h2></p>
+            <span class="bigTitle">Review opportunities</span>
 
-            <p align="left">In the table below you will be able to see which projects are available for review, the type of project, the current number of submissions on each, the review timeline for each, and the number of review positions available for each project. If you click on a component name you will be able to see all of the details associated with that component review.</p>
-            <p align="left">If you are not currently on the TopCoder Architect or Development Review Boards you may send an email to <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> requesting permission to perform reviews. Please keep in mind only members that have completed component projects are eligible to join the TopCoder Review boards.</p>
-            <p align="left">In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
+            <p>In the table below you will be able to see which projects are available for review, the type of project, the current number of submissions on each, the review timeline for each, and the number of review positions available for each project. If you click on a component name you will be able to see all of the details associated with that component review.</p>
+            <p>If you are not currently on the TopCoder Architect or Development Review Boards you may send an email to <A href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</A> requesting permission to perform reviews. Please keep in mind only members that have completed component projects are eligible to join the TopCoder Review boards.</p>
+            <p>In order to sign up for a review position, click on the "details" link for any component with positions available, and then select "Apply Now" next to the position that you would like to commit to.</p>
 
             <br>
-            
+
             <% if (isWaiting) { %>
                 <p align="center"><b>You may not apply for a new review until <%=waitingUntil%>.</b></p>
                 <br>
             <% } %>
-            
+
 
 <%
     int devProjectCount = 0;
@@ -80,6 +81,8 @@
         <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DEV_PHASE) devProjectCount++;%>
     </rsc:iterator>
 
+
+<% if (design) { %>
 <% if (desProjectCount>0) { %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -156,7 +159,9 @@
 <br><br>
 
 <% } %>
+<% } // if (design)  %>
 
+<% if (!design) { %>
 <% if (devProjectCount>0) { %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -232,9 +237,11 @@
 </table>
 
 <% } %>
-<% if (desProjectCount+devProjectCount==0) { %>
+<% }  // if (!design) %>
+
+<% if ((design && desProjectCount == 0) || (!design && devProjectCount == 0)) { %>
             <br />
-            <p>Sorry, there are currently no review positions available.</p>
+            <p align="center">Sorry, there are currently no review positions available.</p>
             <br />
 <% } else { %>
             <br>

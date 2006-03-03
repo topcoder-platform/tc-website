@@ -5,13 +5,17 @@
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.corp.controller.TransactionServlet"%>
+
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -21,14 +25,15 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
+<% int phase_id = ((Integer)request.getAttribute("phase_id")).intValue(); %>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%= phase_id == 112 ? "des_review" : "dev_review"%>"/>
+         </jsp:include>
         </td>
 <%-- Left Column Ends --%>
 
@@ -39,7 +44,10 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="<%= phase_id == 112 ? "comp_design" : "comp_development"%>"/>
+    <jsp:param name="title" value="Review Opportunities"/>
+</jsp:include>
 
             <form action="<%=sessionInfo.getServletPath()%>" method="POST" name="frmTerms">
               <input type="hidden" name="<%=Constants.PROJECT_ID%>" value="<%=request.getParameter(Constants.PROJECT_ID)%>"/>

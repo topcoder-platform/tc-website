@@ -11,7 +11,10 @@
 <head>
 <title>TopCoder Placement Registration</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <%
 List prefList = (List)request.getAttribute("prefs");
@@ -34,11 +37,10 @@ List industryList = (List)request.getAttribute("industrySkills");
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="employmentOpps"/>
-            </jsp:include>
-        </td>
+<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="employment_opps"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->

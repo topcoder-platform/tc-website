@@ -4,7 +4,11 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Summary - Room 4 Problem Anaylsis</title>
 
-<jsp:include page="../../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 
 </head>
 
@@ -17,10 +21,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
+        <td width="180">            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -50,7 +52,7 @@
                 <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
             </p>
 
-            <h2>Problem Set Analysis &amp; Opinion</h2>
+            <h2>Problem Set Analysis & Opinion</h2>
 
             <a href="/tc?module=MemberProfile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left"></a>
             <p>by <a href="/tc?module=MemberProfile&cr=159052">lbackstrom</a>, <br/>

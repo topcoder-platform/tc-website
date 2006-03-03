@@ -8,8 +8,9 @@
 <title>TopCoder Statistics</title>
 
 <jsp:include page="../script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -22,10 +23,9 @@
  <tr valign="top">
 <!-- Left Column Begins-->
     <td width="180">
-    <jsp:include page="../includes/global_left.jsp">
-      <jsp:param name="level1" value="statistics"/>
-      <jsp:param name="level2" value="match_editorials"/>
-    </jsp:include>
+	<jsp:include page="/includes/global_left.jsp">
+		<jsp:param name="node" value="algo_match_editorials"/>
+	</jsp:include>
     </td>
 <!-- Left Column Ends -->
 
@@ -237,7 +237,7 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-We need to know what patterns have already been paid at the end of the game; and then compute the probability of matching each of the remaining prizes with just one ball to be released. The probability of winning the i-th pattern in that ball can be obtained as <tt>1/(75­-balls.length)*prizes[i]</tt> for those patterns with exactly one unmatched cell, or zero otherwise (either because they have been already paid or they would need more than one ball to be released). To compute matched and unmatched cells a simple iteration could be performed, or bitmasks could also be used. Java code follows:
+We need to know what patterns have already been paid at the end of the game; and then compute the probability of matching each of the remaining prizes with just one ball to be released. The probability of winning the i-th pattern in that ball can be obtained as <tt>1/(75ï¿½-balls.length)*prizes[i]</tt> for those patterns with exactly one unmatched cell, or zero otherwise (either because they have been already paid or they would need more than one ball to be released). To compute matched and unmatched cells a simple iteration could be performed, or bitmasks could also be used. Java code follows:
 
 <pre>
   double expectedPayout(int[] card, int[] balls,
@@ -311,7 +311,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-Regardless the extension of the statement, the problem should be easily understood by anyone familiar to programming: it asked for inferring the type of an expression in a (typed) programming language, based on certain assumptions given as the “definitions”. Any compiler of a typed language (as all languages currently used in TopCoder competitions) performs this task for each constant, function call, operator application, etc. in a piece of source code.
+Regardless the extension of the statement, the problem should be easily understood by anyone familiar to programming: it asked for inferring the type of an expression in a (typed) programming language, based on certain assumptions given as the ï¿½definitionsï¿½. Any compiler of a typed language (as all languages currently used in TopCoder competitions) performs this task for each constant, function call, operator application, etc. in a piece of source code.
 
 A great part of the problem complexity comes from parsing of the expression, which can be seen as a tree where function calls are nodes (with one or more children), and constants are its leaves. Parsing such an expression is a common example of use of stack automatas, and can be implemented either using recursion or a stack to keep track of depth in the tree that represents the expression (parenthesis nesting).
 
@@ -427,7 +427,7 @@ To know the best place to seat in if all we have as input is the number of sheet
 The only parameters needed in a recursive function to perform the computation are the number of red, green and black sheets -- note that the number of players in the given moment can be inferred as the total number of players minus the number of black sheets already used. Its return value can be a collection including a count of winning configurations for each sitting position (its size will be the number of players still playing). We can make the first position in such return value to represent the player that holds the ball in that turn, and subsequent positions enumerated in the order the ball is being passed by. The function will then we rearrange the return values from recursive calls depending on the colors that can be use in current turn: for instance, a green sheet will rotate one position the values in that collection.
 <p>
 </p>
-A naïve recursive function will timeout with the given constraints, but memoization or a dynamic programming approach will work. One additional warning is that 32-bit integers would overflow in the largest inputs. Once the right parameters are chosen for this recursive function, the &quot;only&quot; difficulty is to properly combine each of the results from recursive cases -- find the details in the following Java solution:
+A naï¿½ve recursive function will timeout with the given constraints, but memoization or a dynamic programming approach will work. One additional warning is that 32-bit integers would overflow in the largest inputs. Once the right parameters are chosen for this recursive function, the &quot;only&quot; difficulty is to properly combine each of the results from recursive cases -- find the details in the following Java solution:
 <pre>
   // parameters: int players, int green, int red, int black
   long dp[][][][];
@@ -529,7 +529,7 @@ This problem required to solve two different tasks. The first and easier step wa
 However, such functions usually implement a search with <i>O(nm)</i> runtime, where <i>n</i> is length of sequence and <i>m</i> the length of word being searched. Such runtime timed out for large inputs in the problem, and that is the reason why so many solutions failed and only 7% out of a relatively high count of submissions passed system testing.
 </p>
 <p>
-An efficient method for this type of search is to use infer some information on the structure of the word being searched, so as to avoid “backtracking” to the beginning of the string every time a character is not matched. A well known solution for this task is known as <i>Knutt-Morris-Pratt algorithm</i>: it bases the search on knowing the how suffixes of initial parts of the string are actually initial parts of the same string. This allows to, when finding a mismatch while walking on the sequence, to recover the search from any of the other possible points where search could be, if starting from some an index greater than the one already failed.
+An efficient method for this type of search is to use infer some information on the structure of the word being searched, so as to avoid ï¿½backtrackingï¿½ to the beginning of the string every time a character is not matched. A well known solution for this task is known as <i>Knutt-Morris-Pratt algorithm</i>: it bases the search on knowing the how suffixes of initial parts of the string are actually initial parts of the same string. This allows to, when finding a mismatch while walking on the sequence, to recover the search from any of the other possible points where search could be, if starting from some an index greater than the one already failed.
 
 </p>
 <p>

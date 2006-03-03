@@ -5,6 +5,9 @@
 <title>TopCoder - Help</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,10 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="support"/>
-                <jsp:param name="level2" value="algPayment"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_get_paid"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -131,7 +133,7 @@ Members claiming a reduction of or exemption from income tax withholding must pr
    </ol>
 
 <span class="bodySubtitle">Tax Questions</span><br>
-<A href="/?t=support&c=form_faq">Click here</A> for TopCoder tax form FAQs.
+<A href="/tc?module=Static&d1=help&d2=formsFaq">Click here</A> for TopCoder tax form FAQs.
 <br><br>
 Please email other tax questions to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
 <br><br>

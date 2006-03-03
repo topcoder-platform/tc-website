@@ -5,6 +5,9 @@
 <title>TopCoder Press Room</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>
@@ -18,8 +21,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="press_room"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -37,7 +39,7 @@
                     </jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">Current News</A>&#160;&#160;|&#160;&#160;<strong>Press Releases Archive</strong>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=art_archive">Articles Archive</A></div></td></tr>
+                <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&d1=pressroom&d2=index">Current News</A>&#160;&#160;|&#160;&#160;<strong>Press Releases Archive</strong>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=art_archive">Articles Archive</A></div></td></tr>
             </table>
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">

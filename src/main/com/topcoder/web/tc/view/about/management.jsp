@@ -10,6 +10,9 @@
 <title>About TopCoder - Overview</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -25,8 +28,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="management"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="node" value="management_team"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

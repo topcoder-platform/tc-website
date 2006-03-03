@@ -68,20 +68,20 @@ Click <A href="/tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO 
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">rules and regulations</A> for full details.
         </div>
       </td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
-      
+
    </tr>
-   
+
 </table>
-   
-   
+
+
 
 
 <jsp:include page="../../foot.jsp" />

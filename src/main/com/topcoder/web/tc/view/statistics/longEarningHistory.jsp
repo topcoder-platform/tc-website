@@ -1,8 +1,4 @@
-<%@ page
-  language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
-
-%>
+<%@ page  language="java"%>
 
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -16,16 +12,19 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
    <jsp:include page="../script.jsp" />
+     <jsp:include page="/style.jsp">
+       <jsp:param name="key" value="tc_stats"/>
+     </jsp:include>
+
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="earnings_history"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitor_stats"/>
+         </jsp:include>
        </TD>
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">

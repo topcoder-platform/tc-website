@@ -47,7 +47,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7371063"><strong>supernova</strong></a>
+               <a class="bodyText" href="/tc?module=MemberProfile&cr=7371063"><strong>supernova</strong></a>
             </td>
          </tr>
       </table>

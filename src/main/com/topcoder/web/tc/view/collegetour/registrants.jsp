@@ -10,10 +10,10 @@
 <head>
     <title>TopCoder College Tour</title>
 
-    <jsp:include page="../script.jsp"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -26,12 +26,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
         <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+        <td width="180"><jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="m_competitions"/>
+</jsp:include>
+</td>
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
@@ -61,6 +59,7 @@
                     <% } %>
                 </p>
                 <!-- ends -->
+
 
                <div align="center">
                   <div style="width: 150px; text-align: left;" class="bodyText">

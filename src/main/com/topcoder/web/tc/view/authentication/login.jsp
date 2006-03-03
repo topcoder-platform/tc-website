@@ -18,6 +18,9 @@
 <title>TopCoder | Login</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <SCRIPT type="text/javascript">
 function submitEnter(e) {
@@ -48,7 +51,7 @@ function submitEnter(e) {
 <!-- Left Column Begins -->
         <td width="170">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="login"/>
+                <jsp:param name="node" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

@@ -4,8 +4,10 @@
 <head>
 <title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Advancers</title>
 
-<jsp:include page="../../script.jsp" />
-
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <script>
 function openWin(url, name) {
     win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=yes,toolbar=no,width=800,height=600");
@@ -25,12 +27,10 @@ function openWin(url, name) {
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
+        <td width="180">            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="topcoder_tournaments"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->

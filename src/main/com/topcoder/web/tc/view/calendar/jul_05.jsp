@@ -5,9 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 </head>
 
 <body>
@@ -22,10 +23,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+   <jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -86,7 +86,7 @@
             Compete: 11:00&#160;AM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign">VeriSign</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7225&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7225">Details</A><br/><br/></td>
         <td id="calendar">8</td>
         <td id="calendar">9</td>
     </tr>
@@ -101,7 +101,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7226&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7226">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">13</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
@@ -124,7 +124,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8004&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8004">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">20</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
@@ -140,7 +140,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7227&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7227">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -152,7 +152,7 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8006&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8006">Details</A><br/><br/></td>
         <td id="calendarTCO05">
             <span id="calendarTCO05Date">27</span><br/>
             <strong>2005 TopCoder Open Component Competition</strong><br/>
@@ -167,7 +167,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=7228&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=7228">Details</A><br/><br/></td>
         <td id="calendar">29</td>
         <td id="calendar">30</td>
     </tr>

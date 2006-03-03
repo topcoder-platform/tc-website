@@ -3,7 +3,10 @@
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,8 +21,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="home"/>
-                <jsp:param name="level2" value=""/>
+                <jsp:param name="node" value="competition_home"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -29,12 +31,11 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-		<td width="100%" align="center">
-			<img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
-			<jsp:include page="big_promo.jsp" />
-  			<jsp:include page="news.jsp" />
-  			<jsp:include page="arena.jsp" />
-		 </td>
+      <td width="100%" align="center">
+         <jsp:include page="big_promo.jsp" />
+           <jsp:include page="news.jsp" />
+           <jsp:include page="arena.jsp" />
+       </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->

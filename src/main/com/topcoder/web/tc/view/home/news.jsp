@@ -60,7 +60,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.27.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD Announced as TCO06 Title Sponsor</A></span><br><br>
-      AMD Developer Central, AMD's program to support software developers, is pleased to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors. 
+      AMD Developer Central, AMD's program to support software developers, is pleased to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -127,8 +127,8 @@ In division 1 easy and medium problems have a pretty high success rate, but only
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm290">SRM 290 - Problem Set & Analysis</A></span><br><br>
-      Division 1 coders faced a pretty balanced set of 3 completely different problems. 
-<tc-webtag:handle coderId="10574855" context="algorithm"/> showed a tremendous performance, 
+      Division 1 coders faced a pretty balanced set of 3 completely different problems.
+<tc-webtag:handle coderId="10574855" context="algorithm"/> showed a tremendous performance,
 outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>) and third (<tc-webtag:handle coderId="11829284" context="algorithm"/>) finishers by almost 500 points.
       </td>
       <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>

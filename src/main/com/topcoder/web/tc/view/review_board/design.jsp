@@ -14,6 +14,9 @@
 <title>Design Review Board at TopCoder</title>
 
 <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -26,10 +29,9 @@
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="review_board"/>
-                <jsp:param name="level2" value="design"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="des_review_board"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -38,33 +40,17 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="review_boards"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value=""/>
-        </jsp:include>
-
-            <table border="0" cellspacing="10" cellpadding="0" width="100%" align="center">
-                <tr>
-                    <td width="49%"></td>
-<%--         <td height="42"><A href="/tc?module=Static&amp;d1=review_board&amp;d2=competition"  target="_top"><img src="/i/promos/competition_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>--%>
-                    <td height="42"><A href="/tc?module=ReviewBoard&ph=112"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td height="42"><A href="/tc?module=ReviewBoard&ph=113"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
-                    <td width="49%"></td>
-                </tr>
-            </table>
-
-            <table width="100%" border="0" cellpadding="3" cellspacing="0">
-                <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Design Review Board</strong></font></td></tr>
-            </table>
+        <td class="bodyText" width="99%">
+            
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="comp_design"/>
+    <jsp:param name="title" value="Meet the Design Review Board"/>
+</jsp:include>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="bodyText"><img src="/i/clear.gif" width="240" height="1" border="0"><br>
-<!-- Comment out until Dev info is available            <p align="right" >
-               <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
-            </p> -->
+                        <p align="right" ><a href="/tc?module=ReviewBoard&ph=113" class="bodyText"><strong>Go to Development Review Board</strong></a></p>
                         <p>Highly rated and experienced TopCoder members fill the ranks of the Architecture Review Board.  These members screen and review all design
                         submissions to ensure the components meet the functional requirements, are documented properly and contain the appropriate sequence, use case
                         and class diagrams.  Additionally, the Architecture Review Board recommends design enhancements and verifies the design is flexible

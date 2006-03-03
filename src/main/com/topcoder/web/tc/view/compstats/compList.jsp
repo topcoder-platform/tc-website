@@ -12,11 +12,10 @@
 <html>
 <head>
 <title>TopCoder Statistics</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
-  <jsp:include page="../script.jsp" />
+<jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <script type="text/javascript">
 function submitEnter(e) {
     var keycode;
@@ -65,11 +64,9 @@ function submitEnter(e) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value='<%="112".equals(phaseId)?"des_contests":"dev_contests"%>'/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%="112".equals(phaseId)?"des_stats":"dev_stats"%>"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -78,7 +75,7 @@ function submitEnter(e) {
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Component Project List"/>
+<jsp:param name="title" value="Component Contest List"/>
 </jsp:include>
 
 
@@ -167,7 +164,7 @@ function submitEnter(e) {
 <!-- Right Column -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

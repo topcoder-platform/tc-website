@@ -9,7 +9,10 @@
 <head>
 <title>Terms &amp; Revisions at TopCoder</title>
 
-<jsp:include page="/script.jsp" />
+<jsp:include page="../script.jsp" />
+<jsp:include page="../style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -24,9 +27,8 @@
 
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="terms"/>
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="tc_terms"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

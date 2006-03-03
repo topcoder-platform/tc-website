@@ -1361,6 +1361,7 @@
                 <include name="foot.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
+                <include name="style.jsp"/>
                 <include name="body_top.jsp"/>
                 <include name="page_title.jsp"/>
                 <include name="menu.jsp"/>
@@ -1385,6 +1386,7 @@
                 <include name="rsc-taglib.tld"/>
                 <include name="tc-webtags.tld"/>
                 <include name="tc-taglib.tld"/>
+                <include name="nav.tld"/>
             </webinf>
             <webinf dir="${struts.dir}">
                 <include name="*.tld"/>
@@ -1522,6 +1524,7 @@
                         <include name="body_top.jsp"/>
                         <include name="page_title.jsp"/>
                         <include name="script.jsp"/>
+                        <include name="style.jsp"/>
                         <include name="menu.jsp"/>
                         <include name="calendar.jsp"/>
                         <include name="public_right.jsp"/>
@@ -1529,7 +1532,6 @@
                         <include name="includes/modules/simpleSearch.jsp"/>
                     </fileset>
                     <classes dir="${classes}">
-                        <include name="com/topcoder/web/common/*.class" />
                         <include name="com/topcoder/common/web/util/Conversion.class" />
                         <include name="com/topcoder/common/web/error/TCException.class" />
                         <include name="com/topcoder/common/web/data/Navigation.class" />
@@ -1539,11 +1541,9 @@
                          <include name="com/topcoder/common/web/data/UserType.class" />
                          <include name="com/topcoder/common/web/data/Browser.class" />
                          <include name="com/topcoder/common/web/data/Round.class" />
-                        <include name="com/topcoder/web/common/tag/*.class" />
-                        <include name="com/topcoder/web/common/model/CoderSessionInfo.class" />
+                        <include name="com/topcoder/web/common/**/*.class" />
                         <include name="com/topcoder/ejb/UserServices/UserServices.class" />
                         <include name="com/topcoder/ejb/UserServices/UserServicesHome.class" />
-                        <include name="com/topcoder/web/common/security/*.class" />
                         <include name="com/topcoder/web/forums/**/*.class" />
                         <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
                     </classes>
@@ -1552,6 +1552,7 @@
                     </classes>
                     <webinf dir="${resources}/taglib">
                         <include name="tc-webtags.tld"/>
+                        <include name="nav.tld"/>
                     </webinf>
                     <webinf dir="${resources}/forums">
                         <include name="jboss-web.xml"/>
@@ -1575,6 +1576,11 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
@@ -1645,6 +1651,7 @@
                     <include name="tc-webtags.tld"/>
                     <include name="codinginterface.tld"/>
                     <include name="rsc-taglib.tld"/>
+                    <include name="nav.tld"/>
                 </webinf>
                 <webinf dir="${struts.dir}">
                     <include name="struts-logic.tld"/>
@@ -1710,7 +1717,6 @@
                  </classpath>
              </java>
          </target>
-
 
     <target name="run-ForumUserConverter" depends="compile_forumData">
                   <java classname="com.topcoder.utilities.forumConvert.ForumUserConverter" fork="true">
@@ -1781,5 +1787,15 @@
         </java>
     </target>
 
+        <target name="placed-stuf" depends="compile">
+        <java classname="com.topcoder.utilities.ProjectResultPlacedSetter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
 
 </project>

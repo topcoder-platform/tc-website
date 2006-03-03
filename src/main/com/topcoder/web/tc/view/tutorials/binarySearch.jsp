@@ -8,6 +8,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="../script.jsp" />
+    <jsp:include page="/style.jsp">
+      <jsp:param name="key" value="tc_main"/>
+    </jsp:include>
+
 <style type="text/css">
 .code
 {
@@ -50,10 +54,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="education"/>
-                <jsp:param name="level2" value="alg_tutorials"/>
-            </jsp:include>
+           <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="algo_tutorials"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 

@@ -4,11 +4,14 @@
 %>
 
 <HTML>
- <HEAD>
-   <TITLE>TopCoder :: PACTs</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="/script.jsp" />
+<HEAD>
+<TITLE>TopCoder :: PACTs</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+   <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 <script language="JavaScript">
 <!--
 function goTo(selection){
@@ -25,10 +28,9 @@ function goTo(selection){
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="170" VALIGN="top">
-	        <jsp:include page="/includes/global_left.jsp">
-				<jsp:param name="level1" value="my_home"/>
-				<jsp:param name="level2" value="pacts"/>
-			</jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="affidavits"/>
+         </jsp:include>
        </TD>
        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>

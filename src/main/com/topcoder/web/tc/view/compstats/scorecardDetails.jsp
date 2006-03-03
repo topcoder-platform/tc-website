@@ -1,6 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.*"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -10,11 +11,10 @@
 <html>
 <head>
 <title>TopCoder Statistics</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-
   <jsp:include page="../script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <style type="text/css">
 .appealTitle
@@ -122,12 +122,9 @@ function hideAll(){
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value='<%="112".equals(projectInfo.getStringItem(0,"phase_id"))?"des_contests":"dev_contests"%>'/>
-
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0,"phase_id"))?"des_stats":"dev_stats"%>' />
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -148,7 +145,7 @@ function hideAll(){
 <br><br>
 <b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
 <br>
-<b>Component:</b> <A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
+<b>Component:</b> <A href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
 <br>
 <b>Coder:</b> <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 <br>
@@ -262,14 +259,6 @@ function hideAll(){
 
 
       </td>
-
-<!-- Right Column -->
-         <td width="170">
-            <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
-            </jsp:include>
-         </td>
-<!-- Right Column Ends -->
 
 <!-- Gutter -->
          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>

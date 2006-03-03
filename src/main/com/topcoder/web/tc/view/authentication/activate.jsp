@@ -9,7 +9,10 @@
 <head>
 <title>TopCoder | Activation</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 </head>
 
 <body>
@@ -25,8 +28,8 @@
 
 <!-- Left Column Begins -->
         <td width="170">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="recover_password"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="competition_reg"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -58,8 +61,8 @@
                     <td class="bodyText" valign="top"><A href="/tc?module=Static&d1=contracting&d2=index">Register here</A> to enroll in <strong>TopCoder Employment Opportunities</strong>.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
                 </tr>
                 <tr>
-                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/registration/icon_components.gif" border=0/></A></td>
-                    <td class="bodyText" valign="top"><A href="/?t=development&c=index">Compete</A> in <strong>Software Component Competitions</strong> and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
+                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=ViewActiveContests&ph=112"><img src="/i/registration/icon_components.gif" border=0/></A></td>
+                    <td class="bodyText" valign="top">Compete in Software Component <A href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A> Competitions and get paid for what you build!</td>
                 </tr>
                 <tr>
                     <td class="bodyText" valign="top" width="150"><A href="/tc"><img src="/i/registration/icon_algorithm.gif" border=0/></A></td>

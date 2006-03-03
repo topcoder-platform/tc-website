@@ -73,8 +73,8 @@ Click             <% if (sessionInfo.isAnonymous()) { %>
 <br/><br/>
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -82,9 +82,9 @@ Click             <% if (sessionInfo.isAnonymous()) { %>
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
 </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />

@@ -4,7 +4,11 @@
 <head>
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Description</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
@@ -21,10 +25,9 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="tournaments"/>
-            </jsp:include>
-        </td>
+<jsp:param name="node" value="topcoder_tournaments"/>
+</jsp:include>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -56,7 +59,7 @@
                 <li><strong>Onsite Finals</strong><br />
                     April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong><br />
-                <a href="/tc?module=ViewActiveContests">View eligible components</a></li>
+                <a href="/tc?module=ViewActiveContests&ph=112">View eligible components</a></li>
                 <li><strong>Open to all eligible college students</strong></li>
             </ul>
 

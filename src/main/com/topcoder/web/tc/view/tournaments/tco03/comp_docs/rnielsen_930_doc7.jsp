@@ -2,8 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html class="compDocs">
 <head>
-    <title>2003 TopCoder Open sponsored by Intel&#174; - Component Finals - rnielsen</title>
-    <jsp:include page="../../../script.jsp" />
+    <title>2003 TopCoder Open sponsored by Intel&#174; - Component Finals - rnielsen</title><jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
+
 </head>
 
 <body class="compDocs">

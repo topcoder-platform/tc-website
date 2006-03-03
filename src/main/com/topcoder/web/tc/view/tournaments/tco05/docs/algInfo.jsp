@@ -96,12 +96,12 @@
 
                             </ol>
 <%--
-                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on November 11 &amp; 12 in Santa Clara, CA, USA.</strong></p>
+                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on November 11 & 12 in Santa Clara, CA, USA.</strong></p>
                             <ol>
                                 <li>
                                 <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 AM ET on Monday, October 18.</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                <p>View the <a href="/?&t=affidavit&c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                             </ol>

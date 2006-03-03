@@ -26,7 +26,11 @@
    padding: 3px 5px 3px 5px;
 }
 </STYLE>
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+
 
 </head>
 
@@ -39,12 +43,10 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="employment"/>
-                <jsp:param name="level2" value="openings"/>
+        <td width="180">            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="employment_opps"/>
             </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
@@ -174,7 +176,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><b>Cosmin.ro</b></td><td class="dark">:)</td></tr>
 <tr><td class="light"><b>Cyberpunk1024</b></td><td class="light">verdox: ooh that was the question? ^_^</td></tr>
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">reda_reda: tutorials are here</span></td></tr>
-<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">reda_reda: http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation</span></td></tr>
+<tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">reda_reda: <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">here</A></span></td></tr>
 
 <tr><td class="dark"><b>Cyberpunk1024</b></td><td class="dark">verdox: hehe the reason why I don't participate in those is it feels a bit intimidating I guess</td></tr>
 <tr><td class="light"><span class="bigRed">mess</span></td><td class="light"><span class="bigRed">reda_reda: also www.poseidon.com</span></td></tr>
@@ -235,7 +237,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="dark"><span class="bigRed">mess</span></td><td class="dark"><span class="bigRed">anne: currently no but we have been considering adding it</span></td></tr>
 <tr><td class="light"><b>Aegypter</b></td><td class="light">scamp: should I learn about XML first, or can I learn it during the development</td></tr>
 <tr><td class="dark"><b>aussie</b></td><td class="dark">mess: that's good to hear.  I'd like to have a go at the component tournament again in the TCO, and could do with a bit of practice before that.</td></tr>
-<tr><td class="light"><span class="bigRed">TonyJ</span></td><td class="light"><span class="bigRed">dimkadimon: we would love to have you participate.  Check out http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation</span></td></tr>
+<tr><td class="light"><span class="bigRed">TonyJ</span></td><td class="light"><span class="bigRed">dimkadimon: we would love to have you participate.  Check out <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">this</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">this</A></span></td></tr>
 <tr><td class="dark"><b>anne</b></td><td class="dark">mess: i think that would help</td></tr>
 
 <tr><td class="light"><span class="bigRed">TangentZ</span></td><td class="light"><span class="bigRed">aussie: why not Java?  :)</span></td></tr>
@@ -357,7 +359,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><span class="bigRed">brianewalsh</span></td><td class="light"><span class="bigRed">7734: yes we have forums which you can post questions</span></td></tr>
 <tr><td class="dark"><span class="bigRed">brianewalsh</span></td><td class="dark"><span class="bigRed">7734: to and they will respond</span></td></tr>
 
-<tr><td class="light"><span class="bigRed">brianewalsh</span></td><td class="light"><span class="bigRed">7734: http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation</span></td></tr>
+<tr><td class="light"><span class="bigRed">brianewalsh</span></td><td class="light"><span class="bigRed">7734: <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">here</A></span></td></tr>
 <tr><td class="dark"><b>7734</b></td><td class="dark">i've never tried a project because i could never understand the structure, but now i think i'll be able to try</td></tr>
 <tr><td class="light"><b>TAG</b></td><td class="light">mess: well .. I don't see that people from CodeProject or web-blogs talking anything good about TCS components</td></tr>
 <tr><td class="dark"><span class="bigRed">brianewalsh</span></td><td class="dark"><span class="bigRed">7734: that link talks more the deliverables</span></td></tr>
