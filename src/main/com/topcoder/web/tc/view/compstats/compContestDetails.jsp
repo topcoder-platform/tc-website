@@ -74,7 +74,7 @@
 </jsp:include>
 
 <span class="bodySubtitle">Component Statistics >
-<a href='/tc?module=CompList&pi=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
+<a href='/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
     <rsc:item set="<%=projectInfo%>" name="phase_desc"/> Contests</a>
  > Contest Details
 </span><br>
