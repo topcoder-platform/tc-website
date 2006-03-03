@@ -27,26 +27,19 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-               <jsp:include page="body_top.jsp" >
-                  <jsp:param name="image" value="events"/>
-                  <jsp:param name="image1" value="white"/>
-                  <jsp:param name="title" value="Private Label"/>
-               </jsp:include>
+<TD class="bodyText" width="100%" valign="top">
+<div align="center">
+   <div style="width: 550px; text-align: left; margin: 0px 15px 0px 15px;">
 
-            <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
+    <jsp:include page="/page_title.jsp">
+        <jsp:param name="image" value="tc_tournaments"/>
+        <jsp:param name="title" value="Powered by TopCoder"/>
+    </jsp:include>
 
-<!-- Upcoming Tournaments begins -->
+<!-- Current Tournaments begins -->
 
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Upcoming Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+         <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gicj06&d2=overview" target="_blank"><img src="/i/events/gicj06.gif" alt="GCJI" border="0" /></A></td>
@@ -65,11 +58,8 @@
 
 
 <!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+         <div class="sectionHeader" width="100%">Past Tournaments</div>
 
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -282,13 +272,11 @@
                 </tr>
             </table>
 
-         <br><br>
-         </td>
+   <br><br>
+   </div>
+</div>
+</td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">

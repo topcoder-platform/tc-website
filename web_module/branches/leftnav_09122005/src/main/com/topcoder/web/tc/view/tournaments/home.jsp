@@ -36,7 +36,7 @@
         <jsp:param name="title" value="TopCoder Tournaments"/>
     </jsp:include>
 
-   <div class="sectionHeader">Upcoming Tournaments</div>
+   <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
