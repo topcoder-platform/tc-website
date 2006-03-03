@@ -15,6 +15,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class CompContestDetails extends Base {
         // Find all the projects that match with the component id, version and phase
         r.setProperty("compid", compId);
         r.setProperty("vr", versId);
-        r.setProperty("pi", phaseId);
+        r.setProperty(Constants.PHASE_ID, phaseId);
 
         DataAccessInt dai = getDataAccess(true);
         Map result = dai.getData(r);
@@ -50,14 +51,14 @@ public class CompContestDetails extends Base {
             // 2. if there is comp,vers,type and pid use that project
             // 3. if there is just pid, use that project and find out its comp+vers+type
             if (hasParameter("compid")) {
-                if (!hasParameter("pi")) {
-                    throw new TCWebException("parameter 'pi' expected when 'compid' is specified");
+                if (!hasParameter(Constants.PHASE_ID)) {
+                    throw new TCWebException("parameter 'ph' expected when 'compid' is specified");
                 }
                 if (!hasParameter("vr")) {
                     throw new TCWebException("parameter 'vers' expected when 'compid' is specified");
                 }
 
-                dates = findProjects(getRequest().getParameter("compid"), getRequest().getParameter("vr"), getRequest().getParameter("pi"));
+                dates = findProjects(getRequest().getParameter("compid"), getRequest().getParameter("vr"), getRequest().getParameter(Constants.PHASE_ID));
 
                 if (dates.size() == 0) {
                     throw new TCWebException("component not found.");
