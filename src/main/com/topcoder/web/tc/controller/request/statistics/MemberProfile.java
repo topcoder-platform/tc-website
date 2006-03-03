@@ -110,7 +110,7 @@ public class MemberProfile extends Base {
                     r = new Request();
                     r.setContentHandle("Coder_Des_Data");
                     r.setProperty("cr", coderId);
-                    r.setProperty("pi", "112"); //design phase id
+                    r.setProperty(Constants.PHASE_ID, "112"); //design phase id
 
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
@@ -124,7 +124,7 @@ public class MemberProfile extends Base {
                     r = new Request();
                     r.setContentHandle("Coder_Dev_Data");
                     r.setProperty("cr", coderId);
-                    r.setProperty("pi", "113"); //design phase id
+                    r.setProperty(Constants.PHASE_ID, "113"); //design phase id
 
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);

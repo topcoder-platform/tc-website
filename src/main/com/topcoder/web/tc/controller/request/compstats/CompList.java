@@ -58,7 +58,7 @@ public class CompList extends Base {
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
             r.setContentHandle("comp_list");
-            r.setProperty("pi", phaseId);
+            r.setProperty(Constants.PHASE_ID, phaseId);
 
             Map result = getDataAccess(true).getData(r);
 

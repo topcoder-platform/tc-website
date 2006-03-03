@@ -40,7 +40,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 %>
 
-<% if(srb.getProperty("pi").equals("113")){ %>
+<% if(srb.getProperty(Constants.PHASE_ID).equals("113")){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="Component Development Rating History"/>
@@ -52,7 +52,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
     </jsp:include>
 <% } %>
 
-<% if(srb.getProperty("pi").equals("113")){ %>
+<% if(srb.getProperty(Constants.PHASE_ID).equals("113")){ %>
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="development"/></span>
     <br>
@@ -117,7 +117,7 @@ if (srb.getProperty("sq")!=null){
   sortString+="&sc=" + srb.getProperty("sc");
   sortString+="&sd=" + srb.getProperty("sd", "desc");
 }
-String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&amp;"+Constants.PHASE_ID+"=" + srb.getProperty("pi");
+String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=tcs_ratings_history&amp;"+Constants.PHASE_ID+"=" + srb.getProperty(Constants.PHASE_ID);
 %>
 
     <% if (!bEmpty) { %>
@@ -144,7 +144,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
       <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">
-         <% if(srb.getProperty("pi").equals("113")){%>
+         <% if(srb.getProperty(Constants.PHASE_ID).equals("113")){%>
          Development
          <% } else { %>
          Design

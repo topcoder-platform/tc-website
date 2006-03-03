@@ -90,7 +90,7 @@ function submitEnter(e) {
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
 
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompList"/>
-<tc-webtag:hiddenInput name="pi" value="<%=phaseId%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>" value="<%=phaseId%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
