@@ -12,7 +12,10 @@
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
@@ -26,10 +29,9 @@
    <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="dev_compete"/>
+         </jsp:include>
         </td>
 <%-- Left Column Ends --%>
 
@@ -40,7 +42,10 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
+      <jsp:include page="/page_title.jsp">
+          <jsp:param name="image" value="comp_development"/>
+          <jsp:param name="title" value="Active Contests"/>
+      </jsp:include>
 
 <%-- Title --%>
                         <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
@@ -225,7 +230,7 @@ If you do not reside in the United States:
                                 <strong><A href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">
                                          Register</A> for this Component Project to get information necessary to submit a solution</strong>
                                         <br/><br/>
-                                        <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></span>
+                                        <span class=bigRed>NOTE: Registering for this component will affect your <A class=bigRed href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">Reliability Rating</A></span>
                            <% } %>
                            </p>
 

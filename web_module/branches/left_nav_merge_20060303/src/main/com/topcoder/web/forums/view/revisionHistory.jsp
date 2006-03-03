@@ -6,7 +6,7 @@
                 com.jivesoftware.base.User,
                 java.util.*"
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -22,9 +22,10 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="script.jsp" />
+    <jsp:include page="script.jsp" />
+        <jsp:include page="/style.jsp">
+          <jsp:param name="key" value="tc_forums"/>
+        </jsp:include>
 
 </head>
 
@@ -38,11 +39,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
-            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
-         </jsp:include>
+          <jsp:include page="includes/global_left.jsp">
+             <jsp:param name="node" value="forums"/>
+          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
@@ -59,10 +58,10 @@
    <td valign="top">
    <span class="rtbc">
 	   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >>  
+	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >  
 	   </tc-webtag:iterator>
-        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
-        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A> >>
+        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> > 
+        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A> >
         Revision History 
         <%  if (revisionList.size() == 1) { %> 
                 (1 edit) 

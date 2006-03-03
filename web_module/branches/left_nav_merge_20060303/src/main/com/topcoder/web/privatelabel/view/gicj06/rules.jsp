@@ -46,7 +46,7 @@
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google&#153; Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 7, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. The top 250 scores from Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award Rs. 1,500,000 in cash and prizes to the 50 finalists in the tournament.
+The Google&#153; Code Jam India is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s life. The goal of this contest is to encourage and reward the top talents in computer science in India. The Code Jam India will take place between February 27, 2006 and April 7, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, one (1) online elimination round and one (1) onsite final round. The top 250 scores from Round 1 will receive a Google Code Jam India t-shirt. In addition, Google will award Rs. 1,550,000 in cash and prizes to the 50 finalists in the tournament.
 <br><br>
 <b>Eligibility</b><br>
 All individuals who are residents of India, Bangladesh, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2006, provided they reside in that country during the dates of the competition, February 27 and April 7, 2006.
@@ -186,29 +186,29 @@ The top 250 scores from Round 1 will receive a "Google Code Jam India" t-shirt. 
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>Rs. 122,000</b>
+<b>Rs. 110,000</b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-Rs. 56,000
+Rs. 44,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-Rs. 44,200
+Rs. 33,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-Rs. 33,200
+Rs. 22,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-Rs. 22,200
+Rs. 11,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
 <td class="sidebarText">
-Rs. 18,000
+Rs. 6,600
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize.</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
 <br>
 

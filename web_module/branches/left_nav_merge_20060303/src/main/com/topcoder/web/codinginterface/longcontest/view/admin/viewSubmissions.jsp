@@ -11,17 +11,17 @@
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
-<% String level2 = "topcoder";
+<% String myNode = "long_compete";
     String image = "long_comps_topcoder";
-    if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-        level2 = "topcoder_practice";
-    } else if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-        level2 = "intel_practice";
-        image = "long_comps_intel";
-    } else if (roundType == Constants.INTEL_LONG_ROUND_TYPE_ID) {
-        level2 = "intel";
-        image = "long_comps_intel";
-    }
+     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+         myNode="long_practice";
+     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+         myNode="long_intelmtcs_practice";
+         image = "long_comps_intel";
+     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
+         myNode="long_intelmtcs_compete";
+         image = "long_comps_intel";
+     }
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -57,10 +57,9 @@
 <%-- Left Column Begins--%>
 <td width="180">
     <%-- value of level2 is 'topcoder' or 'intel_active_contests' --%>
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="<%=level2%>"/>
-    </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="<%=myNode%>"/>
+         </jsp:include>
 </td>
 <%-- Left Column Ends --%>
 

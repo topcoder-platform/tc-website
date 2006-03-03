@@ -43,7 +43,7 @@
         			<A href="http://software.topcoder.com/catalog/c_showroom.jsp?cat=5801777" target="blank">.NET Catalog</A></p></td>
         		<td><img src="http://www.topcoder.com/i/clear.gif" alt="" width="210" height="1" border="0"/></td>
         		<td class="bodyText" align="right"><p>
-        			<A href="http://www.topcoder.com/?t=contacts&c=index" target="blank">Contact Us</A>&nbsp;&nbsp;|&nbsp;&nbsp;
+        			<A href="/tc?module=Static&d1=about&d2=contactus" target="blank">Contact Us</A>&nbsp;&nbsp;|&nbsp;&nbsp;
         			<A href="http://software.topcoder.com/login.jsp" target="blank">Login</A></p></td>
         	</tr>
         </table>

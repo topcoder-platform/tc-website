@@ -10,7 +10,10 @@
 <head>
 <title>Why Join TopCoder?</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -26,8 +29,7 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="about"/>
-                <jsp:param name="level2" value="whyjoin"/>
+                <jsp:param name="node" value="join_tc"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -51,7 +53,7 @@
 TopCoder algorithm competitions offer a unique perspective on problem solving.  It's one thing to program a working solution, but it's a whole different level, the TopCoder level, when you're competing with other programmers to get that solution.  TopCoder algorithm competitions give members a chance to test their knowledge, their speed, and their efficiency in an arena with <i>thousands</i> of other programmers.  Care to find out just how good of a programmer you are?  TopCoder is the place to do it.<br><A href="/tc">Learn more...</A>
 <br><br>
 <span class="bodySubtitle">Component Competitions</span><br>
-TopCoder component competitions involve designing and developing software components, not just for recognition, but for some serious prize money.  Aside from whatever earnings you get from the competition itself, members also get royalties for winning components they design or develop.<br><A href="/?t=development&c=index">Learn more...</A>
+TopCoder component competitions involve designing and developing software components, not just for recognition, but for some serious prize money.  Aside from whatever earnings you get from the competition itself, members also get royalties for winning components they design or develop.<br>Learn more... : <A href="/tc?module=ViewActiveContests&ph=112">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113">Development</A>
 <br><br>
 <span class="bodySubtitle">Ratings and Statistics</span><br>
 What good is a competition without the proper statistics to quantify the results?  As an active TopCoder member, programmers receive a rating in up to 3 different types of competition: algorithm, component design, and component development.  In addition to ratings, each active member has a wealth of statistics that track their progress in the world of competitive programming.<br><A href="/stat?&c=round_overview">Learn more...</A>

@@ -4,13 +4,16 @@
 <head>
 <title>Review Documentation</title>
 
-<jsp:include page="../../../../script.jsp" />
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="../../../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,11 +21,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="samples"/>
-            </jsp:include>
+<jsp:include page="/includes/global_left.jsp">
+<jsp:param name="node" value="dev_documentation"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -115,7 +116,7 @@ If not, list additional or missing classes. Points should be deducted for adding
     </tr>
 </table>
 
-<jsp:include page="../../../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 

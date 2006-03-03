@@ -15,6 +15,7 @@ import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.model.Answer;
@@ -43,11 +44,15 @@ public class Register extends ViewRegistration {
     protected void developmentProcessing() throws TCWebException {
 
         try {
+            loadPhase();
+
             if (!userLoggedIn()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
 
             validation();
+
+            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
@@ -60,13 +65,10 @@ public class Register extends ViewRegistration {
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
                                 register();
-                                getRequest().setAttribute(Constants.PROJECT_ID,
-                                        getRequest().getParameter(Constants.PROJECT_ID));
                                 getRequest().removeAttribute("responses");
                                 setNextPage("/dev/regSuccess.jsp");
                                 setIsNextPageInContext(true);
                         } else {
-                            getRequest().setAttribute(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                             setNextPage("/dev/tournamentConfirm.jsp");
                             setIsNextPageInContext(true);
                         }

@@ -9,13 +9,16 @@
 <head>
 <title>Development Tutorial</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -23,11 +26,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="support"/>
-                <jsp:param name="level3" value="devTutorial"/>
-            </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="dev_getting_started"/>
+         </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -38,7 +39,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-			<h2>Development Tutorial</h2>
+<h2>Development Tutorial</h2>
 
 			<a name="sectionI"></a>
 			<h2>I. Introduction</h2>
@@ -1189,7 +1190,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
 

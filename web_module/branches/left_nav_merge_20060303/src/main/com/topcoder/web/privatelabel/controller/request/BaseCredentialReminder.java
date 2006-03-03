@@ -4,7 +4,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -13,7 +12,6 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.Locale;
 
 /**
  * @author  dok

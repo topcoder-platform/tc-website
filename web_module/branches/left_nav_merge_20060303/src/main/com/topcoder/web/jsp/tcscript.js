@@ -1,7 +1,9 @@
+/*
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>');
   document.write('<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>');
+*/
 
   function getGraph(url,wd,ht) {
     var last=0;

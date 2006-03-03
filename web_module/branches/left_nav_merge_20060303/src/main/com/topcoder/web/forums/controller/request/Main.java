@@ -8,6 +8,7 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class Main extends ForumsProcessor {
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
         }
-        
+
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
         getRequest().setAttribute("forumFactory", forumFactory);

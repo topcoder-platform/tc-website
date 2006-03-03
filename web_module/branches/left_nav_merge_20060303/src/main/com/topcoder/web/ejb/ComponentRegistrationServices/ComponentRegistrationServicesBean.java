@@ -2,13 +2,10 @@ package com.topcoder.web.ejb.ComponentRegistrationServices;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -518,4 +515,3 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
     }
 }
-

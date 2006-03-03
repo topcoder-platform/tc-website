@@ -15,7 +15,7 @@
                  com.jivesoftware.forum.WatchManager,
                  java.util.*"
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -33,9 +33,10 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_forums"/>
+</jsp:include>
 
 </head>
 
@@ -50,11 +51,9 @@
 
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value=""/>
-            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
-         </jsp:include>
+          <jsp:include page="/includes/global_left.jsp">
+             <jsp:param name="node" value="forums"/>
+          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
@@ -66,10 +65,12 @@
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
-    
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-    <td nowrap="nowrap" valign="top">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
         <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
@@ -113,7 +114,7 @@
                 </tc-webtag:iterator>
             </table>
             <%  } %>
-            
+
             <%  if (deepCategories.size() > 0) { %>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
@@ -150,8 +151,8 @@
             <%  } %>
             --%>
 
-            <%  if (categories.size() > 0) { 
-                    Calendar calendar = Calendar.getInstance(); 
+            <%  if (categories.size() > 0) {
+                    Calendar calendar = Calendar.getInstance();
                     calendar.set(Calendar.MILLISECOND, 0);
                     calendar.set(Calendar.SECOND, 0);
                     calendar.set(Calendar.MINUTE, 0);
@@ -161,7 +162,7 @@
                 if (!"0".equals(limit)) { %>
                     <%  Iterator itForums = null, itForumsCopy = null;
                         int numActiveForums = 0;
-                        if (!"".equals(limit)) { 
+                        if (!"".equals(limit)) {
                             if (limit.endsWith("d")) {
                                 int numDays = Integer.parseInt(limit.substring(0, limit.length()-1));
                                 calendar.add(Calendar.DATE, numDays*-1);
@@ -173,9 +174,9 @@
                                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                                 ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
                                 ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                                itForums = pageList.iterator(); itForumsCopy = pageList.iterator();               
+                                itForums = pageList.iterator(); itForumsCopy = pageList.iterator();
                             }
-                        } else { 
+                        } else {
                             resultFilter.setNumResults(ResultFilter.NULL_INT);
                             itForums = category.getForums(resultFilter); itForumsCopy = category.getForums(resultFilter);
                         }
@@ -219,11 +220,11 @@
                                       </tr>
                                    <%  } %>
                                 </tc-webtag:iterator>
-                                <%  if (!"".equals(limit)) { 
-                                        int limitCNT = -1; 
+                                <%  if (!"".equals(limit)) {
+                                        int limitCNT = -1;
                                         try {
-                                            limitCNT = Integer.parseInt(limit); 
-                                        } catch (Exception e) {} 
+                                            limitCNT = Integer.parseInt(limit);
+                                        } catch (Exception e) {}
                                         if (category.getForumCount() >= limitCNT) { %>
                                             <tr><td class="rtThreadCell" colspan="4"><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A></td></tr>
                                     <%  } %>

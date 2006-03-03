@@ -2,9 +2,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<head>
+<%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%> <head>
     <title>TopCoder - Message</title>
-    <jsp:include page="../script.jsp"/>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+      <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
 
@@ -18,10 +22,8 @@
     <tr valign="top">
         <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="development"/>
-                <jsp:param name="level2" value="components"/>
-                <jsp:param name="level3" value="active_contests"/>
+            <jsp:include page="/includes/global_left.jsp">
+               <jsp:param name="node" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "des_compete" : "dev_compete"%>"/>
             </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -32,13 +34,10 @@
 
         <!-- Center Column Begins -->
         <td width="100%" align="center" class="bodyText">
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            <jsp:include page="../body_top.jsp">
-                <jsp:param name="image" value="development"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Components"/>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="<%= new Integer(SoftwareComponent.DESIGN_PHASE).equals(request.getAttribute(Constants.PHASE_ID))? "comp_design" : "comp_development"%>"/>
+                <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <p>
                 <strong>You have successfully registered for this contest.</strong>

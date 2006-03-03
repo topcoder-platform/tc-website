@@ -6,14 +6,10 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
-<table width="180" border="0" cellspacing="0" cellpadding="0">
-    <tr><td width="180" height="11"><img src="/i/my_stats_top.gif" alt="" width="180" height="11" border="0"></td></tr>
-</table>
-
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'  darkBG="true"/></td>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/></td>
     </tr>
 
     <tr>
@@ -21,38 +17,43 @@
     </tr>
 </table>
 
-<table width="180" border="0" cellspacing="0" cellpadding="0">
+<table width="180" border="0" cellspacing="0" cellpadding="3">
     <tr><td colspan="2" class="myStatsTitle">Algorithm</td></tr>
 
     <tr>
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
     </tr>
     <tr>
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
         </tr>
+   <tr>
+      <td class="formHandleEven" colspan="2" align="center">
+      <A href="/stat?c=coder_room_stats&cr=<%=coderInfo.getLongItem(0, "coder_id")%>" class="statTextBig">My Last Match</A>
+      </td>
+   </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
 
     <tr>
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
     <tr>
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
 
-    <tr valign="middle">
-        <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
+    <tr>
+        <td class="formHandleEven">Rating</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_rating" ifNull="Not Rated" format="#"/></td>
     </tr>
-    <tr valign="middle">
-        <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
+    <tr>
+        <td class="formHandleEven">Earnings</td>
+        <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
     </tr>
 </table>
 
@@ -69,12 +70,11 @@
 
             <p>To learn more about Algorithm Competitions, go to the <a href="/tc?module=Static&d1=help&d2=index" class="statText">Competition Guide.</a></p>
 
-            <p>To learn more about Design and Development Competitions, go to <a href="/?t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
+         <p>To learn more about Design Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted" class="statText">this tutorial</A>.</p>
+
+         <p>To learn more about Development Competitions, check out <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted" class="statText">this tutorial</A>.</p>
         </td>
     </tr>
 </table>
 
 <% } %>
-<table width="180" border="0" cellspacing="0" cellpadding="0">
-    <tr><td width="180" height="11"><img src="/i/my_stats_bottom.gif" alt="" width="180" height="11" border="0"></td></tr>
-</table>

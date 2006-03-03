@@ -5,10 +5,10 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 
 <STYLE TYPE="text/css">
         #calendarTCO06
@@ -58,10 +58,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="calendar"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
+<jsp:include page="../includes/global_left.jsp">
+<jsp:param name="node" value="competition_calendar"/>
+</jsp:include>
         </td>
 <!-- Left Column Ends -->
 
@@ -111,9 +110,8 @@
             <strong>Match 296</strong><br />
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9817&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9817">Details</A><br/><br/></td>
         <td id="calendar" rowspan="2">4</td>
         <td id="calendar" rowspan="2">5</td>
         <td id="calendarSRM">
@@ -123,7 +121,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9818&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9818">Details</A><br/><br/></td>
         <td id="calendar" rowspan="2">7</td>
         <td id="calendar" rowspan="2">8</td>
     </tr>
@@ -145,9 +143,8 @@
             <strong>Match 298</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9819&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9819">Details</A><br/><br/></td>
         <td id="calendar">12</td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">13</span><br/>
@@ -186,7 +183,7 @@
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9820&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9820">Details</A><br/><br/></td>
     </tr>
     
     <tr> 
@@ -201,7 +198,7 @@
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=9821&t=schedule&c=srm">Details</A><br/><br/>
+            <A href="/tc?module=MatchDetails&rd=9821">Details</A><br/><br/>
             &#160;<br />
             </td>
         <td id="calendar">28</td>

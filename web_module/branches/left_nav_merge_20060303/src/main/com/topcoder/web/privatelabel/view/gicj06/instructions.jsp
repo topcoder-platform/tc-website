@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=utf-8" %>
+﻿﻿<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -333,7 +333,7 @@ simply type the following in the white chat line at the bottom of the applet:
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to 
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to
 <A href="gcji@topcoder.com?subject=Question regarding Google Code Jam India">gcji@topcoder.com</A>. Please include
 a detailed description of the problem that you are having.
 <br><br>

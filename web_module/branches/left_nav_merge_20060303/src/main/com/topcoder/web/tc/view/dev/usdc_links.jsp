@@ -14,15 +14,15 @@
     	</tr>
 		<tr>
    			<td align=center>
-        		<A href="/tc?module=ViewActiveContests"><img src="/i/development/usdc/usdc_tag.gif" width="280" height="25" border="0" alt="Ultimate Software Development Contest"></A><br/>
-            	<img src="/i/clear.gif" width="10" height="10" border="0"/>        		
+        		<img src="/i/development/usdc/usdc_tag.gif" width="280" height="25" border="0" alt="Ultimate Software Development Contest"><br/>
+            	<img src="/i/clear.gif" width="10" height="10" border="0"/>
             </td>
     	</tr>
 	</table>
 
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-        <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td> 
+        <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 
 <!-- Summary tab -->
             <% if (selectedTab.equals("overview")) {%>
@@ -37,7 +37,7 @@
             <% } else { %>
                  <td class="statTextBig" width="128"><A href="/tc?module=Static&d1=dev&d2=usdc_prizes" class="statTextBig"><img src="/i/development/usdc/tab_prizes_off.gif" alt="Prizes" width="88" height="22" border="0" /></A></td>
             <% } %>
-            
+
 
 <!-- Rules tab -->
             <% if (selectedTab.equals("rules")) {%>
@@ -52,14 +52,14 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_schedule" class="statTextBig"><img src="/i/development/usdc/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
-            
+
 <!-- Results tab -->
             <% if (selectedTab.equals("results")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=USDCResults&ph=112" class="statTextBig"><img src="/i/development/usdc/tab_results_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=USDCResults&ph=112" class="statTextBig"><img src="/i/development/usdc/tab_results_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
-            
+
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>
 </table>

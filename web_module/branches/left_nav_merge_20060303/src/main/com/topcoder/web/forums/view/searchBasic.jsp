@@ -7,7 +7,7 @@
                  java.util.*,
                  java.text.SimpleDateFormat"
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
@@ -34,10 +34,10 @@ function noenter(e)
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<link type="text/css" rel="stylesheet" href="/css/stats.css"/>
-<jsp:include page="script.jsp" />
+    <jsp:include page="script.jsp" />
+        <jsp:include page="/style.jsp">
+          <jsp:param name="key" value="tc_forums"/>
+        </jsp:include>
 
 </head>
 
@@ -52,11 +52,9 @@ function noenter(e)
 
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value=""/>
-            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
-         </jsp:include>
+          <jsp:include page="includes/global_left.jsp">
+             <jsp:param name="node" value="forums"/>
+          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 

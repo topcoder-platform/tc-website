@@ -4,7 +4,10 @@
 <head>
 <title>TopCoder Member Card</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,9 +21,8 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="card"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="cards_badges"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->

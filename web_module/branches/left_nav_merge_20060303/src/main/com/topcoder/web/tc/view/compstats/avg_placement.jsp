@@ -16,7 +16,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="270" style="float: left; margin-right: 15px; margin-bottom: 15px;">
     <tr><td class="title" colspan="3">Best Average Component Contest Placement</td></tr>
-    <tr><td class="headerC">Rank</td><td class="header" width="100%">Coder</td><td class="headerR" nowrap="nowrap">Average ranking</td></tr>
+    <tr><td class="headerC">Rank</td><td class="header">Coder</td><td class="headerR" nowrap="nowrap">Average ranking</td></tr>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="row">
         <tr class="<%=even?"dark":"light"%>">
@@ -28,7 +28,9 @@ if (type == null) type = HandleTag.COMPONENT; %>
     </rsc:iterator>
 </table>
 <span class="bodyText">
-<strong>Record:</strong> Best average placement per contest.  Lower is better.  1.00 is perfect.
+<strong>Record:</strong> Best average placement per contest.  A lower average is better.  An average of 1.00 means the competitor
+    came in first on every submission that passed screening.  Only contests where the competitor was rated are included.
+    In order to be listed, a competitor must have at least 5 contests where their submission passed screening.
 </span>
 
 </div>
