@@ -7,7 +7,9 @@
 <head>
 <title>TopCoder</title>
 <jsp:include page="/script.jsp" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
@@ -21,10 +23,9 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="level1" value="long_contests"/>
-        <jsp:param name="level2" value="topcoder_editorials"/>
-    </jsp:include>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="long_editorials"/>
+         </jsp:include>
 </td>
 <%-- Left Column Ends --%>
 

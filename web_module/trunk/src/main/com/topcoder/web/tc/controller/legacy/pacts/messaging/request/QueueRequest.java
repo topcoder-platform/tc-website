@@ -56,6 +56,7 @@ public class QueueRequest {
      */
     private void init() {
         boolean successfull = false;
+        InitialContext ctx = null;
         try {
             // keep trying to initialize the queue until it starts
             while (!successfull) {
@@ -79,6 +80,8 @@ public class QueueRequest {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            TCContext.close(ctx);
         }
 
     }

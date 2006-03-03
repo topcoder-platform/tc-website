@@ -41,10 +41,10 @@
 <span valign="top">
 <jsp:include page="right.jsp"/>
 </span>
-<span class="bigTitle">Google Code Jam India</span>
+<span class="bigTitle">Google&#153; Code Jam India</span>
 
 <br><br>
-Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,500,000 (estimated) in cash and prizes!
+Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
@@ -86,7 +86,7 @@ Here's the line-by-line documentation:
 <br><br>
 Registration for Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
 <br><br>
-The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,500,000 in cash and prizes at the onsite Championship Round in India.
+The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,550,000 in cash and prizes at the onsite Championship Round in India.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -132,8 +132,9 @@ The competitors with the top 50 scores from Round 1 will be invited to compete f
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText" colspan="3">* All times listed as India Standard Time<br>
-		The final contest date will be subject to change with or without prior notice.
+        <td class="sidebarText" colspan="3">* All times listed as India Standard Time
+		<br><br>
+		The final contest date will be subject to change w/ or w/o prior notice
 		</td>
     </tr>
 </table>
@@ -150,29 +151,29 @@ The top 250 scores of Round 1 will receive a "Google&#153; Code Jam India" t-shi
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>Rs. 122,000</b>
+<b>Rs. 110,000</b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-Rs. 56,000
+Rs. 44,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-Rs. 44,200
+Rs. 33,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-Rs. 33,200
+Rs. 22,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-Rs. 22,200
+Rs. 11,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
 <td class="sidebarText">
-Rs. 18,000
+Rs. 6,600
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize.</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
 </table>
 <br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
@@ -184,4 +185,4 @@ To find out more detailed information about Google&#153; Code Jam India, includi
 </table>
 <jsp:include page="foot.jsp"/>
 </body>
-</html>
+</html>?

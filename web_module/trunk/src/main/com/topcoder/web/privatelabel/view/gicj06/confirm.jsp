@@ -11,7 +11,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -71,7 +71,7 @@ function submitEnter(e) {
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOn">Confirm</div>
          <div class="regBreadOff">Success</div>
-         <% if (regInfo.isNew()) { %><div class="regBreadOff">Activation</div><% } %>
+         <div class="regBreadOff">Activation</div>
          <br><br>
           <% if (regInfo.isNew()) { %>
           <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>

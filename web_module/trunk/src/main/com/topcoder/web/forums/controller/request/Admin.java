@@ -96,7 +96,7 @@ public class Admin extends ForumsProcessor {
                 BaseProcessor.close(ctx);
             }
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
-            escapeHTML(); 
+            escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATINGS)) {
             RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
             if (!ratingManager.isRatingsEnabled()) {
@@ -122,11 +122,11 @@ public class Admin extends ForumsProcessor {
                 }
             }
         }
-        /* 
+        /*
         else if (command.equals("Add test forums")) {
             for (int i=0; i<50; i++) {
                 com.jivesoftware.forum.ForumCategory fc = forumFactory.getForumCategory(8);
-                forumFactory.createForum("Test Forum "+fc.getForumCount(), 
+                forumFactory.createForum("Test Forum "+fc.getForumCount(),
                         "Description for Test Forum "+fc.getForumCount(), fc);
             }
         } else if (command.equals("Delete test forums")) {
@@ -145,24 +145,24 @@ public class Admin extends ForumsProcessor {
         setNextPage("/admin.jsp");
         setIsNextPageInContext(true);
     }
-    
+
     private ArrayList getRoundList() throws Exception {
         Request r = new Request();
         r.setContentHandle("Rounds_By_Date_short_name");
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("Rounds_By_Date_short_name");
         ArrayList roundList = new ArrayList();
-        
+
         for (int i=0; i<rsc.size(); i++) {
             Round round = new Round(rsc.getIntItem(i, "contest_id"));
             round.setRoundId(rsc.getIntItem(i, "round_id"));
             round.setRoundName(rsc.getStringItem(i, "short_name"));
             roundList.add(round);
-        }     
+        }
         return roundList;
     }
-    
-    // In <pre></pre> blocks in Round Table posts before the launch of Jive 4.2.1 (7/17/05), 
-    // replaces certain characters with their HTML escape codes.  
+
+    // In <pre></pre> blocks in Round Table posts before the launch of Jive 4.2.1 (7/17/05),
+    // replaces certain characters with their HTML escape codes.
     private void escapeHTML() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2005,7,17);
@@ -176,7 +176,7 @@ public class Admin extends ForumsProcessor {
                     ForumMessageIterator itMessages = f.getMessages();
                     while (itMessages.hasNext()) {
                         ForumMessage m = (ForumMessage)itMessages.next();
-                        if (m.getCreationDate().before(calendar.getTime())) {  
+                        if (m.getCreationDate().before(calendar.getTime())) {
                             Date msgModDate = m.getModificationDate();
                             Date threadModDate = m.getForumThread().getModificationDate();
                             m.setBody(parse(m.getUnfilteredBody()));
@@ -191,9 +191,9 @@ public class Admin extends ForumsProcessor {
         } catch (Exception e) {
             log.debug("escapeHTML() failed");
             return;
-        } 
+        }
     }
-    
+
     /*
     // Sets thread modification dates to their correct values.
     private void repair() {
@@ -221,14 +221,14 @@ public class Admin extends ForumsProcessor {
         } catch (Exception e) {}
     }
     */
-    
+
     private String parse(String s) {
         if (s == null) return null;
         //s = s.replaceAll("&", "&amp;");
-        s = s.replaceAll("<", "&lt;"); 
+        s = s.replaceAll("<", "&lt;");
         s = s.replaceAll(">", "&gt;");
         //s = s.replaceAll("\"", "&quot;");
-        s = s.replaceAll("’", "'");
+        s = s.replaceAll("ï¿½", "'");
         s = s.replaceAll("&lt;[pP][rR][eE]&gt;", "<pre>");
         s = s.replaceAll("&lt;/[pP][rR][eE]&gt;", "</pre>");
         return s;

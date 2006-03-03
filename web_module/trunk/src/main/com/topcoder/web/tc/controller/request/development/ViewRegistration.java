@@ -37,13 +37,9 @@ public class ViewRegistration extends Base {
     private List questions = null;
 
     protected void developmentProcessing() throws TCWebException {
-        //check if user can do the project (there's like 10 things to check.
-        //if they can't, give them error message
-        //if they can, check if they are registered for the tco
-        //if they are not registered, add a flag to the request
-        //forward to terms/questions page
 
         try {
+            loadPhase();
             if (!userLoggedIn()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -68,6 +64,19 @@ public class ViewRegistration extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+
+    }
+
+    protected void loadPhase() throws Exception {
+        long projectId = 0;
+        if (!StringUtils.isNumber(getRequest().getParameter(Constants.PROJECT_ID))) {
+            throw new NavigationException("Invalid project specified");
+        } else {
+            projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
+        }
+        ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+        int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+        getRequest().setAttribute(Constants.PHASE_ID, new Integer(phase));
 
     }
 

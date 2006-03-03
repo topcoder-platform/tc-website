@@ -11,8 +11,10 @@
 <html>
 <head>
     <title>TopCoder</title>
-    <jsp:include page="script.jsp" />
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
@@ -42,11 +44,9 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="level1" value="long_contests"/>
-                <jsp:param name="level2" value=""/>
-            </jsp:include>
-        </td>
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_long_contests"/>
+         </jsp:include>
         <%-- Left Column Ends --%>
 
         <%-- Center Column Begins --%>

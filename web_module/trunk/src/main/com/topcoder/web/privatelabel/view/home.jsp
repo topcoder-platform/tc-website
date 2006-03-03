@@ -5,6 +5,9 @@
 <title>Events - Private Label</title>
 
 <jsp:include page="script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_main"/>
+</jsp:include>
 
 </head>
 
@@ -18,33 +21,25 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="includes/global_left.jsp">
-                <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="private_label"/>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="pbtc_tournaments"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-         <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-               <jsp:include page="body_top.jsp" >
-                  <jsp:param name="image" value="events"/>
-                  <jsp:param name="image1" value="white"/>
-                  <jsp:param name="title" value="Private Label"/>
-               </jsp:include>
+<TD class="bodyText" width="100%" valign="top">
+<div align="center">
+   <div style="width: 550px; text-align: left; margin: 0px 15px 0px 15px;">
 
-            <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
+    <jsp:include page="/page_title.jsp">
+        <jsp:param name="image" value="tc_tournaments"/>
+        <jsp:param name="title" value="Powered by TopCoder"/>
+    </jsp:include>
 
-<!-- Upcoming Tournaments begins -->
+<!-- Current Tournaments begins -->
 
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Upcoming Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+         <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gicj06&d2=overview" target="_blank"><img src="/i/events/gicj06.gif" alt="GCJI" border="0" /></A></td>
@@ -61,6 +56,44 @@
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+
+<!-- Past Tournaments begins -->
+
+         <div class="sectionHeader" width="100%">Past Tournaments</div>
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gccj05&d2=ZH_overview" target="_blank"><img src="/i/events/gcjc05.gif" alt="GCJC" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam China</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        January 20, 2006<br />
+                        <A href="/pl/?module=Static&d1=gccj05&d2=ZH_overview" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gicj06&d2=overview" target="_blank"><img src="/i/events/gicj06.gif" alt="GCJI" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam India</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        April 7, 2006<br />
+                        Bangalore, India<br/>
+                        <A href="/pl/?module=Static&d1=gicj06&d2=overview" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+                <hr width="100%" size="1" noshade="noshade" />
 
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
@@ -248,7 +281,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/index?t=tournaments&c=javaone2003"><img src="/i/events/index_2003javaone.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=javaone03&d2=summary"><img src="/i/events/index_2003javaone.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>2003 Javaone&#153; Coding Challenge</strong></font></td>
                 </tr>
@@ -257,7 +290,7 @@
                         June 10-12, 2003<br />
                         Moscone Convention Center<br/>
                         San Francisco, California<br />
-                        <A href="/index?t=tournaments&c=javaone2003">Summary</A>
+                        <A href="/pl/?module=Static&d1=javaone03&d2=summary">Summary</A>
                     </td>
                 </tr>
             </table>
@@ -266,7 +299,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/index?t=tournaments&c=2002sunnetwork"><img src="/i/events/index_2002sunnetwork.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=javaone02&d2=summary"><img src="/i/events/index_2002sunnetwork.gif" alt="2003 TCCC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>2002 SunNetwork&#153; Coding Challenge</strong></font></td>
                 </tr>
@@ -275,19 +308,16 @@
                         Sept 18-20, 2002<br />
                         Moscone Convention Center<br/>
                         San Francisco, California<br />
-                        <A href="/index?t=tournaments&c=2002sunnetwork">Summary</A>
+                        <A href="/pl/?module=Static&d1=javaone02&d2=summary">Summary</A>
                     </td>
                 </tr>
             </table>
 
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-         </td>
+   <br><br>
+   </div>
+</div>
+</td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">

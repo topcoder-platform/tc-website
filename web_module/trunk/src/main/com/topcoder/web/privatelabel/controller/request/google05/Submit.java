@@ -1,30 +1,20 @@
 package com.topcoder.web.privatelabel.controller.request.google05;
 
-import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.SessionInfo;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.State;
-import com.topcoder.common.web.data.Country;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
+import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import javax.rmi.PortableRemoteObject;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author  dok

@@ -24,7 +24,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page language="java" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -91,6 +91,9 @@
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_forums"/>
+</jsp:include>
 
 </head>
 
@@ -104,11 +107,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="includes/global_left.jsp">
-            <jsp:param name="level1" value="forums"/>
-            <jsp:param name="level2" value="<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)%>"/>
-            <jsp:param name="unreadCategories" value="<%=unreadCategories%>"/>
-         </jsp:include>
+          <jsp:include page="includes/global_left.jsp">
+             <jsp:param name="node" value="forums"/>
+          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
@@ -120,7 +121,7 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr valign="top">
 	<td nowrap="nowrap" valign="top">
 	   <jsp:include page="searchHeader.jsp" ></jsp:include>
@@ -133,15 +134,15 @@
 	</td>
 </tr>
 <tr>
-    <td class="rtbc">
-	    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-	       <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >> 
-	    </tc-webtag:iterator>
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
+       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
+       </tc-webtag:iterator>
         <jsp:getProperty name="forum" property="name"/>
     </td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right"><b>
+   <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
@@ -158,7 +159,7 @@
             <%  } else { %> ... <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
         <%  } %>
    </b></td></tr>
 <% } %>
@@ -188,7 +189,7 @@
 </tc-webtag:iterator>
 <%  } %>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
+    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread);
         String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
             ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
     <tr>
@@ -203,7 +204,7 @@
          <% Paginator threadPaginator;
             ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
             resultFilter.setStartIndex(0);
-            int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 
+            int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage",
                   ForumConstants.DEFAULT_MESSAGE_RANGE);
             if (user != null) {
                   try {
@@ -260,7 +261,6 @@
 <%  } else { %>
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
-
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->

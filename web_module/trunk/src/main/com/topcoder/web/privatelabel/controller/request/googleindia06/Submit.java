@@ -97,7 +97,7 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in Google Code Jam India.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM IST (GMT +5:30) on February 27, 2006 through 5:00PM IST (GMT +5:30) on April 7, 2006.\n\n");
 
-                buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/indiacodejam and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/Indiacodejam and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
                 buf.append("You may participate in the Qualification Round at any time between Monday, March 20 at Noon IST (GMT +5:30) and Tuesday, March 21 at Noon IST (GMT +5:30).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
@@ -109,13 +109,13 @@ public class Submit extends ResumeRegSubmit {
 
                 buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/indiacodejam and clicking the Instructions link at the top.\n\n");
 
-                buf.append("If you have any questions about how to participate, please email them to gcji@topcoder.com\n\n");
+                buf.append("If you have any questions about how to participate, please email them to gcji06@topcoder.com\n\n");
 
                 buf.append("Thank you for registering for Google Code Jam India.  We look forward to seeing you in the Arena!\n\n");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("gcji@topcoder.com", "Google Code Jam Team");
+                mail.setFromAddress("gcjc@topcoder.com", "Google Code Jam Team");
                 log.info("sent registration email to " + info.getEmail());
                 EmailEngine.send(mail);
             }

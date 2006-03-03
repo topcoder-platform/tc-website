@@ -38,13 +38,13 @@ public class TCAuthFactory extends AuthFactory {
      */
     public AuthToken createAuthToken(HttpServletRequest httpServletRequest,
                                      HttpServletResponse httpServletResponse) throws UnauthorizedException {        
-       HttpSession session = httpServletRequest.getSession(); 
+       HttpSession session = httpServletRequest.getSession();
        AuthToken authToken = (AuthToken)session.getAttribute(SESSION_AUTHORIZATION);
        if (authToken != null && !authToken.isAnonymous()) {
            //log.debug("authToken pulled from session: "+authToken.getUserID());
            return authToken;
        }
-       
+
        WebAuthentication auth = null;
        try {
            auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
@@ -52,12 +52,12 @@ public class TCAuthFactory extends AuthFactory {
        } catch (Exception e) {
            log.error(e);
        }
-       if (auth.getActiveUser().isAnonymous() && 
-               httpServletRequest.getParameter("username") != null && 
+       if (auth.getActiveUser().isAnonymous() &&
+               httpServletRequest.getParameter("username") != null &&
                httpServletRequest.getParameter("password") != null &&
                httpServletRequest.getParameter("password").length() <= 31) {
            try {
-               auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
+               auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"),
                    httpServletRequest.getParameter("password")), false);
            } catch (Exception e) {
                log.error(e);
