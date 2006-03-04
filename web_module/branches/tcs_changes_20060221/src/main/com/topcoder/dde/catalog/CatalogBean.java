@@ -27,6 +27,7 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.util.config.*;
+import com.topcoder.dde.catalog.Catalog;
 
 import javax.ejb.*;
 import javax.naming.Context;
