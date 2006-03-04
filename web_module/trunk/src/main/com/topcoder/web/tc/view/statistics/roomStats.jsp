@@ -73,7 +73,7 @@ if (!forumIDStr.equals("")) {
          </jsp:include>
             <% } else { %>
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="algo_match_overviews"/>
+            <jsp:param name="node" value="m_algo_stats"/>
          </jsp:include>
             <% } %>
        </TD>
