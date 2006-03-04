@@ -61,7 +61,7 @@ import java.util.Date;
  * Parent category retrieval was added to getCategorySummary().
  * </li>
  * <li>
- * getComponent() was fixed to use constant COMPONENT and not COMPONENT_BY_STATUS.
+ * getComponent() was fixed to use constant COMPONENT and not COMPONENTS_BY_STATUS.
  * </li>
  * </ol>
  *
@@ -1494,7 +1494,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         PreparedStatement ps = null;
         try {
             conn = getConnection();
-            ps = conn.prepareStatement(COMPONENT);
+            ps = conn.prepareStatement(COMPONENTS_BY_STATUS);
             ps.setLong(1, componentId);
             rs = ps.executeQuery();
 
