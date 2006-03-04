@@ -332,9 +332,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND x.category_id = cat.category_id            ");
 
         if (onlyPublic) {
-            query.append("   AND comp.root_category_id in (" + NET_CATALOG);
-            query.append("   , " + JAVA_CATALOG);
-            query.append("   , " + FLASH_CATALOG + ")");
+            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
+            query.append("   , " + Catalog.JAVA_CATALOG);
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");
         }
 
 
@@ -515,12 +515,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         // plk
         if (onlyPublic) {
-            query.append("   AND category_id in (" + NET_CATALOG);
-            query.append("   , " + JAVA_CATALOG);
-            query.append("   , " + FLASH_CATALOG + ")");
-            query.append("   OR parent_category_id in (" + NET_CATALOG);
-            query.append("   , " + JAVA_CATALOG);
-            query.append("   , " + FLASH_CATALOG + ")");
+            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
+            query.append("   , " + Catalog.JAVA_CATALOG);
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");
+            query.append("   OR parent_category_id in (" + Catalog.NET_CATALOG);
+            query.append("   , " + Catalog.JAVA_CATALOG);
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");
         }
         query.append(" ORDER BY 1 ");
 
@@ -583,9 +583,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append(" WHERE status_id <> ? ");
 // plk
         if (onlyPublic) {
-            query.append("   AND category_id in (" + NET_CATALOG);
-            query.append("   , " + JAVA_CATALOG);
-            query.append("   , " + FLASH_CATALOG + ")");
+            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
+            query.append("   , " + Catalog.JAVA_CATALOG);
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");
         }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
@@ -923,9 +923,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND v.component_id = comp.component_id     ");
         // plk
         if (onlyPublic) {
-            query.append("   AND comp.root_category_id in (" + NET_CATALOG);
-            query.append("   , " + JAVA_CATALOG);
-            query.append("   , " + FLASH_CATALOG + ")");
+            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
+            query.append("   , " + Catalog.JAVA_CATALOG);
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");
         }
 
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");
