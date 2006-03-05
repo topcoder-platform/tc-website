@@ -1,13 +1,11 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -97,8 +95,7 @@ public class TCCC05Payments {
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
         ResultSet rs = null;
-        Connection conn = DBMS.getConnection();
-        InitialContext ctx = TCContext.getInitial();
+        Connection conn = DBMS.getDirectConnection();
 
         try {
 
@@ -120,7 +117,7 @@ public class TCCC05Payments {
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),
-                        (DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                        new InformixSimpleDataSource(DBMS.INFORMIX_CONNECT_STRING),
                         "sequence_object",
                         "name",
                         "current_value",
@@ -167,12 +164,6 @@ public class TCCC05Payments {
             if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ctx != null) {
-                try {
-                    ctx.close();
                 } catch (Exception ignore) {
                 }
             }
