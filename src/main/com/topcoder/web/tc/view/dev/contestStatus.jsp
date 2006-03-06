@@ -61,17 +61,17 @@
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission Due Date</a>
             </td>
         <td class="headerC">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review Complete Date</a>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review Due Date</a>
             </td>
+        <td class="headerC">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
+        </td>
         <td class="header">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
 
             </td>
         <td class="header">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("second_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Second Place</a>
-        </td>
-        <td class="headerC">
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
         </td>
     </tr>
 
@@ -104,6 +104,9 @@
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="final_review_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="current_phase" row="<%=resultRow%>"/>
+            </td>
             <td class="value">
                 <% if (resultRow.getItem("winner").getResultData()!=null) { %>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("winner") %>' context='<%=resultRow.getStringItem("phase")%>'/>
@@ -114,9 +117,6 @@
                 <% if (resultRow.getItem("second").getResultData()!=null) { %>
                 <tc-webtag:handle coderId='<%=resultRow.getLongItem("second") %>' context='<%=resultRow.getStringItem("phase")%>'/>
                 <% } %>
-            </td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="current_phase" row="<%=resultRow%>"/>
             </td>
         </tr>
     <% even = !even;%>
