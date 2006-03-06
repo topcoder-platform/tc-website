@@ -187,7 +187,7 @@
         // Find all the projects that match with the component id, version and phase
         r.setProperty("compid", String.valueOf(componentId));
         r.setProperty("vr", String.valueOf(versionId));
-        r.setProperty("pi", String.valueOf(phaseId));
+        r.setProperty("ph", String.valueOf(phaseId));
 
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map result = dai.getData(r);
