@@ -18,10 +18,11 @@ boolean div1 = !StringUtils.checkNull(request.getParameter("dn")).equals("2");
 <html>
 <head>
    <TITLE>TopCoder Statistics - Most Division Wins</TITLE>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
-<script language="JavaScript">
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+  <jsp:param name="key" value="tc_stats"/>
+</jsp:include>
+    <script language="JavaScript">
 <!--
 function goTo(selection){
   sel = selection.options[selection.selectedIndex].value;
@@ -38,8 +39,7 @@ function goTo(selection){
      <TR>
        <TD WIDTH="180" VALIGN="top">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-                <jsp:param name="level2" value="quick_stats"/>
+                <jsp:param name="node" value="algo_recordbook"/>
             </jsp:include>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -63,7 +63,7 @@ function goTo(selection){
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-                    This chart shows the coders with the most Division <%= div1 ? "I" : "II" %> wins.
+                    This chart shows the coders with the most Single Round Match Division <%= div1 ? "I" : "II" %> wins.
                     <a href="/stat?c=division_wins&dn=<%= div1 ? "2" : "1" %>">See Division <%= div1 ? "II" : "I" %> wins</a>
                   </P>
                   
