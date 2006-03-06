@@ -1991,6 +1991,11 @@ if (action != null) {
                     <td width="30%" class="adminTitle">Rating</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
                 </tr>
+<!-- plk begin -->
+                <tr valign="top">
+                    <td class="adminTitle" colspan="4">Description</td>
+                </tr>
+<!-- plk end -->
 
 <%
     TeamMemberRole teamMemberRoles[] = (TeamMemberRole[])componentManager.getTeamMemberRoles().toArray(new TeamMemberRole[0]);
@@ -2003,8 +2008,8 @@ if (action != null) {
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
 <!-- plk begin -->
                 </tr>
-                    <td class="forumText"><%= teamMemberRoles[i].getDescription() %></td>
                 <tr valign="top">
+                    <td class="forumText" colspan="4"><%= teamMemberRoles[i].getDescription() %></td>
 <!-- plk end -->
                 </tr>
 <% } %>
@@ -2022,7 +2027,7 @@ if (action != null) {
 <!-- plk begin -->
                 </tr>
                 <tr valign="top">
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="100" name="txtTeamMemberDescription" value=""></td>
+                    <td class="forumText"><input class="adminSearchForm" type="text" size="100" maxlength="254" name="txtTeamMemberDescription" value=""></td>
 <!-- plk end -->
                 </tr>
             </table>
