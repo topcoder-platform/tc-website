@@ -23,9 +23,6 @@
             
 <span class="bigTitle">VeriSign&#153;</span>
 <br/><br/>
-
-VERISIGN TEXT
-<br/><br/>
 Is it in you?  Competition, that is.   
 <br/><br/>
 <span class="bodySubtitle">This is how it works:</span><br/>
