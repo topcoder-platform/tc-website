@@ -43,6 +43,37 @@
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
     <p>
+        4.2.0 - 2006.03.06
+        <ul>
+            <li>New left navigation</li>
+            <li>Component Recordbook
+                <ul>
+                    <li>Best Component Contest Winning Percentage</li>
+                    <li>Best Average Component Contest Placement</li>
+                    <li>Most Component Contest Wins</li>
+                    <li>Highest Component Contest Scores</li>
+                    <li>Most Component Contest Submissions</li>
+                    <li>Most Component Reviews</li>
+                    <li>Highest Component Contest Overall Earners</li>
+                    <li>Highest Component Contest Prize Earners</li>
+                    <li>Highest Component Contest Royalty Earners</li>
+                    <li>Largest Single Component Contest Prizes</li>
+                    <li>Highest Component Tournament Winnings</li>
+                </ul>
+            </li>
+<%--
+            <li>SRM Division Wins Page</li>
+            <li>Top SRM Winners</li>
+--%>
+            <li>Match Archive</li>
+            <li>Removed existing, and added new Component Contest Status Page</li>
+            <li>Populate placed for all valid submissions even if they don't reach min. score</li>
+            <li>Create and populate rating date for projects</li>
+            <li>Adjust system to only use ph for the phase parameter, never pi</li>
+            
+        </ul>
+    </p>
+    <p>
         4.1.13 - 2006.02.28
         <ul>
             <li>TCO06 Travel onsite Competitor/Review Board pages</li>
