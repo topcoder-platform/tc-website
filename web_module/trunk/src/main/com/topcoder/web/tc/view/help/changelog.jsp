@@ -70,6 +70,8 @@
             <li>Populate placed for all valid submissions even if they don't reach min. score</li>
             <li>Create and populate rating date for projects</li>
             <li>Adjust system to only use ph for the phase parameter, never pi</li>
+            <li>link to the challenged code/arguments from the challenge list on coder room stats</li>
+            <li>when you submit and time out in long comps, return to the submission page with the submitted code, not the most recent successful submission</li>
             
         </ul>
     </p>
