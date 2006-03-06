@@ -63,7 +63,7 @@ function goTo(selection){
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-                    This chart shows the coders with the most Single Round Match Division <%= div1 ? "I" : "II" %> wins.
+                    This chart shows the coders with the most Division <%= div1 ? "I" : "II" %> Single Round Match wins.
                     <a href="/stat?c=division_wins&dn=<%= div1 ? "2" : "1" %>">See Division <%= div1 ? "II" : "I" %> wins</a>
                   </P>
                   
