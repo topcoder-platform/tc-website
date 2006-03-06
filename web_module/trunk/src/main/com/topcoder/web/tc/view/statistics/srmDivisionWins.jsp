@@ -100,7 +100,9 @@
                             long winner1 = (n1 == null ? -1 : n1.longValue()),
                                     winner2 = (n2 == null ? -1 : n2.longValue());
                             %>
-                            <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
+                            <td class="value">
+                                <a href="/stat?c=round_overview&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a>
+                            </td>
                             <% if (winner1 == -1) { %>
                                 <td class="value">N/A</td><td></td>
                             <% } else { %>
