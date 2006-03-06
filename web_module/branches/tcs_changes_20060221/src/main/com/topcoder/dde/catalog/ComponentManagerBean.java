@@ -657,7 +657,7 @@ public class ComponentManagerBean
                     new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
                     new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create(0, user, newVer, roleBean);
+            userroleHome.create(0, "", user, newVer, roleBean);
         } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
@@ -1278,7 +1278,7 @@ public class ComponentManagerBean
                     userId, username,
                     ((Long) role.getRoles().getPrimaryKey()).longValue(),
                     role.getRoles().getName(), role.getRoles().getDescription(),
-                    role.getTcsRating()));
+                    role.getTcsRating(), role.getDescription()));
         }
         Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());
         return memberRoles;
@@ -1665,12 +1665,12 @@ public class ComponentManagerBean
 
         try {
             LocalDDEUserRole userRole = userroleHome.create(
-                    role.getTCSRating(), user, versionBean, roleBean);
+                    role.getTCSRating(), role.getDescription(), user, versionBean, roleBean);
             return new TeamMemberRole(
                     ((Long) userRole.getPrimaryKey()).longValue(),
                     role.getUserId(), username, role.getRoleId(),
                     roleBean.getName(), roleBean.getDescription(),
-                    userRole.getTcsRating());
+                    userRole.getTcsRating(), userRole.getDescription());
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());

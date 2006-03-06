@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.dde.persistencelayer.interfaces;
 
 import javax.ejb.EJBLocalObject;
@@ -5,8 +9,15 @@ import javax.ejb.EJBLocalObject;
 /**
  * The local interface representing the CMP bean for the user_role table.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Description attribute was added.
+ * </li>
+ * </ol>
+ *
+ * @version 1.0.1
+ * @author Timur Zambalayev, pulky
  */
 public interface LocalDDEUserRole extends EJBLocalObject {
 
@@ -16,6 +27,14 @@ public interface LocalDDEUserRole extends EJBLocalObject {
      * @return TCS rating.
      */
     int getTcsRating();
+
+    /**
+     * Gets the role addition description.
+     *
+     * @return role addition description.
+     * @since 1.0.1
+     */
+    String getDescription();
 
     /**
      * Gets the userMaster (CMR).

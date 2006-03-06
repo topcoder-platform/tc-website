@@ -37,7 +37,7 @@
     String action = request.getParameter("a");
     String namespace = "com.topcoder.servlet.request.FileUpload";
     java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("MM/dd/yyyy");
-    
+
     // Logger instance.
     org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
 %>
@@ -1130,9 +1130,11 @@ if (action != null) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
         String strRating = request.getParameter("txtTeamMemberRating");
+        String description = request.getParameter("txtTeamMemberDescription");
         try {
             User user = USER_MANAGER.getUser(strUsername);
-            TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)), Integer.parseInt(strRating));
+            TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
+                Integer.parseInt(strRating), description);
             componentManager.addTeamMemberRole(role);
             strMessage += "Role " + strRole + " was assigned.";
             //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
@@ -1999,6 +2001,11 @@ if (action != null) {
                     <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
                     <td class="forumText"><%= teamMemberRoles[i].getTCSRating() %></td>
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
+<!-- plk begin -->
+                </tr>
+                    <td class="forumText"><%= teamMemberRoles[i].getDescription() %></td>
+                <tr valign="top">
+<!-- plk end -->
                 </tr>
 <% } %>
 
@@ -2012,6 +2019,11 @@ if (action != null) {
                         </select></td>
                     <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="4" name="txtTeamMemberRating" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
+<!-- plk begin -->
+                </tr>
+                <tr valign="top">
+                    <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="100" name="txtTeamMemberDescription" value=""></td>
+<!-- plk end -->
                 </tr>
             </table>
 

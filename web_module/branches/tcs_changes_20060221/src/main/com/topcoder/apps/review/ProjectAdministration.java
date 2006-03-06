@@ -41,7 +41,7 @@ public class ProjectAdministration implements Model {
      * The minimum score that allows a submitter to win.
      */
     private static double minscore = -1;
-    
+
     private static Logger log = Logger.getLogger(ProjectAdministration.class);
 
     /**
@@ -722,7 +722,7 @@ public class ProjectAdministration implements Model {
                             UserPrincipal userPrincipal = principalMgr.getUser(addUserRole.getUser().getId());
                             RolePrincipal rolePrincipal =
                                 getRolePrincipal(addUserRole, newProject, user.getTCSubject(), newProject.getId());
-                                
+
                             if (rolePrincipal != null) {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -763,6 +763,21 @@ public class ProjectAdministration implements Model {
                     revs[i].setCompleted(false);
                     documentManager.saveAggregationReview(revs[i], user.getTCSubject());
                 }
+            }
+
+            // plk - agregar los perfiles acá.
+            if (newProject.getProjectStatus().getId() != oldProject.getProjectStatus().getId() &&
+            newProject.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED) {
+
+                System.out.println("Project completed!!!!!!!!!!!!");
+                System.out.println("-----Insert roles-----");
+                // ???user??? - usuario.
+                // ???Long.parseLong(strRole)??? - el rol de ese usuario.
+
+/*                User user = USER_MANAGER.getUser(strUsername);
+                TeamMemberRole role = new TeamMemberRole(???user???, catalog.getRole(???Long.parseLong(strRole)???),
+                    Integer.parseInt(strRating), "");
+                componentManager.addTeamMemberRole(role);*/
             }
 
             // save project

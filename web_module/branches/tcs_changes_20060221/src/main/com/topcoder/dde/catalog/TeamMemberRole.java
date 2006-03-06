@@ -43,10 +43,11 @@ public class TeamMemberRole implements java.io.Serializable {
     private String roleName;
     private String roleDescription;
     private int tcsRating;
+    private String description;
 
 
     TeamMemberRole(long id, long userId, String username, long roleId,
-                   String roleName, String roleDescription, int tcsRating) {
+                   String roleName, String roleDescription, int tcsRating, String description) {
         this.id = id;
         this.userId = userId;
         this.username = username;
@@ -54,6 +55,7 @@ public class TeamMemberRole implements java.io.Serializable {
         this.roleName = roleName;
         this.roleDescription = roleDescription;
         this.tcsRating = tcsRating;
+        this.description = description;
     }
 
     /**
@@ -63,13 +65,14 @@ public class TeamMemberRole implements java.io.Serializable {
      * the development role
      * @param role a <code>Role</code> object representing the role
      * @param tcsRating the rating given to the user for this role
+     * @param description the role addition description
      * @throws IllegalArgumentException if <code>user</code> or
      * <code>role</code> is <code>null</code>, if the specified role was
      * constructed by the client (instead of returned by the catalog), or if
      * <code>tcsRating</code> is not between <code>MIN_RATING</code> and
      * <code>MAX_RATING</code>, inclusive
      */
-    public TeamMemberRole(User user, Role role, int tcsRating) {
+    public TeamMemberRole(User user, Role role, int tcsRating, String description) {
         if (user == null) {
             throw new IllegalArgumentException(
                     "Null specified for user");
@@ -92,6 +95,7 @@ public class TeamMemberRole implements java.io.Serializable {
         this.roleName = role.getName();
         this.roleDescription = role.getDescription();
         this.tcsRating = tcsRating;
+        this.description = description;
     }
 
 
@@ -163,6 +167,15 @@ public class TeamMemberRole implements java.io.Serializable {
     }
 
     /**
+     * Returns the role addition description
+     *
+     * @return the role addition description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
      * Compares the specified object with this development role for equality.
      * Two development roles are considered equal if they have the same user id,
      * role id, and rating. The primary key, username, role name, and role
@@ -179,7 +192,8 @@ public class TeamMemberRole implements java.io.Serializable {
         TeamMemberRole other = (TeamMemberRole) object;
         return getUserId() == other.getUserId()
                 && getRoleId() == other.getRoleId()
-                && getTCSRating() == other.getTCSRating();
+                && getTCSRating() == other.getTCSRating()
+                && getDescription() == other.getDescription();
     }
 
     /**
@@ -190,9 +204,11 @@ public class TeamMemberRole implements java.io.Serializable {
      * @return the hash code value for this development role
      */
     public int hashCode() {
-        return (int) (getUserId() ^ getRoleId() ^ getTCSRating());
+        return (int) (getUserId() ^ getRoleId() ^ getTCSRating() ^ getDescription().hashCode());
     }
 
+
+    // plk -> ver si tiene que ir acá!
     public String toString() {
         return "Development Role " + getId() + ": " + getUserId() + " "
                 + getTCSRating() + " - " + getRoleId() + " "

@@ -1250,6 +1250,9 @@
             <cmp-field>
                 <field-name>tcsRating</field-name>
             </cmp-field>
+            <cmp-field>
+                <field-name>description</field-name>
+            </cmp-field>
             <primkey-field>id</primkey-field>
             <ejb-local-ref>
                 <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
@@ -2216,7 +2219,7 @@
                 <ejb-name>DDECategoriesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
--->            
+-->
             <method>
                 <ejb-name>DDECompCategoriesEJB</ejb-name>
                 <method-name>*</method-name>
