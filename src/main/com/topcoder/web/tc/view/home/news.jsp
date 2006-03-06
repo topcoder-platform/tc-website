@@ -9,7 +9,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.05.06<br>8:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">TCO06 Algorithm Round 1 Results</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 1 Results for TCO06 Algorithm Competition</A></span><br><br>
       Find out who advanced to Round 2.
       </td>
    </tr>
