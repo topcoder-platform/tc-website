@@ -8,6 +8,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.05.06<br>8:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">TCO06 Algorithm Round 1 Results</A></span><br><br>
+      Find out who advanced to Round 2.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505931" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.03.06<br>12:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_030306">UBS TCO06 Sponsorship Press Release</A></span><br><br>
       "Financial Services Leader Becomes First Wall Street Firm to Participate at Premier Level with Top Global Coding Competition."
@@ -180,20 +193,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
          <A href="/tc?module=Static&d1=match_editorials&d2=srm289">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505855" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%-------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.06<br>12:55 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</A></span><br><br>
-      <div style="float: right; padding-left: 5px; padding-bottom: 10px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="108" height="12" alt="Spartan Daily" border="0" /></div>
-      "San Jose State University's computer science department has earned a world ranking in a prestigious online computer programming competition called Topcoder."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505921" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
