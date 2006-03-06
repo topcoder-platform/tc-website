@@ -47,7 +47,6 @@ Click a column title to sort the list of advancers by that column. Click <a href
                     <td class="advHeader" width="10%" align="center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tco06&d3=spon_ver_adv_overview">Round 2</a></td>
                     <td class="advHeader" width="10%" align="center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tco06&d3=spon_ver_adv_overview">Round 3</a></td>
                     <td class="advHeader" width="10%" align="center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&sd=asc&sc=round4_sort&d1=tournaments&d2=tco06&d3=spon_ver_adv_overview">Round 4</a></td>
-                    <td class="advHeader" width="15%" align="center" nowrap="nowrap">VeriSign Employee</td>
                 </tr>
 <%-- formatting this crappy to save space in the download to the client --%>
                 <%boolean even = false;%>
@@ -76,7 +75,6 @@ Click a column title to sort the list of advancers by that column. Click <a href
 <% } else { %>
 <td  class="<%=even?"advanceDk":"advanceLt"%>" align="center"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
-<td class="<%=even?"advanceDk":"advanceLt"%>" align="center"><%="VeriSign".equals(resultRow.getStringItem("response"))?"Yes":"No"%></td>
 </tr>
 <%even=!even;%>
 </rsc:iterator>
