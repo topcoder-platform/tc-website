@@ -2027,7 +2027,7 @@ if (action != null) {
 <!-- plk begin -->
                 </tr>
                 <tr valign="top">
-                    <td class="forumText" colspan="4"><input class="adminSearchForm" type="text" size="100" maxlength="254" name="txtTeamMemberDescription" value=""></td>
+                    <td class="forumText" colspan="4"><input class="adminSearchForm" type="text" size="155" maxlength="254" name="txtTeamMemberDescription" value=""></td>
 <!-- plk end -->
                 </tr>
             </table>
