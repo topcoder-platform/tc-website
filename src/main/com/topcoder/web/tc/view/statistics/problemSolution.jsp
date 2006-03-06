@@ -194,6 +194,7 @@ pageContext.setAttribute("resultSetDefense", rscDefense);
 if (rscDefense.size() > 0) {
   int row = 0;
 %>
+             <a name="defenses"></a>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="10" HEIGHT="18">&#160;Defense Results</TD>
