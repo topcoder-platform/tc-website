@@ -48,7 +48,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="6">Contest Status</td>
+        <td class="title" colspan="7">Contest Status</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -59,6 +59,9 @@
         </td>
         <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission Due Date</a>
+            </td>
+        <td class="headerC">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review Complete Date</a>
             </td>
         <td class="header">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("winner_sort")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
@@ -92,12 +95,14 @@
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
-                    <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+            </td>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="final_review_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
             <td class="value">
                 <% if (resultRow.getItem("winner").getResultData()!=null) { %>
