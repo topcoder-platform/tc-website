@@ -31,19 +31,20 @@ The finalists are sorted alphabetically.
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
    <tr>
       <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
-      <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
+      <td rowspan="3" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="3" valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="299979" context="development"/></span></td>
+      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="299979" context="development"/></span>--%></td>
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
-      <tc-webtag:handle coderId="7489235" context="development"/><br><br>
-      <tc-webtag:handle coderId="7210680" context="development"/><br><br>
-      <tc-webtag:handle coderId="10098406" context="development"/><br><br>
-      <tc-webtag:handle coderId="7251152" context="development"/><br><br>
-      <tc-webtag:handle coderId="302053" context="development"/><br><br>
-      <tc-webtag:handle coderId="7548200" context="development"/><br><br>
-      <tc-webtag:handle coderId="299979" context="development"/>
+      <tc-webtag:handle coderId="14926554" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="7210680" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="15832159" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="10098406" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="11789293" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="7548200" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="15664457" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="299979" context="development" darkBG="true"/>
       </td>
    </tr>
    <tr>
