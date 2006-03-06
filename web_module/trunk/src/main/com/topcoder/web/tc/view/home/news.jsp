@@ -8,6 +8,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.06.06<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Finalists for the TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_bracket">Development</A> Competitions</span><br><br>
+      Find out who advanced to the Finals.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_bracket">Design</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_bracket">Development</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505932" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.05.06<br>8:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 1 Results for TCO06 Algorithm Competition</A></span><br><br>
       Find out who advanced to Round 2.
@@ -32,7 +46,7 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%-------------------GENERAL TC NEWS-------------------------------------%>
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.02.06<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Ratings added to Forums</span><br><br>
@@ -176,23 +190,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
       <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">details</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505919" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.16.06<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm289">SRM 289 - Problem Set & Analysis</A></span><br><br>
-      In both Division 1 and 2, coders faced tricky problems. At the end of the coding phase, Division 1 ended with <tc-webtag:handle coderId="251074" context="algorithm"/> at first place followed by <tc-webtag:handle coderId="270505" context="algorithm"/>
-      </td>
-      <td class="newsPhoto"><img src="/i/m/esteban_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505845" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm289">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505855" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
