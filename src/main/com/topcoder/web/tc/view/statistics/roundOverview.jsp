@@ -12,7 +12,7 @@
        <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
        <html>
         <head>
-          <title>TopCoder Statistics - Round Overview</title>
+          <title>TopCoder Statistics - Match Overview</title>
           <jsp:include page="baseHRef.jsp" />
             <jsp:include page="/script.jsp" />
             <jsp:include page="/style.jsp">
@@ -46,7 +46,7 @@
                   <tr>
                     <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
                     <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
-                    <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Round Overview"%>&#160;&#160;</span></td>
+                    <td class="bodyTextBold" valign="middle" width="100%">&#160;<span class="bodySubhead">&#160;&#160;<%= "Match Overview"%>&#160;&#160;</span></td>
                     <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
                   </tr>
                 </table>
