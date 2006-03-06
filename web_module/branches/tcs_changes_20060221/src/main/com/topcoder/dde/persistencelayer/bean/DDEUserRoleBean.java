@@ -65,7 +65,7 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
      * @return role addition description.
      * @since 1.0.1
      */
-    public abstract int getDescription();
+    public abstract String getDescription();
 
     /**
      * Sets the role addition description.
