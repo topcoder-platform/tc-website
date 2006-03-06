@@ -57,19 +57,17 @@
 <!-- Left Column Begins-->
       <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="coder_of_month"/>
+            <jsp:param name="node" value="algo_match_winners"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-      <td width="100%" valign="top" align="center">
+                <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
-<div class="fixedWidthBody">
-
-<jsp:include page="../page_title.jsp" >
+<jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Coder of the Month Archive"/>
+<jsp:param name="title" value="Match Winners"/>
 </jsp:include>
 
     <form name="srmDivisionWinsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -83,13 +81,14 @@
             | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
         </div>
 
-    <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+               <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+                     <tr><td class="title" colspan="5">Algorithm Match Winners</td></tr>
                      <tr>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Contest</a></td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</a></td>
-                        <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a></td>
+                        <TD class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a></td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Division II winner</a></td>
-                        <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Wins</a></td>
+                        <TD class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Wins</a></td>
                     </tr>
    <% boolean even = false; %>
 
@@ -106,14 +105,14 @@
                                 <td class="value">N/A</td><td></td>
                             <% } else { %>
                                 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                <td class="value"><rsc:item name="wins1" row="<%=resultRow%>"/></td>
+                                <td class="valueR"><rsc:item name="wins1" row="<%=resultRow%>"/></td>
                             <% } %>
 
                             <% if (winner2 == -1) { %>
                                 <td class="value">N/A</td><td></td>
                             <% } else { %>
                                 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                <td class="value"><rsc:item name="wins2" row="<%=resultRow%>"/></td>
+                                <td class="valueR"><rsc:item name="wins2" row="<%=resultRow%>"/></td>
                             <% } %>
                         </tr>
                         <% even = !even;%>
@@ -136,7 +135,6 @@
         </form>
 
 
-</div>
         </td>
 <!-- Center Column Ends -->
 

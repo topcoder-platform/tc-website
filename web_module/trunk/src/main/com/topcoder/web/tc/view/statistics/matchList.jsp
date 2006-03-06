@@ -87,8 +87,8 @@ myForm.submit();
                     <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
-<table class="stat" cellpadding="0" cellspacing="0" width="100%" style="">
-   <tr><td class="title" colspan="14">Algorithm Match Archive</td></tr>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+   <tr><td class="title" colspan="12">Algorithm Match Archive</td></tr>
    <tr>
       <td colspan="3" class="header">&#160;</td>
       <td colspan="4" class="headerC">Div I</td>
