@@ -46,7 +46,6 @@
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
-    <%-- value of myNode is 'topcoder' or 'intel_active_contests' --%>
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="<%=myNode%>"/>
          </jsp:include>
