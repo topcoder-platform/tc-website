@@ -87,7 +87,7 @@ myForm.submit();
                     <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
-<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
    <tr><td class="title" colspan="12">Algorithm Match Archive</td></tr>
    <tr>
       <td colspan="3" class="header">&#160;</td>
@@ -96,17 +96,25 @@ myForm.submit();
       <td class="header">&#160;</td>
    </tr>
    <tr>
+      <td colspan="3" class="header">&#160;</td>
+      <td colspan="2" class="headerC">Submissions</td>
+      <td colspan="2" class="headerC">Challenges</td>
+      <td colspan="2" class="headerC">Submissions</td>
+      <td colspan="2" class="headerC">Challenges</td>
+      <td class="header">&#160;</td>
+   </tr>
+   <tr>
       <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</td>
       <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Submissions</td>
-      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Submissions</td>
-      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg Submissions</td>
-      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Challenges</td>
-      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg Challenges</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Total</td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Total</td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Total</td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg</td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Total</td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg</td>
       <td class="headerC">&#160;</td>
    </tr>
    <% boolean even = false; %>
@@ -150,6 +158,13 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 
                     </form>
                 </td>
+
+
+         <td width="170">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="default"/>
+            </jsp:include>
+         </td>
 
                 <!-- Gutter -->
                 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
