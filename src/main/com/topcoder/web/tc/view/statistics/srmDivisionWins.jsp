@@ -81,14 +81,15 @@
             | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
         </div>
 
+         * the number of wins the competitor had as a result of that match
                <table class="stat" cellpadding="0" cellspacing="0" width="100%">
                      <tr><td class="title" colspan="5">Algorithm Match Winners</td></tr>
                      <tr>
-                        <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Contest</a></td>
+                        <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />">Match</a></td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />">Division I winner</a></td>
-                        <TD class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a></td>
+                        <TD class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
                         <TD class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Division II winner</a></td>
-                        <TD class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Wins</a></td>
+                        <TD class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Wins</a>*</td>
                     </tr>
    <% boolean even = false; %>
 
@@ -107,14 +108,14 @@
                                 <td class="value">N/A</td><td></td>
                             <% } else { %>
                                 <td class="value"><tc-webtag:handle coderId='<%= winner1 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                <td class="valueR"><rsc:item name="wins1" row="<%=resultRow%>"/></td>
+                                <td class="valueC"><rsc:item name="wins1" row="<%=resultRow%>"/></td>
                             <% } %>
 
                             <% if (winner2 == -1) { %>
                                 <td class="value">N/A</td><td></td>
                             <% } else { %>
                                 <td class="value"><tc-webtag:handle coderId='<%= winner2 %>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                                <td class="valueR"><rsc:item name="wins2" row="<%=resultRow%>"/></td>
+                                <td class="valueC"><rsc:item name="wins2" row="<%=resultRow%>"/></td>
                             <% } %>
                         </tr>
                         <% even = !even;%>
