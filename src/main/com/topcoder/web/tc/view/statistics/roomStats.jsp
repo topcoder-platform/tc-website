@@ -412,7 +412,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                    <TD CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 6 /* class name */ + "]" %>'/></TD>
                    <TD CLASS="statText"><%= resultRow.getItem(8).toString().equals("Y")?"Yes":"No"%></TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* challenge pts */ + "].resultData" %>'/></TD>
-                     <TD CLASS="statText" ALIGN="right"><A href="/stat?c=problem_solution&rm=<%=pageContext.getAttribute("rm") %>&rd=<%=pageContext.getAttribute("rd") %>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&cr=<rsc:item row="<%=resultRow%>" name="defendant_id"/>" CLASS="statText">details</a></TD>
+                     <TD CLASS="statText" ALIGN="right"><A href="/stat?c=problem_solution&rm=<%=pageContext.getAttribute("rm") %>&rd=<%=pageContext.getAttribute("rd") %>&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&cr=<rsc:item row="<%=resultRow%>" name="defendant_id"/>#defenses" CLASS="statText">details</a></TD>
                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
