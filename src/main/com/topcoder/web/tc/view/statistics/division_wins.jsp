@@ -50,7 +50,7 @@ function goTo(selection){
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" src="/i/steelblue_top_left1.gif"></TD>
              <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" src="/i/header_statistics.gif"></TD>
              <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Quick Stats&#160;&#160;</SPAN>
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Record Book&#160;&#160;</SPAN>
              </TD>
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG src="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
            </TR>
@@ -64,7 +64,7 @@ function goTo(selection){
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
                     This chart shows the coders with the most Division <%= div1 ? "I" : "II" %> Single Round Match wins.
-                    <a href="/stat?c=division_wins&dn=<%= div1 ? "2" : "1" %>">See Division <%= div1 ? "II" : "I" %> wins</a>
+                    <a href="/stat?c=division_wins&dn=<%= div1 ? "2" : "1" %>" class="statText">See Division <%= div1 ? "II" : "I" %> wins</a>
                   </P>
                   
                   <!-- Stats Intro Begins -->
