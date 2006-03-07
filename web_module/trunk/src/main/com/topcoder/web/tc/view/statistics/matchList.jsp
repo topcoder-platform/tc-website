@@ -125,7 +125,7 @@ myForm.submit();
 <td class="value" nowrap="nowrap"><a href="/stat?c=round_overview&er=5&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 <td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
-<td class="valueR"><rsc:item name="numcompetitor1" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="numcompetitors1" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
 <td class="valueR"><rsc:item name="challengessuccessful1" row="<%=resultRow%>"/></td>
