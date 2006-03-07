@@ -123,15 +123,18 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr valign="top">
-	<td nowrap="nowrap" valign="top">
-	   <jsp:include page="searchHeader.jsp" ></jsp:include>
-	</td>
-	<td align="right" nowrap="nowrap" valign="top">
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+      <jsp:include page="searchHeader.jsp" ></jsp:include>
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
        <%   if (ForumsUtil.isAdmin(user)) { %>
                  <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>&#160; |&#160;
        <%   } %>
-	   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-	</td>
+      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   </td>
 </tr>
 <tr>
 <tr><td colspan="2" style="padding-bottom:3px;"><b>
