@@ -9,6 +9,8 @@ import com.jivesoftware.forum.RatingManagerFactory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
+import java.util.Iterator;
+
 /**
  * @author mtong
  *
@@ -32,10 +34,22 @@ public class Rating extends ForumsProcessor {
             ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue)); 
         }
         
-        double avgRating = ratingManager.getMeanRating(message);
-        int ratingCount = ratingManager.getRatingCount(message);
-        int posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
-        int negRatings = ratingCount - posRatings;
+        int posRatings = 0;
+        int negRatings = 0;
+        
+        Iterator itRatings = ratingManager.getRatings(message);
+        while (itRatings.hasNext()) {
+            com.jivesoftware.forum.Rating rating = (com.jivesoftware.forum.Rating)itRatings.next();
+            int score = rating.getScore();
+            switch (score) {
+                case 1:
+                    negRatings++;
+                    break;
+                case 2:
+                    posRatings++;
+                    break;
+            }
+        }
         
         getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
