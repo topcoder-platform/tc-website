@@ -1131,17 +1131,21 @@ if (action != null) {
         String strRole = request.getParameter("selRole");
         String strRating = request.getParameter("txtTeamMemberRating");
         String description = request.getParameter("txtTeamMemberDescription");
-        try {
-            User user = USER_MANAGER.getUser(strUsername);
-            TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
-                Integer.parseInt(strRating), description);
-            componentManager.addTeamMemberRole(role);
-            strMessage += "Role " + strRole + " was assigned.";
-            //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
-        } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
-            strError = "User '" + strUsername + "' was not found.";
-        } catch (NumberFormatException nfe) {
-            strError = "Rating must be an integer.";
+        if (description.length = 0) {
+            strError = "Description cannot be blank.";
+        } else {
+            try {
+                User user = USER_MANAGER.getUser(strUsername);
+                TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
+                    Integer.parseInt(strRating), description);
+                componentManager.addTeamMemberRole(role);
+                strMessage += "Role " + strRole + " was assigned.";
+                //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
+            } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
+                strError = "User '" + strUsername + "' was not found.";
+            } catch (NumberFormatException nfe) {
+                strError = "Rating must be an integer.";
+            }
         }
     }
 
