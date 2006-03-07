@@ -39,9 +39,9 @@ The finalists are sorted alphabetically.
       <td style="padding: 15px" valign="middle" align="center">
       <tc-webtag:handle coderId="14926554" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="7210680" context="development" darkBG="true"/><br><br>
-      <tc-webtag:handle coderId="15832159" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="10098406" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="11789293" context="development" darkBG="true"/><br><br>
+      <tc-webtag:handle coderId="15832159" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="7548200" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="15664457" context="development" darkBG="true"/><br><br>
       <tc-webtag:handle coderId="299979" context="development" darkBG="true"/>
