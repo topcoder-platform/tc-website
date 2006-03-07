@@ -28,8 +28,10 @@
 <html>
 <head>
     <title>TopCoder</title>
-    <jsp:include page="../script.jsp"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_stats"/>
+</jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <SCRIPT type="text/javascript">
         function submit(module) {
