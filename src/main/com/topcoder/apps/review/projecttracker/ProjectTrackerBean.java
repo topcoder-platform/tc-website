@@ -2908,15 +2908,17 @@ public class ProjectTrackerBean implements SessionBean {
             while (rsScores.next()) {
                 //the query above is first ordering by score, then by the number of submissions they beat.
                 //that is being used as the tie breaker.  if there is still a tie, then we have a problem.
-                double money = rsScores.getLong("price");
+                double money = 0.0d;
                 double score = rsScores.getDouble("score");
 
                 place++;
-                if (score < minScore) {
-                    money = 0;
-                } else if (place==2) {
-                    money = Math.round((money * .5));
-                }
+                if (score >= minScore) {
+                    if (place==1) {
+                        money =rsScores.getLong("price");
+                    } else if (place ==2) {
+                        money = Math.round((rsScores.getLong("price") * .5));
+                    }
+                } 
                 
                 psInsertScores.setDouble(1, score);
                 psInsertScores.setInt(2, place);
