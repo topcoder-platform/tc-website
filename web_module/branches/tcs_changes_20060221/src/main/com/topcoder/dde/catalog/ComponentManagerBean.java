@@ -269,6 +269,8 @@ public class ComponentManagerBean
         try {
             System.out.println("componentId: " + componentId);
             System.out.println("version: " + version);
+            LocalDDECompVersions ll2 = versionsHome.findByComponentIdAndVersion(15245156, 15245162);
+            System.out.println("-1.4b");
             LocalDDECompVersions ll = versionsHome.findByComponentIdAndVersion(componentId, version);
             System.out.println("-1.5");
             System.out.println("ll.getVersion()" + ll.getVersion());
