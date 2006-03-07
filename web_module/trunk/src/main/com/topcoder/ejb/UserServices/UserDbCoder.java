@@ -1,11 +1,11 @@
 package com.topcoder.ejb.UserServices;
 
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.error.TCException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.address.AddressHome;
@@ -168,7 +168,7 @@ final class UserDbCoder {
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             ex.printStackTrace();
             if (demogError) {
@@ -219,7 +219,7 @@ final class UserDbCoder {
         } catch (SQLException sqe) {
             log.debug("coder id: " + coderReferral.getCoderId());
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             log.debug("coder id: " + coderReferral.getCoderId());
             StringBuffer msg = new StringBuffer(500);
@@ -258,10 +258,9 @@ final class UserDbCoder {
         } catch (SQLException sqe) {
             log.debug("coder id: " + coderId);
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException(ex.getMessage());
+            throw new TCException(ex);
         } finally {
             if (ps != null) {
                 try {
@@ -296,7 +295,7 @@ final class UserDbCoder {
         } catch (SQLException sqe) {
             log.debug("coder id: " + currentSchool.getUserId());
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             log.debug("coder id: " + currentSchool.getUserId());
             StringBuffer msg = new StringBuffer(500);
@@ -357,7 +356,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             StringBuffer msg = new StringBuffer(300);
             msg.append("ejb.User.UserDbCoder:insertRating:");
@@ -408,7 +407,7 @@ final class UserDbCoder {
             }
             log.debug(err.getXML(2));
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             StringBuffer msg = new StringBuffer(500);
             msg.append("ejb.User.UserDbCoder:insertDemographicResponse():");
@@ -616,7 +615,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             ex.printStackTrace();
             StringBuffer msg = new StringBuffer(300);
@@ -668,10 +667,9 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException("ejb.User.UserDbCoder:updateCoderReferral:ERROR:" + ex);
+            throw new TCException(ex);
         } finally {
             if (ps != null) {
                 try {
@@ -712,7 +710,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new TCException(
                     "ejb.User.UserDbCoder:updateCoderReferral:ERROR:" + ex
@@ -768,7 +766,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new TCException(
                     "ejb.User.UserDbCoder:updateCurrentSchool:ERROR:" + ex
@@ -843,7 +841,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new TCException(
                     "ejb.User.UserDbCoder:updateDemographicResponses:ERROR:" + ex
@@ -900,7 +898,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             StringBuffer msg = new StringBuffer(300);
             msg.append("ejb.User.UserDbCoder:updateRating:");
@@ -1130,7 +1128,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             log.debug("MIKE SAYS:" + ex.getMessage());
             ex.printStackTrace();
@@ -1187,7 +1185,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new TCException(
@@ -1239,7 +1237,7 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new
                     TCException("ejb.User.UserDbCoder:loadCoderNotify:" + coder.getCoderId() + ":failed:\n" + ex);
@@ -1291,7 +1289,7 @@ final class UserDbCoder {
             rs.close();
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new
                     TCException("ejb.User.UserDbCoder:loadRating:" + coder.getCoderId() + ":failed:\n" + ex);
@@ -1367,10 +1365,10 @@ final class UserDbCoder {
             log.debug(test.getXML(2));
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             throw new
-                    TCException("ejb.User.UserDbCoder:loadCurrentSchool:" + coder.getCoderId() + ":failed:\n" + ex);
+                    TCException(ex);
         } finally {
             if (rs != null) {
                 try {
@@ -1418,10 +1416,9 @@ final class UserDbCoder {
             coder.setRanking(rank);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new TCException(e.getMessage());
+            throw new TCException(e);
         } finally {
             if (rs != null) {
                 try {
@@ -1473,11 +1470,11 @@ final class UserDbCoder {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException(sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
             ex.printStackTrace(); //XXX
             throw new
-                    TCException("ejb.User.UserDbCoder:getDemographicQuestionIds:" + coderTypeId + ":failed:\n" + ex);
+                    TCException(ex);
         } finally {
             if (rs != null) {
                 try {
