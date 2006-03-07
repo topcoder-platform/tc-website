@@ -228,10 +228,10 @@ function displayVotes(messageID, posVotes, negVotes) {
                (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
-                    double avgRating = ratingManager.getMeanRating(message);
-                    ratingCount = ratingManager.getRatingCount(message);
-                    posRatings = (int)(Math.round(avgRating*ratingCount)-ratingCount);
-                    negRatings = ratingCount - posRatings; %>
+                    int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+                    posRatings = ratings[0];
+                    negRatings = ratings[1];
+                    ratingCount = posRatings+negRatings; %>
             | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <%  } %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>

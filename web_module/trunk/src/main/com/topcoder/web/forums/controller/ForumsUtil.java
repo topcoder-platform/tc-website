@@ -17,6 +17,7 @@ import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
 import com.jivesoftware.forum.ResultFilter;
+import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
@@ -329,5 +330,28 @@ public class ForumsUtil {
             // only users with explicitly chosen user setting see ratings
             return "true".equals(user.getProperty("showRatings"));
         }
+    }
+    
+    // Returns number of positive and negative votes for a message
+    //      ratings[0]: number of positive ratings
+    //      ratings[1]: number of negative ratings
+    public static int[] getRatings(RatingManager ratingManager, ForumMessage message) {
+        int[] ratings = new int[2];
+        
+        Iterator itRatings = ratingManager.getRatings(message);
+        while (itRatings.hasNext()) {
+            com.jivesoftware.forum.Rating rating = (com.jivesoftware.forum.Rating)itRatings.next();
+            int score = rating.getScore();
+            switch (score) {
+                case 1:
+                    ratings[1]++;
+                    break;
+                case 2:
+                    ratings[0]++;
+                    break;
+            }
+        }
+ 
+        return ratings;
     }
 }
