@@ -10,7 +10,7 @@ public class ResultSetItemTag extends FormatTag {
     private ResultSetContainer set;
     private String name;
     private int rowIndex = 0;   //default to the first row
-    private boolean escapeHTML;
+    private boolean escapeHTML = true;  // default to true
 
     protected String getTimeZone() {
         ResultSetContainer.ResultSetRow row = this.row == null ? set.getRow(rowIndex) : this.row;
