@@ -100,13 +100,11 @@ if ((navigator.userAgent.indexOf('MSIE') != -1) && (navigator.userAgent.indexOf(
                return;
            }
            else {
-               w = window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=detect", "Launch", "top=2,left=2,width=400,height=400,resizable=yes,status=1");
-               return;
+               arenaApplet();
            }
        }
        else {
-           w = window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=detect", "Launch", "top=2,left=2,width=400,height=400,resizable=yes,status=1");
-           return;
+           arenaApplet();
        }
     }
 
