@@ -87,6 +87,7 @@ myForm.submit();
                     <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                     | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
+* resubmissions do not increase submission totals or averages
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
    <tr><td class="title" colspan="14">Algorithm Match Archive</td></tr>
    <tr>
@@ -98,9 +99,9 @@ myForm.submit();
    <tr>
       <td colspan="2" class="header">&#160;</td>
       <td colspan="3" class="headerC">&#160;<br />Competitors</td>
-      <td colspan="2" class="headerC">Solutions<br />Submitted</td>
+      <td colspan="2" class="headerC">Solutions<br />Submitted*</td>
       <td colspan="2" class="headerC">Solutions<br />Challenged</td>
-      <td colspan="2" class="headerC">Solutions<br />Submitted</td>
+      <td colspan="2" class="headerC">Solutions<br />Submitted*</td>
       <td colspan="2" class="headerC">Solutions<br />Challenged</td>
       <td class="header">&#160;</td>
    </tr>
@@ -108,8 +109,8 @@ myForm.submit();
       <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("name")%>" includeParams="true" excludeParams="sr" />">Match</a></td>
       <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("start_date")%>" includeParams="true" excludeParams="sr" />">Date</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors1")%>" includeParams="true" excludeParams="sr" />">D1</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors2")%>" includeParams="true" excludeParams="sr" />">D2</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors1")%>" includeParams="true" excludeParams="sr" />">DivI</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors2")%>" includeParams="true" excludeParams="sr" />">DivII</a></td>
       <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("submitted1")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avgsubmitted1")%>" includeParams="true" excludeParams="sr" />">Avg</a></td>
       <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("challengessuccessful1")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
