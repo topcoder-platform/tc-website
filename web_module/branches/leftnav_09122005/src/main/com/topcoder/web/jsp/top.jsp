@@ -93,7 +93,20 @@ left: 0px;
 <div id="launch2" class="launchPopUp" style="left:170;top:65;">Component Development Active Contests</div>
 <div id="launch3" class="launchPopUp" style="left:210;top:65;">Marathon Match Active Contests</div>
 <map name="launchBar">
-<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription('launch0')" onmouseout="hideDescription()" />
+         <script language="JavaScript">
+            if (canDetectPlugins()) {
+                if (detectJavaWebStart()) {
+                    document.write('<area shape="rect" alt="" coords="70,0,110,30" href="http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp" onmouseover="popDescription(\'launch0\')" onmouseout="hideDescription()" />');
+                }
+                else {
+                    document.write('<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription(\'launch0\')" onmouseout="hideDescription()" />');
+                }
+            }
+            else {
+                document.write('<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription(\'launch0\')" onmouseout="hideDescription()" />');
+            }
+        </script>
+
 <area shape="rect" alt="" coords="111,0,140,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popDescription('launch1')" onmouseout="hideDescription()" />
 <area shape="rect" alt="" coords="141,0,165,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popDescription('launch2')" onmouseout="hideDescription()" />
 <area shape="rect" alt="" coords="166,0,228,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
