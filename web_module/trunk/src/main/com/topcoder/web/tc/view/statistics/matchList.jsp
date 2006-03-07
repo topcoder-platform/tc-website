@@ -88,7 +88,7 @@ myForm.submit();
                     | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" border="0">
-   <tr><td class="title" colspan="12">Algorithm Match Archive</td></tr>
+   <tr><td class="title" colspan="14">Algorithm Match Archive</td></tr>
    <tr>
       <td colspan="3" class="header">&#160;</td>
       <td colspan="5" class="headerC">Div I</td>
