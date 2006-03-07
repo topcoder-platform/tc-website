@@ -54,11 +54,6 @@
                 <tr>
                     <td class="statText" valign="top" width="100%">
                         <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br><br>
-<%--
-                        so dirty, but i'm doing it anyway..buahahah
-                        need to wack the session so that others can't get on the machine and screw around.
---%>
-                        <% request.getSession().invalidate();%>
 
                         <p><font size="2"><strong>Thank You!</strong></font><br> 
                         Your registration request has been submitted. We will set up your member home page.</p>
@@ -98,3 +93,10 @@
         
   </body>
 </html>
+
+
+<%--
+                        so dirty, but i'm doing it anyway..buahahah
+                        need to wack the session so that others can't get on the machine and screw around.
+--%>
+                        <% request.getSession().invalidate();%>
