@@ -28,7 +28,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
-import java.util.Enumeration;
 import java.util.zip.GZIPOutputStream;
 
 
@@ -191,10 +190,6 @@ public final class MainServlet extends BaseServlet {
             //************************ schedule ************************
             else if (requestTask.equals("schedule")) {
                 HTMLString = TaskSchedule.process(request, htmlMaker, nav, document);
-            }
-            //************************ jobs ************************
-            else if (requestTask.equals("jobs")) {
-                HTMLString = TaskJob.process(request, response, htmlMaker, nav, document);
             }
             //************************ arena ************************
             else if (requestTask.equals("arena")) {
