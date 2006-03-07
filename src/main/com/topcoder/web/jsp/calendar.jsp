@@ -61,7 +61,7 @@ text-decoration: none;
 
 <tr>
 <td id="calendarMini">5</td>
-<td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=9813&t=schedule&c=srm">6</A></td>
+<td id="calendarSRMMini"><A id="miniSRMDate" href="/tc?module=MatchDetails&rd=9813">6</A></td>
 <td id="calendarMini">7</td>
 <td id="calendarTCO06Mini" colspan="2"><A id="calendarTCO06Date" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">8</A></td>
 <td id="calendarMini">9</td>
@@ -75,7 +75,7 @@ text-decoration: none;
 <td id="calendarMini">14</td>
 <td id="calendarTCO06Mini" colspan="2"><A id="calendarTCO06Date" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">15</A></td>
 <td id="calendarTCO06Mini"><A id="calendarTCO06Date" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">16</A></td>
-<td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=9814&t=schedule&c=srm">17</A></td>
+<td id="calendarSRMMini"><A id="miniSRMDate" href="/tc?module=MatchDetails&rd=9814">17</A></td>
 <td id="calendarMini">18</td>
 </tr>
 
@@ -87,14 +87,14 @@ text-decoration: none;
 <td id="calendarLongMini" align="left"><A id="calendarLongDate" href="/longcontest/?module=Static&d1=intel_rules">2</A></td>
 <td id="calendarTCO06Mini"><A id="calendarTCO06Date" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">23</A></td>
 <td id="calendarMini">24</td>
-<td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=9815&t=schedule&c=srm">25</A></td>
+<td id="calendarSRMMini"><A id="miniSRMDate" href="/tc?module=MatchDetails&rd=9815">25</A></td>
 </tr>
 
 <tr>
 <td id="calendarMini">26</td>
 <td id="calendarMini">27</td>
 <td id="calendarMini">28</td>
-<td id="calendarSRMMini" colspan="2"><A id="miniSRMDate" href="/?RoundId=9816&t=schedule&c=srm">29</A></td>
+<td id="calendarSRMMini" colspan="2"><A id="miniSRMDate" href="/tc?module=MatchDetails&rd=9816">29</A></td>
 <td id="calendarTCO06Mini"><A id="calendarTCO06Date" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">30</A></td>
 <td id="calendarMini">31</td>
 <td id="calendarBlankMini">&#160;</td>
