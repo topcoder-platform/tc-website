@@ -779,7 +779,6 @@ public class ProjectAdministration implements Model {
                 }
 
                 System.out.println("--- Reviewers");
-                UserRole[] newRoles = newProject.getParticipants();
                 for (int i = 0; i < newRoles.length; i++) {
                     if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
                         System.out.println("-+ " + newRoles[i].getUser().getHandle());
@@ -787,7 +786,7 @@ public class ProjectAdministration implements Model {
                 }
 
                 System.out.println("--- Winner");
-                System.out.println("-+ " + winner.getHandle());
+                System.out.println("-+ " + newProject.getWinner().getHandle());
 
 /*
 
