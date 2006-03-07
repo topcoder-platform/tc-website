@@ -34,22 +34,9 @@ public class Rating extends ForumsProcessor {
             ratingManager.addRating(user, message, ratingManager.getRatingFromScore(voteValue)); 
         }
         
-        int posRatings = 0;
-        int negRatings = 0;
-        
-        Iterator itRatings = ratingManager.getRatings(message);
-        while (itRatings.hasNext()) {
-            com.jivesoftware.forum.Rating rating = (com.jivesoftware.forum.Rating)itRatings.next();
-            int score = rating.getScore();
-            switch (score) {
-                case 1:
-                    negRatings++;
-                    break;
-                case 2:
-                    posRatings++;
-                    break;
-            }
-        }
+        int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+        int posRatings = ratings[0];
+        int negRatings = ratings[1];
         
         getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
