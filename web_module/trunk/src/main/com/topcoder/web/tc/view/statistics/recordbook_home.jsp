@@ -99,71 +99,19 @@ Challenge Success is a percentage based on successful challenges divided by tota
 <a href="/stat?&amp;c=best_challengers">Overall</a>
 </td>
 </tr>
-</table>
-
-
-
-<%--
-<table cellpadding="0" cellspacing="0" border="0">
 <tr valign="top">
-<td width="50%" style="padding-right:10px;">
-
-<strong>Consecutive Rating Increases</strong><br>
-This chart represents the longest consecutive rating increase streaks.<br>
-<a href="/stat?&amp;c=consecutive_rating_increases&amp;wst=3">SRMs</a> | 
-<a href="/stat?&amp;c=consecutive_rating_increases&amp;wst=4">SRMs and Tournaments</a>
-
-<br><br>
-
-<strong>All-Time Wins</strong><br>
-This chart ranks the Top-10 in Wins.<br>
-<a href="/stat?&amp;c=all_time_wins">Overall</a> | 
-<a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=1">Division I</a> | 
-<a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=2">Division II</a>
-
-<br><br>
-
-<strong>Highest Match Total</strong><br>
-This chart represents the Top-10 highest point totals earned.<br>
-<a href="/stat?&amp;c=highest_totals&amp;dn=1">Division I</a> | 
-<a href="/stat?&amp;c=highest_totals&amp;dn=2">Division II</a>
-
-<br><br>
-
-<strong>Rating Point Gain</strong><br>
-This chart represents the biggest rating point gain.<br>
-<a href="/stat?&amp;c=biggest_rating_gains&amp;dn=1">Division I</a> | 
-<a href="/stat?&amp;c=biggest_rating_gains&amp;dn=2">Division II</a>
-
+<td>
+<strong>Most Match Wins</strong><br>
+This chart shows the coders with the most Single Round Match wins.<br>
+<a href="/stat?c=division_wins&dn=1">Division I</a> | 
+<a href="/stat?c=division_wins&dn=2">Division II</a>
 </td>
-<td width="50%" style="padding-left:10px;">
-
-<strong>Submission Accuracy</strong><br>
-Submission Accuracy is measured by dividing the number of correct submissions by the number of total submissions by a member<br>
-<a href="/stat?&amp;c=highest_accuracy">Overall</a>
-
-<br><br>
-
-<strong>Impressive Debuts</strong><br>
-This chart represents the members who have made the most impressive debuts.<br>
-<a href="/stat?&amp;c=impressive_debuts">Overall</a>
-
-<br><br>
-
-<strong>Consecutive Wins</strong><br>
-This chart represents the longest consecutive room win streaks in Single Round Matches.<br>
-<a href="/stat?&amp;c=most_consecutive_wins&amp;dn=1">Division I</a> | 
-<a href="/stat?&amp;c=most_consecutive_wins&amp;dn=2">Division II</a>
-
-<br><br>
-
-<strong>Challenge Success</strong><br>
-Challenge Success is a percentage based on successful challenges divided by total challenges.<br>
-<a href="/stat?&amp;c=best_challengers">Overall</a>
+<td>
+&#160;
 </td>
 </tr>
 </table>
---%>
+
 </div>
         </td>
         <!-- Center Column Ends -->
