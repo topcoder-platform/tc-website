@@ -97,16 +97,7 @@ public class RatingQubits {
         */
             //design
             String sqlStr = "select distinct pr.project_id, " +
-                    "case when exists(select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 1 " +
-                    "and cur_version = 1) " +
-                    "then (select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 1 " +
-                    "and cur_version = 1) " +
-                    "else (select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 8 " +
-                    "and cur_version = 1) " +
-                    "end as ProjectDate, " +
+                    "p.rating_date as ProjectDate, " +
                     "p.comp_vers_id " +
                     "from project_result pr, " +
                     "project p, " +
@@ -118,7 +109,7 @@ public class RatingQubits {
                     "and pr.rating_ind = 1" +
                     "and cd.comp_vers_id = p.comp_vers_id " +
                     "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
-                    "order by 2";
+                    "order by 2,1";
 
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
@@ -133,16 +124,7 @@ public class RatingQubits {
             //dev
 
             sqlStr = "select distinct pr.project_id, " +
-                    "case when exists(select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 1 " +
-                    "and cur_version = 1) " +
-                    "then (select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 1 " +
-                    "and cur_version = 1) " +
-                    "else (select end_date from phase_instance " +
-                    "where project_id = pr.project_id and phase_id = 8 " +
-                    "and cur_version = 1) " +
-                    "end as ProjectDate, " +
+                    "rating_date as ProjectDate, " +
                     "p.comp_vers_id " +
                     "from project_result pr, " +
                     "project p, " +
@@ -154,7 +136,7 @@ public class RatingQubits {
                     "and pr.rating_ind = 1" +
                     "and cd.comp_vers_id = p.comp_vers_id " +
                     "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
-                    "order by 2";
+                    "order by 2,1";
 
 
             ps = conn.prepareStatement(sqlStr);
