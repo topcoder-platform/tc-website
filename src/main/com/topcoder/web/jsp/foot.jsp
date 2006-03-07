@@ -9,7 +9,7 @@
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
-            <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A></td></tr>
 <!-- TopCoder Links Ends -->
