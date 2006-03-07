@@ -2914,11 +2914,11 @@ public class ProjectTrackerBean implements SessionBean {
                 place++;
                 if (score >= minScore) {
                     if (place==1) {
-                        money =rsScores.getLong("price");
+                        money =rsScores.getDouble("price");
                     } else if (place ==2) {
-                        money = Math.round((rsScores.getLong("price") * .5));
+                        money = Math.round((rsScores.getDouble("price") * .5));
                     }
-                } 
+                }
                 
                 psInsertScores.setDouble(1, score);
                 psInsertScores.setInt(2, place);
