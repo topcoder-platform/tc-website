@@ -1,10 +1,10 @@
 package com.topcoder.ejb.UserServices;
 
 import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.error.TCException;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
@@ -129,10 +129,9 @@ final class UserDb {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.User.UserDb.insertUser: ERROR \n " + sqe.getMessage());
+            throw new TCException(sqe);
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException("ejb.User.UserDb:insertUser():failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             if (ps != null) {
                 try {
@@ -249,8 +248,7 @@ final class UserDb {
 
 
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException("ejb.User.UserDb:updateUser():failed:" + ex.getMessage());
+            throw new TCException(ex);
         } finally {
             if (ps != null) {
                 try {
@@ -341,8 +339,7 @@ final class UserDb {
                 throw new TCException("ejb.User.UserDb:loadUser():empty resultset:\n");
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException("ejb.User.UserDb:loadUser():failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             if (rs != null) {
                 try {
@@ -385,7 +382,7 @@ final class UserDb {
                 throw new TCException("ejb.User.UserDb:inactivateUser:" + userId + ":failed to update:\n");
             }
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:inactivateUser:" + userId + ":failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -415,7 +412,7 @@ final class UserDb {
                 throw new TCException("ejb.User.UserDb:getExistingUserId:" + key.intValue() + ":failed:\n");
             }
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:getExistingUserId:failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             if (rs != null) {
                 try {
@@ -485,8 +482,7 @@ final class UserDb {
             }
             user.setGroups(groupUsers);
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:loadGroupUsers():" +
-                    user.getUserId() + "failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -540,7 +536,7 @@ final class UserDb {
                 insertGroupUser(conn, groupUser);
             }
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:insertGroupUsers():failed:\n" + ex);
+            throw new TCException(ex);
         }
     }
 
@@ -572,7 +568,7 @@ final class UserDb {
             }
             groupUser.setModified("S");
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:insertGroupUser():failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -644,7 +640,7 @@ final class UserDb {
                 }
             }
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:updateGroupUsers():failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -682,7 +678,7 @@ final class UserDb {
                 }
             }
         } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:updateDefaultUserType():failed:\n" + ex);
+            throw new TCException(ex);
         } finally {
             try {
                 if (ps != null) ps.close();
