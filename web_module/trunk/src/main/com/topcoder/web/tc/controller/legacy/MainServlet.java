@@ -191,10 +191,6 @@ public final class MainServlet extends BaseServlet {
             else if (requestTask.equals("schedule")) {
                 HTMLString = TaskSchedule.process(request, htmlMaker, nav, document);
             }
-            //************************ arena ************************
-            else if (requestTask.equals("arena")) {
-                HTMLString = TaskArena.process(request, response, htmlMaker, nav, document);
-            }
             //************************ development ************************
             else if (requestTask.equals("development")) {
                 HTMLString = TaskDevelopment.process(request, response, htmlMaker, nav, document);
