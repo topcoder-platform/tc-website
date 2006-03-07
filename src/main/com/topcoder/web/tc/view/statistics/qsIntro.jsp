@@ -10,7 +10,7 @@
                         </P>
                       </TD>
                       <TD ROWSPAN="2" CLASS="statText" VALIGN="top" WIDTH="20"><IMG src="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
-                      <TD CLASS="statTextBig" VALIGN="top" WIDTH="170"><B>Quick Stats:</B>
+                      <TD CLASS="statTextBig" VALIGN="top" WIDTH="170"><B>Record Book:</B>
                       <IMG src="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="1"/><BR/>
                       </TD>
                     </TR>
