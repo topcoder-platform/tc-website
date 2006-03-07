@@ -70,7 +70,7 @@
                     The event is from <tc:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mma"/>
                     until <tc:format object="<%=conf.get(new Integer(Constants.EVENT_END_PROP_ID))%>" format="hh:mma"/> in
                     the <%=conf.get(new Integer(Constants.LOCATION_PROP_ID))%>. This event is being run in conjunction
-                    with <A href="/?RoundId=<%=request.getAttribute(Constants.ROUND_ID)%>&t=schedule&c=srm"><%=request.getAttribute(Constants.ROUND_NAME)%></A>.
+                    with <A href="/tc?module=MatchDetails&rd=<%=request.getAttribute(Constants.ROUND_ID)%>"><%=request.getAttribute(Constants.ROUND_NAME)%></A>.
                     In addition to registering with TopCoder, all competitors must register
                     <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">here</a> and be onsite for the competition.
                     After the event ends, pizza will be served and a TopCoder representative will be present to discuss
