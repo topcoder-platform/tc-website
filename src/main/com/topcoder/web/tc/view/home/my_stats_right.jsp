@@ -28,11 +28,13 @@
         <td class="formHandleEven">Earnings</td>
         <td class="formHandleEven" align="right"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
         </tr>
+    <% if (coderInfo.getIntItem(0, "rating")>0) { %>
    <tr>
       <td class="formHandleEven" colspan="2" align="center">
       <A href="/stat?c=coder_room_stats&cr=<%=coderInfo.getLongItem(0, "coder_id")%>" class="statTextBig">My Last Match</A>
       </td>
    </tr>
+    <% } %>
 
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
 
