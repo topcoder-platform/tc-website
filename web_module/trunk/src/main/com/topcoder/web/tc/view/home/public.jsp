@@ -23,6 +23,10 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="competition_home"/>
             </jsp:include>
+         <div style="float:left; clear:left;">
+            <jsp:include page="/calendar.jsp" />
+            <jsp:include page="coder_of_month.jsp" />
+         </div>
         </td>
 <!-- Left Column Ends -->
 

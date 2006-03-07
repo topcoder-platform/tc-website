@@ -25,6 +25,10 @@
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="competition_home"/>
          </jsp:include>
+         <div style="float:left; clear:left;">
+            <jsp:include page="/calendar.jsp" />
+            <jsp:include page="coder_of_month.jsp" />
+         </div>
       </td>
 <!-- Left Column Ends -->
 
@@ -34,7 +38,6 @@
 
 <!-- Center Column Begins -->
 <td width="100%" align="center">
-   <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
    <jsp:include page="big_promo.jsp" />
      <jsp:include page="news.jsp" />
      <jsp:include page="arena.jsp" />
@@ -48,9 +51,7 @@
 <!-- Right Column Begins -->
  <td width="180">
    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
       <tr><td><jsp:include page="message.jsp" /></td></tr>
-      <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
       <tr><td><jsp:include page="my_stats_right.jsp" /></td></tr>
       <tr><td><img src="/i/clear.gif" width="1" height="5" border="0" /></td></tr>
       <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
