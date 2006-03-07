@@ -43,7 +43,7 @@
             <li>put logic behind the contest details links on the component page in the catalog</li>
 --%>
     <p>
-        4.2.0 - 2006.03.06
+        5.0.0 - 2006.03.06
         <ul>
             <li>New left navigation</li>
             <li>Component Recordbook
@@ -61,10 +61,8 @@
                     <li>Highest Component Tournament Winnings</li>
                 </ul>
             </li>
-<%--
             <li>SRM Division Wins Page</li>
             <li>Top SRM Winners</li>
---%>
             <li>Match Archive</li>
             <li>Removed existing, and added new Component Contest Status Page</li>
             <li>Populate placed for all valid submissions even if they don't reach min. score</li>
