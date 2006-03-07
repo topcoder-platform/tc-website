@@ -59,10 +59,10 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-    <jsp:include page="script.jsp" />
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_forums"/>
-        </jsp:include>
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
+   <jsp:param name="key" value="tc_forums"/>
+</jsp:include>
 
 </head>
 
