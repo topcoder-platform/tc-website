@@ -109,11 +109,13 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                     </TR>
                           
 
+<%--
                                     <% if (round_id == 4365) { %>
                                     <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
                                         <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
                                     </TD></TR>
                                     <% } %>
+--%>
 
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
