@@ -1131,7 +1131,7 @@ if (action != null) {
         String strRole = request.getParameter("selRole");
         String strRating = request.getParameter("txtTeamMemberRating");
         String description = request.getParameter("txtTeamMemberDescription");
-        if (description.length = 0) {
+        if (description.length() = 0) {
             strError = "Description cannot be blank.";
         } else {
             try {
