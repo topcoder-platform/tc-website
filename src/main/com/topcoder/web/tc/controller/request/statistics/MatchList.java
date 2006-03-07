@@ -53,8 +53,10 @@ public class MatchList extends Base {
             result.put("match_list", (ResultSetContainer)rsc.subList(Integer.parseInt(startRank)-1, endRank));
 
             SortInfo s = new SortInfo();
-            s.addDefault(7, "desc");
-            s.addDefault(16, "desc");
+            s.addDefault(rsc.getColumnIndex("numcompetitors"), "desc");
+            s.addDefault(rsc.getColumnIndex("numcompetitors1"), "desc");
+            s.addDefault(rsc.getColumnIndex("numcompetitors2"), "desc");
+            s.addDefault(rsc.getColumnIndex("start_date"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
