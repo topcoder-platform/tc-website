@@ -105,19 +105,19 @@ myForm.submit();
       <td class="header">&#160;</td>
    </tr>
    <tr>
-      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</a></td>
-      <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</a></td>
+      <td class="header" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("name")%>" includeParams="true" excludeParams="sr" />">Match</a></td>
+      <td class="headerC" width="33%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("start_date")%>" includeParams="true" excludeParams="sr" />">Date</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors1")%>" includeParams="true" excludeParams="sr" />">D1</a></td>
       <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors2")%>" includeParams="true" excludeParams="sr" />">D2</a></td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Total</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg</a></td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Total</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg</a></td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Total</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg</a></td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Total</a></td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("submitted1")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avgsubmitted1")%>" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("challengessuccessful1")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avgchallengessuccessful1")%>" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("submitted2")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avgsubmitted2")%>" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("challengessuccessful2")%>" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("avgchallengessuccessful2")%>" includeParams="true" excludeParams="sr" />">Avg</a></td>
       <td class="headerC" width="33%">&#160;</td>
    </tr>
    <% boolean even = false; %>
