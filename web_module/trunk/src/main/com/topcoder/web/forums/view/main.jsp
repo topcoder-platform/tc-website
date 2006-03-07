@@ -81,7 +81,7 @@
 
             <%--
             <%  if (forumFactory.getRootForumCategory().getForumCount() > 0) { %>
-            <table cellpadding="0" cellspacing="0" class="rtTable">
+            <table cellpadding="0" cellspacing="0" class="rtTable" width="100%">
                 <tr>
                     <td class="rtHeader" width="80%">Forum</td>
                     <td class="rtHeader" width="20%">T./M.</td>
@@ -186,11 +186,11 @@
                         if (numActiveForums > 0) { %>
                         <br><table cellpadding="0" cellspacing="0" class="rtTable">
                                 <tr>
-                                   <td class="rtHeader">
+                                   <td class="rtHeader" width="100%">
                                         <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
                                    </td>
-                                   <td class="rtHeader">T./M.</td>
-                                   <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                                   <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+                                   <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div></td>
                                 </tr>
                                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
                                     <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
