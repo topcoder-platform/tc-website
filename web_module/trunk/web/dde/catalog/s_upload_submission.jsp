@@ -113,7 +113,7 @@
                 message.addToAddress(regInfo.getEmail(), regInfo.getFirstName()+" "+regInfo.getLastName(), TCSEmailMessage.TO);
                 message.setFromAddress("service@topcodersoftware.com", "TopCoder Software");
                 message.setSubject("Your submission has been recieved");
-                message.setBody("Your submission has been received.  Thank You!  Please check the Project Status (http://www.topcoder.com/?&t=development&c=comp_archive) page to keep up to date with the status of your project.  Also, a reminder that this is a competition, and only the 1st, 2nd and 3rd place finishers will receive payment.\n\nIf you have any questions please contact service@topcodersoftware.com\n\nThank you,\n\nThe TopCoder Software Team");
+                message.setBody("Your submission has been received.  Thank You!  Please check the Project Status (http://www.topcoder.com/tc?module=ContestStatus&ph=112 and http://www.topcoder.com/tc?module=ContestStatus&ph=113) page to keep up to date with the status of your project.  Also, a reminder that this is a competition, and only the 1st, 2nd and 3rd place finishers will receive payment.\n\nIf you have any questions please contact service@topcodersoftware.com\n\nThank you,\n\nThe TopCoder Software Team");
                 EmailEngine.send(message);
             } catch (Exception e) {
 //                e.printStackTrace(new PrintWriter(out));
