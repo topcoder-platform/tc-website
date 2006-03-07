@@ -366,7 +366,7 @@
                               <div class="authorsHeader">
                                  <div style="float: right;">
                                     <% if (exists(componentInfo.getId(), versionInfo.getVersion(), ComponentVersionInfo.SPECIFICATION)) { %>
-                                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.SPECIFICATION%>" class="small">contest details</A>
+                                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;ph=<%=ComponentVersionInfo.SPECIFICATION%>" class="small">contest details</A>
                                     <% } else { %>
                                         &#160;
                                      <% } %>
@@ -393,7 +393,7 @@
                               <div class="authorsHeader">
                                  <div style="float: right;">
                                     <% if (exists(componentInfo.getId(), versionInfo.getVersion(), ComponentVersionInfo.DEVELOPMENT)) { %>
-                                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;pi=<%=ComponentVersionInfo.DEVELOPMENT%>" class="small">contest details</A>
+                                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=CompContestDetails&amp;compid=<%=componentInfo.getId()%>&amp;vr=<%=versionInfo.getVersion()%>&amp;ph=<%=ComponentVersionInfo.DEVELOPMENT%>" class="small">contest details</A>
                                     <% } else { %>
                                      &#160;
                                      <% } %>
