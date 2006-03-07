@@ -59,7 +59,7 @@ Within the Competition Arena, chat with VeriSign representatives in the VeriSign
 <br><br>
 The competition will begin at 6:30 PM IST (UTC +5:30) on Tuesday, September 27. 
 <br><br>
-Check <A href="/?RoundId=8007&t=schedule&c=srm">here</A> for rules, regulations, eligibility, and information on prizes.
+Check <A href="/tc?module=MatchDetails&amp;rd=8007">here</A> for rules, regulations, eligibility, and information on prizes.
       <br/><br/>
         <p><br></p>
         </td>
