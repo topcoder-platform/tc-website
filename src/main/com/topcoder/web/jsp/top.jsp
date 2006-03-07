@@ -119,7 +119,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
 <div class="topBar">
    <div style="float: right; margin-left: 650px;">
    <% if ( !sessionInfo.isAnonymous() ) { %>
-       Hello,&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' />
+       Hello,&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" />
       <% if (level1.equals("long")) { %>
                &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
       <% } else { %>
