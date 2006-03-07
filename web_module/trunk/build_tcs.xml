@@ -18,7 +18,6 @@
     <property name="resources.dir" value="resources"/>
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
-    <property name="java" value="${src.dir}/main"/>
     <property name="conf.dir" value="conf"/>
     <property name="bin.dir" value="${lib.dir}/bin"/>
     <property name="java.dir" value="${src.dir}/main"/>
@@ -138,17 +137,7 @@
 
     <target name="war-or" depends="compile">
         <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
-            <fileset dir="${web.dir}/online_review"/>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="top.jsp"/>
-                <include name="foot.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="script.jsp"/>
-                <include name="body_top.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="includes/global_left.jsp"/>
-                <include name="includes/modules/simpleSearch.jsp"/>
-            </fileset>
+            <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
             <classes dir="${classes.dir}">
                 <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
                 <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
