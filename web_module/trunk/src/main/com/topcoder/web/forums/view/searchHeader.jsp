@@ -19,7 +19,7 @@
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_MODE%>" value="<%=ForumConstants.SEARCH_MODE_BASIC%>"/>
 <input name="<%=ForumConstants.SEARCH_QUERY%>" size="20" maxlength="100" value="<%=StringUtils.escapeHTMLTags(queryTerms)%>" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
 <input name="Search" value="Search" type="submit" alt="Search" onclick="">
-&#160;
+<br>
 <A href="?module=Search" class="rtbcLink">Advanced Search</A>
 <% if (errors != null && errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
 </form>
