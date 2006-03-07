@@ -797,19 +797,29 @@ public class ProjectAdministration implements Model {
 
 
 //plk
+                System.out.println("------------ Catalog ID: " + newProject.getCatalogueId());
+                System.out.println("------------ Comp Version ID: " + newProject.getCompVersId());
+
             InitialContext context = new InitialContext();
+                System.out.println("-1");
             ComponentManagerHome componentManagerHome = (ComponentManagerHome) javax.rmi.PortableRemoteObject.narrow(
                 context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
+                System.out.println("-2");
 
             ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
                 newProject.getCompVersId());
+                System.out.println("-3");
 
             CatalogHome home = (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(CatalogHome.EJB_REF_NAME),
                 CatalogHome.class);
+                System.out.println("-4");
+
             Catalog catalog = home.create();
+                System.out.println("-5");
 
             TeamMemberRole role = new TeamMemberRole(new com.topcoder.dde.user.User(newProject.getWinner().getId()),
             catalog.getRole(3), 1, "");
+                System.out.println("-6");
 
             componentManager.addTeamMemberRole(role);
 
