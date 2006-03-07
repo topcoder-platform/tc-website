@@ -259,9 +259,9 @@ function displayVotes(messageID, posVotes, negVotes) {
       <%   } %>
       </tr>
 </table>
-</div>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
+</div>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td><b>

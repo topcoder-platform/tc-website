@@ -43,7 +43,7 @@
     </tr>
 --%>
     <tr>
-        <td class="formHandleEven">For increasing his rating from 1419 to 1891, jumping into the Top 10 Developers, and advancing to the TCO06 Finals</td>
+        <td class="formHandleEven">For increasing his rating from 1419 to 1878, jumping into the Top 10 Developers, and advancing to the TCO06 Finals</td>
         <td class="formHandleEven" align="right" valign="middle"><img src="/i/m/traugust_big.jpg" alt="" width="55" height="61" class="myStatsPhoto"/></td>
     </tr>
 </table>
