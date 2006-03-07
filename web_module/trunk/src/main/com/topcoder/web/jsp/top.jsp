@@ -88,15 +88,17 @@ left: 0px;
 </STYLE>
 
 <%----------LAUNCH BAR-------------%>
-<div id="launch0" class="launchPopUp" style="left:115;top:65;">Launch Algorithm Competitions Arena</div>
-<div id="launch1" class="launchPopUp" style="left:140;top:65;">Component Design Active Contests</div>
-<div id="launch2" class="launchPopUp" style="left:170;top:65;">Component Development Active Contests</div>
-<div id="launch3" class="launchPopUp" style="left:210;top:65;">Marathon Match Active Contests</div>
+<div id="launch0" class="launchPopUp" style="left:73;top:65;">Competitions Home</div>
+<div id="launch1" class="launchPopUp" style="left:115;top:65;">Launch Algorithm Competitions Arena</div>
+<div id="launch2" class="launchPopUp" style="left:140;top:65;">Component Design Active Contests</div>
+<div id="launch3" class="launchPopUp" style="left:170;top:65;">Component Development Active Contests</div>
+<div id="launch4" class="launchPopUp" style="left:210;top:65;">Marathon Match Active Contests</div>
 <map name="launchBar">
-<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription('launch0')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="111,0,140,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popDescription('launch1')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="141,0,165,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popDescription('launch2')" onmouseout="hideDescription()" />
-<area shape="rect" alt="" coords="166,0,228,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="0,0,68,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="popDescription('launch0')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="70,0,110,30" href="javascript:arena();" onmouseover="popDescription('launch1')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="111,0,140,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="popDescription('launch2')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="141,0,165,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
+<area shape="rect" alt="" coords="166,0,228,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch4')" onmouseout="hideDescription()" />
 </map>
 <div style="position:absolute; left:0px; top:31px;">
 <img src="/i/interface/launchBar.gif" alt="" usemap="#launchBar"/>
