@@ -1,4 +1,5 @@
 
+document.write('<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>');
   function getGraph(url,wd,ht) {
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
