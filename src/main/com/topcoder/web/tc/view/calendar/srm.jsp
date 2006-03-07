@@ -320,7 +320,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         </UL>
                                         <BR/><BR/>
 
-                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<%=round_id%>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<%=round_id%>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
 
                                     <% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080) { %>
@@ -348,7 +348,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         </UL>
                                         <BR/><BR/>
 
-                                        <A CLASS="bodyText" HREF="/tc?module=SrmRules&RoundId=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
 
                                     <% } else { %>
