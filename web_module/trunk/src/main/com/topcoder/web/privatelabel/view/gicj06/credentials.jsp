@@ -43,7 +43,7 @@
          <span class="bigTitle">Registration</span>
          </div>
          <div style="float: right">
-         <jsp:include page="right.jsp" />
+         <jsp:include page="right_reg.jsp" />
          </div>
          <br><br>
 
