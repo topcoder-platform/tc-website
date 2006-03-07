@@ -19,6 +19,13 @@ import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import java.util.*;
 
+// plk
+import com.topcoder.dde.catalog.ComponentManagerHome;
+import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.TeamMemberRole;
+import com.topcoder.dde.catalog.Catalog;
+import com.topcoder.dde.catalog.CatalogHome;
+
 /**
  * This Model provides business logic through which users administers projects (only for admins).
  *
@@ -787,6 +794,24 @@ public class ProjectAdministration implements Model {
 
                 System.out.println("--- Winner");
                 System.out.println("-+ " + newProject.getWinner().getHandle());
+
+
+//plk
+            InitialContext context = new InitialContext();
+            ComponentManagerHome componentManagerHome = (ComponentManagerHome) javax.rmi.PortableRemoteObject.narrow(
+                context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
+
+            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
+                newProject.getCompVersId());
+
+            CatalogHome home = (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(CatalogHome.EJB_REF_NAME),
+                CatalogHome.class);
+            Catalog catalog = home.create();
+
+            TeamMemberRole role = new TeamMemberRole(new com.topcoder.dde.user.User(newProject.getWinner().getId()),
+            catalog.getRole(3), 1, "");
+
+            componentManager.addTeamMemberRole(role);
 
 /*
 
