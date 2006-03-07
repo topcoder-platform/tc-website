@@ -91,8 +91,8 @@ myForm.submit();
    <tr><td class="title" colspan="14">Algorithm Match Archive</td></tr>
    <tr>
       <td colspan="3" class="header">&#160;</td>
-      <td colspan="5" class="headerC">Div I</td>
-      <td colspan="5" class="headerC">Div II</td>
+      <td colspan="5" class="headerC">Division I</td>
+      <td colspan="5" class="headerC">Division II</td>
       <td class="header">&#160;</td>
    </tr>
    <tr>
