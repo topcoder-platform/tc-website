@@ -57,6 +57,15 @@ public class MatchList extends Base {
             s.addDefault(rsc.getColumnIndex("numcompetitors1"), "desc");
             s.addDefault(rsc.getColumnIndex("numcompetitors2"), "desc");
             s.addDefault(rsc.getColumnIndex("start_date"), "desc");
+            s.addDefault(rsc.getColumnIndex("submitted1"), "desc");
+            s.addDefault(rsc.getColumnIndex("submitted2"), "desc");
+            s.addDefault(rsc.getColumnIndex("avgsubmitted1"), "desc");
+            s.addDefault(rsc.getColumnIndex("avgsubmitted2"), "desc");
+            s.addDefault(rsc.getColumnIndex("challengessuccessful1"), "desc");
+            s.addDefault(rsc.getColumnIndex("challengessuccessful2"), "desc");
+            s.addDefault(rsc.getColumnIndex("avgchallengessuccessful1"), "desc");
+            s.addDefault(rsc.getColumnIndex("avgchallengessuccessful2"), "desc");
+
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
