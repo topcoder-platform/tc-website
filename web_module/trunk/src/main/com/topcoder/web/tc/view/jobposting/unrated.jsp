@@ -36,7 +36,7 @@
                 The ability to apply for a job at TopCoder is restricted to rated members. In line with TopCoder's
                 overall philosophy, this policy allows companies to differentiate coders who otherwise look the same
                 on paper. Non-rated members wishing to obtain a rating should review the competition calendar for the
-                <A HREF="/?t=schedule&c=srm&RoundId=<jsp:getProperty name="JobHitData" property="nextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>
+                <A HREF="/tc?module=MatchDetails&amp;rd=<jsp:getProperty name="JobHitData" property="nextRoundId"/>" CLASS="statTextBig">next Single Round Match</A>
                 or click <A HREF="/tc?module=Static&d1=calendar&d2=thisMonth" class="statTextBig">here</A> for a complete list of upcoming Single
                 Round Matches.
                 <BR/>
