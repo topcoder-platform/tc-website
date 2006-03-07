@@ -267,6 +267,12 @@ public class ComponentManagerBean
             // plk
             System.out.println("-1.4");
         try {
+            System.out.println("componentId: " + componentId);
+            System.out.println("version: " + version);
+            LocalDDECompVersions ll = versionsHome.findByComponentIdAndVersion(componentId, version);
+            System.out.println("-1.5");
+            System.out.println("ll.getVersion()" + ll.getVersion());
+            System.out.println("-1.6");
             this.versionId = ((Long) versionsHome.
                     findByComponentIdAndVersion(componentId, version).
                     getPrimaryKey()).longValue();
