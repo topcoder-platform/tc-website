@@ -1130,14 +1130,14 @@ if (action != null) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
         String strRating = request.getParameter("txtTeamMemberRating");
-        String description = request.getParameter("txtTeamMemberDescription");
-        if (description.length() = 0) {
+        String strDescription = request.getParameter("txtTeamMemberDescription");
+        if (strDescription == null || strDescription.trim().length() == 0) {
             strError = "Description cannot be blank.";
         } else {
             try {
                 User user = USER_MANAGER.getUser(strUsername);
                 TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
-                    Integer.parseInt(strRating), description);
+                    Integer.parseInt(strRating), strDescription);
                 componentManager.addTeamMemberRole(role);
                 strMessage += "Role " + strRole + " was assigned.";
                 //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
