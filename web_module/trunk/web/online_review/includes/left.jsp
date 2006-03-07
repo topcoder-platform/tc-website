@@ -42,14 +42,21 @@ function arena() {
                 <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/tc?module=ViewActiveContests" class="leftOn">Components</a></td></tr>
 
         <% if ((level2.equals("components"))) { %>
-                <tr><td id="<%=level3.equals("comp_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewActiveContests" class="leftOn">Active Contests</a></td></tr>
-                <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects" class="leftOn">Review Opportunities</a></td></tr>
+                <tr><td id="<%=level3.equals("des_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=112" class="leftOn">Active Design Contests</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=113" class="leftOn">Active Development Contests</a></td></tr>
+<%--
                 <tr><td id="<%=level3.equals("components")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=components" class="leftOn">Recent Project Winners</a></td></tr>
-                <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&pi=112">Design Contests</a></td></tr>
-                <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&pi=113">Development Contests</a></td></tr>
+--%>
+                <tr><td id="<%=level3.equals("des_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&ph=112" class="leftOn">Design Review Opportunities</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_reviews")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewReviewProjects&ph=113" class="leftOn">Development Review Opportunities</a></td></tr>
+                <tr><td id="<%=level3.equals("des_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&ph=112">Design Contests</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_contests")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="http://www.topcoder.com/tc?module=CompList&ph=113">Development Contests</a></td></tr>
                 <tr><td id="<%=level3.equals("project_review")?"leftSubnavOn":"leftSubnav"%>"><a href="/review" class="leftOn">Project Submit & Review</a></td></tr>
-                <tr><td id="<%=level3.equals("comp_archive")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_archive" class="leftOn">Project Status</a></td></tr>
+                <tr><td id="<%=level3.equals("des_archive")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ContestStatus&ph=112" class="leftOn">Design Contest Status</a></td></tr>
+                <tr><td id="<%=level3.equals("dev_archive")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ContestStatus&ph=113" class="leftOn">Development Contest Status</a></td></tr>
+<%--
                 <tr><td id="<%=level3.equals("comp_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=comp_meth" class="leftOn">Development Methodology</a></td></tr>
+--%>
         <% } %>
 
 <!-- Applications begins -->
@@ -63,21 +70,9 @@ function arena() {
         <% } %>
 -->
 
-<!-- Contests begins -->
-                <tr>
-                    <td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>">
-                        <img src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?&t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>">Contests</a>
-                    </td>
-                </tr>
-
-        <% if ((level2.equals("contests"))) { %>
-                <tr><td id="<%=level3.equals("tco_comp_overview")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=events&c=tco_comp_overview" class="leftOn">TCO Component Contest</a></td></tr>
-                <tr><td id="<%=level3.equals("des_bonus_contest_2")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=des_bonus_contest_2" class="leftOn">Design Bonus Contest 2</a></td></tr>
-                <tr><td id="<%=level3.equals("bonuse_contest_0303")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=bonus_contest_0303" class="leftOn">Design Bonus Contest 1</a></td></tr>
-        <% } %>
-
 <!-- Support/FAQ begins -->
-                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>">Support / FAQs</a></td></tr>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.branch2.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Design Support / FAQs / Docs</a></td></tr>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.branch2.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Development Support / FAQs / Docs</a></td></tr>
 
 
             </table>
