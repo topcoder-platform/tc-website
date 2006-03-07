@@ -88,9 +88,9 @@ function goTo(selection){
                     </TR>
                     <rsc:iterator list="<%=rsc%>" id="row">
                         <tr>
-                        <td class="statText"><rsc:item name="rank" row="<%=row%>"/></td>
-                        <td class="statText"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
-                        <td class="statText"><rsc:item name="wins" row="<%=row%>"/></td>
+                        <td class="statText" width="33%" align="right"><rsc:item name="rank" row="<%=row%>"/>&#160;</td>
+                        <td class="statText" width="33%"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=HandleTag.ALGORITHM%>'/></td>
+                        <td class="statText" width="33%"><rsc:item name="wins" row="<%=row%>"/></td>
                         </tr>
                     </rsc:iterator>                                                            
                     <TR>
