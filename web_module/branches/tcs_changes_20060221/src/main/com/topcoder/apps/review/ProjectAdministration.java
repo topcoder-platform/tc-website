@@ -771,6 +771,43 @@ public class ProjectAdministration implements Model {
 
                 System.out.println("Project completed!!!!!!!!!!!!");
                 System.out.println("-----Insert roles-----");
+
+                if (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
+                    System.out.println("--- Development");
+                } else {
+                    System.out.println("--- Design");
+                }
+
+                System.out.println("--- Reviewers");
+                UserRole[] newRoles = newProject.getParticipants();
+                for (int i = 0; i < newRoles.length; i++) {
+                    if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
+                        System.out.println("-+ " + newRoles[i].getUser().getHandle());
+                    }
+                }
+
+                System.out.println("--- Winner");
+                System.out.println("-+ " + winner.getHandle());
+
+/*
+
+winner
+
+                if (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
+                    // Check that all testcases are uploaded (if development project)
+                    UserRole[] newRoles = newProject.getParticipants();
+                    int nrReviewers = 0;
+                    for (int i = 0; i < newRoles.length; i++) {
+                        if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
+                            nrReviewers++;
+                        }
+                    }
+                    TestCase[] testcases = documentManager.getTestCases(newProject, -1, user.getTCSubject());
+                    if (testcases.length != nrReviewers) {
+                        return new FailureResult("Cannot move from review without having one testcase-upload per reviewer");
+                    }
+                }
+*/
                 // ???user??? - usuario.
                 // ???Long.parseLong(strRole)??? - el rol de ese usuario.
 
