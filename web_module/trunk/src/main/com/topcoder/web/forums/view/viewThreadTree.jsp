@@ -231,13 +231,6 @@ function displayVotes(messageID, posVotes, negVotes) {
          <%  if (activeMessage.getUser() != null && activeMessage.getUser().equals(user)) { %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
-         <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) {
-                int[] ratings = ForumsUtil.getRatings(ratingManager, activeMessage);
-                posRatings = ratings[0];
-                negRatings = ratings[1];
-                ratingCount = posRatings+negRatings; %>
-            <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','2')" class="rtbcLink">[+]</a><a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
-        <%  } %>
       </td>
    </tr>
    <tr id="<%=msgBodyID%>">
