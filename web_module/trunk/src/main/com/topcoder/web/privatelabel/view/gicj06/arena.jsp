@@ -53,37 +53,35 @@
 </span>
 <span class="bigTitle">Competition Arena</span>
          <br><br>
-         The Competition Arena will open on Febuary 27.
-<!--
+<!--         The Competition Arena will open on Febuary 27.-->
                 <br><br>
-                <A href="/pl/?module=GoogleChina05Credentials&cid=15857&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
+                <A href="/pl/?module=GoogleIndia06Credentials&cid=8039&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
-                5.0</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp "
-                                                   target="_blank">here</A> if you do not have Java Runtime 5.0
+                5.0</A> to run the Arena. Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 5.0
                 installed.
                 <br><br>
                 Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml"
                                                target="_blank">here</A> to read how to <A
                     href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
                 <br><br>
-                Click <A href="/pl/?module=Static&d1=gicj06&d2=EN_instructions">here</A> to read to the <A
+                Click <A href="/pl/?module=Static&d1=gicj06&d2=instructions">here</A> to read to the <A
                     href="/pl/?module=Static&d1=gicj06&d2=instructions">competition instructions</A>.
                 <br><br>
-                Click <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">here</a> to run the
-                Competition Arena as a <a href="/contest/arena/ContestAppletGoogleChina.jnlp" target="_blank">Java Web
+                Click <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">here</a> to run the
+                Competition Arena as a <a href="/contest/arena/ContestAppletGoogleIndia.jnlp" target="_blank">Java Web
                 Start Application</A>.
                 <br><br>
                 Note: If you wish to install Java Web Start click <a
                     href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                 <br><br>
-                Click <a href="Javascript:openWin('?module=Static&d1=gicj06&d2=EN_quick_launch','comp',300,275);">here</a>
+                Click <a href="Javascript:openWin('?module=Static&d1=gicj06&d2=quick_launch','comp',300,275);">here</a>
                 to run the Competition Arena as a <a
-                    href="Javascript:openWin('?module=Static&d1=gicj06&d2=EN_quick_launch','comp',300,275);">Java
+                    href="Javascript:openWin('?module=Static&d1=gicj06&d2=quick_launch','comp',300,275);">Java
                 Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
-				<A href="gcji@topcoder.com?subject=Question regarding Google Code Jam India">gcji@topcoder.com</A>.
+				<A href="gcji06@topcoder.com?subject=Question regarding Google Code Jam India">gcji06@topcoder.com</A>.
 <br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
@@ -93,6 +91,6 @@ To find out more detailed information about Google&#153; Code Jam India, includi
         <td width="49%">&#160;</td>
     <tr>
 </table>
-<jsp:include page="EN_foot.jsp"/>
+<jsp:include page="foot.jsp"/>
 </body>
 </html>
