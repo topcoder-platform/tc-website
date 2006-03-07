@@ -173,7 +173,7 @@ text-decoration: none;
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/?RoundId=8082&t=schedule&c=srm">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=8082">Details</A><br/><br/></td>
         <td id="calendarIntel">
             <span id="calendarIntelDate">25</span><br />
             <strong>Intel Multi-threading Competition 1</strong><br />
