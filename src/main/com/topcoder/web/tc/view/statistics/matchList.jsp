@@ -97,11 +97,11 @@ myForm.submit();
    </tr>
    <tr>
       <td colspan="2" class="header">&#160;</td>
-      <td colspan="3" class="headerC">&#160;<br>Competitors</td>
-      <td colspan="2" class="headerC">Solutions<br>Submissions</td>
-      <td colspan="2" class="headerC">Solutions<br>Challenges</td>
-      <td colspan="2" class="headerC">Solutions<br>Submissions</td>
-      <td colspan="2" class="headerC">Solutions<br>Challenges</td>
+      <td colspan="3" class="headerC">&#160;<br />Competitors</td>
+      <td colspan="2" class="headerC">Solutions<br />Submitted</td>
+      <td colspan="2" class="headerC">Solutions<br />Challenged</td>
+      <td colspan="2" class="headerC">Solutions<br />Submitted</td>
+      <td colspan="2" class="headerC">Solutions<br />Challenged</td>
       <td class="header">&#160;</td>
    </tr>
    <tr>
