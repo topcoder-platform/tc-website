@@ -273,7 +273,7 @@
 
       <a name="arenaplugins"></a>
       <p><span class="bodySubtitle">21 TopCoder Arena Plug-ins</span><br />
-      The TopCoder Arena supports a "plug-in" architecture that allows additional functionality to be built in.  While the functionality provided by these plug-ins is not initially available to you, you may freely install and configure any of the available plug-ins.  Most plug-ins are designed to create a more efficient and effective competition environment.  There are plug-ins available for feature-rich code editing, automatic example checking, external editor integration, auto code generation, and more.  For a list of available plug-ins and instructions on how to install and use them, check <A href="/?t=arena&c=plugins">here</A>.
+      The TopCoder Arena supports a "plug-in" architecture that allows additional functionality to be built in.  While the functionality provided by these plug-ins is not initially available to you, you may freely install and configure any of the available plug-ins.  Most plug-ins are designed to create a more efficient and effective competition environment.  There are plug-ins available for feature-rich code editing, automatic example checking, external editor integration, auto code generation, and more.  For a list of available plug-ins and instructions on how to install and use them, check <A href="/tc?module=Static&amp;d1=applet&amp;d2=plugins">here</A>.
       </p>
 
          <p><br /></p>
