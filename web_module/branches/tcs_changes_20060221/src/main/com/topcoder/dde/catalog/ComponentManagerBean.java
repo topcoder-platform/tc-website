@@ -241,11 +241,15 @@ public class ComponentManagerBean
 
     public void ejbCreate(long componentId, long version)
             throws CreateException {
+            // plk
+            System.out.println("-1.1");
         try {
             lookupInterfaces();
         } catch (NamingException exception) {
             throw new EJBException(exception.toString());
         }
+            // plk
+            System.out.println("-1.2");
         try {
             LocalDDECompCatalog targetComp =
                     catalogHome.findByPrimaryKey(new Long(componentId));
@@ -256,8 +260,12 @@ public class ComponentManagerBean
         } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
+            // plk
+            System.out.println("-1.3");
         this.componentId = componentId;
         this.version = version;
+            // plk
+            System.out.println("-1.4");
         try {
             this.versionId = ((Long) versionsHome.
                     findByComponentIdAndVersion(componentId, version).
@@ -269,6 +277,8 @@ public class ComponentManagerBean
         } catch (FinderException exception) {
             throw new CreateException(exception.toString());
         }
+            // plk
+            System.out.println("-1.5");
     }
 
     public void setRootCategory(long rootCategory) throws RemoteException, CatalogException {
