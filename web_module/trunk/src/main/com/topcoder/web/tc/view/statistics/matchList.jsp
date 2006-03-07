@@ -104,35 +104,33 @@ myForm.submit();
       <td class="header">&#160;</td>
    </tr>
    <tr>
-      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true" excludeParams="sr" />">Participants</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Total</td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Total</td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Total</td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg</td>
-      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Total</td>
-      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg</td>
+      <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true" excludeParams="sr" />">Match</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true" excludeParams="sr" />">Date</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors")%>" includeParams="true" excludeParams="sr" />">Participants</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors1")%>" includeParams="true" excludeParams="sr" />">Participants</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="14" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=list.getColumnIndex("numcompetitors2")%>" includeParams="true" excludeParams="sr" />">Participants</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true" excludeParams="sr" />">Total</a></td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="11" includeParams="true" excludeParams="sr" />">Avg</a></td>
+      <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="13" includeParams="true" excludeParams="sr" />">Total</a>/td>
+      <td class="headerC" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="15" includeParams="true" excludeParams="sr" />">Avg</a></td>
       <td class="headerC">&#160;</td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%=list%>" id="resultRow">
    <tr class="<%=even?"dark":"light"%>">
-<%
-Number n1 = (Number)resultRow.getItem("winner1").getResultData();
-Number n2 = (Number)resultRow.getItem("winner2").getResultData();
-long winner1 = (n1 == null ? -1 : n1.longValue()),
-winner2 = (n2 == null ? -1 : n2.longValue());
-%>
 <td class="value" nowrap="nowrap"><a href="/stat?c=round_overview&er=5&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></td>
 <td class="valueC"><rsc:item name="start_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
 <td class="valueR"><rsc:item name="numcompetitors" row="<%=resultRow%>"/></td>
+<td class="valueR"><rsc:item name="numcompetitor1" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="submitted1" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="avgsubmitted1" row="<%=resultRow%>" format="0.00"/></td>
 <td class="valueR"><rsc:item name="challengessuccessful1" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="avgchallengessuccessful1" row="<%=resultRow%>" format="0.00"/></td>
+<td class="valueR"><rsc:item name="numcompetitors2" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="submitted2" row="<%=resultRow%>"/></td>
 <td class="valueR"><rsc:item name="avgsubmitted2" row="<%=resultRow%>" format="0.00"/></td>
 <td class="valueR"><rsc:item name="challengessuccessful2" row="<%=resultRow%>"/></td>
@@ -142,7 +140,7 @@ winner2 = (n2 == null ? -1 : n2.longValue());
 <% even = !even;%>
 </rsc:iterator>
 </table>
-                
+
                     <div class="pagingBox">
                         <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
                         | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
