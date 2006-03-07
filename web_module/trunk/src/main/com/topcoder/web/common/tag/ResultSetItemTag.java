@@ -1,6 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.web.common.StringUtils;
 import javax.servlet.jsp.JspException;
 
@@ -41,14 +42,22 @@ public class ResultSetItemTag extends FormatTag {
     public int doStartTag() throws JspException {
         if (row == null) {
             if (escapeHTML) {
-                setObject(StringUtils.htmlEncode((String) set.getItem(rowIndex, name).getResultData()));
+                if (set.getItem(rowIndex, name).getType()==TCResultItem.STRING) {
+                    setObject(StringUtils.htmlEncode(set.getStringItem(rowIndex, name)));
+                } else {
+                    setObject(set.getItem(rowIndex, name).getResultData());
+                }
             } else {
                 setObject(set.getItem(rowIndex, name).getResultData());
 
             }
         } else {
             if (escapeHTML) {
-                setObject(StringUtils.htmlEncode((String) row.getItem(name).getResultData()));
+                if (row.getItem(name).getType()== TCResultItem.STRING) {
+                    setObject(StringUtils.htmlEncode(row.getStringItem(name)));
+                } else {
+                    setObject(row.getItem(name).getResultData());
+                }
             } else {
                 setObject(row.getItem(name).getResultData());
             }
@@ -66,6 +75,7 @@ public class ResultSetItemTag extends FormatTag {
         this.set = null;
         this.name = null;
         this.rowIndex = 0;
+        this.escapeHTML=true;
         return super.doEndTag();
 
     }
