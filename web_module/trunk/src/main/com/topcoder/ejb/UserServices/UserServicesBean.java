@@ -156,6 +156,7 @@ public class UserServicesBean implements EntityBean {
             setUser(newUser);
             result = new Long(newUser.getUserId());
         } catch (Exception ex) {
+            ex.printStackTrace();
             throw new CreateException("ejbCreate():failed:\n" + ex);
         }
         return result;
