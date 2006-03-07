@@ -8,6 +8,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.07.06<br>12:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New look, new navigation, new www.topcoder.com</span><br><br>
+      Take a look around.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505935" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.06.06<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Finalists for the TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_bracket">Development</A> Competitions</span><br><br>
       Find out who advanced to the Finals.
@@ -177,19 +188,6 @@ outplaying the second (<tc-webtag:handle coderId="8357090" context="algorithm"/>
       <A href="/longcontest/?module=ViewOverview&rd=9881">results</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505902" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   </tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.16.06<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">TopCoder Software Chat from Feb 15</A></span><br><br>
-      TopCoder Software recently spoke in the arena about full-time employment opportunities.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=contracting&d2=tcs_chat_021506">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505919" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
