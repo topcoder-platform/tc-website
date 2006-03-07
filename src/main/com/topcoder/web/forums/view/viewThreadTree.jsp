@@ -221,7 +221,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (activeMessage.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
          <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
-                int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+                int[] ratings = ForumsUtil.getRatings(ratingManager, activeMessage);
                 posRatings = ratings[0];
                 negRatings = ratings[1];
                 ratingCount = posRatings+negRatings; %>
@@ -232,7 +232,7 @@ function displayVotes(messageID, posVotes, negVotes) {
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
          <%  if (ratingManager.isRatingsEnabled() && user != null && "true".equals(user.getProperty("showRatings"))) {
-                int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+                int[] ratings = ForumsUtil.getRatings(ratingManager, activeMessage);
                 posRatings = ratings[0];
                 negRatings = ratings[1];
                 ratingCount = posRatings+negRatings; %>
