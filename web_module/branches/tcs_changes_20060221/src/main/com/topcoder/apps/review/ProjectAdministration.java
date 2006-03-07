@@ -799,6 +799,7 @@ public class ProjectAdministration implements Model {
 //plk
                 System.out.println("------------ Catalog ID: " + newProject.getCatalogueId());
                 System.out.println("------------ Comp Version ID: " + newProject.getCompVersId());
+                System.out.println("------------ Comp Version: " + newProject.getVersion());
 
             InitialContext context = new InitialContext();
                 System.out.println("-1");
