@@ -171,10 +171,6 @@ public final class MainServlet extends BaseServlet {
                 return;
 //                HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
             }
-            //************************ home ************************
-            else if (requestTask.equals("affidavit")) {
-                HTMLString = TaskAffidavit.process(request, response, htmlMaker, nav, document);
-            }
             //************************ sponsor ************************
             else if (requestTask.equals("sponsor")) {
                 HTMLString = TaskSponsor.process(request, response, htmlMaker, nav, document);
@@ -182,10 +178,6 @@ public final class MainServlet extends BaseServlet {
             //************************ time ************************
             else if (requestTask.equals("time")) {
                 HTMLString = TaskTime.process(request, response, htmlMaker, nav, document);
-            }
-            //************************ pic ************************
-            else if (requestTask.equals("pic")) {
-                HTMLString = TaskPic.process(request, response, htmlMaker, nav, document);
             }
             //************************ schedule ************************
             else if (requestTask.equals("schedule")) {
