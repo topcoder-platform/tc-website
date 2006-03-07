@@ -1319,6 +1319,7 @@
                 <include name="body_top.jsp"/>
                 <include name="page_title.jsp"/>
                 <include name="date_time.jsp"/>
+                <include name="style.jsp"/>
                 <include name="menu.jsp"/>
                 <include name="nocache.jsp"/>
                 <include name="top.jsp"/>
