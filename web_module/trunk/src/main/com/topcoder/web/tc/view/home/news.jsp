@@ -5,6 +5,19 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.08.06<br>4:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">Gurus compete in coding competition</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/postOnline_logo.gif" width="67" height="20" alt="The Post Online" border="0" /></div>
+"A handful of those men whom students call when their computers won't cooperate gathered Monday night to pit their computer programming skills against one another in a coding competition."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505939" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
