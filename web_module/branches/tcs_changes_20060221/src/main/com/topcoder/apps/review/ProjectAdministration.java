@@ -815,22 +815,22 @@ public class ProjectAdministration implements Model {
             Catalog catalog = home.create();
 
             // plk change to constants.
-            int winnerRoleToAdd = newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT : 7 ? 5;
-            int reviewerRoleToAdd = newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT : 8 ? 6;
+            int winnerRoleToAdd = (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) ? 7 : 5;
+            int reviewerRoleToAdd = (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) ? 8 : 6;
 
             // first add reviewers
             for (int i = 0; i < newRoles.length; i++) {
                 if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
                     componentManager.addTeamMemberRole(new TeamMemberRole(
                         new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
-                            catalog.getRole(reviewerRoleToAdd), 1, null);
+                            catalog.getRole(reviewerRoleToAdd), 1, null));
                 }
             }
 
             // add winner
             componentManager.addTeamMemberRole(new TeamMemberRole(
                 new com.topcoder.dde.user.User(newProject.getWinner().getId()),
-                    catalog.getRole(winnerRoleToAdd), 1, null);
+                    catalog.getRole(winnerRoleToAdd), 1, null));
 
 /*
 
