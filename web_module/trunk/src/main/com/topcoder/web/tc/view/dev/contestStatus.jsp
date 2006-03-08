@@ -60,7 +60,7 @@
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
         <td class="header" width="50%">
-            <A href="">Component</A>
+            &#160;
             </td>
         <td class="headerC" nowrap="nowrap">
             Registrants<br>Rated/Unrated
