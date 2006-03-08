@@ -61,7 +61,7 @@ function submitEnter(e) {
          <jsp:include page="right_reg.jsp" />
          </div>
          <br><br>
-                        Registration will close on Monday, March 20 at 8:00 AM IST.<br/><br/>
+                        Registration will close on Monday, March 20 at 9:00 AM IST.<br/><br/>
                         If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">not currently a TopCoder member</A>
                         or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
                         <br><br>
