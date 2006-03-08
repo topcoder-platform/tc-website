@@ -40,7 +40,7 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.1 - 2006.03.07
+        5.0.1 - 2006.03.08
         <ul>
             <li>Fix timezones and times college tour page</li>
             <li>Fix Google India Content</li>
