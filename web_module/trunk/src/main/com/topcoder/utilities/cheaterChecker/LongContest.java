@@ -88,8 +88,6 @@ public class LongContest {
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());*/
 
-
-
                 //log.debug(allPotentialViolators);
                 Histogram h = new Histogram(allPotentialViolators);
                 Set worst = h.getSortedSet();
@@ -135,50 +133,37 @@ public class LongContest {
             conn = DBMS.getDirectConnection();
             StringBuffer query = new StringBuffer(500);
 
-            query.append(" SELECT cc.coder_id ");
-            query.append(" , scf.class_file ");
+            query.append(" SELECT cc.coder_id");
             query.append(" , u.handle ");
-            query.append(" , s.submission_text ");
+            query.append(" , s.submission_text");
             query.append(" , s.language_id ");
             query.append(" , co.open_time ");
-            query.append(" , s.submit_time ");
-            query.append(" , s.submission_points ");
+            query.append(" , s.submit_time");
+            query.append(" , s.submission_points");
             query.append(" , c.component_id");
             query.append(" , c.problem_id");
             query.append(" , c.class_name");
             query.append(" , c.method_name");
             query.append(" , s.submission_number");
-            query.append(" FROM component_state cc ");
-            query.append(" , submission s ");
-            query.append(" , room r ");
-            query.append(" , room_result rr ");
+            query.append("  FROM long_component_state cc");
+            query.append(" , long_submission s ");
+            query.append(" , long_comp_result rr ");
             query.append(" , user u ");
-            query.append(" , submission_class_file scf ");
             query.append(" , component c");
-            query.append(" , compilation co");
-            query.append(" WHERE cc.round_id = ? ");
-            query.append(" AND r.round_id = ? ");
-            query.append(" AND cc.round_id = r.round_id ");
-            query.append(" AND r.room_type_id = 2 ");
-            query.append(" AND cc.component_id = ? ");
-            query.append(" AND s.submission_points >= 0 ");//
-            query.append(" AND s.component_state_id = cc.component_state_id ");
-            query.append(" AND rr.round_id = r.round_id ");
-            query.append(" AND rr.room_id = r.room_id ");
+            query.append(" , long_compilation co");
+            query.append(" WHERE cc.round_id = ?");
+            query.append(" AND rr.round_id = ?");
+            query.append(" AND s.long_component_state_id = cc.long_component_state_id");
             query.append(" AND rr.coder_id = cc.coder_id ");
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-            query.append(" AND scf.submission_number = s.submission_number ");
-            query.append(" AND scf.component_state_id = s.component_state_id ");
-            query.append(" AND scf.component_state_id = cc.component_state_id ");
-            query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
-            query.append(" AND co.component_state_id = s.component_state_id");
+            query.append(" AND co.long_component_state_id = s.long_component_state_id");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
-            ps.setLong(3, componentId);
+            //ps.setLong(3, componentId);
 /*
             ps.setLong(4, roundId);
             ps.setLong(5, componentId);
@@ -247,7 +232,7 @@ public class LongContest {
                 s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(0);
-                s.setSubmitTime(1000*60*60*6);  //6 hours.  that should keep them out of the running
+                s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
                 s.setPoints(rs.getFloat("submission_points"));
                 s.setProblemId(rs.getLong("problem_id"));
                 s.setComponentId(rs.getLong("component_id"));
