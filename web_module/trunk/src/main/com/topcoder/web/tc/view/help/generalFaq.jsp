@@ -127,7 +127,7 @@
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 <TR><TD CLASS="bodyText"><A NAME="67"><B>Who owns the source code that I write during tournaments?</B></A></TD></TR>
-<TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder owns the code.  We simply require that we can display the source code for the normal course of the tournaments.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="/tc?module=Static&amp;d1=about&amp;d2=terms" CLASS="bodyText">here</A>.</TD></TR>
+<TR><TD CLASS="bodyText">The coder. Our Terms of Use agreement specifies that the coder who submits any source code to TopCoder owns the code, but by submitting any source code the coder agrees to license to TopCoder the right to use and publish such code. You can read the complete Terms of Use agreement <A HREF="/tc?module=Static&amp;d1=about&amp;d2=terms" CLASS="bodyText">here</A>.</TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
 <TR><TD CLASS="bodyText"><A NAME="80"><B>How does the rating system work?</B></A></TD></TR>
