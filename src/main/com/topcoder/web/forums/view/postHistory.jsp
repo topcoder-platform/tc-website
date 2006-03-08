@@ -67,7 +67,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-    <jsp:include page="script.jsp" />
+    <jsp:include page="/script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>
         </jsp:include>
@@ -100,14 +100,65 @@
                 <jsp:param name="title" value="Forum Post History"/>
             </jsp:include>
 
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+   <td colspan="3" style="padding-bottom:3px;"><strong>
+   <a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) 
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
+   <%  if (user.getUsername() == historyUser.getUsername()) { %>
+   <b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   <%  } else { %>
+   <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   <%  } %>
+   </td>
+</tr>
+</table>
+<% if (paginator.getNumPages() > 1) { %>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+   <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
+      <%  if (paginator.getPreviousPage()) { %>
+         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+               << PREV</A>&#160;&#160;&#160;
+        <%  } %> [
+        <%  Page[] pages = paginator.getPages(5);
+            for (int i=0; i<pages.length; i++) {
+        %>  <%  if (pages[i] != null) { %>
+                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                       <span class="currentPage"><%= pages[i].getNumber() %></span>
+                 <%  } else { %>
+                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                         <%= pages[i].getNumber() %></A>
+                   <%  } %>
+            <%  } %>
+        <%  } %> ]
+      <%  if (paginator.getNextPage()) { %>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT></A>
+        <%  } %>
+   </b>
+   </td>
+</tr>
+</table>
+<% } %>
+
+
+
+
+
+
+
+
+<%--
 <div class="topLinksL">
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) </span><br><br>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) </span><br><br>
 </div>
 <div class="topLinksR">
 <%  if (user.getUsername() == historyUser.getUsername()) { %>
-<b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+<b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
 <%  } else { %>
-<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
 <%  } %>
 </div>
 
@@ -132,15 +183,15 @@
             <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT></A>
         <%  } %>
    </b></td></tr>
 <% } %>
 </table>
-
+--%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="50%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
+        <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
         <td class="rtHeader" width="25%">Forum</td>
         <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
         <td class="rtHeader" align="right" width="5%">Replies</td>
