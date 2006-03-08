@@ -82,7 +82,7 @@ public class ViewSystemTestResults extends Base {
                 long coderId = Long.parseLong(request.getParameter(Constants.CODER_ID));
                 for (int i=0; i<rsc.size(); i++) {
                     if (coderId==rsc.getLongItem(i, "coder_id")) {
-                        startRow = i;
+                        startRow = i+1;
                         endRow = startRow+rowCount-1;
                         break;
                     }
