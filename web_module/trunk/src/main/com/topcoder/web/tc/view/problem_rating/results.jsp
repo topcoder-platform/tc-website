@@ -19,7 +19,10 @@
 <html>
 <head>
 <title>TopCoder Problem Rating Results - <%=request.getAttribute("problemName")%></title>
-<jsp:include page="../script.jsp"/>
+<jsp:include page="/script.jsp"/>
+<jsp:include page="/style.jsp">
+<jsp:param name="key" value="tc_main"/>
+</jsp:include>
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
                             var flashinstalled = 0;
