@@ -41,10 +41,10 @@
 <span valign="top">
 <jsp:include page="right.jsp"/>
 </span>
-<span class="bigTitle">Google&#153; Code Jam India</span>
+<span class="bigTitle">Google Code Jam India</span>
 
 <br><br>
-Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,550,000 in cash and prizes!
+Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,500,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
@@ -151,29 +151,29 @@ The top 250 scores of Round 1 will receive a "Google&#153; Code Jam India" t-shi
 </tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
 <td class="sidebarText">
-<b>Rs. 110,000</b>
+<b>Rs. 122,000</b>
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">2nd - 5th Place 
 </td><td class="sidebarText">
-Rs. 44,000
+Rs. 56,000
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">6th – 10th</td>
 <td class="sidebarText">
-Rs. 33,000
+Rs. 44,200
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">11th – 20th</td>
 <td class="sidebarText">
-Rs. 22,000
+Rs. 33,200
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">21st – 25th</td>
 <td class="sidebarText">
-Rs. 11,000
+Rs. 22,200
 </td></tr>
 <tr valign="top"><td class="sidebarText" nowrap="nowrap">26th – 50th</td>
 <td class="sidebarText">
-Rs. 6,600
+Rs. 18,000
 </td></tr>
-<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize. <br>All finalists will receive an iPod Nano (estimated Rs. 8,850)</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap="nowrap" colspan="2">* Winner must be present at the onsite round to receive prize.</td></tr>
 </table>
 <br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
