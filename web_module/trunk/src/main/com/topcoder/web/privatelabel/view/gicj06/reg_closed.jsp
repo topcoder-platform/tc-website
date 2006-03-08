@@ -2,7 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
 <title>Google Code Jam India 2006, Powered by TopCoder</title>
 <jsp:include page="../script.jsp" />
 </head>
@@ -21,24 +22,24 @@ function submitEnter(e) {
   }
 </SCRIPT>
 
-<table border=0 width=100% cellpadding=0 cellspacing=0>
-   <tr>
-      <td width="49%">&#160;</td>
-      <td align=center>
-         <table border=0 width=100% cellpadding=0 cellspacing=0>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+    <td width="49%">&#160;</td>
+    <td align="center">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td width="49%"></td>
+                <td width="49%"></td>
                 <td valign="bottom" align="center"><img border="0" src="/i/events/gicj06/logo_CodeJam.gif" alt="Google Code Jam India logo"></td>
-               <td width="49%"></td>
+                <td width="49%"></td>
             </tr>
-         </table>
-      </td>
-      <td width="49%"></td>
-   </tr>
-   <tr>
-      <td width="49%">&#160;</td>
-      <td>
-         <div class=greenBigBox>
+        </table>
+    </td>
+    <td width="49%"></td>
+</tr>
+<tr>
+<td width="49%">&#160;</td>
+<td>
+<div class="greenBigBox">
 
          <!-- Tab bar links-->
          <div align=center>
