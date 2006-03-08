@@ -86,7 +86,7 @@ Here's the line-by-line documentation:
 <br><br>
 Registration for Google&#153; Code Jam India is open from Monday, February 27, 2006 at 9:00AM IST to March 20 at 9:00AM IST. There is no limit to the number of registrants for the competition, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on March 24. 
 <br><br>
-The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,550,000 in cash and prizes at the onsite Championship Round in India.
+The competitors with the top 50 scores from Round 1 will be invited to compete for Rs. 1,500,000 in cash and prizes at the onsite Championship Round in India.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
