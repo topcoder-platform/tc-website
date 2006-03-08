@@ -81,7 +81,8 @@
             <span class="bodySubtitle">Problem: <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewProblemStatement&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=infoRow%>"/>&<%=Constants.PROBLEM_ID%>=<rsc:item name="problem_id" row="<%=infoRow%>"/>" class="bcLink">
                 <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
-            <br>
+            <br />
+            <br />
             <div style="clear: both;" align="left">
                 Scores for submissions prior to the current submission are displayed for historic purposes only, they
                 are not updated.  A score is locked once a competitor makes another submission.  The current submission score
