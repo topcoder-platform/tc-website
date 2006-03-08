@@ -2000,7 +2000,7 @@ public class Registration
 
                 msgText.append("You can download and run the TopCoder Competition Arena Applet from ");
                 msgText.append("here: ");
-                msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
+                msgText.append("http://www.topcoder.com/tc?module=Static&d1=help&d2=pracArena\n\n");
 
                 msgText.append("If you have any questions about how to participate, please email them to ");
                 msgText.append("service@topcoder.com\n\n");
