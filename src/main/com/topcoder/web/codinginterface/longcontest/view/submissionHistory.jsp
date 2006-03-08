@@ -82,6 +82,11 @@
                 <rsc:item name="problem_name" row="<%=infoRow%>"/></a></span><br>
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br>
+            <div style="clear: both;" align="left">
+                Scores for submissions prior to the current submission are displayed for historic purposes only, they
+                are not updated.  A score is locked once a competitor makes another submission.  The current submission score
+                will continue to be updated as long as it remains the most recent submission.
+            </div>
 
             <div style="clear: both;" align="center">
                <div class="pagingBox">
