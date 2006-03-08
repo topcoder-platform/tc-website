@@ -77,11 +77,24 @@ public class ViewSystemTestResults extends Base {
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
+            if ("".equals(startRowStr)&&request.getParameter(Constants.CODER_ID) != null) {
+                //go to the specified coder's row
+                long coderId = Long.parseLong(request.getParameter(Constants.CODER_ID));
+                for (int i=0; i<rsc.size(); i++) {
+                    if (coderId==rsc.getLongItem(i, "coder_id")) {
+                        startRow = i;
+                        endRow = startRow+rowCount-1;
+                        break;
+                    }
+                }
+
+            }
             rsc = new ResultSetContainer(rsc, startRow, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
+
+
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
-//            rscCol.sortByColumn(sortCol, !"desc".equals(sortDir));
             rscCol = new ResultSetContainer(rscCol, startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
@@ -102,12 +115,9 @@ public class ViewSystemTestResults extends Base {
             buf.append("?").append(Constants.MODULE).append("=ViewSystemTestResults");
             buf.append("&").append(Constants.ROUND_ID).append("=").append(request.getParameter(Constants.ROUND_ID));
             buf.append("&").append(Constants.PROBLEM_ID).append("=").append(request.getParameter(Constants.PROBLEM_ID));
-            if (request.getParameter(Constants.CODER_ID) != null)
+            if (request.getParameter(Constants.CODER_ID) != null) {
                 buf.append("&").append(Constants.CODER_ID).append("=").append(request.getParameter(Constants.CODER_ID));
-            if (request.getParameter(Constants.ROW_COUNT) != null)
-                buf.append("&").append(Constants.ROW_COUNT).append("=").append(request.getParameter(Constants.ROW_COUNT));
-            if (request.getParameter(Constants.COL_COUNT) != null)
-                buf.append("&").append(Constants.COL_COUNT).append("=").append(request.getParameter(Constants.COL_COUNT));
+            }
             String linkBase = buf.toString();
 
             if (request.getParameter(DataAccessConstants.SORT_COLUMN) != null)
