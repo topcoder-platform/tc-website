@@ -802,28 +802,35 @@ public class ProjectAdministration implements Model {
                 System.out.println("------------ Comp Version: " + newProject.getVersion());
 
             InitialContext context = new InitialContext();
-                System.out.println("-1");
             ComponentManagerHome componentManagerHome = (ComponentManagerHome) javax.rmi.PortableRemoteObject.narrow(
                 context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
-                System.out.println("-2");
 
 /*            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
                 newProject.getCompVersId());*/
             ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId());
-                System.out.println("-3");
 
             CatalogHome home = (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(CatalogHome.EJB_REF_NAME),
                 CatalogHome.class);
-                System.out.println("-4");
 
             Catalog catalog = home.create();
-                System.out.println("-5");
 
-            TeamMemberRole role = new TeamMemberRole(new com.topcoder.dde.user.User(newProject.getWinner().getId()),
-            catalog.getRole(3), 1, "");
-                System.out.println("-6");
+            // plk change to constants.
+            int winnerRoleToAdd = newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT : 7 ? 5;
+            int reviewerRoleToAdd = newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT : 8 ? 6;
 
-            componentManager.addTeamMemberRole(role);
+            // first add reviewers
+            for (int i = 0; i < newRoles.length; i++) {
+                if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
+                    componentManager.addTeamMemberRole(new TeamMemberRole(
+                        new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
+                            catalog.getRole(reviewerRoleToAdd), 1, null);
+                }
+            }
+
+            // add winner
+            componentManager.addTeamMemberRole(new TeamMemberRole(
+                new com.topcoder.dde.user.User(newProject.getWinner().getId()),
+                    catalog.getRole(winnerRoleToAdd), 1, null);
 
 /*
 
