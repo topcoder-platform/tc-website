@@ -807,8 +807,9 @@ public class ProjectAdministration implements Model {
                 context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
                 System.out.println("-2");
 
-            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
-                newProject.getCompVersId());
+/*            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
+                newProject.getCompVersId());*/
+            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId());
                 System.out.println("-3");
 
             CatalogHome home = (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(CatalogHome.EJB_REF_NAME),

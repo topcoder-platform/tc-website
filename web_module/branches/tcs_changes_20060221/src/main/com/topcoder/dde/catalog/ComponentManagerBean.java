@@ -289,6 +289,42 @@ public class ComponentManagerBean
             System.out.println("-1.5");
     }
 
+/*
+    public void ejbCreate(long versionId)
+            throws CreateException {
+            // plk
+            System.out.println("-2.1");
+        try {
+            lookupInterfaces();
+        } catch (NamingException exception) {
+            throw new EJBException(exception.toString());
+        }
+            // plk
+//            System.out.println("-2.3");
+//        this.componentId = componentId;
+//        this.version = version;
+            // plk
+            System.out.println("-2.4");
+        try {
+            LocalDDECompVersions ll = versionsHome.findByPrimaryKey(versionId);
+            System.out.println("ll.getVersion()" + ll.getVersion());
+            System.out.println("ll.getVersion()" + ll.getCompCatalog().getPrimaryKey());
+
+//            this.versionId = ((Long) versionsHome.
+//                    findByPrimaryKey(versionId).
+//                    getPrimaryKey()).longValue();
+
+        } catch (ObjectNotFoundException exception) {
+            throw new CreateException(
+                    "Specified version does not exist in the catalog: "
+                    + exception.toString());
+        } catch (FinderException exception) {
+            throw new CreateException(exception.toString());
+        }
+            // plk
+            System.out.println("-2.5");
+    }*/
+
     public void setRootCategory(long rootCategory) throws RemoteException, CatalogException {
 
         PermissionCollection perms = null;
