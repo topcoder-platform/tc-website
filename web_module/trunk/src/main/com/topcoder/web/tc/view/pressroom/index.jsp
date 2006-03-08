@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- The Post Online --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank"><img src="/i/pressroom/postOnline_logo.gif" alt="The Post Online" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">Gurus compete in coding competition</A> </strong></font><br />
+                         "A handful of those men whom students call when their computers won't cooperate gathered Monday night to pit their computer programming skills against one another in a coding competition." <span class="prHead"> [March 8]</span></p>
+                        </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- UBS --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
