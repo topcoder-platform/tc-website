@@ -48,15 +48,18 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="7">Contest Status</td>
+        <td class="title" colspan="9">Contest Status</td>
     </tr>
     <tr>
         <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
         </td>
-        <td class="header" width="100%">
+        <td class="header" width="100%" colspan="2">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("component_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Contest</a>
         </td>
+        <td class="headerC">
+            <A href="">Registrants</a>
+            </td>
         <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission Due Date</a>
             </td>
@@ -96,8 +99,13 @@
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
-                </a><br>
-               <A href="">component details</A>
+                </a>
+            </td>
+            <td class="valueC">
+               <span class="smallText"><A href="">component<br>details</A></span>
+            </td>
+            <td class="valueC">
+               <A href="">20 / 20</A>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
@@ -105,7 +113,7 @@
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="final_review_end_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
-            <td class="valueC" nowrap="nowrap">
+            <td class="valueC">
                 <rsc:item name="current_phase" row="<%=resultRow%>"/>
             </td>
             <td class="value">
