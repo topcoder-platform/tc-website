@@ -89,7 +89,7 @@ public class ViewSystemTestResults extends Base {
             HashMap hash = new HashMap();
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-                hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), "" + row.getItem("score"));
+                hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
             }
 
             request.setAttribute("resultMap", result);
