@@ -8,6 +8,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.08.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">TCO06 "Pick Me" Contest</A></span><br><br>
+      Why do YOU deserve a trip to the finals in Las Vegas?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505932" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.07.06<br>6:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -175,22 +188,6 @@ In division 1 easy and medium problems have a pretty high success rate, but only
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505902" message="discuss this" />&#160;|&#160;
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.20.06<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=022006">GCC Hacks: Abusing C++ Extensions for Fun and Profit</A></span><br><br>
-       GCC provides a number of extensions to the C++ language and standard library....Several of these extensions can be put to use in a TopCoder round.</td>
-      <td class="newsPhoto"><img src="/i/m/bmerry_mug.gif" /><br>by <tc-webtag:handle coderId="251074" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=022006">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505922" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 
