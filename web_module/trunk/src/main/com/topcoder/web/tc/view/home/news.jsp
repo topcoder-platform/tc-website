@@ -15,7 +15,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505932" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="505936" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
