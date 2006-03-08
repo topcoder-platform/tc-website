@@ -12,12 +12,6 @@
 <%-- COMP PROJECTS
 <A href="/tc?module=ViewActiveContests"><IMG SRC="/i/home/promos/comp_projects.gif" border="0" ALT="Component Projects"/></A><br>
 --%>
-<%-- MSN
-<A href="/tc?module=Static&d1=contracting&d2=msn"><IMG SRC="/i/home/msn_emp_opps.gif" border="0" ALT="MSN is hiring"/></A>
---%>
-<%-- SAP
-<A href="/?RoundId=8070&t=schedule&c=srm"><IMG SRC="/i/home/sap_srm273_banner.gif" border="0" ALT="SAP"/></A>
---%>
 <%-- TCO06
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
