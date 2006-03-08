@@ -44,7 +44,7 @@
 <span class="bigTitle">Google Code Jam India</span>
 
 <br><br>
-Get ready! Google&#153; is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,500,000 in cash and prizes!
+Get ready! Google is on its way to India again and they are looking for the best. Don't miss out on Google Code Jam India. This exciting contest gives you the chance to show off your coding talent for Rs. 1,500,000 in cash and prizes!
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
