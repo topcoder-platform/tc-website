@@ -77,7 +77,7 @@ public class ViewSystemTestResults extends Base {
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
-            if ("".equals(startRowStr)&&request.getParameter(Constants.CODER_ID) != null) {
+            if ("".equals(startRowStr)&&"".equals(sortColStr)&&request.getParameter(Constants.CODER_ID) != null) {
                 //go to the specified coder's row
                 long coderId = Long.parseLong(request.getParameter(Constants.CODER_ID));
                 for (int i=0; i<rsc.size(); i++) {
