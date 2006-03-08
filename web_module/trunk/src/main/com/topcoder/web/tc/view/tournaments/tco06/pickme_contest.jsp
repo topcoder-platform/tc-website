@@ -72,8 +72,6 @@ The winner must:
 <li>Provide to TopCoder evidence of having the required travel documents by 5:00PM ET on April 17, 2006, and</li>
 <li>Complete the Travel Form (which provides TopCoder with the appropriate travel information for your trip to the onsite finals) and submit it to TopCoder by 5:00PM EDT on Wednesday, April 19, 2006.</li>
 </ul>
-<br>
-
 All decisions relating to the viability of submissions and to all other matters pertaining to the contest shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
 By submitting an entry to be considered, and thereby participating in this contest, you hereby release and agree to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this contest, or participation in any contest-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given. 
