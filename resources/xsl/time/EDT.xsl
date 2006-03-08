@@ -3,27 +3,18 @@
 <xsl:import href="../script.xsl"/>
 <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 <xsl:template match="/">
-<HTML>
+<HTML style="background:#000000; padding:0px; margin:0px;">
 <HEAD>
 <TITLE>TopCoder Time</TITLE>
 <xsl:call-template name="CSS"/>
 <META HTTP-EQUIV="REFRESH" CONTENT="15"/>
 </HEAD>
-<BODY BGCOLOR="#000000" MARGINWIDTH="0" MARGINHEIGHT="0" LEFTMARGIN="0" TOPMARGIN="0" style="color:#FFFFFF;">
-<CENTER>
-<TABLE BORDER="0" HEIGHT="85%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF">
-<TR>
-<TD BGCOLOR="#000000" HEIGHT="50%" VALIGN="middle" COLSPAN="3" ALIGN="center">
+<BODY style="background:#000000; padding:0px; margin:0px;">
+<div style="color:#FFFFFF; background:#000000; padding:5px;" align="center">
 Current time at the TopCoder corporate office:
-</TD>
-</TR>                       
-<TR>
-<TD BGCOLOR="#000000" HEIGHT="35%" VALIGN="top" COLSPAN="3" ALIGN="center">
-<font size="3"><b><xsl:value-of select="/TC/time"/></b></font>
-</TD>
-</TR>                       
-</TABLE>
-</CENTER>
+<br /><br />
+<b><xsl:value-of select="/TC/time"/></b>
+</div>
 </BODY>
 </HTML>
 </xsl:template>
