@@ -39,9 +39,16 @@
         <jsp:param name="image1" value="white"/>
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
-<%--
-            <li>put logic behind the contest details links on the component page in the catalog</li>
---%>
+    <p>
+        5.0.1 - 2006.03.07
+        <ul>
+            <li>Fix timezones and times college tour page</li>
+            <li>Fix Google India Content</li>
+            <li>Add registrants and component details fields to contest status page</li>
+            <li>Fix registrants query on active contests page to be at the time of registration rather than change over time</li>
+        </ul>
+    </p>
+
     <p>
         5.0.0 - 2006.03.06
         <ul>
@@ -70,7 +77,9 @@
             <li>Adjust system to only use ph for the phase parameter, never pi</li>
             <li>link to the challenged code/arguments from the challenge list on coder room stats</li>
             <li>when you submit and time out in long comps, return to the submission page with the submitted code, not the most recent successful submission</li>
-            
+<%--
+            <li>put logic behind the contest details links on the component page in the catalog</li>
+--%>
         </ul>
     </p>
     <p>
