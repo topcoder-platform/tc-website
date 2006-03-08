@@ -250,6 +250,8 @@
                     <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
                 </tr>
             </table>
+
+         <br><br><br>
         </td>
 <!-- Center Column Ends -->
 
