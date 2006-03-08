@@ -160,13 +160,6 @@ margin:0px auto;
 <%-- WSJ
 --%>
             <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/home/wsj_020806_sm.gif" alt="The Wall Street Journal" border="0" /></A>
-<%-- SRM SPONSORSHIP
-            <map name="srm_sponsor">
-            <area shape="rect" alt="" coords="1,1, 269,90" href="/?RoundId=8077&t=schedule&c=srm" />
-            <area shape="rect" alt="" coords="1,91, 269,139" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=verisign" />
-            </map>
-            <img src="/i/home/verisign_srm280.gif" alt="VeriSign" border="0" usemap="#srm_sponsor"/>
---%>
 <%-- Intel MTCS
             <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
 --%>
