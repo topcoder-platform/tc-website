@@ -32,7 +32,7 @@
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="des_compete" />
+            <jsp:param name="node" value="<%=SoftwareComponent.DESIGN_PHASE==registrants.getIntItem(0, "phase_id")?"dev_compete":"des_compete"%>" />
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
