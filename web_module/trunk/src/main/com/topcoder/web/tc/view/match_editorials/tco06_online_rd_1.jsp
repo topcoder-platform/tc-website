@@ -61,6 +61,7 @@ The Problems
 <b><a href="/stat?c=problem_statement&amp;pm=6095&amp;rd=9917" name="6095">SeparateConnections</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6095)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505931" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -132,6 +133,7 @@ enough algorithm to pass systests.
 <b><a href="/stat?c=problem_statement&amp;pm=6054&amp;rd=9917" name="6054">FirstToLast</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6054)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505931" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -199,6 +201,7 @@ that works, or -1 if none do.
 <b><a href="/stat?c=problem_statement&amp;pm=6052&amp;rd=9917" name="6052">NumPermutationOrders</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6052)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505931" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 <br> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 

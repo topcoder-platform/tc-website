@@ -80,9 +80,7 @@ name="5931">FowlRoad</a></b>
 <A href="Javascript:openProblemRating(5931)"><img src="/i/rate_it.gif"
 hspace="10" border="0" alt="rate it" /></A>
 
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it"
-border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br>
 
