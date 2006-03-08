@@ -23,9 +23,9 @@
  <tr valign="top">
 <!-- Left Column Begins-->
   <td width="180">
-	<jsp:include page="/includes/global_left.jsp">
-		<jsp:param name="node" value="algo_match_editorials"/>
-	</jsp:include>
+   <jsp:include page="/includes/global_left.jsp">
+      <jsp:param name="node" value="algo_match_editorials"/>
+   </jsp:include>
   </td>
 <!-- Left Column Ends -->
 
@@ -123,7 +123,7 @@ implementation of such function:
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6072 rd=9812" name="6072">Snowflakes</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6072&rd=9812" name="6072">Snowflakes</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6072)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505857" CLASS="statText"><img
@@ -336,7 +336,7 @@ to the head of the deque, and the vertices adjusted with "1"-weight edge
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=5954 rd=9812" name="5954">StickedWords</a></b> 
+<b><a href="/stat?c=problem_statement&pm=5954&rd=9812" name="5954">StickedWords</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(5954)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505857" CLASS="statText"><img
