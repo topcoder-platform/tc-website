@@ -93,7 +93,7 @@ So fix those bugs NOW!
 </li>
 <li>
 <p><span class="bodySubtitle">Spelling counts</span><br/>
-A spelling error cost at least two coders the "easy" Div 1 problem, in a recent <A href="http://www.topcoder.com/index?t=statistics&amp;c=srm176_prob">SRM</A>.  They spelled SQUIGGLE wrong, and it cost them points.
+A spelling error cost at least two coders the "easy" Div 1 problem, in a recent <A href="/tc?module=Static&d1=match_editorials&d2=srm176">SRM</A>.  They spelled SQUIGGLE wrong, and it cost them points.
 <br/><br/>
 When you're writing code, sometimes the only person reading it is you.  The occasional typo doesn't affect the operation of the program.  But, when developing a website, or end-user software, spelling counts!  If you spell your client's name wrong, they'll not take it lightly.  Even if an error message has poor grammar or incorrect spelling, that will reflect on your ability. 
 </p>
