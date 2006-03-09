@@ -20,6 +20,7 @@ import com.topcoder.web.common.*;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.HashSet;
 
 /**
  * @author Porgery
@@ -74,14 +75,18 @@ public class ViewSystemTestResults extends Base {
             if (!"".equals(StringUtils.checkNull(request.getParameter(Constants.TEST_CASE_ID))))
                 r.setProperty(Constants.TEST_CASE_ID, request.getParameter(Constants.TEST_CASE_ID));
 
+            log.debug("get cases and coders");
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
+            log.debug("got cases and coders");
 
             Request rScores = new Request();
             rScores.setContentHandle("long_contest_system_test_scores");
             rScores.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
             rScores.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
 
+            log.debug("get scores");
             Map scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(rScores);
+            log.debug("got scores");
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
@@ -101,12 +106,11 @@ public class ViewSystemTestResults extends Base {
             result.put("long_contest_test_results_coders", rsc);
 
 
-
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
             rscCol = (ResultSetContainer)rscCol.subList(startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
-/*            HashSet coders = new HashSet(rsc.size());
+            HashSet coders = new HashSet(rsc.size());
             for (int i=0; i<rsc.size(); i++) {
                 coders.add(new Long(rsc.getLongItem(i, "coder_id")));
             }
@@ -114,21 +118,30 @@ public class ViewSystemTestResults extends Base {
             HashSet tests = new HashSet(rscCol.size());
             for (int i=0; i<rsc.size(); i++) {
                 tests.add(new Long(rscCol.getLongItem(i, "test_case_id")));
-            }*/
+            }
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
+            log.debug("start load map");
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-/*
-                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
-*/
-                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
-/*
-                }
-*/
-            }
 
+                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
+
+                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
+
+                }
+
+            }
+            log.debug("end load map");
+            /*HashMap testCases = null;
+            testCases = (HashMap)hash.get(row.getItem("coder_id").getResultData()));
+
+            if (testCases==null){
+                testCases = new HashMap();
+
+            }
+*/
             request.setAttribute("resultMap", result);
             request.setAttribute("scoreHash", hash);
 
