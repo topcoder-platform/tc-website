@@ -25,12 +25,14 @@
 <span class="bigTitle">Online Rounds</span>
 <br><br>
 
-<table width="400" class="formFrame" cellspacing="2" cellpadding="6" align="left">
+<table width="400" class="sidebarBox" cellspacing="2" cellpadding="6" align="left">
 <tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr>
-<tr><td class="sidebarText">&#160;08.20.05</td><td class="sidebarText" nowrap="0">&#160;TCO05 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">Problem Set & Analysis</a></td></tr>
-<tr><td class="sidebarText">&#160;08.24.05</td><td class="sidebarText" nowrap="0">&#160;TCO05 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">Problem Set & Analysis</a></td></tr>
-<tr><td class="sidebarText">&#160;08.31.05</td><td class="sidebarText" nowrap="0">&#160;TCO05 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_3">Problem Set & Analysis</a></td></tr>
-<tr><td class="sidebarText">&#160;09.07.05</td><td class="sidebarText" nowrap="0">&#160;TCO05 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_4">Problem Set & Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;03.04.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">Problem Set & Analysis</a></td></tr>
+<%--
+<tr><td class="sidebarText">&#160;03.08.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">Problem Set & Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;03.15.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_3">Problem Set & Analysis</a></td></tr>
+<tr><td class="sidebarText">&#160;03.22.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 4 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_4">Problem Set & Analysis</a></td></tr>
+--%>
 </table>
 
         </div>
