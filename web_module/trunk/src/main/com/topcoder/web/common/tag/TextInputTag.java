@@ -22,7 +22,7 @@ public class TextInputTag extends BaseTag {
     private boolean editable = true;
     private String format = null;
     private String timeZone = null;
-    private boolean escapeHTML = true;
+    private boolean escapeHtml = true;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -88,9 +88,9 @@ public class TextInputTag extends BaseTag {
                 //debug
                 String s = (String)object;
                 if (s.substring(0,10).equals("budkabudka")) log.info("Before: #" + object  + "#");
-                if (escapeHTML) {
+                if (escapeHtml) {
                     object = StringUtils.htmlEncode((String)object);
-                    if (s.substring(0,5).equals("budkabudka")) log.info("After: #" + object  + "#");
+                    if (s.substring(0,10).equals("budkabudka")) log.info("After: #" + object  + "#");
                 }
             }
         }
@@ -171,12 +171,12 @@ public class TextInputTag extends BaseTag {
         this.timeZone = timeZone;
     }
     
-    public void setEscapeHTML(boolean escapeHTML) {
-        this.escapeHTML = escapeHTML;
+    public void setEscapeHtml(boolean escapeHtml) {
+        this.escapeHtml = escapeHtml;
     }
     
-    public void setEscapeHTML(String escapeHTML) {
-        this.escapeHTML = escapeHTML.equalsIgnoreCase("true");
+    public void setEscapeHtml(String escapeHtml) {
+        this.escapeHtml = escapeHtml.equalsIgnoreCase("true");
     }
 
     protected void init() {
@@ -188,7 +188,7 @@ public class TextInputTag extends BaseTag {
         this.onKeyPress = null;
         this.editable = true;
         this.format =null;
-        this.escapeHTML = false;
+        this.escapeHtml = true;
     }
 
 
