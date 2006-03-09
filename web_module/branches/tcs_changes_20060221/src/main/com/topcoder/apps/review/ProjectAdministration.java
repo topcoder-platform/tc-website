@@ -25,6 +25,8 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.TeamMemberRole;
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.CatalogHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
 
 /**
  * This Model provides business logic through which users administers projects (only for admins).
@@ -772,7 +774,7 @@ public class ProjectAdministration implements Model {
                 }
             }
 
-            // plk - agregar los perfiles acá.
+            // plk - agregar los perfiles aca.
             if (newProject.getProjectStatus().getId() != oldProject.getProjectStatus().getId() &&
             newProject.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED) {
 
@@ -802,12 +804,22 @@ public class ProjectAdministration implements Model {
                 System.out.println("------------ Comp Version: " + newProject.getVersion());
 
             InitialContext context = new InitialContext();
+
+
+            // PAW ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            LocalDDECompVersionsHome versionsHome = (LocalDDECompVersionsHome) javax.rmi.PortableRemoteObject.narrow(
+                context.lookup(LocalDDECompVersionsHome.EJB_REF_NAME), LocalDDECompVersionsHome.class);
+
+            LocalDDECompVersions localDDECompVersions = versionsHome.findByPrimaryKey(new Long(newProject.getCompVersId()));
+
+            System.out.println("------------ Version num: " + localDDECompVersions.getVersion());
+
+
             ComponentManagerHome componentManagerHome = (ComponentManagerHome) javax.rmi.PortableRemoteObject.narrow(
                 context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
 
-/*            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
-                newProject.getCompVersId());*/
-            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId());
+            ComponentManager componentManager = componentManagerHome.create(newProject.getCatalogueId(),
+                newProject.getCompVersId());
 
             CatalogHome home = (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(CatalogHome.EJB_REF_NAME),
                 CatalogHome.class);
