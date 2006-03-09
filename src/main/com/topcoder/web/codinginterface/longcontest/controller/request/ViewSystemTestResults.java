@@ -8,8 +8,8 @@
 
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
@@ -20,7 +20,6 @@ import com.topcoder.web.common.*;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.HashSet;
 
 /**
  * @author Porgery
@@ -107,18 +106,27 @@ public class ViewSystemTestResults extends Base {
             rscCol = (ResultSetContainer)rscCol.subList(startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
-            HashSet coders = new HashSet(rsc.size());
-            for (int i=0; i<rsc.size()-1; i++,coders.add(new Long(rsc.getLongItem(i, "coder_id"))));
+/*            HashSet coders = new HashSet(rsc.size());
+            for (int i=0; i<rsc.size(); i++) {
+                coders.add(new Long(rsc.getLongItem(i, "coder_id")));
+            }
+
             HashSet tests = new HashSet(rscCol.size());
-            for (int i=0; i<rsc.size()-1; i++,tests.add(new Long(rscCol.getLongItem(i, "test_case_id"))));
+            for (int i=0; i<rsc.size(); i++) {
+                tests.add(new Long(rscCol.getLongItem(i, "test_case_id")));
+            }*/
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
+/*
                 if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
+*/
                     hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
+/*
                 }
+*/
             }
 
             request.setAttribute("resultMap", result);
