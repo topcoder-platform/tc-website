@@ -5,6 +5,7 @@ import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.web.common.DateUtils;
+import com.topcoder.web.common.StringUtils;
 
 import java.util.Date;
 import java.util.Calendar;
@@ -21,6 +22,7 @@ public class TextInputTag extends BaseTag {
     private boolean editable = true;
     private String format = null;
     private String timeZone = null;
+    private boolean escapeHTML = true;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -82,6 +84,9 @@ public class TextInputTag extends BaseTag {
                 object = cal;
                 formatter.setFormatMethodForClass(Calendar.class,
                         new CalendarDateFormatMethod(format), true);
+            } else if (object instanceof String) {
+                if (escapeHTML)
+                    object = StringUtils.htmlEncode((String)object);
             }
         }
         formatter.setFormatMethodForClass(new Object().getClass(),
@@ -160,6 +165,10 @@ public class TextInputTag extends BaseTag {
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
     }
+    
+    public void setEscapeHTML(boolean escapeHTML) {
+        this.escapeHTML = escapeHTML;
+    }
 
     protected void init() {
         this.value = null;
@@ -170,6 +179,7 @@ public class TextInputTag extends BaseTag {
         this.onKeyPress = null;
         this.editable = true;
         this.format =null;
+        this.escapeHTML = false;
     }
 
 
