@@ -43,6 +43,8 @@ The competition will have several phases:
 <div align="center">
 <div align="left" style="width: 200px; padding:10px; background:#EEEEEE; border: 1px solid #999999;">
 <strong>
+Phases:
+<hr>
 Contest Posting<br>
 Team Creation<br>
 Review Board Creation<br>
