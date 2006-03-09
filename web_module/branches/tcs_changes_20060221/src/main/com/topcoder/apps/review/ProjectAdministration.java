@@ -810,10 +810,10 @@ public class ProjectAdministration implements Model {
             LocalDDECompVersionsHome versionsHome = (LocalDDECompVersionsHome)
                     context.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
 
+            System.out.println("111");
+
 /*            LocalDDECompVersionsHome versionsHome = (LocalDDECompVersionsHome) javax.rmi.PortableRemoteObject.narrow(
                 context.lookup(LocalDDECompVersionsHome.EJB_REF_NAME), LocalDDECompVersionsHome.class);*/
-
-            System.out.println("111");
 
             LocalDDECompVersions localDDECompVersions = versionsHome.findByPrimaryKey(new Long(newProject.getCompVersId()));
 
