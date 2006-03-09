@@ -85,8 +85,13 @@ public class TextInputTag extends BaseTag {
                 formatter.setFormatMethodForClass(Calendar.class,
                         new CalendarDateFormatMethod(format), true);
             } else if (object instanceof String) {
-                if (escapeHTML)
+                //debug
+                String s = (String)object;
+                if (s.substring(0,10).equals("budkabudka")) log.info("Before: #" + object  + "#");
+                if (escapeHTML) {
                     object = StringUtils.htmlEncode((String)object);
+                    if (s.substring(0,5).equals("budkabudka")) log.info("After: #" + object  + "#");
+                }
             }
         }
         formatter.setFormatMethodForClass(new Object().getClass(),
@@ -168,6 +173,10 @@ public class TextInputTag extends BaseTag {
     
     public void setEscapeHTML(boolean escapeHTML) {
         this.escapeHTML = escapeHTML;
+    }
+    
+    public void setEscapeHTML(String escapeHTML) {
+        this.escapeHTML = escapeHTML.equalsIgnoreCase("true");
     }
 
     protected void init() {
