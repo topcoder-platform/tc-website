@@ -27,6 +27,7 @@
 
 <table width="400" class="sidebarBox" cellspacing="2" cellpadding="6" align="left">
 <tr><td class="sidebarTitle" colspan="2">Problem Set Analyses</td></tr>
+<tr><td class="sidebarText">&#160;02.28.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Qualification Round - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_qual">Problem Set & Analysis</a></td></tr>
 <tr><td class="sidebarText">&#160;03.04.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 1 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">Problem Set & Analysis</a></td></tr>
 <%--
 <tr><td class="sidebarText">&#160;03.08.06</td><td class="sidebarText" nowrap="0">&#160;TCO06 - Online Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">Problem Set & Analysis</a></td></tr>
