@@ -189,18 +189,12 @@ public class LongContest {
                 s.setIncluded(true);
             }
 
+/*
             StringBuffer solQuery = new StringBuffer(1000);
-            //include our writer/tester solutions.  to make this better, it should strip out checkData
             solQuery.append(" select s.coder_id ");
-            solQuery.append(" , scf.class_file ");
             solQuery.append(" , u.handle ");
             solQuery.append(" , s.solution_text ");
             solQuery.append(" , s.language_id ");
-/*
-            solQuery.append(" , 0 ");
-            solQuery.append(" , 0 ");
-            solQuery.append(" , 0 ");
-*/
             solQuery.append(" , rc.component_id ");
             solQuery.append(" , c.problem_id ");
             solQuery.append(" , c.class_name ");
@@ -229,7 +223,7 @@ public class LongContest {
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));
-                s.setSource(cs.stripComments(DBMS.getTextString(rs, 4)));
+                s.setSource(cs.stripComments(DBMS.getTextString(rs, 3)));
                 s.setLanguageId(rs.getInt("language_id"));
                 s.setOpenTime(0);
                 s.setSubmitTime(1000 * 60 * 60 * 6);  //6 hours.  that should keep them out of the running
@@ -240,6 +234,7 @@ public class LongContest {
                 s.setMethodName(rs.getString("method_name"));
                 s.setIncluded(true);
             }
+*/
 
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
