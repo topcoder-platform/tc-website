@@ -194,7 +194,6 @@
 				</tr>
 
 	<%
-	    // plk
         // Get only visible categories.
 	    Category[] categories = catalog.getBaseCategories(false);
         HashMap map = new HashMap();

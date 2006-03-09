@@ -107,7 +107,6 @@
     // If action is null, show advanced search form
     // If action is not null, try to do the search
     if (action != null) {
-        // plk
         if (target.equals("advanced")) {
             componentSearchResults = catalog.searchComponents(keywords, statuses, catalogs, technologies, categories, true);
         } else if (target.equals("all_catalogs")) {

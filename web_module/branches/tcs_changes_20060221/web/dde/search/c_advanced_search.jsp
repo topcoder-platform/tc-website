@@ -129,7 +129,6 @@
                             </tr>
 
 <%
-    // plk
     // Get only visible categories.
     Category[] baseCategories = catalog.getBaseCategories(true);
     for (int i = 0; i < baseCategories.length; i++) {

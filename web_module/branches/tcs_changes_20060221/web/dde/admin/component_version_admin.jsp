@@ -1995,11 +1995,9 @@ if (action != null) {
                     <td width="30%" class="adminTitle">Rating</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
                 </tr>
-<!-- plk begin -->
                 <tr valign="top">
                     <td class="adminTitle" colspan="4">Description</td>
                 </tr>
-<!-- plk end -->
 
 <%
     TeamMemberRole teamMemberRoles[] = (TeamMemberRole[])componentManager.getTeamMemberRoles().toArray(new TeamMemberRole[0]);
@@ -2010,11 +2008,9 @@ if (action != null) {
                     <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
                     <td class="forumText"><%= teamMemberRoles[i].getTCSRating() %></td>
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
-<!-- plk begin -->
                 </tr>
                 <tr valign="top">
                     <td class="forumText" colspan="4"><%= teamMemberRoles[i].getDescription() %></td>
-<!-- plk end -->
                 </tr>
 <% } %>
 
@@ -2028,11 +2024,9 @@ if (action != null) {
                         </select></td>
                     <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="4" name="txtTeamMemberRating" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
-<!-- plk begin -->
                 </tr>
                 <tr valign="top">
                     <td class="forumText" colspan="3"><input class="adminSearchForm" type="text" size="145" maxlength="254" name="txtTeamMemberDescription" value=""></td>
-<!-- plk end -->
                 </tr>
             </table>
 

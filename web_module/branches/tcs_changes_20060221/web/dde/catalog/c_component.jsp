@@ -56,7 +56,6 @@
     try {
         details = catalog.getComponentDetail(lngComponent, lngVersion);
     } catch (Exception e) {
-        // plk
         // redirect to an error page
         response.sendRedirect("/attention/error_componentnotfound.jsp");
         return;
@@ -65,7 +64,6 @@
     long rootCategory = details.getSummary().getRootCategory();
     if (rootCategory != Catalog.NET_CATALOG && rootCategory != Catalog.JAVA_CATALOG
         && rootCategory != Catalog.FLASH_CATALOG) {
-        // plk
         // redirect to an error page
         response.sendRedirect("/attention/error_componentnotfound.jsp");
         return;

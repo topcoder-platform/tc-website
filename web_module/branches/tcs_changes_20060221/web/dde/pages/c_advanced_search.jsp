@@ -116,7 +116,6 @@
             			<td valign="middle" width="10"><img src="/images/clear.gif" width="10" height="3" alt="" border="0"></td>
             		</tr>
 <%
-    // plk
     // Get only visible categories.
     Category[] baseCategories = catalog.getBaseCategories(true);
     for (int i = 0; i < baseCategories.length; i++) {
