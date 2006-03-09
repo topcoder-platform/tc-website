@@ -20,7 +20,6 @@ import com.topcoder.web.common.*;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.HashSet;
 
 /**
  * @author Porgery
@@ -110,6 +109,7 @@ public class ViewSystemTestResults extends Base {
             rscCol = (ResultSetContainer)rscCol.subList(startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
+/*
             HashSet coders = new HashSet(rsc.size());
             for (int i=0; i<rsc.size(); i++) {
                 coders.add(new Long(rsc.getLongItem(i, "coder_id")));
@@ -119,29 +119,33 @@ public class ViewSystemTestResults extends Base {
             for (int i=0; i<rscCol.size(); i++) {
                 tests.add(new Long(rscCol.getLongItem(i, "test_case_id")));
             }
+*/
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
             log.debug("start load map");
+
+            HashMap testCases = null;
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-
-                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
-
-                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
-
+                testCases = (HashMap)hash.get(row.getItem("coder_id").getResultData());
+                if (testCases==null){
+                    testCases = new HashMap();
                 }
-
+                testCases.put(row.getItem("test_case_id").getResultData(), row.getItem("score").getResultData());
+                hash.put(row.getItem("coder_id").getResultData(), testCases);
             }
-            log.debug("end load map");
-            /*HashMap testCases = null;
-            testCases = (HashMap)hash.get(row.getItem("coder_id").getResultData()));
-
-            if (testCases==null){
-                testCases = new HashMap();
-
+/*
+            for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
+                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
+                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
+                }
             }
 */
+
+            log.debug("end load map");
+
             request.setAttribute("resultMap", result);
             request.setAttribute("scoreHash", hash);
 
