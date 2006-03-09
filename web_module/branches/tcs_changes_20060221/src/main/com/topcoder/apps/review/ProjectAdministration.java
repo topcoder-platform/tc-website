@@ -808,7 +808,7 @@ public class ProjectAdministration implements Model {
 
             // PAW ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             LocalDDECompVersionsHome versionsHome = (LocalDDECompVersionsHome)
-                    context.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
+                    context.lookup("java:/LocalDDECompVersionsHome");
 
             System.out.println("111");
 
