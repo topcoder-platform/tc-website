@@ -77,6 +77,13 @@ public class ViewSystemTestResults extends Base {
 
             Map result = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
 
+            Request rScores = new Request();
+            rScores.setContentHandle("long_contest_system_test_scores");
+            rScores.setProperty(Constants.ROUND_ID, request.getParameter(Constants.ROUND_ID));
+            rScores.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
+
+            Map scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(rScores);
+
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
             if ("".equals(startRowStr)&&"".equals(sortColStr)&&request.getParameter(Constants.CODER_ID) != null) {
@@ -105,7 +112,7 @@ public class ViewSystemTestResults extends Base {
             HashSet tests = new HashSet(rscCol.size());
             for (int i=0; i<rsc.size()-1; i++,tests.add(new Long(rsc.getLongItem(i, "test_case_id"))));
 
-            ResultSetContainer rscScores = (ResultSetContainer) result.get("long_contest_system_test_results");
+            ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
