@@ -57,7 +57,7 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
 TopCoder staff will facilitate the team assignments and will communicate with you via email and in the forums.
 <br><br>
 <span class="bodySubtitle">Submitting code</span><br>
-Once your team has working code you are ready to submit, you can do so by emailing your source code in RTF format to <A href="mailto:AssemblyCompetitions@topcoder.com">AssemblySubmissions@topcoder.com</A> by the submission deadline.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The code that was last submitted before the deadline will be used as your final submission.
+Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblyCompetitions@topcoder.com">AssemblySubmissions@topcoder.com</A> by the submission deadline.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The code that was last submitted before the deadline will be used as your final submission.
 <br><br>
 <span class="bodySubtitle">View competition standings</span><br>
 To see the other teams that are competing, you can check the Active Contests page and click on Standings.  This will display a list of team names and what the status of their project is: Not Submitted, Submitted, Passed Screening, Failed Screening, Passed Review, or Failed Review.  
