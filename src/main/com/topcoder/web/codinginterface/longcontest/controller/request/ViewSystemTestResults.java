@@ -116,7 +116,7 @@ public class ViewSystemTestResults extends Base {
             }
 
             HashSet tests = new HashSet(rscCol.size());
-            for (int i=0; i<rsc.size(); i++) {
+            for (int i=0; i<rscCol.size(); i++) {
                 tests.add(new Long(rscCol.getLongItem(i, "test_case_id")));
             }
 
