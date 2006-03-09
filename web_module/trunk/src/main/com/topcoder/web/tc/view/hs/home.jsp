@@ -68,8 +68,8 @@ As we firm up the structure of the tournament, we will post changes to the TopCo
 
         <!-- Right Column Begins -->
         <td width="170">
-            <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+            <jsp:include page="/public_right.jsp">
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
         <!-- Right Column Ends -->

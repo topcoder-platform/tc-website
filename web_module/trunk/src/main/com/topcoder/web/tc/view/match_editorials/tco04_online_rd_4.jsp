@@ -323,7 +323,7 @@ at it in the other direction, we want to find the <i>maximum</i>
 number of cards we can leave in place to achieve the ordering.  This
 turns out to be the famous Longest Increasing Subsequence problem,
 previously seen in a similar form in the <i>Books</i> problem from <a
-href="http://www.topcoder.com/index?t=statistics&amp;c=srm175_prob">SRM
+href="/tc?module=Static&d1=match_editorials&d2=srm175_prob">SRM
 175</a>.  (In our case, it would more accurately be called the
 Longest Non-Decreasing Subsequence problem, but I'll stick to the
 traditional terminology.)  For example, if we want to achieve the

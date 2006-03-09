@@ -492,7 +492,7 @@
    <tr><td class="bodyText">07.24.02</td><td class="bodyText" nowrap="0">SRM 105 - <a href="/tc?module=Static&d1=match_editorials&d2=srm105">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">07.16.02</td><td class="bodyText" nowrap="0">SRM 104 - <a href="/tc?module=Static&d1=match_editorials&d2=srm104">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">07.10.02</td><td class="bodyText" nowrap="0">SRM 103 - <a href="/tc?module=Static&d1=match_editorials&d2=srm103_rookie">Rookie Review</a> | <a href="/tc?module=Static&d1=match_editorials&d2=srm103">Problem Set</a></td></tr>
-   <tr><td class="bodyText">07.01.02</td><td class="bodyText" nowrap="0">SRM 102 - <a href="/tc?module=Static&d1=match_editorials&d2=srm102_room1">Room 1</a> | <a href="/tc?module=Static&d1=match_editorials&d2=srm102_rookie">Rookie Review</a> | <a href="/tc?module=Static&d1=match_editorials&d2=srm102">Problem Set</a><!-- | <A HREF="/index?t=statistics&c=srm102_lessons">LessonsLearned</A> --></td></tr>
+   <tr><td class="bodyText">07.01.02</td><td class="bodyText" nowrap="0">SRM 102 - <a href="/tc?module=Static&d1=match_editorials&d2=srm102_room1">Room 1</a> | <a href="/tc?module=Static&d1=match_editorials&d2=srm102_rookie">Rookie Review</a> | <a href="/tc?module=Static&d1=match_editorials&d2=srm102">Problem Set</a></td></tr>
 
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>

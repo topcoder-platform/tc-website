@@ -108,9 +108,7 @@ people that don't have this privilege."
 
 <P>
 <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>, 
-a recent Coder of the Week 
-(<A HREF="/index?t=statistics&amp;c=coder_of_week042202" CLASS="bodyGeneric">View the Coder of the Week feature on Yarin</A>) 
-from Sweden, summed up the thoughts of the frustrated foreign contingent by admitting, 
+a recent Coder of the Week from Sweden, summed up the thoughts of the frustrated foreign contingent by admitting, 
 "I've been doing problem solving programming for fun for years without receiving any prize 
 money as a reward.  Of course, doing the same thing as a lot of others, and performing 
 better than most, while they receive money and you don't, well that can frustrate anybody."
