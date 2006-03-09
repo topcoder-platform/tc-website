@@ -96,7 +96,6 @@
             <strong>Match 277</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=contracting&d2=msn">MSN</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/tc?module=MatchDetails&rd=8074">Details</A><br/><br/></td>
     </tr>
