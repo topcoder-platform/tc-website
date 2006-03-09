@@ -147,12 +147,7 @@ public class Util {
      * @return
      */
     protected static int magic(int n) {
-        if (n == 0)
-            return 0;
-        else if (n < 3)
-            return 1;
-        else
-            return (n - 1) + magic(n - 1);
+        return (n*(n-1))/2;
     }
 
     static {
