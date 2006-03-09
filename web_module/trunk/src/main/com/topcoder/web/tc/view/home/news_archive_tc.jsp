@@ -38,6 +38,8 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.09.06 3:00 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9892">Intel Multi-Threading Competition 2 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.07.06 12:30 AM&#160;-&#160</td><td width="100%">New look, new navigation, new www.topcoder.com</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.02.06 9:00 PM&#160;-&#160</td><td width="100%">Ratings added to Forums</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.17.06 5:00 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.27.06 3:30 PM&#160;-&#160</td><td width="100%"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></td></tr>
