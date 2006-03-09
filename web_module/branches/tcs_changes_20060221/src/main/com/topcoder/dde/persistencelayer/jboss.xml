@@ -1,4 +1,9 @@
 <jboss>
     <enterprise-beans>
+        <session>
+            <ejb-name>DDECompVersionsEJB</ejb-name>
+            <jndi-name>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome</jndi-name>
+            <local-jndi-name>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome</local-jndi-name>
+        </session>
     </enterprise-beans>
 </jboss>
