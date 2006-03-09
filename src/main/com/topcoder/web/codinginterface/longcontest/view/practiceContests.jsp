@@ -80,7 +80,7 @@
                             <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                                 <tr>
                                     <td class="<%=even?"statLt":"statDk"%>"><b>
-                                        <tc-webtag:beanWrite name="contest" property="contestName"/></b></td>
+                                        <tc-webtag:beanWrite name="contest" property="contestName"/> &gt; <tc-webtag:beanWrite name="contest" property="roundName"/></b></td>
 <%--
                                     <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 35px;">
                                         <A href="registrants page" class="statLink">
