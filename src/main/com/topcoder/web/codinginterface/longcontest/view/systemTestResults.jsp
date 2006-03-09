@@ -7,6 +7,7 @@
 
         %>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page import="java.util.HashMap"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -163,7 +164,7 @@ text-align: left;
                                             <rsc:item name="point_total" row="<%=coderRow%>" format="0.00"/></a></td>
                                     <rsc:iterator list="<%=cases%>" id="caseRow">
                                         <td class="<%=style%>">
-                                            <tc-webtag:format object="<%=scoreHash.get(coderRow.getItem("coder_id") + "_" + caseRow.getItem("test_case_id"))%>" ifNull="--" format="0.0000"/></td>
+                                            <tc-webtag:format object="<%=((HashMap)scoreHash.get(coderRow.getItem("coder_id").getResultData())).get(caseRow.getItem("test_case_id").getResultData())%>" ifNull="--" format="0.0000"/></td>
                                     </rsc:iterator>
                                 </tr>
                             </rsc:iterator>
