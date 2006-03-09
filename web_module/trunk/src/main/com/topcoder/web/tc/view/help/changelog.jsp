@@ -46,6 +46,8 @@
             <li>Fix Google India Content</li>
             <li>Add registrants and component details fields to contest status page</li>
             <li>Fix registrants query on active contests page to be at the time of registration rather than change over time</li>
+            <li>When viewing marathon match results for a particular coder, move the the correct row when the page loads.</li>
+            <li>Format Marathon Match results to have 0000 digits to the right of the decimal</li>
         </ul>
     </p>
 
