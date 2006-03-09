@@ -275,7 +275,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CatalogSearchView(results);
     }
 
-    //plk
     /**
      * <p>Searches catalog with the given parameters.</p>
      *
@@ -292,8 +291,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
      *
      * @version 1.0.1
      */
-    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology, String[] category, boolean onlyPublic)
-            throws RemoteException, CatalogException, NamingException, SQLException {
+    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology,
+         String[] category, boolean onlyPublic)throws RemoteException, CatalogException, NamingException, SQLException {
 
         if (searchtext == null) {
             throw new CatalogException("Null specified for search text");
@@ -494,7 +493,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 //        }
 //    }
 
-    //plk
     /**
      * <p>Gets all category names including or not base and visible categories.</p>
      *
@@ -514,7 +512,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append(" WHERE ( NOT ( status_id = ? ) )              ");
         if (!includeBaseCategories) query.append(" AND ( NOT ( parent_category_id IS NULL ) ) ");
 
-        // plk
         if (onlyPublic) {
             query.append("   AND category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
@@ -566,7 +563,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return (String[]) results.toArray(new String[0]);
     }
 
-    //plk
     /**
      * <p>Gets all base categories including or not visible ones.</p>
      *
@@ -582,7 +578,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT category_id, category_name, description FROM categories ");
         query.append(" WHERE status_id <> ? ");
-// plk
+
         if (onlyPublic) {
             query.append("   AND category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
@@ -893,7 +889,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories, parent);
     }
 
-    //plk
     /**
      * <p>Gets all components.</p>
      *
@@ -922,7 +917,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("  FROM comp_versions v, comp_catalog comp     ");
         query.append(" WHERE v.version = comp.current_version       ");
         query.append("   AND v.component_id = comp.component_id     ");
-        // plk
+
         if (onlyPublic) {
             query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
@@ -1776,7 +1771,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
                     new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            //plk
             userroleHome.create(0, "", user, newVersion, roleBean);
         } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();

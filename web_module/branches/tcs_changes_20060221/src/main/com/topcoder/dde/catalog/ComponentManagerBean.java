@@ -1,12 +1,6 @@
 /*
- * ComponentManagerBean.java
- * 26 August 2002
- * 1.0
- *
- * Copyright (c) 2002, TopCoder, Inc.
- * All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 
 package com.topcoder.dde.catalog;
 
@@ -55,8 +49,15 @@ import java.util.*;
 /**
  * The implementation of the methods of ComponentManagerEJB.
  *
- * @version 1.0, 26 August 2002
- * @author  Albert Mao
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class was updated to deal with the new DDEUserRole Description attribute.
+ * </li>
+ * </ol>
+ *
+ * @version 1.0.1
+ * @author Albert Mao, pulky
  * @see     ComponentManager
  * @see     ComponentManagerHome
  */
@@ -270,42 +271,6 @@ public class ComponentManagerBean
             throw new CreateException(exception.toString());
         }
     }
-
-/*
-    public void ejbCreate(long versionId)
-            throws CreateException {
-            // plk
-            System.out.println("-2.1");
-        try {
-            lookupInterfaces();
-        } catch (NamingException exception) {
-            throw new EJBException(exception.toString());
-        }
-            // plk
-//            System.out.println("-2.3");
-//        this.componentId = componentId;
-//        this.version = version;
-            // plk
-            System.out.println("-2.4");
-        try {
-            LocalDDECompVersions ll = versionsHome.findByPrimaryKey(versionId);
-            System.out.println("ll.getVersion()" + ll.getVersion());
-            System.out.println("ll.getVersion()" + ll.getCompCatalog().getPrimaryKey());
-
-//            this.versionId = ((Long) versionsHome.
-//                    findByPrimaryKey(versionId).
-//                    getPrimaryKey()).longValue();
-
-        } catch (ObjectNotFoundException exception) {
-            throw new CreateException(
-                    "Specified version does not exist in the catalog: "
-                    + exception.toString());
-        } catch (FinderException exception) {
-            throw new CreateException(exception.toString());
-        }
-            // plk
-            System.out.println("-2.5");
-    }*/
 
     public void setRootCategory(long rootCategory) throws RemoteException, CatalogException {
 

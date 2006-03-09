@@ -63,7 +63,6 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CatalogSearchView search(String searchtext, java.util.Map options)
             throws RemoteException, CatalogException;
 
-    //plk
     /**
      * <p>Searches catalog with the given parameters.</p>
      *
@@ -78,10 +77,9 @@ public interface Catalog extends javax.ejb.EJBObject {
      * @throws CatalogException for invalid parameters.
      * @throws SQLException if a sql-level failure causes the method to fail.
      */
-    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category, boolean onlyPublic)
-            throws RemoteException, CatalogException, NamingException, SQLException;
+    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology,
+        String[] category, boolean onlyPublic) throws RemoteException, CatalogException, NamingException, SQLException;
 
-    //plk
     /**
      * <p>Gets all category names including or not base and visible categories.</p>
      *
@@ -91,9 +89,9 @@ public interface Catalog extends javax.ejb.EJBObject {
      * @throws RemoteException if a system-level failure causes the remote method call to fail.
      * @throws SQLException if a sql-level failure causes the method to fail.
      */
-    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic) throws RemoteException, NamingException, SQLException;
+    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic)
+        throws RemoteException, NamingException, SQLException;
 
-    //plk
     /**
      * <p>Gets all base categories including or not visible ones.</p>
      *
@@ -138,7 +136,6 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException, SQLException, NamingException;
 
-    //plk
     /**
      * <p>Gets all components.</p>
      *

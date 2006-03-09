@@ -26,7 +26,7 @@ public class CategorySummary implements Serializable {
     private String description;
     private ComponentSummary[] components;
     private CategorySummary[] subcategories;
-    //plk
+
     /**
      * The parent category.
      *
