@@ -110,7 +110,7 @@ public class ViewSystemTestResults extends Base {
             HashSet coders = new HashSet(rsc.size());
             for (int i=0; i<rsc.size()-1; i++,coders.add(new Long(rsc.getLongItem(i, "coder_id"))));
             HashSet tests = new HashSet(rscCol.size());
-            for (int i=0; i<rsc.size()-1; i++,tests.add(new Long(rsc.getLongItem(i, "test_case_id"))));
+            for (int i=0; i<rsc.size()-1; i++,tests.add(new Long(rscCol.getLongItem(i, "test_case_id"))));
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
