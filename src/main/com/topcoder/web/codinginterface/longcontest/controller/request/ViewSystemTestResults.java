@@ -20,6 +20,7 @@ import com.topcoder.web.common.*;
 import java.util.HashMap;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.HashSet;
 
 /**
  * @author Porgery
@@ -28,6 +29,7 @@ public class ViewSystemTestResults extends Base {
     protected static final Logger log = Logger.getLogger(ViewSystemTestResults.class);
 
     protected void longContestProcessing() throws TCWebException {
+        log.debug("start results processing");
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -89,20 +91,27 @@ public class ViewSystemTestResults extends Base {
                 }
 
             }
-            rsc = new ResultSetContainer(rsc, startRow, endRow);
+            rsc = (ResultSetContainer)rsc.subList(startRow, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
 
 
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
-            rscCol = new ResultSetContainer(rscCol, startCol, endCol);
+            rscCol = (ResultSetContainer)rscCol.subList(startCol, endCol);
             result.put("long_contest_test_results_cases", rscCol);
+
+            HashSet coders = new HashSet(rsc.size());
+            for (int i=0; i<rsc.size(); i++,coders.add(new Long(rsc.getLongItem(i, "coder_id"))));
+            HashSet tests = new HashSet(rscCol.size());
+            for (int i=0; i<rsc.size(); i++,tests.add(new Long(rsc.getLongItem(i, "test_case_id"))));
 
             ResultSetContainer rscScores = (ResultSetContainer) result.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-                hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
+                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
+                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
+                }
             }
 
             request.setAttribute("resultMap", result);
@@ -175,6 +184,7 @@ public class ViewSystemTestResults extends Base {
 
             setNextPage(Constants.PAGE_VIEW_SYSTEM_TEST_RESULTS);
             setIsNextPageInContext(true);
+            log.debug("done results processing");
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
