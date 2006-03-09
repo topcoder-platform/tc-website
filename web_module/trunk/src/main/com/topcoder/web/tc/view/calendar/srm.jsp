@@ -119,7 +119,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
 
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
-                                            
+
                                              <center>
                                              <span class="bodySubtitle"><rsc:item name="contest_name" row="<%=rsr%>"/></span>
                                              <br><br>
@@ -142,7 +142,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                                 </tr>
                                             </table>
                                             <br/><br/>
-                                            For Official Contest Rules on how to win a 60GB Apple iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>                            
+                                            For Official Contest Rules on how to win a 60GB Apple iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>
                                             <% } else if (round_id == 4710) { %>
                                             <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                                             <% } else if (round_id == 5856) { %>
@@ -293,39 +293,10 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         </UL>
                                         <BR/><BR/>
 
-                                        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules><B>Click here for complete rules &amp; regulations</B></A>
+                                        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules"><B>Click here for complete rules &amp; regulations</B></A>
                                     </TD></TR>
 
-                                    <% } else if (round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822) { %>
-                                    <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                                        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by MSN***</b></font><br/><br/>
-                                        <B>Single Round Match Description</B>
-                                        <UL>
-                                            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
-                                            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all rooms in each division.</li>
-                                            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.</li>
-                                            <li>Approximately 20 competitors will be assigned to each room.</li>
-                                            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the room award, respectively.</li>
-                                            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award, respectively.</li>
-                                            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
-                                            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
-                                            <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-                                        </UL>
-                                        <B>Eligibility:</B>
-                                        <UL>
-                                            <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
-                                            <li>Employees of Microsoft and/or persons living in the same household as such employees are ineligible to win prizes in this competition and are ineligible to donate any prize to charity.  If any such employee finishes in a prize-winning position in the competition, the next-best competitor will either receive the prize or be able to donate the applicable prize to a charity.</li>
-                                        </UL>
-                                        <BR/><BR/>
-
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<%=round_id%>"><B>Click here for complete rules &amp; regulations</B></A>
-                                    </TD></TR>
-
-                                    <% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080) { %>
+                                    <% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822) { %>
                                     <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                                         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
                                         <B>Single Round Match Description</B>
