@@ -99,7 +99,7 @@ selections will be returned. Click on a Handle to view information about the Cod
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)" escapeHtml="true"/>
                                     </td>
                                 </tr>
 
