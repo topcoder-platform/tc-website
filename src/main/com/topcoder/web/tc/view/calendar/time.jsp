@@ -1,4 +1,5 @@
 <%@ page import="java.util.Calendar"%>
+<%@ page import="java.util.Date"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -6,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <META HTTP-EQUIV="REFRESH" CONTENT="15"/>
     <title>TopCoder Time</title>
-    <% Calendar now = Calendar.getInstance();%>
+    <% Calendar now = Calendar.getInstance();
+    now.setTime(new Date());%>
 </head>
 
 <BODY style="background:#000000; padding:0px; margin:0px;">
