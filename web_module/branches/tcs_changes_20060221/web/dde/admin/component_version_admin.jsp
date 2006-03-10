@@ -2019,10 +2019,10 @@ if (action != null) {
                             <option value="<%= roles[i].getId() %>"><%= roles[i].getName() %></option>
 <% } %>
                         </select></td>
-                    <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
                 <tr valign="top">
-                    <td class="forumText" colspan="3"><input class="adminSearchForm" type="text" size="150" maxlength="254" name="txtTeamMemberDescription" value=""></td>
+                    <td class="forumText" colspan="2"><input class="adminSearchForm" type="text" size="150" maxlength="254" name="txtTeamMemberDescription" value=""></td>
+                    <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
             </table>
 
