@@ -33,8 +33,10 @@
 <td width="100%" align="center" class="bodyColumn">
 
 <div class="fixedWidthBody">
-
-<span class="bigTitle">Assembly Competitions - Overview</span>
+<div align="center" style="margin-bottom: 10px;">
+<img src="/i/assembly/banner.gif" alt="TopCoder Assembly Competitions" />
+</div>
+<span class="bigTitle">Overview</span>
 <br><br>
 TopCoder has created Assembly Competitions as an extension of our Component Design and Development Competitions.  Through these competitions, teams will create high quality applications using completed components and TopCoder's established competitive method.
 <br><br>
