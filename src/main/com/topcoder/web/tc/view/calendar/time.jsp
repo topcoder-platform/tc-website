@@ -7,8 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <META HTTP-EQUIV="REFRESH" CONTENT="15"/>
     <title>TopCoder Time</title>
-    <% Calendar now = Calendar.getInstance();
-    now.setTime(new Date());%>
 </head>
 
 <BODY style="background:#000000; padding:0px; margin:0px;">
@@ -16,7 +14,7 @@
 Current time at the TopCoder corporate office:
 <br /><br />
 <b>
-    <tc-webtag:format object="<%=now%>" format="MM.dd.yyyy HH:mm z"/>
+    <tc-webtag:format object="<%=new Date()%>" format="MM.dd.yyyy HH:mm z"/>
 </b>
 </div>
 </BODY>
