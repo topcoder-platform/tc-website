@@ -44,7 +44,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
                 Map m = getDataAccess(db).getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) m.get("user_info_using_email");
                 if (rsc.isEmpty()) {
-                    throw new NavigationException("Sorry, this email address does not exist " + email);
+                    throw new NavigationException("Sorry, this email address does not exist " + email + " in our system.");
                 } else {
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject(getEmailSubject());
