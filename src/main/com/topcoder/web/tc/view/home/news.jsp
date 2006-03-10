@@ -8,7 +8,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="TopCoder Movies" border="0" /><br>03.10.06<br>12:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="TopCoder Movies" border="0" /><br>03.10.06<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_031006">Interview with TopCoder Member Pat Conley</A></span><br><br>
@@ -18,7 +18,8 @@ Pat shares his impressions of TopCoder, talks about his background and what's go
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=art_031006">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=art_031006">details</A>&#160;|&#160;
+         <A href="/audio/Pat_Conley_03_10_06.mp3">listen</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505941" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
@@ -224,6 +225,10 @@ Other complications aside, the problem set for this round generated very few que
       <td><A href="/tc?module=Static&d1=tutorials&d2=alg_index">Educational Content</A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
+   </tr>
+   <tr class="bodyText">
+      <td colspan="4" align="center"><A href="/tc?module=Static&d1=home&d2=news_archive_podcast"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /></A> &#160;&#160;&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">Podcasts</A></td>
    </tr>
 </table>
 
