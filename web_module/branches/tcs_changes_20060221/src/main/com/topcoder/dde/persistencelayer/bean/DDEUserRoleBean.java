@@ -18,6 +18,9 @@ import javax.ejb.CreateException;
  * <li>
  * Description attribute was added.
  * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
  * </ol>
  *
  * @version 1.0.1
@@ -44,20 +47,6 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
      * @param userMaster    userMaster.
      */
     public abstract void setUserMaster(LocalDDEUserMaster userMaster);
-
-    /**
-     * Gets the TCS rating.
-     *
-     * @return TCS rating.
-     */
-    public abstract int getTcsRating();
-
-    /**
-     * Sets the TCS rating.
-     *
-     * @param tcsRating     TCS rating.
-     */
-    public abstract void setTcsRating(int tcsRating);
 
     /**
      * Gets the role addition description.
@@ -92,7 +81,6 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
      * @param description           role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
@@ -100,11 +88,10 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(int tcsRating, String description, LocalDDEUserMaster userMaster,
+    public Long ejbCreate(String description, LocalDDEUserMaster userMaster,
         LocalDDECompVersions compVersions, LocalDDERoles roles)
             throws CreateException {
         setPrimaryKey();
-        setTcsRating(tcsRating);
         setDescription(description);
         return null;
     }
@@ -112,13 +99,12 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
      * @param description           role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
      * @param roles                 roles.
      */
-    public void ejbPostCreate(int tcsRating, String description, LocalDDEUserMaster userMaster,
+    public void ejbPostCreate(String description, LocalDDEUserMaster userMaster,
         LocalDDECompVersions compVersions, LocalDDERoles roles) {
         setUserMaster(userMaster);
         setCompVersions(compVersions);

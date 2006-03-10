@@ -17,6 +17,9 @@ import java.util.Collection;
  * <li>
  * Description attribute was added.
  * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
  * </ol>
  *
  * @version 1.0.1
@@ -41,7 +44,6 @@ public interface LocalDDEUserRoleHome extends EJBLocalHome {
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
      * @param description           Role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
@@ -49,7 +51,7 @@ public interface LocalDDEUserRoleHome extends EJBLocalHome {
      * @return the local interface of the created entity object.
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    LocalDDEUserRole create(int tcsRating, String description, LocalDDEUserMaster userMaster,
+    LocalDDEUserRole create(String description, LocalDDEUserMaster userMaster,
         LocalDDECompVersions compVersions, LocalDDERoles roles)
             throws CreateException;
 

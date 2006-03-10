@@ -14,19 +14,15 @@ import javax.ejb.EJBLocalObject;
  * <li>
  * Description attribute was added.
  * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
  * </ol>
  *
  * @version 1.0.1
  * @author Timur Zambalayev, pulky
  */
 public interface LocalDDEUserRole extends EJBLocalObject {
-
-    /**
-     * Gets the TCS rating.
-     *
-     * @return TCS rating.
-     */
-    int getTcsRating();
 
     /**
      * Gets the role addition description.

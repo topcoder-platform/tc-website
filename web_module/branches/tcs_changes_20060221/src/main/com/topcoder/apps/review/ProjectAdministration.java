@@ -37,6 +37,12 @@ import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
  * When project is terminated and marked as completed, reviewers and winner are automatically inserted into the
  * user_role table.
  * </li>
+ * <li>
+ * Class was updated to deal with the new user_role description attribute.
+ * </li>
+ * <li>
+ * Class was updated to deal with the elimination of tcsrating attribute.
+ * </li>
  * </ol>
  *
  * @version 1.0.1
@@ -813,14 +819,14 @@ public class ProjectAdministration implements Model {
                     if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
                         componentManager.addTeamMemberRole(new TeamMemberRole(
                             new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
-                                catalog.getRole(reviewerRoleToAdd), 1, null));
+                                catalog.getRole(reviewerRoleToAdd), null));
                     }
                 }
 
                 // add winner
                 componentManager.addTeamMemberRole(new TeamMemberRole(
                     new com.topcoder.dde.user.User(newProject.getWinner().getId()),
-                        catalog.getRole(winnerRoleToAdd), 1, null));
+                        catalog.getRole(winnerRoleToAdd), null));
             }
 
             // save project

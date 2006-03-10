@@ -1990,13 +1990,12 @@ if (action != null) {
 %>
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
-                    <td width="30%" class="adminTitle">Username</td>
-                    <td width="30%" class="adminTitle">Role</td>
-                    <td width="30%" class="adminTitle">Rating</td>
+                    <td width="50%" class="adminTitle">Username</td>
+                    <td width="40%" class="adminTitle">Role</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
                 </tr>
                 <tr valign="top">
-                    <td class="adminTitle" colspan="4">Description</td>
+                    <td class="adminTitle" colspan="3">Description</td>
                 </tr>
 
 <%
@@ -2006,11 +2005,10 @@ if (action != null) {
                 <tr valign="top">
                     <td class="forumText"><%= teamMemberRoles[i].getUsername() %></td>
                     <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
-                    <td class="forumText"><%= teamMemberRoles[i].getTCSRating() %></td>
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
                 </tr>
                 <tr valign="top">
-                    <td class="forumText" colspan="4"><%= teamMemberRoles[i].getDescription() %></td>
+                    <td class="forumText" colspan="3"><%= teamMemberRoles[i].getDescription() %></td>
                 </tr>
 <% } %>
 

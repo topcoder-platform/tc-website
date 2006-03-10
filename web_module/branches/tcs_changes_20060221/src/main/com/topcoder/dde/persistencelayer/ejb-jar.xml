@@ -1248,9 +1248,6 @@
                 <field-name>id</field-name>
             </cmp-field>
             <cmp-field>
-                <field-name>tcsRating</field-name>
-            </cmp-field>
-            <cmp-field>
                 <field-name>description</field-name>
             </cmp-field>
             <primkey-field>id</primkey-field>

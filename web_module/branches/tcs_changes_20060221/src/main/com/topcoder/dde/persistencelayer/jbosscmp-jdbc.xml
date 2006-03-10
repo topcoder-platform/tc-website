@@ -685,10 +685,6 @@
                 <column-name>user_role_id</column-name>
             </cmp-field>
             <cmp-field>
-                <field-name>tcsRating</field-name>
-                <column-name>tcs_rating</column-name>
-            </cmp-field>
-            <cmp-field>
                 <field-name>description</field-name>
                 <column-name>description</column-name>
             </cmp-field>

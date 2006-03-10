@@ -64,6 +64,12 @@ import java.util.Date;
  * getComponent() was fixed to use constant COMPONENT and not COMPONENTS_BY_STATUS. (DDEComponent didn't showed
  * component description)
  * </li>
+ * <li>
+ * Class was updated to deal with the new user_role description attribute.
+ * </li>
+ * <li>
+ * Class was updated to deal with the elimination of tcsrating attribute.
+ * </li>
  * </ol>
  *
  * @author Albert Mao, pulky
@@ -1238,8 +1244,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
             query = new StringBuffer(500);
             query.append("SELECT ur.user_role_id, ur.login_id, s.user_id,                ");
-            query.append("       r.role_id, r.role_name, r.description, ur.tcs_rating,   ");
-            query.append("       ur.description                                          ");
+            query.append("       r.role_id, r.role_name, r.description, ur.description   ");
             query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v, ");
             query.append("       security_user s                                         ");
             query.append(" WHERE r.role_id = ur.role_id                                  ");
@@ -1262,7 +1267,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 while (rs.next())
                     list.add(new TeamMemberRole(rs.getLong(1),
                             rs.getLong(2), rs.getString(3), rs.getLong(4),
-                            rs.getString(5), rs.getString(6), rs.getInt(7), rs.getString(8)));
+                            rs.getString(5), rs.getString(6), rs.getString(7)));
 
                 members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
 
@@ -1771,7 +1776,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
                     new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create(0, "", user, newVersion, roleBean);
+            userroleHome.create("", user, newVersion, roleBean);
         } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(

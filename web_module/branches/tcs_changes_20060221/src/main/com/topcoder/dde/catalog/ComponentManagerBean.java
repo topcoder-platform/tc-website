@@ -52,7 +52,10 @@ import java.util.*;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * Class was updated to deal with the new DDEUserRole Description attribute.
+ * Class was updated to deal with the new user_role description attribute.
+ * </li>
+ * <li>
+ * Class was updated to deal with the elimination of tcsrating attribute.
  * </li>
  * </ol>
  *
@@ -658,7 +661,7 @@ public class ComponentManagerBean
                     new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
                     new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create(0, "", user, newVer, roleBean);
+            userroleHome.create("", user, newVer, roleBean);
         } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
@@ -1276,10 +1279,9 @@ public class ComponentManagerBean
             }
             memberRoles.add(new TeamMemberRole(
                     ((Long) role.getPrimaryKey()).longValue(),
-                    userId, username,
-                    ((Long) role.getRoles().getPrimaryKey()).longValue(),
+                    userId, username, ((Long) role.getRoles().getPrimaryKey()).longValue(),
                     role.getRoles().getName(), role.getRoles().getDescription(),
-                    role.getTcsRating(), role.getDescription()));
+                    role.getDescription()));
         }
         Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());
         return memberRoles;
@@ -1666,12 +1668,12 @@ public class ComponentManagerBean
 
         try {
             LocalDDEUserRole userRole = userroleHome.create(
-                    role.getTCSRating(), role.getDescription(), user, versionBean, roleBean);
+                    role.getDescription(), user, versionBean, roleBean);
             return new TeamMemberRole(
                     ((Long) userRole.getPrimaryKey()).longValue(),
                     role.getUserId(), username, role.getRoleId(),
                     roleBean.getName(), roleBean.getDescription(),
-                    userRole.getTcsRating(), userRole.getDescription());
+                    userRole.getDescription());
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());

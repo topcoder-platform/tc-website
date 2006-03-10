@@ -25,6 +25,9 @@ import com.topcoder.dde.user.User;
  * <li>
  * Description attribute was added.
  * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
  * </ol>
  *
  * @version 1.0.1
@@ -32,13 +35,6 @@ import com.topcoder.dde.user.User;
  * @see     ComponentManager
  */
 public class TeamMemberRole implements java.io.Serializable {
-
-
-    /** The maximum possible rating */
-    public static final int MAX_RATING = 99999;
-
-    /** The minimum possible rating */
-    public static final int MIN_RATING = 0;
 
     /** The ROLE_REQUESTOR role id */
     public static final int ROLE_REQUESTOR = 1;
@@ -70,7 +66,6 @@ public class TeamMemberRole implements java.io.Serializable {
     private long roleId;
     private String roleName;
     private String roleDescription;
-    private int tcsRating;
 
 
     /**
@@ -87,23 +82,19 @@ public class TeamMemberRole implements java.io.Serializable {
      * @param userId the Id of the user
      * @param username the user's name
      * @param roleId the Id of the role.
-     * @param tcsRating the rating given to the user for this role
      * @param description the role addition description
      * @throws IllegalArgumentException if <code>user</code> or
      * <code>role</code> is <code>null</code>, if the specified role was
-     * constructed by the client (instead of returned by the catalog), or if
-     * <code>tcsRating</code> is not between <code>MIN_RATING</code> and
-     * <code>MAX_RATING</code>, inclusive
+     * constructed by the client (instead of returned by the catalog)
      */
     TeamMemberRole(long id, long userId, String username, long roleId,
-                   String roleName, String roleDescription, int tcsRating, String description) {
+                   String roleName, String roleDescription, String description) {
         this.id = id;
         this.userId = userId;
         this.username = username;
         this.roleId = roleId;
         this.roleName = roleName;
         this.roleDescription = roleDescription;
-        this.tcsRating = tcsRating;
         this.description = description;
     }
 
@@ -113,15 +104,12 @@ public class TeamMemberRole implements java.io.Serializable {
      * @param user a <code>User</code> object representing the user that plays
      * the development role
      * @param role a <code>Role</code> object representing the role
-     * @param tcsRating the rating given to the user for this role
      * @param description the role addition description
      * @throws IllegalArgumentException if <code>user</code> or
      * <code>role</code> is <code>null</code>, if the specified role was
-     * constructed by the client (instead of returned by the catalog), or if
-     * <code>tcsRating</code> is not between <code>MIN_RATING</code> and
-     * <code>MAX_RATING</code>, inclusive
+     * constructed by the client (instead of returned by the catalog)
      */
-    public TeamMemberRole(User user, Role role, int tcsRating, String description) {
+    public TeamMemberRole(User user, Role role, String description) {
         if (user == null) {
             throw new IllegalArgumentException(
                     "Null specified for user");
@@ -134,16 +122,11 @@ public class TeamMemberRole implements java.io.Serializable {
             throw new IllegalArgumentException(
                     "Specified role does not exist in the catalog");
         }
-        if (tcsRating > MAX_RATING || tcsRating < MIN_RATING) {
-            throw new IllegalArgumentException(
-                    "Invalid value specified for rating");
-        }
         id = -1;
         this.userId = user.getId();
         this.roleId = role.getId();
         this.roleName = role.getName();
         this.roleDescription = role.getDescription();
-        this.tcsRating = tcsRating;
         this.description = description;
     }
 
@@ -206,14 +189,6 @@ public class TeamMemberRole implements java.io.Serializable {
         return roleDescription;
     }
 
-    /**
-     * Returns the rating assigned to the user for this role
-     *
-     * @return the rating assigned to the user for this role
-     */
-    public int getTCSRating() {
-        return tcsRating;
-    }
 
     /**
      * Returns the role addition description
@@ -242,7 +217,6 @@ public class TeamMemberRole implements java.io.Serializable {
         TeamMemberRole other = (TeamMemberRole) object;
         return getUserId() == other.getUserId()
                 && getRoleId() == other.getRoleId()
-                && getTCSRating() == other.getTCSRating()
                 && getDescription() == other.getDescription();
     }
 
@@ -254,13 +228,12 @@ public class TeamMemberRole implements java.io.Serializable {
      * @return the hash code value for this development role
      */
     public int hashCode() {
-        return (int) (getUserId() ^ getRoleId() ^ getTCSRating() ^ getDescription().hashCode());
+        return (int) (getUserId() ^ getRoleId() ^ getDescription().hashCode());
     }
 
     public String toString() {
-        return "Development Role " + getId() + ": " + getUserId() + " "
-                + getTCSRating() + " - " + getRoleId() + " "
-                + getRoleName() + " (" + getRoleDescription() + ")";
+        return "Development Role " + getId() + ": " + getUserId() + " - " +
+            getRoleId() + " " + getRoleName() + " (" + getRoleDescription() + ")";
     }
 
 
