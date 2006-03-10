@@ -158,7 +158,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/pdfs/press_room/inc_0106.pdf" target="_blank"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></A></td>
+                    <td width="274"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview [PODCAST]</A> </strong></font><br />
