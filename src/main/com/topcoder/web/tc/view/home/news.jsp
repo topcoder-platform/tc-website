@@ -5,6 +5,24 @@
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="TopCoder Movies" border="0" /><br>03.10.06<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_031006">Interview with TopCoder Member Pat Conley</A></span><br><br>
+Pat shares his impressions of TopCoder, talks about his background and what's going on at industry leader VeriSign, where he is VP O&amp;I.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/joseki_big.jpg" alt="" width="55" height="61"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=pressroom&d2=art_031006">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505941" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.09.06<br>3:00 PM</td>
