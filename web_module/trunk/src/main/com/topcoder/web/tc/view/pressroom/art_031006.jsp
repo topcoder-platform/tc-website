@@ -39,7 +39,7 @@
                     </jsp:include>
                         <div align="center">
                         <p><span class="bodyTitle">Exclusive: Interview with Pat Conley, <br>VP VeriSign O&I and TopCoder Member</span><br />
-                        Pat shares his impressions of TopCoder, talks about his background <br>and what's going on at industry leader VeriSign.<br /><A href="http://www.topcoder.com/audio/Pat_Conley_03_10_06.mp3">listen</a>
+                        Pat shares his impressions of TopCoder, talks about his background <br>and what's going on at industry leader VeriSign.<br /><A href="/audio/Pat_Conley_03_10_06.mp3">listen</a>
                         </p>
                         </div>
                         
