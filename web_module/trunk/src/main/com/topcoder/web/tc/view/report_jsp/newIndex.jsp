@@ -62,6 +62,7 @@
       Payment Reports
       <UL>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=recently_completed_projects&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Recently Completed Projects</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=components_added_to_catalog&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Components Added to the Catalog</A></LI>
       </UL>
       <br/>
       Submission Reports
