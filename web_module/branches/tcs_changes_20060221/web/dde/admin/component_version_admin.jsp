@@ -1129,7 +1129,6 @@ if (action != null) {
     if (action.equals("Add Role")) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
-        String strRating = request.getParameter("txtTeamMemberRating");
         String strDescription = request.getParameter("txtTeamMemberDescription");
         if (strDescription == null || strDescription.trim().length() == 0) {
             strError = "Description cannot be blank.";
@@ -1990,8 +1989,8 @@ if (action != null) {
 %>
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
-                    <td width="50%" class="adminTitle">Username</td>
-                    <td width="40%" class="adminTitle">Role</td>
+                    <td width="40%" class="adminTitle">Username</td>
+                    <td width="50%" class="adminTitle">Role</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
                 </tr>
                 <tr valign="top">
@@ -2013,14 +2012,13 @@ if (action != null) {
 <% } %>
 
                 <tr valign="top">
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtTeamMemberRoleUsername" value=""></td>
+                    <td class="forumText"><input class="adminSearchForm" type="text" size="64" maxlength="64" name="txtTeamMemberRoleUsername" value=""></td>
                     <td class="forumText">
                         <select name="selRole">
 <% for (int i=0; i < roles.length; i++) { %>
                             <option value="<%= roles[i].getId() %>"><%= roles[i].getName() %></option>
 <% } %>
                         </select></td>
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="4" name="txtTeamMemberRating" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
                 <tr valign="top">
