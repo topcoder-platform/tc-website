@@ -14,7 +14,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
@@ -28,13 +28,7 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins -->
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
-
+<td width="100%" align="center" class="bodyColumn">
             <p align=right>
                         <a href="#des_dev">Design / Development Ratings</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#reliability">Reliability Rating</a></p>
@@ -275,10 +269,6 @@ to 20% of the prize. The following is an example of payouts based on the member'
             <p><br/></p>
         </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="180">
