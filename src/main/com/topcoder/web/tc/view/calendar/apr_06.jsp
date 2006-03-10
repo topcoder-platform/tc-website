@@ -110,6 +110,7 @@
             <strong>Match 296</strong><br />
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/tc?module=MatchDetails&rd=9817">Details</A><br/><br/></td>
         <td id="calendar" rowspan="2">4</td>
@@ -143,6 +144,7 @@
             <strong>Match 298</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/tc?module=MatchDetails&rd=9819">Details</A><br/><br/></td>
         <td id="calendar">12</td>
