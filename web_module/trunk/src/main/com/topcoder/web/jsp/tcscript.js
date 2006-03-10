@@ -17,7 +17,7 @@ document.write('<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.i
   }
 
 function tcTime() {
-  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
+  w=window.open("/tc?module=Static&d1=calendar&d2=time","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
   return;
 }
 
