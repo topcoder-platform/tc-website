@@ -168,7 +168,7 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND cs.viewable = 1");
         queryBottom.append(" AND cs.coder_id = c.coder_id");
         if (m.getSchoolName()!=null) {
-            queryBottom.append(" AND lower(s.name) like lower('").append(m.getSchoolName()).append("')");
+            queryBottom.append(" AND lower(s.name) like lower('").append(StringUtils.replace(m.getSchoolName(), "'", "''")).append("')");
             queryBottom.append(" AND c.coder_type_id = 1");
         }
         queryBottom.append(" AND c.coder_id = desr.user_id");
