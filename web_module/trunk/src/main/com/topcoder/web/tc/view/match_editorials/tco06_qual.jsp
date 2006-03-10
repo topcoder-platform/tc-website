@@ -48,7 +48,7 @@ PScores
 </h3>
 <p>
 Being probably the most straightforward among the qualifiers, this problem required a very accurate implementation.
-So, to find the answer we must iterate through all possible p-values and accurately simulate the process for each of theü.
+So, to find the answer we must iterate through all possible p-values and accurately simulate the process for each of them.
 If the score for some value is equal to the input score, increment the answer counter:
 </p>
 <pre>
