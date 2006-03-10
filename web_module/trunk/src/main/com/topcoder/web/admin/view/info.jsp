@@ -16,8 +16,6 @@
                             <a href="#main">Main TopCoder Site</a>
                             <ul>
                                 <li><a href="#main1">How do I do a production move for the www.topcoder.com?</a></li>
-                                <li><a href="#main3">How do I delete a forum post?</a></li>
-                                <li><a href="#main4">What do I do if I'm getting marshalling errors on jive filter objects?</a></li>
                                 <li><a href="#main5">What do I do if I'm getting marshalling errors on ResultSetContainer objects?</a></li>
                                 <li><a href="#main6">How do I put up new member photos?</a></li>
                                 <li><a href="#main7">How do I take down a member photo?</a></li>
@@ -42,6 +40,7 @@
                                 <li><a href="#software1">How do I do a production move for the www.topcodersoftware.com?</a></li>
                                 <li><a href="#software2">What do I do if I'm getting marshalling errors on ResultSetContainer objects?</a></li>
                                 <li><a href="#software3">How do I build the code for www.topcodersoftware.com?</a></li>
+                                <li><a href="#software4">How do I check and start automatic screening?</a></li>
                             </ul>
                         </li>
                         <li>
@@ -98,32 +97,32 @@
                                     <ol>
                                         <li>Telnet to 192.168.12.51 and login as apps</li>
                                         <li>Telnet to 192.168.12.52 and login as apps</li>
+                                        <li>Execute <span class="input">./backup.sh</span> on both .51 and .52 in the home directory</li>
                                         <li>On both boxes <span class="input">cd web</span> to move to our base directory</li>
-                                        <li>Execute <span class="input">./backup.sh</span> on both .51 and .52</li>
                                         <li><a href="#main8">Build the code</a></li>
                                         <li>ftp the topcoder.jar to 192.168.12.51 in the ~/web directory</li>
-                                        <li><a name="bu52">Bring up the .52 instance of weblogic</a>
+                                        <li><a name="bu52">Bring up the .52 instance of jboss</a>
                                             <ul>
                                                 <li>
-                                                    In your telnet session to .52, type <span class="input">wl</span> to move
-                                                    to the weblogic home directory
+                                                    In your telnet session to .52, type <span class="input">jbb</span> to move
+                                                    to the jboss bin directory
                                                 </li>
                                                 <li>
-                                                    <span class="input">start</span> to start this weblogic instance.
+                                                    <span class="input">./start.sh</span> to start this jboss instance.
                                                     By running an instance on .52, it allows you to have a working website
                                                     while you move code to the .51 box
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li>Bring down the .51 instanceof weblogic
+                                        <li>Bring down the .51 instanceof jboss
                                             <ul>
                                                 <li>
-                                                    <span class="input">/usr/ucb/ps augxww | grep java | grep apps | grep 1024</span>
+                                                    <span class="input">/usr/ucb/ps augxww | grep java | grep jboss\.Main</span>
                                                     locate the correct process id to kill
                                                 </li>
-                                                <li><span class="input">kill -9 &lt;pid&gt;</span> to kill the weblogic process</li>
+                                                <li><span class="input">kill -9 &lt;pid&gt;</span> to kill the jboss process</li>
                                                 <li>
-                                                    <span class="input">tn</span> this tails the weblogic log, the last thing you
+                                                    <span class="input">jbb;tn</span> this tails the jboss log, the last thing you
                                                     see should be "Killed", if not, you killed the wrong pid
                                                 </li>
                                             </ul>
@@ -134,71 +133,10 @@
                                         </li>
                                         <li>
                                             In your telnet session to .51, in the ~/web directory, move the files to the correct
-                                            locations by typing <span class="input">ant move</span>
+                                            locations by typing <span class="input">ant expand</span>
                                         </li>
-                                        <li>Bring up the .51 instance of weblogic similarly to how you <a href="#bu52">brought up .52</a></li>
+                                        <li>Bring up the .51 instance of jboss similarly to how you <a href="#bu52">brought up .52</a></li>
 
-                                    </ol>
-                                </li>
-                                <li class="tier2">
-                                    <a name="main3"></a>How do I delete a forum post?
-                                    <p>
-                                        If the message is the first message in a thread, then you'll need to delete the message,
-                                        the thread, and update the forum so that the most recent message is correct.<br />
-                                        <br />
-                                        If the message not the first message in a thread, then you'll need to delete the message,
-                                        and if it's the most recent post, you should update the thread and forum so that they are correct.
-                                    </p>
-                                    <ol>
-                                        <li>
-                                            Delete a thread - <span class="input">delete from jivethread where threadid =
-                                            (select threadid from jivemessage where messageid = &lt;mid&gt;);</span>
-                                        </li>
-                                        <li>Delete a message - <span class="input">delete from jivemessage where messageid = &lt;mid&gt;;</span></li>
-                                        <li>
-                                            Delete references to that message from the hierarchy -
-                                            <span class="input">delete from jivemessagetree where childid = &lt;mid&gt;;</span>
-                                        </li>
-                                        <li>
-                                            Delete references to that message from the hierarchy if it has been replied to -
-                                            <span class="input">delete from jivemessagetree where parentid = &lt;mid&gt;;</span>
-                                        </li>
-                                    </ol>
-                                </li>
-                                <li class="tier2">
-                                    <a name="main4"></a>What do I do if I'm getting marshalling/serialization errors on jive filter objects?
-                                    <p>
-                                        In all likelihood, this means that the machine you build the code on is not the same (same OS) as the
-                                        machine the code was last built on.  Jive filter objects are stored in the database, so the objects
-                                        that are currently stored in the database are not the same as the objects you have put on the file system.
-                                        This means that you will have to remove the objects from the database, and recreate them.  Also, keep in
-                                        mind to use the same machine to build the code in the future.
-                                    </p>
-                                    <ol>
-                                        <li>Delete the existing filters with <span class="input">delete from jivefilter</span></li>
-                                        <li>
-                                            Create the filters on each of the forums using the jive admin tool (this is gonna be fun)
-                                            <ul>
-                                                <li>Load <a href="http://www.topcoder.com/jive/skins/admin/index.jsp" target="_blank">the jive admin site</a></span></li>
-                                                <li>
-                                                    The first login prompt that pops up is for weblogic, login as system, you can get the
-                                                    password from 192.168.12.51 in ~/weblogic_apps/weblogic.properties
-                                                </li>
-                                                <li>
-                                                    The next login page is for jive, login as Administrator you can get the password
-                                                    with <span class="input">select password from user where handle = 'Administrator';</span> in informixoltp
-                                                </li>
-                                                <li>
-                                                    In the upper left corner, there are 3 missing images.  The one to the lower
-                                                    right in the group is a link to forum maintenance
-                                                    (when you mouse over you'll see http://www.topcoder.com/jive/skins/admin/sidebar.jsp?tree=forum)
-                                                </li>
-                                                <li>Once in forum maintenance, click "Filters" in the left navigation</li>
-                                                <li>Choose the forum you would like to work with from the drop down</li>
-                                                <li>Using the list box at the bottom of the screen, add the HTML Filter and the Newline Converter</li>
-                                                <li>Rinse and repeat for each of the forums</li>
-                                            </ul>
-                                        </li>
                                     </ol>
                                 </li>
                                 <li class="tier2">
@@ -452,29 +390,34 @@
                                 <li class="tier2">
                                     <a name="software1"></a>How do I do a production move for the www.topcodersoftware.com?
                                     <ol>
-                                        <li>This is all different now and a process hasn't been nailed down.  Ask dok.</li>
-<%--
                                         <li>Telnet to 192.168.12.151 and login as apps</li>
-                                        <li><span class="input">cd stage</span></li>
-                                        <li>
-                                            Backup what is currently deployed so that you have a copy in case there is a problem
-                                            <span class="input">cp dde.ear dde.ear.&lt;yyyymmdd&gt;</span>
-                                        </li>
-                                        <li>On the box where you build the code, <span class="input">cd ./build/dist</span></li>
-                                        <li>ftp the dde.ear file to 192.168.10.151 in the ~/stage directory</li>
-                                        <li>On .151 in ~/stage deploy the ear by executing <span class="input">cp dde.ear $JBOSS_HOME/server/default/deploy</span></li>
-                                        <li>Bring down the jboss instance
+                                        <li>Execute <span class="input">./backup.sh</span> in the home directory</li>
+                                        <li><span class="input">cd web</span> to move to our base directory</li>
+                                        <li><a href="#software3">Build the code</a></li>
+                                        <li>ftp the software.jar to 192.168.12.151 in the ~/web directory</li>
+                                        <li>Bring down jboss
                                             <ul>
                                                 <li>
-                                                    <span class="input">/usr/ucb/ps augxww | grep java | grep jboss.Main</span>
+                                                    <span class="input">ps -efww | grep java | grep jboss\.Main</span>
                                                     locate the correct process id to kill
                                                 </li>
                                                 <li><span class="input">kill -9 &lt;pid&gt;</span> to kill the jboss process</li>
+                                                <li>
+                                                    <span class="input">jbb;tn</span> this tails the jboss log, the last thing you
+                                                    see should be "Killed", if not, you killed the wrong pid
+                                                </li>
                                             </ul>
                                         </li>
-                                        <li>Move to the jboss directory with <span class="input">jbb</span></li>
-                                        <li>Start jboss with <span class="input">./run.sh</span></li>
---%>
+                                        <li>
+                                            In your telnet session to .151, in the ~/web directory, explode the jar by typing
+                                            <span class="input">jar xvf software.jar</span>
+                                        </li>
+                                        <li>
+                                            In your telnet session to .151, in the ~/web directory, move the files to the correct
+                                            locations by typing <span class="input">ant explode</span>
+                                        </li>
+                                        <li>Bring up the .151 instance of jboss <a href="#bu52">jbb; ./start.sh; tn</a></li>
+
                                     </ol>
                                 </li>
                                 <li class="tier2">
@@ -485,25 +428,9 @@
                                         same cache again.
 
                                     </p>
-<%--
-                                    <p>
-                                        This means that there is a difference between the ResultSetContainer object that the cache has
-                                        and the ResultSetContainer object that the application server has.  In this case, it's likely that the
-                                        application server is out of date, so you'll need to match it up with the cache.
-                                    </p>
-                                    <ol>
-                                        <li>Telnet to 192.168.10.151 as apps</li>
-                                        <li><span class="input">cd $JBOSS_HOME/server/default/lib</span></li>
-                                        <li>
-                                            get the current shared.jar from the cache server by ftping it from
-                                            192.168.12.61 in the ~/web/lib/bin directory
-                                        </li>
-                                        <li>Restart the application server, you can pick out the details <a href="#software1">href</a></li>
-                                    </ol>
---%>
                                 </li>
                                 <li class="tier2">
-                                    <a name="software3"></a>How do I build the code for www.topcodesoftware.com?
+                                    <a name="software3"></a>How do I build the code for www.topcodersoftware.com?
                                     <ol>
                                         <li>
                                             You'll need the web source tree, I'll assume you can check that out.  Be sure you
@@ -520,6 +447,19 @@
 
                                     </ol>
                                 </li>
+                                <li class="tier2">
+                                    <a name="software4"></a>How do I check and start automatic screening?
+                                    <ol>
+                                        <li>Telnet to 192.168.12.151, log in as apps.</li>
+                                        <li>
+                                            <span class="input">ps aux | grep screening.jar</span> If the screener is running,
+                                             you'll see its process.
+                                        </li>
+                                        <li><span class="input">cd web/scripts</span></li>
+                                        <li><span class="input">./automatic_screening.sh start</span></li>
+                                    </ol>
+                                </li>
+
                             </ul>
                         </li>
                         <li class="tier1"><a name="techass"></a>The Technical Assessment System
@@ -1043,17 +983,17 @@
                                 <li class="tier2"><a name="misc9"></a>How do I find out someone's password that is encrypted in the database?
                                     <ol>
                                         <li>Telnet to 192.168.12.52 and login as apps</li>
-                                        <li><span class="input">./pass.sh &lt;handle&gt;</li>
+                                        <li><span class="input">./pass.sh &lt;handle&gt;</span></li>
                                     </ol>
                                 </li>
                                 <li class="tier2"><a name="misc10"></a>How do I set someone's password that is encrypted in the database?
                                     <ol>
                                         <li>Telnet to 192.168.12.52 and login as apps</li>
-                                        <li><span class="input">./setpass.sh &lt;handle&gt; &lt;new_password&lt;</li>
+                                        <li><span class="input">./setpass.sh &lt;handle&gt; &lt;new_password&lt;</span></li>
                                         <li>
                                             If this user is a topcoder member, then you'll need to update their user
                                             record in informixoltp as well.  <span class="input">update user set password =
-                                            &lt;password&gt; where user_id = &lt;user_id&gt;;
+                                            &lt;password&gt; where user_id = &lt;user_id&gt;;</span>
                                         </li>
                                     </ol>
                                 </li>
