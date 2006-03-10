@@ -196,6 +196,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member <A href="/tc?module=Static&d1=pressroom&d2=art_031006">...more</A><br>[March 10]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/postOnline_logo.gif" width="88" height="13" alt="The Post Online" border="0" /></div>
             Gurus compete in coding competition <A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">...more</A><br>[March 8]<br><br>
 
@@ -208,8 +210,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="88" height="10" alt="Wall Street Journal" border="0" /></div>
             Programming Contest Pits World's Top Geeks In Battles Over Coding <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank">...more</A><br>[February 8]<br><br>
-
-            TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards <A href="/tc?module=Static&d1=pressroom&d2=pr_012606">...more</A><br>[January 26]<br><br>
             </td>
          </tr>
       </table>

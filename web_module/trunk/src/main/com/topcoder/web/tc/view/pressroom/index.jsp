@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Pat Conley interview --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_031006"><img src="/i/pressroom/patconley.jpg" alt="Pat Conley" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_031006">Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member</A> </strong></font><br />
+                         "Pat shares his impressions of TopCoder, talks about his background <br>and what's going on at industry leader VeriSign." <span class="prHead"> [March 10]</span></p>
+                        </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- The Post Online --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
