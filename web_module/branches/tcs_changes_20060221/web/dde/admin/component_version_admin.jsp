@@ -2022,7 +2022,8 @@ if (action != null) {
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
                 <tr valign="top">
-                    <td class="forumText" colspan="3"><input class="adminSearchForm" type="text" size="145" maxlength="254" name="txtTeamMemberDescription" value=""></td>
+                    <!--td class="forumText" colspan="3"><input class="adminSearchForm" type="text" size="145" maxlength="254" name="txtTeamMemberDescription" value=""></td-->
+                    <td class="forumText" colspan="3"><input class="adminSearchForm" type="text" maxlength="254" name="txtTeamMemberDescription" value=""></td>
                 </tr>
             </table>
 
