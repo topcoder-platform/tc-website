@@ -14,7 +14,7 @@
 Current time at the TopCoder corporate office:
 <br /><br />
 <b>
-    <tc-webtag:format object="<%=new Date()%>" format="MM.dd.yyyy HH:mm z"/>
+    <tc-webtag:format object="<%=new Date()%>" format="hh:mm a z"/>
 </b>
 </div>
 </BODY>
