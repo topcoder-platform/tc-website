@@ -66,7 +66,7 @@
     Category[] baseCategories = catalog.getBaseCategories(true);
     boolean visibleCategory = false;
     for (int i = 0; i < baseCategories.length && !visibleCategory; i++) {
-        if (rootCategory = baseCategories[i].getId()) {
+        if (rootCategory == baseCategories[i].getId()) {
             visibleCategory = true;
         }
     }
