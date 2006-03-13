@@ -42,8 +42,8 @@
    <tr>
       <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Registered Teams</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Start Time</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">End Time</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
    </tr>
    <% boolean even = false; %>
@@ -58,13 +58,13 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerTimeExpRep">standings</A>
       </td>
       <td class="valueC">
-      <A href="">10</A>
+      6
       </td>
       <td class="valueC">
-       02.22.2006 12:00  	
+      03.28.2006 09:00 AM EST
       </td>
       <td class="valueC">
-      03.08.2006 12:00
+      04.05.2006 09:00 AM EST
       </td>
       <td class="valueC">
       <A href="">discuss</A>
@@ -73,22 +73,22 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerTimeExpRep">Time Tracker Time, Expense and Reporting</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerAdminTime">Time Tracker Admin and Time Approval</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Time Tracker Admin and Time Approval">register</A>
       </td>
       <td class="valueC">
-      <A href="">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerAdminTime">standings</A>
       </td>
       <td class="valueC">
-      <A href="">10</A>
+      0
       </td>
       <td class="valueC">
-       02.22.2006 12:00  	
+      03.28.2006 09:00 AM EST
       </td>
       <td class="valueC">
-      03.08.2006 12:00
+      04.05.2006 09:00 AM EST
       </td>
       <td class="valueC">
       <A href="">discuss</A>

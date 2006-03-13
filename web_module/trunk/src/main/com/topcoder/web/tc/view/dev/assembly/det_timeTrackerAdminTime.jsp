@@ -38,10 +38,10 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<span class="bigTitle">Time Tracker Time, Expense and Reporting</span>
+<span class="bigTitle">Time Tracker Admin and Time Approval</span>
 <br><br>
 <div class="sectionHeader">Overview</div>
-This assembly competition will consist of login, time entry, time deletion, editing time entries, entering expenses, deleting expenses, editing expense entries, viewing worker reports, viewing project reports and viewing client reports.
+This assembly competition will consist of approving contractor time, rejecting contractor time, listing users, editing users, adding projects, listing projects, editing projects, deleting projects, viewing project details, adding clients, listing clients, editing clients, deleting clients and viewing client details.
 <br><br>
 <div class="sectionHeader">Technologies</div>
 Each team will be responsible for creating their working environment. The working environment requirement details for this application are outlined in the Application Requirements Specification located in the documentation bundle. An overview of the environment requirements are listed below:
@@ -87,25 +87,25 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
    <tr>
-      <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
+      <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="center">03.15.2006</td><td align="center">03.28.2006</td>
+      <td>Team Creation:</td><td align="right">03.15.2006</td><td align="right">03.28.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="center">03.29.2006</td><td align="center">04.05.2006</td>
+      <td>Competition Phase:</td><td align="right">03.29.2006</td><td align="right">04.05.2006</td>
    </tr>
    <tr>
-      <td>Test Challenge Phase:</td><td align="center">04.06.2006</td><td align="center">04.07.2006</td>
+      <td>Test Challenge Phase:</td><td align="right">04.06.2006</td><td align="right">04.07.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="center">04.10.2006</td><td align="center">04.21.2006</td>
+      <td>Review Phase:</td><td align="right">04.10.2006</td><td align="right">04.21.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="center">04.24.2006</td><td align="center">04.25.2006</td>
+      <td>Feedback Phase:</td><td align="right">04.24.2006</td><td align="right">04.25.2006</td>
    </tr>
    <tr>
-      <td>Deployment Phase:</td><td align="center">04.24.2006</td><td align="center">04.28.2006</td>
+      <td>Deployment Phase:</td><td align="right">04.24.2006</td><td align="right">04.28.2006</td>
    </tr>
 </table>
 </div>
