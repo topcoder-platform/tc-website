@@ -40,8 +40,8 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="7">Active Software Assembly Contests</td></tr>
    <tr>
-      <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Registered Teams</td>
+      <td class="tableHeader" colspan="3" nowrap="nowrap">Team</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Status</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Start Time</td>
       <td class="tableHeader" align="center" nowrap="nowrap">End Time</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
@@ -49,34 +49,10 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerTimeExpRep">Time Tracker Time, Expense and Reporting</A>
+      <A href="">Time Tracker</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Time Tracker Time, Expense and Reporting">register</A>
-      </td>
-      <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerTimeExpRep">standings</A>
-      </td>
-      <td class="valueC">
-      <A href="">10</A>
-      </td>
-      <td class="valueC">
-       02.22.2006 12:00  	
-      </td>
-      <td class="valueC">
-      03.08.2006 12:00
-      </td>
-      <td class="valueC">
-      <A href="">discuss</A>
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerTimeExpRep">Time Tracker Time, Expense and Reporting</A>
-      </td>
-      <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Time Tracker Admin and Time Approval">register</A>
+      <A href="">register</A>
       </td>
       <td class="valueC">
       <A href="">standings</A>
