@@ -40,12 +40,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.2 - 2006.03.xx
+        5.0.2 - 2006.03.13
         <ul>
             <li>Escape string data by default on rsc:item tag</li>
             <li>Escape text input tag data by default</li>
             <li>Speed up the marathon match results page</li>
             <li>Change the links in the project terms</li>
+            <li>Fix email address in Google Code Jam Activation Email</li>
         </ul>
     </p>
     <p>
