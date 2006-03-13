@@ -817,16 +817,20 @@ public class ProjectAdministration implements Model {
                 // first add reviewers
                 for (int i = 0; i < newRoles.length; i++) {
                     if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
-                        componentManager.addTeamMemberRole(new TeamMemberRole(
-                            new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
-                                catalog.getRole(reviewerRoleToAdd), null));
+                        if (newRoles[i].getUser() != null) {
+                            componentManager.addTeamMemberRole(new TeamMemberRole(
+                                new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
+                                    catalog.getRole(reviewerRoleToAdd), null));
+                        }
                     }
                 }
 
                 // add winner
-                componentManager.addTeamMemberRole(new TeamMemberRole(
-                    new com.topcoder.dde.user.User(newProject.getWinner().getId()),
-                        catalog.getRole(winnerRoleToAdd), null));
+                if (newProject.getWinner() != null) {
+                    componentManager.addTeamMemberRole(new TeamMemberRole(
+                        new com.topcoder.dde.user.User(newProject.getWinner().getId()),
+                            catalog.getRole(winnerRoleToAdd), null));
+                }
             }
 
             // save project
