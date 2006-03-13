@@ -44,7 +44,7 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Registered Teams</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Forum</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -67,7 +67,8 @@
       04.05.2006 09:00 AM EST
       </td>
       <td class="valueC">
-      <A href="">discuss</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505764">join a team</A><br>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A><br>
       </td>
    </tr>
    <% even = !even;%>
@@ -91,7 +92,8 @@
       04.05.2006 09:00 AM EST
       </td>
       <td class="valueC">
-      <A href="">discuss</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">join a team</A><br>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A><br>
       </td>
    </tr>
 </table>
