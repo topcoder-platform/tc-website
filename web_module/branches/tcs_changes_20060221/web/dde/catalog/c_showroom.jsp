@@ -239,16 +239,9 @@
         
             if (!visibleCategory) {
                 // redirect to an error page
-                response.sendRedirect("/attention/error_componentnotfound.jsp");
+                response.sendRedirect("/attention//error_categorynotfound.jsp");
                 return;
             }
-            /*/ plk cambiar!!!!
-            if (rootCategory != Catalog.NET_CATALOG && rootCategory != Catalog.JAVA_CATALOG
-                && rootCategory != Catalog.FLASH_CATALOG) {
-                // redirect to an error page
-                response.sendRedirect("/attention/error_categorynotfound.jsp");
-                return;
-            }*/
         } else {
             try {
                 summaries = new CategorySummary[cats.length];
