@@ -167,7 +167,7 @@
                 <tr>
                     <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
                     <td class="rtHeader" width="20%">T./M.</td>
-                    <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
+                    <td class="rtHeader" align="center" colspan="2" nowrap="nowrap"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <%  trackerClass = (user == null || forum.getLatestMessage() == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
