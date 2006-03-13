@@ -60,7 +60,7 @@ Phases:
 <br><br>
 <A name="contest_posting"></A>
 <span class="bodySubtitle">Contest Posting</span><br>
-TopCoder will post the competition details, specification and architecture deliverables and timeframe on its website.  Members can read through the documentation and decide in what capacity they would like to compete - Team Captain, Free Agent or Review Board Member.
+TopCoder will post the competition details, specification and architecture deliverables and timeframe for <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">active contests</A> on its website.  Members can read through the documentation and decide in what capacity they would like to compete - Team Captain, Free Agent or Review Board Member.
 <br><br>
 <A name="team_creation"></A>
 <span class="bodySubtitle">Team Creation</span><br>
