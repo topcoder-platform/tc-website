@@ -49,6 +49,7 @@ The Time Tracker application will replace the manual time and expense entry proc
 The administrative portion of Time Tracker will eliminate the need for HR to compile numerous spreadsheets into a more workable format.  HR will be able to manage client and project lists easily.  The reports provided to HR will be extremely beneficial, consisting of Employee, Contractor Project and Client reports. These reports will allow management an easier view into resource utilization, resource allocation and financial calculations.  Managers will also have the ability to approve and/or reject contractors' time reports, allowing both the contractor and the manager quick access to approval information.
 <br><br>
 Although the application will be initially used by TopCoder, the intention is to build the application in a generic fashion such that it could be used by any organization.
+<br><br>
 <span class="bodySubtitle">Competition Overview</span><br>
 This assembly competition will consist of approving contractor time, rejecting contractor time, listing users, editing users, adding projects, listing projects, editing projects, deleting projects, viewing project details, adding clients, listing clients, editing clients, deleting clients and viewing client details.
 <br><br>
