@@ -45,6 +45,7 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Status</td>
    </tr>
    <% boolean even = false; %>
+<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       Giants
@@ -59,75 +60,7 @@
       </td>
    </tr>
    <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Mets
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Submitted
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Knicks
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Passed screening
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Huskies
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Failed screening
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Whalers
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Passed Review
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Globetrotters
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Failed Review
-      </td>
-   </tr>
+--%>
 </table>
 
 </td>
