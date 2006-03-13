@@ -101,12 +101,12 @@ public class ViewSystemTestResults extends Base {
                 }
 
             }
-            rsc = (ResultSetContainer)rsc.subList(startRow, endRow);
+            rsc = (ResultSetContainer)rsc.subList(startRow-1, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
 
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
-            rscCol = (ResultSetContainer)rscCol.subList(startCol, endCol);
+            rscCol = (ResultSetContainer)rscCol.subList(startCol-1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
 /*
