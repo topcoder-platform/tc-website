@@ -176,10 +176,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             log.debug("blah");
 /*
             /** SECURITY MANAGER
-    		Hashtable principalMgrEnvironment=new Hashtable();
-    		principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-    		principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
-    		Context principalMgrContext = new InitialContext(principalMgrEnvironment);
+            Hashtable principalMgrEnvironment=new Hashtable();
+            principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+            principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
+            Context principalMgrContext = new InitialContext(principalMgrEnvironment);
 */
 
             principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.
@@ -338,9 +338,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND x.category_id = cat.category_id            ");
 
         if (onlyPublic) {
+            query.append("   AND cat.viewable = 1                       ");
+/*
             query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");
+            query.append("   , " + Catalog.FLASH_CATALOG + ")"); */
         }
 
 
@@ -519,12 +521,13 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         if (!includeBaseCategories) query.append(" AND ( NOT ( parent_category_id IS NULL ) ) ");
 
         if (onlyPublic) {
-            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
+            query.append("   AND viewable = 1                       ");
+            /*query.append("   AND category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
             query.append("   , " + Catalog.FLASH_CATALOG + ")");
             query.append("   OR parent_category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
         query.append(" ORDER BY 1 ");
 
@@ -586,9 +589,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append(" WHERE status_id <> ? ");
 
         if (onlyPublic) {
-            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
+            query.append("   AND viewable = 1                       ");
+/*            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
@@ -914,20 +918,23 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         List components = new ArrayList();
 
         StringBuffer query = new StringBuffer(600);
-        query.append("SELECT comp.component_id, comp.short_desc,    ");
-        query.append("       comp.component_name, comp.description, ");
-        query.append("       comp.status_id, v.comp_vers_id,        ");
-        query.append("       v.version, v.version_text, v.phase_id, ");
-        query.append("       v.phase_time, v.price, v.comments,     ");
-        query.append("       comp.root_category_id                  ");
-        query.append("  FROM comp_versions v, comp_catalog comp     ");
-        query.append(" WHERE v.version = comp.current_version       ");
-        query.append("   AND v.component_id = comp.component_id     ");
+        query.append("SELECT comp.component_id, comp.short_desc,        ");
+        query.append("       comp.component_name, comp.description,     ");
+        query.append("       comp.status_id, v.comp_vers_id,            ");
+        query.append("       v.version, v.version_text, v.phase_id,     ");
+        query.append("       v.phase_time, v.price, v.comments,         ");
+        query.append("       comp.root_category_id                      ");
+        query.append("  FROM comp_versions v, comp_catalog comp,        ");
+        query.append("       categories cat                             ");
+        query.append(" WHERE v.version = comp.current_version           ");
+        query.append("   AND v.component_id = comp.component_id         ");
+        query.append("   AND comp.root_category_id = cat.category_id    ");
 
         if (onlyPublic) {
-            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
+            query.append("   AND cat.viewable = 1                       ");
+/*            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
             query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");
+            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
 
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");
