@@ -41,13 +41,7 @@
 <span class="bigTitle">Time Tracker Time, Expense and Reporting</span>
 <br><br>
 <div class="sectionHeader">Overview</div>
-TopCoder intends to streamline its time and expense reporting efforts. The current process requires employees and contractors to complete Excel spreadsheets and submit them to HR.  This process is extremely resource intensive and does not allow for reporting or integration with other systems. 
-<br><br>
-The Time Tracker application will replace the manual time and expense entry process.  The new application will allow users to enter their time and expenses via a web interface, eliminating the need for employees and contractors to use spreadsheets. Employees and contractors will also be able to view their time and expense reports, providing a quick overview of their hour and expense totals.
-<br><br>
-The administrative portion of Time Tracker will eliminate the need for HR to compile numerous spreadsheets into a more workable format.  HR will be able to manage client and project lists easily.  The reports provided to HR will be extremely beneficial, consisting of Employee, Contractor Project and Client reports. These reports will allow management an easier view into resource utilization, resource allocation and financial calculations.  Managers will also have the ability to approve and/or reject contractors' time reports, allowing both the contractor and the manager quick access to approval information.
-<br><br>
-Although the application will be initially used by TopCoder, the intention is to build the application in a generic fashion such that it could be used by any organization.
+This assembly competition will consist of login, time entry, time deletion, editing time entries, entering expenses, deleting expenses, editing expense entries, viewing worker reports, viewing project reports and viewing client reports.
 <br><br>
 <div class="sectionHeader">Technologies</div>
 Each team will be responsible for creating their working environment. The working environment requirement details for this application are outlined in the Application Requirements Specification located in the documentation bundle. An overview of the environment requirements are listed below:
@@ -61,12 +55,12 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available <A href="">here</A>.
+Documentation/Specification is available in the application forums. <A href="TCS Forums">here</A>.
 
 <br><br>
 
 <div class="sectionHeader">Payment</div>
-TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project. 
+TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $4,000

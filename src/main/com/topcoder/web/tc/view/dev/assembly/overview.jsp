@@ -34,7 +34,7 @@
 
 <div class="fixedWidthBody">
 <div align="center" style="margin-bottom: 10px;">
-<img src="/i/assembly/banner.gif" alt="TopCoder Assembly Competitions" />
+<img src="/i/development/assembly/banner.gif" alt="TopCoder Assembly Competitions" />
 </div>
 <span class="bigTitle">Overview</span>
 <br><br>
