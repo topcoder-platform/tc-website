@@ -196,6 +196,12 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
+            UBS Sponsors TopCoder Open <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">...more</A><br>[March 13]<br><br>
+            
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="61" height="33" alt="DNA India" border="0" /></div>
+            Code jockey contest returns to IT hub <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">...more</A><br>[March 13]<br><br>
+            
             Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member <A href="/tc?module=Static&d1=pressroom&d2=art_031006">...more</A><br>[March 10]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/postOnline_logo.gif" width="88" height="13" alt="The Post Online" border="0" /></div>
@@ -205,11 +211,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="88" height="10" alt="Spartan Daily" border="0" /></div>
             SJSU codes a win <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">...more</A><br>[February 16]<br><br>
-
-            TopCoder High School Launches Global Programming Tournament in June <A href="/tc?module=Static&d1=pressroom&d2=pr_020806">...more</A><br>[February 8]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsj_logo.gif" width="88" height="10" alt="Wall Street Journal" border="0" /></div>
-            Programming Contest Pits World's Top Geeks In Battles Over Coding <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank">...more</A><br>[February 8]<br><br>
             </td>
          </tr>
       </table>
