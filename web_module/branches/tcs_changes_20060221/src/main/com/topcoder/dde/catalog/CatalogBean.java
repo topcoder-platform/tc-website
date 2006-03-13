@@ -339,10 +339,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         if (onlyPublic) {
             query.append("   AND cat.viewable = 1                       ");
-/*
-            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
-            query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")"); */
         }
 
 
@@ -522,12 +518,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         if (onlyPublic) {
             query.append("   AND viewable = 1                       ");
-            /*query.append("   AND category_id in (" + Catalog.NET_CATALOG);
-            query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");
-            query.append("   OR parent_category_id in (" + Catalog.NET_CATALOG);
-            query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
         query.append(" ORDER BY 1 ");
 
@@ -590,9 +580,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         if (onlyPublic) {
             query.append("   AND viewable = 1                       ");
-/*            query.append("   AND category_id in (" + Catalog.NET_CATALOG);
-            query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
@@ -932,9 +919,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
         if (onlyPublic) {
             query.append("   AND cat.viewable = 1                       ");
-/*            query.append("   AND comp.root_category_id in (" + Catalog.NET_CATALOG);
-            query.append("   , " + Catalog.JAVA_CATALOG);
-            query.append("   , " + Catalog.FLASH_CATALOG + ")");*/
         }
 
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");

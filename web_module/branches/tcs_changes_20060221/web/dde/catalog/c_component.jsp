@@ -61,9 +61,17 @@
         return;
     }
 
+    // Get only visible categories.
     long rootCategory = details.getSummary().getRootCategory();
-    if (rootCategory != Catalog.NET_CATALOG && rootCategory != Catalog.JAVA_CATALOG
-        && rootCategory != Catalog.FLASH_CATALOG) {
+    Category[] baseCategories = catalog.getBaseCategories(true);
+    boolean visibleCategory = false;
+    for (int i = 0; i < baseCategories.length && !visibleCategory; i++) {
+        if (rootCategory = baseCategories[i].getId()) {
+            visibleCategory = true;
+        }
+    }
+
+    if (!visibleCategory) {
         // redirect to an error page
         response.sendRedirect("/attention/error_componentnotfound.jsp");
         return;
