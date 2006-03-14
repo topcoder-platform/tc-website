@@ -58,6 +58,12 @@
             </li>
             <li>Fix the passed review/win statistics in the member profile for dev and design to not used placed as an indicator</li>
             <li>Change the win percentage record book page to require that one must place first and have a passing score</li>
+<%--
+            <li>Populate passed_review_ind</li>
+            <li>Allow for the ability to set up a project that allows appeal responses during appeals phase</li>
+            <li>Change the admin interface for component roles, auto populate them</li>
+--%>
+
         </ul>
     </p>
     <p>
