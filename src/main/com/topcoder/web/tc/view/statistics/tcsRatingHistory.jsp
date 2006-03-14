@@ -164,7 +164,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          <TR>
             <TD class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>">
-                <% if (resultRow2.getIntItem("viewable") ==1) { %>
+                <% if (resultRow2.getIntItem("viewable_category_ind") ==1) { %>
                 <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" class="statLink">
                     <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
                 </A>
