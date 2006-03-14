@@ -1130,9 +1130,16 @@ if (action != null) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
         String strDescription = request.getParameter("txtTeamMemberDescription");
+        
+        // validate both description and username to be filled.
+        if (strUsername == null || strUsername.trim().length() == 0) {
+            strError = "Username cannot be blank.";
+        }
         if (strDescription == null || strDescription.trim().length() == 0) {
             strError = "Description cannot be blank.";
-        } else {
+        }
+
+        if (strError.trim().length() == 0) {
             try {
                 User user = USER_MANAGER.getUser(strUsername);
                 TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
