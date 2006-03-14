@@ -1,6 +1,7 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
+
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
@@ -19,11 +20,33 @@ import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import java.util.*;
 
+import com.topcoder.dde.catalog.ComponentManagerHome;
+import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.TeamMemberRole;
+import com.topcoder.dde.catalog.Catalog;
+import com.topcoder.dde.catalog.CatalogHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersionsHome;
+import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+
 /**
  * This Model provides business logic through which users administers projects (only for admins).
  *
- * @author adic
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * When project is terminated and marked as completed, reviewers and winner are automatically inserted into the
+ * user_role table.
+ * </li>
+ * <li>
+ * Class was updated to deal with the new user_role description attribute.
+ * </li>
+ * <li>
+ * Class was updated to deal with the elimination of tcsrating attribute.
+ * </li>
+ * </ol>
+ *
+ * @version 1.0.1
+ * @author adic, pulky
  */
 public class ProjectAdministration implements Model {
 
@@ -41,7 +64,7 @@ public class ProjectAdministration implements Model {
      * The minimum score that allows a submitter to win.
      */
     private static double minscore = -1;
-    
+
     private static Logger log = Logger.getLogger(ProjectAdministration.class);
 
     /**
@@ -722,7 +745,7 @@ public class ProjectAdministration implements Model {
                             UserPrincipal userPrincipal = principalMgr.getUser(addUserRole.getUser().getId());
                             RolePrincipal rolePrincipal =
                                 getRolePrincipal(addUserRole, newProject, user.getTCSubject(), newProject.getId());
-                                
+
                             if (rolePrincipal != null) {
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
@@ -762,6 +785,51 @@ public class ProjectAdministration implements Model {
                 for (int i = 0; i < revs.length; i++) {
                     revs[i].setCompleted(false);
                     documentManager.saveAggregationReview(revs[i], user.getTCSubject());
+                }
+            }
+
+            // trap when project is terminated and marked as completed.
+            if (newProject.getProjectStatus().getId() != oldProject.getProjectStatus().getId() &&
+                newProject.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED) {
+
+                // get component catalog bean
+                InitialContext context = new InitialContext();
+                LocalDDECompVersionsHome versionsHome =
+                    (LocalDDECompVersionsHome) context.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
+                LocalDDECompVersions localDDECompVersions =
+                    versionsHome.findByPrimaryKey(new Long(newProject.getCompVersId()));
+                ComponentManagerHome componentManagerHome =
+                    (ComponentManagerHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(
+                        ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
+                ComponentManager componentManager =
+                    componentManagerHome.create(newProject.getCatalogueId(), localDDECompVersions.getVersion());
+                CatalogHome home =
+                    (CatalogHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(
+                        CatalogHome.EJB_REF_NAME), CatalogHome.class);
+                Catalog catalog = home.create();
+
+                // determine role.
+                int winnerRoleToAdd = (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) ?
+                    TeamMemberRole.ROLE_COMPONENT_DEVELOPER : TeamMemberRole.ROLE_COMPONENT_DESIGNER;
+                int reviewerRoleToAdd = (newProject.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) ?
+                    TeamMemberRole.ROLE_COMPONENT_DEVELOPMENT_REVIEWER : TeamMemberRole.ROLE_COMPONENT_DESIGN_REVIEWER;
+
+                // first add reviewers
+                for (int i = 0; i < newRoles.length; i++) {
+                    if (newRoles[i].getRole().getId() == Role.ID_REVIEWER) {
+                        if (newRoles[i].getUser() != null) {
+                            componentManager.addTeamMemberRole(new TeamMemberRole(
+                                new com.topcoder.dde.user.User(newRoles[i].getUser().getId()),
+                                    catalog.getRole(reviewerRoleToAdd), null));
+                        }
+                    }
+                }
+
+                // add winner
+                if (newProject.getWinner() != null) {
+                    componentManager.addTeamMemberRole(new TeamMemberRole(
+                        new com.topcoder.dde.user.User(newProject.getWinner().getId()),
+                            catalog.getRole(winnerRoleToAdd), null));
                 }
             }
 
