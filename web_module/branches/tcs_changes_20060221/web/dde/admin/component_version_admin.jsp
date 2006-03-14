@@ -1135,6 +1135,7 @@ if (action != null) {
         if (strUsername == null || strUsername.trim().length() == 0) {
             strError = "Username cannot be blank.";
         }
+
         if (strDescription == null || strDescription.trim().length() == 0) {
             strError = "Description cannot be blank.";
         }
