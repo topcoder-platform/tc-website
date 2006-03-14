@@ -41,7 +41,7 @@
 <span class="bigTitle">Tutorial</span>
 <br><br>
 <span class="bodySubtitle">Before You Begin</span><br>
-Before you begin the Assembly Competitions, you need to download software, set up your environment, and <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/registration/registration.jsp">register</A> with TopCoder Software.
+Before you begin the Assembly Competitions, you need to download software, set up your environment, and <A href="/Registration">register</A> with TopCoder.
 <br><br>
 <strong>Required Software</strong><br>
 TopCoder Software uses Poseidon software from <A href="http://www.gentleware.com">www.gentleware.com</A> to capture diagrams during the design process. You need to download a Community Edition of the software. Gentleware regularly publishes updates to Poseidon. However, TopCoder Software does NOT use the latest version as soon as it's available. Please consult the <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">TopCoder Software documentation</A> for the version of Poseidon that you need to download.
@@ -104,7 +104,7 @@ It can be very tempting to simply aggregate all of your unit tests into one func
 Make sure you write a comprehensive unit testing suite. Inadequate tests can cost you dearly because there are several scorecard items pertaining to the unit test suite. Tests should cover all non-private methods thoroughly, and they should be well documented. Doing a good job on the tests can be a big win because the unit test suite is one of the areas that is more frequently neglected. 
 <br><br>
 <strong>Deployment Documentation</strong><br>
-This is another spot where you could lose a LOT of points.  If the engineer cannot deploy your application, you will be notified and potentially fail review.  Make sure your documentation clearly defines how to build and deploy your solution.  The more detail you provide here, the better.  Be meticulous in your documentation and steps.  This is one area of the competition where the review scorecard is very unforgiving.  Please view the deployment template. 
+This is another spot where you could lose a LOT of points.  If the engineer cannot deploy your application, you will be notified and potentially fail review.  Make sure your documentation clearly defines how to build and deploy your solution.  The more detail you provide here, the better.  Be meticulous in your documentation and steps.  This is one area of the competition where the review scorecard is very unforgiving.  Please view the deployment template, found in the distribution.
 <br><br>
 <span class="bodySubtitle">Challenging Test Cases</span><br>
 <br><br>
@@ -120,7 +120,7 @@ You will package your submission and upload the submission to Project Submit and
 <span class="bigRed">NOTE: For the Time Tracker Application, you will email your submission to TopCoder.  Your solution will be packaged based on the script attached with the distribution.  Please verify that your deployment documentation and all source code is packaged in your submission.</span>
 <br><br>
 <span class="bodySubtitle">Review</span><br>
-The submission is now out of your hands, and the Review Board will judge it on the scorecard, which you can find here <<link to scorecard>>.  Sit back, relax and wait for your chance to appeal the review.
+The submission is now out of your hands, and the Review Board will judge it on the scorecard, which you can find <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">here</A>.  Sit back, relax and wait for your chance to appeal the review.
 <br><br>
 <span class="bodySubtitle">Appeals</span><br>
 After review is complete, you will view and can appeal the score your application was given. You'll see the comments from the Review Board on each point in the Scorecard, and you can dispute any point. Please keep in mind that you must have a very good reason to appeal or it will be denied. If the reviewer makes a statement that is in conflict with the design, or if the reviewer has made an oversight, feel free to appeal. On the other hand, matters of opinion may not be appealed. If you are the winning assembler, you will have the opportunity to discuss reviewers' judgments in Final Fixes.
