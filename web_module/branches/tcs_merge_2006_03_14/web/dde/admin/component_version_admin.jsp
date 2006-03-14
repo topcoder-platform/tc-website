@@ -2006,9 +2006,15 @@ if (action != null) {
                     <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
                 </tr>
-                <tr valign="top">
-                    <td class="forumText" colspan="3"><%= teamMemberRoles[i].getDescription() %></td>
-                </tr>
+                <%
+                    if (teamMemberRoles[i].getDescription() != null) {
+                %>
+                            <tr valign="top">
+                                <td class="forumText" colspan="3"><%= teamMemberRoles[i].getDescription() %></td>
+                            </tr>
+                <%
+                    }
+                %>
 <% } %>
 
                 <tr valign="top">
