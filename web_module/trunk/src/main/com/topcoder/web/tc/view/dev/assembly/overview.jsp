@@ -98,7 +98,7 @@ The Deployment Engineer will set up an environment for each team and will test t
 <br><br>
 Each team will have a scorecard set up in online review.  Reviewers will score each team's submission based on an Application Scorecard.  The scorecard will ensure proper use of all components as outlined in the deliverables, as well as ensure that all code follows TopCoder guidelines.  Modifying or neglecting to use any components will be cause for immediate failure.  
 <br><br>
-<span class="bigRed">NOTE: For the Time Tracker Application, online review will not be used.  Scorecards will be in RTF format and can be viewed here. (link to scorecard)</span>
+<span class="bigRed">NOTE: For the Time Tracker Application, online review will not be used.  Scorecards will be in RTF format and can be viewed <A class="bigRed" href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">here</A>.</span>
 <br><br>
 The Appeals and Appeals Response stage will follow the scorecard review.  Each Team Captain can appeal any reviewer statement, as long as it is factually wrong.  Each reviewer will respond to the Team Captain's appeals.
 <br><br>
