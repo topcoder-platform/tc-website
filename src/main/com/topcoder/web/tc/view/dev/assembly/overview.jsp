@@ -64,7 +64,7 @@ TopCoder will post the competition details, specification and architecture deliv
 <br><br>
 <A name="team_creation"></A>
 <span class="bodySubtitle">Team Creation</span><br>
-Members who wish to head up a team of developers will register as Team Captains.  Members who wish to participate in the competition but do not want to be a Team Captain will register as Free Agents.  There will be a forum for each Assembly Competition that is dedicated to forming teams.  
+Members who wish to head up a team of developers will register as Team Captains.  Members who wish to participate in the competition but do not want to be a Team Captain will register as Free Agents.  There will be a <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">forum</A> for each Assembly Competition that is dedicated to forming teams.  
 <br><br>
 Team Captains will extend offers to Free Agents and other Team Captains to recruit them onto their team.  The offer will include a description of the proposed responsibilities and the percentage of project winnings that the team member will earn.  Free Agents may also contact Team Captains and offer their services as a team member.  Once an offer is accepted, the payment percentage is locked in.
 <br><br>

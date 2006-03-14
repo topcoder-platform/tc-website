@@ -37,6 +37,7 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
+<div align="right"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="7">Active Software Assembly Contests</td></tr>
    <tr>
@@ -66,9 +67,9 @@
       <td class="valueC">
       04.05.2006 09:00 AM EST
       </td>
-      <td class="valueC">
+      <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505764">join a team</A><br>
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A><br>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -91,9 +92,9 @@
       <td class="valueC">
       04.05.2006 09:00 AM EST
       </td>
-      <td class="valueC">
+      <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505765">join a team</A><br>
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A><br>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A>
       </td>
    </tr>
 </table>
