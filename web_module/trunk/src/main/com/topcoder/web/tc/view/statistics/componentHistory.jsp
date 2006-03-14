@@ -172,7 +172,7 @@ String sSortUrl = "/stat?c=component_history&amp;"+Constants.PHASE_ID+"="+srb.ge
             <TD class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
             <% if (resultRow2.getIntItem("component_id")!=-1) { %>
             <TD class="<%=even?"statLt":"statDk"%>">
-                <% if (resultRow2.getIntItem("viewable") ==1) { %>
+                <% if (resultRow2.getIntItem("viewable_category_ind") ==1) { %>
                 <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* round id */ + "]" %>'/>" CLASS="statLink">
                     <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
                 </A>

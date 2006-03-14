@@ -175,7 +175,7 @@ String sSortUrl = "/stat?c=reliability_history&cr="+srb.getProperty("cr")+"&sq=r
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" VALIGN="middle" HEIGHT="13"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="left">
-                       <% if (resultRow2.getIntItem("viewable") ==1) { %>
+                       <% if (resultRow2.getIntItem("viewable_category_ind") ==1) { %>
                      <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" CLASS="statText">
                          <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
                      </A>
