@@ -18,11 +18,11 @@
 <area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
 </map>
 <IMG SRC="/i/home/tco06_algo_reg_AMD.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
---%>
+
 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A>
+--%>
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
-<%-- High School
-<A href="/tc?module=Static&d1=hs&d2=home"><IMG SRC="/i/home/high_school.jpg" border="0" ALT="TopCoder High School"/></A>
---%>
+<%-- Assembly --%>
+<A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview"><IMG SRC="/i/home/assembly.gif" border="0" ALT="TopCoder Software Assembly Competitions"/></A>
