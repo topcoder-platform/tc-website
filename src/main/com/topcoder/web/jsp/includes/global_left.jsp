@@ -47,11 +47,11 @@
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit Deliverables &amp; Reviews", "dev_submit"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=113", "Statistics", "dev_stats"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;ph=113", "Meet the Review Board", "dev_review_board"));
-//      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_assembly_competitions')", "Software Assembly", "m_assembly_competitions"));
-//         nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=overview", "Overview", "assembly_overview"));
-//         nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=activeContests", "Active Contests", "assembly_compete"));
-//      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_testing_competitions')", "Software Testing", "m_testing_competitions"));
-//         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=overview", "Overview", "testing_overview"));
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_assembly_competitions')", "Software Assembly", "m_assembly_competitions"));
+         nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=overview", "Overview", "assembly_overview"));
+         nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=activeContests", "Active Contests", "assembly_compete"));
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_testing_competitions')", "Software Testing", "m_testing_competitions"));
+         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=overview", "Overview", "testing_overview"));
 //         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=activeContests", "Active Contests", "testing_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_contests')", "Marathon Matches", "m_long_contests"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=ViewActiveContests", "Compete", "long_compete"));
@@ -97,9 +97,13 @@
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devDocumentation", "Documentation", "dev_documentation"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devRatings", "Ratings", "dev_ratings"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devReliability", "Reliability Ratings", "dev_reliability_ratings"));
-//         nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_assembly_support')", "Assembly", "m_assembly_support"));
-//            nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=instructions", "How to Compete", "assembly_how_to_compete"));
-//            nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=tutorial", "Tutorial", "assembly_tutorial"));
+         nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_assembly_support')", "Assembly", "m_assembly_support"));
+            nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=instructions", "How to Compete", "assembly_how_to_compete"));
+            nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=tutorial", "Tutorial", "assembly_tutorial"));
+            nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=documentation", "Documentation", "assembly_documentation"));
+         nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_testing_support')", "Testing", "m_testing_support"));
+            nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=instructions", "How to Compete", "testing_how_to_compete"));
+            nav.search("m_testing_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=tutorial", "Tutorial", "testing_tutorial"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_support')", "Marathon Match", "m_long_support"));
             nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&d1=instructions", "How to Compete", "long_how_to_compete"));
 
