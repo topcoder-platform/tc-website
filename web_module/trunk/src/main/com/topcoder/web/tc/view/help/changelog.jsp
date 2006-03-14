@@ -40,6 +40,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.3 - 2006.03.xx
+        <ul>
+            <li>Change text at the top of the registration page to be more specific about sponsors and competitor information</li>
+        </ul>
+    </p>
+    <p>
         5.0.2 - 2006.03.13
         <ul>
             <li>Escape string data by default on rsc:item tag</li>
