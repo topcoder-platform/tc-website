@@ -43,6 +43,21 @@
         5.0.3 - 2006.03.xx
         <ul>
             <li>Change text at the top of the registration page to be more specific about sponsors and competitor information</li>
+            <li>Don't link to the component catalog for custom components on:
+                <ul>
+                    <li>Component Contest Details</li>
+                    <li>Scorecard Details</li>
+                    <li>Component Design Details</li>
+                    <li>Component Development Details</li>
+                    <li>Contest Status</li>
+                    <li>Registrants</li>
+                    <li>Component Earnings History</li>
+                    <li>Component Ratings History</li>
+                    <li>Reliability History</li>
+                </ul>
+            </li>
+            <li>Fix the passed review/win statistics in the member profile for dev and design to not used placed as an indicator</li>
+            <li>Change the win percentage record book page to require that one must place first and have a passing score</li>
         </ul>
     </p>
     <p>
