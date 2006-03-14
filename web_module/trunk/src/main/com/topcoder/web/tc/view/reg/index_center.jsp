@@ -92,8 +92,10 @@ function checkInputs(){
 
                         <p>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much
                         demographic information as possible without making the Registration process overly burdensome.  Furthermore, we require that you verify the accuracy of
-                        the information you provide.  This does not mean that sponsors have access to your personal information; they do not.  It means that we want to give
-                        them as accurate aggregate information as possible.</p>
+                        the information you provide.  This does not mean that sponsors have access to your personal information; in general, they do
+                        not. In certain circumstances such as participating in or opting in to certain events,
+                        sponsors will be given access to view your demographic information, educational and work
+                        experience (if provided by you), and contact information.</p>
 
                         <p>While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more
                         than just money to our member base.  We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill
