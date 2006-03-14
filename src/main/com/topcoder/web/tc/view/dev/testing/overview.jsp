@@ -55,12 +55,15 @@ Phases:
 </div>
 </div>
 <br><br>
+<A name="contest_posting"></A>
 <span class="bodySubtitle">Contest Posting</span><br>
 Each Testing Competition will coincide with an Assembly Competition.  TopCoder will post the competition details and timeframe for both competitions on its website, as well as the specification and architecture deliverables that apply to both competitions.  Members interested in competing in the Testing Competition should read through the documentation and decide whether or not to register.
 <br><br>
+<A name="registration"></A>
 <span class="bodySubtitle">Registration</span><br>
 To register for the Testing Competition, a member should email TopCoder at <A href="mailto:TestingCompetitions@topcoder.com">TestingCompetitions@topcoder.com</A>.  Registration will remain open until either the competition deadline has passed or there have been the requisite number of submissions that pass screening, whichever comes first.
 <br><br>
+<A name="competition"></A>
 <span class="bodySubtitle">Competition</span><br>
 The Competition phase consists of registrants creating test code that checks certain functionality requirements in the specific application being built in the Assembly Competition.  TopCoder will break up the application functionality into logical test case competitions.  Prizes will be assigned for first and second place per test case contest.  The prize purse for each Testing Competition will be based on the complexity and number of test case scenarios.  Each Testing Competition will consist of the test case scenarios focusing on specific areas of the application.  Each test case scenario will map to a use case.  The end result of this phase is a test code that will be run against submissions in the corresponding Assembly Competition.
 <br><br>
@@ -72,6 +75,7 @@ Once a participant has submitted their code, it will be automatically screened t
 <br><br>
 Once a submission has passed screening, the Assembly Competition teams will be allowed to download the test code.  Testing Competition participants need to be available to provide answers to questions from the Assembly Competition teams regarding the test code.  Testing Competition participants are not eligible to compete in the corresponding Assembly Competition.
 <br><br>
+<A name="review"></A>
 <span class="bodySubtitle">Review</span><br>
 At the end of the corresponding Assembly Competition, all of the test case scenario submissions that passed screening will be fully reviewed.
 <br><br>
