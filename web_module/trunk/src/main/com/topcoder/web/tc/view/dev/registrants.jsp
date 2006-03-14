@@ -65,9 +65,13 @@
         <tr>
             <td class="cat" nowrap="nowrap">Component:</td>
             <td class="stat" align="right" nowrap="nowrap">
+            <% if (registrants.getIntItem(0, "viewable")==1) { %>
             <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" set="<%=registrants%>"/>">
                 <rsc:item name="component_name" set="<%=registrants%>"/>
             </a>
+                <% } else { %>
+                <rsc:item name="component_name" set="<%=registrants%>"/>
+                <% } %>
             </td>
         </tr>
         <tr>

@@ -85,26 +85,19 @@
                         </ul>
 
 <%-- Documentation --%>
-<% if (projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_JAVA_CATALOG_ID || projectDetail.getIntItem(0, "root_category_id") == Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
-                        <p><strong>Documentation</strong><br />
-                        All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a>
-                        for this project is available on the TopCoder Software web site.</p>
-
-                        <p><strong>Requirement Specification</strong><br />
-                           View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
-                            </p>
-<% } else { %>
                         <p><strong>Documentation</strong><br />
                         Documentation / Specification available in component forums.
                         </p>
-                        <p>
-                        View <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">this component</a> on the TopCoder Software web site.
-                        </p>
+                <% if (projectDetail.getIntItem(0, "viewable")==1) { %>
+<p>
+View <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">this component</a> on the TopCoder Software web site.
+</p>
+                <% } %>
+
 
                         <p><strong>Requirement Specification</strong><br />
                            View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
                             </p>
-<% } %>
 <%-- Payment --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>

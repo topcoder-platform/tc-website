@@ -145,7 +145,15 @@ function hideAll(){
 <br><br>
 <b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
 <br>
-<b>Component:</b> <A href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A>
+<b>Component:</b>
+                <% if (projectInfo.getIntItem(0, "viewable")==1) { %>
+                    <A href='http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink">
+                        <rsc:item set="<%=projectInfo%>" name="component_name"/>
+                    </A>
+                <% } else { %>
+                    <rsc:item set="<%=projectInfo%>" name="component_name"/>
+                <% } %>
+
 <br>
 <b>Coder:</b> <tc-webtag:handle coderId='<%= uid %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
 <br>

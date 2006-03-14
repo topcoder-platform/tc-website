@@ -35,19 +35,16 @@
 
     String imgName = "";
     if (projectInfo.getStringItem(0, "category_desc").equals("Java")) {
-        imgName = "http://www.topcoder.com/i/development/smJava.gif";
+        imgName = "/i/development/smJava.gif";
     }
     if (projectInfo.getStringItem(0, "category_desc").equals(".NET")) {
-        imgName = "http://www.topcoder.com/i/development/netSm.gif";
+        imgName = "/i/development/netSm.gif";
     }
     if (projectInfo.getStringItem(0, "category_desc").equals("Java Custom")) {
-        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
+        imgName = "/i/development/smJavaCustom.gif";
     }
     if (projectInfo.getStringItem(0, "category_desc").equals(".NET Custom")) {
-        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
-    }
-    if (projectInfo.getStringItem(0, "category_desc").equals("JSF")) {
-        imgName = "http://www.topcoder.com/i/development/NAME_HERE.gif";
+        imgName = "/i/development/smNetCustom.gif";
     }
 
 
@@ -120,8 +117,16 @@
             <td class="cat" colspan="2">Component:</TD>
         </tr>
         <tr>
-            <TD class="stat" colspan="2" align="left"><A href='https://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
-                    class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A><br><br></TD>
+            <TD class="stat" colspan="2" align="left">
+                <% if (projectInfo.getIntItem(0, "viewable")==1) { %>
+                <A href='http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink">
+                    <rsc:item set="<%=projectInfo%>" name="component_name"/>
+                </A>
+                <% } else { %>
+                    <rsc:item set="<%=projectInfo%>" name="component_name"/>
+                <% } %>
+                <br><br>
+            </TD>
         </tr>
         <tr>
             <td class="cat" valign="top" style="padding-top: 3px">Catalog:</TD>

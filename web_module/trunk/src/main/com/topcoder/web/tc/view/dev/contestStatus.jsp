@@ -104,7 +104,11 @@
                 </a>
             </td>
             <td class="value">
+                <% if (resultRow.getIntItem("viewable")==1) { %>
                <span class="smallText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">component details</A></span>
+                <% } else { %>
+                &#160;
+                 <% } %>
             </td>
             <td class="valueC">
                <A href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>"><rsc:item name="rated_count" row="<%=resultRow%>"/> / <rsc:item name="unrated_count" row="<%=resultRow%>"/></A>
