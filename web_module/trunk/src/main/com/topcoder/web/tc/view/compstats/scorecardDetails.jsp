@@ -146,7 +146,7 @@ function hideAll(){
 <b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
 <br>
 <b>Component:</b>
-                <% if (projectInfo.getIntItem(0, "viewable")==1) { %>
+                <% if (projectInfo.getIntItem(0, "viewable_category_ind")==1) { %>
                     <A href='http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink">
                         <rsc:item set="<%=projectInfo%>" name="component_name"/>
                     </A>
