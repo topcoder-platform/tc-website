@@ -24,7 +24,7 @@
 <!-- Left Column Begins-->
 <td width="180">
    <jsp:include page="/includes/global_left.jsp">
-      <jsp:param name="node" value="assembly_tutorial"/>
+      <jsp:param name="node" value="assembly_documentation"/>
    </jsp:include>
 </td>
 <!-- Left Column Ends -->
@@ -34,7 +34,7 @@
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Tutorial"/>
+<jsp:param name="title" value="Documenation"/>
 </jsp:include>
 
 <span class="bigTitle">Assembly Review Scorecard</span>
