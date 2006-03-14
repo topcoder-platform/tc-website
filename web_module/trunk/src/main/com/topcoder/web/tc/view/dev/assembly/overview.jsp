@@ -82,7 +82,7 @@ The Competition phase consists of competing teams creating the final application
 <br><br>
 Each team will be responsible for creating their working environment.  Teams will be granted access to a private forum for each Assembly Competition.  This forum will be monitored by a TopCoder Architect who will answer any and all technical questions in the forum.  	
 <br><br>
-As the Testing Competitions (link to Testing Competitions Overview page) conclude, test cases will become available to the teams.  Once the test cases have been delivered to the Assembly Competition teams and the teams have submitted their code for the application, they may challenge any of the test cases.
+As the <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Testing Competitions</A> conclude, test cases will become available to the teams.  Once the test cases have been delivered to the Assembly Competition teams and the teams have submitted their code for the application, they may challenge any of the test cases.
 <br><br>
 Once a team has submitted their code, a TopCoder Deployment Engineer will install and run their code on a TopCoder server against the test cases submitted through the Testing Competition.  The Testing Competition participants and the team will receive feedback based on the results of the testing.  Once four teams have passed the initial review, no other teams will be allowed to submit any code.  
 <br><br>
