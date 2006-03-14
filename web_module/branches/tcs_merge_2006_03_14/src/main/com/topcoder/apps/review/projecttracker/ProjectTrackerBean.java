@@ -2879,6 +2879,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "            final_score = ?," +
                 "            placed = ?," +
                 "            payment = ?" +
+                "            passed_review_ind = ?" +
                 "      where user_id = ?" +
                 "             and project_id = ?";
 
@@ -2918,6 +2919,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psInsertScores.setDouble(1, score);
                 psInsertScores.setInt(2, place);
                 psInsertScores.setDouble(3, money);
+                psInsertScores.setInt(3, score >= minScore?1:0);
                 psInsertScores.setLong(4, rsScores.getLong("submitter_id"));
                 psInsertScores.setLong(5, projectId);
 
