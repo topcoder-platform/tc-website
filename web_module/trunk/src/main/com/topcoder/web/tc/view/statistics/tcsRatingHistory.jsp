@@ -163,7 +163,15 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
          <TR>
             <TD class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>"><A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" class="statLink"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
+            <TD class="<%=even?"statLt":"statDk"%>">
+                <% if (resultRow2.getIntItem("viewable") ==1) { %>
+                <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" class="statLink">
+                    <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
+                </A>
+                <% } else { %>
+                <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
+                <% } %>
+            </TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
