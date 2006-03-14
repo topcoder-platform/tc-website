@@ -77,7 +77,7 @@ At the end of the corresponding Assembly Competition, all of the test case scena
 <br><br>
 Any of the Assembly Competition teams can challenge the validity of any test code.  A TopCoder Project Manager and Architect will review the challenge and will decide whether the test code is valid or invalid.  No invalid test code will be used.
 <br><br>
-The Testing competitions will be graded based on how well they meet the criteria set forth in the scorecard, including code coverage, number of test cases created, number of identified bugs, etc.  Be sure to review the scorecard (link to scorecard) beforehand to see exactly what the criteria are.  
+The Testing competitions will be graded based on how well they meet the criteria set forth in the scorecard, including code coverage, number of test cases created, number of identified bugs, etc.  Be sure to review the <A href="/tc?module=Static&d1=dev&d2=testing&d3=sampleScorecard">scorecard</A> beforehand to see exactly what the criteria are.  
 <br><br>
 The first and second place finishers for each test case scenario will win prize money.  
 <br><br>
