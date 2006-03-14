@@ -2919,9 +2919,9 @@ public class ProjectTrackerBean implements SessionBean {
                 psInsertScores.setDouble(1, score);
                 psInsertScores.setInt(2, place);
                 psInsertScores.setDouble(3, money);
-                psInsertScores.setInt(3, score >= minScore?1:0);
-                psInsertScores.setLong(4, rsScores.getLong("submitter_id"));
-                psInsertScores.setLong(5, projectId);
+                psInsertScores.setInt(4, score >= minScore?1:0);
+                psInsertScores.setLong(5, rsScores.getLong("submitter_id"));
+                psInsertScores.setLong(6, projectId);
 
                 psInsertScores.executeUpdate();
             }
