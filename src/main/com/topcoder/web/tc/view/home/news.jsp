@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.15.06<br>12:00 noon</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors & LogicLibrary create governance platform</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
+"Service-oriented architecture vendors Blue Titan Software, TopCoder and Metallect have joined forces with LogicLibrary to support an end-to-end approach to SOA governance, from development through deployment."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505950" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.15.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to TCO06 Round 3</A>
@@ -202,17 +216,6 @@ Other complications aside, the problem set for this round generated very few que
          <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505931" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.07.06<br>12:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">New look, new navigation, new www.topcoder.com</span><br><br>
-      Take a look around.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505935" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
