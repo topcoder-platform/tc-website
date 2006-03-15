@@ -46,7 +46,7 @@ public class CPS extends FraudBase {
                 s1 = (Submission) submissions.get(r.getIndex());
                 report.append(r.getValue());
                 report.append("  ");
-                report.append(s1.getHandle());
+                report.append(s1.getReportInfo());
                 report.append("\n");
                 potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
             } else {

@@ -34,21 +34,9 @@ public class Same extends FraudBase {
                     l1 = ((TokenizedSource) tokens.get(i)).getTokens();
                     l2 = ((TokenizedSource) tokens.get(j)).getTokens();
                     if (l1.equals(l2)) {
-                        report.append(s1.getHandle());
-                        report.append("(");
-                        report.append(s1.getCoderId());
-                        report.append(")");
-                        report.append(" ");
-                        report.append("s");
-                        report.append(s1.getSubmissionNumber());
+                        report.append(s1.getReportInfo());
                         report.append(" is the same as ");
-                        report.append(s2.getHandle());
-                        report.append("(");
-                        report.append(s2.getCoderId());
-                        report.append(")");
-                        report.append(" ");
-                        report.append("s");
-                        report.append(s2.getSubmissionNumber());
+                        report.append(s2.getReportInfo());
                         report.append("\n");
                         potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
                         potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));

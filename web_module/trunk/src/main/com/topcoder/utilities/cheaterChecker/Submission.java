@@ -148,5 +148,17 @@ public class Submission {
         this.included = included;
     }
 
+    public String getReportInfo() {
+        StringBuffer report = new StringBuffer(100);
+        report.append(getHandle());
+        report.append("(");
+        report.append(getCoderId());
+        report.append(")");
+        report.append(" ");
+        report.append("s");
+        report.append(getSubmissionNumber());
+        return report.toString();
+    }
+
 
 }
