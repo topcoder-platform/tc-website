@@ -65,7 +65,7 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="TCS Forums">here</A>.
+Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505946">here</A>.
 
 <br><br>
 

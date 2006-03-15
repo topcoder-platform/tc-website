@@ -84,7 +84,7 @@ type="application/x-shockwave-flash"
 pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>
 
-			<p><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></p>
+			<p><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a> today so we can get started developing your next application.</strong></p>
 		</div>
         </td>
 <!-- Middle Column ends -->
