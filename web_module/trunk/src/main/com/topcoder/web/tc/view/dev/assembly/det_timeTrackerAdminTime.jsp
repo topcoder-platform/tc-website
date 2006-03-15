@@ -65,7 +65,7 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="TCS Forums">here</A>.
+Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21304033">here</A>.
 <br><br>
 
 <div class="sectionHeader">Payment</div>
