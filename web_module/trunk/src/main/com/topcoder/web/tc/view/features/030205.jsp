@@ -117,7 +117,7 @@ In conclusion, the only way to succeed with performance is to set goals and meas
 
                         <p><br/></p>
 
-                        <p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
+                        <p>Would you like to <a href="/tc?module=Static&d1=features&d2=topics" class="bodyGeneric">write a feature?</a></p>
 
 
 

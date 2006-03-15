@@ -402,7 +402,7 @@ methods and the venerable MVC design pattern.
 <!-- <IMG SRC="/i/m/the_gigi_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/> -->
 By&#160;the_gigi<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=292607" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
       
-<P><A HREF="/?&amp;t=features&amp;c=feat_topics" CLASS="bodyGeneric">Would you like to write a feature?</A></P>
+<P><A HREF="/tc?module=Static&d1=features&d2=topics" CLASS="bodyGeneric">Would you like to write a feature?</A></P>
 
 
 

@@ -237,7 +237,7 @@ The API for Java 1.4.2 can be found here at <a href="http://java.sun.com/j2se/1.
 </p>
                         <p><br/></p>
 
-                        <p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
+                        <p>Would you like to <a href="/tc?module=Static&d1=features&d2=topics" class="bodyGeneric">write a feature?</a></p>
 
 
 

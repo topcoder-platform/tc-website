@@ -274,7 +274,7 @@ the Challenge Phase to its fullest extent, a strategy that <B>Pablo Gilberto</B>
 <IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
       
-<P><A HREF="/?&amp;t=features&amp;c=feat_topics" CLASS="bodyGeneric">Would you like to write a feature?</A></P>
+<P><A HREF="/tc?module=Static&d1=features&d2=topics" CLASS="bodyGeneric">Would you like to write a feature?</A></P>
 
 
 
