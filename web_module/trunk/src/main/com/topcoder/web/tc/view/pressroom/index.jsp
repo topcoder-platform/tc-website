@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- ADT --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors partner with LogicLibrary to create integrated governance platform</A></strong></font><br />
+Service-oriented architecture vendors Blue Titan Software, TopCoder and Metallect have joined forces with LogicLibrary to support an end-to-end approach to SOA governance, from development through deployment. <span class="prHead"> [March 14 - ADT]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Wall Street & Technology --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -522,7 +537,7 @@ Poland has just left the US behind and taken first place in TopCoder's country r
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="http://timesofindia.indiatimes.com/articleshow/1212895.cms" target="_blank"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
+                    <td width="274"><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.adtmag.com/article.asp?id=11752" target="_blank">Components for SOAs and Other App Dev Projects</A></strong></font><br />

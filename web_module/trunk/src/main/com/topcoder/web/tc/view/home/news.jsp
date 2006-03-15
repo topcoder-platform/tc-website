@@ -32,7 +32,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="505948" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
