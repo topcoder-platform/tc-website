@@ -183,6 +183,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
+            SOA vendors partner with LogicLibrary to create integrated governance platform <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">...more</A><br>[March 14]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
             UBS Sponsors TopCoder Open <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">...more</A><br>[March 13]<br><br>
             
@@ -196,8 +199,6 @@ margin:0px auto;
 
             TopCoder Names UBS as Premier Sponsor of 2006 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_030306">...more</A><br>[March 3]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/spartanDaily_logo.gif" width="88" height="10" alt="Spartan Daily" border="0" /></div>
-            SJSU codes a win <A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">...more</A><br>[February 16]<br><br>
             </td>
          </tr>
       </table>
