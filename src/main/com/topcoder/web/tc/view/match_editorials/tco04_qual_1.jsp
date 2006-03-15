@@ -223,7 +223,7 @@ line
 refers to strips that do not exist when <i>n</i> &lt;= 4.  
 To avoid special cases for these values of <i>n</i>, 
 it is useful to insert phantom strips, known as 
-<a href="http://www.topcoder.com/?&amp;t=features&amp;c=feat_090104">sentinels</a>,
+<a href="/tc?module=Static&d1=features&d2=090104">sentinels</a>,
 in positions 0, -1, -2, and -3, initialized to some non-existent
 fabric number like 99.  Then we are guaranteed that the current
 fabric will not equal the fabric in, say, strip <i>n</i>-4 when

@@ -135,7 +135,7 @@ If you a real guru, you can actually solve the problem in a single line. Here is
 <pre>
 return (" "+text+" ").replaceAll(" ZEE ","  ZEE  ").replaceAll(" ZEE "," ZED ").replaceAll("  "," ").trim();
 </pre>
-Spaces are added at the beginning and end of text as advised <a href = "http://www.topcoder.com/index?t=features&amp;c=feat_090104">here</a>. I leave it as a little puzzle to figure out why the first and third <code>replaceAll</code> calls are needed. By the way, for
+Spaces are added at the beginning and end of text as advised <a href = "/tc?module=Static&d1=features&d2=090104">here</a>. I leave it as a little puzzle to figure out why the first and third <code>replaceAll</code> calls are needed. By the way, for
 those wondering who Bob and Doug are, I refer you to Google.
 </p>
 
@@ -428,7 +428,7 @@ This is not at all obvious, but the examples give you the worst case, so you can
 <p>
 If, for some reason, your program is not quite fast enough, there are still a couple optimizations
 you can try. If you precompute the factors of n, and then use 
-<a href = "http://www.topcoder.com/index?t=features&amp;c=feat_040104">memoization</a> with a hash table, for example, you can make everything run in under a second.
+<a href = "/tc?module=Static&d1=features&d2=040104">memoization</a> with a hash table, for example, you can make everything run in under a second.
 </p>
 
 <font size="+2">

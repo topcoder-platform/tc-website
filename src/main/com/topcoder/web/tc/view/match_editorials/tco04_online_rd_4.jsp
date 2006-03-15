@@ -337,7 +337,7 @@ have to be moved.
 
 <p>
 Longest Increasing Subsequence is one of the classic applications of
-<a href="http://www.topcoder.com/index?t=features&amp;c=feat_040104">dynamic
+<a href="/tc?module=Static&d1=features&d2=040104">dynamic
 programming</a>.  We maintain an array <tt>longest[N]</tt>, where
 <tt>longest[i]</tt> is the length of the longest increasing subsequence ending
 with the card at index <tt>i</tt>.  We can fill in this array as follows:
