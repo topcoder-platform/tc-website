@@ -188,7 +188,7 @@ development projects.</p>
 
 <p>By&#160;srowen<br /><i>TopCoder Member</i></p>
 
-<p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
+<p>Would you like to <a href="/tc?module=Static&d1=features&d2=topics" class="bodyGeneric">write a feature?</a></p>
 
 
 

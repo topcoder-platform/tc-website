@@ -103,7 +103,7 @@ Now for some exercises that you can do between work to relieve tension and muscl
 
                         <p><br/></p>
 
-                        <p>Would you like to <a href="/?&amp;t=features&amp;c=feat_topics" class="bodyGeneric">write a feature?</a></p>
+                        <p>Would you like to <a href="/tc?module=Static&d1=features&d2=topics" class="bodyGeneric">write a feature?</a></p>
 
 
 
