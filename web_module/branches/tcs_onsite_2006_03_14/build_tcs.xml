@@ -132,6 +132,21 @@
             <include name="com/topcoder/web/common/tag/HandleTag.java" />
             <include name="com/topcoder/web/common/model/**" />
             <include name="com/topcoder/web/common/security/**" />
+            <include name="com/topcoder/web/onsite/**" />
+        </javac>
+    </target>
+
+    <target name="compile_onsite" depends="init,jar_shared">
+        <javac
+            srcdir="${java.dir}"
+            destdir="${classes.dir}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            source="1.4"
+            target="1.4"
+            >
+            <include name="com/topcoder/web/onsite/**" />
         </javac>
     </target>
 
@@ -432,7 +447,7 @@
         <antcall target="explode"/>
     </target>
     
-    <target name="war-onsite" depends="compile">
+    <target name="war-onsite" depends="compile_onsite">
         <war warfile="${war.dir}/onsite.war" webxml="${resources.dir}/onsite/web.xml">
             <fileset dir="${java.dir}/com/topcoder/web/onsite/view">
                 <include name="**/*.*"/>
