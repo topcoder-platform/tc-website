@@ -40,7 +40,7 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.3 - 2006.03.xx
+        5.0.3 - 2006.03.15
         <ul>
             <li>Change text at the top of the registration page to be more specific about sponsors and competitor information</li>
             <li>Don't link to the component catalog for custom components on:
