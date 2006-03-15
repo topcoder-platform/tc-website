@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.15.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to TCO06 Round 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.09.06 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_prize_winners">TCO06 Component Competition Prize Winners</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.08.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">TCO06 "Pick Me" Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.06.06 12:00 PM - </td><td width="100%">Finalists for the TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_bracket">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_bracket">Development</A> Competitions</td></tr>
