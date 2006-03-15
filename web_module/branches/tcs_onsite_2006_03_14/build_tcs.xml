@@ -431,4 +431,53 @@
     <target name="deploy" depends="build-ear,build-screening">
         <antcall target="explode"/>
     </target>
+    
+    <target name="war-onsite" depends="compile">
+        <war warfile="${war.dir}/onsite.war" webxml="${resources.dir}/onsite/web.xml">
+            <fileset dir="${java.dir}/com/topcoder/web/onsite/view">
+                <include name="**/*.*"/>
+            </fileset>
+            <fileset dir="${java.dir}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="top.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
+                <include name="style.jsp"/>
+                <include name="body_top.jsp"/>
+                <include name="page_title.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="includes/global_left.jsp"/>
+                <include name="includes/modules/simpleSearch.jsp"/>
+                <include name="calendar.jsp"/>
+                <include name="public_right.jsp"/>
+            </fileset>
+            <classes dir="${classes.dir}">
+                <include name="com/topcoder/common/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/web/onsite/**/*.class"/>
+                <include name="com/fx4m/**/*.class"/>
+            </classes>
+            <webinf dir="${resources.dir}/taglib">
+                <include name="tc.tld"/>
+                <include name="rsc-taglib.tld"/>
+                <include name="tc-webtags.tld"/>
+                <include name="tc-taglib.tld"/>
+                <include name="nav.tld"/>
+            </webinf>
+            <webinf dir="${struts.lib.dir}">
+                <include name="*.tld"/>
+            </webinf>
+            <webinf dir="${resources.dir}/onsite">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <lib dir="${struts.lib.dir}">
+                <include name="*.jar"/>
+            </lib>
+        </war>
+        <unwar src="${war.dir}/onsite.war" dest="${jboss_deploy}/onsite.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/onsite.war/META-INF"/>
+    </target>
+    
+    
 </project>
