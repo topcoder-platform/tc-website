@@ -69,10 +69,8 @@
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505945">join a team</A>
-      <%--
       <br>
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A>
-      --%>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21303682">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -97,10 +95,8 @@
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505946">join a team</A>
-      <%--
       <br>
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2">discuss the project</A>
-      --%>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21304033">discuss the project</A>
       </td>
    </tr>
 </table>
