@@ -219,19 +219,41 @@
             try {
                 summary = catalog.getCategorySummary(lngCategory);
             } catch (CatalogException e) {
-                //TODO send redirect
-                e.printStackTrace(new PrintWriter(out));
+                // redirect to an error page
+                response.sendRedirect("/attention/error_categorynotfound.jsp");
+                return;
+            }
+            long rootCategory = summary.getParent();
+            if (rootCategory == 0) {
+                rootCategory = summary.getId();
+            }
+            
+            // Get only visible categories.
+            Category[] baseCategories = catalog.getBaseCategories(true);
+            boolean visibleCategory = false;
+            for (int i = 0; i < baseCategories.length && !visibleCategory; i++) {
+                if (rootCategory == baseCategories[i].getId()) {
+                    visibleCategory = true;
+                }
+            }
+        
+            if (!visibleCategory) {
+                // redirect to an error page
+                response.sendRedirect("/attention//error_categorynotfound.jsp");
+                return;
             }
         } else {
             try {
                 summaries = new CategorySummary[cats.length];
                 for (int i = 0; i < summaries.length; i++) summaries[i] = catalog.getCategorySummary(cats[i].getId());
             } catch (CatalogException e) {
-                //TODO send redirect
-                e.printStackTrace(new PrintWriter(out));
+                // redirect to an error page
+                response.sendRedirect("/attention/error_categorynotfound.jsp");
+                return;
             }
         }
     }
+
 %>
 <html>
 <head>
@@ -423,7 +445,7 @@
                             </tr>
 
                             <%
-                                out.print(displayDetailed(catalog.getAllComponents(), javaId, netId, flashId));
+                                out.print(displayDetailed(catalog.getAllComponents(true), javaId, netId, flashId));
                             %>
 
                             <tr valign="top"><td class="forumHeadFoot" colspan="3"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>

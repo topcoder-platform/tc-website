@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -38,8 +38,17 @@ import com.topcoder.util.log.LogFactory;
  * Form bean for the project editing page and admin project detail page.
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.2
  */
 public final class ProjectForm extends ReviewForm {
 
@@ -157,7 +166,16 @@ public final class ProjectForm extends ReviewForm {
      */
     private boolean sendMail = false;
 
+    /**
+     * If project is on autopilot.
+     */
     private boolean autopilot = false;
+
+    /**
+     * If responses during appeals are allowed.
+     * @since 1.0.2
+     */
+    private boolean responseDuringAppeals = false;
 
     /**
      * If a submitter role can be removed.
@@ -1138,6 +1156,7 @@ public final class ProjectForm extends ReviewForm {
          }
 
         this.autopilot = project.getAutoPilot();
+        this.responseDuringAppeals = project.getResponseDuringAppeals();
 
         setId(project.getId());
         // Default sending mail to false
@@ -1316,6 +1335,26 @@ public final class ProjectForm extends ReviewForm {
 
     public void setAutoPilot(boolean b) {
         project.setAutoPilot(b);
+    }
+
+    /**
+     * Return the flag idicating if appeals response are allowed during appeals phase.
+     *
+     * @return true if appeals response are allowed.
+     * @since 1.0.2
+     */
+    public boolean getResponseDuringAppeals() {
+        return project.getResponseDuringAppeals();
+    }
+
+    /**
+     * Set the flag idicating if appeals response are allowed during appeals phase.
+     *
+     * @param responseDuringAppeals The new flag value.
+     * @since 1.0.2
+     */
+    public void setResponseDuringAppeals(boolean responseDuringAppeals) {
+        project.setResponseDuringAppeals(responseDuringAppeals);
     }
 
     /**

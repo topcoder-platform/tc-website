@@ -33,8 +33,16 @@ import java.util.TimerTask;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Added notification when project is marked as allowing appeals responses during appeals phase and
+ * when moving to appeal response phase there aren't unresolved appeals.
+ * </li>
+ * </ol>
+ *
  * @author rfairfax, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class AutoPilotTimer
         extends ServiceMBeanSupport
@@ -174,8 +182,39 @@ public class AutoPilotTimer
                             } else {
                                 Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
                                 UserRole[] participants = p.getParticipants();
+                                StringBuffer mail = null;
+                                String emailSubject = "";
                                 // If there are no appeals, send email to PM
                                 if (appeals.length == 0) {
+                                    mail = new StringBuffer();
+                                    mail.append("The following project: \n\n");
+                                    mail.append(p.getName());
+                                    mail.append("\n\nhas completed appeals phase and doesn't have");
+                                    mail.append(" existing appeals.");
+                                    logger.info("No appeals found, sending mail to PM...");
+                                    emailSubject = "AutoPilotTimer: Appeals Notification (No Appeals found)";
+                                } else {
+                                    // if appeals responses are allowed during appeal phase,
+                                    // check if all appeals are responded and then send notification.
+                                    if (p.getResponseDuringAppeals()) {
+                                        boolean allResolved = true;
+                                        for (int j = 0; j < appeals.length && allResolved; j++) {
+                                            allResolved = allResolved && appeals[j].isResolved();
+                                        }
+                                        if (allResolved) {
+                                            mail = new StringBuffer();
+                                            mail.append("The following project: \n\n");
+                                            mail.append(p.getName());
+                                            mail.append("\n\nhas completed appeals phase with all");
+                                            mail.append(" appeals responded.");
+                                            logger.info("All appeals resolved, sending mail to PM...");
+                                            emailSubject =
+                                                "AutoPilotTimer: Appeals Notification (All Appeals responded)";
+                                        }
+                                    }
+                                }
+
+                                if (mail != null) {
                                     //lookup pm
                                     String email = "";
                                     for (int j = 0; j < participants.length; j++) {
@@ -185,20 +224,11 @@ public class AutoPilotTimer
                                     }
 
                                     if (email.equals("")) {
-                                        logger.debug("ERROR: Cannot locate PM for Appeals Response Notification");
+                                        logger.debug("ERROR: Cannot locate PM for Appeals Notification");
                                         continue;
                                     }
 
-                                    logger.info("No appeals found, sending mail to PM...");
-
-                                    StringBuffer mail = new StringBuffer();
-                                    mail.append("The following project: \n\n");
-                                    mail.append(p.getName());
-                                    mail.append("\n\nhas completed appeals response and doesn't have");
-                                    mail.append(" existing appeals.");
-
-                                    sendMail("autopilot@topcoder.com", email,
-                                        "AutoPilotTimer: Appeals Response Notification (No Appeals found)",
+                                    sendMail("autopilot@topcoder.com", email, emailSubject,
                                             mail.toString());
                                 }
                             }

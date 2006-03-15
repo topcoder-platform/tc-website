@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.dde.persistencelayer.interfaces;
 
 import javax.ejb.CreateException;
@@ -8,8 +12,18 @@ import java.util.Collection;
 /**
  * The local home interface representing the CMP bean for the user_role table.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Description attribute was added.
+ * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
+ * </ol>
+ *
+ * @version 1.0.1
+ * @author Timur Zambalayev, pulky
  */
 public interface LocalDDEUserRoleHome extends EJBLocalHome {
 
@@ -30,14 +44,15 @@ public interface LocalDDEUserRoleHome extends EJBLocalHome {
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
+     * @param description           Role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
      * @param roles                 roles.
      * @return the local interface of the created entity object.
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    LocalDDEUserRole create(int tcsRating, LocalDDEUserMaster userMaster, LocalDDECompVersions compVersions, LocalDDERoles roles)
+    LocalDDEUserRole create(String description, LocalDDEUserMaster userMaster,
+        LocalDDECompVersions compVersions, LocalDDERoles roles)
             throws CreateException;
 
     /**

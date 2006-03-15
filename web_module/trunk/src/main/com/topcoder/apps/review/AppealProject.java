@@ -25,8 +25,16 @@ import javax.transaction.UserTransaction;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase only when project is
+ * marked as not allowing appeals responses during appeals phase.
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class AppealProject implements Model {
 
@@ -116,14 +124,23 @@ public class AppealProject implements Model {
                 if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
 */
 
+                // if project is marked as allow responses during appeals phase, permit the response.
+                boolean responseDuringAppeals = project.getResponseDuringAppeals();
+
                 // check permission
                 if (user.getId() == appeal.getAppealer().getId()) {
                     if (project.getCurrentPhase().getId() != Phase.ID_APPEALS) {
                         return new FailureResult("You can appeal only during the appeal phase");
                     }
                 } else if (user.getId() == appeal.getReviewer().getId()) {
-                    if (project.getCurrentPhase().getId() != Phase.ID_APPEALS_RESPONSE) {
-                        return new FailureResult("You can reply appeals only during the appeal response phase");
+                    if (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE ||
+                        (project.getCurrentPhase().getId() == Phase.ID_APPEALS && responseDuringAppeals))) {
+                            if (responseDuringAppeals) {
+                                return new FailureResult(
+                                    "You can reply appeals only during appeal or appeal response phases");
+                            } else {
+                                return new FailureResult("You can reply appeals only during the appeal response phase");
+                            }
                     }
                 } else if (!PermissionHelper.isAdmin(user)) {
                     return new FailureResult("You cannot save appeals for this project");
@@ -152,7 +169,7 @@ public class AppealProject implements Model {
                     if (appeal.isResolved()) {
                         // compute score and save the ReviewScorecard
                         ReviewScorecard scorecard = documentManager.getReviewScorecard(
-                                project, appeal.getReviewer().getId(), appeal.getSubmitter().getId(), user.getTCSubject());
+                            project, appeal.getReviewer().getId(), appeal.getSubmitter().getId(), user.getTCSubject());
                         try {
                             scorecard.setScore(new ScoringHelper().calculateScore(scorecard).getWeightedScore());
                         } catch (ArithmeticException e) {

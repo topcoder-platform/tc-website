@@ -6,6 +6,8 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.projecttracker.Phase;
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.util.log.Level;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -28,8 +30,16 @@ import javax.servlet.http.HttpServletResponse;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase only when project is
+ * marked as not allowing appeals responses during appeals phase.
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public final class AppealAction extends ReviewAction {
 
@@ -103,6 +113,7 @@ public final class AppealAction extends ReviewAction {
             }
 */
             // configured functionality to permit edition during appeals phase.
+
             boolean permitEditDuringAppeals;
             try {
                 permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
@@ -112,12 +123,30 @@ public final class AppealAction extends ReviewAction {
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
 
+            // if project allows appeals responses during appeal phase, appeals can't be edited.
+            boolean responseDuringAppeals = false;
+            try {
+                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+                Project project = projectTracker.getProject(orpd.getProject(), orpd.getUser().getTCSubject());
+                responseDuringAppeals = project.getResponseDuringAppeals();
+            } catch (Exception e) {
+                // ignore, default is false.
+            }
+
+            if (responseDuringAppeals) {
+                request.setAttribute("permitAppealsResponse", new Boolean(true));
+            }
+
+            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;
+
             long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                 request.setAttribute("appealerEdit", new Boolean(true));
             } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
-                    !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                // if project is marked as allow responses during appeals phase, permit the edition.
+                !appeal.isResolved() && (phaseId == Phase.ID_APPEALS_RESPONSE || (phaseId == Phase.ID_APPEALS &&
+                    responseDuringAppeals))) {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
 
