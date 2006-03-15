@@ -30,7 +30,7 @@ public class MainServlet extends BaseServlet {
             throws IOException {
 
         if (request.getServerName().equals("topcoder.com")) {
-            response.sendRedirect("http://www.topcoder.com/tc");
+            response.sendRedirect("http://www.topcoder.com/onsite");
             return;
         }
         super.process(request, response);
