@@ -88,7 +88,13 @@
 
 <%-- Documentation --%>
                         <p><strong>Documentation</strong><br />
-                        Documentation / Specification available in component forums.
+                        Documentation / Specification available in the
+                            <% if (projectDetail.getItem(0, "forum_id").getResultData()==null) { %>
+                            component forums.
+                            <% } else { %>
+                            <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">component forums</a>.
+                            <% } %>
+                            
                         </p>
 <% if (projectDetail.getIntItem(0, "viewable")==1) { %>
                         <p>
