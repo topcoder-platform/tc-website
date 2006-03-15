@@ -475,8 +475,8 @@
                 <include name="*.jar"/>
             </lib>
         </war>
-        <unwar src="${war.dir}/onsite.war" dest="${jboss_deploy}/onsite.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/onsite.war/META-INF"/>
+        <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
+        <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
     </target>
     
     
