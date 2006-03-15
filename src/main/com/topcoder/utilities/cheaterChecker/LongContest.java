@@ -145,6 +145,7 @@ public class LongContest {
             query.append(" , c.class_name");
             query.append(" , c.method_name");
             query.append(" , s.submission_number");
+            query.append(" , s.example");
             query.append("  FROM long_component_state cc");
             query.append(" , long_submission s ");
             query.append(" , long_comp_result rr ");
@@ -172,7 +173,11 @@ public class LongContest {
             CommentStripper cs = new CommentStripper();
             ret = new ArrayList();
             for (rs = ps.executeQuery(); rs.next(); ret.add(s)) {
-                s = new Submission();
+                if (rs.getInt("example")==1) {
+                    s = new ExampleSubmission();
+                } else {
+                    s = new Submission();
+                }
                 s.setHandle(rs.getString("handle"));
                 s.setCoderId(rs.getInt("coder_id"));
                 //s.setClassFile(rs.getBytes("class_file"));

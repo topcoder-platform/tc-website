@@ -53,15 +53,9 @@ public class SimilarSourceSubsequences extends FraudBase {
                 s2 = (Submission) submissions.get(r.getIndex2());
                 report.append(r.getValue());
                 report.append("  ");
-                report.append(s1.getHandle());
-                report.append("(");
-                report.append(s1.getCoderId());
-                report.append(")");
+                report.append(s1.getReportInfo());
                 report.append(" ");
-                report.append(s2.getHandle());
-                report.append("(");
-                report.append(s2.getCoderId());
-                report.append(")");
+                report.append(s2.getReportInfo());
                 report.append("\n");
                 potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
                 potentialViolators.add(new User(s2.getCoderId(), s2.getHandle()));
