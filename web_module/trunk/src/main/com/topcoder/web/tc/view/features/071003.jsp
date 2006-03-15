@@ -90,7 +90,7 @@ Perhaps most importantly, threads that manipulate immutable objects have
 drastically reduced synchronization requirements.  Two threads can safely
 access or even update the same object without any synchronization whatsoever.
 
-See <b>schveiguy</b>'s recent article on <A href="/index?t=features&amp;c=feat_052703">Threads and Atomicity</A> for a discussion of the kinds
+See <b>schveiguy</b>'s recent article on <A href="/tc?module=Static&d1=features&d2=052703">Threads and Atomicity</A> for a discussion of the kinds
 of headaches caused by threads when working with ordinary, mutable objects.
 
 </p>
@@ -184,7 +184,7 @@ The most serious downside of immutable objects is that they require a
 different mindset from mutable objects, one that many programmers
 initially find foreign.  For example, it is often easier to process
 immutable objects using a recursive, functional style (see
-<b>radeye</b>'s article on <A href="/index?t=features&amp;c=feat_010803">Functional Programming</A>) 
+<b>radeye</b>'s article on <A href="/tc?module=Static&d1=features&d2=feat_010803">Functional Programming</A>) 
 than the loops and assignments many programmers are most
 comfortable with.  But if you can get past this initial discomfort, you will
 

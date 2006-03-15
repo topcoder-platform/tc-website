@@ -166,7 +166,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <p>
 This was probably the hardest problem of the qualification round.  It requires
-the use of <a href="/index?t=features&amp;c=feat_040104">dynamic programming</a>.
+the use of <a href="/tc?module=Static&d1=features&d2=040104">dynamic programming</a>.
 The basic idea is that you want to figure out the optimal way to place the last
 <tt>wordCount-k</tt> words for all <tt>k</tt>.  Once you know the optimal placement for
 all <tt>k &gt; j+1</tt>, you can then calculate the optimal placement for 

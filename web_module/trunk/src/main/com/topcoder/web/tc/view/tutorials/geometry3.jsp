@@ -229,7 +229,7 @@ Requires: <a href="#pointinpolygon">Point In Polygon</a>, <a href="/tc?module=St
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4750&pm=2411">PuckShot (SRM 186)</a><br/>
 Requires: <a href="#pointinpolygon">Point In Polygon</a>, <a href="/tc?module=Static&d1=tutorials&d2=geometry2#line_line_intersection">Line-Line Intersection</a><br/><br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4670&pm=1960">ElectronicScarecrows (SRM 173)</a><br/>
-Requires: <a href="/tc?module=Static&d1=tutorials&d2=geometry2#convexhull">Convex Hull</a>, <a href="/index?t=features&c=feat_040104">Dynamic Programming</a><br/><br/>
+Requires: <a href="/tc?module=Static&d1=tutorials&d2=geometry2#convexhull">Convex Hull</a>, <a href="/tc?module=Static&d1=features&d2=040104">Dynamic Programming</a><br/><br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4375&pm=1008">Mirrors (TCI '02 Finals)</a><br/>
 Requires: <a href="/tc?module=Static&d1=tutorials&d2=geometry2#reflection">Reflection</a>, <a href="/tc?module=Static&d1=tutorials&d2=geometry2#line_line_intersection">Line-Line Intersection</a><br/><br/>
 <a class="bodySubtitle" href="/tc?module=ProblemDetail&rd=4355&pm=924">Symmetry (TCI '02 Round 4)</a><br/>

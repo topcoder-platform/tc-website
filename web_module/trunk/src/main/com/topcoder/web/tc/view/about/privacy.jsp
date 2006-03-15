@@ -70,7 +70,7 @@ Spectators may be allowed to view a competition without identifying themselves, 
 <br><br>
 As a TopCoder member, you may choose to create a more extensive profile that includes your work and educational experience, as well as your relevant technology skills.  You have the ability to update and change this information at any time and we encourage you to keep it updated.
 <br><br>
-Only TopCoder sponsors and subscribing employers will have access to view your demographic information, educational and work experience (if provided by you), and contact information.
+In certain circumstances such as participating in or opting in to certain events, TopCoder sponsors and subscribing employers will be given access to view your demographic information, educational and work experience (if provided by you), and contact information.
 <br><br>
 TopCoder sponsors and subscribing employers may contact you proactively based upon your skills, experience and TopCoder success.  If you are contacted by a third-party regarding employment opportunities and/or media interest as a result in your participation in TopCoder competitions (including, but not limited to, single-round matches and tournaments), you agree to promptly notify TopCoder of such contact.  TopCoder may decide to utilize a process through which TopCoder members may choose to review online inquiries from interested TopCoder sponsors or subscribing companies before being contacted by those companies.
 <br><br>
