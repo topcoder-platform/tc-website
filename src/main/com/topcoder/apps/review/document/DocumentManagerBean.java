@@ -40,8 +40,16 @@ import java.util.*;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Changed constraint to permit appeals edition in appeals phase only when project is
+ * marked as not allowing appeals responses during appeals phase.
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -749,6 +757,7 @@ public class DocumentManagerBean implements SessionBean {
 
             // If scorecard is completed and the user isn't admin/pm,
             // or reviewer in appeals-phase
+            // or reviewer in appeal phase with project marked as allowing appelas response during appealse
             // then don't allow save!
             if (scorecardIsCompleted &&
                     !(Common.isAdmin(requestor) ||
@@ -757,8 +766,11 @@ public class DocumentManagerBean implements SessionBean {
             if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
 */
+                boolean responseDuringAppeals = scorecard.getProject().getResponseDuringAppeals();
                 if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
-                        scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE)) {
+                        (scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE ||
+                            scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS &&
+                                responseDuringAppeals))) {
 
                     String infoMsg = "DM.saveScorecard():\n" +
                             "scorecard_id: " + scorecard.getId() + "\n" +
@@ -4563,6 +4575,10 @@ public class DocumentManagerBean implements SessionBean {
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
 
+            // if project allows appeals responses during appeal phase, appeals can't be edited.
+            boolean responseDuringAppeals = project.getResponseDuringAppeals();
+            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;
+
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
             // If appeal exists and the user isn't the reviewer
@@ -4570,14 +4586,13 @@ public class DocumentManagerBean implements SessionBean {
             // is configured to accept edition during this phase!
             // If appeal doesn't exist and the user isn't the appealer
             // then don't allow save!
-            if ((appealIsResolved &&
-                    !(Common.isAdmin(requestor) ||
-                    Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) || (appeal.getId() != -1
-                    && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) || !permitEditDuringAppeals) &&
-                    !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) &&
-                    appeal.getReviewer().getId() == requestor.getUserId())) ||
-                    (appeal.getId() == -1 &&
-                    !(appeal.getAppealer().getId() == requestor.getUserId()))) {
+
+            if ((appealIsResolved && !(Common.isAdmin(requestor) || Common.isRole(project, requestor.getUserId(),
+                    Role.ID_PRODUCT_MANAGER)))
+                || (appeal.getId() != -1 && (!(project.getCurrentPhase().getId() == Phase.ID_APPEALS) ||
+                        !permitEditDuringAppeals) && !(Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER)
+                            && appeal.getReviewer().getId() == requestor.getUserId()))
+                || (appeal.getId() == -1 && !(appeal.getAppealer().getId() == requestor.getUserId()))) {
                 String errorMsg = "DM.saveAppeal():\n" +
                         "appealId: " + appeal.getId() + "\n" +
                         "Appeal is already completed!";

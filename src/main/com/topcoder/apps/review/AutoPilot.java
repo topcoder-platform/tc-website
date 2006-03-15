@@ -38,8 +38,15 @@ import java.util.Date;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * <code>review()</code> was changed to avoid checking for at least one passed score.
+ * </li>
+ * </ol>
+ *
  * @author rfairfax, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class AutoPilot {
 
@@ -730,10 +737,6 @@ public class AutoPilot {
 
             if (!project.getAutoPilot()) return new SuccessResult();
 
-            //check if all scorecards are done,check to see if something passes
-            boolean passed = false;
-            double minscore = ConfigHelper.getMinimumScore();
-
             int count = 0;
             ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
@@ -743,14 +746,7 @@ public class AutoPilot {
                 }
 
                 count++;
-
-                if (scorecard[i].getScore() >= minscore) {
-                    passed = true;
-                }
             }
-
-            if (!passed)
-                return new SuccessResult();
 
             int sub_count = 0;
             InitialSubmission[] arr = docManager.getInitialSubmissions(project, false, user.getTCSubject());

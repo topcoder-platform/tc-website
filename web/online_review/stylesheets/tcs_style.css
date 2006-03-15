@@ -520,10 +520,10 @@ A.edit:active
 
 .screeningErrorText
 {
-	font-size: 12px; 
-	color: #C00; 
-	font-style: normal; 
-	font-weight: bold; 
+	font-size: 12px;
+	color: #C00;
+	font-style: normal;
+	font-weight: bold;
 	padding: 2px;
 }
 
@@ -2051,12 +2051,24 @@ A.topLink:active
 	padding: 0px 0px 0px 5px;
 }
 
-.submitButton { 
-	font-family: "Verdana", "Arial", "Helvetica", sans-serif; 
-	font-size: 9px; 
-	color: #EEE; 
-	font-style: normal; 
-	font-weight: bold; 
+.submitButton {
+	font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+	font-size: 9px;
+	color: #EEE;
+	font-style: normal;
+	font-weight: bold;
 	background-color: #547584;
-	padding: 0px; 
+	padding: 0px;
 	}
+
+.appealWarningNote
+{
+	font-size: 11px;
+	color: #CC0000;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 14px;
+	text-align: left;
+	background-color: #FFF;
+	padding: 5px;
+}

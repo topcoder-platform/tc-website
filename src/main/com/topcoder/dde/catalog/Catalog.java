@@ -1,12 +1,6 @@
 /*
- * Catalog.java
- * 26 August 2002
- * 1.0
- *
- * Copyright(c) 2002, TopCoder, Inc.
- * All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 
 package com.topcoder.dde.catalog;
 
@@ -26,8 +20,16 @@ import java.util.Collection;
  * management of these associations and other properties of components is
  * accomplished through ComponentManagerEJB.
  *
- * @version 1.0, 26 August 2002
- * @author  Albert Mao
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Updated signature for searchComponents(), getUniqueCategoryNames(), getBaseCategories(), getAllComponents() to allow
+ * a parameter indicating wether to show all categories or components or only public ones.
+ * </li>
+ * </ol>
+ *
+ * @author Albert Mao, pulky
+ * @version 1.0.1
  * @see     CatalogHome
  * @see     ComponentManager
  */
@@ -61,12 +63,45 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CatalogSearchView search(String searchtext, java.util.Map options)
             throws RemoteException, CatalogException;
 
-    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology, String[] category)
-            throws RemoteException, CatalogException, NamingException, SQLException;
+    /**
+     * <p>Searches catalog with the given parameters.</p>
+     *
+     * @param searchtext String with the text to search.
+     * @param status status Ids to narrow the search.
+     * @param catalog catalog Ids to narrow the search.
+     * @param technology technology Ids to narrow the search.
+     * @param category categories name to narrow the search.
+     * @param onlyPublic true to retrieve only public components.
+     * @return a <code>CatalogSearchView</code> with the retrieved components.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws CatalogException for invalid parameters.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     */
+    public CatalogSearchView searchComponents(String searchtext, long[] status, long[] catalog, long[] technology,
+        String[] category, boolean onlyPublic) throws RemoteException, CatalogException, NamingException, SQLException;
 
-    public String[] getUniqueCategoryNames(boolean includeBaseCategories) throws RemoteException, NamingException, SQLException;
+    /**
+     * <p>Gets all category names including or not base and visible categories.</p>
+     *
+     * @param includeBaseCategories true to include base categories.
+     * @param onlyPublic true to retrieve only public categories.
+     * @return a <code>String[]</code> collection with the retrieved categories names.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     */
+    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic)
+        throws RemoteException, NamingException, SQLException;
 
-    public Category[] getBaseCategories() throws RemoteException, NamingException, SQLException;
+    /**
+     * <p>Gets all base categories including or not visible ones.</p>
+     *
+     * @param onlyPublic true to retrieve only public categories.
+     * @return a <code>Category[]</code> collection with the retrieved categories.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     */
+    public Category[] getBaseCategories(boolean onlyPublic) throws RemoteException, NamingException, SQLException;
+
 
     public Technology[] getAllTechnologies() throws RemoteException, NamingException, SQLException;
 
@@ -101,7 +136,15 @@ public interface Catalog extends javax.ejb.EJBObject {
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException, SQLException, NamingException;
 
-    public ComponentSummary[] getAllComponents()
+    /**
+     * <p>Gets all components.</p>
+     *
+     * @param onlyPublic true to retrieve only public components.
+     * @return a <code>CatalogSearchView</code> with the retrieved components.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     */
+    public ComponentSummary[] getAllComponents(boolean onlyPublic)
             throws RemoteException, CatalogException, SQLException, NamingException;
 
     /**

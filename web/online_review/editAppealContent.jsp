@@ -60,8 +60,18 @@ The following items can NOT be appealed:
 <li>General comments or opinions expressed by the reviewer.</li>
 </ul>
 </strong>
+          </tr>
+<logic:present name="permitAppealsResponse">
+          <tr>
+            </td>
+            <td class="appealWarningNote" colspan="3">
+                <strong>
+                Note: In this particular project, reviewers are allowed to respond appeals immediately. Please be aware that you will not be able to edit this appeal.
+                </strong>
             </td>
           </tr>
+</logic:present>
+
           <tr>
             <td class="whiteBkgnd" colspan="3"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
           </tr>

@@ -51,7 +51,31 @@
         if (lngComponent == 600191) response.sendRedirect("c_prodTools.jsp?comp=600191");
     }
 
-    ComponentDetail details = catalog.getComponentDetail(lngComponent, lngVersion);
+    ComponentDetail details = null;
+
+    try {
+        details = catalog.getComponentDetail(lngComponent, lngVersion);
+    } catch (Exception e) {
+        // redirect to an error page
+        response.sendRedirect("/attention/error_componentnotfound.jsp");
+        return;
+    }
+
+    // Get only visible categories.
+    long rootCategory = details.getSummary().getRootCategory();
+    Category[] baseCategories = catalog.getBaseCategories(true);
+    boolean visibleCategory = false;
+    for (int i = 0; i < baseCategories.length && !visibleCategory; i++) {
+        if (rootCategory == baseCategories[i].getId()) {
+            visibleCategory = true;
+        }
+    }
+
+    if (!visibleCategory) {
+        // redirect to an error page
+        response.sendRedirect("/attention/error_componentnotfound.jsp");
+        return;
+    }
 
     lngVersion = Math.max(lngVersion, 0);
 

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.dde.persistencelayer.bean;
 
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
@@ -9,8 +13,18 @@ import javax.ejb.CreateException;
 /**
  * The bean implementation class representing the CMP bean for the user_role table.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Description attribute was added.
+ * </li>
+ * <li>
+ * tcsrating attribute was eliminated.
+ * </li>
+ * </ol>
+ *
+ * @version 1.0.1
+ * @author Timur Zambalayev, pulky
  */
 public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
 
@@ -35,18 +49,20 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
     public abstract void setUserMaster(LocalDDEUserMaster userMaster);
 
     /**
-     * Gets the TCS rating.
+     * Gets the role addition description.
      *
-     * @return TCS rating.
+     * @return role addition description.
+     * @since 1.0.1
      */
-    public abstract int getTcsRating();
+    public abstract String getDescription();
 
     /**
-     * Sets the TCS rating.
+     * Sets the role addition description.
      *
-     * @param tcsRating     TCS rating.
+     * @param description role addition description.
+     * @since 1.0.1
      */
-    public abstract void setTcsRating(int tcsRating);
+    public abstract void setDescription(String description);
 
     /**
      * Gets the roles (CMR).
@@ -65,30 +81,31 @@ public abstract class DDEUserRoleBean extends DDEBaseCompVersionsBean {
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
+     * @param description           role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
      * @param roles                 roles.
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(int tcsRating, LocalDDEUserMaster userMaster, LocalDDECompVersions compVersions, LocalDDERoles roles)
+    public Long ejbCreate(String description, LocalDDEUserMaster userMaster,
+        LocalDDECompVersions compVersions, LocalDDERoles roles)
             throws CreateException {
         setPrimaryKey();
-        setTcsRating(tcsRating);
+        setDescription(description);
         return null;
     }
 
     /**
      * Creates an entity object.
      *
-     * @param tcsRating             TCS rating.
+     * @param description           role addition description.
      * @param userMaster            userMaster.
      * @param compVersions          compVersions.
      * @param roles                 roles.
      */
-    public void ejbPostCreate(int tcsRating, LocalDDEUserMaster userMaster, LocalDDECompVersions compVersions,
-                              LocalDDERoles roles) {
+    public void ejbPostCreate(String description, LocalDDEUserMaster userMaster,
+        LocalDDECompVersions compVersions, LocalDDERoles roles) {
         setUserMaster(userMaster);
         setCompVersions(compVersions);
         setRoles(roles);

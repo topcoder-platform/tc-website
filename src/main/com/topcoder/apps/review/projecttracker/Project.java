@@ -23,8 +23,17 @@ import java.net.URL;
  * </ol>
  * </p>
  *
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * </ol>
+ * </p>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class Project implements Serializable {
     private long id;
@@ -52,6 +61,7 @@ public class Project implements Serializable {
     private long versionId;
     private long levelId;
     private boolean autopilot;
+    private boolean responseDuringAppeals;
 
     /**
      * Creates a new Project object.
@@ -74,7 +84,7 @@ public class Project implements Serializable {
         User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
             String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
                 boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
-                    long versionId, long levelId, boolean autopilot) {
+                    long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -97,6 +107,28 @@ public class Project implements Serializable {
         this.versionId = versionId;
         this.levelId = levelId;
         this.autopilot = autopilot;
+        this.responseDuringAppeals = responseDuringAppeals;
+    }
+
+    /**
+     * Return the flag idicating if appeals response are allowed during appeals phase.
+     *
+     * @return true if appeals response are allowed.
+     * @since 1.0.2
+     */
+    public boolean getResponseDuringAppeals() {
+        return responseDuringAppeals;
+    }
+
+    /**
+     * Set the flag idicating if appeals response are allowed during appeals phase.
+     *
+     * @param responseDuringAppeals The new flag value.
+     * @since 1.0.2
+     */
+    public void setResponseDuringAppeals(boolean responseDuringAppeals) {
+        this.dirtyFlag = true;
+        this.responseDuringAppeals = responseDuringAppeals;
     }
 
     public boolean getAutoPilot() {

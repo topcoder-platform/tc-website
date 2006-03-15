@@ -1,17 +1,7 @@
 /*
- * ProjectTrackerBean.java
- *
- * Copyright ?2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.projecttracker;
-
-/*
-import com.topcoder.dde.catalog.CatalogException;
-import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.ComponentManager;
-import com.topcoder.dde.catalog.Forum;
-*/
 
 import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
@@ -60,7 +50,17 @@ import java.util.List;
 /**
  * This is the concrete implementation of the ProjectTracker interface.
  *
- * @author TCSDeveloper
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>response_during_appeals_ind</code> to the project table.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDeveloper, pulky
+ * @version 1.0.2
  */
 public class ProjectTrackerBean implements SessionBean {
     private Logger log;
@@ -114,7 +114,8 @@ public class ProjectTrackerBean implements SessionBean {
                             "cv.comp_vers_id, " +
                             "pcat.category_name catalog_name," +
                             "p.level_id, " +
-                            "p.autopilot_ind  " +
+                            "p.autopilot_ind, " +
+                            "p.response_during_appeals_ind  " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
                             "comp_categories ccat, categories cat, categories pcat " +
@@ -145,6 +146,7 @@ public class ProjectTrackerBean implements SessionBean {
                 String catalogName = rs.getString(13);
                 long levelId = rs.getLong(14);
                 boolean autopilot = rs.getBoolean(15);
+                boolean responseDuringAppeals = rs.getBoolean(16);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -220,17 +222,9 @@ public class ProjectTrackerBean implements SessionBean {
                         currentPhaseInstance, userRole, notes, overview, projectType,
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
-                        requestor.getUserId(), projectVersionId, levelId, autopilot);
+                        requestor.getUserId(), projectVersionId, levelId, autopilot,
+                        responseDuringAppeals);
                 project.setCatalog(catalogName);
-/*
-// Old project ( no forumId )
-                   project = new Project(projectId, componentId,
-                        compVersId, name, version,
-                        projectmanager, winner, timeline,
-                        currentPhaseInstance, userRole, notes, overview, projectType,
-                        projectStatus, notificationSent, requestor.getUserId(),
-                        projectVersionId);
-*/
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -589,8 +583,8 @@ public class ProjectTrackerBean implements SessionBean {
                                     "winner_id, overview, " +
                                     "notes, project_type_id, project_stat_id, notification_sent, " +
                                     "modify_user, modify_reason, level_id, autopilot_ind, " +
-                                    "cur_version, rating_date) VALUES " +
-                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, (select end_date from phase_instance where cur_version = 1 and phase_id = 1 and project_id = ?))");
+                                    "cur_version, rating_date,response_during_appeals_ind) VALUES " +
+                                    "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, (select end_date from phase_instance where cur_version = 1 and phase_id = 1 and project_id = ?), ?)");
 
                     PhaseInstance[] piArr = project.getTimeline();
                     currentPhase = project.getCurrentPhase();
@@ -648,6 +642,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setString(11, reason);
                     ps.setLong(12, project.getLevelId());
                     ps.setBoolean(13, project.getAutoPilot());
+                    ps.setBoolean(15, project.getResponseDuringAppeals());
                     ps.setLong(14, project.getId());
                     int nr = ps.executeUpdate();
 
@@ -1602,9 +1597,9 @@ public class ProjectTrackerBean implements SessionBean {
                             + "winner_id, overview, "
                             + "notes, project_type_id, "
                             + "project_stat_id, notification_sent, "
-                            + "modify_user, modify_reason, level_id, autopilot_ind,  "
-                            + "cur_version) VALUES "
-                            + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 1)");
+                            + "modify_user, modify_reason, level_id, autopilot_ind, "
+                            + "response_during_appeals_ind, cur_version) VALUES "
+                            + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1, 0, 1)");
 
             String notes = "";
             long projectStatId = ProjectStatus.ID_PENDING_START;
@@ -2884,6 +2879,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "            final_score = ?," +
                 "            placed = ?," +
                 "            payment = ?" +
+                "            passed_review_ind = ?" +
                 "      where user_id = ?" +
                 "             and project_id = ?";
 
@@ -2919,12 +2915,13 @@ public class ProjectTrackerBean implements SessionBean {
                         money = Math.round((rsScores.getDouble("price") * .5));
                     }
                 }
-                
+
                 psInsertScores.setDouble(1, score);
                 psInsertScores.setInt(2, place);
                 psInsertScores.setDouble(3, money);
-                psInsertScores.setLong(4, rsScores.getLong("submitter_id"));
-                psInsertScores.setLong(5, projectId);
+                psInsertScores.setInt(4, score >= minScore?1:0);
+                psInsertScores.setLong(5, rsScores.getLong("submitter_id"));
+                psInsertScores.setLong(6, projectId);
 
                 psInsertScores.executeUpdate();
             }

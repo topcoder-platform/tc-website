@@ -193,7 +193,9 @@
 					<td width="10%" class="adminTitleCenter">Action</td>
 				</tr>
 
-	<%  Category[] categories = catalog.getBaseCategories();
+	<%
+        // Get only visible categories.
+	    Category[] categories = catalog.getBaseCategories(false);
         HashMap map = new HashMap();
         for (int i=0; i<categories.length; i++) {
             map.put(new Long(categories[i].getId()), categories[i].getName());

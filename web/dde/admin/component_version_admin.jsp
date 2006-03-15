@@ -37,7 +37,7 @@
     String action = request.getParameter("a");
     String namespace = "com.topcoder.servlet.request.FileUpload";
     java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("MM/dd/yyyy");
-    
+
     // Logger instance.
     org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
 %>
@@ -1129,17 +1129,30 @@ if (action != null) {
     if (action.equals("Add Role")) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
-        String strRating = request.getParameter("txtTeamMemberRating");
-        try {
-            User user = USER_MANAGER.getUser(strUsername);
-            TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)), Integer.parseInt(strRating));
-            componentManager.addTeamMemberRole(role);
-            strMessage += "Role " + strRole + " was assigned.";
-            //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
-        } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
-            strError = "User '" + strUsername + "' was not found.";
-        } catch (NumberFormatException nfe) {
-            strError = "Rating must be an integer.";
+        String strDescription = request.getParameter("txtTeamMemberDescription");
+        
+        // validate both description and username to be filled.
+        if (strUsername == null || strUsername.trim().length() == 0) {
+            strError = "Username cannot be blank.";
+        }
+
+        if (strDescription == null || strDescription.trim().length() == 0) {
+            strError = "Description cannot be blank.";
+        }
+
+        if (strError.trim().length() == 0) {
+            try {
+                User user = USER_MANAGER.getUser(strUsername);
+                TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(Long.parseLong(strRole)),
+                    strDescription);
+                componentManager.addTeamMemberRole(role);
+                strMessage += "Role " + strRole + " was assigned.";
+                //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
+            } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
+                strError = "User '" + strUsername + "' was not found.";
+            } catch (NumberFormatException nfe) {
+                strError = "Rating must be an integer.";
+            }
         }
     }
 
@@ -1984,10 +1997,12 @@ if (action != null) {
 %>
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
-                    <td width="30%" class="adminTitle">Username</td>
-                    <td width="30%" class="adminTitle">Role</td>
-                    <td width="30%" class="adminTitle">Rating</td>
+                    <td width="40%" class="adminTitle">Username</td>
+                    <td width="50%" class="adminTitle">Role</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
+                </tr>
+                <tr valign="top">
+                    <td class="adminTitle" colspan="3">Description</td>
                 </tr>
 
 <%
@@ -1997,20 +2012,30 @@ if (action != null) {
                 <tr valign="top">
                     <td class="forumText"><%= teamMemberRoles[i].getUsername() %></td>
                     <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
-                    <td class="forumText"><%= teamMemberRoles[i].getTCSRating() %></td>
                     <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
                 </tr>
+                <%
+                    if (teamMemberRoles[i].getDescription() != null) {
+                %>
+                            <tr valign="top">
+                                <td class="forumText" colspan="3"><%= teamMemberRoles[i].getDescription() %></td>
+                            </tr>
+                <%
+                    }
+                %>
 <% } %>
 
                 <tr valign="top">
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtTeamMemberRoleUsername" value=""></td>
+                    <td class="forumText"><input class="adminSearchForm" type="text" size="64" maxlength="64" name="txtTeamMemberRoleUsername" value=""></td>
                     <td class="forumText">
                         <select name="selRole">
 <% for (int i=0; i < roles.length; i++) { %>
                             <option value="<%= roles[i].getId() %>"><%= roles[i].getName() %></option>
 <% } %>
                         </select></td>
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="4" name="txtTeamMemberRating" value=""></td>
+                </tr>
+                <tr valign="top">
+                    <td class="forumText" colspan="2"><input class="adminSearchForm" type="text" size="150" maxlength="254" name="txtTeamMemberDescription" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
             </table>
