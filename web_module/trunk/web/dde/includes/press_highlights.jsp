@@ -1,7 +1,7 @@
 <table width="530" border="0" cellspacing="0" cellpadding="3">                     
     <tr valign="middle">
         <td class="statTextLarge" bgcolor="#999999" width="50%" align="left"><font size="3">Press Room Highlights</font></td>
-        <td class="viewAll" bgcolor="#999999" width="50%"><a href="http://www.topcoder.com/?t=news_events&c=index" class="bodyText"><strong>View All</strong></a></td>
+        <td class="viewAll" bgcolor="#999999" width="50%"><a href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index" class="bodyText"><strong>View All</strong></a></td>
     </tr>
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">   

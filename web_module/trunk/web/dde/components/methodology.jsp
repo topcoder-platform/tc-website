@@ -130,7 +130,7 @@
                     <td colspan="2" class="bodyText" align="center">
                         <p><font size="3"><strong><a href="http://www.topcoder.com/?t=development&c=comp_meth">Learn more</a> about the TopCoder Component Methodology.</strong></font></p>
 
-                        <p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
+                        <p><font size="3"><strong><a href="http://www.topcoder.com/tc?module=Static&d1=about&d2=contactus">Contact us</a> today so we can get started developing your next application.</strong></font></p>
                     </td>
                 </tr>
             </table>
