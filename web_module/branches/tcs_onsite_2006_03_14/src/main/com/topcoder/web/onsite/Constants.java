@@ -11,7 +11,7 @@ import java.util.MissingResourceException;
 public class Constants implements WebConstants {
 
 
-    private static final TCResourceBundle bundle = new TCResourceBundle("TC");
+    private static final TCResourceBundle bundle = new TCResourceBundle("onsite");
     private static final Logger log = Logger.getLogger(Constants.class);
 
     public static String DEFAULT_PAGE;

@@ -99,9 +99,9 @@ function submitEnter(e) {
                                 <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                             </tr>
-                            <tr valign="middle">
+                            <!--tr valign="middle">
                                 <td nowrap class="bodyText" colspan="3"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me</td>
-                            </tr>
+                            </tr-->
 
 
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>

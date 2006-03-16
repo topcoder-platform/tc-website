@@ -65,7 +65,7 @@ public class MainServlet extends BaseServlet {
        String ret = super.getProcessor(key);
         if (ret.equals(key)) {
             //yuck, gonna throw errors all over the place
-            TCResourceBundle bundle = new TCResourceBundle("TC");
+            TCResourceBundle bundle = new TCResourceBundle("onsite");
             try {
                 ret = bundle.getProperty(key);
             } catch (MissingResourceException ignore) {
