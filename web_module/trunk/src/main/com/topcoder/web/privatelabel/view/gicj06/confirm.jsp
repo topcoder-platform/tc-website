@@ -85,7 +85,7 @@ function submitEnter(e) {
 
 
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
-           <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
+           <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_06_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>

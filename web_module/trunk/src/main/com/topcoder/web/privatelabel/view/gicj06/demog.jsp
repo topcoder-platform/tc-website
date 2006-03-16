@@ -75,7 +75,7 @@ function submitEnter(e) {
       <td valign="top" width="100%">
 
          <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
+         <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_06_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
@@ -128,9 +128,7 @@ function submitEnter(e) {
       </tr>
       </table>
          To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
-      </td>
-      </tr>
-      </table>
+
 
       </div>
       </td>
