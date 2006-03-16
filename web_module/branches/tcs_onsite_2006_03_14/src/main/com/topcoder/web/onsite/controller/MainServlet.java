@@ -32,6 +32,7 @@ public class MainServlet extends BaseServlet {
         System.out.println("process");
 
         if (request.getServerName().equals("topcoder.com")) {
+        System.out.println("process2");
             response.sendRedirect("http://www.topcoder.com/onsite");
             return;
         }

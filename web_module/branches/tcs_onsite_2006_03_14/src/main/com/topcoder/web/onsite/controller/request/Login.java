@@ -8,7 +8,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.onsite.Constants;
 import com.topcoder.web.onsite.controller.request.Base;
@@ -22,7 +21,6 @@ public class Login extends Base {
     public static final String USER_ID = "userid";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
-    public static final String REMEMBER_USER = "rem";
     public static final String STATUS = "status";
 
     public static final String STATUS_START = "start";
@@ -36,9 +34,7 @@ public class Login extends Base {
         // find server name from sessionInfo
         SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
-        log.debug("rememberUser: " + rememberUser);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -62,59 +58,16 @@ public class Login extends Base {
                         }
                         char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) >= 0) {
-                            //check if they have an active email address
-                            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
-                                getAuthentication().logout();
-                                log.debug("inactive email");
-                                setNextPage(Constants.EMAIL_ACTIVATE);
-                                setIsNextPageInContext(true);
-                                return;
-                            } else {
-                                log.debug("user active");
-                                String dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)),"&","%26");
-                                String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
 
-                                //todo make this https
-                                SiteTest siteTest = new SiteTest();
-                                boolean forumsServerActive = siteTest.check(forumsURL);
-                                if (forumsServerActive) {
-                                    StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
-                                    nextPage.append("&").append(USER_ID).append("=").append(sub.getUserId());
-                                    nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                    nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
-                                    if (!rememberUser.equals("")) {
-                                        nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
-                                    }
-                                    nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
-                                    setNextPage(nextPage.toString());
-                                } else {
-                                    if (dest.startsWith(forumsURL)) {
-                                        dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
-                                    }
-                                    setNextPage(dest);
-                                }
+                        // dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
+                        // setNextPage(dest);
+                        setNextPage(getRequest().getContextPath());
 
-                                setIsNextPageInContext(false);
-                                log.debug("on successful login, going to " + getNextPage());
-                                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
-                                doLegacyCrap(getRequest());
-                                return;
-                            }
-                        } else {
-                            getAuthentication().logout();
-                            if (Arrays.binarySearch(Activate.INACTIVE_STATI, status) >= 0) {
-                                log.debug("user inactive");
-                                throw new LoginException("Sorry, your account is not active.  " +
-                                        "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status) >= 0) {
-                                log.debug("user unactive");
-                                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
-                                        "Please review the activation email that was sent to you after registration.");
-                            } else {
-                                throw new NavigationException("Invalid account status");
-                            }
-                        }
+                        setIsNextPageInContext(false);
+                        log.debug("on successful login, going to " + getNextPage());
+                        getAuthentication().login(new SimpleUser(0, username, password));
+                        doLegacyCrap(getRequest());
+                        return;
 
                     } catch (LoginException e) {
                         /* the login failed, so tell them what happened */
@@ -150,20 +103,12 @@ public class Login extends Base {
      * @return
      * @throws Exception if user doesn't exist or some other ejb problem
      */
-    private char getStatus(long userId) throws Exception {
+     private char getStatus(long userId) throws Exception {
         char result;
         User user = (User) createEJB(getInitialContext(), User.class);
         result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
-    }
-
-    private int getEmailStatus(long userId) throws Exception {
-        int result;
-        Email email = (Email) createEJB(getInitialContext(), Email.class);
-        result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        return result;
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
@@ -177,18 +122,5 @@ public class Login extends Base {
             nav.setCoderSessionInfo(ret);
         }
     }
-
-/*
-    private long getUserId(String handle) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("user_id_using_handle");
-        r.setProperty("ha", handle);
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("user_id");
-        if (rsc.isEmpty())
-            return -1;
-        else
-            return rsc.getLongItem(0, "user_id");
-    }
-*/
 
 }
