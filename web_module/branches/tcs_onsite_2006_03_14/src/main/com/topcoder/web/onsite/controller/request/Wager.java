@@ -13,6 +13,7 @@ import com.topcoder.web.onsite.Constants;
 import com.topcoder.web.onsite.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Arrays;
 
@@ -24,11 +25,15 @@ public class Wager extends Base {
     public static final String STATUS = "status";
 
     public static final String STATUS_START = "start";
+    
+    private static final Logger log = Logger.getLogger(Wager.class);
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
+            log.debug("Anonymous, go to " + Constants.LOGIN);
             setNextPage(Constants.LOGIN);
         } else {
+            log.debug("Authenticated, go to " + Constants.WAGER_PAGE);
             setNextPage(Constants.WAGER_PAGE);
         }
         setIsNextPageInContext(true);
