@@ -59,7 +59,7 @@
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewers&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Reviewer List</A></LI>
         <br/>
         <% String baseURL = Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+Constants.DB_KEY+"="+DBMS.TCS_DW_DATASOURCE_NAME+"&"+DataAccessConstants.COMMAND+"=";%>
-        <LI>Fulfillment rate: Projects posted in last <input type="button" value="3 months?" onclick="<%=baseURL+"fulfillment_rate&months=3"%>"/></LI>
+        <LI>Fulfillment rate: Projects posted in last <input type="button" value="3 months?" action="<%=baseURL+"fulfillment_rate&months=3"%>"/></LI>
         
       </UL>
       <br/>
