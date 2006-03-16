@@ -123,7 +123,7 @@ Second, the position is winning if the first player can make the position to be 
 Since any move leads to a smaller number of stones in the box, any position depends only on positions with a smaller number of stones.
 Therefore, the problem can be solved by a simple DP. 
 For each number between 1 and <b>n</b>, we remember whether this position is winning. 
-See tomek's <a href="http://www.topcoder.com/stat?c=problem_solution&rm=247879&rd=9922&pm=6127&cr=144400">solution</a> for a clean implementation.
+See tomek's <a href="/stat?c=problem_solution&rm=247879&rd=9922&pm=6127&cr=144400">solution</a> for a clean implementation.
 </p>
 
 <font size="+2">
@@ -174,7 +174,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   </tr>
 </table></blockquote>
 <p>
-Credit for writing this beautiful problem goes to <a href="http://www.topcoder.com/tc?module=MemberProfile&cr=159544">dgoodman</a>.
+Credit for writing this beautiful problem goes to <a href="/tc?module=MemberProfile&cr=159544">dgoodman</a>.
 </p>
 <p>
 The problem splits into two independent parts. 
@@ -195,7 +195,7 @@ This is a classical graph coloring problem, and DFS is the easiest way to solve 
 Having these two parts implemented, the other part is trivial. 
 Process input strings one by one, adding edges to graphs and checking both graphs for consistency.
 As soon as you find any contradiction, return the index of the last processed string. 
-If you were able to process all inputs without any contradiction, return -1. Check <a href="http://www.topcoder.com/stat?c=problem_solution&rm=247880&rd=9922&pm=6029&cr=8394868">rem's</a>
+If you were able to process all inputs without any contradiction, return -1. Check <a href="/stat?c=problem_solution&rm=247880&rd=9922&pm=6029&cr=8394868">rem's</a>
 solution for a short and clean implementation.
 </p>
 <font size="+2">
@@ -273,12 +273,12 @@ Now we are ready to code a DP-solution. The state for our solution is a pair of 
 The first integer in the state represents the time elapsed since we came to the stop,
  and the second stands for the <i>fastest</i> bus we skipped 
 (of course, we'll need to sort buses by their trip times at the very first line of our solution). 
-See tomek's <a href="http://www.topcoder.com/stat?c=problem_solution&rm=247879&rd=9922&pm=6076&cr=144400">solution</a>
+See tomek's <a href="/stat?c=problem_solution&rm=247879&rd=9922&pm=6076&cr=144400">solution</a>
 for a clean DP algorithm.
 </p>
 Another approach was to go backwards from the end, computing the estimations from the last to the first. 
 This allows you to compute the estimation for the i-th moment knowing the estimation for the (i+1)-th one.
-See bladerunner's <a href="http://www.topcoder.com/stat?c=problem_solution&rm=247879&rd=9922&pm=6076&cr=311170">solution</a> for a reference.
+See bladerunner's <a href="/stat?c=problem_solution&rm=247879&rd=9922&pm=6076&cr=311170">solution</a> for a reference.
 
 
 

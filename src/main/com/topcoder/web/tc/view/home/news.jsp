@@ -6,7 +6,7 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%------------------------------------------------------
+<%------------------------------------------------------ LEAVE COMMENTED OUT TIL JESSIE GETS APPROVAL
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
