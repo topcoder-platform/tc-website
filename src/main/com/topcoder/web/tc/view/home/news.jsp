@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 3 Results for TCO06 Algorithm Competition</A>
+      </span><br><br>
+      Take a look at who advanced to Round 4.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505937" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.15.06<br>12:00 noon</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors & LogicLibrary create governance platform</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
@@ -198,23 +213,6 @@ Despite <tc-webtag:handle coderId="272072" context="algorithm"/>'s statement tha
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm292">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505858" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.07.06<br>6:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">TCO06 Round 1 - Problem Set & Analysis</A></span><br><br>
-Other complications aside, the problem set for this round generated very few questions.  Each statement was fairly succinct, but as we all know, tricky problems can have simple descriptions.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_1">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505931" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
