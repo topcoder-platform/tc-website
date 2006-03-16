@@ -16,6 +16,7 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
+    public static String WAGER_PAGE;
 
     /* request parameters */
     public static String PROBLEM_ID;
