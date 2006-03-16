@@ -54,7 +54,7 @@ function submitEnter(e) {
                     </td>
                 </tr>                        
                 <tr valign="middle">
-                  <form method="post" name="frmLogin" action="/onsite/">
+                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">
