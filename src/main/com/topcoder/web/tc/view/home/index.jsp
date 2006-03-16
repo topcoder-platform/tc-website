@@ -45,7 +45,7 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview"><IMG SRC="/i/home/assembly.gif" border="0" ALT="TopCoder Software Assembly Competitions"/></A></td>
+      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A></td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
