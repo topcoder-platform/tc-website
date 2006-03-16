@@ -6,7 +6,7 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%--------------------------------------------------------%>
+<%------------------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -20,7 +20,7 @@
          <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
+--%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:00 AM</td>

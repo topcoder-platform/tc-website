@@ -50,6 +50,7 @@ padding: 3px 5px 3px 5px;
 <br><br>
 
 <br><br>
+<%--
 <table class="bodyText" cellpadding="0" cellspacing="0" width="100%">
 <tr><td class="header">Handle</td><td class="header" width="100%">Comment</td></tr>
 <tr><td class="light"><b>velko</b></td><td class="light">Hello</td></tr>
@@ -321,6 +322,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><b>ali_raza_shaikh</b></td><td class="light">Bye</td></tr>
 <tr><td class="dark"><span class="bigRed">UBS_Robin</span></td><td class="dark"><span class="bigRed">i'm off to rinse - night all</span></td></tr>
 </table>
+--%>
         </div>
       </td>
         
