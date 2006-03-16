@@ -17,10 +17,6 @@
 <head>
 <title>TopCoder | Login</title>
 
-<jsp:include page="./script.jsp" />
-<jsp:include page="./style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
 
 <SCRIPT type="text/javascript">
 function submitEnter(e) {
@@ -39,22 +35,10 @@ function submitEnter(e) {
 
 <body>
 
-<!-- Top begins -->
-<jsp:include page="./top.jsp" >
-    <jsp:param name="level1" value="login"/>
-</jsp:include>
-<!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
-<!-- Left Column Begins -->
-        <td width="170">
-            <jsp:include page="./includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -136,9 +120,6 @@ function submitEnter(e) {
     </tr>
 </table>
 
-<!-- Footer begins -->
-  <jsp:include page="./foot.jsp"/>
-<!-- Footer ends -->
 
 </body>
 </html>
