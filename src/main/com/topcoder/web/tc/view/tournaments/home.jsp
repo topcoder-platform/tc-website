@@ -113,7 +113,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/photo_tccc04.jpg" alt="2004 TopCoder Collegiate Challenge" border="0" /></A></td>
          <td width="100%">
-         <span class="bodySubtitle">2004 TopCoder Open&#153; sponsored by Microsoft&#174;</span>
+         <span class="bodySubtitle">2004 Collegiate Challenge&#153; sponsored by Yahoo&#174;</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/logo_tccc04.gif" alt="" border="0" /></A></div>
          April 15-16<br />

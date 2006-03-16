@@ -12,7 +12,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A>
       </span><br><br>
-      UBS was arena prior to Round 3 of the TCO06, to discuss working at UBS.
+      UBS was in the arena prior to Round 3 of the TCO06, to discuss working at UBS.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
