@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:00 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 3 Results for TCO06 Algorithm Competition</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.15.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to TCO06 Round 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.09.06 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_prize_winners">TCO06 Component Competition Prize Winners</A></td></tr>

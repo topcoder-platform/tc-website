@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A>
+      </span><br><br>
+      UBS was arena prior to Round 3 of the TCO06, to discuss working at UBS.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 3 Results for TCO06 Algorithm Competition</A>
@@ -46,7 +61,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505949" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -184,36 +199,6 @@ Pat shares his impressions of TopCoder, talks about his background and what's go
        <A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505939" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.08.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">TCO06 "Pick Me" Contest</A></span><br><br>
-      Why do YOU deserve a trip to the finals in Las Vegas?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505936" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.07.06<br>6:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm292">SRM 292 - Problem Set & Analysis</A></span><br><br>
-Despite <tc-webtag:handle coderId="272072" context="algorithm"/>'s statement that he is out of practice, he won the Division 1 quite easily. <tc-webtag:handle coderId="14970299" context="algorithm"/> took second, especially thanks to his excellent time on the medium problem, and <tc-webtag:handle coderId="8357090" context="algorithm"/> went home with bronze.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm292">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505858" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
