@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -24,7 +25,7 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco06/ubs_logo_new.gif" alt="UBS" border="0" /></div>
-<p align="center"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=504996">VeriSign Employment Forum</A>
+<p align="center"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505918">UBS Employment Forum</A>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">TCO06 Round 3 Chat Transcript</A>
 </p>
 <br><br>
