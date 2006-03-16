@@ -2878,7 +2878,7 @@ public class ProjectTrackerBean implements SessionBean {
         final String insertScores = "update project_result set " +
                 "            final_score = ?," +
                 "            placed = ?," +
-                "            payment = ?" +
+                "            payment = ?," +
                 "            passed_review_ind = ?" +
                 "      where user_id = ?" +
                 "             and project_id = ?";
