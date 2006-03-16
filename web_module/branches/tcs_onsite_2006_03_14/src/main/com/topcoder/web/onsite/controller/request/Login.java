@@ -48,17 +48,6 @@ public class Login extends Base {
                 try {
                     try {
                         TCSubject sub = null;
-                        //we need to check if they got the right user name and password before we check anything else
-                        try {
-                            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
-                            sub = login.login(username, password);
-                            log.debug("correct user name and password");
-                        } catch (Exception e) {
-                            throw new LoginException("Handle or password incorrect.");
-                        }
-                        char status = getStatus(sub.getUserId());
-                        log.debug("status: " + status);
-
                         // dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
                         // setNextPage(dest);
                         setNextPage(getRequest().getContextPath());
@@ -96,20 +85,6 @@ public class Login extends Base {
         setIsNextPageInContext(true);
     }
 
-
-    /**
-     * shouldn't use ejb slooooooooow
-     * @param userId
-     * @return
-     * @throws Exception if user doesn't exist or some other ejb problem
-     */
-     private char getStatus(long userId) throws Exception {
-        char result;
-        User user = (User) createEJB(getInitialContext(), User.class);
-        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        return result;
-
-    }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
         TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
