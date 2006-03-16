@@ -189,6 +189,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">...more</A><br>[March 16]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
             SOA vendors partner with LogicLibrary to create integrated governance platform <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">...more</A><br>[March 14]<br><br>
 
@@ -202,8 +204,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/postOnline_logo.gif" width="88" height="13" alt="The Post Online" border="0" /></div>
             Gurus compete in coding competition <A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">...more</A><br>[March 8]<br><br>
-
-            TopCoder Names UBS as Premier Sponsor of 2006 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_030306">...more</A><br>[March 3]<br><br>
 
             </td>
          </tr>
