@@ -78,13 +78,20 @@ margin:0px auto;
 
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle">Software <A href="/tc?module=ViewActiveContests&ph=112" class="homeTitleLink">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113" class="homeTitleLink">Development</A></td>
+            <td class="homeTitle">Software Competitions</td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&ph=112">Design</A> and <A href="/tc?module=ViewActiveContests&ph=113">Development</A> Competitions and get paid for what you build!</td>
+            <td class="homeText">Compete in Software <A href="/tc?module=ViewActiveContests&ph=112">Design</A>, <A href="/tc?module=ViewActiveContests&ph=113">Development</A> and <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Assembly</A> Competitions and get paid for what you build!</td>
          </tr>
-
+         <tr>
+            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
+            <td class="homeTitle"><A href="/longcontest/?module=ViewActiveContests" class="homeTitleLink">Marathon Matches</A></td>
+         </tr>
+         <tr>
+            <td class="homeArrow">&#160;</td>
+            <td class="homeText">A more flexible <A href="/longcontest/?module=ViewActiveContests">competition</A> format with an extended timeline and different types of problems than those in a traditional algorithm round.</td>
+         </tr>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
             <td class="homeTitle"><A href="/tc?module=Static&d1=contracting&d2=index" class="homeTitleLink">Employment Opportunities</A></td>
@@ -93,7 +100,6 @@ margin:0px auto;
             <td class="homeArrow">&#160;</td>
             <td class="homeText">Just <A href="/tc?module=Static&d1=contracting&d2=index">register here</A> and TopCoder will contact you about temporary and permanent positions that fit your skills.</td>
          </tr>
-
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
             <td class="homeTitle"><A href="/tc?module=Static&d1=about&d2=jobs" class="homeTitleLink">Work for TopCoder</A></td>
