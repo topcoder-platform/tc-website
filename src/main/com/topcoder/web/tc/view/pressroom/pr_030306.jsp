@@ -48,7 +48,7 @@
 </p>
 </div>
                         
-<p><strong>GLASTONBURY, CT, March 3, 2006 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, that UBS (<b>NYSE: UBS</b>), one of the world's largest financial services firms has signed on as a Premier sponsor of the 2006 TopCoder Open (TCO06). This marks the first time a financial sector organization has sponsored a TopCoder flagship event.
+<p><strong>GLASTONBURY, CT, March 3, 2006 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced that UBS (<b>NYSE: UBS</b>), one of the world's largest financial services firms has signed on as a Premier sponsor of the 2006 TopCoder Open (TCO06). This marks the first time a financial sector organization has sponsored a TopCoder flagship event.
 <br><br>
 The TCO06 will bring thousands of the world's finest programmers together in competition over the course of ten weeks for international ranking, notoriety and a share of the $150,000 prize purse for Algorithm, Component Design and Development categories. TopCoder will fly in 64 finalists from around the globe to compete in face-to-face competition at the Aladdin Resort and Casino in Las Vegas from May 3rd - 5th to determine the winners of all competitions. Full details and rules are provided at: <a href="http://www.topcoder.com/tco06">http://www.topcoder.com/tco06</a>.
 <br><br>

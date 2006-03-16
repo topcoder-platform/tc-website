@@ -48,6 +48,20 @@
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+<%-- AMD --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_031606"><img src="/i/pressroom/amd_logo.gif" alt="AMD" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_031606">TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas</A></strong></font><br />
+"AMD Developer Central, AMD's program to support software developers, is pleased to sponsor the 2006 TopCoder Open and help showcase the unique creativity and genius shown by TopCoder members in this competition." <span class="prHead"> [March 16]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
 
 <%-- ADT --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
