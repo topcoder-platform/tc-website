@@ -53,7 +53,7 @@ the medium problem was a real trap for most of the coders.
 <p>
 rem and haha finished at second and third, both about 500 points behind tomek. 
 TopCoder legends Johd Dethridge and Petr rounded the top five. 
-gevak's 20 successful challenges definitely worth mentioning, since it is new TopCoder record 
+gevak's 20 successful challenges are definitely worth mentioning, since it is the new TopCoder record 
 (tomek also broke the previous record with 19).
 Congratulations and good luck in Round 4 to all 100 advancers!
 </p>
