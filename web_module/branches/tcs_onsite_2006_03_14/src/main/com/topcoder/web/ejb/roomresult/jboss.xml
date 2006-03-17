@@ -4,7 +4,7 @@
         <session>
             <ejb-name>RoomResult</ejb-name>
             <jndi-name>com.topcoder.web.ejb.roomresult.RoomResultHome</jndi-name>
-            <local-jndi-name>com.topcoder.web.ejb.roomresult.RoomResultLocalHome</local-jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.roomresult.RoomResultLocalHome</local-jndi-name>
         </session>
     </enterprise-beans>
 </jboss>
