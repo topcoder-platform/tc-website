@@ -1,11 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.forums.ForumConstants;
-
-//import com.jivesoftware.base.AuthFactory;
-//import com.jivesoftware.forum.ForumFactory;
-//import com.jivesoftware.forum.Forum;
+import com.topcoder.web.common.WebConstants;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -27,7 +23,7 @@ public class ForumLinkTag extends TagSupport {
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/");
-        url.append("?module=ThreadList&").append(ForumConstants.FORUM_ID).append("=").append(forumID);
+        url.append("?module=ThreadList&").append(WebConstants.FORUM_ID).append("=").append(forumID);
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
         
