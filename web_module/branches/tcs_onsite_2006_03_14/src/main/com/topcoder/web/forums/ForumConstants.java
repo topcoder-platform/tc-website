@@ -4,37 +4,37 @@
 package com.topcoder.web.forums;
 
 import com.jivesoftware.base.JiveGlobals;
+import com.topcoder.web.common.WebConstants;
 
 /**
  * @author mtong
  */
-public interface ForumConstants {
+public interface ForumConstants extends WebConstants {
     public final static String FORUMS_DIR = "/";
-    
+
     public final static String CATEGORY_ID = "categoryID";
-	public final static String FORUM_ID = "forumID";
-	public final static String THREAD_ID = "threadID";
-	public final static String MESSAGE_ID = "messageID";
+    public final static String THREAD_ID = "threadID";
+    public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
-    
+
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
-    
-	public final static String MESSAGE_SUBJECT = "subject";
-	public final static String MESSAGE_BODY = "body";
+
+    public final static String MESSAGE_SUBJECT = "subject";
+    public final static String MESSAGE_BODY = "body";
     public final static int MESSAGE_SUBJECT_MAX_LENGTH = 800;
     public final static int MESSAGE_BODY_MAX_LENGTH = 8000;
     public final static String MESSAGE_COUNT = "mc";
-    
+
     public final static String ANNOUNCEMENT_SUBJECT = "subject";
     public final static String ANNOUNCEMENT_BODY = "body";
     public final static String ANNOUNCEMENT_COMMAND = "cmd";
-	
-	public final static String START_IDX = "start";
-    
-	public final static String POST_MODE = "mode";
-    
+
+    public final static String START_IDX = "start";
+
+    public final static String POST_MODE = "mode";
+
     public final static String SETTINGS_STATUS = "status";
     public final static String SETTINGS_SECTION = "section";
     public final static String MARK_READ = "markRead";
