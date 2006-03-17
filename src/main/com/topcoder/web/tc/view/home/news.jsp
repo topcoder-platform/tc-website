@@ -25,7 +25,6 @@
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.16.06<br>6:15 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_031606">AMD TCO06 Sponsorship Press Release</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/amd_logo.gif" width="67" height="25" alt="AMD" border="0" /></div>
 "AMD Developer Central, AMD's program to support software developers, is pleased to sponsor the 2006 TopCoder Open and help showcase the unique creativity and genius shown by TopCoder members in this competition."
       </td>
    </tr>
