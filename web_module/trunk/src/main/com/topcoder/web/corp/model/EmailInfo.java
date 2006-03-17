@@ -193,6 +193,22 @@ public class EmailInfo extends BaseModel {
 
     private String getRepMsgText() {
         if (sessionInfo == null) return null;
+
+
+        ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
+        formatter.setFormatMethodForClass(Calendar.class,
+                                new CalendarDateFormatMethod("MM/dd/yyyy hh:mm aa zzz"), true);
+
+        Calendar begin = Calendar.getInstance();
+        begin.setTime(DateUtils.getConvertedDate(sessionInfo.getBeginDate(), getCompanyTimeZone()));
+        TimeZone tz = TimeZone.getTimeZone(getCompanyTimeZone());
+        begin.setTimeZone(tz);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(DateUtils.getConvertedDate(sessionInfo.getEndDate(), getCompanyTimeZone()));
+        end.setTimeZone(tz);
+
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append(candidateHandle);
@@ -201,11 +217,9 @@ public class EmailInfo extends BaseModel {
         msgText.append("\n");
         msgText.append("\n");
         msgText.append("Begin: ");
-        msgText.append(sdf.format(sessionInfo.getBeginDate()));
-        msgText.append(" Eastern Time\n");
+        msgText.append(formatter.format(begin));
         msgText.append("End: ");
-        msgText.append(sdf.format(sessionInfo.getEndDate()));
-        msgText.append(" Eastern Time\n");
+        msgText.append(formatter.format(end));
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Technical Assessment Application ");
         msgText.append("Management Tool http://www.topcoder.com/corp/testing and clicking on Candidate Status.");
