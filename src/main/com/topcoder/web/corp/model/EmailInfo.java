@@ -218,8 +218,10 @@ public class EmailInfo extends BaseModel {
         msgText.append("\n");
         msgText.append("Begin: ");
         msgText.append(formatter.format(begin));
+        msgText.append("\n");
         msgText.append("End: ");
         msgText.append(formatter.format(end));
+        msgText.append("\n");
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Technical Assessment Application ");
         msgText.append("Management Tool http://www.topcoder.com/corp/testing and clicking on Candidate Status.");
