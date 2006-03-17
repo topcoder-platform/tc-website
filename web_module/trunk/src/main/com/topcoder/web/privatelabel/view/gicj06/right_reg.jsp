@@ -2,7 +2,7 @@
 <table class="smallBoxTable" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" class="smallBlackBox">
-            <A href="/"><img src="/i/events/gicj06/google.gif" border="0"/></A>
+            <A href="http://www.google.com/"><img src="/i/events/gicj06/google.gif" border="0"/></A>
         </td>
     </tr>
     <tr><td>&#160;</td></tr>
