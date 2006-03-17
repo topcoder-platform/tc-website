@@ -15,6 +15,7 @@ public interface ForumConstants extends WebConstants {
     public final static String CATEGORY_ID = "categoryID";
     public final static String THREAD_ID = "threadID";
     public final static String MESSAGE_ID = "messageID";
+    //todo use the user_id constant in the parent interface
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
 
