@@ -148,6 +148,7 @@
             <include name="com/topcoder/web/onsite/**" />
             <include name="com/topcoder/web/common/**" />
             <include name="com/topcoder/web/ejb/project/**"/>
+            <exclude name="com/topcoder/web/common/tag/ForumLinkTag.java"/>
         </javac>
     </target>
 
@@ -449,11 +450,11 @@
     </target>
 
     <target name="package-EJB-ProjectBean" depends="compile">
-        <jar jarfile="${ejb_jars}/Project.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/project" includes="*.xml"/>
+        <jar jarfile="${ejb.jars.dir}/Project.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/project/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/project" includes="*.xml"/>
         </jar>
     </target>
 
