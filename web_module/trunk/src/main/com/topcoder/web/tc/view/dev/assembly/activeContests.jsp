@@ -42,7 +42,7 @@
    <tr><td class="title" colspan="7">Active Software Assembly Contests</td></tr>
    <tr>
       <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Registered Teams</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Teams</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
