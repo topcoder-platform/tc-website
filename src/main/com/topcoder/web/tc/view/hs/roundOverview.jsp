@@ -50,18 +50,28 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 // -->
 </script>
 
-Please select a contest:<br>
+<div style="float:right;" align="center">
 <select name="rd" onchange="goTo(this)">
-<option value=""></option><option value="0000" selected="selected">Single Round Match 290</option>
+<option value="" selected="selected">Please select a contest</option>
+<option value="0000">HS Single Round Match 1</option>
 </select>
+<br>
+or
+<br>
+<select name="season" onchange="goTo(this)">
+<option value="" selected="selected">Please select a season</option>
+<option value="0000">2006-2007</option>
+</select>
+</div>
 
-<br><br>
+<span class="bigTitle">Competition: HS SRM 1</span><br>
+<span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8">High School Competitions - SRM 290 Leaders</td></tr>
+   <tr><td class="title" colspan="8">HS SRM 1 Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
@@ -78,7 +88,7 @@ Please select a contest:<br>
       1
       </td>
       <td class="value">
-      Team 1
+      <A href="#">Team 1</A>
       </td>
       <td class="valueR">
       1200
@@ -105,7 +115,7 @@ Please select a contest:<br>
       2
       </td>
       <td class="value">
-      Team 2
+      <A href="#">Team 2</A>
       </td>
       <td class="valueR">
       1200
@@ -132,7 +142,7 @@ Please select a contest:<br>
       3
       </td>
       <td class="value">
-      Team 3
+      <A href="#">Team 3</A>
       </td>
       <td class="valueR">
       1200
