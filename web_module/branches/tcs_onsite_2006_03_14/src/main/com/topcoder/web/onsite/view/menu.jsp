@@ -36,7 +36,7 @@
 
         <p>
         <% if (sessionInfo.isAnonymous()) { %>
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login">Login<a/>
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login<a/>
         <% } else { %>
             Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
         <% } %>
@@ -46,7 +46,7 @@
         </p>
         <% if (!sessionInfo.isAnonymous()) { %>
             <p>
-                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout">Logout<a/>
+                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout<a/>
             </p>
         <% }
         </td>
