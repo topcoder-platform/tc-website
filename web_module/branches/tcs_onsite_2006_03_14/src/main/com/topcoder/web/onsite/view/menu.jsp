@@ -34,12 +34,21 @@
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
-                        <p>
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login">Login.<a/>
-
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Wager">Wager.<a/>
-                        </p>
-
+        <p>
+        <% if (sessionInfo.isAnonymous()) { %>
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login">Login<a/>
+        <% } else { %>
+            Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
+        <% } %>
+        </p>
+        <p>
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Wager">Wager<a/>
+        </p>
+        <% if (!sessionInfo.isAnonymous()) { %>
+            <p>
+                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout">Logout<a/>
+            </p>
+        <% }
         </td>
 <!-- Center Column ends -->
 
