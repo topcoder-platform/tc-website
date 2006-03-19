@@ -35,9 +35,9 @@
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
                         <p>
-                        <a href="/onsite?module=Login">Login.<a/>
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login">Login.<a/>
 
-                        <a href="/onsite?module=Wager">Wager.<a/>
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Wager">Wager.<a/>
                         </p>
 
         </td>
