@@ -17,7 +17,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>Wager</param-value>
+            <param-value>Static</param-value>
             <description>the processor to execute if non is specified in the request</description>
         </init-param>
         <init-param>
@@ -44,33 +44,13 @@
         <url-pattern>/onsite</url-pattern>
     </servlet-mapping>
 
-   <taglib>
-      <taglib-uri>tc-taglib.tld</taglib-uri>
-      <taglib-location>/WEB-INF/tc-taglib.tld</taglib-location>
-   </taglib>
     <taglib>
        <taglib-uri>rsc-taglib.tld</taglib-uri>
        <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
     </taglib>
     <taglib>
-       <taglib-uri>tc.tld</taglib-uri>
-       <taglib-location>/WEB-INF/tc.tld</taglib-location>
-    </taglib>
-    <taglib>
        <taglib-uri>tc-webtags.tld</taglib-uri>
        <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
-    </taglib>
-    <taglib>
-       <taglib-uri>struts-bean.tld</taglib-uri>
-       <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
-    </taglib>
-    <taglib>
-       <taglib-uri>struts-logic.tld</taglib-uri>
-       <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
-    </taglib>
-    <taglib>
-       <taglib-uri>nav.tld</taglib-uri>
-       <taglib-location>/WEB-INF/nav.tld</taglib-location>
     </taglib>
 
     <error-page>

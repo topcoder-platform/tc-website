@@ -47,15 +47,11 @@ public class Login extends Base {
             } else {
                 try {
                     try {
-                        TCSubject sub = null;
-                        // dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
-                        // setNextPage(dest);
                         setNextPage(getRequest().getContextPath());
 
                         setIsNextPageInContext(false);
                         log.debug("on successful login, going to " + getNextPage());
                         getAuthentication().login(new SimpleUser(0, username, password));
-                        doLegacyCrap(getRequest());
                         return;
 
                     } catch (LoginException e) {
@@ -74,7 +70,8 @@ public class Login extends Base {
         }
 
         if (loginStatus.equals(STATUS_START)) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                "In order to continue, you must provide your user name and password.");
         }
         int nextPageIdx = info.getRequestString().indexOf("nextpage=");
         if (nextPageIdx != -1) {
@@ -85,17 +82,5 @@ public class Login extends Base {
         setIsNextPageInContext(true);
     }
 
-
-    private void doLegacyCrap(TCRequest request) throws Exception {
-        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
-        CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
-        if (nav == null) {
-            nav = new Navigation(request, ret);
-            request.getSession(true).setAttribute("navigation", nav);
-        } else {
-            nav.setCoderSessionInfo(ret);
-        }
-    }
 
 }
