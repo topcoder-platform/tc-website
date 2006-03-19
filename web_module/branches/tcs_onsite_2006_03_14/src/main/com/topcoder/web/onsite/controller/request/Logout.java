@@ -22,7 +22,7 @@ public class Logout extends Base {
 
         getAuthentication().logout();
         getRequest().getSession().invalidate();
-        setNextPage(getRequest().getContextPath());
+        setNextPage(getNextPage());
         setIsNextPageInContext(false);
         log.debug("on successful login, going to " + getNextPage());
     }

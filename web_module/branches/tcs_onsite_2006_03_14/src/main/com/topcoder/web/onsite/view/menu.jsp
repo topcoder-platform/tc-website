@@ -48,7 +48,7 @@
             <p>
                 <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout<a/>
             </p>
-        <% }
+        <% } %>
         </td>
 <!-- Center Column ends -->
 
