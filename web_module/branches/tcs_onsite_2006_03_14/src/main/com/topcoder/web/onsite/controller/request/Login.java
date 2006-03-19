@@ -58,8 +58,6 @@ public class Login extends Base {
                         /* the login failed, so tell them what happened */
                         getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
                     }
-                } catch (TCWebException e) {
-                    throw e;
                 } catch (Exception e) {
                     throw(new TCWebException(e));
                 }

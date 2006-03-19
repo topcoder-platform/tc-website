@@ -14,7 +14,8 @@ import com.topcoder.web.onsite.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.LoginException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.security.ClassResource;
 
 import java.util.Arrays;
 
@@ -24,7 +25,7 @@ public class Wager extends Base {
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
-            throw new LoginException("Handle or password incorrect.");
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
         log.debug("Authenticated, go to " + Constants.WAGER_PAGE);
