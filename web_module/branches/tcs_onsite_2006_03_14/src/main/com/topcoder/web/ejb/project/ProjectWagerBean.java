@@ -38,7 +38,7 @@ public class ProjectWagerBean extends BaseEJB {
             new String[]{"'contest_name'"}, 
             new String[]{"contest_id"},
             new String[]{"1"}, 
-            DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
 }
