@@ -15,7 +15,7 @@
 
 <html>
 <head>
-<title>TopCoder | Wager Menu</title>
+<title>TopCoder | View Competitions</title>
 
 
 </head>
@@ -34,21 +34,8 @@
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
-        <p>
-        <% if (sessionInfo.isAnonymous()) { %>
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login<a/>
-        <% } else { %>
-            Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
-        <% } %>
-        </p>
-        <p>
-        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions<a/>
-        </p>
-        <% if (!sessionInfo.isAnonymous()) { %>
-            <p>
-                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout<a/>
-            </p>
-        <% } %>
+View Competitions
+
         </td>
 <!-- Center Column ends -->
 
