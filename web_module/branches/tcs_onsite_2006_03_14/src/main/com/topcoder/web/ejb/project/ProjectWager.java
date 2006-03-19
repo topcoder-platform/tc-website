@@ -14,5 +14,5 @@ public interface ProjectWager extends EJBObject {
     void updateProjectWager(long projectId, long userId, int wagerAmount, String dataSource) throws RemoteException;
     boolean exists(long projectId, long userId, String dataSource) throws RemoteException;
     int getWager(long projectId, long userId, String dataSource) throws RemoteException;
-    ResultSetContainer findCurrentCompetitions(String userId) throws Exception;
+    ResultSetContainer findCurrentCompetitions(String userId) throws RemoteException;
 }

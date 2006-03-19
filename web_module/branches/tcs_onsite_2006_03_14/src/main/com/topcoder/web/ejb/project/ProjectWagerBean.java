@@ -33,7 +33,7 @@ public class ProjectWagerBean extends BaseEJB {
                 new String[] {String.valueOf(projectId), String.valueOf(userId)}, dataSource).intValue();
     }
     
-    private ResultSetContainer findCurrentCompetitions(String userId) throws Exception {
+    private ResultSetContainer findCurrentCompetitions(String userId) {
         return selectSet("contest", 
             new String[]{"'contest_name'"}, 
             new String[]{"contest_id"},
