@@ -14,6 +14,7 @@
 %>
 
 <html>
+<% ResultSetContainer currentCompetitions = (ResultSetContainer) request.getAttribute("result");%>
 <head>
 <title>TopCoder | View Competitions</title>
 
@@ -37,6 +38,15 @@
 View Competitions
 
         </td>
+        
+    <rsc:iterator list="<%=currentCompetitions%>" id="contest_name">
+        <tr>
+            <td class="value">
+                    <rsc:item name="contest_name" row="<%=resultRow%>"/>
+            </td>
+        </tr>
+    </rsc:iterator>        
+        
 <!-- Center Column ends -->
 
 <!-- Gutter -->

@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.project;
 
 import javax.ejb.EJBLocalObject;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * @author dok
@@ -12,5 +13,5 @@ public interface ProjectWagerLocal extends EJBLocalObject {
     void updateProjectWager(long projectId, long userId, int wagerAmount, String dataSource);
     boolean exists(long projectId, long userId, String dataSource);
     int getWager(long projectId, long userId, String dataSource);
-
+    ResultSetContainer findCurrentCompetitions(String userId);
 }

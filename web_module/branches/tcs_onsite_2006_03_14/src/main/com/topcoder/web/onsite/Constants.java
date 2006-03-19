@@ -18,7 +18,7 @@ public class Constants implements WebConstants {
     public static String LOGIN;
     public static String DEFAULT_PAGE;
     public static String WAGER_PAGE;
-    public static String VIEW_COMPETITIONS_PAGE
+    public static String VIEW_COMPETITIONS_PAGE;
 
     /* request parameters */
     public static String MODULE_KEY;
