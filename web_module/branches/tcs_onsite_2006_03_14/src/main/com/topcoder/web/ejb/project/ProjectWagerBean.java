@@ -38,7 +38,8 @@ public class ProjectWagerBean extends BaseEJB {
             new String[]{"'contest_name'"}, 
             new String[]{"contest_id"},
             new String[]{"1"}, 
-            DBMS.TCS_OLTP_DATASOURCE_NAME);
+            "java:InformixDS");
+            //DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
 
 }
