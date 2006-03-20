@@ -62,10 +62,6 @@ By holding this competition, we hope to raise awareness of threading and the opp
 <br><br>
 See the <A href="/longcontest/?module=Static&d1=intel_rules">rules and regulations</A> for more details.
 <br><br>
-By holding this competition, we hope to raise awareness of threading and the opportunities it presents, so you can create the very best software applications and solutions.  The ultimate goal is to identify, attract and create proficient multi-threading programmers world-wide. Compete and learn the benefits of threaded code, and how to design and create the optimum threaded code and solutions!  Get a chance to test your competition submissions on state-of-the-art,  cutting-edge, multi-core Intel processors!  In order to participate, you will need to be a registered TopCoder member.
-<br><br>
-See the <A href="/longcontest/?module=Static&d1=intel_rules">rules and regulations</A> for more details.
-<br><br>
 <strong>Match results</strong><br>
 Once the submission phase of a Marathon Match has ended, the final results will become available by clicking the Results link.  Competitors will be able to see the test cases, other competitors' submissions, and results.
 <br><br>
