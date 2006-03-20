@@ -39,44 +39,56 @@
                     You are about to wager on:
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <p>
-                        <%= currentCompetitions.getStringItem(0, "contest_name") %>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                  <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
-                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager">
-                    <td class="bodyText">
-                        <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                            <tr valign="top">
-                                <td class="errorText" colspan="3">
-                                    <p><%= message %></p>
-                                </td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Amount:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
-                            </tr>
-
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                        </table>
-                        <p><br/></p>
-
-                    <script>
-                      document.frmWager.<%=Constants.WAGER_AMOUNT%>.focus();
-                    </script>
-
+            <% if (currentCompetitions.size() > 0) {%>
+                <tr>
+                    <td>
+                        <p>
+                            <%= currentCompetitions.getStringItem(0, "contest_name") %>
+                        </p>
                     </td>
-                  </form>
-            </tr>
-            
+                </tr>
+                <tr>
+                      <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager">
+                        <td class="bodyText">
+                            <table border="0" cellpadding="3" cellspacing="0">
+                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                                <tr valign="top">
+                                    <td class="errorText" colspan="3">
+                                        <p><%= message %></p>
+                                    </td>
+                                </tr>
+    
+                                <tr valign="middle">
+                                    <td nowrap class="bodyText" align="right">Amount:</td>
+                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
+                                    <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
+                                </tr>
+    
+                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                            </table>
+                            <p><br/></p>
+    
+                        <script>
+                          document.frmWager.<%=Constants.WAGER_AMOUNT%>.focus();
+                        </script>
+    
+                        </td>
+                      </form>
+                </tr>
+            <% } else {%>
+                <tr>
+                    <td>
+                        <p>
+                            You do not have current competitions to wager on.
+                        </p>
+                        <p>
+                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>">Go back to menu<a/>
+                        </p>
+                    </td>
+                </tr>
+            <% } %>
         </table>
     </body>
 </html>

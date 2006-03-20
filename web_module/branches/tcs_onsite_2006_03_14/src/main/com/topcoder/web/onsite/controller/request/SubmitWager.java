@@ -35,19 +35,19 @@ public class SubmitWager extends Base {
         try {
             wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT));
         } catch (NumberFormatException nfe) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, nfe.getMessage());
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, Constants.INVALID_WAGER_FORMAT_MESSAGE);
             return;
         }
         
         if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT);
+                Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT + ".");
             return;
         }        
         
         if (wagerAmount > Constants.MAX_WAGER_AMOUNT) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + Constants.MAX_WAGER_AMOUNT);
+                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + Constants.MAX_WAGER_AMOUNT + ".");
             return;
         }
 
