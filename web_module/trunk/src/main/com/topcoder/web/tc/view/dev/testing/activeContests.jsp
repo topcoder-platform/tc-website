@@ -47,6 +47,7 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
+<%--
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -203,6 +204,7 @@
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
+--%>
 </table>
 
 </td>
