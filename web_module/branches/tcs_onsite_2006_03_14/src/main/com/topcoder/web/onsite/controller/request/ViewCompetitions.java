@@ -42,10 +42,6 @@ public class ViewCompetitions extends Base {
         Map m = dai.getData(request);
         ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
 
-        if (comp.size() == 0) {
-            throw new TCWebException("Current competition not found.");
-        }
-        
         return comp;
     }
 

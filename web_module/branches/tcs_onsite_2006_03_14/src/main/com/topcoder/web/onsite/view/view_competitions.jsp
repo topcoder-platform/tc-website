@@ -34,12 +34,12 @@
     
     <body>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <td>
-                    You are about to wager on:
-                </td>
-            </tr>
             <% if (currentCompetitions.size() > 0) {%>
+                <tr valign="top">
+                    <td>
+                        You are about to wager on:
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <p>

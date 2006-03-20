@@ -31,6 +31,9 @@
             <p>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">Go back to Competitions<a/>
             </p>
+            <p>
+                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout<a/>
+            </p>            
         </td>
     </tr>
 </table>
