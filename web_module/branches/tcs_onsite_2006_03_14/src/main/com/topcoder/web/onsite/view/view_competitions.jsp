@@ -15,59 +15,26 @@
 %>
 
 <html>
-<% ResultSetContainer currentCompetitions = (ResultSetContainer) request.getAttribute("result");%>
-<head>
-<title>TopCoder | View Competitions</title>
-
-
-</head>
-
-<body>
-
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-
-
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-
-View Competitions
-
-        </td>
-        
-    <!--rsc:iterator list="<%=currentCompetitions%>" id="contest_name"-->
-        <tr>
-            <td class="value">
-                <p>
-                    <%= currentCompetitions.getStringItem(0, "contest_name") %>
-                </p>
-            </td>
-        </tr>
-    <!--/rsc:iterator-->        
-        
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-    </tr>
-</table>
-
-
-</body>
+    <% ResultSetContainer currentCompetitions = (ResultSetContainer) request.getAttribute("result");%>
+    <head>
+        <title>TopCoder | View Competitions</title>
+    </head>
+    
+    <body>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr valign="top">
+                <td>
+                    View Competitions
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        <%= currentCompetitions.getStringItem(0, "contest_name") %>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
 
