@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.email.Email;
@@ -39,7 +40,7 @@ public class ProfileConfig extends BaseProcessor {
 
                 info.setUserID(uid);
 
-                InitialContext ctx = getInitialContext();
+                InitialContext ctx = TCContext.getInitial();
                 User userbean = (User)createEJB(ctx, User.class);
                 Email emailbean = (Email)createEJB(ctx, Email.class);
 
@@ -90,6 +91,35 @@ public class ProfileConfig extends BaseProcessor {
                 if(rsc.size() != 0) {
                     setDefault("component", rsc.getStringItem(0, "problem_id"));
                 }
+                
+                
+                // load design components for coder
+                r = new Request();
+                r.setContentHandle("successful_components");
+                r.setProperty("uid", Integer.toString(uid));
+                r.setProperty("ph", "1"); // design
+                
+                rsc = (ResultSetContainer)getTCSCatalogDataAccess().getData(r).get("successful_components");
+                info.setDesignComponents(rsc);
+                
+                if (rsc.getRowCount() > 0) {
+                	setDefault("design_component", rsc.getStringItem(0, "project_id"));
+                }
+                
+                
+                // load development components for coder
+                r = new Request();
+                r.setContentHandle("successful_components");
+                r.setProperty("uid", Integer.toString(uid));
+                r.setProperty("ph", "2"); // development
+
+                rsc = (ResultSetContainer)getTCSCatalogDataAccess().getData(r).get("successful_components");
+                info.setDevelopmentComponents(rsc);
+                
+                if (rsc.getRowCount() > 0) {
+                	setDefault("development_component", rsc.getStringItem(0, "project_id"));
+                }
+                
 
                 getRequest().setAttribute("configInfo", info);
             } else {
@@ -113,6 +143,13 @@ public class ProfileConfig extends BaseProcessor {
             throw new TCWebException(e);
         }
 
+    }
+    
+    
+    protected static DataAccessInt getTCSCatalogDataAccess() throws Exception {
+        DataAccessInt dAccess = null;
+        dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        return dAccess;
     }
 
     protected static DataAccessInt getDWDataAccess() throws Exception {
