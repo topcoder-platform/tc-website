@@ -37,12 +37,13 @@
 <jsp:param name="title" value="Standings"/>
 </jsp:include>
 
+<span class="bodySubtitle">Contest: Time Tracker Time Tests</span>
+<br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Testing Contest Standings</td></tr>
+   <tr><td class="title" colspan="2">Testing Contest Standings</td></tr>
    <tr>
-      <td class="tableHeader" width="50%" nowrap="nowrap">Team</td>
-      <td class="tableHeader" width="50%" nowrap="nowrap">Team Members</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Status</td>
+      <td class="header" width="100%" nowrap="nowrap">Handle</td>
+      <td class="headerC" nowrap="nowrap">Status</td>
    </tr>
    <% boolean even = false; %>
 </table>
