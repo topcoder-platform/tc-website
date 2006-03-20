@@ -113,15 +113,17 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                 <tr>
-                    <td class="tableTitle" colspan="7">Standings</td>
+                    <td class="tableTitle" colspan="6">Standings</td>
                 </tr>
                 <tr>
                     <td class="tableHeader" width="20">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="sr;nr"/>">Handle</A>
                     </td>
+<%--
                     <td class="tableHeader" width="20%" align="right" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true" excludeParams="sr;nr"/>">Score</A>
                     </td>
+--%>
                     <td class="tableHeader" width="20%" align="center" nowrap="nowrap">
                         <A href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=standings.getColumnIndex("points")%>" includeParams="true" excludeParams="sr;nr"/>">Rank</A>
                     </td>
@@ -143,10 +145,10 @@
                 <%--control whitespace to reduce html size --%>
                 <rsc:iterator list="<%=standings%>" id="resultRow"><tr>
 <td class="<%=even?"statLt":"statDk"%>">
-<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
+<%=resultRow.getIntItem("status_id")==130?"*":""%><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>"/></td><%--
+                <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 7px;">
 <rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
-<td class="<%=even?"statLt":"statDk"%>" align="center">
+--%><td class="<%=even?"statLt":"statDk"%>" align="center">
 <% if (resultRow.getItem("points").getResultData()!=null){ %><rsc:item name="rank" row="<%=resultRow%>"/><% } %></td>
 <td class="<%=even?"statLt":"statDk"%>" align="center"><%if (resultRow.getItem("submit_time").getResultData()!=null) { %>
 <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/><% } %></td>
@@ -175,7 +177,7 @@
             </table>
         </td>
     </tr>
-</TABLE>
+</table>
     <p>* Indicates that this competitor's most recent test or submission has not yet been processed</p>
 
 <div class="pagingBox">
