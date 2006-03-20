@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.onsite.controller.request.Wager,
+                 com.topcoder.web.onsite.controller.request.SubmitWager,
                  com.topcoder.web.onsite.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -49,7 +49,7 @@
             <tr>
                   <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Wager">
+                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager">
                     <td class="bodyText">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>

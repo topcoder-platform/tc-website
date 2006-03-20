@@ -19,9 +19,9 @@ import com.topcoder.shared.security.ClassResource;
 
 import java.util.Arrays;
 
-public class Wager extends Base {
+public class SubmitWager extends Base {
 
-    private static final Logger log = Logger.getLogger(Wager.class);
+    private static final Logger log = Logger.getLogger(SubmitWager.class);
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {

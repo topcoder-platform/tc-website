@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.onsite.controller.request.Wager,
+                 com.topcoder.web.onsite.controller.request.SubmitWager,
                  com.topcoder.web.onsite.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
