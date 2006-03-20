@@ -27,10 +27,32 @@ public class SubmitWager extends Base {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
+
+        setNextPage(Constants.VIEW_COMPETITIONS_PAGE);
+        setIsNextPageInContext(true);
+        
+        int wagerAmount;
+        try {
+            wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT));
+        } catch (NumberFormatException nfe) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, nfe.getMessage());
+            return;
+        }
+        
+        if (wagerAmount < Constants.MIM_WAGER_AMOUNT) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                Constants.MIM_WAGER_AMOUNT_MESSAGE + " " + Constants.MIM_WAGER_AMOUNT);
+            return;
+        }        
+        
+        if (wagerAmount > Constants.MAX_WAGER_AMOUNT) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + Constants.MAX_WAGER_AMOUNT);
+            return;
+        }
         
         log.debug("Authenticated, go to " + Constants.WAGER_PAGE);
         setNextPage(Constants.WAGER_PAGE);
-        setIsNextPageInContext(true);
     }
 
 }

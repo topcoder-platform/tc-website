@@ -19,7 +19,14 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.project.ProjectWagerLocal;
 import com.topcoder.web.ejb.project.ProjectWager;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.web.common.TCWebException;
+
+
+import java.util.Map;
 import java.util.Arrays;
 
 public class ViewCompetitions extends Base {
@@ -27,9 +34,18 @@ public class ViewCompetitions extends Base {
     private static final Logger log = Logger.getLogger(ViewCompetitions.class);
 
     private ResultSetContainer findCurrentCompetitions(String userId) throws Exception {
-        ProjectWagerLocal projectWagerLocal = 
-            (ProjectWagerLocal) createLocalEJB(getInitialContext(), ProjectWager.class); 
-        return projectWagerLocal.findCurrentCompetitions(userId);
+        Request request = new Request();
+        request.setContentHandle(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
+        request.setProperty("uid", userId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Map m = dai.getData(request);
+        ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
+
+        if (comp.size() == 0) {
+            throw new TCWebException("Current competition not found.");
+        }
+        
+        return comp;
     }
 
     protected void businessProcessing() throws Exception {
@@ -37,13 +53,7 @@ public class ViewCompetitions extends Base {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
             
-        ResultSetContainer comp = findCurrentCompetitions("");
-
-        /*if (ResultSetContainer.size() == 0) {
-            throw new TCWebException("Current competition not found.");
-        }*/
-
-        getRequest().setAttribute("result", comp);        
+        getRequest().setAttribute("result", findCurrentCompetitions("289824"));        
         
         log.debug("Authenticated, go to " + Constants.VIEW_COMPETITIONS_PAGE);
         setNextPage(Constants.VIEW_COMPETITIONS_PAGE);

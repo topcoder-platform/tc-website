@@ -1,8 +1,6 @@
 package com.topcoder.web.ejb.project;
 
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 
 /**
  * @author dok
@@ -32,14 +30,4 @@ public class ProjectWagerBean extends BaseEJB {
         return selectInt("project_wager", "wager_amount", new String[] {"project_id", "user_id"},
                 new String[] {String.valueOf(projectId), String.valueOf(userId)}, dataSource).intValue();
     }
-    
-    public ResultSetContainer findCurrentCompetitions(String userId) {
-        return selectSet("contest", 
-            new String[]{"contest_name"}, 
-            new String[]{"contest_id"},
-            new String[]{"1"}, 
-            "java:InformixDS");
-            //DBMS.TCS_OLTP_DATASOURCE_NAME);
-    }
-
 }
