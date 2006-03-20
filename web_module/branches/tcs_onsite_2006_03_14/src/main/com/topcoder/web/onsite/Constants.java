@@ -48,13 +48,11 @@ public class Constants implements WebConstants {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
-                            log.debug("MissingResourceException int");
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
-                            log.debug("MissingResourceException string");
                         }
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());

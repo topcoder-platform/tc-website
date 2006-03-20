@@ -34,10 +34,6 @@ public class ViewCompetitions extends Base {
     private static final Logger log = Logger.getLogger(ViewCompetitions.class);
 
     private ResultSetContainer findCurrentCompetitions(String userId) throws Exception {
-
-        log.debug("findCurrentCompetitions " + Constants.ACTUAL_TCO_CONTESTS_COMMAND);
-
-
         Request request = new Request();
         request.setContentHandle(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
         request.setProperty("uid", userId);

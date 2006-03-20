@@ -39,9 +39,9 @@ public class SubmitWager extends Base {
             return;
         }
         
-        if (wagerAmount < Constants.MIM_WAGER_AMOUNT) {
+        if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MIM_WAGER_AMOUNT_MESSAGE + " " + Constants.MIM_WAGER_AMOUNT);
+                Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT);
             return;
         }        
         
