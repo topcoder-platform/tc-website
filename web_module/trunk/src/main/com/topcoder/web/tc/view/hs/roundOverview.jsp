@@ -67,6 +67,7 @@ or
 <span class="bigTitle">Competition: HS SRM 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
+<span class="bodySubtitle">Teams: 150</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <br><br>
