@@ -50,7 +50,7 @@
                   <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Wager">
-                    <td class="bodyText" align="center">
+                    <td class="bodyText">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                             <tr valign="top">
@@ -60,7 +60,7 @@
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Amout:</td>
+                                <td nowrap class="bodyText" align="right">Amount:</td>
                                 <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
                             </tr>
