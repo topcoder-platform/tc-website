@@ -17,7 +17,7 @@ public class Constants implements WebConstants {
     /* pages */
     public static String LOGIN;
     public static String DEFAULT_PAGE;
-    public static String WAGER_PAGE;
+    public static String WAGER__RESULT_PAGE;
     public static String VIEW_COMPETITIONS_PAGE;
 
     /* request parameters */
@@ -29,6 +29,7 @@ public class Constants implements WebConstants {
     public static int MAX_WAGER_AMOUNT;
     public static String MIN_WAGER_AMOUNT_MESSAGE;
     public static String MAX_WAGER_AMOUNT_MESSAGE;
+    public static String SUCCESSFULL_WAGER_MESSAGE;
     public static String ACTUAL_TCO_CONTESTS_COMMAND;
 
     static {
