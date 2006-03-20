@@ -61,13 +61,10 @@ function submitEnter(e) {
          <jsp:include page="right_reg.jsp" />
          </div>
          <br><br>
-                        Registration will close on Monday, March 20 at 9:00 AM IST.<br/><br/>
-                        If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">not currently a TopCoder member</A>
-                        or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_INDIA_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=8039&<%=Constants.EVENT_ID%>=5" class="bigRed">here</a>.
+                        Registration for the Google Code Jam India has closed.
                         <br><br>
-                        If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam India 2006
-                        or you have an existing Google Code Jam India 2006 account and need to change your registration information
-                        you may login below.<br/><br/>
+                        If you have already registered and would like to <strong>update your registration information</strong>, please login here:
+                        <br><br>
 
                         <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_06_LOGIN%>">
@@ -78,7 +75,7 @@ function submitEnter(e) {
 
                               <tr valign="top">
                                  <td class="errorText" colspan="3" align="center">
-                                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator>
                                  </td>
                               </tr>
                               <tr valign="middle">
@@ -92,8 +89,10 @@ function submitEnter(e) {
                                  <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                               </tr>
                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
+                              <tr><td colspan="3" class="bodyText" align="center"><A href="/pl/?module=GoogleIndia06Credentials&cid=8039">Forgot your password?</A></td></tr>
                            </table>
-                           <p><br/></p>
+
+                           <p><br></p>
 
                            <script>
                               document.frmLogin.<%=Constants.HANDLE%>.focus();
@@ -101,7 +100,7 @@ function submitEnter(e) {
 
                         </form>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about Google Code Jam India 2006, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
          </div>
       </td>
