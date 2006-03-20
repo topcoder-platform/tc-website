@@ -23,16 +23,13 @@ public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-        System.out.println("hasPermission");
         return true;
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        System.out.println("process");
 
         if (request.getServerName().equals("topcoder.com")) {
-        System.out.println("process2");
             response.sendRedirect("http://www.topcoder.com/onsite");
             return;
         }
@@ -45,7 +42,6 @@ public class MainServlet extends BaseServlet {
                                             WebAuthentication auth, Set groups) throws Exception {
         //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
         //goes, so does this crap
-        System.out.println("createSessionInfo");
         Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         CoderSessionInfo ret = null;
         ret = new CoderSessionInfo(request, auth, groups);
@@ -61,7 +57,6 @@ public class MainServlet extends BaseServlet {
     }
 
     protected String getProcessor(String key) {
-         System.out.println("getProcessor");
        String ret = super.getProcessor(key);
         if (ret.equals(key)) {
             //yuck, gonna throw errors all over the place
