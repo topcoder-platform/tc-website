@@ -44,7 +44,7 @@ View Competitions
         <tr>
             <td class="value">
                     1
-                    <rsc:item name="contest_name"  row="<%=currentCompetitions.getRow(0)%>"/>
+                    <rsc:item name="contest_name"  row="<%=currentCompetitions.getRow(1)%>"/>
             </td>
         </tr>
     </rsc:iterator>        
