@@ -24,6 +24,7 @@ public class Constants implements WebConstants {
     public static String MODULE_KEY;
 
     /* misc constants */
+    public static String WAGER_AMOUNT;
 
 
     static {
