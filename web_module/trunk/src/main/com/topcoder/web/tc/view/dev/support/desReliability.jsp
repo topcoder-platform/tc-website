@@ -53,7 +53,7 @@ will be marked reliable, if the user submitted a solution that passed screening.
 submitted prior to October 5th, 2005 they will not be given a reliability rating until they submit a project that scores
 at least a 70 in review.  As of January 12th 2006, TopCoder has increased the minium score to 75.</p>
 
-    <p>One will not be allow to register for more than 2 projects if their relevant reliability rating is less
+    <p>One will not be allowed to register for more than 2 projects if their relevant reliability rating is less
         than 70%, or if they don't have a reliability rating.</p>
 
 <p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed
