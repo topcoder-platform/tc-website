@@ -70,7 +70,6 @@ public class Submit extends Base {
                 throw new NavigationException("Sorry, we are currently not accepting submissions.");
             }
 
-
             // Clear session of temp variables
             cleanSession();
 
@@ -128,11 +127,11 @@ public class Submit extends Base {
                 }
             } else {
                 //load up their default language
-                Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+                Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                 language = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
             }
 
-            if (language>0) {
+            if (language > 0) {
                 setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                 getRequest().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
             }
@@ -144,7 +143,7 @@ public class Submit extends Base {
             ArrayList returnTypes = new ArrayList(methodCount);
             ArrayList paramTypes = new ArrayList(methodCount);
             log.debug("there are " + methodCount + " methods in this problem");
-            for (int i=(methodCount>1?1:0); i<methodCount; i++) {
+            for (int i = (methodCount > 1 ? 1 : 0); i < methodCount; i++) {
                 methodNames.add(pc.getAllMethodNames()[i]);
                 log.debug("adding return type : " + pc.getAllReturnTypes()[i].getDescriptor(language));
                 returnTypes.add(pc.getAllReturnTypes()[i].getDescriptor(language));
@@ -154,7 +153,7 @@ public class Submit extends Base {
                     if (j > 0) {
                         argTypes.append(", ");
                     }
-                    argTypes.append(new DataTypeRenderer(args[j]).toPlainText(BaseLanguage.getLanguage(language>0?language:JavaLanguage.ID)));
+                    argTypes.append(new DataTypeRenderer(args[j]).toPlainText(BaseLanguage.getLanguage(language > 0 ? language : JavaLanguage.ID)));
                 }
                 paramTypes.add(argTypes.toString());
 
@@ -198,74 +197,36 @@ public class Submit extends Base {
                 }
 
 
-                //todo if we got a cray to do testing, we can take the limit off for practice rounds
-                if (!lastCompilation.isEmpty()) {
-                    long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData()==null?0:lastCompilation.getLongItem(0, "submit_time");
-                    long now = System.currentTimeMillis();
-                    long nextSubmit = lastSubmit +Constants.SUBMISSION_RATE*60*1000;
-                    long nextExampleSubmit = lastSubmit +Constants.EXAMPLE_SUBMISSION_RATE*60*1000;
-                    log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now-lastSubmit) + " examplesonly " + examplesOnly);
-                    long minutes = 0;
-                    long seconds = 0;
-                    if (!examplesOnly && now<nextSubmit) {
-                        minutes = (nextSubmit-now)/(60*1000);
-                        seconds = (nextSubmit-now-(minutes*60*1000))/1000;
-                    } else if (examplesOnly && now<nextExampleSubmit) {
-                        minutes = (nextExampleSubmit-now)/(60*1000);
-                        seconds = (nextExampleSubmit-now-(minutes*60*1000))/1000;
-                    }
-                    if (minutes>0||seconds>0) {
-                        StringBuffer buf = new StringBuffer(100);
-                        buf.append("Sorry, you may not ");
-                        buf.append(examplesOnly?"test":"submit");
-                        buf.append(" again for another");
-                        if (minutes > 1) {
-                            buf.append(" ");
-                            buf.append(minutes);
-                            buf.append(" minutes");
-                        } else if (minutes==1) {
-                            buf.append(" minute");
-                        }
-                        if(minutes>0&&seconds>0) {
-                            buf.append(" and");
-                        }
-                        if (seconds>1) {
-                            buf.append(" ");
-                            buf.append(seconds);
-                            buf.append(" seconds");
-                        } else if (seconds==1) {
-                            buf.append(" ");
-                            buf.append(seconds);
-                            buf.append(" second");
-                        }
+                ResultSetContainer lastExampleCompilation =
+                        (ResultSetContainer) m.get("long_contest_recent_example_compilation");
+
+                String mess;
+                if (examplesOnly) {
+                    mess = getMessage(lastExampleCompilation, true);
+                } else {
+                    mess = getMessage(lastExampleCompilation, false);
+                }
+                if (mess!=null) {
                         request.setAttribute(Constants.CODE, code);
-                        if (language>0) {
+                        if (language > 0) {
                             setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                         }
                         request.setAttribute(Constants.LANGUAGES, getLanguages());
-                        request.setAttribute(Constants.MESSAGE, buf.toString());
+                        request.setAttribute(Constants.MESSAGE, mess);
                         setNextPage(Constants.SUBMISSION_JSP);
                         setIsNextPageInContext(true);
                         return;
-                    }
                 }
 
                 // The request info for the compiler
-                if (code==null) {
+                if (code == null) {
                     log.debug("********************* code is null ***********************");
                 }
                 //todo bad, those should all be long
                 LongCompileRequest lcr = new LongCompileRequest(uid, cid, rid, cd,
                         language, ApplicationServer.WEB_SERVER_ID, code, examplesOnly);
 
-/*
-                Request roomRequest = new Request();
-                roomRequest.setContentHandle("long_contest_find_room");
-                roomRequest.setProperty("rd", String.valueOf(rid));
-                long roomId = ((ResultSetContainer)getDataAccess().getData(roomRequest).get("long_contest_find_room")).getLongItem(0, "room_id");
-*/
-
-                LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
+                LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
                 if (!longCompResult.exists(rid, getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
                     longCompResult.createLongCompResult(rid, getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
                     longCompResult.setAttended(rid, getUser().getId(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
@@ -282,7 +243,6 @@ public class Submit extends Base {
                 showProcessingPage();
 
                 try {
-
 
                     // Get the compilation response
                     LongCompileResponse res = receive(30 * 1000, uid, cid);
@@ -376,8 +336,9 @@ public class Submit extends Base {
         DBServices dbs = dbsHome.create();
 
 
-        if (!dbs.isLongComponentOpened((int)uid, (int)rid, (int)cid)) { // Is there a record of the user opening the problem?
-            dbs.coderOpenLongComponent((int)uid, (int)cd, (int)rid, (int)cid);
+        if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid))
+        { // Is there a record of the user opening the problem?
+            dbs.coderOpenLongComponent((int) uid, (int) cd, (int) rid, (int) cid);
         }
 
         // Find the TestServices bean so we could save the code.
@@ -420,7 +381,59 @@ public class Submit extends Base {
         Request r = new Request();
         r.setContentHandle("long_contest_accept_submissions");
         r.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
-        return !((ResultSetContainer)getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
+        return !((ResultSetContainer) getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
     }
+
+    private String getMessage(ResultSetContainer lastCompilation, boolean examplesOnly) {
+        StringBuffer buf = null;
+        if (!lastCompilation.isEmpty()) {
+            long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData() == null ? 0 : lastCompilation.getLongItem(0, "submit_time");
+            long now = System.currentTimeMillis();
+            long nextSubmit;
+            if (examplesOnly) {
+                nextSubmit = lastSubmit + Constants.EXAMPLE_SUBMISSION_RATE * 60 * 1000;
+            } else {
+                nextSubmit = lastSubmit + Constants.SUBMISSION_RATE * 60 * 1000;
+            }
+            log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now - lastSubmit) + " examplesonly " + examplesOnly);
+            long minutes = 0;
+            long seconds = 0;
+            if (now < nextSubmit) {
+                minutes = (nextSubmit - now) / (60 * 1000);
+                seconds = (nextSubmit - now - (minutes * 60 * 1000)) / 1000;
+            } 
+            if (minutes > 0 || seconds > 0) {
+                buf = new StringBuffer(100);
+                buf.append("Sorry, you may not ");
+                buf.append(examplesOnly ? "test" : "submit");
+                buf.append(" again for another");
+                if (minutes > 1) {
+                    buf.append(" ");
+                    buf.append(minutes);
+                    buf.append(" minutes");
+                } else if (minutes == 1) {
+                    buf.append(" minute");
+                }
+                if (minutes > 0 && seconds > 0) {
+                    buf.append(" and");
+                }
+                if (seconds > 1) {
+                    buf.append(" ");
+                    buf.append(seconds);
+                    buf.append(" seconds");
+                } else if (seconds == 1) {
+                    buf.append(" ");
+                    buf.append(seconds);
+                    buf.append(" second");
+                }
+            }
+        }
+        if (buf==null) {
+            return null;
+        } else {
+            return buf.toString();
+        }
+    }
+
 
 }
