@@ -84,7 +84,7 @@ If you do not reside in the United States:
 <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
 </ul>
 <div class="sectionHeader">Timeline</div>
-All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00PM EST. 
+All submissions are required to be submitted by the end of the Test Submission Phase.  The end of each phase is at 9:00PM EST. 
 <br><br>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
