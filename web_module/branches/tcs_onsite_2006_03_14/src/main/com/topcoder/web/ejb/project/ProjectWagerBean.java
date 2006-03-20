@@ -35,7 +35,7 @@ public class ProjectWagerBean extends BaseEJB {
     
     public ResultSetContainer findCurrentCompetitions(String userId) {
         return selectSet("contest", 
-            new String[]{"'contest_name'"}, 
+            new String[]{"contest_name"}, 
             new String[]{"contest_id"},
             new String[]{"1"}, 
             "java:InformixDS");
