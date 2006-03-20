@@ -36,7 +36,7 @@
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="high_school"/>
-<jsp:param name="title" value="Match Results"/>
+<jsp:param name="title" value="Match Results - Team"/>
 </jsp:include>
 
 <script language="JavaScript">
@@ -67,6 +67,7 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 <span class="bigTitle">Competition: HS SRM 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
+<span class="bodySubtitle">Teams: 150</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox">
@@ -74,34 +75,25 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">HS SRM 1 Results</td></tr>
+   <tr><td class="title" colspan="15">HS SRM 1 Match Results - Team</td></tr>
    <tr>
-      <td class="headerC" colspan="9" style="border-right:1px solid #999999;">&#160;</td>
-      <td class="headerC" colspan="6">Rating</td>
-   <tr>
-      <td class="header">&#160;</td>
-      <td class="header">Competitors</td>
-      <td class="headerR" nowrap="nowrap">Coding Phase</td>
+      <td class="header"><A href="#">Team</A></td>
+      <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="#">Coding Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">Challenge Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="#">Challenge Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">System Tests</td>
+      <td class="headerR" nowrap="nowrap"><A href="#">System Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap" style="border-right:1px solid #999999;">Point Total</td>
-      <td class="headerR" nowrap="nowrap">Old</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">Change</td>
-      <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap">New</td>
-      <td class="headerR">&#160;</td>
+      <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
       <td class="value">
       <A href="#">Team 1</A>
+      </td>
+      <td class="valueR">
+      5
       </td>
       <td class="valueR">
       1062.82
@@ -112,317 +104,8 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      <td class="valueR" colspan="2">
       1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      3422
-      </td>
-      <td class="valueR" colspan="2">
-      94
-      </td>
-      <td class="valueR" colspan="2">
-      3516
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
