@@ -33,10 +33,10 @@ public class ViewCompetitions extends Base {
 
     private static final Logger log = Logger.getLogger(ViewCompetitions.class);
 
-    private ResultSetContainer findCurrentCompetitions(String userId) throws Exception {
+    private ResultSetContainer findCurrentCompetitions(long userId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
-        request.setProperty("uid", userId);
+        request.setProperty("uid", String.valueOf(userId));
         //DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         DataAccessInt dai = new CachedDataAccess("java:InformixDS");
         Map m = dai.getData(request);
