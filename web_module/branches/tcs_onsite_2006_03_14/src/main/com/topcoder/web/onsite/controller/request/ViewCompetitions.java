@@ -54,7 +54,7 @@ public class ViewCompetitions extends Base {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
             
-        getRequest().setAttribute("result", findCurrentCompetitions("289824"));        
+        getRequest().setAttribute("result", findCurrentCompetitions(getUser().getId()));        
         
         log.debug("Authenticated, go to " + Constants.VIEW_COMPETITIONS_PAGE);
         setNextPage(Constants.VIEW_COMPETITIONS_PAGE);
