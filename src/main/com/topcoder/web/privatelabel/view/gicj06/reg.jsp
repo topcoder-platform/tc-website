@@ -134,7 +134,6 @@ function submitEnter(e) {
                 </td>
             </tr>
 
-            <%if(regInfo.isNew()) { %>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br></tc-webtag:errorIterator>
@@ -162,7 +161,6 @@ function submitEnter(e) {
                     <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
                 </td>
             </tr>
-            <% } %>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator>
