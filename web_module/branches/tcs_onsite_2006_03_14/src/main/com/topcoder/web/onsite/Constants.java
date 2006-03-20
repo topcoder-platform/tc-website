@@ -17,7 +17,7 @@ public class Constants implements WebConstants {
     /* pages */
     public static String LOGIN;
     public static String DEFAULT_PAGE;
-    public static String WAGER__RESULT_PAGE;
+    public static String WAGER_RESULT_PAGE;
     public static String VIEW_COMPETITIONS_PAGE;
 
     /* request parameters */

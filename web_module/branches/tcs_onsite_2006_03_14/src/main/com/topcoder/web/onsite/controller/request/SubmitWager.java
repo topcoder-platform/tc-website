@@ -28,7 +28,7 @@ public class SubmitWager extends Base {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        setNextPage(Constants.VIEW_COMPETITIONS_PAGE);
+        setNextPage(Constants.WAGER_RESULT_PAGE);
         setIsNextPageInContext(true);
         
         int wagerAmount;
@@ -50,9 +50,9 @@ public class SubmitWager extends Base {
                 Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + Constants.MAX_WAGER_AMOUNT);
             return;
         }
-        
-        log.debug("Authenticated, go to " + Constants.WAGER_PAGE);
-        setNextPage(Constants.WAGER_PAGE);
-    }
 
+
+        getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+            Constants.SUCCESSFULL_WAGER_MESSAGE);
+    }
 }
