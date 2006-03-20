@@ -114,7 +114,8 @@ public class PDFGenerator extends BaseProcessor {
         }
 
         // load design competition stats
-        if (getRequest().getParameter("design_component") != null) {
+        String component = getRequest().getParameter("design_component");
+        if (component != null && component.trim().length() > 0) {
             r = new Request();
             r.setContentHandle("Coder_Des_Data");
             r.setProperty("cr", Integer.toString(uid));
@@ -153,7 +154,8 @@ public class PDFGenerator extends BaseProcessor {
         }
 
         // load development competition stats
-        if (getRequest().getParameter("development_component") != null) {
+        component = getRequest().getParameter("development_component");
+        if (component != null && component.trim().length() > 0) {
             r = new Request();
             r.setContentHandle("Coder_Dev_Data");
             r.setProperty("cr", Integer.toString(uid));
