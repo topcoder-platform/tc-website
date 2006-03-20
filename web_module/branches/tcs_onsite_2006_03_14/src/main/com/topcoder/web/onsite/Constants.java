@@ -30,11 +30,6 @@ public class Constants implements WebConstants {
     public static String MIM_WAGER_AMOUNT_MESSAGE;
     public static String MAX_WAGER_AMOUNT_MESSAGE;
     public static String ACTUAL_TCO_CONTESTS_COMMAND;
-    
-/*
-MIM_WAGER_AMOUNT = 10
-MAX_WAGER_AMOUNT = 60
-*/
 
     static {
         initialize();
