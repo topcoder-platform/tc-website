@@ -42,6 +42,14 @@ public class PlacementConfig implements Serializable {
     private Language lang;
     private String submissionText;
     private String numContests;
+    
+    private GeneralStats algorithm;
+    
+    private ComponentCompetitionStats design;
+    private ComponentCompetitionStats development;
+    
+    private ComponentContestDetails designExample;
+    private ComponentContestDetails developmentExample;
 
     public PlacementConfig() {
         userID = 0;
@@ -294,4 +302,44 @@ public class PlacementConfig implements Serializable {
     public int getUserID() {
         return userID;
     }
+
+	public void setDesign(ComponentCompetitionStats design) {
+		this.design = design;
+	}
+
+	public ComponentCompetitionStats getDesign() {
+		return design;
+	}
+
+	public void setDevelopment(ComponentCompetitionStats development) {
+		this.development = development;
+	}
+
+	public ComponentCompetitionStats getDevelopment() {
+		return development;
+	}
+
+	public void setDesignExample(ComponentContestDetails designExample) {
+		this.designExample = designExample;
+	}
+
+	public ComponentContestDetails getDesignExample() {
+		return designExample;
+	}
+
+	public void setDevelopmentExample(ComponentContestDetails developmentExample) {
+		this.developmentExample = developmentExample;
+	}
+
+	public ComponentContestDetails getDevelopmentExample() {
+		return developmentExample;
+	}
+
+	public void setAlgorithm(GeneralStats algorithm) {
+		this.algorithm = algorithm;
+	}
+
+	public GeneralStats getAlgorithm() {
+		return algorithm;
+	}
 }

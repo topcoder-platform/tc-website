@@ -88,6 +88,27 @@
                     <tc-webtag:rscSelect name="component" list="<%=configInfo.getProblems()%>" fieldText="name" fieldValue="problem_id"/>
                 </td>
             </tr>
+            
+            <tr>
+                <td valign=top>
+                    <b>Sample Design Component</b>
+                </td>
+                <td>
+                    <tc-webtag:rscSelect name="design_component" list="<%=configInfo.getDesignComponents()%>" fieldText="component_name" fieldValue="project_id"/>
+                    (to exclude design statistics, select the empty row at the top of the combo box)
+                </td>
+            </tr>
+            
+            <tr>
+                <td valign=top>
+                    <b>Sample Development Component</b>
+                </td>
+                <td>
+                    <tc-webtag:rscSelect name="development_component" list="<%=configInfo.getDevelopmentComponents()%>" fieldText="component_name" fieldValue="project_id"/>
+                    (to exclude development statistics, select the empty row at the top of the combo box)
+                </td>
+            </tr>
+            
             <tr>
                 <td>
                     &nbsp;

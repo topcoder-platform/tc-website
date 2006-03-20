@@ -43,6 +43,7 @@
         5.0.4 - 2006.03.xx
         <ul>
             <li>Fix the timezone on the assessment reminder email.</li>
+            <li>Add component information to the profile pdf generation</li>
         </ul>
     </p>
     <p>
