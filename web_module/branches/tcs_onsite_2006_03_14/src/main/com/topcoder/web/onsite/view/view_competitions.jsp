@@ -43,7 +43,9 @@ View Competitions
     <!--rsc:iterator list="<%=currentCompetitions%>" id="contest_name"-->
         <tr>
             <td class="value">
+                <p>
                     <%= currentCompetitions.getStringItem(0, "contest_name") %>
+                </p>
             </td>
         </tr>
     <!--/rsc:iterator-->        
