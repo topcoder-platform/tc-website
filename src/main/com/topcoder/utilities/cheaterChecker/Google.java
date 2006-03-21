@@ -15,7 +15,8 @@ import java.util.*;
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
 
-    private static final String PROD_GOOGLE_CHINA = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=teacup";
+    private static final String PROD_GOOGLE_CHINA = "jdbc:informix-sqli://192.168.14.51:2020/gcj_china_05_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=bre3burn";
+    private static final String PROD_GOOGLE_INDIA = "jdbc:informix-sqli://192.168.14.51:2020/gcji06_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=bre3burn";
 
     public static void main(String[] args) {
         String dataSourceName = null;
@@ -38,7 +39,10 @@ public class Google {
             DataSource ds = null;
             if (dataSourceName.equals("GOOGLE_CHINA_05")) {
                 ds = new InformixSimpleDataSource(PROD_GOOGLE_CHINA);
+            } else if (dataSourceName.equals("GOOGLE_INDIA_06")) {
+                ds = new InformixSimpleDataSource(PROD_GOOGLE_INDIA);
             }
+
             List submissions = getSubmissions(ds, rounds[0], componentId);
             for (int i = 1; i < rounds.length; i++) {
                 submissions.addAll(getSubmissions(ds, rounds[i], componentId));
