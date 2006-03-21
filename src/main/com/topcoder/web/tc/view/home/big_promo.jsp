@@ -25,4 +25,4 @@
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
 <%-- Testing --%>
-<A href="/tc?module=Static&d1=dev&d2=testing&d3=overview"><IMG SRC="/i/home/testing.jpg" border="0" ALT="TopCoder Software Testing Competitions"/></A>
+<A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests"><IMG SRC="/i/home/testing.jpg" border="0" ALT="TopCoder Software Testing Competitions"/></A>
