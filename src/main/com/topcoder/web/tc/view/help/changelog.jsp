@@ -44,6 +44,9 @@
         <ul>
             <li>Fix the timezone on the assessment reminder email.</li>
             <li>Add component information to the profile pdf generation</li>
+            <li>Change submit rate to 4 hours in marathon matches</li>
+            <li>Change to 2 timers, one for submit, one for test in marathon matches</li>
+            <li>Don't show score on the marathon match standings page.</li>
         </ul>
     </p>
     <p>
