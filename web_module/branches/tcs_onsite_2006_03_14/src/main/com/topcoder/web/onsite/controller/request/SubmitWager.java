@@ -16,12 +16,20 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.project.ProjectWagerLocal;
+import com.topcoder.web.ejb.project.ProjectWager;
 
 import java.util.Arrays;
 
 public class SubmitWager extends Base {
 
     private static final Logger log = Logger.getLogger(SubmitWager.class);
+
+    private void addWager(long projectId, long userId, int wagerAmount) throws Exception {
+        ProjectWagerLocal projectWagerLocal = (ProjectWagerLocal) createLocalEJB(getInitialContext(), ProjectWager.class); 
+        projectWagerLocal.createProjectWager(projectId, userId, wagerAmount, DBMS.TCS_OLTP_DATASOURCE_NAME);
+    }
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
@@ -51,6 +59,20 @@ public class SubmitWager extends Base {
             return;
         }
 
+        int projectId;
+        try {
+            projectId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_ID_KEY));
+        } catch (NumberFormatException nfe) {
+            log.debug("This should never happen. (cannot parse project ID: " + 
+                getRequest().getParameter(Constants.PROJECT_ID_KEY) + ")");
+            throw(new TCWebException(nfe));
+        }
+
+        try {
+            addWager(projectId, getUser().getId(), wagerAmount);
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
         getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
             Constants.SUCCESSFULL_WAGER_MESSAGE);

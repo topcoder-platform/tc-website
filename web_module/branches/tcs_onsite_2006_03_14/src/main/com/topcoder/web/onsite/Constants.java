@@ -33,6 +33,8 @@ public class Constants implements WebConstants {
     public static String SUCCESSFULL_WAGER_MESSAGE;
     public static String ACTUAL_TCO_CONTESTS_COMMAND;
 
+    public static String PROJECT_ID_KEY;
+
     static {
         initialize();
     }
