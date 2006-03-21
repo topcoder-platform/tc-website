@@ -85,8 +85,8 @@ public class SubmitWager extends Base {
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
         int remainingCompetitions = ((ResultSetContainer) m.get(
             Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
-        int remainingPoints = ((ResultSetContainer) m.get(
-            Constants.REMAINING_WAGER_POINTS_QUERY)).getIntItem(0, "remaining_points");
+        int remainingPoints = Constants.TOTAL_WAGER_POINTS - ((ResultSetContainer) m.get(
+            Constants.USED_WAGER_POINTS_QUERY)).getIntItem(0, "used_points");
             
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
         maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;

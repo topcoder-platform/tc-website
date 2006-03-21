@@ -38,9 +38,11 @@ public class Constants implements WebConstants {
 
     public static String ACTUAL_TCO_CONTESTS_QUERY;
     public static String REMAINING_TCO_CONTESTS_QUERY;
-    public static String REMAINING_WAGER_POINTS_QUERY;
+    public static String USED_WAGER_POINTS_QUERY;
 
     public static String PROJECT_ID_KEY;
+    public static int TOTAL_WAGER_POINTS;
+    
 
     static {
         initialize();
