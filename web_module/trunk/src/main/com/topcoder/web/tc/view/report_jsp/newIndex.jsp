@@ -63,7 +63,7 @@
         <LI>Fulfillment rate by week by catalog: Posted in last <a href="<%=baseURL+"fulfillment_rate_week&months=3"%>">3 months?</a> <a href="<%=baseURL+"fulfillment_rate_week&months=6"%>">6 months?</a> <a href="<%=baseURL+"fulfillment_rate_week&months=120"%>">all?</a> </LI>
         <LI><A HREF="<%=baseURL+"reposts"%>">Reposted projects</A></LI>
         <LI><A HREF="<%=baseURL+"new_participants_week"%>">New participants per week</A></LI>
-        <LI><A HREF="<%=baseURL+"newRatio"%>">Ratio of new members who participate in TCS</A></LI>
+        <LI><A HREF="<%=baseURL+"new_ratio"%>">Ratio of new members who participate in TCS</A></LI>
       </UL>
       <br/>
       Payment Reports
