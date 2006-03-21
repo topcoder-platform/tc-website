@@ -40,7 +40,7 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.4 - 2006.03.xx
+        5.0.4 - 2006.03.20
         <ul>
             <li>Fix the timezone on the assessment reminder email.</li>
             <li>Add component information to the profile pdf generation</li>
