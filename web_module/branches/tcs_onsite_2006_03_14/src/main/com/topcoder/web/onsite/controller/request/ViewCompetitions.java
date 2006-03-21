@@ -37,8 +37,7 @@ public class ViewCompetitions extends Base {
         Request request = new Request();
         request.setContentHandle(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
         request.setProperty("uid", String.valueOf(userId));
-        //DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new CachedDataAccess("java:InformixDS");
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Map m = dai.getData(request);
         ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
 
