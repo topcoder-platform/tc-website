@@ -84,7 +84,7 @@ public class SubmitWager extends Base {
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
         int remainingCompetitions = ((ResultSetContainer) m.get(
-            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_comp");
+            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
         int remainingPoints = ((ResultSetContainer) m.get(
             Constants.REMAINING_WAGER_POINTS_QUERY)).getIntItem(0, "remaining_points");
             
