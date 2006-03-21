@@ -630,20 +630,24 @@ public class PDFGenerator extends BaseProcessor {
             ComponentCompetitionStats design = info.getDesign();
             if (design != null) {
                 drawDesignOrDevelopmentPage(doc, design, "Design", "rating_distribution_graph_design_profile");
+                doc.newPage();
 
                 ComponentContestDetails example = info.getDesignExample();
                 if (example != null) {
                     drawExampleComponentPage(doc, example, info.getUserID(), true);
+                    doc.newPage();
                 }
             }
 
             ComponentCompetitionStats development = info.getDevelopment();
             if (development != null) {
                 drawDesignOrDevelopmentPage(doc, development, "Development", "rating_distribution_graph_dev_profile");
+                doc.newPage();
 
                 ComponentContestDetails example = info.getDevelopmentExample();
                 if (example != null) {
                     drawExampleComponentPage(doc, example, info.getUserID(), false);
+                    doc.newPage();
                 }
             }
 
@@ -1452,18 +1456,18 @@ public class PDFGenerator extends BaseProcessor {
 
         // sample diagram, for design only
         if (design) {
-            String documentUrl = contest.getDocumentUrl();
-            if (contest.getWinnerId() == uid && documentUrl != null) {
-                cell = new PdfPCell(new Phrase(info.getHandle() + "'s Class Diagram", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
-                cell.setBorderWidth(0);
-                cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-                page.addCell(cell);
-
-                cell = new PdfPCell(Image.getInstance(contest.getDocumentUrl()));
-//    	        cell = new PdfPCell(Image.getInstance("http://www.dev.topcoder.com/i/home/TC_homeLogo.gif"));
-                cell.setBorderWidth(0);
-                page.addCell(cell);
-            }
+//            String documentUrl = contest.getDocumentUrl();
+//            if (contest.getWinnerId() == uid && documentUrl != null) {
+//                cell = new PdfPCell(new Phrase(info.getHandle() + "'s Class Diagram", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.black)));
+//                cell.setBorderWidth(0);
+//                cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+//                page.addCell(cell);
+//
+//                cell = new PdfPCell(Image.getInstance(contest.getDocumentUrl()));
+////    	        cell = new PdfPCell(Image.getInstance("http://www.dev.topcoder.com/i/home/TC_homeLogo.gif"));
+//                cell.setBorderWidth(0);
+//                page.addCell(cell);
+//            }
         } else {
             // sample test case counts, for development only
             PdfPTable table = new PdfPTable(3);
@@ -1509,7 +1513,6 @@ public class PDFGenerator extends BaseProcessor {
         }
 
         doc.add(page);
-        doc.newPage();
     }
 
     private void drawDesignOrDevelopmentPage(Document doc, ComponentCompetitionStats stats, String name, String command) throws Exception {
@@ -1779,7 +1782,6 @@ public class PDFGenerator extends BaseProcessor {
         page.addCell(bottom);
 
         doc.add(page);
-        doc.newPage();
     }
 
 
