@@ -68,7 +68,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388580">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -92,7 +92,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388673">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -116,7 +116,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388976">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -140,7 +140,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388774">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -164,7 +164,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388822">discuss the project</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -188,7 +188,7 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
+      <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388934">discuss the project</A>
       </td>
    </tr>
 </table>
