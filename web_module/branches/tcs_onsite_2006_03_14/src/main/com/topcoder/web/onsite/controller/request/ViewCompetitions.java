@@ -19,7 +19,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.project.ProjectWagerLocal;
 import com.topcoder.web.ejb.project.ProjectWager;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
