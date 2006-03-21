@@ -38,6 +38,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.21.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing Active Contests</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.15.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Introducing Software Assembly Competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.15.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Introducing Software Testing Competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.11.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">Design Review Scorecard Changes</A></td></tr>
