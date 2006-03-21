@@ -377,7 +377,7 @@ public class PDFGenerator extends BaseProcessor {
                 result.addCompetitorDetails(row);
             }
 
-            System.out.println(result);
+            log.debug(result);
 
             return result;
         }
@@ -417,8 +417,8 @@ public class PDFGenerator extends BaseProcessor {
             result.setScore3(formatter.format(rsc.getDoubleItem(index, "score3")));
         }
 
-        System.out.println(result);
 
+        log.debug(result);
         return result;
     }
 
@@ -480,7 +480,7 @@ public class PDFGenerator extends BaseProcessor {
                 result.setReliability(DecimalFormat.getPercentInstance().format(rsc.getDoubleItem(0, "reliability")));
             }
 
-            System.out.println(result);
+            log.debug(result);
 
             return result;
         }
@@ -534,7 +534,7 @@ public class PDFGenerator extends BaseProcessor {
             }
         }
 
-        System.out.println(result);
+        log.debug(result);
 
         return result;
     }
