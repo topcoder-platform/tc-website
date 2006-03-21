@@ -54,6 +54,7 @@ public class ThreadList extends ForumsProcessor {
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forum);
+            super.setUnreadCategories();
         }
         
         ResultFilter resultFilter = ResultFilter.createDefaultThreadFilter();

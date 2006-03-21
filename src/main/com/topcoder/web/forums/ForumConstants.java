@@ -49,6 +49,7 @@ public interface ForumConstants {
     public final static String PROPERTY_DISPLAY_LIMIT = "displayLimit";
     public final static String PROPERTY_SORT = "sort";
     public final static String PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN = "showEmptyForumsOnMain";
+    public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
 
     // Admin
     public final static String ADMIN_COMMAND = "cmd";

@@ -41,6 +41,7 @@ public class Main extends ForumsProcessor {
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
+            super.setUnreadCategories();
         }
 
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);

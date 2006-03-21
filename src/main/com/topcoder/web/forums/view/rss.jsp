@@ -26,6 +26,7 @@
     <pubDate><%= formatter.format(new Date()) %></pubDate>
 
     <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+       <%   if (!"true".equals(message.getForum().getForumCategory().getProperty(ForumConstants.PROPERTY_HIDE_MAIN_RSS))) { %>
        <item>
            <title><%= StringUtils.escapeForXML(message.getSubject()) %></title>
            <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>
@@ -38,6 +39,7 @@
            <jf:author><%= message.getUser().getUsername() %></jf:author>
            <jf:replyCount><%= (message.getForumThread().getTreeWalker().getChildCount(message)) %></jf:replyCount>
        </item>
+       <%   } %>
     </tc-webtag:iterator>
 
 </channel>
