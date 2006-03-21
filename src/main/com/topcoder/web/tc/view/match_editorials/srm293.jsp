@@ -38,996 +38,411 @@
 </jsp:include>
 
 <div style="float: right;" align="right"><A href="/tc?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
-<tc-webtag:forumLink forumID="505858" message="Discuss this match" /></div>
-<span class="bodySubtitle">SRM 292</span><br>Monday, March 6, 2006
+<tc-webtag:forumLink forumID="505859" message="Discuss this match" /></div>
+<span class="bodySubtitle">SRM 293</span><br>Friday, March 17, 2006
 <br><br>
 
 <span class="bigTitle">Match summary</span>
 
-<p>
-Despite SnapDragon's statement that he is out of practice, he won the Division 1 quite easily.
-Egor took second, especially thanks to his excellent time on the medium problem, and
-misof went home with bronze.
-</p>
+<p> 
+With the TCO stimulating our coding adrenalin to the max, a high number of registrants in regular SRMs has ceased to surprise us. With 898 competitors, this match was no exception. Because of a small technical problem, the coding phase started 10 minutes later. This was no impediment for the code enthusiasts and the match was prolonged with 10 minutes, as expected. The problems were not very tricky this time and, because of the clarifying examples, the number of challenges was relatively low. 
+<br><br>
+In Division 1, <b>Petr</b> added another victory to his impressive record. <b>kalinov</b> took the second place and <b>mathijs</b> came in third. 
+<br><br>
+In division 2, only three coders managed to solve all the problems. <b>Daumilas</b>, the winner, is also the proud owner of  a score of 1111.1. Newcomer <b>Daumilas</b> claimed the second spot, and <b>Michael.tamm</b> finished the third.
+</p> 
 
-<p>
-The Division 1 problem set was one of the easier ones, with 24 coders getting all three problems
-right.
-</p>
-
-<p>
-Also the Division 2 problem set seemed to be pretty well balanced, with 16 coders solving the
-whole set. The top two places were taken by newcomers, ihi and Bel_Vit, rlblaster was third.
-We will be seeing them in Division 1 next time.
-</p>
-
-
-<H1>
-
-The Problems
-
+<H1> 
+The Problems 
 </H1>
+</p> 
 
-
-
-<font size="+2">
-
-<b><a href="/stat?c=problem_statement&amp;pm=5931&amp;rd=9813"
-name="5931">FowlRoad</a></b>
-
-</font>
-
-<A href="Javascript:openProblemRating(5931)"><img src="/i/rate_it.gif"
-hspace="10" border="0" alt="rate it" /></A>
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br>
-
-Used as: Division Two - Level One: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      250
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      332 / 374 (88.77%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      262 / 332 (78.92%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Nitz</b> for 245.18 points (3 mins 59 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      195.34 (for 262 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
+<font size="+2"> 
+<b><a href="/stat?c=problem_statement&amp;pm=6124&amp;rd=9814" name="6124">Aquarium</a></b> 
+</font> 
+<A href="Javascript:openProblemRating(6124)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505859" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<br> 
+Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      250 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      374 / 478 (78.24%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      314 / 374 (83.96%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>otoc</b> for 247.81 points (2 mins 40 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      184.24 (for 314 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
 <p>
-First of all, note that we may ignore the x coordinate of the chicken. 
-The fact whether a segment of the path crosses the road depends only on 
-the y coordinates of its endpoints.
-</p>
-
-<p>
-Now, we may simplify the situation even more by subtracting roadY from
-all the coordinates in the chicken's path. With the new coordinates, 
-we are interested in how many times the chicken crosses the x axis.
-</p>
-
-<p>
-We can count this in a simple loop. All we have to do is to keep track
-of the side we were on, i.e., whether our last non-zero y coordinate
-was positive or negative.
-</p>
-
-<p>
-Note that we may forget all the zeroes completely. For example, both the
-sequences { 3, 0, -2, 0, -3, -4, 0, 7 } and { 3, -2, -3, -4, 7 } cross
-the x axis twice.
-</p>
-
-<p>
-C++ code:
-</p>
-
+The most straightforward way to solve this problem is so simply check every possible size of Bob in the range [minSize, maxSize]. You can then compare each of these possible sizes with the size of every fish in the aquarium. If any conflict is detected, the size of Bob that arose the conflict is discarded. Below is the source code in Java that solves this problem:
 <pre>
-  int crossings(int roadY, vector &lt;int&gt; bobX, vector &lt;int&gt; bobY) {
-    int res = 0;
-
-    // compute the shifted coordinates
-    // at the same time, throw out all zeroes
-    vector&lt;int&gt; newY;
-    for (unsigned i=0; i&lt;bobY.size(); i++)
-      if (bobY[i] != roadY)
-        newY.push_back( bobY[i]-roadY );
-
-    // now count the number of times we cross the x axis
-    for (unsigned i=1; i&lt;newY.size(); i++)
-      if (newY[i] * newY[i-1] &lt; 0) res++;
-
-    return res;
-  }
-</pre>
-
-<font size="+2">
-
-<b><a href="/stat?c=problem_statement&amp;pm=4512&amp;rd=9813"
-name="4512">Abacus</a></b>
-
-</font>
-
-<A href="Javascript:openProblemRating(4512)"><img src="/i/rate_it.gif"
-hspace="10" border="0" alt="rate it" /></A>
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it"
-border="0" /></A>
-
-<br>
-
-Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      500
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      285 / 374 (76.20%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      200 / 285 (70.18%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>250710</b> for 482.42 points (5 mins 27 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      329.29 (for 200 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
-
-
-Used as: Division One - Level One: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      250
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      355 / 360 (98.61%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      331 / 355 (93.24%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>tomek</b> for 246.41 points (3 mins 26 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      214.07 (for 331 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
-<p>
-In this problem, there wasn't really anything to think about. The only problem was
-implementing the conversions between numbers and their graphical representation.
-</p>
-
-<p>
-For the conversion in one direction we may use the index of the first dash in the
-string. 
-</p>
-
-<p>
-For the conversion in the other direction, it may be convenient to split it into 
-two steps: first, split the number into digits, and then use the digits to 
-generate the rows of the abacus.
-</p>
-
-<p>
-C++ code:
-</p>
-
-<pre>
-  vector &lt;string&gt; add(vector &lt;string&gt; original, int val) {
-
-    // convert the abacus into a number
-    int number = 0;
-    for (unsigned i=0; i&lt;original.size(); i++) {
-      int digit = 9 - original[i].find("-");
-      number = 10*number + digit;
+public int peaceful(int minSize, int maxSize, int[] fishSizes) {
+  int n = fishSizes.length;
+  int sol = 0;
+  for (int i = minSize; i <=maxSize ; i++) {
+    boolean ok = true;
+    for (int j = 0; j < n; j++) {
+      if (i >= 2 * fishSizes[j] && i <= 10 * fishSizes[j]) ok = false;
+      if (fishSizes[j] >= 2 * i && fishSizes[j] <= 10 * i) ok = false;
     }
-
-    // add the requested value
-    number += val;
-
-    // convert the new number into digits
-    vector&lt;int&gt; digits;
-    for (unsigned i=0; i&lt;original.size(); i++) {
-      digits.push_back( number % 10 );
-      number /= 10;
-    }
-
-    // bring the most significant digits to the beginning
-    reverse( digits.begin(), digits.end() );
-
-    // and create the new abacus
-    vector &lt;string&gt; res( original.size() );
-    for (unsigned i=0; i&lt;original.size(); i++) {
-      res[i] += string( 9-digits[i], 'o' );
-      res[i] += string( 3, '-' );
-      res[i] += string( digits[i], 'o' );
-    }
-
-    return res;
-  }
-</pre>
-
-
-<font size="+2">
-
-<b><a href="/stat?c=problem_statement&amp;pm=4513&amp;rd=9813"
-name="4513">SysFailure</a></b>
-
-</font>
-
-<A href="Javascript:openProblemRating(4513)"><img src="/i/rate_it.gif"
-hspace="10" border="0" alt="rate it" /></A>
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it"
-border="0" /></A>
-
-<br>
-
-Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      1000
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      54 / 374 (14.44%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      28 / 54 (51.85%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>tomek_cn</b> for 814.00 points (14 mins 16 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      559.27 (for 28 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
-<p>
-The first step we can do to make our life easier is to pad the input array &ndash; if we surround
-it by zeroes, we won't have to worry about checking for the array's bounds when looking for clusters
-of ones.
-</p>
-
-<p>
-In C++ this can be done as follows:
-</p>
-
-<pre>
-  int R, C; // number of rows and columns
-
-  int critical(int n, vector &lt;string&gt; state) {
-
-    R = state.size(), C = state[0].size();
-
-    state.insert(state.begin(), string(C,'0'));
-    state.insert(state.end(),   string(C,'0'));
-    for (int r=0; r&lt;R+2; r++) state[r] = '0'+state[r]+'0';
-
-    // now the original array has coords [1..R] x [1..C]
-    
-    // ... the rest of the code ...
-  }
-</pre>
-
-<p>
-The next logical step is to write a function that, given a map of the system, finds the size of the 
-largest connected cluster of components. 
-</p>
-
-<p>
-This function can be implemented as a breadth/depth-first search in a graph, where the vertices are
-active components (ones in the matrix) and two vertices are connected if and only if they are
-adjacent.
-</p>
-
-<p>
-C++ code of this function, implemented using BFS:
-</p>
-
-<pre>
-  int R, C; // as above
-
-  // it's often useful to use constants to store valid moves
-  int dx[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
-  int dy[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-
-  int getLargest(vector&lt;string&gt; state) {
-    int maxSize = 0;
-
-    // traverse a matrix
-    // each time we encounter a '1', we have a new cluster
-    // run BFS to find its size and change all its '1's into '0's
-    
-    for (int r=1; r&lt;=R; r++) for (int c=1; c&lt;=C; c++)
-      if (state[r][c]=='1') {
-      
-        int thisSize = 1;
-        state[r][c]='0';
-
-        queue&lt;int&gt; Q;
-        Q.push(r); Q.push(c);
-
-        while (!Q.empty()) {
-          // get the next vertex out of the queue
-          int x = Q.front(); Q.pop();
-          int y = Q.front(); Q.pop();
-
-          // process its neighbors
-          for (int d=0; d&lt;8; d++) {
-            int nx = x + dx[d];
-            int ny = y + dy[d];
-
-            // [nx,ny] are the coordinates of our neighbor in direction d
-            // note that thanks to the padding [nx,ny] are always valid
-            
-            if (state[nx][ny]=='1') {
-              state[nx][ny]='0';
-              thisSize++;
-              Q.push(nx); Q.push(ny);
-            }
-          }
-        }
-
-        maxSize = max(maxSize, thisSize);
-      }
-    return maxSize;
-  }
-</pre>
-
-<p>
-Now, using this function, solving the task is simple. If already in the input configuration
-all the clusters are too small, return -1. Otherwise, process the active components one 
-by one, each time turn it off, check how the maximal cluster size changed, and turn it 
-back on.
-</p>
-
-<pre>
-  int critical(int n, vector &lt;string&gt; state) {
-    // ... we already saw a part of this function ...
-    
-    int orig = getLargest(state);
-    if (orig &lt; n) return -1;
-
-    int res = 0;
-
-    for (int r=1; r&lt;=R; r++) for (int c=1; c&lt;=C; c++)
-      if (state[r][c]=='1') {
-        state[r][c]='0';
-        int after = getLargest(state);
-        if (after &lt; n) res++;
-        state[r][c]='1';
-      }
-
-    return res;
-  }
-</pre>
-
-<font size="+2">
-
-<b><a href="/stat?c=problem_statement&amp;pm=6016&amp;rd=9813"
-name="6016">BobTrouble</a></b>
-
-</font>
-
-<A href="Javascript:openProblemRating(6016)"><img src="/i/rate_it.gif"
-hspace="10" border="0" alt="rate it" /></A>
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it"
-border="0" /></A>
-
-<br>
-
-Used as: Division One - Level Two: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      500
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      178 / 360 (49.44%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      71 / 178 (39.89%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Egor</b> for 457.60 points (8 mins 48 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      276.60 (for 71 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
-<p>
-This problem stumped me for a while. I had to convince myself that a greedy approach 
-will really work here. Let's start analysing this problem by drawing a few images.
-</p>
-
-<p>
-Imagine a valid hierarchy tree, for example the one in the following image:
-</p>
-
-<div align="center">
-<img src="/i/srm/srm292_1.png">
-</div>
-
-<p>
-Now, the problem statement basically says the following: If somebody's boss is BOB, we
-may choose which of the BOBs it will be. The crucial observation leading to a solution
-is: <i>We can choose the same BOB for all employees.</i>
-</p>
-
-<p>
-Why is this so? Suppose that we have a valid solution, and there is more than one BOB
-having some direct employees. Select any two such BOBs. If one of them is higher
-in the hierarchy than the other, we may move all employees of the "lower BOB" 
-directly to the "higher BOB". The graph will clearly remain acyclic. 
-The other situation is even simpler, if neither of the BOBs is reachable from the
-other, we may transfer the employees either way. 
-</p>
-
-<p>
-Using a finite number of such transformations we will always arrive into a situation
-when, except for at most one BOB, no BOBs have direct employees. 
-</p>
-
-<p>
-As an example, we can transform the above hierarchy into this one:
-</p>
-
-<div align="center">
-<img src="/i/srm/srm292_2.png">
-</div>
-
-<p>
-Let's repeat the result proved above: IF there is a valid solution, THEN there is one such
-that all employees whose boss is BOB are the direct employees of one and the same BOB.
-Thus we can check all posibilities for which BOB this is, and each time check whether
-the resulting graph is acyclic.
-</p>
-
-<p>
-Once we find a valid hierarchy, we can count the number of bosses and output it. 
-If no choice of the "king BOB" leads to a valid hierarchy, return -1.
-</p>
-
-<p>
-As a curiosity, note that the problem could be solved without even mentioning
-the string "BOB" in your code. See <a
-href="http://www.topcoder.com/stat?c=problem_solution&rm=247827&rd=9813&pm=6016&cr=14970299">Egor's
-solution</a> as an example. The solution simply builds the hierarchy tree by doing a breadth-first
-search from *. This will automatically enforce that the "topmost" BOB is inserted into the
-hierarchy first, and all (some BOB)'s employees will later be inserted as his employees.
-</p>
-
-<font size="+2">
-
-<b><a href="/stat?c=problem_statement&amp;pm=4434&amp;rd=9813"
-name="4434">LongBlob</a></b>
-
-</font>
-
-<A href="Javascript:openProblemRating(4434)"><img src="/i/rate_it.gif"
-hspace="10" border="0" alt="rate it" /></A>
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505858"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it"
-border="0" /></A>
-
-<br>
-
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Value</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      1000
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      99 / 360 (27.50%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      76 / 99 (76.77%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>kalinov</b> for 932.43 points (7 mins 45 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      650.03 (for 76 correct submissions)
-
-    </td>
-
-  </tr>
-
-</table></blockquote>
-
-<p>
-We can rephrase the problem as follows: Given a grid, find a path such that:
-</p>
-
-<ul>
-<li>in each step, we can move one square in any of the four directions</li>
-<li>the total number of '1'-squares on the path mustn't exceed 4</li>
-<li>the ends of the path are as far apart (in Euclidean metrics) as possible</li>
-</ul>
-
-<p>
-(As a hidden catch, note that the path may both start and end on a '1'-square.)
-</p>
-
-<p>
-Now we clearly have a graph problem. What exactly is the graph? The squares will
-be vertices of the graph, edges will connect neighboring squares. 
-If we want to enter a '1'-square, first we have to "turn it off". Therefore 
-the "length" of an edge entering a square will be zero if the square is '0', 
-one if the square is '1'. 
-</p>
-
-<p>
-Suppose we want a path that begins in the square [ax,ay] and ends in the square [bx,by].
-How to check whether these squares can be connected by a valid path? Simply find the
-shortest path from [ax,ay] to [bx,by] in the graph constructed above. The length of
-this path (plus 1 if the starting square is a '1'-square) is the smallest possible number 
-of '1's on a path from [ax,ay] to [bx,by]. 
-</p>
-
-<p>
-In the SRM, I used Dijkstra's shortest path algorithm to compute the all-pairs shortest
-paths. Somewhat surprisingly, Floyd-Warshall's algorithm is fast enough, and leads to a
-pretty short implementation.
-</p>
-
-<pre>
-int dr[] = { -1, 1, 0, 0 };
-int dc[] = { 0, 0, -1, 1 };
-
-int dist[32][32][32][32];
-
-double maxLength(vector &lt;string&gt; image) {
-
- int R = image.size(), C = image[0].size();
-
- // initialize the distance matrix to (0 or infinity)
- memset(dist,0,sizeof(dist));
-
- for (int ri=0; ri &lt; R; ri++)
-   for (int ci=0; ci &lt; C; ci++)
-     for (int rj=0; rj &lt; R; rj++)
-       for (int cj=0; cj &lt; C; cj++)
-         if (ri!=rj || ci!=cj)
-           dist[ri][ci][rj][cj] = 123456;
-
- // for each vertex, set the lengths of edges into its neighbors
- for (int ri=0; ri &lt; R; ri++)
-   for (int ci=0; ci &lt; C; ci++)
-     for (int d=0; d&lt;4; d++) {
-       int rj = ri + dr[d], cj = ci + dc[d];
-       if (rj&lt;0 || rj&gt;=R || cj&lt;0 || cj&gt;=C) continue;
-       dist[ri][ci][rj][cj] = (image[rj][cj]-'0');
-     }
-
- // Floyd-Warshall
- for (int rk=0; rk &lt; R; rk++)
-   for (int ck=0; ck &lt; C; ck++)
-     for (int ri=0; ri &lt; R; ri++)
-       for (int ci=0; ci &lt; C; ci++)
-         for (int rj=0; rj &lt; R; rj++)
-           for (int cj=0; cj &lt; C; cj++)
-             dist[ri][ci][rj][cj] &lt;?= 
-               dist[ri][ci][rk][ck] + dist[rk][ck][rj][cj];
-
- // process all pairs of vertices
- // if there is a valid path between them, update the result
- double res = 0.0;
-
- for (int ri=0; ri &lt; R; ri++)
-   for (int ci=0; ci &lt; C; ci++)
-     for (int rj=0; rj &lt; R; rj++)
-       for (int cj=0; cj &lt; C; cj++)
-         if ( (image[ri][ci]-'0') + dist[ri][ci][rj][cj] &lt;= 4)
-           res &gt;?= hypot( double(ri-rj), double(ci-cj) );
-
- return res;
+    if (ok) sol++;
+  }      
+  return sol;
 }
 </pre>
+Another simple method that was used a lot is to build a boolean array of size 1000, where the  i-th element represents whether Bob can have a size of i or not. Then, for every fish in the aquarium, you mark with "false" all the elements in the array that represent wrong sizes for Bob. In the end you count how many elements of the array with indices between minSize and maxSize are "true".
+</p>
+
+<font size="+2"> 
+<b><a href="/stat?c=problem_statement&amp;pm=6116&amp;rd=9814" name="6116">ScrabbleBet</a></b> 
+</font> 
+<A href="Javascript:openProblemRating(6116)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505859" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<br> 
+Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      500 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      124 / 478 (25.94%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      94 / 124 (75.81%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>JBoy</b> for 448.69 points (9 mins 50 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      279.01 (for 94 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
+
+Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      300 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      282 / 350 (80.57%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      268 / 282 (95.04%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>NauCoder</b> for 297.51 points (2 mins 36 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      219.65 (for 268 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
+<p>
+Although ScrabbleBet was a pretty classical problem of probability theory, there are quite a few different approaches one could use to get around.   
+<br><br>
+For the math fans, this problem can be solved in a few lines with the formula of <A href="http://mathworld.wolfram.com/BinomialDistribution.html" target="_blank">binomial distribution</A>. Let us denote the number of games played in a meeting by n, the number of wins you need by r and the probability of winning one game by p. Then, the chances you have to win one meeting are given by the following formula:
+<div align="center" style="padding:5px;">
+<img src="/i/srm/srm293_1.gif" alt="" />
+</div>
+This formula can be applied again for meetings, as n becomes the number of meetings, r becomes 1 (the number of meetings you need to win), and p becomes the old P computed earlier. 
+<br><br>
+However, this problem can be solved without knowing the complicate formula above.  Knowing the following two more basic formulas is also good enough:
+<div align="center" style="padding:5px;">
+<img src="/i/srm/srm293_2.gif" alt="" />
+</div>
+<div align="center" style="padding:5px;">
+<img src="/i/srm/srm293_3.gif" alt="" />
+</div>
+For the first part of the problem, to determine the probability of winning one meeting, the first formula can be used. There are 2 ^  games possible ways a meeting could evolve and you need to analyze them one by one, applying the first formula to determine their probabilities that are then added up. Note than an event in this case can be either a win (with a probability of winChance), or a loss (with a probability of 1 - winChance).
+<br><br>
+For the second part, you just apply the second formula with each event having the probability we computed earlier.
+<br><br>
+For more details, refer to the <A href="/tc?module=Static&d1=tutorials&d2=probabilities">Understanding Probabilities</A> tutorial.
+<br><br>
+A math free, and also easy to code solution, is to use a dynamic programming approach. Denote with c[n][r] the chance of winning at least r games out of n with a chance of p to win one single game. Then, you can compute c as follows:<br>
+c[n][r] = 1, if r = 0<br>
+c[n][r] = 0, if n = 0 and r > 0<br>
+c[n][r] = p* c[n-1][r-1] + (1-p)*c[n-1][r], otherwise.<br>
+In the end, you should return 1 - c[games][winsNeeded] ^ trials<br>
+For more information on the use of DP in probability problems, check the <A href="/tc?module=Static&d1=tutorials&d2=probabilities">Step by Step Probability Computation</A> chapter.
+</p>
+
+<font size="+2"> 
+<b><a href="/stat?c=problem_statement&amp;pm=4499&amp;rd=9814" name="4499">Bingo</a></b> 
+</font> 
+<A href="Javascript:openProblemRating(4499)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505859" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<br> 
+By&#160;<tc-webtag:handle coderId="159544" context="algorithm"/>
+<br><br>
+Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      1000 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      16 / 478 (3.35%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      6 / 16 (37.50%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Burunduk2</b> for 499.82 points (37 mins 31 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      389.12 (for 6 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
+
+Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      450 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      209 / 350 (59.71%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      105 / 209 (50.24%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>ploh</b> for 386.33 points (11 mins 56 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      247.18 (for 105 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
+<p>
+Because there are quite a lot of rules to follow (and of course the examples didn't cover them all), this problem had the lowest success rate in both divisions. 
+<br><br>
+The last sentence of the problem statement, "If the call that first allows you to win allows you to win in more than one way, the method must return the winning sequence that had the earliest call in it" must be carefully analyzed and properly understood in order to proceed with the algorithm. The first thing to note is that once you have a winning sequence, the method winner should return something. That is, from this moment the game is over (you won) and the remaining calls should be ignored. Because the last call can simultaneously produce more than one winning sequence, you are told to select the one that had the earliest call in it. Then ... you have to read the whole problem statement again. You want to know what happens if there are more winning sequences with the same first call. Unfortunately you don't find this information anywhere in the statement. But working on a paper with concrete examples (this is usually a wise thing to do), you quickly realize that such a situation is not possible. From coder to coder, this analysis can take varying amounts of time. As the clock starts from the moment you open the problem, this time is of course significant. To find out more on how to deal with problems like this, you may want to read the <A href="/tc?module=Static&d1=tutorials&d2=dissectProblem">How To Dissect a TopCoder Problem Statement</A> tutorial.
+<br><br>
+Then, coding is quite straightforward. Represent the grid as a matrix with 5 lines and 5 columns, and mark on it the calls in the order they appear. After each new call, you should check every line, column and main diagonal to see if a winning sequence has been reached.  The code in Java is given below:
+<pre>
+public class Bingo{
+    int[][] idx = new int[5][5];
+    int[] win = new int[5];
+    public String winner(String[] card, String[] call){
+        int[][] a = new int[5][5];
+        for (int r = 0; r < 5; r++){
+            String[] x = card[r + 1].trim().split("[ ]+");
+            for (int c = 0; c < 5; c++) {
+                if (c !=2 || r != 2)
+                    a[r][c] = Integer.parseInt(x[c]);
+            }
+        }
+        for (int r = 0; r < 5; r++) for (int c = 0; c < 5; c++) idx[r][c] = -1;
+        idx[2][2] = 99;
+        for (int i = 0; i < call.length-1;i++) {
+            int v = Integer.parseInt(call[i].substring(1));
+            for (int r = 0; r < 5; r++)for (int c = 0; c < 5; c++)
+                if (a[r][c] == v) idx[r][c] = i;
+        }
+        win[4] = 100;  // winning index
+        for (int r = 0; r < 5; r++) getWin(r,0,0,1);
+        for (int c = 0; c < 5; c++) getWin(0,c,1,0);
+        getWin(0, 0, 1, 1); getWin(0, 4, 1, -1);
+        if (win[4] == 100) return "YOU LOSE";
+        String ret="";
+        for (int i = 0;i < 5; i++) if (i == 0 || win[i] != win[i - 1])    
+            ret += "," + call[win[i]];
+        return ret.substring(1);
+    }
+    void getWin(int r, int c, int dr, int dc){
+        int[] w = new int[5];
+        for (int i = 0; i < 5; i++) w[i] = idx[r + i * dr][c + i * dc];
+        Arrays.sort(w);
+        if (w[4] == 99) w[4] = w[3];
+        if (w[0] == -1 || w[4] > win[4]) return;
+        if (w[4] == win[4] && w[0] > win[0]) return;
+        win = w;
+    }
+</pre>
+
+<font size="+2"> 
+<b><a href="/stat?c=problem_statement&amp;pm=5877&amp;rd=9814" name="5877">CirclesOfDestruction</a></b> 
+</font> 
+<A href="Javascript:openProblemRating(5877)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505859" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<br> 
+Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Value</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      1000 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Submission Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      21 / 350 (6.00%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Success Rate</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      14 / 21 (66.67%) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>High Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Petr</b> for 783.21 points (15 mins 53 secs) 
+    </td> 
+  </tr> 
+  <tr> 
+    <td class="bodyText" style="background: #eee;"> 
+      <b>Average Score</b> 
+    </td> 
+    <td class="bodyText" style="background: #eee;"> 
+      581.25 (for 14 correct submissions) 
+    </td> 
+  </tr> 
+</table></blockquote> 
+<p>
+This problem is actually not as hard as it seems. Suppose you want to reach from a point A to a point X on the edge of the map. What's the quickest way to get there? If there are no obstacles, it is of course a straight line. The only reason you may want to deviate from the straight line is an expanding circle that reaches to an intermediary point on the segment AX before you. This means that the distance between a point of the circle and X is smaller than the distance between you and X. But because the speed of the circle is the same as yours, you will never be able to catch up. So, it's an all or nothing game - you can either reach a destination point by moving on a straight line, or you can not reach it at all.
+<div align="center" style="padding:5px;">
+<img src="/i/srm/srm293_4.gif" alt="" />
+</div>
+Let's now suppose that you want to reach the right edge of the map (the other 3 edges are treated similarly). Let a be the distance between point A (your initial position) and the right edge.  AX is the total distance you need to travel in order to safely reach the border. You want to find, if possible, a location for point X such that A'X is minimized. Then, you determine for every expanding circle (a circle's center is denoted by a red dot in the diagram above) the interval of points on the axis that get enclosed before you can reach there. To find such an interval, you'll need to determine one of its edges, which is exactly the point where AX = BX.  You find that x = (a * a - d * d - b * b) / (2 * d). Every such interval is open on the other edge, since AX - BX is a monotone function on X. This can be proved by applying the properties of square numbers, or deducted by working on an example. Because of this property, you can also successfully apply binary search instead of the more precise formula to find the point X. 
+<br><br>
+You may need to treat separately the case when B is on the AA' segment. In that case every point on the axis is obstructed, so there are no solutions there. 
+</p>
 
 
   <img src="/i/m/supernova_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />

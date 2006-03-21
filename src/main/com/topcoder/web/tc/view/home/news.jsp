@@ -23,6 +23,23 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.21.06<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm293">SRM 293 - Problem Set & Analysis</A></span><br><br>
+With the TCO stimulating our coding adrenalin to the max, a high number of registrants in regular SRMs has ceased to surprise us. With 898 competitors, this match was no exception.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/supernova_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm293">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505859" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.21.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing Active Contests</A>
@@ -218,20 +235,6 @@ Pat shares his impressions of TopCoder, talks about his background and what's go
          <A href="/audio/Pat_Conley_03_10_06.mp3">listen</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505941" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.09.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=9892">Intel Multi-Threading Competition 2 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="7389864" />!
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=9892">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505923" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
