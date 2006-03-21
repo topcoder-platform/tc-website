@@ -21,6 +21,7 @@ import com.topcoder.web.ejb.project.ProjectWagerLocal;
 import com.topcoder.web.ejb.project.ProjectWager;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -85,9 +86,15 @@ public class SubmitWager extends Base {
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
         int remainingCompetitions = ((ResultSetContainer) m.get(
             Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
-        int remainingPoints = Constants.TOTAL_WAGER_POINTS - ((ResultSetContainer) m.get(
-            Constants.USED_WAGER_POINTS_QUERY)).getIntItem(0, "used_points");
-            
+
+        Object usedPoints = ((ResultSetContainer) m.get(
+            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, "used_points").getResultData();
+        
+        int remainingPoints = Constants.TOTAL_WAGER_POINTS;
+        if (usedPoints != null) {
+            remainingPoints = remainingPoints - ((Integer) usedPoints).intValue();
+        }
+ 
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
         maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
         if (wagerAmount > maxWagerAmount) {
