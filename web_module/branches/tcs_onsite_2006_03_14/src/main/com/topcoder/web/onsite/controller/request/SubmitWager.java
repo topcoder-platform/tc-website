@@ -19,7 +19,14 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.project.ProjectWagerLocal;
 import com.topcoder.web.ejb.project.ProjectWager;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+
+
+import java.util.Map;
 import java.util.Arrays;
 
 public class SubmitWager extends Base {
@@ -41,7 +48,7 @@ public class SubmitWager extends Base {
         return m;
     }
 
-    protected void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -49,9 +56,9 @@ public class SubmitWager extends Base {
         setNextPage(Constants.WAGER_RESULT_PAGE);
         setIsNextPageInContext(true);
         
-        int projectId;
+        long projectId;
         try {
-            projectId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_ID_KEY));
+            projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID_KEY));
         } catch (NumberFormatException nfe) {
             log.debug("This should never happen. (cannot parse project ID: " + 
                 getRequest().getParameter(Constants.PROJECT_ID_KEY) + ")");
@@ -72,13 +79,14 @@ public class SubmitWager extends Base {
             return;
         }        
 
+        Map m = getValidationData(getUser().getId());
         // extra validations:
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
-        int remainingCompetitions = (ResultSetContainer) m.get(
-            Constants.REMAINING_TCO_CONTESTS_QUERY).getStringItem(0, "remaining_comp");
-        int remainingPoints = (ResultSetContainer) m.get(
-            Constants.REMAINING_WAGER_POINTS_QUERY).getStringItem(0, "remaining_points");
+        int remainingCompetitions = ((ResultSetContainer) m.get(
+            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_comp");
+        int remainingPoints = ((ResultSetContainer) m.get(
+            Constants.REMAINING_WAGER_POINTS_QUERY)).getIntItem(0, "remaining_points");
             
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
         maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
@@ -88,7 +96,7 @@ public class SubmitWager extends Base {
             return;
         }
 
-        if (projectId != comp.getStringItem(0, Constants.PROJECT_ID_KEY)) {
+        if (projectId != comp.getLongItem(0, Constants.PROJECT_ID_KEY)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.INVALID_PROJECT_MESSAGE);
             return;
