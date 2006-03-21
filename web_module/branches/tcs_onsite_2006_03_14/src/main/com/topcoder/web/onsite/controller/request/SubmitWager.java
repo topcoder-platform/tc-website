@@ -92,7 +92,7 @@ public class SubmitWager extends Base {
         
         int remainingPoints = Constants.TOTAL_WAGER_POINTS;
         if (usedPoints != null) {
-            remainingPoints = remainingPoints - ((Integer) usedPoints).intValue();
+            remainingPoints = remainingPoints - ((Number) usedPoints).intValue();
         }
  
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
