@@ -52,7 +52,7 @@ function popUp(event,objectID){
    objPopTrig = document.getElementById(event);
    objPopUp = document.getElementById(objectID);
    xPos = objPopTrig.offsetLeft+objPopTrig.offsetWidth;
-   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight;
    if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
    if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
    objPopUp.style.left = xPos + 'px';
@@ -66,23 +66,18 @@ function popHide(){
 // -->
 </script>
 <STYLE TYPE="text/css">
-.popUp
+#popBox{ position: relative; }
+#popBox div
 {
-width: 140px;
-font-size: 10px;
-text-align: center;
+position: absolute;
+font-size: 11px;
+font-weight: bold;
 background-color: #FFFFCC;
 visibility: hidden;
-margin: 10px;
 padding: 3px;
-position: absolute;
+border: 1px solid #000000;
 white-space: nowrap;
-border: solid 1px black;
 z-index: 2;
-}
-#container
-{
-position: relative;
 }
 </STYLE>
 
@@ -111,7 +106,7 @@ position: relative;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">HS SRM 1 Match Results - Team</td></tr>
+   <tr><td class="title" colspan="9">HS SRM 1 Match Results - Team</td></tr>
    <tr>
       <td class="header"><A href="#">Handle</A></td>
       <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
@@ -123,14 +118,14 @@ position: relative;
       <td class="headerR">=</td>
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
-   <tr><td class="title" colspan="9" style="border-top:1px solid #999999;">Room 2</td></tr>
+   <tr><td class="title" colspan="9" style="border-top:1px solid #999999;">Room 1</td></tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <div id="container">
-         <A href="#" id="l_144400" class="coderTextRed" onmouseover="popUp(this.id,'popUp144400')" onmouseout="popHide()" style="z-index: 1;">tomek</A>
-         <div id="popUp144400" class="popUp">Team 1</div>
-      </div>
+         <div id="popBox">
+            <div id="d_144400">Rocky Hill High School</div>
+         </div>
+         <A href="#" id="a_144400" class="coderTextRed" onmouseover="popUp(this.id,'d_144400')" onmouseout="popHide()">tomek</A>
       </td>
       <td class="valueR">
       5
@@ -151,10 +146,34 @@ position: relative;
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <div id="container">
-         <A href="#" id="l_270505" class="coderTextRed" onmouseover="popUp(this.id,'popUp270505')" onmouseout="popHide()" style="z-index: 1;">John Dethridge</A>
-         <div id="popUp270505" class="popUp">Team 2</div>
-      </div>
+         <div id="popBox">
+            <div id="popUp270505">Woodstock High School</div>
+         </div>
+         <A href="#" id="270505" class="coderTextRed" onmouseover="popUp(this.id,'popUp270505')" onmouseout="popHide()" style="z-index: inherit;">John Dethridge</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2">
+      1837.82
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <div id="popBox">
+            <div id="popUp7371063">Woodstock High School</div>
+         </div>
+         <A href="#" id="7371063" class="coderTextBlue" onmouseover="popUp(this.id,'popUp7371063')" onmouseout="popHide()" style="z-index: inherit;">supernova</A>
       </td>
       <td class="valueR">
       5
