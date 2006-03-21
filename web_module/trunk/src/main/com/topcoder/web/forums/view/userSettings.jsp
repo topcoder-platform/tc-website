@@ -87,7 +87,7 @@ function toggleTabs(id) {
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
-   <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
+   <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > User Settings</span><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
       <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
@@ -133,13 +133,13 @@ function toggleTabs(id) {
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="width:100%;">
    <tr id="bodyGen1">
         <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
    <tr id="bodyGen2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
-      <td class="rtThreadCell" style="width:100%">
+      <td class="rtThreadCell" style="width:100%;">
       <select size="1" name="forumsPerPage">
       <%  int[] forumCounts = { 10, 15, 25 };
           int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
@@ -313,7 +313,7 @@ function toggleTabs(id) {
    </tr>
    <tr id="bodyWatch2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
-      <td class="rtThreadCell">
+      <td class="rtThreadCell" style="width:100%;">
       <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
          <%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
       <label for="autoWatchNewTopicsYes">Yes</label>
@@ -370,7 +370,7 @@ function toggleTabs(id) {
    </tr>
    <tr id="bodyRate2">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show ratings:</strong></td>
-      <td class="rtThreadCell">
+      <td class="rtThreadCell" style="width:100%;">
       <input name="showRatings" value="true" id="showRatingsYes" type="radio"
          <%= (user.getProperty("showRatings") == null || "true".equals(user.getProperty("showRatings"))) ? "checked" : ""%>>
       <label for="showRatingsYes">Yes</label>
