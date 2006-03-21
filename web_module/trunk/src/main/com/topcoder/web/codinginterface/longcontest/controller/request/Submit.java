@@ -204,7 +204,7 @@ public class Submit extends Base {
                 if (examplesOnly) {
                     mess = getMessage(lastExampleCompilation, true);
                 } else {
-                    mess = getMessage(lastExampleCompilation, false);
+                    mess = getMessage(lastCompilation, false);
                 }
                 if (mess!=null) {
                         request.setAttribute(Constants.CODE, code);
@@ -401,7 +401,7 @@ public class Submit extends Base {
             if (now < nextSubmit) {
                 minutes = (nextSubmit - now) / (60 * 1000);
                 seconds = (nextSubmit - now - (minutes * 60 * 1000)) / 1000;
-            } 
+            }
             if (minutes > 0 || seconds > 0) {
                 buf = new StringBuffer(100);
                 buf.append("Sorry, you may not ");
