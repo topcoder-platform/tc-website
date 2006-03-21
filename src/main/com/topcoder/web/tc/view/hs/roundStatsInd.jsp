@@ -123,6 +123,7 @@ position: relative;
       <td class="headerR">=</td>
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
+   <tr><td class="title" colspan="9" style="border-top:1px solid #999999;">Room 2</td></tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
