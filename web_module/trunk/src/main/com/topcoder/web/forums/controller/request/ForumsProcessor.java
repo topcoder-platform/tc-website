@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
@@ -44,7 +45,11 @@ public abstract class ForumsProcessor extends BaseProcessor {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
         
-        // Determine categories with unread forums
+        setUnreadCategories();
+    }
+    
+    //  Determine categories with unread forums
+    protected void setUnreadCategories() throws UnauthorizedException {
         ReadTracker readTracker = forumFactory.getReadTracker();
         WatchManager watchManager = forumFactory.getWatchManager();
         StringBuffer unreadCategories = new StringBuffer();
@@ -63,7 +68,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
                 }
             }
             if (category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) == null) {
-                log.debug("cateogry nav name is null " + category.getDescription());
+                log.debug("category nav name is null " + category.getDescription());
             }
             if (!isCategoryRead && category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) != null) {
                 unreadCategories.append(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)).append(',');
