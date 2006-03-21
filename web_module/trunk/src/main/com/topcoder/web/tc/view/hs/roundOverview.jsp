@@ -76,12 +76,12 @@ or
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
-      <td class="headerR">Score</td>
-      <td class="header" style="border-right:1px solid #999999;">Results</td>
+      <td class="headerC">Room</td>
+      <td class="headerR" style="border-right:1px solid #999999;">Score</td>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Individuals</td>
+      <td class="headerC">Room</td>
       <td class="headerR">Score</td>
-      <td class="header">Results</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -91,11 +91,11 @@ or
       <td class="value">
       <A href="#">Team 1</A>
       </td>
-      <td class="valueR">
-      1200
-      </td>
-      <td class="valueC" style="border-right:1px solid #999999;">
+      <td class="valueC" nowrap="nowrap">
       Room 20
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      1200
       </td>
       <td class="valueC">
       1
@@ -103,119 +103,119 @@ or
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+      <td class="value" nowrap="nowrap">
+      Room 20
+      </td>
       <td class="valueR">
       1200
-      </td>
-      <td class="value">
-      Room 20
       </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">
-      2
+      1
       </td>
       <td class="value">
-      <A href="#">Team 2</A>
+      <A href="#">Team 1</A>
       </td>
-      <td class="valueR">
-      1200
-      </td>
-      <td class="valueC" style="border-right:1px solid #999999;">
+      <td class="valueC" nowrap="nowrap">
       Room 20
       </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      1200
+      </td>
       <td class="valueC">
-      2
+      1
       </td>
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+      <td class="value" nowrap="nowrap">
+      Room 20
+      </td>
       <td class="valueR">
       1200
-      </td>
-      <td class="value">
-      Room 20
       </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">
-      3
+      1
       </td>
       <td class="value">
-      <A href="#">Team 3</A>
+      <A href="#">Team 1</A>
       </td>
-      <td class="valueR">
+      <td class="valueC" nowrap="nowrap">
+      Room 20
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
       1200
       </td>
-      <td class="valueC" style="border-right:1px solid #999999;">
-      Room 20
-      </td> 
       <td class="valueC">
-      3
+      1
       </td>
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+      <td class="value" nowrap="nowrap">
+      Room 20
+      </td>
       <td class="valueR">
       1200
-      </td>
-      <td class="value">
-      Room 20
       </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">
-      4
+      1
       </td>
       <td class="value">
-      Team 4
+      <A href="#">Team 1</A>
       </td>
-      <td class="valueR">
+      <td class="valueC" nowrap="nowrap">
+      Room 20
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
       1200
       </td>
-      <td class="valueC" style="border-right:1px solid #999999;">
-      Room 20
-      </td> 
       <td class="valueC">
-      4
+      1
       </td>
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+      <td class="value" nowrap="nowrap">
+      Room 20
+      </td>
       <td class="valueR">
       1200
-      </td>
-      <td class="value">
-      Room 20
       </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">
-      5
+      1
       </td>
       <td class="value">
-      Team 5
+      <A href="#">Team 1</A>
       </td>
-      <td class="valueR">
+      <td class="valueC" nowrap="nowrap">
+      Room 20
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
       1200
       </td>
-      <td class="valueC" style="border-right:1px solid #999999;">
-      Room 20
-      </td> 
       <td class="valueC">
-      5
+      1
       </td>
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+      <td class="value" nowrap="nowrap">
+      Room 20
+      </td>
       <td class="valueR">
       1200
-      </td>
-      <td class="value">
-      Room 20
       </td>
    </tr>
    <% even = !even;%>
