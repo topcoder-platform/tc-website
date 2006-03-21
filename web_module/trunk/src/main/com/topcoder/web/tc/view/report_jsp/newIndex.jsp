@@ -64,6 +64,7 @@
         <LI><A HREF="<%=baseURL+"reposts"%>">Reposted projects</A></LI>
         <LI><A HREF="<%=baseURL+"new_participants_week"%>">New participants per week</A></LI>
         <LI><A HREF="<%=baseURL+"new_ratio"%>">Ratio of new members who participate in TCS</A></LI>
+        <LI><A HREF="<%=baseURL+"drop_off"%>">Drop-off rates by month</A></LI>
       </UL>
       <br/>
       Payment Reports
