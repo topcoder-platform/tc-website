@@ -4,6 +4,7 @@
                  com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.action.rss.RSSActionSupport,
+                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.util.StringUtils,
                  java.util.*,
                  java.text.SimpleDateFormat"
@@ -12,7 +13,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%  SimpleDateFormat formatter = new SimpleDateFormat(RSSActionSupport.DATE_FORMAT); %>
+<%  SimpleDateFormat formatter = new SimpleDateFormat(RSSActionSupport.DATE_FORMAT); 
+    ForumCategory category = (ForumCategory)request.getAttribute("category"); %>
 
 <rss version="2.0" 
     xmlns:jf="http://www.jivesoftware.com/xmlns/jiveforums/rss"
@@ -26,7 +28,7 @@
     <pubDate><%= formatter.format(new Date()) %></pubDate>
 
     <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-       <%   if (!"true".equals(message.getForum().getForumCategory().getProperty(ForumConstants.PROPERTY_HIDE_MAIN_RSS))) { %>
+       <%   if (category == null || category.getID() != 1 || !"true".equals(message.getForum().getForumCategory().getProperty(ForumConstants.PROPERTY_HIDE_MAIN_RSS))) { %>
        <item>
            <title><%= StringUtils.escapeForXML(message.getSubject()) %></title>
            <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>

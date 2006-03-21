@@ -44,6 +44,7 @@ public class RSS extends ForumsProcessor {
         else if (!categoryID.equals("")) {
             ForumCategory category = forumFactory.getForumCategory(Long.parseLong(categoryID));
             messages = category.getMessages(filter);
+            getRequest().setAttribute("category", category);
         }
 
 		getRequest().setAttribute("messages", messages);
