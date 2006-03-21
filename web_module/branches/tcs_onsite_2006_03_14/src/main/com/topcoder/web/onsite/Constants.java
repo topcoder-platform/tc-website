@@ -31,7 +31,14 @@ public class Constants implements WebConstants {
     public static String MAX_WAGER_AMOUNT_MESSAGE;
     public static String INVALID_WAGER_FORMAT_MESSAGE;
     public static String SUCCESSFULL_WAGER_MESSAGE;
+    public static String INVALID_PROJECT_MESSAGE;
+    
     public static String ACTUAL_TCO_CONTESTS_COMMAND;
+    public static String WAGER_SUBMITION_VALIDATION_COMMAND;
+
+    public static String ACTUAL_TCO_CONTESTS_QUERY;
+    public static String REMAINING_TCO_CONTESTS_QUERY;
+    public static String REMAINING_WAGER_POINTS_QUERY;
 
     public static String PROJECT_ID_KEY;
 

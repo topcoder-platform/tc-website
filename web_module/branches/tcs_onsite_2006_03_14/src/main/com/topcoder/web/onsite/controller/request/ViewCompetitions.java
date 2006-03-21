@@ -39,7 +39,7 @@ public class ViewCompetitions extends Base {
         request.setProperty(Constants.USER_ID, String.valueOf(userId));
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Map m = dai.getData(request);
-        ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_COMMAND);
+        ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY);
 
         return comp;
     }

@@ -30,6 +30,16 @@ public class SubmitWager extends Base {
         ProjectWagerLocal projectWagerLocal = (ProjectWagerLocal) createLocalEJB(getInitialContext(), ProjectWager.class); 
         projectWagerLocal.createProjectWager(projectId, userId, wagerAmount, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
+    
+    private Map getValidationData(long userId) throws Exception {
+        Request request = new Request();
+        request.setContentHandle(Constants.WAGER_SUBMITION_VALIDATION_COMMAND);
+        request.setProperty(Constants.USER_ID, String.valueOf(userId));
+        DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Map m = dai.getData(request);
+
+        return m;
+    }
 
     protected void businessProcessing() throws TCWebException {
         if (getUser().isAnonymous()) {
@@ -38,6 +48,15 @@ public class SubmitWager extends Base {
 
         setNextPage(Constants.WAGER_RESULT_PAGE);
         setIsNextPageInContext(true);
+        
+        int projectId;
+        try {
+            projectId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_ID_KEY));
+        } catch (NumberFormatException nfe) {
+            log.debug("This should never happen. (cannot parse project ID: " + 
+                getRequest().getParameter(Constants.PROJECT_ID_KEY) + ")");
+            throw(new TCWebException(nfe));
+        }
         
         int wagerAmount;
         try {
@@ -52,20 +71,27 @@ public class SubmitWager extends Base {
                 Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT + ".");
             return;
         }        
-        
-        if (wagerAmount > Constants.MAX_WAGER_AMOUNT) {
+
+        // extra validations:
+        ResultSetContainer comp = (ResultSetContainer) m.get(
+            Constants.ACTUAL_TCO_CONTESTS_QUERY);
+        int remainingCompetitions = (ResultSetContainer) m.get(
+            Constants.REMAINING_TCO_CONTESTS_QUERY).getStringItem(0, "remaining_comp");
+        int remainingPoints = (ResultSetContainer) m.get(
+            Constants.REMAINING_WAGER_POINTS_QUERY).getStringItem(0, "remaining_points");
+            
+        int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
+        maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
+        if (wagerAmount > maxWagerAmount) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + Constants.MAX_WAGER_AMOUNT + ".");
+                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + maxWagerAmount + ".");
             return;
         }
 
-        int projectId;
-        try {
-            projectId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_ID_KEY));
-        } catch (NumberFormatException nfe) {
-            log.debug("This should never happen. (cannot parse project ID: " + 
-                getRequest().getParameter(Constants.PROJECT_ID_KEY) + ")");
-            throw(new TCWebException(nfe));
+        if (projectId != comp.getStringItem(0, Constants.PROJECT_ID_KEY)) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                Constants.INVALID_PROJECT_MESSAGE);
+            return;
         }
 
         try {
