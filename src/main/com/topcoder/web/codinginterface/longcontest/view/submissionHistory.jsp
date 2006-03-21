@@ -105,15 +105,17 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
 
                             <tr>
-                                <td class="tableTitle" colspan="4">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
+                                <td class="tableTitle" colspan="<%=over?4:3%>">Submissions: <rsc:item name="num_submissions" row="<%=infoRow%>"/></td>
                             </tr>
                             <tr>
                                 <td class="tableHeader" width="20%">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="4"/>">Submission</A></td>
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="5"/>">Time</A></td>
+                                <% if (over) { %>
                                 <td class="tableHeader" width="20%" align="right">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="6"/>">Score</A></td>
+                                <% } %>
                                 <td class="tableHeader" width="20%" align="center">
                                     <A href="<%=sortLinkBase%><tc-webtag:sort column="<%=submissions.getColumnIndex("language_name")%>"/>">Language</A></td>
                             </tr>
@@ -131,8 +133,10 @@
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap">
                                         <tc-webtag:format object="<%=new Date(resultRow.getLongItem("submit_time"))%>" format="MM.dd.yyyy HH:mm:ss"/></td>
+                                    <% if (over) { %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/><%=resultRow.getIntItem("status_id")==130?"*":""%></td>
+                                    <% } %>
                                     <td class="<%=even?"statLt":"statDk"%>" align="center">
                                         <rsc:item name="language_name" row="<%=resultRow%>"/></td>
                                 </tr>
