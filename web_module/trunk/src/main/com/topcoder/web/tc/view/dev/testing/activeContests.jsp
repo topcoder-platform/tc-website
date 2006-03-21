@@ -42,12 +42,11 @@
    <tr><td class="title" colspan="7">Active Software Testing Contests</td></tr>
    <tr>
       <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
-      <td class="tableHeader" align="center" nowrap="nowrap">Teams</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
-<%--
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -69,8 +68,6 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
@@ -95,8 +92,6 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
@@ -121,8 +116,6 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
@@ -147,8 +140,6 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
@@ -173,8 +164,6 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
@@ -199,12 +188,9 @@
       03.24.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">join a team</A>
-      <br>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/">discuss the project</A>
       </td>
    </tr>
---%>
 </table>
 
 </td>

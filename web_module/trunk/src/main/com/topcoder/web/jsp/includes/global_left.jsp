@@ -52,7 +52,7 @@
          nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=activeContests", "Active Contests", "assembly_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_testing_competitions')", "Software Testing", "m_testing_competitions"));
          nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=overview", "Overview", "testing_overview"));
-//         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=activeContests", "Active Contests", "testing_compete"));
+         nav.search("m_testing_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=testing&d3=activeContests", "Active Contests", "testing_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_long_contests')", "Marathon Matches", "m_long_contests"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=ViewActiveContests", "Compete", "long_compete"));
          nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=ViewPractice&amp;rt=14", "Practice", "long_practice"));
