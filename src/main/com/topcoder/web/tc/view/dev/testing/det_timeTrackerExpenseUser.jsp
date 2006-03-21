@@ -59,7 +59,7 @@ The tests in this competition will verify entering expenses, deleting expenses, 
 <li>JUnit</li>
 </ul>
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505946">here</A>.
+Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21388673">here</A>.
 <br><br>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. 
@@ -113,7 +113,7 @@ To sign up as a participant, send an email to <A href="mailto:TestingCompetition
 TopCoder staff will respond as to whether you are registered or not.
 <br><br>
 <div class="sectionHeader">Submission</div>
-Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Expense and User Tests">TestingCompetitions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
+Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Time Tracker Expense and User Tests">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
 <br><br>
 </div>
 </td>
