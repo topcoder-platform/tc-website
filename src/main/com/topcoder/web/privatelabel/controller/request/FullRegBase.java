@@ -23,34 +23,10 @@ import java.util.*;
 public abstract class FullRegBase extends SimpleRegBase {
 
     protected static Logger log = Logger.getLogger(FullRegBase.class);
-    private Map questions;
+    protected Map questions;
 
     public FullRegBase() {
     }
-
-/*    protected void businessProcessing() throws TCWebException {
-        try {
-            p = new SessionPersistor(getRequest().getSession(true));
-            //gotta do first just in case makeRegInfo() needs the database
-            if (getRequestParameter(Constants.COMPANY_ID)==null) {
-                throw new TCWebException("company id missing");
-            }
-            long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
-            transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
-            db = getCompanyDb(companyId, Constants.TRANSACTIONAL);
-            log.debug("trans database set to: " + transDb);
-            log.debug("database set to: " + db);
-
-            regInfo = makeRegInfo();
-
-            p.setObject(Constants.REGISTRATION_INFO, regInfo);
-            registrationProcessing();
-        } catch (TCWebException we) {
-            throw we;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }*/
 
     protected void setDefaults(SimpleRegInfo info) {
         super.setDefaults(info);
