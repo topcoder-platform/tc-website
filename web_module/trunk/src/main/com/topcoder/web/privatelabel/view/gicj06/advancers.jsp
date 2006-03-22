@@ -41,7 +41,6 @@
 </span>
 <span class="bigTitle">Advancers</span>
                 <br><br>
-<!--
                 <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
                     <tr>
                         <td class="advancersTitle">Round</td>
@@ -52,6 +51,7 @@
                             Round</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advQual">500</a></td>
                     </tr>
+<!--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1" class="topLink">Round 1</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1">250</a></td>
@@ -65,8 +65,8 @@
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advFinal">Winners</a>
                         </td>
                     </tr>
-                </table>
 -->
+                </table>
 <br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
