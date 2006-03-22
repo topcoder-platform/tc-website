@@ -33,7 +33,10 @@
    <div style="width: 500px; text-align: left;">
 
 <div align="center" style="padding-top: 15px;">
-<img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0"/>
+<map name="tco06_map">
+<area shape="rect" alt="" coords="20,0,117,118" href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm" target="_blank" />
+</map>
+<img src="/i/longcontest/intel_banner_plain.gif" alt="" border="0" usemap="#tco06_map" />
 </div>
 
 <p align="center">
@@ -41,9 +44,6 @@ Overview&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=Static&d1=intel_instructions">How to Compete</A>&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=Static&d1=intel_rules">Rules</A>&#160;&#160;|&#160;&#160;
 <A href="/longcontest/?module=ViewActiveContests&rt=15">Active Contests</A>&#160;&#160;|&#160;&#160;
-<%--
-<A href="/longcontest/?module=ViewPractice&rt=16">Practice</A>&#160;&#160;|&#160;&#160;
---%>
 <A href="/longcontest/?module=Static&d1=intel_resources">ISN Resources</A>
 </p>
 

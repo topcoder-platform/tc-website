@@ -71,3 +71,4 @@
 </font>
 
 <br><br>
+<span class="bigRed"><A href="/pl/?module=Static&d1=gicj06&d2=advQual" class="bigRed">Click here</A> to see who qualified for Round 1!</span>
