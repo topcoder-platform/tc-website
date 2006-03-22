@@ -77,19 +77,20 @@
                         </td>
                     <% } %>
                 </tr>
-                <tr valign="top">
-                    <br/>
-                    <td>
-                        Please enter your wager for:
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>
-                            <%= currentCompetitions.getStringItem(0, Constants.CONTEST_NAME_COL) %>
-                        </p>
-                    </td>
-                </tr>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr valign="top">
+                        <td>
+                            Please enter your wager for:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>
+                                <%= currentCompetitions.getStringItem(0, Constants.CONTEST_NAME_COL) %>
+                            </b>
+                        </td>
+                    </tr>
+                </table>
                 <tr>
                       <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
