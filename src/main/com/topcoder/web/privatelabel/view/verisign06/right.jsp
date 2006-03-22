@@ -9,12 +9,6 @@
         <td align="left" nowrap="nowrap" class="sidebarText" style="padding: 0px 10px 0px 10px;">
             <b>Important Dates</b>
             <br/><br/>
-            <b>Registration Opens</b><br/>
-            Monday, April 17
-            <br/><br/>
-            <b>Registration Closes</b><br/>
-            Tuesday, April 25
-            <br/><br/>
             <b>SRM 1</b><br/>
             Tuesday, April 25
             <br/><br/>

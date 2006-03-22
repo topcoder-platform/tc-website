@@ -23,6 +23,10 @@
 <div class="bodySpacer">
 
 <span class="bigTitle">Instructions</span><br/><br/>
+<span class="bodySubtitle">How to Register</span><br>
+Click <a href="/pl/?module=Static&d1=verisign06&d2=reg">here</a> to register. 
+<br><br>
+
 <span class="bodySubtitle">Loading the Competition Arena</span><br/>
 Load the application by clicking the Competition Arena link at the top. You need at least
 <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena. Click
@@ -51,6 +55,17 @@ Move to your assigned competition room as follows:
     <li>Select "Enter"</li>
 </ul>
 <br/>
+
+<span class="bodySubtitle">Competition Structure of a Single Round Match:</span><br>
+Upon Entering an Online Single Round Match<br>
+Each round consists of three phases: the coding phase, challenge phase, and the testing phase. 
+<ol>
+<li><b>The Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles.</li>
+<li><b>The Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will award 50 points to the challenger, and any points gained by the submitter for the problem will be lost. Unsuccessful challenges will cost the challenger 25 points as a penalty, applied to their total score in that round of competition. </li>
+<li><b>The Automated Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If TopCoder finds code that is flawed, the author of that code submission will lose all of the points they earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. </li>
+</ol>
+<br>
+
 <span class="bodySubtitle">The Competition Room</span><br/>
 From within the competition room, you will access the problem statements that you will attempt to solve during the
 Coding Phase.
@@ -60,17 +75,11 @@ Coding Phase.
 <div align="center"><img src="/i/events/verisign06/arena3_ver.gif" alt="" border="0"/></div>
 <br/><br/><br/>
 
-<span class="bodySubtitle">Coding Phase</span><br/>
-The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements.
-The amount of time you will be given will vary depending on the round of competition:
-<ul>
-    <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened
-        and the contestants will be given two problems to solve.</li>
-    <li>In the Online Rounds of the Sponsor Track Competiton, the Coding Phase will last 75 minutes and the contestants
-        will be given three problems to solve.</li>
-    <li>In the Online Final Round of the Sponsor Track Competiton, the coding phase will last 75 minutes and the
-        contestants will be given three problems to solve.</li>
-</ul>
+<span class="bodySubtitle">Coding Phase</span><br>
+The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. 
+<br><br>
+In the Single Round Matches for the VeriSign Internal Coding Competitions, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.
+<br><br>
 
 When the competition begins, you may view the problem statements as follows:
 <ul>
