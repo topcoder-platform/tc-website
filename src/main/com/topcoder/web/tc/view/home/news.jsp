@@ -23,6 +23,20 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
+      </span><br><br>
+      The third competition in the Intel Multi-Threading Competition Series is now open for registration.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.22.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">AMD SRM 293 chat session transcript</A>
@@ -215,23 +229,6 @@ Top 200 coders faced three pretty different problems this time. The easy was a c
        <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505942" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.10.06<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">TCO06 Round 2 - Problem Set & Analysis</A></span><br><br>
-This round of the TCO goes to <tc-webtag:handle coderId="144400" context="algorithm"/>, thanks to a solid time on all three tasks.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505934" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
