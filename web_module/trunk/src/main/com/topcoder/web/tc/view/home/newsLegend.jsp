@@ -138,11 +138,14 @@ OR
 
 <%-------------------GENERAL TC NEWS-------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.13.05<br>11:40 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></span><br><br>
-      See every TopCoder Coder of the Month and a description of the criteria we use to select them.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
+      </span><br><br>
+      The third competition in the Intel Multi-Threading Competition Series is now open for registration.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
+         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
