@@ -20,7 +20,7 @@
    <tr valign="top">
       <td valign="top" align="center">
       <div class="bodySpacer">
-            
+
       <span class="bigTitle">Activation Successful!</span>
       <br/><br/>
 
@@ -28,26 +28,26 @@
          <br><br>
          If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.
          <!-- i made up that email address... don't know what it should be -->
-         
-         
-         
+
+
+
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br/><br/>
-
+</div>
       </td>
 
 
-         
-         
+
+
 <!-- Right Column-->
 <td width="180" align="right" style="padding: 0px 15px 0px 0px;">
 <jsp:include page="right.jsp" />
 
 </td>
-      
+
    </tr>
-   
+
 </table>
 
 <jsp:include page="/foot.jsp" />
