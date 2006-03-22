@@ -75,6 +75,13 @@ public class Constants {
     public static final String GOOGLE_INDIA_06_CREDENTIALS_PAGE="/gicj06/credentials.jsp";
     public static final String GOOGLE_INDIA_06_CREDENTIALS_SENT_PAGE="/gicj06/credentialsSent.jsp";
 
+    public static final String VERISIGN_06_LOGIN_PAGE="/verisign06/login.jsp";
+    public static final String VERISIGN_06_REG_PAGE = "/verisign06/reg.jsp";
+    public static final String VERISIGN_06_REG_CONFIRM_PAGE="/gicverisign06j06/confirm.jsp";
+    public static final String VERISIGN_06_REG_SUCCESS_PAGE="&d1=verisign06&d2=regsuccess";
+    public static final String VERISIGN_06_UPDATE_SUCCESS_PAGE="&d1=verisign06&d2=updatesuccess";
+    public static final String VERISIGN_06_ACTIVATION_PAGE="/verisign06/activation.jsp";
+
 
     public static String DEFAULT_PAGE;
 
@@ -197,6 +204,12 @@ public class Constants {
     public static final String GOOGLE_INDIA_06_ACTIVATION="GoogleIndia06Activate";
     public static final String GOOGLE_INDIA_06_CREDENTIALS="GoogleIndia06Credentials";
     public static final String GOOGLE_INDIA_06_LOGIN="GoogleIndia06Login";
+    public static final String VERISIGN_06_REG_MAIN="GoogleIndia06Reg";
+    public static final String VERISIGN_06_REG_CONFIRM="GoogleIndia06Confirm";
+    public static final String VERISIGN_06_REG_SUBMIT="GoogleIndia06Submit";
+    public static final String VERISIGN_06_ACTIVATION="GoogleIndia06Activate";
+    public static final String VERISIGN_06_CREDENTIALS="GoogleIndia06Credentials";
+    public static final String VERISIGN_06_LOGIN="GoogleIndia06Login";
 
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
