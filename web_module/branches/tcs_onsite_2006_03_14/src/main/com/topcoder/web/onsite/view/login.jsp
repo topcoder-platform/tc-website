@@ -14,106 +14,59 @@
 %>
 
 <html>
-<head>
-<title>TopCoder | Login</title>
-
-
-<SCRIPT type="text/javascript">
-function submitEnter(e) {
-    var keycode;
-    if (window.event) keycode = window.event.keyCode;
-    else if (e) keycode = e.which;
-    else return true;
-    if (keycode == 13) {
-     document.frmLogin.submit();
-     return false;
-    } else return true;
-  }
-</SCRIPT>
-
-</head>
-
-<body>
-
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-
-
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="middle">
-                    <td class="bodyText" align="center">
-                        <%= nextpage %>
-                    </td>
-                </tr>                        
-                <tr valign="middle">
-                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+    <head>
+        <title>TopCoder | Wager | Login</title>
+        <SCRIPT type="text/javascript">
+            function submitEnter(e) {
+                var keycode;
+                if (window.event) keycode = window.event.keyCode;
+                else if (e) keycode = e.which;
+                else return true;
+                if (keycode == 13) {
+                    document.frmLogin.submit();
+                    return false;
+                } else return true;
+            }
+        </SCRIPT>
+    </head>
+    
+    <body>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr valign="middle">
+                <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                             <tr valign="top">
                                 <td class="errorText" colspan="3">
                                     <p><%= message %></p>
                                 </td>
                             </tr>
-
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                <td colspan="2" align="left">
+                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                 </td>
                             </tr>
-
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
+                                <td align="left">
+                                    <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                </td>
+                                <td nowrap class="bodyText">
+                                    &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
+                                </td>
                             </tr>
-
-
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                         </table>
                         <p><br/></p>
-
-                    <script>
-                      document.frmLogin.<%=Login.USER_NAME%>.focus();
-                    </script>
-
+                        <script>
+                            document.frmLogin.<%=Login.USER_NAME%>.focus();
+                        </script>
                     </td>
-                  </form>
-                </tr>
-            </table>
-
-            <p><br></p>
-            <p><br></p>
-
-            </div>
-        </td>
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-    </tr>
-</table>
-
-
-</body>
+                </form>
+            </tr>
+        </table>
+    </body>
 </html>
 
