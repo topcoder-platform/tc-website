@@ -44,7 +44,7 @@
                 <tr valign="top">
                     <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
                         <td>
-                            <table>
+                            <table border="2">
                                <tr valign="top">
                                     <!--td>
                                         Wager Date
@@ -52,7 +52,7 @@
                                     <td>
                                         Contest
                                     </td>
-                                    <td>
+                                    <td align="right">
                                         Wager amount
                                     </td>
                                 </tr>
@@ -64,7 +64,7 @@
                                         <td>
                                             <%= wagerHistory.getStringItem(i, Constants.CONTEST_NAME_COL) %>
                                         </td>
-                                        <td>
+                                        <td align="right">
                                             <%= wagerHistory.getIntItem(i, Constants.WAGER_AMOUNT_COL) %>
                                         </td>
                                     </tr>
