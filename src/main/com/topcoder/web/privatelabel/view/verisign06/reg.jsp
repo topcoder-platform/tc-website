@@ -32,7 +32,7 @@
 <span class="bigTitle">Registration</span>
 <br/><br/>
 
-Register for the VeriSign Internal SRM:<br/><br/>
+Register for the VeriSign Internal Coding Competitions:<br/><br/>
 
 <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_REG_CONFIRM%>"/>
@@ -45,8 +45,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" width="50%" nowrap>
-                <span class="errorText">*</span> Handle
+            <td class="bodyText" align="right" width="50%" nowrap>
+                * Handle
             </td>
             <td align="left" width="50%">
                 <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
@@ -59,8 +59,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Given Name
+            <td class="bodyText" align="right" nowrap>
+                * Given Name
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="15" maxlength="50"/>
@@ -79,8 +79,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Surname
+            <td class="bodyText" align="right" nowrap>
+                * Surname
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="15" maxlength="50"/>
@@ -93,10 +93,10 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Password
+            <td class="bodyText" align="right" nowrap>
+                * Password
             </td>
-            <td align="left">
+            <td class="bodyText" align="left">
                 <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
                 (<%=Constants.MIN_PASSWORD_LENGTH%> to <%=Constants.MAX_PASSWORD_LENGTH%> characters)
             </td>
@@ -108,8 +108,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Confirm Password
+            <td class="bodyText" align="right" nowrap>
+                * Confirm Password
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
@@ -121,8 +121,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Email Address
+            <td class="bodyText" align="right" nowrap>
+                * Email Address
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -135,8 +135,8 @@ Register for the VeriSign Internal SRM:<br/><br/>
             </td>
         </tr>
         <tr>
-            <td align="right" nowrap>
-                <span class="errorText">*</span> Confirm Email Address
+            <td class="bodyText" align="right" nowrap>
+                * Confirm Email Address
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
