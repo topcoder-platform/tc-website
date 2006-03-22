@@ -32,7 +32,7 @@
         </SCRIPT>
     </head>
     <body>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="5">
             <% if (currentCompetitions != null && currentCompetitions.size() > 0) {%>
                 <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
                     <tr valign="top">
