@@ -18,6 +18,7 @@ public class SponsorImage extends TagSupport {
     private String vspace = null;
     private String border = null;
     private String ifNull = null;
+    private boolean newWindow = true;
 
 
     public void setImage(String image) {
@@ -44,11 +45,24 @@ public class SponsorImage extends TagSupport {
         this.ifNull = ifNull;
     }
 
+    public void setNewWindow(String newWindow) {
+        this.newWindow = String.valueOf(true).equals(newWindow);
+    }
+
 
     public int doStartTag() throws JspException {
 
         if (imageObject!=null) {
             StringBuffer buffer = new StringBuffer();
+            if (imageObject.getLink()!=null) {
+                buffer.append("<a href=\"");
+                buffer.append(imageObject.getLink());
+                buffer.append("\"");
+                if (newWindow) {
+                    buffer.append(" target=\"_blank\"");
+                }
+                buffer.append(">");
+            }
             buffer.append("<img src=\"");
             buffer.append(imageObject.getSrc() == null ? "" : imageObject.getSrc());
             buffer.append("\"");
@@ -71,6 +85,9 @@ public class SponsorImage extends TagSupport {
             }
 
             buffer.append(" />");
+            if (imageObject.getLink()!=null) {
+                buffer.append("</a>");
+            }
 
             try {
                 pageContext.getOut().println(buffer.toString());
@@ -95,6 +112,7 @@ public class SponsorImage extends TagSupport {
         this.vspace = null;
         this.border = null;
         this.ifNull = null;
+        this.newWindow = true;
         return super.doEndTag();
     }
 
