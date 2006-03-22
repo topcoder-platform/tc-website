@@ -48,7 +48,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="bodyText">
+                        <td class="bodyText" align="right">
                             Handle
                         </td>
                         <td class="bodyText">
@@ -57,7 +57,7 @@
                     </tr>
 
                     <tr>
-                        <td class="bodyText">
+                        <td class="bodyText" align="right">
                             First Name
                         </td>
                         <td class="bodyText">
@@ -66,7 +66,7 @@
                     </tr>
 
                     <tr>
-                        <td class="bodyText">
+                        <td class="bodyText" align="right">
                             Last Name
                         </td>
                         <td class="bodyText">
@@ -75,7 +75,7 @@
                     </tr>
 
                     <tr>
-                        <td class="bodyText">
+                        <td class="bodyText" align="right">
                             Email Address
                         </td>
                         <td class="bodyText">
@@ -84,7 +84,7 @@
                     </tr>
 
                     <tr>
-                        <td class="bodyText">
+                        <td class="bodyText" align="right">
                             Confirm Email Address
                         </td>
                         <td class="bodyText">
@@ -95,7 +95,7 @@
 
                     <pl:responseIterator id="resp" list="<%=responseList%>">
                         <tr>
-                            <td class="bodyText">
+                            <td class="bodyText" align="right">
                                 <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
                             </td>
                             <td class="bodyText">
