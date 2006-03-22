@@ -22,6 +22,9 @@ public class Constants implements WebConstants {
 
     /* request parameters */
     public static String MODULE_KEY;
+    public static String PROJECT_ID_KEY;
+    public static String CURRENT_COMPETITION_RESULT_KEY;
+    public static String WAGER_HISTORY_KEY;
 
     /* misc constants */
     public static String WAGER_AMOUNT;
@@ -33,16 +36,24 @@ public class Constants implements WebConstants {
     public static String SUCCESSFULL_WAGER_MESSAGE;
     public static String INVALID_PROJECT_MESSAGE;
     
-    public static String ACTUAL_TCO_CONTESTS_COMMAND;
+    public static String VIEW_WAGER_COMPETITIONS_COMMAND;
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
 
     public static String ACTUAL_TCO_CONTESTS_QUERY;
     public static String REMAINING_TCO_CONTESTS_QUERY;
     public static String USED_WAGER_POINTS_QUERY;
+    public static String WAGER_HISTORY_QUERY;
 
-    public static String PROJECT_ID_KEY;
     public static int TOTAL_WAGER_POINTS;
     
+    /* columns */
+    public static String CONTEST_NAME_COL;
+    public static String PROJECT_ID_COL;
+    public static String REMAINING_CONTESTS_COL;
+    public static String USED_POINTS_COL;
+    public static String CREATE_DATE_COL;
+    public static String WAGER_AMOUNT_COL;
+
 
     static {
         initialize();

@@ -40,7 +40,7 @@
                     <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
                         <td>
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                <% for (i=0; i < wagerHistory.size(); i++) {%>
+                                <% for (int i=0; i < wagerHistory.size(); i++) {%>
                                     <tr valign="top">
                                         <!--td>
                                             <%= wagerHistory.getStringItem(i, Constants.CREATE_DATE_COL) %>
