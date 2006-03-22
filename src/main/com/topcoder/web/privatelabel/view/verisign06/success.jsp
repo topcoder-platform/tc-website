@@ -24,7 +24,7 @@
       <span class="bigTitle">Registration Successful!</span>
       <br/><br/>
 
-In order to be eligible to compete in the VeriSign Internal SRM,
+In order to be eligible to compete in the VeriSign Internal Coding Competition,
 you must activate your account by following the directions sent to the email
 address provided during registration.
 <br><br>
@@ -32,7 +32,7 @@ address provided during registration.
 <br><br>
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
 <br><br>
-If you encounter any problems, please contact us at <A href="mailto:VerisignIntSRM@topcoder.com">VerisignIntSRM@topcoder.com</A>.         
+If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.         
 
 <!-- i made up that email address... don't know what it should be -->
 

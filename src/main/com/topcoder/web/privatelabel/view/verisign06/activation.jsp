@@ -26,7 +26,7 @@
 
          You may practice for the contest by clicking the Competition Arena link above.
          <br><br>
-         If you encounter any problems, please contact us at <A href="mailto:VerisignIntSRM@topcoder.com">VerisignIntSRM@topcoder.com</A>.
+         If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.
          <!-- i made up that email address... don't know what it should be -->
          
          
