@@ -23,6 +23,21 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.22.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">AMD SRM 293 chat session transcript</A>
+      </span><br><br>
+      AMD was in the arena prior to SRM 293, to discuss gaming optimization techniques.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.21.06<br>2:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -217,24 +232,6 @@ This round of the TCO goes to <tc-webtag:handle coderId="144400" context="algori
          <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_2">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505934" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="TopCoder Movies" border="0" /><br>03.10.06<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=art_031006">Interview with TopCoder Member Pat Conley</A></span><br><br>
-Pat shares his impressions of TopCoder, talks about his background and what's going on at industry leader VeriSign, where he is VP O&amp;I.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/joseki_big.jpg" alt="" width="55" height="61"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=pressroom&d2=art_031006">details</A>&#160;|&#160;
-         <A href="/audio/Pat_Conley_03_10_06.mp3">listen</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505941" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
