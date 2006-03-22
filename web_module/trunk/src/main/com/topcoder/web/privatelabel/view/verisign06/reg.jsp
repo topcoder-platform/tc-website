@@ -24,17 +24,17 @@
       <span class="bigTitle">Registration</span>
       <br/><br/>
 
-      Register for the VeriSign Internal SRM:<br><br>
+      Register for the VeriSign Internal Coding Competitions:<br><br>
       <form>
-      <table>
-        <tr><td class="bodyText">First Name:</td><td><input name="first" type="text" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">Last Name:</td><td><input name="last" type="text" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">TopCoder Handle:&#160;</td><td><input name="handle" type="text" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">TopCoder Password:&#160;</td><td><input name="handle" type="password" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">Email:</td><td><input name="email" type="text" size="15" maxlength="40" /></td></tr>
-        <tr><td class="bodyText">Title:</td><td><input name="title" type="text" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">Location:</td><td><input name="location" type="text" size="15" maxlength="30" /></td></tr>
-        <tr><td class="bodyText">Business Unit:</td><td><select name="unit" size="1">
+      <table align="center">
+        <tr><td class="bodyText" align="right">First Name:</td><td><input name="first" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">Last Name:</td><td><input name="last" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">TopCoder Handle:&#160;</td><td><input name="handle" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">TopCoder Password:&#160;</td><td><input name="handle" type="password" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">Email:</td><td><input name="email" type="text" size="15" maxlength="40" /></td></tr>
+        <tr><td class="bodyText" align="right">Title:</td><td><input name="title" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">Location:</td><td><input name="location" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText" align="right">Business Unit:</td><td><select name="unit" size="1">
             <option>VCS</option>
             <option>VSS</option>
             <option>VIS</option>

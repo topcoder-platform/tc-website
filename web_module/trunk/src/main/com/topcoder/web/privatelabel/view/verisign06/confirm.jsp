@@ -26,15 +26,15 @@
 
       Confirm your Registration Information:<br><br>
       <form>
-      <table>
-        <tr><td class="bodyText">First Name:</td><td class="bodyText">Trixie</td></tr>
-        <tr><td class="bodyText">Last Name:</td><td class="bodyText">Jones</td></tr>
-        <tr><td class="bodyText">Handle:</td><td class="bodyText">trixieJ</td></tr>
-        <tr><td class="bodyText">Password:</td><td class="bodyText">******</td></tr>
-        <tr><td class="bodyText">Email:</td><td class="bodyText">trixie@email.com</td></tr>
-        <tr><td class="bodyText">Title:</td><td class="bodyText">CEO</td></tr>
-        <tr><td class="bodyText">Location:</td><td class="bodyText">Boston</td></tr>
-        <tr><td class="bodyText">Business Unit:</td><td class="bodyText">VCS</td></tr>
+      <table align="center">
+        <tr><td class="bodyText" align="right">First Name:&#160;</td><td class="bodyText">Trixie</td></tr>
+        <tr><td class="bodyText" align="right">Last Name:&#160;</td><td class="bodyText">Jones</td></tr>
+        <tr><td class="bodyText" align="right">Handle:&#160;</td><td class="bodyText">trixieJ</td></tr>
+        <tr><td class="bodyText" align="right">Password:&#160;</td><td class="bodyText">******</td></tr>
+        <tr><td class="bodyText" align="right">Email:&#160;</td><td class="bodyText">trixie@email.com</td></tr>
+        <tr><td class="bodyText" align="right">Title:&#160;</td><td class="bodyText">CEO</td></tr>
+        <tr><td class="bodyText" align="right">Location:&#160;</td><td class="bodyText">Boston</td></tr>
+        <tr><td class="bodyText" align="right">Business Unit:&#160;</td><td class="bodyText">VCS</td></tr>
         <tr><td class="bodyText" colspan="2">&#160;</td></tr>
         <tr><td class="bodyText" align="right"><input name="location" type="submit" value="Edit" /></td>
             <td class="bodyText" align="left"><input name="location" type="submit" value="Submit" /></td></tr>
