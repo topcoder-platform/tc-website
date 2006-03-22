@@ -43,6 +43,7 @@
         5.0.5 - 2006.03.22
         <ul>
             <li>The result set item tag for the case where the value is null.  Was being escaped to "".</li>
+            <li>Allow for sponsor images to have links.</li>
         </ul>
     </p>
     <p>
