@@ -43,7 +43,7 @@ public class ResultSetItemTag extends FormatTag {
         if (row == null) {
             if (escapeHTML) {
                 if (set.getItem(rowIndex, name).getType()==TCResultItem.STRING) {
-                    setObject(StringUtils.htmlEncode(set.getStringItem(rowIndex, name)));
+                    setObject(set.getStringItem(rowIndex, name) == null ? null : StringUtils.htmlEncode(set.getStringItem(rowIndex, name)));
                 } else {
                     setObject(set.getItem(rowIndex, name).getResultData());
                 }
@@ -54,7 +54,7 @@ public class ResultSetItemTag extends FormatTag {
         } else {
             if (escapeHTML) {
                 if (row.getItem(name).getType()== TCResultItem.STRING) {
-                    setObject(StringUtils.htmlEncode(row.getStringItem(name)));
+                    setObject(row.getStringItem(name) == null ? null : StringUtils.htmlEncode(row.getStringItem(name)));
                 } else {
                     setObject(row.getItem(name).getResultData());
                 }
