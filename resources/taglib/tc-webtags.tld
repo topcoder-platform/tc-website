@@ -747,7 +747,14 @@
             <name>imageObject</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
-        </attribute>    </tag>
+        </attribute>
+        <attribute>
+            <name>newWindow</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+    </tag>
 
     <tag>
         <name>questionIterator</name>
