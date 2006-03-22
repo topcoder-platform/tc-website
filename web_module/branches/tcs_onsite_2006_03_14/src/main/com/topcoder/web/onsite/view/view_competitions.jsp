@@ -77,7 +77,7 @@
                         </td>
                     <% } %>
                 </tr>
-                <table border="0" cellpadding="0" cellspacing="0">
+                <table border="0" cellpadding="0" cellspacing="5">
                     <tr valign="top">
                         <td>
                             Please enter your wager for:
