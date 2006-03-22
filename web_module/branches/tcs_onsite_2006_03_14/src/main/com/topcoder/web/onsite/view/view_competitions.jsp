@@ -78,6 +78,7 @@
                     <% } %>
                 </tr>
                 <tr valign="top">
+                    <br/>
                     <td>
                         Please enter your wager for:
                     </td>
