@@ -34,13 +34,13 @@
     <body>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <% if (currentCompetitions != null && currentCompetitions.size() > 0) {%>
-                <tr valign="top">
-                    <td colspan="3">
-                        You have already waggered on the following competitions:
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
+                <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
+                    <tr valign="top">
+                        <td colspan="3">
+                            You have already waggered on the following competitions:
+                        </td>
+                    </tr>
+                    <tr valign="top">
                         <td>
                             <table border="2">
                                 <tr valign="top">
