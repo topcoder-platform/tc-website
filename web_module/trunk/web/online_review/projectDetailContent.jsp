@@ -132,7 +132,9 @@
         <td class="<%=rowClassAppeal%>" nowrap>
           <bean:define id="projectId" name="project" property="project.id" />
           <bean:define id="aidValue" name="appeal" property="id" />
-          <html:link page='<%="/appeal.do?id="+projectId+"&qid=-1&aid="+aidValue %>'>
+          <bean:define id="question" name="appeal" property="question" />
+          <bean:define id="qidValue" name="question" property="id" />
+          <html:link page='<%="/appeal.do?id="+projectId+"&qid="+qidValue+"&aid="+aidValue %>'>
             Response Q<bean:write name="gLoc"/>.<bean:write name="sLoc"/>.<bean:write name="qLoc"/>
           </html:link>
         </td>
