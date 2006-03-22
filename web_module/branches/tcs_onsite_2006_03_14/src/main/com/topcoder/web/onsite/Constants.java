@@ -51,7 +51,6 @@ public class Constants implements WebConstants {
     public static String PROJECT_ID_COL;
     public static String REMAINING_CONTESTS_COL;
     public static String USED_POINTS_COL;
-    public static String CREATE_DATE_COL;
     public static String WAGER_AMOUNT_COL;
 
 
