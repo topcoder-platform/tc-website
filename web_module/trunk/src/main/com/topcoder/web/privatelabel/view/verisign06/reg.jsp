@@ -21,16 +21,39 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Registration</span>
-<br/><br/>
+      <span class="bigTitle">Registration</span>
+      <br/><br/>
 
-
-         Registration for the VeriSign Internal SRM is not yet open.
-         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      Register for the VeriSign Internal SRM:<br><br>
+      <form>
+      <table>
+        <tr><td class="bodyText">First Name:</td><td><input name="first" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">Last Name:</td><td><input name="last" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">TopCoder Handle:&#160;</td><td><input name="handle" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">TopCoder Password:&#160;</td><td><input name="handle" type="password" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">Email:</td><td><input name="email" type="text" size="15" maxlength="40" /></td></tr>
+        <tr><td class="bodyText">Title:</td><td><input name="title" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">Location:</td><td><input name="location" type="text" size="15" maxlength="30" /></td></tr>
+        <tr><td class="bodyText">Business Unit:</td><td><select name="unit" size="1">
+            <option>VCS</option>
+            <option>VSS</option>
+            <option>VIS</option>
+            <option>O&amp;I</option>
+            <option>Corp</option></select></td></tr>
+        <tr><td class="bodyText" colspan="2">&#160;</td></tr>
+        <tr><td class="bodyText" colspan="2" align="center"><input name="location" type="submit" value="Submit" /></td></tr>
+      </table>
+      </form>
+         
+         
+         
+         
+         
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br/><br/>
 
-		</td>
+      </td>
 
 
          
