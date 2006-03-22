@@ -25,7 +25,10 @@
             
 <div align="center"><img src="/i/tournament/tco06/amd_logo_grn.gif" alt="AMD" border="0" /></div>
 <br><br>
-<div align="center"><a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a></div>
+<div align="center">
+<a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">SRM 293 Chat Transcript</A>
+</div>
 <br><br>
 AMD Developer Central, AMD's program to support software developers, is pleased  to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors.
 <br><br>
@@ -46,8 +49,6 @@ Key benefits include:
 One of the most popular developer resources we offer for free is CodeAnalyst&#153;.  CodeAnalyst&#153; Performance Analyzer is a suite of powerful tools that analyzes software performance on AMD microprocessors. These tools are designed to support Microsoft&reg; Windows&reg; 2000 or Microsoft Windows XP&reg; distributions on x86 and AMD64 architectures as well as both 32-bit and 64-bit Linux distributions based around the 2.4 or 2.6 kernel series on x86 based architecture. Although most users will choose the Graphical User Interface, the profiler is also offered as a command line utility to facilitate the use in batch files.
 <br><br>
 AMD also provides a Core Math Library called ACML. The AMD Core Math Library (ACML) incorporates BLAS, LAPACK and FFT routines, as well as vector math libraries, which are designed to be used by a wide range of software developers to obtain excellent performance from their applications running on AMD platforms. The highly optimized library contains numeric functions for mathematical, engineering, scientific and financial applications. ACML is available both as a 32-bit library, for compatibility with legacy x86 applications, and as a 64-bit library that is designed to fully exploit the large memory space and improved performance offered by the latest AMD64 architectures. ACML is supported on both Linux and Microsoft&reg; Windows&reg; operating systems.
-<br><br>
-<a href="/?t=sponsor&c=link&link=http://www.amd.com/us-en/">www.amd.com</a>
 <br><br>
 Visit &#160;<a href="/?t=sponsor&c=link&link=http://www.amd.com/">www.amd.com</a>
 <br><br>
