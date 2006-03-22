@@ -15,7 +15,8 @@
 %>
 
 <html>
-    <% ResultSetContainer currentCompetitions = (ResultSetContainer) request.getAttribute("result");%>
+    <% ResultSetContainer currentCompetitions = (ResultSetContainer) request.getAttribute(Constants.CURRENT_COMPETITION_RESULT_KEY);
+        ResultSetContainer wagerHistory = (ResultSetContainer) request.getAttribute(Constants.WAGER_HISTORY_KEY);%>
     <head>
         <title>TopCoder | View Competitions</title>
         <SCRIPT type="text/javascript">
@@ -36,14 +37,39 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <% if (currentCompetitions != null && currentCompetitions.size() > 0) {%>
                 <tr valign="top">
+                    <% if (wagerHistory != null && wagerHistory.size() > 0) {%>
+                        <td>
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <% for (i=0; i < wagerHistory.size(); i++) {%>
+                                    <tr valign="top">
+                                        <!--td>
+                                            <%= wagerHistory.getStringItem(i, Constants.CREATE_DATE_COL) %>
+                                        </td-->
+                                        <td>
+                                            <%= wagerHistory.getStringItem(i, Constants.CONTEST_NAME_COL) %>
+                                        </td>
+                                        <td>
+                                            <%= wagerHistory.getIntItem(i, Constants.WAGER_AMOUNT_COL) %>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </table>
+                        </td>
+                    <% } else {%>
+                        <td>
+                            This is the first competition you are waggering on.
+                        </td>
+                    <% } %>
+                </tr>
+                <tr valign="top">
                     <td>
-                        You are about to wager on:
+                        Please enter your wager for:
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>
-                            <%= currentCompetitions.getStringItem(0, "contest_name") %>
+                            <%= currentCompetitions.getStringItem(0, Constants.CONTEST_NAME_COL) %>
                         </p>
                     </td>
                 </tr>
@@ -51,7 +77,7 @@
                       <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager">
-                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, Constants.PROJECT_ID_KEY)%>">
+                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, Constants.PROJECT_ID_COL)%>">
                         <td class="bodyText">
                             <table border="0" cellpadding="3" cellspacing="0">
                                <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>

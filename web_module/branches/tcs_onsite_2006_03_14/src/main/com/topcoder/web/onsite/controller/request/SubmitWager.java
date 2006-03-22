@@ -44,9 +44,8 @@ public class SubmitWager extends Base {
         request.setContentHandle(Constants.WAGER_SUBMITION_VALIDATION_COMMAND);
         request.setProperty(Constants.USER_ID, String.valueOf(userId));
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Map m = dai.getData(request);
 
-        return m;
+        return dai.getData(request);
     }
 
     protected void businessProcessing() throws Exception {
@@ -85,10 +84,10 @@ public class SubmitWager extends Base {
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
         int remainingCompetitions = ((ResultSetContainer) m.get(
-            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
+            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, Constants.REMAINING_CONTESTS_COL);
 
         Object usedPoints = ((ResultSetContainer) m.get(
-            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, "used_points").getResultData();
+            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, Constants.USED_POINTS_COL).getResultData();
         
         int remainingPoints = Constants.TOTAL_WAGER_POINTS;
         if (usedPoints != null) {
@@ -103,7 +102,7 @@ public class SubmitWager extends Base {
             return;
         }
 
-        if (projectId != comp.getLongItem(0, Constants.PROJECT_ID_KEY)) {
+        if (projectId != comp.getLongItem(0, Constants.PROJECT_ID_COL)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.INVALID_PROJECT_MESSAGE);
             return;
