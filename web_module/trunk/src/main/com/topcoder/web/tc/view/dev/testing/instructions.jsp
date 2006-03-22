@@ -52,7 +52,7 @@ To sign up as a participant, send an email to <A href="mailto:TestingCompetition
 TopCoder staff will respond as to whether you are registered or not.
 <br><br>
 <span class="bodySubtitle">Submitting test code</span><br>
-Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingCompetitions@topcoder.com">TestingCompetitions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
+Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
 <br><br>
 <span class="bodySubtitle">View your code status</span><br>
 To see the status of your submitted code, you can check the Active Contests page and click on Standings.  This will display a list of participant names and what the status of their code is: Not Submitted, Submitted, Passed Screening, Failed Screening, Passed Review, or Failed Review.  
