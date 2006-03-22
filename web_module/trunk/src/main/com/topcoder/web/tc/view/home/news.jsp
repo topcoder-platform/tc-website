@@ -27,7 +27,9 @@
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
       </span><br><br>
-      This marathon match style competition encourages the use of multi-threading techniques and will run through April 5th at 12:00 Noon EST.
+The <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm" target="_blank">Intel&#174; Software Network</A> and TopCoder&#174; have opened registration for the third competition in the <A href="/longcontest/?module=Static&d1=intel_overview">Intel Software Network Multi-Threading Competition Series</A>.  This marathon match style competition encourages the use of multi-threading techniques and will run through April 5th at 12:00 Noon EST.
+<br><br>
+Explore the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm" target="_blank">The Intel&#174; Software Network's</A> wealth of resources to discover how they can benefit you in the Multi-Threading Competition Series!
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
