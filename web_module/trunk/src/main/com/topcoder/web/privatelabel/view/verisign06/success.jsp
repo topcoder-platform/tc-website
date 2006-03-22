@@ -20,7 +20,7 @@
    <tr valign="top">
       <td valign="top" align="center">
       <div class="bodySpacer">
-            
+
       <span class="bigTitle">Registration Successful!</span>
       <br/><br/>
 
@@ -32,32 +32,33 @@ address provided during registration.
 <br><br>
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
 <br><br>
-If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.         
+If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.
 
 <!-- i made up that email address... don't know what it should be -->
 
 <br><br>
 Good luck to you in the Arena!
-         
-         
-         
+
+
+
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br/><br/>
 
+          </div>
       </td>
 
 
-         
-         
+
+
 <!-- Right Column-->
 <td width="180" align="right" style="padding: 0px 15px 0px 0px;">
 <jsp:include page="right.jsp" />
 
 </td>
-      
+
    </tr>
-   
+
 </table>
 
 <jsp:include page="/foot.jsp" />
