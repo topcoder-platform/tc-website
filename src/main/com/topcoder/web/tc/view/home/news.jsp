@@ -27,7 +27,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
       </span><br><br>
-      The third competition in the Intel Multi-Threading Competition Series is now open for registration.
+      This marathon match style competition encourages the use of multi-threading techniques and will run through April 5th at 12:00 Noon EST.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
