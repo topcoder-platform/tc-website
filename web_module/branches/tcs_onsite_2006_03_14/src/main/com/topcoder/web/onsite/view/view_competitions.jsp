@@ -82,8 +82,6 @@
                         <td>
                             Please enter your wager for:
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <b>
                                 <%= currentCompetitions.getStringItem(0, Constants.CONTEST_NAME_COL) %>
