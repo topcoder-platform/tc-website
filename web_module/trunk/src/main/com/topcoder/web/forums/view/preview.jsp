@@ -41,18 +41,20 @@ function toggle(targetId)
     }
 }
 
-// IE only
 function AllowTabCharacter() {
-    if (event != null) {
-        if (event.srcElement) {
-            if (event.srcElement.value) {
-                if (event.keyCode == 9) {  // tab character
-                    if (document.selection != null) {
-                        document.selection.createRange().text = '\t';
-                        event.returnValue = false;
-                    } else {
-                        event.srcElement.value += '\t';
-                        return false;
+    // IE only
+    if (navigator.appName.indexOf('Microsoft') != -1) {
+        if (event != null) {
+            if (event.srcElement) {
+                if (event.srcElement.value) {
+                    if (event.keyCode == 9) {  // tab character
+                        if (document.selection != null) {
+                            document.selection.createRange().text = '\t';
+                            event.returnValue = false;
+                        } else {
+                            event.srcElement.value += '\t';
+                            return false;
+                        }
                     }
                 }
             }
