@@ -11,7 +11,7 @@
 <table class="forumBkgd" cellspacing="1" cellpadding="0" width="100%" border="0">
 <html:form action="/saveAppeal">
   <html:hidden property="id" />
-  <html:hidden property="aid" />
+  <html:hidden property="aid" value="<%=request.getParameter("aid")%>" />
 <tbody>
 <%--
 <logic:equal name="appealForm" property="valid" value="false">
