@@ -21,20 +21,31 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
 
-      <span class="bigTitle">Activation Successful!</span>
+      <span class="bigTitle">Registration Successful!</span>
       <br/><br/>
 
-         You may practice for the contest by clicking the Competition Arena link above.
-         <br><br>
-         If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
-         <!-- i made up that email address... don't know what it should be -->
+In order to be eligible to compete in the VeriSign Internal Coding Competition,
+you must activate your account by following the directions sent to the email
+address provided during registration.
+<br><br>
+<span class="bigRed">You <u>will not</u> be able to compete if you do not activate your account.</span>
+<br><br>
+Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
+<br><br>
+If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
+
+<!-- i made up that email address... don't know what it should be -->
+
+<br><br>
+Good luck to you in the Arena!
 
 
 
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
          <br/><br/>
-</div>
+
+          </div>
       </td>
 
 
