@@ -98,8 +98,6 @@ z-index: 2;
 
 <span class="bigTitle">High School Single Round Match 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
-<span class="bodySubtitle">Competitors: 499</span><br>
-<span class="bodySubtitle">Teams: 150</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox">
@@ -107,7 +105,7 @@ z-index: 2;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="9">HS SRM 1 Match Results - Team</td></tr>
+   <tr><td class="title" colspan="17">High School Single Round Match 1 > Individual Results</td></tr>
    <tr>
       <td class="header"><A href="#">Handle</A></td>
       <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
@@ -119,7 +117,7 @@ z-index: 2;
       <td class="headerR">=</td>
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
-   <tr><td class="title" colspan="9" style="border-top:1px solid #999999;">Room 1</td></tr>
+   <tr><td class="title" colspan="9" style="border-top:1px solid #999999;"><A href="">Room 1</A></td></tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">

@@ -67,11 +67,10 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 
 <span class="bigTitle">High School Single Round Match 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
-<span class="bodySubtitle">Competitors: 499</span><br>
-<span class="bodySubtitle">Teams: 150</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
-<br><br>
+<div class="pagingBox" style="clear:both;">&#160;</div>
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="8">HS SRM 1 Leaders</td></tr>
    <tr>
