@@ -193,7 +193,7 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
 (all because god damn IE won't recognize a <TR> border, a w3c standard, BLA!)
 --%>
    <tr class="highlight">
-      <td class="valueR_leftside" style="vertical-align: middle;>
+      <td class="valueR" style="vertical-align: middle;>
       <A href="#"><img src="/i/interface/exp_ed_w.gif" alt="" /></A>
       </td>
       <td class="value">
@@ -241,7 +241,7 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       <td class="valueR">
       2513
       </td>
-      <td class="value_rightside" style="vertical-align: middle;">
+      <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>

@@ -171,15 +171,9 @@ z-index: 2;
       </td>
    </tr>
    <% even = !even;%>
-<%--
-FOR A HIGHLIGHTED ROW, THE TR NEEDS TO BE class="highlight"
-THE LEFT CELL NEEDS TO HAVE THE SUFFIX _leftside
-THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
-(all because god damn IE won't recognize a TR border, a w3c standard, BLA!)
---%>
-   <tr class="highlight">
-      <td class="valueR_leftside" style="vertical-align: middle;>
-      <A href="#"><img src="/i/interface/exp_ed_w.gif" alt="" /></A>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
       </td>
       <td class="value">
       <tc-webtag:handle coderId="144400" />
@@ -213,7 +207,7 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       511.86
       </td>
 
-      <td class="valueR_rightside">
+      <td class="valueR">
       10
       </td>
    </tr>
