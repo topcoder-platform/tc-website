@@ -6,6 +6,7 @@ package com.topcoder.web.onsite.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * <strong>Purpose</strong>:
@@ -15,6 +16,11 @@ import com.topcoder.web.common.TCWebException;
  * @version 1.0
  */
 public class Logout extends BaseProcessor {
+
+    /**
+     * The logger to log to.
+     */
+    private static final Logger log = Logger.getLogger(Logout.class);
 
     /**
      * Processes the logount request.

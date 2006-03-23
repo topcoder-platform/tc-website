@@ -93,6 +93,8 @@ public class SubmitWager extends BaseProcessor {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, Constants.INVALID_WAGER_FORMAT_MESSAGE);
             return;
         }
+
+        log.debug("Wager amount: " + wagerAmount);
         
         // Minimum wager amount validation
         if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
@@ -128,6 +130,11 @@ public class SubmitWager extends BaseProcessor {
         // maximum valid wager amount
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
         maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
+        
+        log.debug("Remaining competitions: " + remainingCompetitions);
+        log.debug("Remaining points: " + remainingPoints);
+        log.debug("Max wager amount allowed: " + maxWagerAmount);
+        
         if (wagerAmount > maxWagerAmount) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + maxWagerAmount + ".");

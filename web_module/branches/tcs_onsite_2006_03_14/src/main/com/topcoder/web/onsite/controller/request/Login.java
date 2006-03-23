@@ -12,6 +12,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * <strong>Purpose</strong>:
@@ -21,6 +22,11 @@ import com.topcoder.web.common.SessionInfo;
  * @version 1.0
  */
 public class Login extends BaseProcessor {
+
+    /**
+     * The logger to log to.
+     */
+    private static final Logger log = Logger.getLogger(Login.class);
 
     /**
      * Processes the login request.
@@ -35,18 +41,16 @@ public class Login extends BaseProcessor {
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
         if (username != null) {
-
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
-
             } else {
                 try {
                     try {
                         setNextPage(getNextPage());
                         setIsNextPageInContext(false);
-                        log.debug("on successful login, going to " + getNextPage());
                         getAuthentication().login(new SimpleUser(0, username, password));
+                        log.debug("on successful login, going to " + getNextPage());
                         return;
                     } catch (LoginException e) {
                         /* the login failed, so tell them what happened */

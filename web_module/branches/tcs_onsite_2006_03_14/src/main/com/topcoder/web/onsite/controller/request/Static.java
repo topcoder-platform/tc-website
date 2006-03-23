@@ -7,6 +7,7 @@ package com.topcoder.web.onsite.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.onsite.Constants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * <strong>Purpose</strong>:
@@ -16,6 +17,11 @@ import com.topcoder.web.common.BaseProcessor;
  * @version 1.0
  */
 public class Static extends BaseProcessor {
+
+    /**
+     * The logger to log to.
+     */
+    private static final Logger log = Logger.getLogger(Static.class);
 
     /**
      * Processes a static request.
@@ -34,6 +40,7 @@ public class Static extends BaseProcessor {
         else
             path.append(".jsp");
 
+        log.debug("Forwarding to: " + path.toString());
         setNextPage(path.toString());
         setIsNextPageInContext(true);
     }

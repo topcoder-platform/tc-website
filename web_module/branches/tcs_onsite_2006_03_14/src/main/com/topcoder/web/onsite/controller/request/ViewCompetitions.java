@@ -58,6 +58,11 @@ public class ViewCompetitions extends BaseProcessor {
         Map m = getViewCompetitionsData(getUser().getId());
         ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY);
 
+        log.debug("Got " +  ((ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY)).size() + 
+            " rows for current contests");
+        log.debug("Got " +  ((ResultSetContainer)m.get(Constants.WAGER_HISTORY_QUERY)).size() + 
+            " rows for old wagers");
+
         getRequest().setAttribute(Constants.CURRENT_COMPETITION_RESULT_KEY, m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY));        
         getRequest().setAttribute(Constants.WAGER_HISTORY_KEY, m.get(Constants.WAGER_HISTORY_QUERY));        
         
