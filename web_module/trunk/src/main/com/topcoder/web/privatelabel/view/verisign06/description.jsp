@@ -22,7 +22,7 @@
 <td valign="top" align="center">
 <div class="bodySpacer">
 
-<span class="bigTitle">VeriSign Internal Coding Competitions</span>
+<span class="bigTitle">VeriSign&#174; Internal Coding Competitions</span>
 <br/><br/>
 Welcome to the 2006 VeriSign Internal Coding Competition! By participating, you can earn cash prizes and a seat at the first-ever VeriSign Technical Symposium (VTS) in Williamsburg, VA from June 11-13.
 <br/><br/>
