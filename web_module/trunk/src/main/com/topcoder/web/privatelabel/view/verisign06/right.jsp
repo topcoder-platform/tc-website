@@ -1,14 +1,13 @@
+<br/>
 <table valign="top" class="sidebarBox" align="right" cellspacing="0" cellpadding="0">
     <tr>
-        <td align="center" bgcolor="FFFFFF" style="padding: 5px 5px 5px 5px;">
-            <A href="/"><img align="center" src="/i/events/verisign06/pbtc_logo.gif" alt="Powered by TopCoder" border="0"/></A>
+        <td align="center" class="sidebarTitle" style="padding: 5px 5px 5px 5px;">
+            Important Dates
         </td>
     </tr>
     <tr><td class="sidebarText">&#160;</td></tr>
     <tr>
         <td align="left" nowrap="nowrap" class="sidebarText" style="padding: 0px 10px 0px 10px;">
-            <b>Important Dates</b>
-            <br/><br/>
             <b>SRM 1</b><br/>
             Tuesday, April 25
             <br/><br/>
