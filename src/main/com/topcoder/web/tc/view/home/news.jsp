@@ -23,6 +23,23 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.23.06<br>12:00 NOON</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_4">TCO06 Round 4 - Problem Set & Analysis</A></span><br><br>
+Round 4 always features some of the hardest problems TopCoder has to offer, and tonight was no exception.  While the easy stumped no one (literally), only 37 coders solved the medium, and only 4 solved the hard.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_4">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505938" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
@@ -216,20 +233,6 @@ Top 200 coders faced three pretty different problems this time. The easy was a c
    <tr><td class="newsLinksCell">
        <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505943" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.13.06<br>10:00 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">Code jockey contest returns to IT hub</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="68" height="36" alt="DNA India" border="0" /></div>
-"Last year, it whetted its recruiting appetite in India. Now, Internet giant Google is back for more. The second edition of Code Jam India, a contest to identify the best code jockey in this part of the world will be held in Bangalore."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505942" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
