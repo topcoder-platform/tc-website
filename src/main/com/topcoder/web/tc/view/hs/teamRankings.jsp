@@ -94,8 +94,8 @@ z-index: 2;
 <span class="bodySubtitle">Top Ranked > High School Competitions</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bc">
-Coders | 
-<a href="" class="bcLink">Teams</a> | 
+<a href="" class="bcLink">Coders</a> | 
+Teams | 
 <a href="" class="bcLink">Countries</a>
 </span>
 <div class="pagingBox">
@@ -104,32 +104,32 @@ Coders |
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="4">Top Ranked > High School Coders</td></tr>
+   <tr><td class="title" colspan="4">Top Ranked > High School Teams</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="30%">Coder</td>
-      <td class="header" width="70%">School</td>
-      <td class="headerR">Rating</td>
+      <td class="header" width="50%">Team</td>
+      <td class="headerR" nowrap="nowrap">Member Count</td>
+      <td class="headerR" width="50%">Avg. Rating</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">1</td>
-      <td class="value"><tc-webtag:handle coderId="144400" /></td>
-      <td class="value">Rocky Hill High School</td>
+      <td class="value"><A href="">Rocky Hill High School</A></td>
+      <td class="valueR">100</td>
       <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">2</td>
-      <td class="value"><tc-webtag:handle coderId="144400" /></td>
-      <td class="value">Rocky Hill High School</td>
+      <td class="value"><A href="">Rocky Hill High School</A></td>
+      <td class="valueR">100</td>
       <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">3</td>
-      <td class="value"><tc-webtag:handle coderId="144400" /></td>
-      <td class="value">Rocky Hill High School</td>
+      <td class="value"><A href="">Rocky Hill High School</A></td>
+      <td class="valueR">100</td>
       <td class="valueR">3457</td>
    </tr>
 </table>
