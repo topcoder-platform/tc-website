@@ -54,9 +54,19 @@ public final class SaveAppealAction extends ReviewAction {
             qid = -1;
         }
         
+        long aid2 = -1;
+        try {
+            aid2 = Long.parseLong(String.valueOf(request.getParameter("id")));
+        } catch (NumberFormatException e) {
+            aid2 = -1;
+        }
+
+            //plk
+            System.out.println("aid2: " + aid2);
+            
         long aid = -1;
         try {
-            aid = Long.parseLong(String.valueOf(request.getParameter(Constants.APPEALER_ID_KEY)));
+            aid = Long.parseLong(String.valueOf(request.getParameter("aid")));
         } catch (NumberFormatException e) {
             aid = -1;
         }
