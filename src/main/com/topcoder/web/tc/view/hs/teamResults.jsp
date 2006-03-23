@@ -118,7 +118,7 @@ z-index: 2;
       <td class="headerC">&#160;</td>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="14%"><A href="">Competitors</A></td>
+      <td class="header" width="14%"><A href="">Coders</A></td>
       <td class="headerR" width="14%"><A href="">Qnty</A></td>
       <td class="headerR"><A href="">Points</A></td>
       <td class="headerR" width="14%"><A href="">Qnty</A></td>

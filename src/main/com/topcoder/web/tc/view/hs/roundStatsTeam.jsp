@@ -67,8 +67,6 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 
 <span class="bigTitle">High School Single Round Match 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
-<span class="bodySubtitle">Competitors: 499</span><br>
-<span class="bodySubtitle">Teams: 150</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox">
