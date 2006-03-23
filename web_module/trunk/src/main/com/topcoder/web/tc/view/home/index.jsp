@@ -34,10 +34,10 @@ margin:0px auto;
 <body>
 
 <%--
---%>
 <div style="position:absolute; left:120px; top:120px;">
 <A href="/?t=sponsor&c=link&link=http://www.equitrader.com" target="_blank"><img src="/i/interface/dot.gif" alt="EquiTrader" /></A>
 </div>
+--%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
