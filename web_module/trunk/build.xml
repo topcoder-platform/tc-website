@@ -56,7 +56,7 @@
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
         <pathelement location="${jive.dir}/xwork.jar"/>
-
+	    <pathelement location="${jive.dir}/htmlparser.jar"/>
 
         <!-- TCS Components -->
    <!--
@@ -180,9 +180,9 @@
                  <include name="com/topcoder/web/forums/**"/>
                  <include name="com/topcoder/web/common/**"/>
                  <include name="com/topcoder/security/**"/>
-                  <include name="com/topcoder/common/web/data/**"/>
-                  <include name="com/topcoder/web/tc/**"/>
-                  <include name="com/topcoder/web/ejb/forums/**"/>
+                 <include name="com/topcoder/common/web/data/**"/>
+                 <include name="com/topcoder/web/tc/**"/>
+                 <include name="com/topcoder/web/ejb/forums/**"/>
                  <include name="com/topcoder/web/ejb/messagehistory/**"/>
              </javac>
          </target>
