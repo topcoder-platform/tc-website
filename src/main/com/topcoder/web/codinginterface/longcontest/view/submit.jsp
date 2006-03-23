@@ -169,15 +169,15 @@ Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
             </td>
             <td align="right" valign="top">
               <div style="float:right; padding: 5px 0px 0px 5px;">
-                  <A href="javascript: submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
+                  <A href="javascript:submit();"><img src="/i/interface/btn_submit.gif" alt="Submit" border="0"/></A>
               </div>
 
                 <div style="float:right; padding: 5px 0px 0px 5px;">
-                    <A href="javascript: exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Save" border="0"/></A>
+                    <A href="javascript:exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Save" border="0"/></A>
                 </div>
 
               <div style="float:right; padding: 5px 0px 0px 5px;">
-                  <A href="javascript: save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
+                  <A href="javascript:save();"><img src="/i/interface/btn_save.gif" alt="Save" border="0"/></A>
               </div>
 
             </td>
