@@ -6,11 +6,11 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
-    <td valign="middle" align="left" style="padding: 20px 0px 20px 45px;">
+    <td valign="middle" align="left" style="padding: 10px 0px 10px 45px;">
         <a href="/pl/?module=Static&d1=verisign06&d2=description"><img src="/i/events/verisign06/verisign_logo.gif" alt="VeriSign" border="0"/></a>
     </td>
     <td valign="top" align="right" style="padding: 0px 20px 0px 0px;">
-        <a href="/"><img src="/i/events/verisign06/ver_tc_logo.gif" border="0"/></a></td>
+        <a href="/"><img src="/i/events/verisign06/ver_pbtc_logo.gif" border="0"/></a></td>
 </tr>
 <!-- LEVEL 2 TABS -->
 <tr>
@@ -30,11 +30,11 @@
                 <% } %>
                 <% if (tabLev2.equals("registration")) {%>
                 <td class="nav">
-                    <A href="/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0"/></A>
+                    <A href="/pl/?module=Static&d1=verisign06&d2=login"><img src="/i/events/verisign06/tabs/ver_L2_registrationOn.gif" alt="" border="0"/></A>
                 </td>
                 <% } else { %>
                 <td class="nav">
-                    <A href="/pl/?module=Static&d1=verisign06&d2=reg"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></A>
+                    <A href="/pl/?module=Static&d1=verisign06&d2=login"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></A>
                 </td>
                 <% } %>
                 <%--
