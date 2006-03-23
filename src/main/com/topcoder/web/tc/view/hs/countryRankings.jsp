@@ -20,40 +20,8 @@ if (sel && sel != '#'){
 window.location='/longcontest/?module=ViewOverview&rd='+sel;
 }
 }
-var objPopUp = null;
-function popUp(event,objectID){
-   objPopTrig = document.getElementById(event);
-   objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft+objPopTrig.offsetWidth;
-   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight;
-   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-   objPopUp.style.left = xPos + 'px';
-   objPopUp.style.top = yPos + 'px';
-   objPopUp.style.visibility = 'visible';
-}
-function popHide(){
-   objPopUp.style.visibility = 'hidden';
-   objPopUp = null;
-}
 // -->
 </script>
-<STYLE TYPE="text/css">
-#popBox{ position: relative; }
-#popBox div
-{
-position: absolute;
-font-size: 11px;
-font-weight: bold;
-background-color: #FFFFCC;
-visibility: hidden;
-padding: 3px;
-border: 1px solid #000000;
-white-space: nowrap;
-z-index: 2;
-}
-</STYLE>
-
 </head>
 
 <body>
