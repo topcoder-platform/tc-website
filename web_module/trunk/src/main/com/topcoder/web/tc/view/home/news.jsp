@@ -23,6 +23,21 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.23.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 4 Results for TCO06 Algorithm Competition</A>
+      </span><br><br>
+      Find out who will make the trip to Las Vegas.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505938" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.23.06<br>12:00 NOON</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -220,20 +235,6 @@ Top 200 coders faced three pretty different problems this time. The easy was a c
          <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.13.06<br>10:00 AM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">UBS Sponsors TopCoder Open</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
-"UBS has signed on as a Premier sponsor of the 2006 TopCoder Open (TCO06). This marks the first time a financial sector organization has sponsored a TopCoder Inc. flagship event."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505943" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
