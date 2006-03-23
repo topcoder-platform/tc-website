@@ -77,7 +77,7 @@ public class Constants {
 
     public static final String VERISIGN_06_LOGIN_PAGE="/verisign06/login.jsp";
     public static final String VERISIGN_06_REG_PAGE = "/verisign06/reg.jsp";
-    public static final String VERISIGN_06_REG_CONFIRM_PAGE="/gicverisign06j06/confirm.jsp";
+    public static final String VERISIGN_06_REG_CONFIRM_PAGE="/verisign06/confirm.jsp";
     public static final String VERISIGN_06_REG_SUCCESS_PAGE="&d1=verisign06&d2=regsuccess";
     public static final String VERISIGN_06_UPDATE_SUCCESS_PAGE="&d1=verisign06&d2=updatesuccess";
     public static final String VERISIGN_06_ACTIVATION_PAGE="/verisign06/activation.jsp";
