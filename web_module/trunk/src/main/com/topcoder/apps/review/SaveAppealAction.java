@@ -53,6 +53,16 @@ public final class SaveAppealAction extends ReviewAction {
         } catch (NumberFormatException e) {
             qid = -1;
         }
+        
+        long aid = -1;
+        try {
+            aid = Long.parseLong(String.valueOf(request.getParameter(Constants.APPEALER_ID_KEY)));
+        } catch (NumberFormatException e) {
+            aid = -1;
+        }
+
+            //plk
+            System.out.println("aid: " + aid);
 
         // Was this transaction cancelled?
         if (isCancelled(request)) {
@@ -87,6 +97,12 @@ public final class SaveAppealAction extends ReviewAction {
             // Call the business layer
             BusinessDelegate businessDelegate = new BusinessDelegate();
             AppealData data = ((AppealForm) form).toAppealData(orpd);
+            
+            //plk
+            System.out.println("data.getAppealerId())" + data.getAppealerId());
+            System.out.println("data.getQuestionId())" + data.getQuestionId());
+            System.out.println("data.getAppeals()[0].getId()" + data.getAppeals()[0].getId());
+            
             ResultData result = businessDelegate.appealProject(data);
 
             if (result instanceof SuccessResult) {
