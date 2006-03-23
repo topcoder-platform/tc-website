@@ -76,7 +76,7 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="9">HS SRM 1 Match Results - Team</td></tr>
+   <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
    <tr>
       <td class="header"><A href="#">Team</A></td>
       <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
