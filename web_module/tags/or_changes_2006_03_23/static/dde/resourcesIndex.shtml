@@ -1,0 +1,97 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navResources.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#001B35" border="0">
+	<tr>
+		<td valign="middle" width="1%"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="Index.shtml" class="breadcrumb">Home</a> > <strong>Resources</strong></td>
+		<td valign="middle"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+	</tr>
+	<tr><td colspan="3" bgcolor="#000000"><img src="images/clear.gif" alt="" height="1" border="0"/></td></tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr valign="top">
+	<!--l col-->
+		<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="images/lColGraphic.gif">
+			<table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
+				<tr><td align="left" class="leftColText">&nbsp;</td></tr>
+			</table>
+			<img src="images/clear.gif" alt="" width="140" height="1" border="0"/><br/>
+		</td>
+	<!--col vert line-->
+		<td width="1" valign="top" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" height="1" border="0"/></td>
+	<!--m col-->
+		<td valign="top" bgcolor="#FFFFFF">
+			<img src="images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+			<table width="100%" border="0" cellpadding="6" cellspacing="0" align="center">
+				<tr><td align="left"><img src="images/devHeader.gif" alt="" width="400" height="35" border="0"/></td></tr>
+				<tr><td align="left" class="bodyText">
+
+						<p>TopCoder Software does not have a large development staff.  Instead we partner TopCoder Software Product Managers with development teams from our distributed member base.  These teams work together utilizing the TopCoder Software Distributed Development Methodology to create high quality software components.</p>
+
+						<p><strong>What is TopCoder?</strong><br/>
+						TopCoder hosts online programming competitions every week. Coders sign up and become members in order to compete against other coders from around the world to demonstrate and build their skills. In addition to building their skills, these coders are building a rating.</p>
+
+						<p>The TopCoder rating is used to statistically position a developer amidst the field of competing coders. Ratings are also a determining factor for coders to be invited to compete in either (or both) of two yearly tournaments. Each tournament has a grand prize of $100,000 for the champion. Ratings are also used to select team members for development projects to build TopCoder Software components.</p>
+
+						<p><strong>Selecting Members</strong><br/>
+						Based upon requirements gained through the collaboration efforts of companies TopCoder Software creates a Requirements Specification that is then promoted to the TopCoder membership. Members request to take part in the various roles of the development process (architect, developer, QA developer). TopCoder Software makes selections of coders based on the member's rating as well as other factors (i.e. background or specific skill set).</p>
+
+						<p>With a team in hand, the TopCoder Software Product Manager assumes control of the project and is responsible for managing all aspects of the methodology to create a high quality software component.</p>
+						
+						<p><strong>Working with Members</strong><br/>
+						A TopCoder Software team consists of a TopCoder Software Product Manager, an architect, a developer and a Quality Assurance developer.  The TopCoder Software Product Manager has overall responsibility for delivery of the component as well as specific responsibility for collaboration and specification.  The architect has day to day responsibility for the developers as well as specific responsibilities for the component design.  The developer is primarily responsible for delivering efficient unit tested code.  The QA developer is responsible for building and executing test plans to insure software quality.</p>
+						
+						<p>This TopCoder Software team of high quality software developers works together to deliver the highest quality software components on the market at a reasonable cost.</p></td>
+				</tr>
+				<tr><td><img src="images/clear.gif" alt="" width="1" height="200" border="0"/></td></tr>
+			</table>
+		</td>
+	<!--r col-->
+		<td width="150" bgcolor="#547584">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr valign="top"><td align="center"><img src="images/promoTestDrive.gif" alt="Test Drive!" width="150" height="129" border="0" /></td></tr>
+				<tr valign="top"><td align="center"><a href="http://www.topcoder.com/reg/index.jsp"><img src="images/headLearnMore.gif" alt="Learn More!" width="150" height="36" border="0"/></a></td></tr>
+			</table>
+
+			<table border="0" cellspacing="6" cellpadding="0" width="100%">
+				<tr valign="top">
+					<td align="left" class="rightColText">
+						Visit <a href="http://www.topcoder.com" class="rightColText">TopCoder</a> and learn more about 
+						the people, the competition, and what makes TopCoder unique.</td>
+				</tr>
+			</table>
+			<img src="images/clear.gif" alt="" width="150" height="30" border="0"/>
+		</td>
+		<table width="150" border="0" cellpadding="2" cellspacing="0" align="center">
+	</table>
+	</td>
+</tr>
+</table>
+	
+<!--Footer begins -->
+
+<!--#include virtual="includes/footer.shtml" -->
+
+<!--Footer ends -->
+
+</form>
+</body>
+</html>
