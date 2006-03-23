@@ -38,6 +38,7 @@
                 Confirm your Registration Information:<br/><br/>
 
                 <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
+                    <table>
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_REG_SUBMIT%>"/>
                     <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
                     <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
@@ -103,6 +104,13 @@
                             </td>
                         </tr>
                     </pl:responseIterator>
+
+                    <tr>
+                       <td colspan="2" align="center" class="bodyText">
+                          <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                       </td>
+                    </tr>
+                    </table>
 
                 </form>
 
