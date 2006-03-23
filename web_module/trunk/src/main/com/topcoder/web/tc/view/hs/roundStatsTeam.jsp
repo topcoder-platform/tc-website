@@ -50,21 +50,22 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 // -->
 </script>
 
-<div style="float:right;" align="center">
-<select name="rd" onchange="goTo(this)">
-<option value="" selected="selected">Please select a contest</option>
-<option value="0000">HS Single Round Match 1</option>
-</select>
-<br>
-<strong>or</strong>
-<br>
-<select name="season" onchange="goTo(this)">
-<option value="" selected="selected">Please select a season</option>
-<option value="0000">2006-2007</option>
-</select>
+<div style="float:right; padding-left:10px;" align="right">
+<div style="padding-bottom:5px;">
+   <select name="rd" onchange="goTo(this)">
+   <option value="" selected="selected">View another contest:</option>
+   <option value="0000">High School Single Round Match 1</option>
+   </select>
+</div>
+<div style="padding-bottom:5px;">
+   <select name="season" onchange="goTo(this)">
+   <option value="" selected="selected">View another season:</option>
+   <option value="0000">2006-2007</option>
+   </select>
+</div>
 </div>
 
-<span class="bigTitle">Competition: HS SRM 1</span><br>
+<span class="bigTitle">High School Single Round Match 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
 <span class="bodySubtitle">Teams: 150</span><br>
@@ -90,7 +91,7 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="#">Team 1</A>
+      <A href="#">Rocky Hill High School</A>
       </td>
       <td class="valueR">
       5
