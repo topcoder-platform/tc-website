@@ -204,12 +204,12 @@ public class Constants {
     public static final String GOOGLE_INDIA_06_ACTIVATION="GoogleIndia06Activate";
     public static final String GOOGLE_INDIA_06_CREDENTIALS="GoogleIndia06Credentials";
     public static final String GOOGLE_INDIA_06_LOGIN="GoogleIndia06Login";
-    public static final String VERISIGN_06_REG_MAIN="GoogleIndia06Reg";
-    public static final String VERISIGN_06_REG_CONFIRM="GoogleIndia06Confirm";
-    public static final String VERISIGN_06_REG_SUBMIT="GoogleIndia06Submit";
-    public static final String VERISIGN_06_ACTIVATION="GoogleIndia06Activate";
-    public static final String VERISIGN_06_CREDENTIALS="GoogleIndia06Credentials";
-    public static final String VERISIGN_06_LOGIN="GoogleIndia06Login";
+    public static final String VERISIGN_06_REG_MAIN="VeriSign06Reg";
+    public static final String VERISIGN_06_REG_CONFIRM="VeriSign06Confirm";
+    public static final String VERISIGN_06_REG_SUBMIT="VeriSign06Submit";
+    public static final String VERISIGN_06_ACTIVATION="VeriSign06Activate";
+    public static final String VERISIGN_06_CREDENTIALS="VeriSign06Credentials";
+    public static final String VERISIGN_06_LOGIN="VeriSign06Login";
 
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
