@@ -12,6 +12,47 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<script language="JavaScript">
+<!--
+function goTo(selection){
+sel = selection.options[selection.selectedIndex].value;
+if (sel && sel != '#'){
+window.location='/longcontest/?module=ViewOverview&rd='+sel;
+}
+}
+var objPopUp = null;
+function popUp(event,objectID){
+   objPopTrig = document.getElementById(event);
+   objPopUp = document.getElementById(objectID);
+   xPos = objPopTrig.offsetLeft+objPopTrig.offsetWidth;
+   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight;
+   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+   objPopUp.style.left = xPos + 'px';
+   objPopUp.style.top = yPos + 'px';
+   objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+// -->
+</script>
+<STYLE TYPE="text/css">
+#popBox{ position: relative; }
+#popBox div
+{
+position: absolute;
+font-size: 11px;
+font-weight: bold;
+background-color: #FFFFCC;
+visibility: hidden;
+padding: 3px;
+border: 1px solid #000000;
+white-space: nowrap;
+z-index: 2;
+}
+</STYLE>
 
 </head>
 
@@ -39,60 +80,58 @@
 <jsp:param name="title" value="Match Results"/>
 </jsp:include>
 
-<script language="JavaScript">
-<!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
-// -->
-</script>
-
-<div style="float:right;" align="center">
-<select name="rd" onchange="goTo(this)">
-<option value="" selected="selected">Please select a contest</option>
-<option value="0000">HS Single Round Match 1</option>
-</select>
-<br>
-<strong>or</strong>
-<br>
-<select name="season" onchange="goTo(this)">
-<option value="" selected="selected">Please select a season</option>
-<option value="0000">2006-2007</option>
-</select>
+<div style="float:right; padding-left:10px;" align="right">
+<div style="padding-bottom:5px;">
+   <select name="season" onchange="goTo(this)" width="200">
+   <option value="" selected="selected">View another room:</option>
+   <option value="0000">Room 1</option>
+   </select>
+</div>
+<div style="padding-bottom:5px;">
+   <select name="rd" onchange="goTo(this)">
+   <option value="" selected="selected">View another contest:</option>
+   <option value="0000">High School Single Round Match 1</option>
+   </select>
+</div>
+<div style="padding-bottom:5px;">
+   <select name="season" onchange="goTo(this)">
+   <option value="" selected="selected">View another season:</option>
+   <option value="0000">2006-2007</option>
+   </select>
+</div>
 </div>
 
-<span class="bigTitle">Competition: HS SRM 1</span><br>
+<span class="bigTitle">High School Single Round Match 1 > Room 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
-<div class="pagingBox">
+<div class="pagingBox" style="clear:both;">
 &lt;&lt; prev
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">HS SRM 1 Results</td></tr>
+   <tr><td class="title" colspan="17">High School Single Round Match 1 > Room 1 Results</td></tr>
    <tr>
-      <td class="headerC" colspan="9" style="border-right:1px solid #999999;">&#160;</td>
-      <td class="headerC" colspan="6">Rating</td>
+      <td class="headerC" colspan="2">&#160;</td>
+      <td class="headerR" colspan="2">Submissions</td>
+      <td class="headerR" colspan="2">Defenses</td>
+      <td class="headerR" colspan="2">Challenges</td>
+      <td class="headerC" colspan="2" style="border-right:1px solid #999999;">&#160;</td>
+      <td class="headerC" colspan="3">Rating</td>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header">Competitors</td>
-      <td class="headerR" nowrap="nowrap">Coding Phase</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">Challenge Phase</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">System Tests</td>
-      <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap" style="border-right:1px solid #999999;">Point Total</td>
-      <td class="headerR" nowrap="nowrap">Old</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap">Change</td>
-      <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap">New</td>
+      <td class="header" width="16%"><A href="">Competitors</A></td>
+      <td class="headerR" width="16%"><A href="">Qnty</A></td>
+      <td class="headerR"><A href="">Points</A></td>
+      <td class="headerR" width="16%"><A href="">Qnty</A></td>
+      <td class="headerR"><A href="">Points</A></td>
+      <td class="headerR" width="16%"><A href="">Qnty</A></td>
+      <td class="headerR"><A href="">Points</A></td>
+      <td class="headerR" width="16%"><A href="">System Tests</A></td>
+      <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="">Point Total</A></td>
+      <td class="headerR"><A href="">Old</A></td>
+      <td class="headerR"><A href="">New</A></td>
       <td class="headerR">&#160;</td>
    </tr>
    <% boolean even = false; %>
@@ -103,26 +142,40 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -136,29 +189,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -169,62 +236,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueR" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_ed_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="valueR">
-      <strong>1062.82</strong>
-      </td>
-      <td class="valueR" colspan="2">
-      <strong>775.00</strong>
-      </td>
-      <td class="valueR" colspan="2">
-      <strong>0.00</strong>
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      <strong>1837.82</strong>
-      </td>
-      <td class="valueR">
-      <strong>3422</strong>
-      </td>
-      <td class="valueR" colspan="2">
-      <strong>94</strong>
-      </td>
-      <td class="valueR" colspan="2">
-      <strong>3516</strong>
-      </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -235,29 +283,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -268,29 +330,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -301,29 +377,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -334,29 +424,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -367,29 +471,43 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -400,29 +518,137 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="value">
       <tc-webtag:handle coderId="144400" />
       </td>
+
       <td class="valueR">
-      1062.82
+      2
       </td>
-      <td class="valueR" colspan="2">
-      775.00
+      <td class="valueR">
+      511.86
       </td>
-      <td class="valueR" colspan="2">
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
       0.00
       </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
+
+      <td class="valueR">
+      0
       </td>
       <td class="valueR">
-      3422
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      94
+
+      <td class="valueR">
+      0.00
       </td>
-      <td class="valueR" colspan="2">
-      3516
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/redDown.gif" alt="" />
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="valueR">
+      2
+      </td>
+      <td class="valueR">
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="valueR">
+      2
+      </td>
+      <td class="valueR">
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      2484
+      </td>
+      <td class="valueR">
+      2513
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>

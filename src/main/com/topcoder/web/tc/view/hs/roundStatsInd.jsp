@@ -13,32 +13,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-</head>
-
-<body>
-
-<jsp:include page="/top.jsp">
-    <jsp:param name="level1" value=""/>
-</jsp:include>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-        <!-- Left Column Begins-->
-        <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitions"/>
-         </jsp:include>
-        </td>
-        <!-- Left Column Ends -->
-
-        <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
-
-<jsp:include page="/page_title.jsp" >
-<jsp:param name="image" value="high_school"/>
-<jsp:param name="title" value="Match Results - Individual"/>
-</jsp:include>
-
 <script language="JavaScript">
 <!--
 function goTo(selection){
@@ -81,21 +55,48 @@ z-index: 2;
 }
 </STYLE>
 
-<div style="float:right;" align="center">
-<select name="rd" onchange="goTo(this)">
-<option value="" selected="selected">Please select a contest</option>
-<option value="0000">HS Single Round Match 1</option>
-</select>
-<br>
-<strong>or</strong>
-<br>
-<select name="season" onchange="goTo(this)">
-<option value="" selected="selected">Please select a season</option>
-<option value="0000">2006-2007</option>
-</select>
+</head>
+
+<body>
+
+<jsp:include page="/top.jsp">
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+        <!-- Left Column Begins-->
+        <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitions"/>
+         </jsp:include>
+        </td>
+        <!-- Left Column Ends -->
+
+        <!-- Center Column Begins -->
+<td width="100%" align="left" class="bodyColumn">
+
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="high_school"/>
+<jsp:param name="title" value="Match Results - Individual"/>
+</jsp:include>
+
+<div style="float:right; padding-left:10px;" align="right">
+<div style="padding-bottom:5px;">
+   <select name="rd" onchange="goTo(this)">
+   <option value="" selected="selected">View another contest:</option>
+   <option value="0000">High School Single Round Match 1</option>
+   </select>
+</div>
+<div style="padding-bottom:5px;">
+   <select name="season" onchange="goTo(this)">
+   <option value="" selected="selected">View another season:</option>
+   <option value="0000">2006-2007</option>
+   </select>
+</div>
 </div>
 
-<span class="bigTitle">Competition: HS SRM 1</span><br>
+<span class="bigTitle">High School Single Round Match 1</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
 <span class="bodySubtitle">Competitors: 499</span><br>
 <span class="bodySubtitle">Teams: 150</span><br>
