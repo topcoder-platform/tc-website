@@ -86,12 +86,12 @@ function toggleTabs(id) {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td nowrap="nowrap" valign="top">
-   <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > User Settings</span><br><br>
-   </td>
-   <td align="right" nowrap="nowrap" valign="top">
-      <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
-   </td>
+   <div class="topLinksL">
+   <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > User Settings </span><br><br>
+   </div>
+   <div class="topLinksR">
+   <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br/>
+   </div>
 </tr>
 </table>
 
