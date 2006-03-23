@@ -320,7 +320,7 @@ All contestants who advance to Online Round #4 must complete the following items
 </ul>
 Failure to submit the above items on time will result in a forfeit of any prize money won during Online Round #4 and/or advancement as an onsite finalist.
 <br><br>
-Contestants who advance to the onsite tournament rounds must also complete the following items and submit them to TopCoder by 5:00 PM EDT on Wednesday, March 29, 2006:
+Contestants who advance to the onsite tournament rounds must also complete the following items and submit them to TopCoder by 5:00 PM EST on Wednesday, March 29, 2006:
 <ul>
 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
