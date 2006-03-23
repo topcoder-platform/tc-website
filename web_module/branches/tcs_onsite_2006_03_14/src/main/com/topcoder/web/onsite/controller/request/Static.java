@@ -13,7 +13,7 @@ import com.topcoder.shared.util.logging.Logger;
  * <strong>Purpose</strong>:
  * A Processor that builds a path to a static page out of a numbered series of parameters.
  *
- * @author pulky
+ * @author Ambrose Feinstein, pulky
  * @version 1.0
  */
 public class Static extends BaseProcessor {
