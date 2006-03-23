@@ -24,15 +24,12 @@
       <span class="bigTitle">Registration Successful!</span>
       <br/><br/>
 
-In order to be eligible to compete in the VeriSign Internal Coding Competition,
-you must activate your account by following the directions sent to the email
-address provided during registration.
+
+
+          You have successfully updated your account.
+
 <br><br>
-<span class="bigRed">You <u>will not</u> be able to compete if you do not activate your account.</span>
-<br><br>
-Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
-<br><br>
-If you encounter any problems, please contact us at <A href="mailto:vicc@topcoder.com">vicc@topcoder.com</A>.
+If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
 
 <!-- i made up that email address... don't know what it should be -->
 
