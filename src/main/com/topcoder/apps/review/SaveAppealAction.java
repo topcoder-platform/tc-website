@@ -109,6 +109,7 @@ public final class SaveAppealAction extends ReviewAction {
             AppealData data = ((AppealForm) form).toAppealData(orpd);
             
             //plk
+            System.out.println("((AppealForm) form).getAid(): " + ((AppealForm) form).getAid());
             System.out.println("data.getAppealerId())" + data.getAppealerId());
             System.out.println("data.getQuestionId())" + data.getQuestionId());
             System.out.println("data.getAppeals()[0].getId()" + data.getAppeals()[0].getId());
