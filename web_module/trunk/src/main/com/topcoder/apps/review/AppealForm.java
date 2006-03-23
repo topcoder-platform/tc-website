@@ -52,6 +52,32 @@ public final class AppealForm extends ReviewForm {
     private Appeal appeal = null;
     // ----------------------------------------------------------- Properties
 
+//plk
+    /**
+     * The appeal id.
+     */
+    private long aid = -1;
+
+
+    /**
+     * Return the appeal id.
+     *
+     * @return the appeal id.
+     */
+    public long getAid() {
+        return aid;
+    }
+
+    /**
+     * Set the appeal id.
+     *
+     * @param aid The new appeal id.
+     */
+    public void setAid(long aid) {
+        this.aid = aid;
+    }
+
+
     /**
      * @return Returns the appealResponse.
      */
