@@ -104,9 +104,18 @@ public class SubmitWager extends BaseProcessor {
         Map m = getValidationData(getUser().getId());
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
+            
+            
         int remainingCompetitions = ((ResultSetContainer) m.get(
             Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, Constants.REMAINING_CONTESTS_COL);
 
+        // Validates that the project is current and allowed to wager on
+        if (comp.size() == 0 || projectId != comp.getLongItem(0, Constants.PROJECT_ID_COL)) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                Constants.INVALID_PROJECT_MESSAGE);
+            return;
+        }
+        
         Object usedPoints = ((ResultSetContainer) m.get(
             Constants.USED_WAGER_POINTS_QUERY)).getItem(0, Constants.USED_POINTS_COL).getResultData();
         
@@ -122,13 +131,6 @@ public class SubmitWager extends BaseProcessor {
         if (wagerAmount > maxWagerAmount) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + maxWagerAmount + ".");
-            return;
-        }
-
-        // Validates that the project is current and allowed to wager on
-        if (projectId != comp.getLongItem(0, Constants.PROJECT_ID_COL)) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.INVALID_PROJECT_MESSAGE);
             return;
         }
 
