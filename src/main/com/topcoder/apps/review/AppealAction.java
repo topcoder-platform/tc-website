@@ -90,7 +90,8 @@ public final class AppealAction extends ReviewAction {
 
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
-        AppealData data = new AppealData(orpd, null, aid, qid);
+        //AppealData data = new AppealData(orpd, null, aid, qid);
+        AppealData data = new AppealData(orpd, null, aid, -1);
         ResultData result = businessDelegate.appealProject(data);
 
         if (result instanceof SuccessResult) {
