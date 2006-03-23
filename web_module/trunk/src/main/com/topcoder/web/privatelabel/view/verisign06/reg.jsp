@@ -151,7 +151,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
                 </td>
             </tr>
             <tr>
-                <td align="right">
+                <td align="right" class="bodyText">
                     <%if (question.isRequired()) {%><span class="errorText">*</span><%}%>
                     <%=question.getText()%>
                 </td>
