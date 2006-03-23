@@ -12,6 +12,12 @@
 
 <body>
 
+<%--
+<div style="position:absolute; left:200px; top:190px;">
+<A href="http://www.equitrader.com"><img src="/i/interface/dot.gif" alt="EquiTrader" /></A>
+</div>
+--%>
+
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
