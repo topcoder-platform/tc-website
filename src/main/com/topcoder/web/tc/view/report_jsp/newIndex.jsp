@@ -68,7 +68,7 @@
         <LI>Sumission rate per inquiry: Members who signed up in last - <A HREF="<%=baseURL+"submission_rate&months=3"%>">3 months?</a> <a href="<%=baseURL+"submission_rate&months=6"%>">6 months?</a> <a href="<%=baseURL+"submission_rate&months=120"%>">all?</a> </LI>
         <LI>Average cost of component by phase - projects completed in last - <A HREF="<%=baseURL+"cost_by_phase&months=3"%>">3 months?</a> <a href="<%=baseURL+"cost_by_phase&months=6"%>">6 months?</a> <a href="<%=baseURL+"cost_by_phase&months=120"%>">all?</A></LI>
         <LI>Average cost of component by phase and catalog - projects completed in last - <A HREF="<%=baseURL+"cost_by_catalog&months=3"%>">3 months?</a> <a href="<%=baseURL+"cost_by_catalog&months=6"%>">6 months?</a> <a href="<%=baseURL+"cost_by_catalog&months=120"%>">all?</A></LI>
-        <LI><A HREF="<%=baseURL+"posted_components"%>">New components by week, month and year</a></LI>
+        <LI><A HREF="<%=baseURL+"posted_components"%>">New components by year, month and week</a></LI>
       </UL>
       <br/>
       Payment Reports
