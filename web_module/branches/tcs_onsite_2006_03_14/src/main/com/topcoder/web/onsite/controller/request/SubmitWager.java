@@ -1,18 +1,11 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.onsite.controller.request;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.login.LoginRemote;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.onsite.Constants;
-import com.topcoder.web.onsite.controller.request.Base;
-import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
@@ -21,24 +14,46 @@ import com.topcoder.web.ejb.project.ProjectWagerLocal;
 import com.topcoder.web.ejb.project.ProjectWager;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
-
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-
-
 import java.util.Map;
-import java.util.Arrays;
 
-public class SubmitWager extends Base {
+/**
+ * <strong>Purpose</strong>:
+ * A processor to validate and process wager submissions.
+ * 
+ * @author pulky
+ * @version 1.0
+ */
+public class SubmitWager extends BaseProcessor {
 
-    private static final Logger log = Logger.getLogger(SubmitWager.class);
+    /**
+     * The logger to log to.
+     */
+     private static final Logger log = Logger.getLogger(SubmitWager.class);
 
+    /**
+     * Adds a particular wager to DB.
+     *
+     * @param projectId the project ID to wager on
+     * @param userId the user ID waggering
+     * @param wagerAmount the amount of the wager
+     */
     private void addWager(long projectId, long userId, int wagerAmount) throws Exception {
-        ProjectWagerLocal projectWagerLocal = (ProjectWagerLocal) createLocalEJB(getInitialContext(), ProjectWager.class); 
+        ProjectWagerLocal projectWagerLocal = (ProjectWagerLocal) createLocalEJB(
+            getInitialContext(), ProjectWager.class); 
         projectWagerLocal.createProjectWager(projectId, userId, wagerAmount, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
     
+    /**
+     * Retrieves data from the DB to validate the wager.
+     *
+     * @param userId the user ID waggering
+     *
+     * @return a Map with the retrieved ResultSetContainers.
+     */
     private Map getValidationData(long userId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.WAGER_SUBMITION_VALIDATION_COMMAND);
@@ -48,6 +63,10 @@ public class SubmitWager extends Base {
         return dai.getData(request);
     }
 
+    /**
+     * Process the wager submission request.
+     * Validates several Business Rules and adds wager to the DB.
+     */
     protected void businessProcessing() throws Exception {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -56,6 +75,7 @@ public class SubmitWager extends Base {
         setNextPage(Constants.WAGER_RESULT_PAGE);
         setIsNextPageInContext(true);
         
+        // Project ID format validation
         long projectId;
         try {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID_KEY));
@@ -65,6 +85,7 @@ public class SubmitWager extends Base {
             throw(new TCWebException(nfe));
         }
         
+        // Wager amount format validation
         int wagerAmount;
         try {
             wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT));
@@ -73,6 +94,7 @@ public class SubmitWager extends Base {
             return;
         }
         
+        // Minimum wager amount validation
         if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT + ".");
@@ -80,7 +102,6 @@ public class SubmitWager extends Base {
         }        
 
         Map m = getValidationData(getUser().getId());
-        // extra validations:
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
         int remainingCompetitions = ((ResultSetContainer) m.get(
@@ -94,6 +115,8 @@ public class SubmitWager extends Base {
             remainingPoints = remainingPoints - ((Number) usedPoints).intValue();
         }
  
+        // With the remaining competitions, used points and maximum wager amount constraint, calculates the real
+        // maximum valid wager amount
         int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
         maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
         if (wagerAmount > maxWagerAmount) {
@@ -102,12 +125,14 @@ public class SubmitWager extends Base {
             return;
         }
 
+        // Validates that the project is current and allowed to wager on
         if (projectId != comp.getLongItem(0, Constants.PROJECT_ID_COL)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.INVALID_PROJECT_MESSAGE);
             return;
         }
 
+        // Finally adds wager
         try {
             addWager(projectId, getUser().getId(), wagerAmount);
         } catch (Exception e) {

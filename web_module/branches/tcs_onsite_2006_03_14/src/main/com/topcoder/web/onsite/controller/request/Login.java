@@ -1,39 +1,36 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.onsite.controller.request;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.onsite.Constants;
-import com.topcoder.web.onsite.controller.request.Base;
-import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SessionInfo;
 
-import java.util.Arrays;
+/**
+ * <strong>Purpose</strong>:
+ * A processor to login the onsite app.
+ * 
+ * @author pulky
+ * @version 1.0
+ */
+public class Login extends BaseProcessor {
 
-public class Login extends Base {
-
-    public static final String USER_NAME = "username";
-    public static final String PASSWORD = "password";
-    public static final String STATUS = "status";
-
-    public static final String STATUS_START = "start";
-
+    /**
+     * Processes the login request.
+     */
     protected void businessProcessing() throws TCWebException {
-
         /* may be null */
-        String username = getRequest().getParameter(USER_NAME);
-        String password = getRequest().getParameter(PASSWORD);
-        // hack would be to parse out server name from //.../ in next page
-        // find server name from sessionInfo
-        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        String username = getRequest().getParameter(Constants.USER_NAME);
+        String password = getRequest().getParameter(Constants.PASSWORD);
 
-        String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
+        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -47,12 +44,10 @@ public class Login extends Base {
                 try {
                     try {
                         setNextPage(getNextPage());
-
                         setIsNextPageInContext(false);
                         log.debug("on successful login, going to " + getNextPage());
                         getAuthentication().login(new SimpleUser(0, username, password));
                         return;
-
                     } catch (LoginException e) {
                         /* the login failed, so tell them what happened */
                         getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
@@ -66,10 +61,6 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
-        if (loginStatus.equals(STATUS_START)) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                "In order to continue, you must provide your user name and password.");
-        }
         int nextPageIdx = info.getRequestString().indexOf("nextpage=");
         if (nextPageIdx != -1) {
             String nextPage = info.getRequestString().substring(nextPageIdx+"nextpage=".length());
@@ -78,6 +69,4 @@ public class Login extends Base {
         setNextPage(Constants.LOGIN);
         setIsNextPageInContext(true);
     }
-
-
 }

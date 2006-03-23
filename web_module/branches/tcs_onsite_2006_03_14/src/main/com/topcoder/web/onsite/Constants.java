@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.onsite;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -8,10 +12,22 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
+/**
+ * <strong>Purpose</strong>:
+ * Helper class to load all related constants.
+ * 
+ * @author pulky
+ * @version 1.0
+ */
 public class Constants implements WebConstants {
+    /**
+     * The bundle to TC resources.
+     */
+     private static final TCResourceBundle bundle = new TCResourceBundle("onsite");
 
-
-    private static final TCResourceBundle bundle = new TCResourceBundle("onsite");
+    /**
+     * The logger to log to.
+     */
     private static final Logger log = Logger.getLogger(Constants.class);
 
     /* pages */
@@ -25,7 +41,9 @@ public class Constants implements WebConstants {
     public static String PROJECT_ID_KEY;
     public static String CURRENT_COMPETITION_RESULT_KEY;
     public static String WAGER_HISTORY_KEY;
-
+    public static String USER_NAME;
+    public static String PASSWORD;
+    
     /* misc constants */
     public static String WAGER_AMOUNT;
     public static int MIN_WAGER_AMOUNT;
@@ -35,15 +53,12 @@ public class Constants implements WebConstants {
     public static String INVALID_WAGER_FORMAT_MESSAGE;
     public static String SUCCESSFULL_WAGER_MESSAGE;
     public static String INVALID_PROJECT_MESSAGE;
-    
     public static String VIEW_WAGER_COMPETITIONS_COMMAND;
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
-
     public static String ACTUAL_TCO_CONTESTS_QUERY;
     public static String REMAINING_TCO_CONTESTS_QUERY;
     public static String USED_WAGER_POINTS_QUERY;
     public static String WAGER_HISTORY_QUERY;
-
     public static int TOTAL_WAGER_POINTS;
     
     /* columns */
@@ -61,6 +76,9 @@ public class Constants implements WebConstants {
     private Constants() {
     }
 
+    /**
+     * Initializes the constants.
+     */
     public static void initialize() {
 
         Field[] f = Constants.class.getFields();

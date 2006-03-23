@@ -1,29 +1,29 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.onsite.controller.request;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.login.LoginRemote;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.onsite.Constants;
-import com.topcoder.web.onsite.controller.request.Base;
-import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
-import java.util.Arrays;
+/**
+ * <strong>Purpose</strong>:
+ * A processor to logout from the onsite app.
+ * 
+ * @author pulky
+ * @version 1.0
+ */
+public class Logout extends BaseProcessor {
 
-public class Logout extends Base {
-
+    /**
+     * Processes the logount request.
+     */
     protected void businessProcessing() throws TCWebException {
-
         getAuthentication().logout();
         getRequest().getSession().invalidate();
         setNextPage(getNextPage());
         setIsNextPageInContext(false);
-        log.debug("on successful login, going to " + getNextPage());
+        log.debug("on successful logout, going to " + getNextPage());
     }
 }

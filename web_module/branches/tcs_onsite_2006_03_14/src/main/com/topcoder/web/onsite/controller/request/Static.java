@@ -1,22 +1,30 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.onsite.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.onsite.Constants;
+import com.topcoder.web.common.BaseProcessor;
 
 /**
- * A RequestProcessor which builds a path to a static page out of a numbered series of parameters.
+ * <strong>Purpose</strong>:
+ * A Processor that builds a path to a static page out of a numbered series of parameters.
  *
- * @author Ambrose Feinstein
+ * @author pulky
+ * @version 1.0
  */
-public class Static extends Base {
+public class Static extends BaseProcessor {
 
-    private static final String STATIC_PREFIX = "d";
-
+    /**
+     * Processes a static request.
+     * Parses the request parameters and redirects to the resulting page.
+     */
     protected void businessProcessing() throws Exception {
-
         StringBuffer path = new StringBuffer(100);
         for (int i = 1; ; i++) {
-            String p = getRequest().getParameter(STATIC_PREFIX + i);
+            String p = getRequest().getParameter(Constants.STATIC_PREFIX + i);
             if (p == null) break;
             if (!isLegal(p)) throw new NavigationException();
             path.append("/").append(p);
@@ -30,6 +38,14 @@ public class Static extends Base {
         setIsNextPageInContext(true);
     }
 
+
+    /**
+     * Validates the parameter to be a legal path component.
+     *
+     * @param s the parameter string to validate
+     *
+     * @return true if String s is legal
+     */
     public static boolean isLegal(String s) {
         if (s == null) return false;
         if (s.equals("")) return false;
