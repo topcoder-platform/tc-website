@@ -56,8 +56,8 @@ Move to your assigned competition room as follows:
 </ul>
 <br/>
 
-<span class="bodySubtitle">Competition Structure of a Single Round Match:</span><br>
-Upon Entering an Online Single Round Match<br>
+<span class="bodySubtitle">Competition Structure of a Single Round Match</span><br>
+Upon Entering an Online Single Round Match:<br>
 Each round consists of three phases: the coding phase, challenge phase, and the testing phase. 
 <ol>
 <li><b>The Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles.</li>
