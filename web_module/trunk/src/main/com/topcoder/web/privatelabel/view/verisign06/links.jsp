@@ -78,21 +78,17 @@
 <tr><td class="tabL3Top" colspan="2"><img src="/i/clear.gif" width="1" height="7" border="0"/></td></tr>
 <tr>
     <td colspan="2">
-        <table width="100%" border="0" cellspacing=0 cellpadding=0 class="subNav">
+        <table width="100%" border="0" height="35" cellspacing="0" cellpadding="0" class="subNav">
             <tr><td class="subnavBG">&#160;&#160;&#160;</td>
                 <% if (tabLev2.equals("details")) {%>
                 <td class="subnav">
-                    <a href="/pl/?module=Static&d1=verisign06&d2=description"><% if (tabLev3.equals("description")) {%><img src="/i/events/verisign06/tabs/ver_L3_descriptionOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_descriptionOff.gif" border="0"/><% } %>
-                    </a></td>
+                    <a href="/pl/?module=Static&d1=verisign06&d2=description"><% if (tabLev3.equals("description")) {%><img src="/i/events/verisign06/tabs/ver_L3_descriptionOn.gif" border="0" width="90" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_descriptionOff.gif" border="0" width="90" /><% } %></a></td>
                 <td class="subnav">
-                    <a href="/pl/?module=Static&d1=verisign06&d2=schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/events/verisign06/tabs/ver_L3_scheduleOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_scheduleOff.gif" border="0"/><% } %>
-                    </a></td>
+                    <a href="/pl/?module=Static&d1=verisign06&d2=schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/events/verisign06/tabs/ver_L3_scheduleOn.gif" border="0" width="70" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_scheduleOff.gif" border="0" width="70" /><% } %></a></td>
                 <td class="subnav">
-                    <a href="/pl/?module=Static&d1=verisign06&d2=rules"><% if (tabLev3.equals("rules")) {%><img src="/i/events/verisign06/tabs/ver_L3_rulesOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_rulesOff.gif" border="0"/><% } %>
-                    </a></td>
+                    <a href="/pl/?module=Static&d1=verisign06&d2=rules"><% if (tabLev3.equals("rules")) {%><img src="/i/events/verisign06/tabs/ver_L3_rulesOn.gif" border="0" width="52" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_rulesOff.gif" border="0" width="52" /><% } %></a></td>
                 <td class="subnav">
-                    <a href="/pl/?module=Static&d1=verisign06&d2=instructions"><% if (tabLev3.equals("instructions")) {%><img src="/i/events/verisign06/tabs/ver_L3_instructionsOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_instructionsOff.gif" border="0"/><% } %>
-                    </a></td>
+                    <a href="/pl/?module=Static&d1=verisign06&d2=instructions"><% if (tabLev3.equals("instructions")) {%><img src="/i/events/verisign06/tabs/ver_L3_instructionsOn.gif" border="0" width="80" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_instructionsOff.gif" border="0" width="80" /><% } %></a></td>
                 <% } else if (tabLev2.equals("registration")) {%>
                 <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
                 <% } else if (tabLev2.equals("registrants")) {%>
