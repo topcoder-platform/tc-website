@@ -116,6 +116,7 @@ z-index: 2;
       <td class="headerR" colspan="2">Challenges</td>
       <td class="headerC" colspan="2" style="border-right:1px solid #999999;">&#160;</td>
       <td class="headerC" colspan="3">Rating</td>
+   </tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" width="16%" colspan="2"><A href="">Coders</A></td>

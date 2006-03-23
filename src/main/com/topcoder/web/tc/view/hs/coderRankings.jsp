@@ -73,8 +73,9 @@ z-index: 2;
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+<td width="100%" align="center" class="bodyColumn">
 
+<div class="fixedWidthBody">
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="high_school"/>
 <jsp:param name="title" value="Coder Rankings"/>
@@ -82,509 +83,250 @@ z-index: 2;
 
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)" width="200">
-   <option value="" selected="selected">View another room:</option>
-   <option value="0000">Room 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
    <select name="season" onchange="goTo(this)">
    <option value="" selected="selected">View another season:</option>
+   <option value="0000">All time</option>
    <option value="0000">2006-2007</option>
    </select>
 </div>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1 > Rocky Hill High School</span><br>
+<span class="bodySubtitle">Top Ranked > High School Competitions</span><br>
 <span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
 
-<div class="pagingBox" style="clear:both;">&#160;</div>
+<div class="pagingBox">
+&lt;&lt; prev
+| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">High School Single Round Match 1 > Rocky Hill High School Team Results</td></tr>
-   <tr>
-      <td class="headerC" colspan="2">&#160;</td>
-      <td class="headerR" colspan="2">Submissions</td>
-      <td class="headerR" colspan="2">Defenses</td>
-      <td class="headerR" colspan="2">Challenges</td>
-      <td class="headerC" colspan="2">&#160;</td>
-      <td class="headerC">&#160;</td>
+   <tr><td class="title" colspan="18">High School Single Round Match 1 > Room 1 Results</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="14%"><A href="">Coder</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">System Tests</A></td>
-      <td class="headerR" width="14%"><A href="">Point Total</A></td>
-      <td class="headerR" width="14%"><A href="">Position Points</A></td>
+      <td class="header" width="30%">Coder</td>
+      <td class="header" width="70%">School</td>
+      <td class="headerR">Rating</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      10
-      </td>
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC">1</td>
+      <td class="value"><tc-webtag:handle coderId="144400" /></td>
+      <td class="value">Rocky Hill High School</td>
+      <td class="valueR">3457</td>
    </tr>
    <% even = !even;%>
 </table>
 
-<br><br>
+<div class="pagingBox">
+&lt;&lt; prev
+| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+</div>
 
+<br><br>
+</div>
 </td>
         <!-- Center Column Ends -->
 
