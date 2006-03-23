@@ -23,7 +23,9 @@
 <div class="bodySpacer">
 
 
-<span class="bigTitle">Official Rules and Regulations</span>
+<span class="bigTitle">VeriSign&#174; Internal Coding Competitions</span>
+<br/><br/>
+<span class="bodySubtitle">Official Rules and Regulations</span>
 <br/><br/>
 <!--<a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
