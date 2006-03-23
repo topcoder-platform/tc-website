@@ -6,10 +6,10 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
-    <td valign="middle" align="left" style="padding: 10px 0px 10px 45px;">
+    <td width="80%" valign="middle" align="left" style="padding: 10px 0px 15px 45px;">
         <a href="/pl/?module=Static&d1=verisign06&d2=description"><img src="/i/events/verisign06/verisign_logo.gif" alt="VeriSign" border="0"/></a>
     </td>
-    <td valign="top" align="right" style="padding: 0px 20px 0px 0px;">
+    <td width="20%" valign="top" align="right" style="padding: 0px 20px 0px 0px;">
         <a href="/"><img src="/i/events/verisign06/ver_pbtc_logo.gif" border="0"/></a></td>
 </tr>
 <!-- LEVEL 2 TABS -->
