@@ -113,6 +113,7 @@ public abstract class FullRegConfirm extends FullRegBase {
             throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
         } else {
             info = (FullRegInfo) super.makeRegInfo();
+            log.debug("name " + info.getFirstName() + " " + info.getLastName());
 
             //get the rest from the request
             if (hasRequestParameter(Constants.CODER_TYPE)) {
