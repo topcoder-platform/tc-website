@@ -4,16 +4,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.ejb.user.User;
 
 import java.util.StringTokenizer;
-import java.util.Locale;
 
 /**
  * Provides some basic functionality for the different processors
@@ -190,15 +187,6 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
 
     protected boolean userExists(String handle) throws Exception {
-/*
-        Request r = new Request();
-        r.setContentHandle("user exists");
-        r.setProperty("hn", handle);
-
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("user exists");
-        ResultSetContainer rsc1 = (ResultSetContainer) getDataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user exists");
-        return !rsc.isEmpty() || !rsc1.isEmpty();
-*/
         User user = (User)createEJB(getInitialContext(), User.class);
         return user.userExists(handle, db) || user.userExists(handle, DBMS.OLTP_DATASOURCE_NAME);
 
@@ -214,4 +202,9 @@ public abstract class SimpleRegBase extends RegistrationBase {
         return !rsc.isEmpty();
 
     }
+
+    
+
+
+
 }

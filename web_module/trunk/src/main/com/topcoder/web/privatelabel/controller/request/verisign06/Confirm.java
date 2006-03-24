@@ -35,6 +35,9 @@ public class Confirm extends FullRegBase {
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
+        } else {
+            getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
+            getRequest().setAttribute("questionMap", getQuestions());
         }
 
         setDefaults(regInfo);
