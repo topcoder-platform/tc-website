@@ -92,7 +92,7 @@
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="15664457" context="development"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter"><strong>Using XMI Documenter</strong></a></td>
-               <td class="bodyText">03.23.2006</td>
+               <td class="bodyText">03.24.2006</td>
             </tr>
          </table>
         </div>

@@ -64,6 +64,8 @@ By&#160;<tc-webtag:handle coderId="15664457" context="development"/><br />
 
 
 <p>
+This package contains the source code for the demo described below, as well as a build file to compile and run it. <a href="/i/downloads/xmi_documenter_ui.zip">Download Demo</a>
+<br><br>
 <span class="bodySubtitle">1. Introduction</span><br>
 This article will show how the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=20668655">XMI Documenter component</a> can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.
 <br><br>
@@ -179,7 +181,7 @@ This chapter describes some of the XMI Documenter implementation details that ar
 <br><br>
 The most interesting aspect of the XMI Documenter for designers who want to use this editor might be what is necessary to exist in the XMI document before staring editing of documentation. As the XMI Documenter does not provide any functionality for the creation of model elements, all elements that need to be documented must exist before loading the document. This basically means that all classes have to be declared, all methods and fields to be documented must be created inside Poseidon and all parameters need to be modeled.  Special care must be taken of any exception documentation. In the XMI document created by Poseidon, there is no real structural model element that represents a throws declaration of a method. Instead, a method can have multiple throws-documentation elements (which in general are XML elements, that contain the all text after a throws tag). When documenting exceptions in methods, you must first create throws documentation for each of the exceptions that will be documented for the method, and the throws documentation must contain at least one word (which will be interpreted as the exception class name) or it will be ignored during XMI examination of the XMIDocumentFactory. So basically, before documenting, create all classes, fields and methods (including arguments, return value and throws documentation) as the XMI Documenter is unable to create model elements, it can only modify existing ones.
 <br><br>
-The first thing that may seem odd is that interface and class elements found in the analyzed XMI file are both mapped to ClassElement instances and thus cannot be distinguished at runtime. The reason for this is that the parsing and handling of interfaces in the XMI file was not contained in the original design (neither designer nor design review board noticed that). When this was identified by a developer during dev phase, the PM decided that it was too late (i.e. the deadline was too near) to make any changes to the public API of the XMI documenter component &mdash; so the least intrusive fix was introduced Ð mapping interfaces to ClassElements also. Perhaps a 1.1 component will fix this issue.
+The first thing that may seem odd is that interface and class elements found in the analyzed XMI file are both mapped to ClassElement instances and thus cannot be distinguished at runtime. The reason for this is that the parsing and handling of interfaces in the XMI file was not contained in the original design (neither designer nor design review board noticed that). When this was identified by a developer during dev phase, the PM decided that it was too late (i.e. the deadline was too near) to make any changes to the public API of the XMI documenter component &mdash; so the least intrusive fix was introduced &mdash; mapping interfaces to ClassElements also. Perhaps a 1.1 component will fix this issue.
 <br><br>
 One more thing worth mentioning is that the XMI Documenter component does not have the scope of validating given XMI files. It may continue and work on an XMI file that is syntactically invalid but is valid enough in structure and content to be parsed ant modified by the component &mdash; so this basically means Garbage in-Garbage Out, i.e. the component will not always detect invalid XMI documents.
 <br><br>
@@ -224,7 +226,7 @@ Now two options exist depending on whether JAXP-1.3 shall be integrated in the J
 <li>Use the Jars only when needed
     <ul>
     <li>For compilation use the <tt>javac</tt>-argument <tt>-Xbootclasspath/p:xml-apis.jar</tt> (where <tt>xml-apis.jar</tt> is the path to the <tt>xml-apis.jar</tt> from the Xalan binary distribution)</li>
-    <li>At runtime use the JVM argument <tt>ÐXbootclasspath/p:</tt> and mention all 5 jars from the xalan distribution</li>
+    <li>At runtime use the JVM argument <tt>-Xbootclasspath/p:</tt> and mention all 5 jars from the xalan distribution</li>
     </ul>
 </li>
 <li>Actually the build file is aware of whether the JAXP 1.3 must be prepended to the boot class path and does so during compile and run, so under normal conditions only <tt>ant startdemo</tt> must be executed and the Jars are automatically added to the boot class path of compiler and JVM if JVM version is not 1.5 </li>
@@ -233,7 +235,7 @@ Now two options exist depending on whether JAXP-1.3 shall be integrated in the J
 
 <span class="bodySubtitle">Running the demo</span><br>
 To run the demo GUI simply call <tt>ant startdemo</tt>.  The window shows three buttons, load can be used to load an XMI file (*.zuml files must be unzipped before editing), then while navigating through the tree you can view and edit the documentation of the selected node in the edit area on the right hand side. At any time the current state of the XMI document can be saved using the save button. The third button highlights tree nodes in red if they either contain no documentation or if they contain children with no documentation.<br/>
-<a href="/i/downloads/xmi_documenter_ui.zip">Download file</a>
+<a href="/i/downloads/xmi_documenter_ui.zip">Download Demo</a>
         </div>
         <p><br/></p>
         </td>
