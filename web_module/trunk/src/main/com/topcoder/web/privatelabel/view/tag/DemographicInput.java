@@ -72,7 +72,7 @@ public class DemographicInput extends BaseTag {
                     break;
             }
             try {
-                log.debug("output: " + output.toString());
+                //log.debug("output: " + output.toString());
                 pageContext.getOut().print(output.toString());
             } catch (IOException e) {
                 throw new JspException(e.getMessage());
