@@ -1,6 +1,9 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@  page language="java"  %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,6 +11,18 @@
 
 <title>VeriSign Internal SRMs, Powered by TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
+    <SCRIPT type="text/javascript">
+function submitEnter(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     document.frmLogin.submit();
+     return false;
+    } else return true;
+  }
+</SCRIPT>
 </head>
 <body>
 
@@ -31,12 +46,26 @@
      
       If you have already registered for the VeriSign Internal Coding Competitions and would like to update your registration information, please login below: 
       <br/><br/>
-      <form>
+          <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
+          <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_LOGIN%>">
+          <input type="hidden" name="<%=Constants.EVENT_ID%>" value="5">
+          <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="17942">
       <table align="center">
-        <tr><td class="bodyText" align="left">Handle:</td><td><input name="handle" type="text" size="15" maxlength="30" /></td><td>&#160;</td></tr>
-        <tr><td class="bodyText" align="left">Password:</td><td><input name="pword" type="password" size="15" maxlength="30" /></td><td class="bodyText"><a href="">Login&#160;&gt;</a></td></tr>
-        <tr><td class="bodyText" colspan="3">&#160;</td></tr>
-        <tr><td class="bodyText" colspan="3" align="center"><A href="">Forgot your password?</A></td></tr>
+          <tr valign="top">
+             <td class="errorText" colspan="3" align="center">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator>
+             </td>
+          </tr>
+          <tr valign="middle">
+             <td nowrap class="bodyText" align="right">Handle:</td>
+             <td colspan="2" align="left"><input type="text" name="<%=Constants.HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+          </tr>
+
+          <tr valign="middle">
+             <td nowrap class="bodyText" align="right">Password:</td>
+             <td align="left"><input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+             <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
+          </tr>
       </table>
       </form>
          
