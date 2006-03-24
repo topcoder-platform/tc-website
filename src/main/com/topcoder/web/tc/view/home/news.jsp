@@ -23,6 +23,22 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>03.24.06<br>10:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">Using XMI Documenter</A></span><br><br>
+       This article will show how the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=20668655">XMI Documenter component</a> component can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.</td>
+      <td class="newsPhoto"><img src="/i/m/traugust_mug.gif" /><br>by <tc-webtag:handle coderId="15664457" context="development"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505953" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.23.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 4 Results for TCO06 Algorithm Competition</A>
@@ -191,52 +207,6 @@ Top 200 coders faced three pretty different problems this time. The easy was a c
        <tc-webtag:forumLink forumID="505950" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.15.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to TCO06 Round 3</A>
-      </span><br><br>
-      UBS will be in the arena prior to Round 3 of the TCO06 at 8:30PM, to discuss working at UBS.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.15.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Introducing Software Assembly Competitions</A>
-      </span><br><br>
-      Through these competitions, teams will create high quality applications using completed components and TopCoder's established competitive method.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505948" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.15.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Introducing Software Testing Competitions</A>
-      </span><br><br>
-      Through these competitions, participants will create high quality test code that will be used to ensure that the submissions received during each Assembly Competition meets the specified requirements and functionality.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
