@@ -59,7 +59,7 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerTimeExpRep">standings</A>
       </td>
       <td class="valueC">
-      0
+      2
       </td>
       <td class="valueC">
       03.28.2006 9:00 PM EST
@@ -85,7 +85,7 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerAdminTime">standings</A>
       </td>
       <td class="valueC">
-      0
+      1
       </td>
       <td class="valueC">
       03.28.2006 9:00 PM EST

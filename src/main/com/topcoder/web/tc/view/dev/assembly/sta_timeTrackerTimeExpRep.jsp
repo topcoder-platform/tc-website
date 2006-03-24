@@ -45,6 +45,32 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Status</td>
    </tr>
    <% boolean even = false; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Apeiron Team
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="15891862" /> (Team Captain)
+      <br><tc-webtag:handle coderId="20003257" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team Chinese Box
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="16096823" /> (Team Captain)
+      <br><tc-webtag:handle coderId="20543575" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 
 </td>
