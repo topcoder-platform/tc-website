@@ -30,8 +30,8 @@ public class Login extends FullLogin {
             setNextPage(Constants.VERISIGN_06_LOGIN_PAGE);
             setIsNextPageInContext(true);
         } else {
-            setNextPage(Constants.VERISIGN_06_REG_PAGE);
-            setIsNextPageInContext(true);
+            setNextPage(getSessionInfo().getServletPath()+"?"+Constants.MODULE_KEY+"="+Constants.VERISIGN_06_REG_MAIN);
+            setIsNextPageInContext(false);
         }
     }
 
