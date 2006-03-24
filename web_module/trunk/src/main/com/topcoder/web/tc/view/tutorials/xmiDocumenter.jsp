@@ -64,7 +64,7 @@ By&#160;<tc-webtag:handle coderId="15664457" context="development"/><br />
 
 
 <p>
-This package contains the source code for the demo described below, as well as a build file to compile and run it. <a href="/i/downloads/xmi_documenter_ui.zip">Download Demo</a>
+This <a href="/i/downloads/xmi_documenter_ui.zip">package</a> contains the source code for the demo described below, as well as a build file to compile and run it. 
 <br><br>
 <span class="bodySubtitle">1. Introduction</span><br>
 This article will show how the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=20668655">XMI Documenter component</a> can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.
