@@ -1,18 +1,17 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
+import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.ejb.survey.Response;
+import com.topcoder.web.tc.Constants;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.*;
 
 public class Submit extends View {
@@ -22,7 +21,8 @@ public class Submit extends View {
 
         try {
             if (getUser().isAnonymous())
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                throw new NavigationException("Sorry, you must be logged in to submit your response",
+                        getSessionInfo().getServletPath()+"/?"+Constants.MODULE_KEY+"=Login");
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
             } else if (isSRMSurvey() && !hasSurveyClosed()) {
