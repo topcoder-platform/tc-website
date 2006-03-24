@@ -1,26 +1,23 @@
 package com.topcoder.web.privatelabel.controller.request.verisign06;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.controller.request.FullRegBase;
+import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 22, 2006
  */
-public class Confirm extends FullRegBase {
+public class Confirm extends FullRegConfirm {
 
     protected static Logger log = Logger.getLogger(Confirm.class);
 
@@ -56,6 +53,9 @@ public class Confirm extends FullRegBase {
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         log.debug("called checkRegInfo");
+        //check the demographic information
+        super.checkRegInfo(info);
+
         //check handle
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
@@ -109,51 +109,7 @@ public class Confirm extends FullRegBase {
         if (info.getLastName().length() < 1) {
             addError(Constants.LAST_NAME, getBundle().getProperty("error_enter_last_name"));
         }
-
-                //check demographic answers
-        DemographicResponse r = null;
-        DemographicQuestion q = null;
-        try {
-            for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
-                r = (DemographicResponse) it.next();
-                q = findQuestion(r.getQuestionId(), getQuestions());
-                if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                        q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                    if (!validResponse(r)) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_choose_answer"));
-                    }
-                } else if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                    if (r.getText().length() > 255) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_shorter_answer"));
-                    } else if (q.isRequired() && r.getText().length() < 1) {
-                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), getBundle().getProperty("error_invalid_answer"));
-                    }
-                }
-            }
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-
-
-
-    }
-
-    private boolean validResponse(DemographicResponse response) throws Exception {
-        DataAccessInt dataAccess = getDataAccess(transDb, true);
-        Request r = new Request();
-        r.setContentHandle("demographic_answer_list");
-        r.setProperty("dq", String.valueOf(response.getQuestionId()));
-        r.setProperty("cm", String.valueOf(regInfo.getCompanyId()));
-        Map aMap = dataAccess.getData(r);
-        ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
-
-        ResultSetContainer.ResultSetRow aRow = null;
-        boolean found = false;
-        for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
-            aRow = (ResultSetContainer.ResultSetRow) it.next();
-            found = (aRow.getIntItem("demographic_answer_id") == response.getAnswerId());
-        }
-        return found;
+  
     }
 
 
