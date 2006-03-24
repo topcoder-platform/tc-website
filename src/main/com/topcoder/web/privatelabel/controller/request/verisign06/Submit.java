@@ -101,6 +101,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("To activate your account, navigate to the following WWW URL:\n\n");
 
                 buf.append(getUrl(code));
+                buf.append("\n\n");
 
                 buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
 
