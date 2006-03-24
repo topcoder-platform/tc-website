@@ -30,7 +30,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyColumn">
+<td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="testing"/>
@@ -46,6 +46,60 @@
       <td class="headerC" nowrap="nowrap">Status</td>
    </tr>
    <% boolean even = false; %>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="15072167" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="13265051" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="21183661" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="13392285" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="16164693" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="21392132" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 
 </td>
