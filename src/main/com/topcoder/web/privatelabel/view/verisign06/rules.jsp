@@ -47,10 +47,10 @@ Each competition room will have a maximum of 20 coders.
 <br/><br/>
 <b>When to start the Online Single Round Matches</b><br/>
 Registered members must register for the online Single Round Match. Registration is for two (2) hours
-and 55 minutes prior to the start of the round. Eastern Time. To register, login to the Arena applet,
+and 55 minutes prior to the start of the round. To register, login to the Arena applet,
 click on the 'Main' menu, and choose the option for 'Registration'. Members from all over the country
-will be participating in this event, but <em>all start times will be communicated as Eastern Time, so
-    contestants in different time zones must adjust accordingly</em>. All competitors who have registered
+will be participating in this event, but <em>all start times will be communicated as Eastern Time, so 
+contestants in different time zones must adjust accordingly</em>. All competitors who have registered
 for the round will be assigned to a specific room. TopCoder will perform the room assignments prior to
 the start of a round.
 <br/><br/>

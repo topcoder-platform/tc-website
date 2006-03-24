@@ -118,7 +118,7 @@ definitions that your solution must adhere to, all of the constraints for any in
 clarify the statement.
 <br/><br/>
 <strong>Choosing a Language</strong><br/>
-The Sponsor Track Competiton allows coders to utilize Java, C++, C# or Visual Basic as a competition programming
+The VeriSign Internal Coding Competitions allow coders to utilize Java, C++, C# or Visual Basic as a competition programming
 language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use
 any programming languages to solve each of the problems in a single competition. For this reason, you have the option of
 choosing the programming language from within the coding window. You can find the language selection area in the upper
@@ -314,8 +314,6 @@ have opened a problem). Remember that there is variable latency between your com
 it is ALWAYS best to perform any submissions with at least 30 seconds left on the timer.
 <br/><br/><br/>
 <span class="bodySubtitle">The Challenge Phase</span><br/>
-(Note: The qualification round does NOT include a challenge phase)
-<br/><br/>
 The Challenge Phase will begin five minutes after the end of the Coding Phase (the period in between is an
 intermission), and will last for 15 minutes.
 <br/><br/>

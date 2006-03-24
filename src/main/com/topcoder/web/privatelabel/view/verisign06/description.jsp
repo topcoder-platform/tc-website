@@ -26,7 +26,7 @@
 <br/><br/>
 Welcome to the 2006 VeriSign Internal Coding Competition! By participating, you can earn cash prizes and a seat at the first-ever VeriSign Technical Symposium (VTS) in Williamsburg, VA from June 11-13.
 <br/><br/>
-The internal coding competition is only one of the ways we can come together as a technical community.  In the upcoming months, you will receive even more information on the engineering community Web site, which will help all of us: 
+The Internal Coding Competition is only one of the ways we can come together as a technical community.  In the upcoming months, you will receive even more information on the engineering community Web site, which will help all of us: 
 <ul>
 <li>share information and code</li>
 <li>promote the development and use of best practices</li>
@@ -44,11 +44,11 @@ Down load the TopCoder&#174; Competition Arena (a Java Applet), read the problem
 <br/><br/>
 
 <b>Coding Phase</b><br/>
-At the designated date and time, competitors enter the Arena and are placed in groups of ten in virtual rooms. All participants are presented with the same set of three problems, which are increasingly difficult. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during the competition. 
+At the designated date and time, competitors enter the Arena and are placed in groups of 20 in virtual rooms. All participants are presented with the same set of three problems, which are increasingly difficult. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during the competition. 
 <br/><br/>
 
 <b>Challenge Phase</b><br/>
-During the Challenge Phase, competitors view their competition's code, as well as try to "break" it by passing test cases through the submitted code, with the hope that the results are not satisfied by the software that was written to solve the problem. Breaking another developer's code is the most form of competition for participants. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
+During the Challenge Phase, competitors view their competition's code, as well as try to "break" it by passing test cases through the submitted code, with the hope that the results are not satisfied by the software that was written to solve the problem. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
 <br/><br/>
 
 <b>System Tests</b><br/>
@@ -82,8 +82,8 @@ The arena is now open.
             </tr>
             <tr valign="top">
                <td class="sidebarText">SRM 2, May 17, 2006</td>
-               <td class="sidebarText">6:00 - 8:55 PM**</td>
-               <td class="sidebarText">9:00 PM**</td>
+               <td class="sidebarText">6:00 - 8:55 PM*</td>
+               <td class="sidebarText">9:00 PM*</td>
                <td class="sidebarText">All participants</td>
             </tr>
             <tr>
@@ -96,7 +96,7 @@ The arena is now open.
                <td class="sidebarText">Championship Round <br>5 participants</td>
             </tr>
             <tr valign="top">
-               <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br>**All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
+               <td class="sidebarText" colspan="4">*All times are Eastern Daylight Time. <br>NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
             </tr>
          </table>
 <br/>
