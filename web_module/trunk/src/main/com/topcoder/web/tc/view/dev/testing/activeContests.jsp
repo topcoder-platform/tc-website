@@ -59,7 +59,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerClientAdmin">standings</A>
       </td>
       <td class="valueC">
-      0
+      7
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
@@ -83,7 +83,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerExpenseUser">standings</A>
       </td>
       <td class="valueC">
-      0
+      8
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
@@ -107,7 +107,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerPerformanceGUI">standings</A>
       </td>
       <td class="valueC">
-      0
+      7
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
@@ -131,7 +131,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerProjectAdmin">standings</A>
       </td>
       <td class="valueC">
-      0
+      7
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
@@ -155,7 +155,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerReports">standings</A>
       </td>
       <td class="valueC">
-      0
+      6
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
@@ -179,7 +179,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerTime">standings</A>
       </td>
       <td class="valueC">
-      0
+      8
       </td>
       <td class="valueC">
       03.21.2006 09:00 PM EST
