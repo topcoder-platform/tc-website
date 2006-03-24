@@ -130,7 +130,7 @@ public class Confirm extends FullRegConfirm {
         } else {
             log.debug("found info in persistor, proceding with that");
             log.debug("company: " + info.getCompanyId() + " event: " + info.getEventId());
-            log.debug("info: " + info.toString());
+            log.debug("info: " + info.getFirstName() + " " + info.getLastName() + " " + info.getHandle());
         }
         if (hasRequestParameter(Constants.HANDLE))
             info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
