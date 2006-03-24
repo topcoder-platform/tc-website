@@ -25,7 +25,7 @@
             
       <span class="bigTitle">Registration</span>
       <br/><br/>
-      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>/pl/?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competitions.
+      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competitions.
       <br/><br/>
       <b>Update your registration information</b><br>
      
