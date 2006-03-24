@@ -40,6 +40,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.6 - 2006.03.xx
+        <ul>
+            <li>Don't redirect to login on a post.</li>
+        </ul>
+    </p>
+    <p>
         5.0.5 - 2006.03.22
         <ul>
             <li>The result set item tag for the case where the value is null.  Was being escaped to "".</li>
