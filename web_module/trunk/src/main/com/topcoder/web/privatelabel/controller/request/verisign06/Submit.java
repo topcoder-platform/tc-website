@@ -134,7 +134,6 @@ public class Submit extends FullRegSubmit {
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                //todo fix email
                 mail.setFromAddress("verisign@topcoder.com", "VeriSign Competitions Team");
                 log.info("sent registration email to " + info.getEmail());
                 EmailEngine.send(mail);
