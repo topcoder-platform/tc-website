@@ -208,7 +208,7 @@ The demo provided along with this article contains the class mentioned in the ar
 <i>NOTE: The default location for 3rd party packages is ../lib relative to this component installation.  Setting the ext_libdir property in topcoder_global.properties will overwrite this default location.</i>
 <br><br>
 
-<b>4.3 Dependencies Configuration</b>
+<b>4.3 Dependencies Configuration</b><br>
 Follow the instructions at <a href="https://jaxp.dev.java.net/Updating.html">https://jaxp.dev.java.net/Updating.html</a>, section "Using JAXP with version 1.4 of the Java 2 platform" to configure JAXP 1.3 for use with Java 1.4.  JAXP 1.3 is already included in Java 1.5, so nothing needs to be done for a Java 1.5 environment.
 In General the following steps are required:
 <ul>
@@ -231,9 +231,8 @@ Now two options exist depending on whether JAXP-1.3 shall be integrated in the J
 </li>
 <li>Actually the build file is aware of whether the JAXP 1.3 must be prepended to the boot class path and does so during compile and run, so under normal conditions only <tt>ant startdemo</tt> must be executed and the Jars are automatically added to the boot class path of compiler and JVM if JVM version is not 1.5 </li>
 </ul>
-<br>
 
-<span class="bodySubtitle">Running the demo</span><br>
+<b>4.4 Running the demo</span></b><br>
 To run the demo GUI simply call <tt>ant startdemo</tt>.  The window shows three buttons, load can be used to load an XMI file (*.zuml files must be unzipped before editing), then while navigating through the tree you can view and edit the documentation of the selected node in the edit area on the right hand side. At any time the current state of the XMI document can be saved using the save button. The third button highlights tree nodes in red if they either contain no documentation or if they contain children with no documentation.<br/>
 <a href="/i/downloads/xmi_documenter_ui.zip">Download Demo</a>
         </div>
