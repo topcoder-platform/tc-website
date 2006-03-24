@@ -26,7 +26,7 @@
 
 <span class="bigTitle">Instructions</span><br/><br/>
 <span class="bodySubtitle">How to Register</span><br>
-Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>/pl/?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register.
+Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register.
 <br><br>
 
 <span class="bodySubtitle">Loading the Competition Arena</span><br/>
