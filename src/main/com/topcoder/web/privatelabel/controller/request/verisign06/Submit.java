@@ -9,20 +9,58 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
+import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+
+import java.util.List;
+import java.util.Collections;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 22, 2006
  */
-public class Submit extends Confirm {
+public class Submit extends FullRegSubmit {
 
+
+   protected void registrationProcessing() throws TCWebException {
+
+        /*
+          don't need to check the data cuz it should have
+          already been done.  we got it all from the session
+          so it should be good
+        */
+        /* actually, we do need to check the handle, someone
+           may have taken in the meantime
+         */
+
+        try {
+            if (regInfo.isNew() && userExists(regInfo.getHandle())) {
+                addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
+                setDefaults(regInfo);
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), getLocale());
+                Collections.sort(l);
+                getRequest().setAttribute("questionList", l);
+            } else {
+                long newUser = commit(regInfo);
+                handleActivation(regInfo, newUser);
+                clearRegInfo();
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
+        setNextPage();
+    }
 
     protected void setNextPage() {
         if (hasErrors()) {
-            setNextPage(Constants.VERISIGN_06_REG_PAGE);
-            setIsNextPageInContext(true);
+            setNextPage(getSessionInfo().getSecureAbsoluteServletPath()+"?"+Constants.MODULE_KEY+"="+
+                    Constants.VERISIGN_06_REG_MAIN+"&"+Constants.EVENT_ID+"6&"+Constants.COMPANY_ID+"=17942");
+            setIsNextPageInContext(false);
         } else {
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             StringBuffer buf = new StringBuffer(150);
@@ -50,7 +88,7 @@ public class Submit extends Confirm {
 
                 TCSEmailMessage mail = new TCSEmailMessage();
 
-                mail.setSubject("IMPORTANT - Google Code Jam India Activation Email");
+                mail.setSubject("IMPORTANT - VeriSign Internal Coding Competitions Activation Email");
 
                 buf.append("Thank you for registering to participate in the VeriSign Internal Coding Competitions\n\n");
 

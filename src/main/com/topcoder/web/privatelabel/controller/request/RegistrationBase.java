@@ -12,14 +12,14 @@ import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicAnswer;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * Provides some functionality that is basic to all registration
@@ -35,6 +35,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
     private TCResourceBundle bundle = null;
     private Locale locale = null;
+    protected Map questions;
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -243,5 +244,114 @@ public abstract class RegistrationBase extends BaseProcessor {
         }
         return ret;
     }
+
+    protected static DemographicQuestion findQuestion(long questionId, Map questions) {
+        DemographicQuestion ret = null;
+        Long id = new Long(questionId);
+        if (questions.containsKey(id)) {
+            ret = (DemographicQuestion) ((DemographicQuestion) questions.get(id)).clone();
+        }
+        return ret;
+    }
+
+
+    /**
+     * get a map of questions.  key is a Long containing the question id.  value is the
+     * DemographicQuestion object.
+     * @param db
+     * @return
+     * @throws Exception
+     */
+    protected static Map getQuestions(String db, int coderTypeId, int companyId, Locale locale) throws Exception {
+        Request r = new Request();
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
+            r.setContentHandle("demographic_question_list");
+        } else {
+            r.setContentHandle(locale.getLanguage()+"_demographic_question_list");
+        }
+        r.setProperty("ct", String.valueOf(coderTypeId));
+        r.setProperty("cm", String.valueOf(companyId));
+        Map qMap = getDataAccess(db, true).getData(r);
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
+        ResultSetContainer.ResultSetRow row = null;
+
+        Map ret = new HashMap();
+        DemographicQuestion q = null;
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            q = makeQuestion(row, db, locale);
+            ret.put(new Long(q.getId()), q);
+        }
+        return ret;
+    }
+
+    protected Map getQuestions() {
+        try {
+            if (questions == null)
+                questions = getQuestions(transDb,((FullRegInfo) regInfo).getCoderType(),
+                        Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
+        } catch (Exception e) {
+
+            throw new RuntimeException("failed to get the questions \n" + e.getMessage());
+        }
+        return questions;
+    }
+
+
+    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db, Locale locale) throws Exception {
+        DemographicQuestion ret = new DemographicQuestion();
+        ret.setId(row.getLongItem("demographic_question_id"));
+        ret.setDesc(row.getStringItem("demographic_question_desc"));
+        ret.setText(row.getStringItem("demographic_question_text"));
+        ret.setSelectable(row.getStringItem("selectable"));
+        ret.setRequired(row.getItem("is_required").getResultData() != null && row.getIntItem("is_required") == 1);
+        ret.setSort(row.getIntItem("sort"));
+
+        DataAccessInt dataAccess = getDataAccess(db, true);
+        Request r = new Request();
+        if (locale.getLanguage().equals(Locale.US.getLanguage())) {
+            r.setContentHandle("demographic_answer_list");
+        } else {
+            r.setContentHandle(locale.getLanguage()+"_demographic_answer_list");
+        }
+        r.setProperty("dq", String.valueOf(ret.getId()));
+        r.setProperty("db", String.valueOf(db));
+        Map aMap = dataAccess.getData(r);
+        ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
+
+        ResultSetContainer.ResultSetRow aRow = null;
+        List answerList = new ArrayList(answers.size());
+        for (Iterator it = answers.iterator(); it.hasNext();) {
+            aRow = (ResultSetContainer.ResultSetRow) it.next();
+            answerList.add(makeAnswer(aRow));
+        }
+        ret.setAnswers(answerList);
+        return ret;
+    }
+
+    private static DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
+        DemographicAnswer ret = new DemographicAnswer();
+        ret.setAnswerId(row.getLongItem("demographic_answer_id"));
+        ret.setText(row.getStringItem("demographic_answer_text"));
+        ret.setQuestionId(row.getLongItem("demographic_question_id"));
+        ret.setSort(row.getIntItem("sort"));
+        return ret;
+    }
+
+    protected final List getQuestionList(int coderTypeId, Locale locale) throws Exception {
+        //in case we need the list before we've populated it.  this is most
+        //likely to happen in makeRegInfo()
+        if (questions == null)
+            questions = getQuestions(transDb, coderTypeId, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)),
+                    locale);
+        List ret = new ArrayList(questions.size());
+        DemographicQuestion q = null;
+        for (Iterator it = questions.values().iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            ret.add(q.clone());
+        }
+        return ret;
+    }
+
 
 }
