@@ -71,4 +71,4 @@
 </font>
 
 <br><br>
-<span class="bigRed"><A href="/pl/?module=Static&d1=gicj06&d2=advQual" class="bigRed">Click here</A> to see who qualified for Round 1!</span>
+<span class="bigRed"><A href="/pl/?module=Static&d1=gicj06&d2=advRound1" class="bigRed">Click here</A> to see who advanced to the Finals!</span>

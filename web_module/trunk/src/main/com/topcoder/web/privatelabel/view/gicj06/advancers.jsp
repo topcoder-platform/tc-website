@@ -2,8 +2,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj06.css"/>
     <title>Google Code Jam India, Powered by TopCoder</title>
 </head>
 
@@ -51,11 +52,11 @@
                             Round</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advQual">500</a></td>
                     </tr>
-<!--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1" class="topLink">Round 1</a></td>
-                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1">250</a></td>
+                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1">50</a></td>
                     </tr>
+<!--
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advRound2" class="topLink">Round 2</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound2">50</a></td>
