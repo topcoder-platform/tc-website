@@ -44,8 +44,8 @@
                     </tr>
                     <tr valign="top">
                         <td class="sidebarText">SRM 2 <br/>May 17, 2006</td>
-                        <td class="sidebarText">6:00 - 8:55 PM**</td>
-                        <td class="sidebarText">9:00 PM**</td>
+                        <td class="sidebarText">6:00 - 8:55 PM*</td>
+                        <td class="sidebarText">9:00 PM*</td>
                         <td class="sidebarText">All participants</td>
                     </tr>
                     <tr>
@@ -58,9 +58,8 @@
                         <td class="sidebarText">Championship Round <br/>5 participants</td>
                     </tr>
                     <tr valign="top">
-                        <td class="sidebarText" colspan="4">*All times are Eastern Standard Time. <br/>**All times are
-                            Eastern Daylight Time. <br/>NOTE: In the event that a round must be cancelled for any
-                            reason, the round will be held the following day at the same time.</td>
+                        <td class="sidebarText" colspan="4">*All times are Eastern Daylight Time. <br/>
+                        NOTE: In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
                     </tr>
                 </table>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
