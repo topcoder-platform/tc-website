@@ -204,6 +204,9 @@ public class Confirm extends FullRegConfirm {
             }
 
         }
+
+        log.debug("later info: " + info.getFirstName() + " " + info.getLastName() + " " + info.getHandle());
+
         return info;
     }
 
