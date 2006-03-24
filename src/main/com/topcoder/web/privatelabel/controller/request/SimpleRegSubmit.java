@@ -81,6 +81,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 store(regInfo);
                 tm.commit();
             } catch (Exception e) {
+                if (regInfo.isNew()&&!regInfo.isAccountConversion()) {
+                    regInfo.setUserId(0);
+                }
                 try {
                     if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
                         tm.rollback();
