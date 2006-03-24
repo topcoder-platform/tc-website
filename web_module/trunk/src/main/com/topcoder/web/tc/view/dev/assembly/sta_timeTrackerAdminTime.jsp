@@ -45,24 +45,22 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Status</td>
    </tr>
    <% boolean even = false; %>
-<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      Giants
+      Dragon Team
       </td>
       <td class="value">
-      <tc-webtag:handle coderId="8357090" /><br>
-      <tc-webtag:handle coderId="151743" /><br>
-      <tc-webtag:handle coderId="15518090" />
+      <tc-webtag:handle coderId="9977783" /> (Team Captain)
+      <br><tc-webtag:handle coderId="8395447" />
+      <br><tc-webtag:handle coderId="10683912" />
+      <br><tc-webtag:handle coderId="21389119" />
       </td>
       <td class="valueC" nowrap="nowrap">
       No submission
       </td>
    </tr>
    <% even = !even;%>
---%>
 </table>
-
 </td>
 <!-- Center Column Ends -->
 
