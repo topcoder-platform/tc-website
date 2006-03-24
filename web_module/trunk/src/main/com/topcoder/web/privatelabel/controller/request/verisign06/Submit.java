@@ -110,7 +110,11 @@ public class Submit extends FullRegSubmit {
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in any Single Round Matches (SRMs).  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.\n\n");
 
-                buf.append("You can access the practice rooms by navigating to  <URL> and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can access the practice rooms by navigating to ");
+                buf.append("http://");
+                buf.append(ApplicationServer.SERVER_NAME);
+                buf.append("/verisign");
+                buf.append(" and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("LAUNCHING THE ARENA\n");
                 buf.append("You can launch and login to the competition arena at the appropriate time by navigating to <URL> and clicking on the Competition Arena tab.\n\n");
