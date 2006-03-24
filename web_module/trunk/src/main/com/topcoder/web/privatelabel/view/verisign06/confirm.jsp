@@ -59,7 +59,7 @@
 
                     <tr>
                         <td class="bodyText" align="right">
-                            First Name
+                            Given Name
                         </td>
                         <td class="bodyText">
                             <jsp:getProperty name="regInfo" property="firstName"/>
@@ -68,7 +68,7 @@
 
                     <tr>
                         <td class="bodyText" align="right">
-                            Last Name
+                            Surname
                         </td>
                         <td class="bodyText">
                             <jsp:getProperty name="regInfo" property="lastName"/>
