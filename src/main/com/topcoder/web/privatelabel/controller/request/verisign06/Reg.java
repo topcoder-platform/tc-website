@@ -25,6 +25,7 @@ public class Reg extends FullRegBase {
             List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), getLocale());
             Collections.sort(l);
             getRequest().setAttribute("questionList", l);
+            setDefaults(regInfo);
             setNextPage();
         } catch (Exception e) {
             throw new TCWebException(e);
