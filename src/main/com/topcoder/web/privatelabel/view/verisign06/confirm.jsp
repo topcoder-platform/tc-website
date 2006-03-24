@@ -45,7 +45,7 @@
 
                     <tr>
                         <td align="center" colspan="2">
-                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.VERISIGN_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit</a>
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.VERISIGN_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&amp;<%=Constants.EVENT_ID%>=<jsp:getProperty name="regInfo" property="eventId"/>">edit</a>
                         </td>
                     </tr>
                     <tr>
