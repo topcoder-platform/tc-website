@@ -3,15 +3,14 @@ package com.topcoder.web.privatelabel.controller.request.verisign06;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegBase;
 import com.topcoder.web.privatelabel.controller.request.SimpleRegBase;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author dok
@@ -39,7 +38,7 @@ public class Reg extends FullRegBase {
     }
 
 
-    protected void setDefaults(SimpleRegInfo info) {
+/*    protected void setDefaults(SimpleRegInfo info) {
         log.debug("setting defaults");
         setDefault(Constants.HANDLE, info.getHandle());
         setDefault(Constants.PASSWORD, info.getPassword());
@@ -92,9 +91,7 @@ public class Reg extends FullRegBase {
             setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
         }
 
-
-
-    }
+    }*/
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         SimpleRegInfo info = getRegInfoFromPersistor();
