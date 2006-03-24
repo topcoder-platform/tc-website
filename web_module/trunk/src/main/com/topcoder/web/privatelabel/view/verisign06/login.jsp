@@ -1,4 +1,6 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@  page language="java"  %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -23,7 +25,7 @@
             
       <span class="bigTitle">Registration</span>
       <br/><br/>
-      Click <A href="/pl/?module=Static&d1=verisign06&d2=reg">here</a> to register for the VeriSign Internal Coding Competitions.
+      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>/pl/?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competitions.
       <br/><br/>
       <b>Update your registration information</b><br>
      
