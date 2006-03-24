@@ -48,7 +48,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
             <td class="bodyText" align="right" width="50%" nowrap>
                 * Handle
             </td>
-            <td align="left" width="50%">
+            <td align="left" width="50%" class="bodyText">
                 <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
             </td>
         </tr>
