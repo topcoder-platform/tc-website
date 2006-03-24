@@ -1,7 +1,6 @@
 package com.topcoder.web.privatelabel.controller.request.verisign06;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegBase;
@@ -94,34 +93,9 @@ public class Reg extends FullRegBase {
     }*/
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        SimpleRegInfo info = getRegInfoFromPersistor();
-        if (info == null) {
-            log.debug("didn't find info in persistor, proceding with info from request");
-            info = new FullRegInfo();
-        } else {
-            log.debug("found info in persistor, proceding with that");
-            log.debug("company: " + info.getCompanyId() + " event: " + info.getEventId());
-        }
-        if (hasRequestParameter(Constants.HANDLE))
-            info.setHandle(StringUtils.checkNull(getRequestParameter(Constants.HANDLE)));
-        if (hasRequestParameter(Constants.PASSWORD))
-            info.setPassword(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD)));
-        if (hasRequestParameter(Constants.PASSWORD_CONFIRM))
-            info.setPasswordConfirm(StringUtils.checkNull(getRequestParameter(Constants.PASSWORD_CONFIRM)));
-        if (hasRequestParameter(Constants.EMAIL))
-            info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
-        if (hasRequestParameter(Constants.EMAIL_CONFIRM))
-            info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
-        if (hasRequestParameter(Constants.FIRST_NAME))
-            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
-        if (hasRequestParameter(Constants.LAST_NAME))
-            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
-        if (hasRequestParameter(Constants.COMPANY_ID))
-            info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
-        if (hasRequestParameter(Constants.EVENT_ID))
-            info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
-        ((FullRegInfo)info).setCoderType(Constants.PROFESSIONAL);
-        return info;
+        SimpleRegInfo ret = super.makeRegInfo();
+        ((FullRegInfo)ret).setCoderType(Constants.PROFESSIONAL);
+        return ret;
     }
 
 }
