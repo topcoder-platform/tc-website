@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
@@ -17,6 +18,8 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Collections;
 
 /**
  * @author dok
@@ -24,6 +27,21 @@ import java.util.Iterator;
  *          Create Date: Mar 22, 2006
  */
 public class Login extends FullLogin {
+
+    protected void registrationProcessing() throws TCWebException {
+        try {
+            if (!hasErrors()) {
+                List l = getQuestionList(((FullRegInfo) regInfo).getCoderType(), getLocale());
+                Collections.sort(l);
+                getRequest().setAttribute("questionList", l);
+                setDefaults(regInfo);
+            }
+            setNextPage();
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
 
     protected void setNextPage() {
         if (hasErrors()) {
