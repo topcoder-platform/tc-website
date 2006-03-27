@@ -37,30 +37,10 @@ The Internal Coding Competition is only one of the ways we can come together as 
 The VeriSign Internal Coding Competition consists of Single Round Matches (SRM) <b>exclusively for VeriSign employees</b>.  The SRM is a timed contest where participants compete online to solve the same problems under the same time constraints. You can compete in Java, C++, C#, or VB.
 
 <br/><br/>
-<span class="bodySubtitle">How a Single Round Match Works:</span><br/>
-
-<b>Download the Arena</b><br/>
-Down load the TopCoder&#174; Competition Arena (a Java Applet), read the problem statements, then code solutions, compile and test those solutions, and, finally, submit the code for points. You may download the arena ahead of time to practice on sample problems before the actual competition.
+<span class="bodySubtitle">See how a Single Round Match (SRM) works and how to register to compete <a href="/pl/?module=Static&d1=verisign06&d2=instructions">here</a>.</span>
 <br/><br/>
-
-<b>Coding Phase</b><br/>
-At the designated date and time, competitors enter the Arena and are placed in groups of 20 in virtual rooms. All participants are presented with the same set of three problems, which are increasingly difficult. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during the competition. 
-<br/><br/>
-
-<b>Challenge Phase</b><br/>
-During the Challenge Phase, competitors view their competition's code, as well as try to "break" it by passing test cases through the submitted code, with the hope that the results are not satisfied by the software that was written to solve the problem. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
-<br/><br/>
-
-<b>System Tests</b><br/>
-Within minutes of the end of the Challenge Phase, the automated objective system tests to determine the accuracy of all submissions and award final points to competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against the competition. 
-<br/><br/>
-
-See the <a href="/pl/?module=Static&d1=verisign06&d2=instructions">Instructions</a> section for details on how to register and compete.
-<br/><br/>
-
-<span class="bodySubtitle">Current Events</span><br/>
-The arena is now open. 
-<br/><br/>
+<span class="bodySubtitle">Current Events Schedule:</span><br/>
+<br/>
 
          <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
@@ -103,7 +83,7 @@ The arena is now open.
 The top two scores from each SRM will be invited to compete in the final round on June 13, 2006 at the first-ever VeriSign Technical Symposium.<br/><br/>
 
 <a name="prizes"></a>
-<span class="bodySubtitle">SRM Prizes</span><br/>
+<span class="bodySubtitle">Prizes:</span><br/>
 Cash prizes are as follows for each SRM: 
 <br/><br/>
 
