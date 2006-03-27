@@ -46,7 +46,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" width="50%" nowrap>
-                * Handle
+                <span class="errorText">*</span> Handle
             </td>
             <td align="left" width="50%" class="bodyText">
                 <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
@@ -60,7 +60,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Given Name
+                <span class="errorText">*</span> Given Name
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="15" maxlength="50"/>
@@ -80,7 +80,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Surname
+                <span class="errorText">*</span> Surname
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="15" maxlength="50"/>
@@ -94,7 +94,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Password
+                <span class="errorText">*</span> Password
             </td>
             <td class="bodyText" align="left">
                 <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
@@ -109,7 +109,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Confirm Password
+                <span class="errorText">*</span> Confirm Password
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
@@ -122,7 +122,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Email Address
+                <span class="errorText">*</span> Email Address
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
@@ -136,7 +136,7 @@ Register for the VeriSign Internal Coding Competitions:<br/><br/>
         </tr>
         <tr>
             <td class="bodyText" align="right" nowrap>
-                * Confirm Email Address
+                <span class="errorText">*</span> Confirm Email Address
             </td>
             <td align="left">
                 <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
