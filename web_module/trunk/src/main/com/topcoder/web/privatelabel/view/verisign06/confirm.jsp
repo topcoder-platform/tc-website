@@ -44,7 +44,7 @@
                     <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
 
                     <tr>
-                        <td align="center" colspan="2">
+                        <td align="center" colspan="2" class="bodyText">
                             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.VERISIGN_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>&amp;<%=Constants.EVENT_ID%>=<jsp:getProperty name="regInfo" property="eventId"/>">edit</a>
                         </td>
                     </tr>
