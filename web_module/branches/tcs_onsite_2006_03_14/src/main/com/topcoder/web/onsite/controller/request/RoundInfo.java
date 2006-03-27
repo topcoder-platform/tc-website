@@ -27,7 +27,7 @@ import com.topcoder.shared.netCommon.messages.MessagePacket;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve competitions to wager on.
+ * A processor to handle RequestComponentRoundInfo requests from the Spectator front-end.
  * 
  * @author pulky
  * @version 1.0
@@ -57,14 +57,14 @@ public class RoundInfo extends BaseProcessor {
 
     /**
      * Process the ComponentRoundInfo request.
-     * 
+     * Retrieves information from DB and builds the objects to return them as xml encoded messages.
      */
     protected void businessProcessing() throws Exception {
         // decodes request
         RequestComponentRoundInfo requestComponentRoundInfo = 
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
-        // retrieves data
+        // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getContestID());
 
         ResultSetContainer rscComponentData = (ResultSetContainer)m.get(Constants.COMPONENT_DATA_QUERY);
@@ -80,6 +80,7 @@ public class RoundInfo extends BaseProcessor {
         // builds the objects to be returned
         ComponentData componentData = null;
         if (rscComponentData.size() > 0) {
+            // ComponentID is mirrored from the request as requested by the front-end application
             componentData  = new ComponentData(
                 requestComponentRoundInfo.getComponentID(), 
                 rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
@@ -118,6 +119,7 @@ public class RoundInfo extends BaseProcessor {
         }
         
         // creates DefineComponentContest instance
+        // ContestID and RoundID are mirrored from the request as requested by the front-end application
         DefineComponentContest defineComponentContest = new DefineComponentContest(
             requestComponentRoundInfo.getContestID(), 
             requestComponentRoundInfo.getRoundID(),
@@ -127,7 +129,7 @@ public class RoundInfo extends BaseProcessor {
         
         // adds first message for DefineComponentContest.
         MessagePacket mp = new MessagePacket();
-        //TODO mp.add(defineComponentContest);                            ******* DefineComponentContest does not implement Message??
+        //TODO mp.add(defineComponentContest);          ******* DefineComponentContest does not implement Message??
 
         // adds all ComponentScoreUpdate messages.
         if (rscComponentScore.size() > 0) {
@@ -136,6 +138,8 @@ public class RoundInfo extends BaseProcessor {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 
+                // ContestID, RoundID and ComponentID are mirrored 
+                // from the request as requested by the front-end application
                 mp.add(new ComponentScoreUpdate(
                     requestComponentRoundInfo.getContestID(),
                     requestComponentRoundInfo.getRoundID(),
@@ -150,7 +154,7 @@ public class RoundInfo extends BaseProcessor {
         //TODO String xmlString = MessageUtil.encodeXMLMessage(mp);        ******* cannot encode MessagePackets??
         String xmlString = null;
         
-        getResponse().setContentType("text/xml");
+        getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
         //TODO how retrieve the xml?

@@ -48,26 +48,44 @@ public class Constants implements WebConstants {
     public static String WAGER_AMOUNT;
     public static int MIN_WAGER_AMOUNT;
     public static int MAX_WAGER_AMOUNT;
+    public static int TOTAL_WAGER_POINTS;
+    public static String RESPONSE_CONTENT_TYPE;
+    
+    /* messages */
     public static String MIN_WAGER_AMOUNT_MESSAGE;
     public static String MAX_WAGER_AMOUNT_MESSAGE;
     public static String INVALID_WAGER_FORMAT_MESSAGE;
     public static String SUCCESSFULL_WAGER_MESSAGE;
     public static String INVALID_PROJECT_MESSAGE;
+    
+    /* commands */
     public static String VIEW_WAGER_COMPETITIONS_COMMAND;
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
+    public static String COMPONENT_ROUND_INFO_COMMAND;
+
+    /* queries */
     public static String ACTUAL_TCO_CONTESTS_QUERY;
     public static String REMAINING_TCO_CONTESTS_QUERY;
     public static String USED_WAGER_POINTS_QUERY;
     public static String WAGER_HISTORY_QUERY;
-    public static int TOTAL_WAGER_POINTS;
-    
+    public static String COMPONENT_DATA_QUERY;
+    public static String COMPONENT_CODER_QUERY;
+    public static String REVIEWER_DATA_QUERY;
+    public static String COMPONENT_SCORE_QUERY;
+        
     /* columns */
     public static String CONTEST_NAME_COL;
     public static String PROJECT_ID_COL;
     public static String REMAINING_CONTESTS_COL;
     public static String USED_POINTS_COL;
     public static String WAGER_AMOUNT_COL;
-
+    public static String COMPONENT_NAME_COL;
+    public static String CATALOG_COL;
+    public static String CODER_ID_COL;
+    public static String HANDLE_COL;
+    public static String RANK_COL;
+    public static String REVIEWER_ID_COL;
+    public static String SCORE_COL;
 
     static {
         initialize();
