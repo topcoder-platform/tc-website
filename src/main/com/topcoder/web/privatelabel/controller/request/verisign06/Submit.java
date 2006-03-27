@@ -82,6 +82,13 @@ public class Submit extends FullRegSubmit {
     protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
             if (info.isNew()) {
+
+                StringBuffer url = new StringBuffer(80);
+                url.append("http://");
+                url.append(ApplicationServer.SERVER_NAME);
+                url.append("/verisign");
+
+
                 StringBuffer buf = new StringBuffer(1000);
                 User user = (User) createEJB(getInitialContext(), User.class);
                 String code = user.getActivationCode(userId, db);
@@ -111,20 +118,18 @@ public class Submit extends FullRegSubmit {
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in any Single Round Matches (SRMs).  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.\n\n");
 
                 buf.append("You can access the practice rooms by navigating to ");
-                buf.append("http://");
-                buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/verisign");
+                buf.append(url);
                 buf.append(" and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("LAUNCHING THE ARENA\n");
-                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to <URL> and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to ");
+                buf.append(url);
+                buf.append(" and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
 
                 buf.append("We also suggest that you read up on the competition process by navigating to ");
-                buf.append("http://");
-                buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/verisign");
+                buf.append(url);
                 buf.append(" and clicking the Instructions link at the top.\n\n");
 
                 buf.append("If you have any questions about how to participate, please email them to verisign@topcoder.com\n\n");
