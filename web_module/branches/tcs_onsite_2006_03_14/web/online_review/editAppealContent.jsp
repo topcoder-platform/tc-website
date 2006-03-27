@@ -173,6 +173,14 @@ The following items can NOT be appealed:
                       <html:textarea property="appealResponse" rows="10" cols="60"/>
                     </td>
                   </tr>
+                  <tr>
+                    <td class="forumTextOdd" colspan="2">
+                      <strong>Appeal Result:</strong><br>
+                      <html:textarea property="appealResponse" rows="10" cols="60"/>
+                      <html:radio property="appealResult" value="true"/>Successful&nbsp;<br/>
+                      <html:radio property="appealResult" value="false"/>Denied&nbsp;<br/>
+                    </td>
+                  </tr>
 </logic:present>
 <%-- Else just write current appealResponse if resolved --%>
 <logic:notPresent name="reviewerEdit">
