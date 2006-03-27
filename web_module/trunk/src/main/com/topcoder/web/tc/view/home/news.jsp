@@ -23,6 +23,26 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.27.06<br>9:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm294">SRM 294 - Problem Set & Analysis</A></span><br><br>
+SRM 294 attracted a record-breaking 1029 participants.
+Boosted by 4 successful challenges, <tc-webtag:handle coderId="10574855" context="algorithm"/> scored his third Division 1
+victory out of the last five matches,
+followed closely by <tc-webtag:handle coderId="251074" context="algorithm"/> and <tc-webtag:handle coderId="279471" context="algorithm"/> in second and third place.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm294">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505860" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>03.24.06<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -194,19 +214,6 @@ Top 200 coders faced three pretty different problems this time. The easy was a c
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.15.06<br>12:00 noon</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors & LogicLibrary create governance platform</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
-"Service-oriented architecture vendors Blue Titan Software, TopCoder and Metallect have joined forces with LogicLibrary to support an end-to-end approach to SOA governance, from development through deployment."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505950" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
