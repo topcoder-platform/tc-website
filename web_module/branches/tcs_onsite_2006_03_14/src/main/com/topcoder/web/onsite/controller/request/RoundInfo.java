@@ -32,12 +32,12 @@ import com.topcoder.shared.netCommon.messages.MessagePacket;
  * @author pulky
  * @version 1.0
  */
-public class ComponentRoundInfoProcessor extends BaseProcessor {
+public class RoundInfo extends BaseProcessor {
 
     /**
      * The logger to log to.
      */
-    private static final Logger log = Logger.getLogger(ComponentRoundInfoProcessor.class);
+    private static final Logger log = Logger.getLogger(RoundInfo.class);
 
     /**
      * Retrieves data from the DB to the requestor.
@@ -82,8 +82,8 @@ public class ComponentRoundInfoProcessor extends BaseProcessor {
         if (rscComponentData.size() > 0) {
             componentData  = new ComponentData(
                 requestComponentRoundInfo.getComponentID(), 
-                rscComponentData.getStringItem(0, "component_name"),
-                rscComponentData.getStringItem(0, "category_name"));            
+                rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
+                rscComponentData.getStringItem(0, Constants.CATALOG_COL));            
         }
 
         ArrayList componentCoderList = null;
@@ -95,10 +95,10 @@ public class ComponentRoundInfoProcessor extends BaseProcessor {
             while (it.hasNext()) {
                  rsr = (ResultSetContainer.ResultSetRow) it.next();
                 componentCoderList.add(new ComponentCoder(
-                    rsr.getIntItem("user_id"), 
-                    rsr.getStringItem("handle"), 
-                    rsr.getIntItem("new_rating"), 
-                    rsr.getIntItem("wager_amount")));
+                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    rsr.getStringItem(Constants.HANDLE_COL), 
+                    rsr.getIntItem(Constants.RANK_COL), 
+                    rsr.getIntItem(Constants.WAGER_AMOUNT_COL)));
             }
         }
         
@@ -111,9 +111,9 @@ public class ComponentRoundInfoProcessor extends BaseProcessor {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 reviewerDataList.add(new CoderData(
-                    rsr.getIntItem("user_id"), 
-                    rsr.getStringItem("handle"), 
-                    rsr.getIntItem("new_rating")));
+                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    rsr.getStringItem(Constants.CODER_ID_COL), 
+                    rsr.getIntItem(Constants.RANK_COL)));
             }
         }
         
@@ -140,14 +140,19 @@ public class ComponentRoundInfoProcessor extends BaseProcessor {
                     requestComponentRoundInfo.getContestID(),
                     requestComponentRoundInfo.getRoundID(),
                     requestComponentRoundInfo.getComponentID(), 
-                    rsr.getIntItem("submitter_id"), 
-                    rsr.getIntItem("author_id"),
-                    rsr.getIntItem("score")));
+                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    rsr.getIntItem(Constants.REVIEWER_ID_COL),
+                    rsr.getIntItem(Constants.SCORE_COL)));
             }
         }
         
         // encodes and retrieves the messages packet
         //TODO String xmlString = MessageUtil.encodeXMLMessage(mp);        ******* cannot encode MessagePackets??
+        String xmlString = null;
+        
+        getResponse().setContentType("text/xml");
+        getResponse().getOutputStream().print(xmlString);
+        getResponse().flushBuffer();
         //TODO how retrieve the xml?
     }
 }
