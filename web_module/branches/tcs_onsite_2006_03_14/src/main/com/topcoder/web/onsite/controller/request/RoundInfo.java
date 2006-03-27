@@ -127,9 +127,12 @@ public class RoundInfo extends BaseProcessor {
             componentCoderList, 
             reviewerDataList);
         
-        // adds first message for DefineComponentContest.
-        MessagePacket mp = new MessagePacket();
-        //TODO mp.add(defineComponentContest);          ******* DefineComponentContest does not implement Message??
+        // encodes and retrieves the message packets
+        getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
+        
+        // first adds message for DefineComponentContest.
+        String xmlString = MessageUtil.encodeXMLMessage(defineComponentContest);
+        getResponse().getOutputStream().print(xmlString);
 
         // adds all ComponentScoreUpdate messages.
         if (rscComponentScore.size() > 0) {
@@ -140,23 +143,17 @@ public class RoundInfo extends BaseProcessor {
                 
                 // ContestID, RoundID and ComponentID are mirrored 
                 // from the request as requested by the front-end application
-                mp.add(new ComponentScoreUpdate(
+                xmlString = MessageUtil.encodeXMLMessage(new ComponentScoreUpdate(
                     requestComponentRoundInfo.getContestID(),
                     requestComponentRoundInfo.getRoundID(),
                     requestComponentRoundInfo.getComponentID(), 
                     rsr.getIntItem(Constants.CODER_ID_COL), 
                     rsr.getIntItem(Constants.REVIEWER_ID_COL),
                     rsr.getIntItem(Constants.SCORE_COL)));
+                
+                getResponse().getOutputStream().print(xmlString);
             }
         }
-        
-        // encodes and retrieves the messages packet
-        //TODO String xmlString = MessageUtil.encodeXMLMessage(mp);        ******* cannot encode MessagePackets??
-        String xmlString = null;
-        
-        getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
-        getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
-        //TODO how retrieve the xml?
     }
 }
