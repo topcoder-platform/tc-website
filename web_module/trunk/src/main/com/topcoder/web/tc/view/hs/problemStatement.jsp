@@ -109,11 +109,11 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 0)
    <div class="bodyIndented">
    <pre>
-   { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
-   
-   "16"
-   
-   Returns: "17"
+{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+
+"16"
+
+Returns: "17"
    </pre>
    With all digits available, the next number is 17.
    </div>
@@ -123,11 +123,11 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 1)
    <div class="bodyIndented">
    <pre>
-   { 0, 1, 2, 3, 4, 5, 6, 8, 9 }
-   
-   "16"
-   
-   Returns: "18"
+{ 0, 1, 2, 3, 4, 5, 6, 8, 9 }
+
+"16"
+
+Returns: "18"
    </pre>
    The digit 7 is no longer allowed, so the next smallest valid integer is 18.
    </div>
