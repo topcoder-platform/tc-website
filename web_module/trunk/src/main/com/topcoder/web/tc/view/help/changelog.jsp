@@ -43,6 +43,7 @@
         5.0.6 - 2006.03.xx
         <ul>
             <li>Don't redirect to login on a post.</li>
+            <li>VeriSign Internal Competition Site</li>
         </ul>
     </p>
     <p>
