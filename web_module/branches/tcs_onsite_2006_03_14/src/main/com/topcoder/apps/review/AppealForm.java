@@ -7,6 +7,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.MessageResources;
 
@@ -267,7 +268,7 @@ public final class AppealForm extends ReviewForm {
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
 
-        if (!successful.equals("successful") and !successful.equals("denied")) {
+        if (!successful.equals("successful") && !successful.equals("denied")) {
             errors.add("appealResult",
                 new ActionError("error.appealResult.required"));
         }
