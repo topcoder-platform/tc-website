@@ -51,6 +51,7 @@
         <ul>
             <li>Don't redirect to login on a post.</li>
             <li>VeriSign Internal Competition Site</li>
+            <li>Allow sponsor images to link</li>
         </ul>
     </p>
     <p>
