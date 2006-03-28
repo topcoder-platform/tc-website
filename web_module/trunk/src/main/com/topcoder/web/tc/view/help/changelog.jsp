@@ -40,6 +40,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.7 - 2006.03.28
+        <ul>
+            <li>Fix bug where login with invalid username would generate error page rather than nice message.</li>
+            <li>Fix bug where password wouldn't get updated on an update.</li>
+        </ul>
+    </p>
+    <p>
         5.0.6 - 2006.03.27
         <ul>
             <li>Don't redirect to login on a post.</li>
