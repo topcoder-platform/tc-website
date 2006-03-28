@@ -191,8 +191,7 @@ The following items can NOT be appealed:
                     </td>
                   </tr>
                   <tr>
-                    <td class="forumTextOdd" colspan="2">
-                    <bean:write name="appealForm" property="appeal.successful" />
+                    <td class="appealResult" colspan="2">
                       <logic:equal name="appealForm" property="appeal.successful" value="true">
                         <strong>Appeal Succeeded.</strong>
                       </logic:equal>
