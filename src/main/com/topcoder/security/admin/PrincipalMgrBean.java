@@ -345,6 +345,12 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public UserPrincipal editPassword(UserPrincipal user, String password, TCSubject requestor)
             throws GeneralSecurityException {
+        return editPassword(user, password, requestor, DATA_SOURCE);
+    }
+
+
+    public UserPrincipal editPassword(UserPrincipal user, String password, TCSubject requestor, String dataSource)
+            throws GeneralSecurityException {
         checkLength(password, 31);
         logger.debug("UserPrincipal.editPassword");
         String encPassword = Util.encodePassword(password, "users");
@@ -355,7 +361,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setString(1, encPassword);
             ps.setLong(2, userId);
@@ -369,6 +375,8 @@ public class PrincipalMgrBean extends BaseEJB {
         }
         return user;
     }
+
+
 
     public Collection getGroups(TCSubject requestor)
             throws GeneralSecurityException {

@@ -57,6 +57,9 @@ public interface PrincipalMgrRemote extends EJBObject {
     public abstract UserPrincipal editPassword(UserPrincipal userprincipal, String s, TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 
+    public abstract UserPrincipal editPassword(UserPrincipal userprincipal, String s, TCSubject tcsubject, String dataSource)
+            throws RemoteException, GeneralSecurityException;
+
     public abstract Collection getGroups(TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 

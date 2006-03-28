@@ -52,6 +52,9 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
     public abstract UserPrincipal editPassword(UserPrincipal userprincipal, String s, TCSubject tcsubject)
             throws GeneralSecurityException;
 
+    public abstract UserPrincipal editPassword(UserPrincipal userprincipal, String s, TCSubject tcsubject, String dataSource)
+            throws GeneralSecurityException;
+
     public abstract Collection getGroups(TCSubject tcsubject)
             throws GeneralSecurityException;
 
