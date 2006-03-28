@@ -70,7 +70,8 @@ The following items can NOT be appealed:
               <table class="forumBkgd" cellspacing="1" cellpadding="0" width="70%" border="0">
                 <tbody>
                   <tr>
-                    <td class="errorText" colspan="2"></td>
+                  
+                    <td class="errorText" colspan="2"><html:errors/></td>
                   </tr>
                   <tr>
                     <td class="forumTextEven" nowrap><strong>Appeal Submission Form</strong></td>
@@ -193,10 +194,10 @@ The following items can NOT be appealed:
                   <tr>
                     <td class="appealResult" colspan="2">
                       <logic:equal name="appealForm" property="appeal.successful" value="true">
-                        <strong>Appeal Succeeded.</strong>
+                        <strong>Appeal Succeeded</strong>
                       </logic:equal>
                       <logic:equal name="appealForm" property="appeal.successful" value="false">
-                        <strong>Appeal denied.</strong>
+                        <strong>Appeal denied</strong>
                       </logic:equal>
                     </td>
                   </tr>
