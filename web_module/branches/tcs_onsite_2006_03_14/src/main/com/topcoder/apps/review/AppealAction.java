@@ -11,6 +11,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForwards;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.LabelValueBean;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -129,6 +131,11 @@ public final class AppealAction extends ReviewAction {
             //((AppealForm) form).setAction(action);
 
             request.getSession().setAttribute(mapping.getAttribute(), form);
+
+            ArrayList appealResults = new ArrayList(); 
+            appealResults.add(new LabelValueBean("Successful", "true")); 
+            appealResults.add(new LabelValueBean("Denied", "false")); 
+            request.setAttribute("appealResults", appealResults);
 
             saveToken(request);
 
