@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -15,8 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Form bean for the appeal page.
  *
- * @author FatClimber
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * successful flag was added
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author FatClimber, Pulky
+ * @version 1.0.1
  */
 
 public final class AppealForm extends ReviewForm {
@@ -50,6 +59,13 @@ public final class AppealForm extends ReviewForm {
     private Evaluation[] evaluations = null;
 
     private Appeal appeal = null;
+    
+     /**
+      * The appeal result flag.
+      * @since 1.0.1
+      */
+    private boolean successful = false;
+
     // ----------------------------------------------------------- Properties
 
     /**
@@ -195,6 +211,23 @@ public final class AppealForm extends ReviewForm {
     public String[] getResponseAnswers() {
         return responseAnswers;
     }
+    
+    /**
+     * @return Returns the successful flag.
+     * @since 1.0.1
+     */
+    public boolean getSuccessful() {
+        return successful;
+    }
+
+    /**
+     * @param successful The successful flag to set.
+     * @since 1.0.1
+     */
+    public void setSuccessful(boolean successful) {
+        this.successful = successful;
+    }
+    
 // --------------------------------------------------------- Constructor
 
     /**
@@ -253,6 +286,7 @@ public final class AppealForm extends ReviewForm {
     protected AppealData toAppealData(OnlineReviewProjectData orpd) {
         appeal.setAppealText(this.appealText);
         appeal.setAppealResponse(this.appealResponse);
+        appeal.setSuccessful(this.successful);
         return new AppealData(orpd,
                 new Appeal[]{appeal},
                 appeal.getAppealer().getId(),
@@ -266,7 +300,8 @@ public final class AppealForm extends ReviewForm {
         this.appeal = appeal;
         this.appealText = appeal.getAppealText();
         this.appealResponse = appeal.getAppealResponse();
-
+        this.successful = appeal.getSuccessful();
+        
         // Prepare the values for the <html:options>
         responseTypes = new BusinessDelegate().getResponseTypes();
         this.responseAnswers = new String[responseTypes.length];
