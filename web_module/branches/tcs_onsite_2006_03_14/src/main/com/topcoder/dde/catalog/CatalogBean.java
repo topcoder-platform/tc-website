@@ -1,12 +1,6 @@
 /*
- * CatalogBean.java
- * 26 August 2002
- * 1.0
- *
- * Copyright (c) 2002, TopCoder, Inc.
- * All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 
 package com.topcoder.dde.catalog;
 
@@ -33,6 +27,7 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.util.config.*;
+import com.topcoder.dde.catalog.Catalog;
 
 import javax.ejb.*;
 import javax.naming.Context;
@@ -56,8 +51,29 @@ import java.util.Date;
 /**
  * The implementation of the methods of CatalogEJB.
  *
- * @version 1.0, 26 August 2002
- * @author  Albert Mao
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * searchComponents(), getUniqueCategoryNames(), getBaseCategories(), getAllComponents() were updated to allow
+ * filtering components and categories to only public ones.
+ * </li>
+ * <li>
+ * Parent category retrieval was added to getCategorySummary().
+ * </li>
+ * <li>
+ * getComponent() was fixed to use constant COMPONENT and not COMPONENTS_BY_STATUS. (DDEComponent didn't showed
+ * component description)
+ * </li>
+ * <li>
+ * Class was updated to deal with the new user_role description attribute.
+ * </li>
+ * <li>
+ * Class was updated to deal with the elimination of tcsrating attribute.
+ * </li>
+ * </ol>
+ *
+ * @author Albert Mao, pulky
+ * @version 1.0.1
  * @see     Catalog
  * @see     CatalogHome
  */
@@ -160,10 +176,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             log.debug("blah");
 /*
             /** SECURITY MANAGER
-    		Hashtable principalMgrEnvironment=new Hashtable();
-    		principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-    		principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
-    		Context principalMgrContext = new InitialContext(principalMgrEnvironment);
+            Hashtable principalMgrEnvironment=new Hashtable();
+            principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+            principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
+            Context principalMgrContext = new InitialContext(principalMgrEnvironment);
 */
 
             principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.
@@ -265,8 +281,24 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CatalogSearchView(results);
     }
 
-    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology, String[] category)
-            throws RemoteException, CatalogException, NamingException, SQLException {
+    /**
+     * <p>Searches catalog with the given parameters.</p>
+     *
+     * @param searchtext String with the text to search.
+     * @param status status Ids to narrow the search.
+     * @param catalog catalog Ids to narrow the search.
+     * @param technology technology Ids to narrow the search.
+     * @param category categories name to narrow the search.
+     * @param onlyPublic true to retrieve only public components.
+     * @return a <code>CatalogSearchView</code> with the retrieved components.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws CatalogException for invalid parameters.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     *
+     * @version 1.0.1
+     */
+    public CatalogSearchView searchComponents(String searchtext, long[] phase, long[] catalog, long[] technology,
+         String[] category, boolean onlyPublic)throws RemoteException, CatalogException, NamingException, SQLException {
 
         if (searchtext == null) {
             throw new CatalogException("Null specified for search text");
@@ -304,6 +336,11 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("   AND ( NOT ( cat.status_id = ? ) )              ");
         query.append("   AND x.component_id = comp.component_id         ");
         query.append("   AND x.category_id = cat.category_id            ");
+
+        if (onlyPublic) {
+            query.append("   AND cat.viewable = 1                       ");
+        }
+
 
         ArrayList elements = new ArrayList();
         elements.add(new Long(ComponentInfo.APPROVED));
@@ -460,12 +497,28 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 //        }
 //    }
 
-    public String[] getUniqueCategoryNames(boolean includeBaseCategories) throws RemoteException, NamingException, SQLException {
+    /**
+     * <p>Gets all category names including or not base and visible categories.</p>
+     *
+     * @param includeBaseCategories true to include base categories.
+     * @param onlyPublic true to retrieve only public categories.
+     * @return a <code>String[]</code> collection with the retrieved categories names.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     *
+     * @version 1.0.1
+     */
+    public String[] getUniqueCategoryNames(boolean includeBaseCategories, boolean onlyPublic)
+        throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT UNIQUE category_name FROM categories ");
         query.append(" WHERE ( NOT ( status_id = ? ) )              ");
         if (!includeBaseCategories) query.append(" AND ( NOT ( parent_category_id IS NULL ) ) ");
+
+        if (onlyPublic) {
+            query.append("   AND viewable = 1                       ");
+        }
         query.append(" ORDER BY 1 ");
 
         Connection c = null;
@@ -509,11 +562,25 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return (String[]) results.toArray(new String[0]);
     }
 
-    public Category[] getBaseCategories() throws RemoteException, NamingException, SQLException {
+    /**
+     * <p>Gets all base categories including or not visible ones.</p>
+     *
+     * @param onlyPublic true to retrieve only public categories.
+     * @return a <code>Category[]</code> collection with the retrieved categories.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     *
+     * @version 1.0.1
+     */
+    public Category[] getBaseCategories(boolean onlyPublic) throws RemoteException, NamingException, SQLException {
 
         StringBuffer query = new StringBuffer(200);
         query.append("SELECT category_id, category_name, description FROM categories ");
         query.append(" WHERE status_id <> ? ");
+
+        if (onlyPublic) {
+            query.append("   AND viewable = 1                       ");
+        }
         query.append("   AND parent_category_id IS NULL ORDER BY 2 ");
 
         Connection c = null;
@@ -637,6 +704,18 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return summaries;
     }
 
+    /**
+     * Returns summary information for the current version of each components in
+     * the specified category. The summaries are returned in alphabetical order
+     * by component name.
+     *
+     * @param categoryId the primary key of the category
+     * @return a CategorySummary containing all the ComponentSummaries of the specified category recursively.
+     * @throws RemoteException if a system-level failure causes the remote
+     * method call to fail
+     * @throws CatalogException if the specified category does not exist in the
+     * catalog, or if the summary information cannot be retrieved
+     */
     public CategorySummary getCategorySummary(long categoryId)
             throws RemoteException, CatalogException,
             NamingException, SQLException {
@@ -656,11 +735,27 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
     }
 
+    /**
+     * Returns summary information for the current version of each components in
+     * the specified category. The summaries are returned in alphabetical order
+     * by component name.
+     *
+     * @param categoryId the primary key of the category
+     * @param c the connection to the DB
+     * @return a CategorySummary containing all the ComponentSummaries of the specified category recursively.
+     * @throws RemoteException if a system-level failure causes the remote
+     * method call to fail
+     * @throws CatalogException if the specified category does not exist in the
+     * catalog, or if the summary information cannot be retrieved
+     *
+     * @version 1.0.1
+     */
     private CategorySummary getCategorySummary(long categoryId, Connection c)
             throws RemoteException, CatalogException, SQLException {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
+        long parent = 0;
         String name = null;
         String description = null;
         List components = new ArrayList();
@@ -668,7 +763,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         CategorySummary[] categories;
 
         StringBuffer query = new StringBuffer(200);
-        query.append("SELECT category_name, description ");
+        query.append("SELECT category_name, description, parent_category_id ");
         query.append("  FROM categories ");
         query.append(" WHERE category_id = ? ");
 
@@ -683,6 +778,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             else {
                 name = rs.getString(1);
                 description = rs.getString(2);
+                parent = rs.getLong(3);
             }
 
         } finally {
@@ -787,10 +883,20 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             }
         }
 
-        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories);
+        return new CategorySummary(categoryId, name, description, (ComponentSummary[]) components.toArray(new ComponentSummary[0]), categories, parent);
     }
 
-    public ComponentSummary[] getAllComponents()
+    /**
+     * <p>Gets all components.</p>
+     *
+     * @param onlyPublic true to retrieve only public components.
+     * @return a <code>CatalogSearchView</code> with the retrieved components.
+     * @throws RemoteException if a system-level failure causes the remote method call to fail.
+     * @throws SQLException if a sql-level failure causes the method to fail.
+     *
+     * @version 1.0.1
+     */
+    public ComponentSummary[] getAllComponents(boolean onlyPublic)
             throws RemoteException, CatalogException, SQLException, NamingException {
 
         Connection c = null;
@@ -799,15 +905,22 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         List components = new ArrayList();
 
         StringBuffer query = new StringBuffer(600);
-        query.append("SELECT comp.component_id, comp.short_desc,    ");
-        query.append("       comp.component_name, comp.description, ");
-        query.append("       comp.status_id, v.comp_vers_id,        ");
-        query.append("       v.version, v.version_text, v.phase_id, ");
-        query.append("       v.phase_time, v.price, v.comments,     ");
-        query.append("       comp.root_category_id                  ");
-        query.append("  FROM comp_versions v, comp_catalog comp     ");
-        query.append(" WHERE v.version = comp.current_version       ");
-        query.append("   AND v.component_id = comp.component_id     ");
+        query.append("SELECT comp.component_id, comp.short_desc,        ");
+        query.append("       comp.component_name, comp.description,     ");
+        query.append("       comp.status_id, v.comp_vers_id,            ");
+        query.append("       v.version, v.version_text, v.phase_id,     ");
+        query.append("       v.phase_time, v.price, v.comments,         ");
+        query.append("       comp.root_category_id                      ");
+        query.append("  FROM comp_versions v, comp_catalog comp,        ");
+        query.append("       categories cat                             ");
+        query.append(" WHERE v.version = comp.current_version           ");
+        query.append("   AND v.component_id = comp.component_id         ");
+        query.append("   AND comp.root_category_id = cat.category_id    ");
+
+        if (onlyPublic) {
+            query.append("   AND cat.viewable = 1                       ");
+        }
+
         query.append("   AND comp.status_id = ?          ORDER BY 3 ");
 
         try {
@@ -1122,8 +1235,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
             query = new StringBuffer(500);
             query.append("SELECT ur.user_role_id, ur.login_id, s.user_id,                ");
-            query.append("       r.role_id, r.role_name, r.description, ur.tcs_rating    ");
-            query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v,  ");
+            query.append("       r.role_id, r.role_name, r.description, ur.description   ");
+            query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v, ");
             query.append("       security_user s                                         ");
             query.append(" WHERE r.role_id = ur.role_id                                  ");
             query.append("   AND c.component_id = ? AND c.component_id = v.component_id  ");
@@ -1145,7 +1258,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 while (rs.next())
                     list.add(new TeamMemberRole(rs.getLong(1),
                             rs.getLong(2), rs.getString(3), rs.getLong(4),
-                            rs.getString(5), rs.getString(6), rs.getInt(7)));
+                            rs.getString(5), rs.getString(6), rs.getString(7)));
 
                 members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
 
@@ -1353,6 +1466,19 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             " and cc.current_version = cv.version ";
 
 
+    /**
+     * Returns the summary information for the current version of the specified
+     * component.
+     *
+     * @param componentId the primary key of the component
+     * @return a <code>ComponentSummary</code> object
+     * @throws RemoteException if a system-level failure causes the remote
+     * method call to fail
+     * @throws CatalogException if the specified component cannot be found in
+     * the catalog, or if the summary information cannot be retrieved
+     *
+     * @version 1.0.1
+     */
     public ComponentSummary getComponent(long componentId)
             throws CatalogException, NamingException, SQLException {
 
@@ -1361,7 +1487,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         PreparedStatement ps = null;
         try {
             conn = getConnection();
-            ps = conn.prepareStatement(COMPONENTS_BY_STATUS);
+            ps = conn.prepareStatement(COMPONENT);
             ps.setLong(1, componentId);
             rs = ps.executeQuery();
 
@@ -1641,7 +1767,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     new Long(request.getUserId()));
             LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
                     new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create(0, user, newVersion, roleBean);
+            userroleHome.create("", user, newVersion, roleBean);
         } catch (ConfigManagerException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(

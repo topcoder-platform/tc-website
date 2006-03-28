@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review;
 
@@ -27,8 +27,17 @@ import java.util.List;
  * to generate the text.
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.2
  */
 public class ShowDeliverableTag extends BaseTag {
 
@@ -255,9 +264,9 @@ public class ShowDeliverableTag extends BaseTag {
                         com.topcoder.apps.review.document.FinalReview finalReview = null;
 
                         // Create a project to hold the projectId that will be used by getFinalReview
-                        Project project = new Project(projectId,0,0,0,null,null,null,null,null,null,
-                                                        roles,null,null,null,null,false,
-                                                        0,0,0,0,0,false);
+                        Project project = new Project(projectId, 0, 0, 0, null, null, null, null, null, null,
+                                                        roles, null, null, null, null, false,
+                                                        0, 0, 0, 0, 0, false, false);
 
                         finalReview = documentManager.getFinalReview(project, false, new TCSubject(user.getId()));
 

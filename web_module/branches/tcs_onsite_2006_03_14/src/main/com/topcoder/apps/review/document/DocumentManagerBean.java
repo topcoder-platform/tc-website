@@ -756,6 +756,7 @@ public class DocumentManagerBean implements SessionBean {
 
             // If scorecard is completed and the user isn't admin/pm,
             // or reviewer in appeals-phase
+            // or reviewer in appeal phase with project marked as allowing appelas response during appealse
             // then don't allow save!
             if (scorecardIsCompleted &&
                     !(Common.isAdmin(requestor) ||
@@ -4434,7 +4435,7 @@ public class DocumentManagerBean implements SessionBean {
                 int totalTests = rs.getObject(14) == null? - 1 : rs.getInt(14);
                 int totalPass = rs.getObject(15) == null? - 1 : rs.getInt(15);
                 boolean successful = rs.getObject(16) == null? false : rs.getBoolean(16);
-                
+
                 if (!(Common.isAdmin(requestor) ||
                         Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) {
                     // Only retrieve where requestor is reviewer or appealer
@@ -4569,6 +4570,10 @@ public class DocumentManagerBean implements SessionBean {
                     + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());
                 permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
             }
+
+            // if project allows appeals responses during appeal phase, appeals can't be edited.
+            boolean responseDuringAppeals = project.getResponseDuringAppeals();
+            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;
 
             // If appeal is resolved and the user isn't admin/pm,
             // then don't allow save!
