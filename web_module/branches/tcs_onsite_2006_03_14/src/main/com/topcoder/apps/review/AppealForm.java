@@ -64,7 +64,7 @@ public final class AppealForm extends ReviewForm {
       * The appeal result flag.
       * @since 1.0.1
       */
-    private boolean successful = false;
+    private String successful = "";
 
     // ----------------------------------------------------------- Properties
 
@@ -216,7 +216,7 @@ public final class AppealForm extends ReviewForm {
      * @return Returns the successful flag.
      * @since 1.0.1
      */
-    public boolean getSuccessful() {
+    public String getSuccessful() {
         return successful;
     }
 
@@ -224,7 +224,7 @@ public final class AppealForm extends ReviewForm {
      * @param successful The successful flag to set.
      * @since 1.0.1
      */
-    public void setSuccessful(boolean successful) {
+    public void setSuccessful(String successful) {
         this.successful = successful;
     }
     
@@ -286,7 +286,7 @@ public final class AppealForm extends ReviewForm {
     protected AppealData toAppealData(OnlineReviewProjectData orpd) {
         appeal.setAppealText(this.appealText);
         appeal.setAppealResponse(this.appealResponse);
-        appeal.setSuccessful(this.successful ? "true" : "false");
+        appeal.setSuccessful((new Boolean(this.successful)).booleanValue());
         return new AppealData(orpd,
                 new Appeal[]{appeal},
                 appeal.getAppealer().getId(),
@@ -300,7 +300,7 @@ public final class AppealForm extends ReviewForm {
         this.appeal = appeal;
         this.appealText = appeal.getAppealText();
         this.appealResponse = appeal.getAppealResponse();
-        this.successful = appeal.getSuccessful();
+        this.successful = Boolean.toString(appeal.getSuccessful());
         
         // Prepare the values for the <html:options>
         responseTypes = new BusinessDelegate().getResponseTypes();
