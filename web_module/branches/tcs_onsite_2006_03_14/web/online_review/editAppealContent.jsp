@@ -176,7 +176,6 @@ The following items can NOT be appealed:
                   <tr>
                     <td class="forumTextOdd" colspan="2">
                       <strong>Appeal Result:</strong><br>
-                      <html:textarea property="appealResponse" rows="10" cols="60"/>
                       <html:radio property="successful" value="true"/>Successful&nbsp;<br/>
                       <html:radio property="successful" value="false"/>Denied&nbsp;<br/>
                     </td>
