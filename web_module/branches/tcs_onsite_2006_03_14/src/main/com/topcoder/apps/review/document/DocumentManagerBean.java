@@ -40,8 +40,15 @@ import java.util.*;
  * </li>
  * </ol>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * added successful flag to appeals.
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -4326,12 +4333,12 @@ public class DocumentManagerBean implements SessionBean {
             ", s.author_id" +
             ", sub.submitter_id" +
             ", rur.r_user_role_id " +
-", a.raw_evaluation_id " +
-", e.evaluation_name " +
-", e.value " +
-", a.raw_total_tests " +
-", a.raw_total_pass " +
-
+            ", a.raw_evaluation_id " +
+            ", e.evaluation_name " +
+            ", e.value " +
+            ", a.raw_total_tests " +
+            ", a.raw_total_pass " +
+            ", a.successful " +
             "FROM appeal a " +
             ", scorecard_question sq " +
             ", scorecard s " +
@@ -4426,8 +4433,8 @@ public class DocumentManagerBean implements SessionBean {
 
                 int totalTests = rs.getObject(14) == null? - 1 : rs.getInt(14);
                 int totalPass = rs.getObject(15) == null? - 1 : rs.getInt(15);
-
-
+                boolean successful = rs.getObject(16) == null? false : rs.getBoolean(16);
+                
                 if (!(Common.isAdmin(requestor) ||
                         Common.isRole(project, requestor.getUserId(), Role.ID_PRODUCT_MANAGER))) {
                     // Only retrieve where requestor is reviewer or appealer
@@ -4444,7 +4451,7 @@ public class DocumentManagerBean implements SessionBean {
 
                 Appeal appeal = new Appeal(appealId, appealText, appealResponse,
                         isResolved, question, appealer, submitter, reviewer, submissionId,
-                        appealerSubmissionId, appealVersionId, evaluation, totalTests, totalPass);
+                        appealerSubmissionId, appealVersionId, evaluation, totalTests, totalPass, successful);
 
                 appealList.add(appeal);
             }
@@ -4498,7 +4505,7 @@ public class DocumentManagerBean implements SessionBean {
                     User reviewer = Common.getUser(dataSource, reviewerId);
                     Appeal appeal = new Appeal(-1, null, null,
                             false, question, appealer, submitter, reviewer,
-                            submissionId, submissionId,  -1, evaluation, totalTests, totalPass);
+                            submissionId, submissionId,  -1, evaluation, totalTests, totalPass, false);
                     appealList.add(appeal);
                 }
             }
@@ -4671,10 +4678,10 @@ public class DocumentManagerBean implements SessionBean {
                             "appealer_id, question_id, " +
                             "is_resolved, appeal_text, " +
                             "appeal_response, modify_user, raw_evaluation_id,  " +
-                            "raw_total_tests, raw_total_pass, " +
+                            "raw_total_tests, raw_total_pass, successful, " +
                             "cur_version) " +
                             "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
 
                     if (Common.tooBig(appeal.getAppealText()) ||
                             Common.tooBig(appeal.getAppealResponse())) {
@@ -4714,6 +4721,8 @@ public class DocumentManagerBean implements SessionBean {
                         ps.setInt(10, appeal.getRawTotalPass());
                     }
 
+                    ps.setBoolean(11, appeal.getSuccessful());
+                    
                     int nr = ps.executeUpdate();
 
                     if (nr != 1) {
