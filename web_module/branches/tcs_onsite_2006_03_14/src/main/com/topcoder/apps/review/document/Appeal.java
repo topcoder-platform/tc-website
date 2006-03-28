@@ -309,11 +309,13 @@ public class Appeal implements Serializable {
      * @param successful The successful flag to set.
      * @since 1.0.1
      */
-    public void setSuccessful(boolean successful) {
-        if (!this.successful == successful) {
-            this.successful = successful;
+    public void setSuccessful(String successful) {
+        
+        //if (!this.successful == successful) {
+            this.successful = (new Boolean(successful)).booleanValue();
+            
             this.dirtyFlag = true;
-        }
+        //}
     }
     
     /* (non-Javadoc)
