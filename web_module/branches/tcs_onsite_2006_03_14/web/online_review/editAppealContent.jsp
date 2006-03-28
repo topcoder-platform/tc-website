@@ -70,7 +70,6 @@ The following items can NOT be appealed:
               <table class="forumBkgd" cellspacing="1" cellpadding="0" width="70%" border="0">
                 <tbody>
                   <tr>
-                  
                     <td class="errorText" colspan="2"><html:errors/></td>
                   </tr>
                   <tr>
