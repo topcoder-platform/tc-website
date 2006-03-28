@@ -286,7 +286,8 @@ public final class AppealForm extends ReviewForm {
     protected AppealData toAppealData(OnlineReviewProjectData orpd) {
         appeal.setAppealText(this.appealText);
         appeal.setAppealResponse(this.appealResponse);
-        appeal.setSuccessful(this.successful == "successful" ? true : false);
+        System.out.println(this.successful);
+        appeal.setSuccessful(this.successful.equals("successful") ? true : false);
         return new AppealData(orpd,
                 new Appeal[]{appeal},
                 appeal.getAppealer().getId(),
