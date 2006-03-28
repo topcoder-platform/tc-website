@@ -178,8 +178,8 @@ The following items can NOT be appealed:
                       <strong>Appeal Result:</strong><br>
 
                         
-                      <html:radio property="successful" value="true2"/>Successful&nbsp;<br/>
-                      <html:radio property="successful" value="false2"/>Denied&nbsp;<br/>
+                      <html:radio property="successful" value="TRuE"/>Successful&nbsp;<br/>
+                      <html:radio property="successful" value="FALsE"/>Denied&nbsp;<br/>
                     </td>
                   </tr>
 </logic:present>
