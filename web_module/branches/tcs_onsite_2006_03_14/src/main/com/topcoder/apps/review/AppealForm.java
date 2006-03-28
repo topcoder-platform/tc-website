@@ -270,7 +270,7 @@ public final class AppealForm extends ReviewForm {
 
         if (!successful.equals("successful") && !successful.equals("denied")) {
             errors.add("appealResult",
-                new ActionError("error.appealResult.required"));
+                new ActionError("error.messageText.required"));
         }
 /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
