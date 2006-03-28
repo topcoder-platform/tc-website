@@ -56,7 +56,7 @@ public class Login extends FullLogin {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-        FullRegInfo info;
+        FullRegInfo info=null;
         User user = (User) createEJB(getInitialContext(), User.class);
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
@@ -78,40 +78,40 @@ public class Login extends FullLogin {
             }
         }
 
-        info = getCommonInfo(getUser().getId(), db);
-        info.setNew(false);
-        info.setUserId(getUser().getId());
+        if (!hasErrors()) {
+            info = getCommonInfo(getUser().getId(), db);
+            info.setNew(false);
+            info.setUserId(getUser().getId());
 
-        info.setCoderType(coder.getCoderTypeId(getUser().getId(), db));
+            info.setCoderType(coder.getCoderTypeId(getUser().getId(), db));
 
-        //load up the demographic information
-        Response response = (Response) createEJB(getInitialContext(), Response.class);
-        ResultSetContainer responses = response.getResponses(getUser().getId(), db);
+            //load up the demographic information
+            Response response = (Response) createEJB(getInitialContext(), Response.class);
+            ResultSetContainer responses = response.getResponses(getUser().getId(), db);
 
-        log.debug(responses.toString());
+            log.debug(responses.toString());
 
-        ResultSetContainer.ResultSetRow row;
+            ResultSetContainer.ResultSetRow row;
 
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow) it.next();
-            DemographicResponse r = new DemographicResponse();
-            r.setQuestionId(row.getLongItem("demographic_question_id"));
-            r.setSort(row.getIntItem("sort"));
-            if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id") > 0)
-            {
-                r.setAnswerId(row.getLongItem("demographic_answer_id"));
-            } else {
-                r.setText(row.getStringItem("demographic_response"));
+            for (Iterator it = responses.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                DemographicResponse r = new DemographicResponse();
+                r.setQuestionId(row.getLongItem("demographic_question_id"));
+                r.setSort(row.getIntItem("sort"));
+                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id") > 0)
+                {
+                    r.setAnswerId(row.getLongItem("demographic_answer_id"));
+                } else {
+                    r.setText(row.getStringItem("demographic_response"));
+                }
+                info.addResponse(r);
+
             }
-            info.addResponse(r);
-
+            CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
+            if (cs.exists(getUser().getId(), db)) {
+                info.setSchoolId(cs.getSchoolId(getUser().getId(), db));
+            }
         }
-        CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
-        if (cs.exists(getUser().getId(), db)) {
-            info.setSchoolId(cs.getSchoolId(getUser().getId(), db));
-        }
-
-
         return info;
 
     }
