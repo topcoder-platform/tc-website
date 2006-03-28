@@ -269,8 +269,8 @@ public final class AppealForm extends ReviewForm {
         ActionErrors errors = new ActionErrors();
 
         if (!successful.equals("successful") && !successful.equals("denied")) {
-            errors.add("appealResult",
-                new ActionError("error.messageText.required"));
+            errors.add("successful",
+                new ActionError("error.appealResult.required"));
         }
 /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
