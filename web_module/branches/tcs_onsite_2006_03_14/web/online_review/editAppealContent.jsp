@@ -176,10 +176,8 @@ The following items can NOT be appealed:
                   <tr>
                     <td class="forumTextOdd" colspan="2">
                       <strong>Appeal Result:</strong><br>
-
-                        
-                      <html:radio property="successful" value="TRuE"/>Successful&nbsp;<br/>
-                      <html:radio property="successful" value="FALsE"/>Denied&nbsp;<br/>
+                      <html:radio property="successful" value="TRUE"/>Successful&nbsp;<br/>
+                      <html:radio property="successful" value="FALSE"/>Denied&nbsp;<br/>
                     </td>
                   </tr>
 </logic:present>
