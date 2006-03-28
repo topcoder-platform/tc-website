@@ -267,6 +267,10 @@ public final class AppealForm extends ReviewForm {
                                  HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
 
+        if (!successful.equals("successful") and !successful.equals("denied")) {
+            errors.add("appealResult",
+                new ActionError("error.appealResult.required"));
+        }
 /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
             errors.add("subject",
