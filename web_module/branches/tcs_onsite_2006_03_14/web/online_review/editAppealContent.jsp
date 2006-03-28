@@ -176,11 +176,7 @@ The following items can NOT be appealed:
                   <tr>
                     <td class="forumTextOdd" colspan="2">
                       <strong>Appeal Result:</strong><br>
-                      
-                        <!--logic:iterate id="row" name="appealResults"> 
-                          <html:radio property="successful" value="value" idName="row"/> 
-                          <bean:write name="row" property="label"/> 
-                        </logic:iterate-->
+
                         
                       <html:radio property="successful" value="true2"/>Successful&nbsp;<br/>
                       <html:radio property="successful" value="false2"/>Denied&nbsp;<br/>
