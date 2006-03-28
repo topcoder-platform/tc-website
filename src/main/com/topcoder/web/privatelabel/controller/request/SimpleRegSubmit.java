@@ -75,6 +75,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
                         newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER, db);
                         regInfo.setUserId(newUser.getId());
                     }
+                } else {
+                    UserPrincipal myUser = mgr.getUser(regInfo.getUserId(), db);
+                    mgr.editPassword(myUser, regInfo.getPassword(), CREATE_USER, db);
                 }
                 tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
