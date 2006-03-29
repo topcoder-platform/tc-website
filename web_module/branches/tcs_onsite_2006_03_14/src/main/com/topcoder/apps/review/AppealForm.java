@@ -332,16 +332,16 @@ public final class AppealForm extends ReviewForm {
                 System.out.println("Phase.ID_APPEALS!!! " + Phase.ID_APPEALS);
                 System.out.println("Phase.ID_APPEALS_RESPONSE!!! " + Phase.ID_APPEALS_RESPONSE);
                 System.out.println("appeal.isResolved()!!! " + appeal.isResolved());
-                
 
                 if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                    (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
+                        (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                     request.setAttribute("appealerEdit", new Boolean(true));
                 } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
-                        !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                    // if project is marked as allow responses during appeals phase, permit the edition.
+                    !appeal.isResolved() && (phaseId == Phase.ID_APPEALS_RESPONSE || (phaseId == Phase.ID_APPEALS &&
+                        responseDuringAppeals))) {
                     request.setAttribute("reviewerEdit", new Boolean(true));
                 }
-
             }
         }
         //plk
