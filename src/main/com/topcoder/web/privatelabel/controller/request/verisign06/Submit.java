@@ -89,14 +89,13 @@ public class Submit extends FullRegSubmit {
                 url.append("/verisigninternal");
 
 
-                StringBuffer buf = new StringBuffer(1000);
                 User user = (User) createEJB(getInitialContext(), User.class);
                 String code = user.getActivationCode(userId, db);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-
                 mail.setSubject("IMPORTANT - VeriSign Internal Coding Competitions Activation Email");
 
+                StringBuffer buf = new StringBuffer(1000);
                 buf.append("Thank you for registering to participate in the VeriSign Internal Coding Competitions\n\n");
 
                 buf.append("VERISIGN INTERNAL CODING COMPETITIONS ACTIVATION INFORMATION\n\n");
