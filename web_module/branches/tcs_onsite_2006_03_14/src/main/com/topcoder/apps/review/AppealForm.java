@@ -273,6 +273,9 @@ public final class AppealForm extends ReviewForm {
             setValid(false);
             errors.add("successful",
                 new ActionError("error.appealResult.required"));
+            
+        //plk
+        System.out.println("Validate!!!");
         }
 /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
