@@ -71,6 +71,34 @@
       </td>
    </tr>
    <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team ACCTiVe
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="11845638" /> (Team Captain)
+      <br><tc-webtag:handle coderId="21464942" />
+      <br><tc-webtag:handle coderId="11928943" />
+      <br><tc-webtag:handle coderId="13251393" />
+      <br><tc-webtag:handle coderId="21465175" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team V
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="15729786" /> (Team Captain)
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 
 </td>
