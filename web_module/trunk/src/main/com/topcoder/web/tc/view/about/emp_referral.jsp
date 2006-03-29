@@ -37,13 +37,13 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="about_tc"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Working at TopCoder"/> 
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
+        <jsp:include page="/page_title.jsp" >
+            <jsp:param name="image" value="about"/>
+            <jsp:param name="title" value=""/>
         </jsp:include>
-<br><br>
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
                     <td align="center"><img src="/i/about/emp_ref_promo.jpg" alt="" width="500" height="135" border="0" /></td>
