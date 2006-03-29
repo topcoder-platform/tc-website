@@ -15,49 +15,125 @@ import org.htmlparser.Attribute;
 import org.htmlparser.util.ParserException;
 
 /**
- * <p>A Filter that takes a string which may contain HTML tags (ie, &lt;table&gt;, etc) and converts the
- * '<', '>' and '&' characters to their HTML escape sequences. If block mode is enabled HTML will
- * only be escaped inside of [html] [/html] blocks.</p>
- *
- * <p>This filter has the ability to allow specific HTML tags to pass through the filter when
- * not used in block mode. By default the following tags are allowed to bypass the filter:<ul><tt>
- *
- * &lt;annot&gt;, &lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;blockquote&gt;, &lt;b&gt;,
- * &lt;br&gt;, &lt;div&gt;, &lt;em&gt;, &lt;font&gt;, &lt;h1&gt; - &lt;h6&gt;, &lt;hr&gt;,
- * &lt;i&gt;, &lt;img&gt;, &lt;li&gt;, &lt;ol&gt;, &lt;p&gt;, &lt;s&gt;, &lt;span&gt;,
- * &lt;strike&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;strong&gt;, &lt;tt&gt;, &lt;u&gt;, &lt;ul&gt; </tt></ul></p>
- *
- * <p>Note: if you have this filter enabled you do <b>not</b> also need to have the {@link Newline} filter
- * enabled. This HTML filter will filter newline characters ('\n' or '\r\n') when the filter input does not
- * contain any HTML tags.</p>
+ * This filter adds the following options to Jive's default HTML filter:
+ * 1) Remove (escape/strip) attributes except for those explicitly allowed.
+ * 2) Remove specific keywords in tags.
  */
-public class TCHTMLFilter extends HTMLFilter {
+public class TCHTMLFilter implements Filter {
 
     // Filter properties //
-
     private boolean onlyFilterBlocksEnabled = false;
     private boolean stripDisallowedTags = false;
     private boolean allowSymbols = true;
     private String allowedTagsString = "";
     private String disallowedTagsString = "";
+    private String allowedAttributesString = "";
+    private String disallowedKeywordsString = "";
 
-    // Other vars //
-
-    private String blockStart = "<pre>";
-    private String blockEnd = "</pre>";
-
+    private Hashtable allowedAttributes = new Hashtable();
+    private List disallowedKeywords = new ArrayList();
     private List allowedTags = new ArrayList();
     private List disallowedTags = new ArrayList();
-
+    
+    //  Other vars //
+    private String blockStart = "<pre>";
+    private String blockEnd = "</pre>";
+    
+    public static String[] DEFAULT_ALLOWED_TAGS = {"annot","a","abbr","acronym","blockquote","b","br","em",
+            "font","i","img","li","ol","p","pre","s","strike","sub","sup","strong","table","td","tr",
+            "tt","u","ul"};
+    public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~","st1:~"};
+    public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href","img:src,height,width"};
+    public static String[] DEFAULT_DISALLOWED_KEYWORDS = {"javascript"};
+    
     /**
      * Creates a new default HTML filter.
      */
     public TCHTMLFilter() {
-        super();
+        for (int i=0; i<DEFAULT_ALLOWED_TAGS.length; i++) {
+            allowedTags.add(DEFAULT_ALLOWED_TAGS[i]);
+        }
+        for (int i = 0; i < allowedTags.size(); i++) {
+            allowedTagsString += allowedTags.get(i);
+            if (i != allowedTags.size()-1) {
+                allowedTagsString += ","; 
+            }
+        }
+
+        for (int i=0; i<DEFAULT_DISALLOWED_TAGS.length; i++) {
+            disallowedTags.add(DEFAULT_DISALLOWED_TAGS[i]);
+        }
+        for (int i = 0; i < disallowedTags.size(); i++) {
+            disallowedTagsString += disallowedTags.get(i);
+            if (i != disallowedTags.size()-1) {
+                disallowedTagsString += ","; 
+            }
+        }
+        
+        for (int i=0; i<DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
+            String[] ss = DEFAULT_ALLOWED_ATTRIBUTES[i].split(":");
+            ArrayList values = new ArrayList(Arrays.asList(ss[1].split(",")));
+            allowedAttributes.put(ss[0], values);
+        }
+        for (int i=0; i<DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
+            allowedAttributesString += DEFAULT_ALLOWED_ATTRIBUTES[i];
+            if (i != DEFAULT_ALLOWED_ATTRIBUTES.length-1) {
+                allowedAttributesString += " "; 
+            }
+        }
+        
+        for (int i=0; i<DEFAULT_DISALLOWED_KEYWORDS.length; i++) {
+            disallowedKeywords.add(DEFAULT_DISALLOWED_KEYWORDS[i]);
+        }
+        for (int i=0; i<disallowedKeywords.size(); i++) {
+            disallowedKeywordsString += disallowedKeywords.get(i);
+            if (i != disallowedKeywords.size()-1) {
+                disallowedKeywordsString += ","; 
+            }
+        }
     }
 
     public String getName() {
         return "TCHTML";
+    }
+    
+    public String getAllowedAttributesString() {
+        return allowedAttributesString;
+    }
+    
+    public void setAllowedAttributesString(String allowedAttributesString) {
+        if (allowedAttributesString == null) {
+            this.allowedAttributesString = "";
+            allowedAttributes.clear();
+            return;
+        }
+        this.allowedAttributesString = allowedAttributesString;
+        allowedAttributes.clear();
+        StringTokenizer tokens = new StringTokenizer(allowedAttributesString, " ");
+        while (tokens.hasMoreTokens()) {
+            String token = tokens.nextToken().toLowerCase().trim();
+            String[] ss = token.split(":");
+            ArrayList values = new ArrayList(Arrays.asList(ss[1].split(",")));
+            allowedAttributes.put(ss[0], values);
+        }
+    }
+    
+    public String getDisallowedKeywordsString() {
+        return disallowedKeywordsString;
+    }
+    
+    public void setDisallowedKeywordsString(String disallowedKeywordsString) {
+        if (disallowedKeywordsString == null) {
+            this.disallowedKeywordsString = "";
+            disallowedKeywords.clear();
+            return;
+        }
+        this.disallowedKeywordsString = disallowedKeywordsString;
+        disallowedKeywords.clear();
+        StringTokenizer tokens = new StringTokenizer(disallowedKeywordsString, ",");
+        while (tokens.hasMoreTokens()) {
+            disallowedKeywords.add(tokens.nextToken().toLowerCase().trim());
+        }
     }
 
     /**
@@ -318,7 +394,7 @@ public class TCHTMLFilter extends HTMLFilter {
             page = new Page(new ByteArrayInputStream(toFilter.getBytes(encoding)), encoding);
         }
         catch (IOException ioe) {
-            Log.warn("Problem when creating HTMLFilter page.", ioe);
+            Log.warn("Problem when creating TCHTMLFilter page.", ioe);
             page = new Page(toFilter);
         }
         Lexer lexer = new Lexer(page);
@@ -333,6 +409,11 @@ public class TCHTMLFilter extends HTMLFilter {
                     // empty tag
                     if ("".equals(tagName) || tagName == null) {
                         buf.append("&lt;").append("&gt;");
+                    }
+                    else if (hasDisallowedKeywords(tagNode) || !allAttributesAllowed(tagNode)) {
+                        if (!isStripDisallowedTags()) {
+                            doPlainFilter(tagNode.toHtml(), buf);
+                        }   // else skip
                     }
                     // acceptable tag
                     else if (isAcceptableTag(tagName)) {
@@ -363,7 +444,7 @@ public class TCHTMLFilter extends HTMLFilter {
                 boolean found = false;
                 for (int i = 0; i < filters.size(); i++) {
                     Filter f = (Filter) filters.get(i);
-                    if (f instanceof HTMLFilter) {
+                    if (f instanceof TCHTMLFilter) {
                         found = true;
                     }
                     else if (found && f instanceof Newline) {
@@ -495,7 +576,59 @@ public class TCHTMLFilter extends HTMLFilter {
 
         return false;
     }
-
+    
+    /**
+     * Returns true if the tag contains disallowed keywords, false otherwise.
+     *
+     * @param tag the tag to verify for acceptability
+     * @return true if the tag is acceptable, false otherwise.
+     */
+    private boolean hasDisallowedKeywords(TagNode tag) {
+        Log.info("ENTERING: hasDisallowedKeywords - " + tag.getTagName());
+        Vector attributes = tag.getAttributesEx();
+        for (int i=0; i<attributes.size(); i++) {
+            Attribute attribute = (Attribute)attributes.get(i);
+            for (int j=0; j<disallowedKeywords.size(); j++) {
+                if (attribute.getValue() != null && 
+                        attribute.getValue().toLowerCase().indexOf(((String)disallowedKeywords.get(j)).toLowerCase()) != -1) {
+                    Log.info("RETURNS: true");
+                    return true;
+                }
+            }
+        }
+        Log.info("RETURNS: false");
+        return false;
+    }
+    
+    /**
+     * Returns true if the tag contains only allowed attributes, false otherwise.
+     *
+     * @param tag the tag to verify for acceptability
+     * @return true if the tag is acceptable, false otherwise.
+     */
+    private boolean allAttributesAllowed(TagNode tag) {
+        Log.info("ENTERING: allAttributesAllowed - " + tag.getTagName());
+        String tagName = tag.getTagName().toLowerCase();
+        Vector attributes = tag.getAttributesEx();
+        ArrayList allowed = (ArrayList)allowedAttributes.get(tagName);
+        for (int i=1; i<attributes.size(); i++) {
+            Attribute attribute = (Attribute)attributes.get(i);        
+            if (attribute.getName() == null) {
+                Log.info("attribute: null");
+            } else {
+                Log.info("attribute: " + attribute.getName());
+            } 
+            if (allowed == null || 
+                    (attribute.getName() != null && !(attribute.getName().equals("/")) &&
+                            !allowed.contains(attribute.getName().toLowerCase()))) {
+                Log.info("RETURNS: false");
+                return false;
+            }
+        }
+        Log.info("RETURNS: true");
+        return true;
+    }
+    
     /**
      * Handles the cleansing of html tags.
      *
@@ -538,7 +671,7 @@ public class TCHTMLFilter extends HTMLFilter {
         cleanseOnEvents(tag);
         return tag.toHtml();
     }
-
+    
     /**
      * Handles the removing of onEvents from html tags
      *
