@@ -86,7 +86,7 @@ public class Submit extends FullRegSubmit {
                 StringBuffer url = new StringBuffer(80);
                 url.append("http://");
                 url.append(ApplicationServer.SERVER_NAME);
-                url.append("/verisign");
+                url.append("/verisigninternal");
 
 
                 StringBuffer buf = new StringBuffer(1000);
@@ -113,6 +113,8 @@ public class Submit extends FullRegSubmit {
                 buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
 
                 buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete.\n\n");
+
+                buf.append("Remember you must register for each SRM.  Check the schedule for the time to register here:  http://").append(ApplicationServer.SERVER_NAME).append("/pl/?module=Static&d1=verisign06&d2=schedule\n\n");
 
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in any Single Round Matches (SRMs).  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.\n\n");
