@@ -43,12 +43,20 @@ import java.util.*;
  * Version 1.0.2 Change notes:
  * <ol>
  * <li>
+ * Changed constraint to permit appeals edition in appeals phase only when project is
+ * marked as not allowing appeals responses during appeals phase.
+ * </li>
+ * </ol>
+ *
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
  * added successful flag to appeals.
  * </li>
  * </ol>
  *
  * @author FatClimber, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -765,8 +773,11 @@ public class DocumentManagerBean implements SessionBean {
             if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
 */
+                boolean responseDuringAppeals = scorecard.getProject().getResponseDuringAppeals();
                 if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
-                        scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE)) {
+                        (scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE ||
+                            scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS &&
+                                responseDuringAppeals))) {
 
                     String infoMsg = "DM.saveScorecard():\n" +
                             "scorecard_id: " + scorecard.getId() + "\n" +

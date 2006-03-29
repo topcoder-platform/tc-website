@@ -298,6 +298,8 @@ public final class AppealForm extends ReviewForm {
                         + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());*/
                     permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
                 }
+                
+                System.out.println("permitEditDuringAppeals!!! " + permitEditDuringAppeals);
 
                 // if project allows appeals responses during appeal phase, appeals can't be edited.
                 boolean responseDuringAppeals = false;
@@ -309,13 +311,29 @@ public final class AppealForm extends ReviewForm {
                     // ignore, default is false.
                 }
 
+                System.out.println("responseDuringAppeals!!! " + responseDuringAppeals);
+                
                 if (responseDuringAppeals) {
                     request.setAttribute("permitAppealsResponse", new Boolean(true));
                 }
 
                 permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;            
-
+                
+                
                 long phaseId = project.getCurrentPhaseInstance().getPhase().getId();
+                
+                
+                System.out.println("permitEditDuringAppeals!!! " + permitEditDuringAppeals);
+                System.out.println("phaseId!!! " + phaseId);
+                System.out.println("appeal.getId()!!! " + appeal.getId());
+                System.out.println("appeal.getAppealer().getId()!!! " + appeal.getAppealer().getId());
+                System.out.println("orpd.getUser().getId()!!! " + orpd.getUser().getId());
+                System.out.println("appeal.getReviewer().getId()!!! " + appeal.getReviewer().getId());
+                System.out.println("Phase.ID_APPEALS!!! " + Phase.ID_APPEALS);
+                System.out.println("Phase.ID_APPEALS_RESPONSE!!! " + Phase.ID_APPEALS_RESPONSE);
+                System.out.println("appeal.isResolved()!!! " + appeal.isResolved());
+                
+
                 if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
                     request.setAttribute("appealerEdit", new Boolean(true));
