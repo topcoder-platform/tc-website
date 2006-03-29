@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal SRMs, Powered by TopCoder</title>
+    <title>VeriSign Internal Coding Competitions, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -26,7 +26,7 @@
                 <br/><br/>
 
 
-                The VeriSign Internal SRM Arena is not yet available.
+                The VeriSign Internal Coding Competition Arena will be available on March 31st.
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 <br/><br/><br/><br/><br/><br/><br/>
 
