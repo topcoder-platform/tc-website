@@ -59,16 +59,15 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-                       <h3>Sales Director</h3>
+                       <h3>TopCoder Salesperson</h3>
 
 
                        <strong>Job Description: </strong>
 
-                        <p>TopCoder Software, a division of TopCoder, Inc. is a progressive software company looking to hire a motivated, hard
-                        working salesperson to develop the New York City/Northern New Jersey area. TopCoder Software markets application
-                        development services to companies in multiple industries using a unique combination of competition qualified software
-                        developers, a rigorous development methodology and catalogs of re-usable software components. TopCoder Software also
-                        sells subscriptions to the component catalogs.</p>
+                        <p>TopCoder, Inc. is a progressive company looking to hire a motivated, hard working salesperson. TopCoder markets 
+                        application development services, private label events, sponsorships and talented developers to companies in multiple 
+                        industries using a unique combination of competition qualified software developers, a rigorous development methodology 
+                        and catalogs of re-usable software components. TopCoder also sells subscriptions to the component catalogs.</p>
 
                         <strong>Responsibilities include: </strong>
                         <ul>
@@ -82,8 +81,7 @@
 
                         <strong>Qualifications include: </strong>
                         <ul>
-                            <li>Business development experience - Ideal candidates should have at least three years of prior technical sales experience
-                            in the New York/Northern New Jersey area.</li>
+                            <li>Business development experience - Ideal candidates should have at least three years of prior technical sales experience.</li>
                             <li>Strong selling skills - Ideal candidates should have experience identifying, qualifying and closing
                             software or services deals.</li>
                             <li>Prior success - Ideal candidates should have a demonstrated ability to consistently exceed quota.</li>

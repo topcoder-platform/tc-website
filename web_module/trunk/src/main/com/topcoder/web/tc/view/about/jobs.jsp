@@ -61,13 +61,12 @@
                         to excellence.  We expect the same commitment and drive from our current and future employees.</p>
                        <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="/tc?module=Static&d1=about&d2=placement_agent">Placement Agent</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=project_manager">TopCoder Software Project Manager</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=software_application_architect">TopCoder Software Application Architect</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Salesperson</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=int_project_manager">Internal Project Manager</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=int_developer">Internal Developer</A></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=employment_account_exec">Employment Services Account Executive</A></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Software Salesperson</a></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=software_application_architect">TopCoder Software Application Architect</a></li>
+                            <li><a href="/tc?module=Static&d1=about&d2=placement_agent">Placement Agent</a></li>
                         </ul>
                     </td>
                 </tr>
