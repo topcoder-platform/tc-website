@@ -46,7 +46,7 @@
 <br><br>
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
-                    <td align="center"><img src="/i/about/emp_ref_promo_2.gif" alt="" width="500" height="150" border="0" /></td>
+                    <td align="center"><img src="/i/about/emp_ref_promo.jpg" alt="" width="500" height="135" border="0" /></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br />
