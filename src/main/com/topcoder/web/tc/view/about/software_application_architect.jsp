@@ -65,17 +65,17 @@
 <ul>
 <li>Work closely with TopCoder Software project managers to break applications down into functional areas for concurrent development.</li>
 <li>Break down customer applications into components using the TopCoder Component Catalog for existing components and the TopCoder Component Development Methodology for new components.</li>
-<li>Complete the Architecture phase of the TopCoder Software Application Development Methodology with the aid of the Project Manager and other Architects. This entails creating:
+<li>Complete the Architecture phase of the TopCoder Software Application Development Methodology with the aid of the Project Manager and other Architects. This entails:
 <ul>
-<li>Sequence Diagrams</li>
-<li>Class Diagrams</li>
-<li>Physical ERD Diagrams</li>
+<li>Creating Sequence Diagrams</li>
+<li>Creating Class Diagrams</li>
+<li>Creating Physical ERD Diagrams</li>
 <li>Identifying Components</li>
-<li>Component Requirements Specifications</li>
-<li>Application Design Document</li>
+<li>Creating Component Requirements Specifications</li>
+<li>Creating Application Design Documents</li>
 </ul>
 </li>
-<li>Manage and work with some of the best coders in the world designing components specified during Architecture.</li>
+<li>Manage and work with some of the best coders in the world designing components and applications specified during Architecture.</li>
 <li>Support the development and delivery of software applications.</li>
 <li>Drive the direction of and improve the quality and usability of the TopCoder Component Catalog.</li>
 </ul>
