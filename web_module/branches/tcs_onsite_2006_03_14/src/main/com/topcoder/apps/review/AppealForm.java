@@ -5,13 +5,20 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
+import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.util.MessageResources;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
+import com.topcoder.util.log.Level;
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.Phase;
 
 import javax.servlet.http.HttpServletRequest;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.apps.review.ConfigHelper;
 
 /**
  * Form bean for the appeal page.
@@ -273,11 +280,51 @@ public final class AppealForm extends ReviewForm {
             setValid(false);
             errors.add("successful",
                 new ActionError("error.appealResult.required"));
+
+            SecurityEnabledUser user = (SecurityEnabledUser) request.getSession().getAttribute(Constants.USER_KEY);
+            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, project);
+
+            // configured functionality to permit edition during appeals phase.
             
+            boolean permitEditDuringAppeals;
+            try {
+                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
+            } catch (Exception e) {
+               /* log. (Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
+                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());*/
+                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
+            }
+
+            // if project allows appeals responses during appeal phase, appeals can't be edited.
+            boolean responseDuringAppeals = false;
+            try {
+                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+                Project project = projectTracker.getProject(orpd.getProject(), orpd.getUser().getTCSubject());
+                responseDuringAppeals = project.getResponseDuringAppeals();
+            } catch (Exception e) {
+                // ignore, default is false.
+            }
+
+            if (responseDuringAppeals) {
+                request.setAttribute("permitAppealsResponse", new Boolean(true));
+            }
+
+            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;            
+            
+            long phaseId = project.getCurrentPhaseInstance().getPhase().getId();
+            if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
+                (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
+                request.setAttribute("appealerEdit", new Boolean(true));
+            } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
+                    !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                request.setAttribute("reviewerEdit", new Boolean(true));
+            }
+
+        }
         //plk
         System.out.println("Validate!!!");
-        }
-/*
+        
+        /*
         if ((messageSubject == null) || (messageSubject.length() < 1)) {
             errors.add("subject",
                        new ActionError("error.messageSubject.required"));
