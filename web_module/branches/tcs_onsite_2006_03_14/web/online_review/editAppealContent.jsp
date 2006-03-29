@@ -180,7 +180,6 @@ The following items can NOT be appealed:
                       <html:radio property="successful" value="denied"/>Denied&nbsp;<br/>
                     </td>
                   </tr>
-                  <%getRequest().setAttribute("reviewerEdit", new Boolean(true));%>
 </logic:present>
 <%-- Else just write current appealResponse if resolved --%>
 <logic:notPresent name="reviewerEdit">
