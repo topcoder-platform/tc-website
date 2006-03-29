@@ -276,50 +276,55 @@ public final class AppealForm extends ReviewForm {
         ActionErrors errors = new ActionErrors();
 
         setValid(true);        
-        if (!successful.equals("successful") && !successful.equals("denied")) {
-            setValid(false);
-            errors.add("successful",
-                new ActionError("error.appealResult.required"));
-
-            SecurityEnabledUser user = (SecurityEnabledUser) request.getSession().getAttribute(Constants.USER_KEY);
-            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, project);
-
-            // configured functionality to permit edition during appeals phase.
+        
+        SecurityEnabledUser user = (SecurityEnabledUser) request.getSession().getAttribute(Constants.USER_KEY);
+        OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, project);
             
-            boolean permitEditDuringAppeals;
-            try {
-                permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
-            } catch (Exception e) {
-               /* log. (Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
-                    + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());*/
-                permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
-            }
+        // validate only appeal responses
+        if (orpd.getUser().getId() == appeal.getReviewer().getId()) {
+            if (!successful.equals("successful") && !successful.equals("denied")) {
+                setValid(false);
+                errors.add("successful",
+                    new ActionError("error.appealResult.required"));
 
-            // if project allows appeals responses during appeal phase, appeals can't be edited.
-            boolean responseDuringAppeals = false;
-            try {
-                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
-                Project project = projectTracker.getProject(orpd.getProject(), orpd.getUser().getTCSubject());
-                responseDuringAppeals = project.getResponseDuringAppeals();
-            } catch (Exception e) {
-                // ignore, default is false.
-            }
+                // sets request attributes.
 
-            if (responseDuringAppeals) {
-                request.setAttribute("permitAppealsResponse", new Boolean(true));
-            }
+                // configured functionality to permit edition during appeals phase.
+                boolean permitEditDuringAppeals;
+                try {
+                    permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
+                } catch (Exception e) {
+                   /* log. (Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
+                        + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());*/
+                    permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
+                }
 
-            permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;            
-            
-            long phaseId = project.getCurrentPhaseInstance().getPhase().getId();
-            if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
-                request.setAttribute("appealerEdit", new Boolean(true));
-            } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
-                    !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
-                request.setAttribute("reviewerEdit", new Boolean(true));
-            }
+                // if project allows appeals responses during appeal phase, appeals can't be edited.
+                boolean responseDuringAppeals = false;
+                try {
+                    ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+                    Project project = projectTracker.getProject(orpd.getProject(), orpd.getUser().getTCSubject());
+                    responseDuringAppeals = project.getResponseDuringAppeals();
+                } catch (Exception e) {
+                    // ignore, default is false.
+                }
 
+                if (responseDuringAppeals) {
+                    request.setAttribute("permitAppealsResponse", new Boolean(true));
+                }
+
+                permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;            
+
+                long phaseId = project.getCurrentPhaseInstance().getPhase().getId();
+                if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
+                    (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
+                    request.setAttribute("appealerEdit", new Boolean(true));
+                } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
+                        !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                    request.setAttribute("reviewerEdit", new Boolean(true));
+                }
+
+            }
         }
         //plk
         System.out.println("Validate!!!");
