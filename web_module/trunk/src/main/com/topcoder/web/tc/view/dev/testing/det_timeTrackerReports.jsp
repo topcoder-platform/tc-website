@@ -65,10 +65,10 @@ Documentation/Specification is available in the application forums <A href="http
 TopCoder will compensate teams with first and second place submissions. 
 <br><br>
 <strong>First Place</strong><br>
-Total Payment - $200
+Total Payment - $300
 <br><br>
 <strong>Second Place</strong><br>
-Total Payment - $100
+Total Payment - $200
 <br><br>
 <div class="sectionHeader">Eligibility</div>
 You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.
