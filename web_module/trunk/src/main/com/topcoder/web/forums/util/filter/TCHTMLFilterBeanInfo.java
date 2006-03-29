@@ -14,7 +14,9 @@ public class TCHTMLFilterBeanInfo extends JiveBeanInfo  {
         "stripDisallowedTags",
         "allowSymbols",
         "allowedTagsString",
-        "disallowedTagsString"
+        "disallowedTagsString",
+        "allowedAttributesString",
+        "disallowedKeywordsString"
     };
 
     public TCHTMLFilterBeanInfo() {

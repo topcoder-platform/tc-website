@@ -23,6 +23,7 @@ import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -353,5 +354,43 @@ public class ForumsUtil {
         }
  
         return ratings;
+    }
+    
+    // For use in preview.jsp, post.jsp
+    public static String getAllowedTagsDisplay() {
+        String tagList = JiveGlobals.getJiveProperty("tc.filter.TCHTMLFilter.default.allowedTags", "");
+        String[] tags = TCHTMLFilter.DEFAULT_ALLOWED_TAGS;
+        if (!tagList.equals("")) {
+            tags = tagList.split(","); 
+        }
+        
+        StringBuffer display = new StringBuffer();
+        for (int i=0; i<tags.length; i++) {
+            display.append("&lt;");
+            display.append(tags[i]);
+            display.append("&gt;");
+            if (i != tags.length-1) {
+                display.append(", ");
+            }
+        }
+        return display.toString();
+    }
+    
+    // For use in preview.jsp, post.jsp
+    public static String getAllowedAttributesDisplay() {
+        String attributeList = JiveGlobals.getJiveProperty("tc.filter.TCHTMLFilter.default.allowedAttributes", "");
+        String[] attributes = TCHTMLFilter.DEFAULT_ALLOWED_ATTRIBUTES;
+        if (!attributeList.equals("")) {
+            attributes = attributeList.split(" "); 
+        }
+        
+        StringBuffer display = new StringBuffer();
+        for (int i=0; i<attributes.length; i++) {
+            display.append(attributes[i]);
+            if (i != attributes.length-1) {
+                display.append("; ");
+            }
+        }
+        return display.toString();
     }
 }
