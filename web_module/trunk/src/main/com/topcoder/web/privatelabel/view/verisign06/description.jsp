@@ -137,7 +137,7 @@ Winners from the Sponsor Track and the two SRMs will compete on-site for the fol
 <br/><br/>
 The competition is free. You must be a registered VeriSign employee who is at least 18 years old to be eligible to participate. See the official <a href="/pl/?module=Static&d1=verisign06&d2=rules">rules and regulations</a> for more details.
 <br/><br/>
-*The Common Application Framework (CAF) is a set of reusable infrastructure components and best practices for building transaction-oriented applications in Java/J2EE. Learn more about CAF components, reference applications, and documentation by accessing: <a href="http://portal.vrsn.com/sites/cafinfo/default.aspx">CAF SharePoint site</a> or contact <a href="mailto:afinan@verisign.com">Angelique Finan</a>
+*The Common Application Framework (CAF) is a set of reusable infrastructure components and best practices for building transaction-oriented applications in Java/J2EE. Learn more about CAF components, reference applications, and documentation by accessing: <a href="/?t=sponsor&c=link&link=http://portal.vrsn.com/sites/cafinfo/default.aspx">CAF SharePoint site</a> or contact <a href="mailto:afinan@verisign.com">Angelique Finan</a>
         </div>    
       </td>
 
