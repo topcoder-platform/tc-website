@@ -225,7 +225,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                 <jsp:getProperty name="message" property="subject"/>
             <%  } %>
             <%   if (message.getParentMessage() != null) { %>
-               (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+               (response to <A href="#<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
                     int[] ratings = ForumsUtil.getRatings(ratingManager, message);

@@ -584,19 +584,19 @@ public class TCHTMLFilter implements Filter {
      * @return true if the tag is acceptable, false otherwise.
      */
     private boolean hasDisallowedKeywords(TagNode tag) {
-        Log.info("ENTERING: hasDisallowedKeywords - " + tag.getTagName());
+        //Log.info("ENTERING: hasDisallowedKeywords - " + tag.getTagName());
         Vector attributes = tag.getAttributesEx();
         for (int i=0; i<attributes.size(); i++) {
             Attribute attribute = (Attribute)attributes.get(i);
             for (int j=0; j<disallowedKeywords.size(); j++) {
                 if (attribute.getValue() != null && 
                         attribute.getValue().toLowerCase().indexOf(((String)disallowedKeywords.get(j)).toLowerCase()) != -1) {
-                    Log.info("RETURNS: true");
+                    //Log.info("RETURNS: true");
                     return true;
                 }
             }
         }
-        Log.info("RETURNS: false");
+        //Log.info("RETURNS: false");
         return false;
     }
     
@@ -607,25 +607,25 @@ public class TCHTMLFilter implements Filter {
      * @return true if the tag is acceptable, false otherwise.
      */
     private boolean allAttributesAllowed(TagNode tag) {
-        Log.info("ENTERING: allAttributesAllowed - " + tag.getTagName());
+        //Log.info("ENTERING: allAttributesAllowed - " + tag.getTagName());
         String tagName = tag.getTagName().toLowerCase();
         Vector attributes = tag.getAttributesEx();
         ArrayList allowed = (ArrayList)allowedAttributes.get(tagName);
         for (int i=1; i<attributes.size(); i++) {
             Attribute attribute = (Attribute)attributes.get(i);        
-            if (attribute.getName() == null) {
+            /* if (attribute.getName() == null) {
                 Log.info("attribute: null");
             } else {
                 Log.info("attribute: " + attribute.getName());
-            } 
+            } */
             if (allowed == null || 
                     (attribute.getName() != null && !(attribute.getName().equals("/")) &&
                             !allowed.contains(attribute.getName().toLowerCase()))) {
-                Log.info("RETURNS: false");
+                //Log.info("RETURNS: false");
                 return false;
             }
         }
-        Log.info("RETURNS: true");
+        //Log.info("RETURNS: true");
         return true;
     }
     
