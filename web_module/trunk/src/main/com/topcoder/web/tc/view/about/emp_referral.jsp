@@ -64,7 +64,7 @@ The following are the official rules for the Employee Referral Program:
 <ul>
 <li>Any TopCoder member can refer potential employee candidates.</li>
 <li>Referrals will be honored for six months from the original referral date.</li>
-<li>Referrals are accepted only for full time Project Manager and Application Architect positions as described on the Working at TopCoder page.</li>
+<li>Referrals are accepted only for full time Project Manager and Application Architect positions as described on the <a href="/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a> page.</li>
 <li>Candidates already credited to some other source (advertising, employment agency or their own initiative) are not eligible for referrals.</li>
 <li>If more than one member refers the same candidate, the referral award will be given to the first member to refer the candidate.</li>
 <li>Only candidates who are legal residents of the United States and Canada are eligible for the referral fee.</li>
