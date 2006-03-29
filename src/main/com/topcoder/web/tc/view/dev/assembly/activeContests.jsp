@@ -53,7 +53,10 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerTimeExpRep">Time Tracker Time, Expense and Reporting</A>
       </td>
       <td class="valueC">
+      &#160;
+<%--
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Time Tracker Time, Expense and Reporting">register</A>
+--%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerTimeExpRep">standings</A>
@@ -68,8 +71,10 @@
       04.05.2006 9:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
+<%--
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505945">join a team</A>
       <br>
+--%>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21303682">discuss the project</A>
       </td>
    </tr>
@@ -79,7 +84,10 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerAdminTime">Time Tracker Admin and Time Approval</A>
       </td>
       <td class="valueC">
+      &#160;
+<%--
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Time Tracker Admin and Time Approval">register</A>
+--%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerAdminTime">standings</A>
@@ -94,8 +102,10 @@
       04.05.2006 9:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
+<%--
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505946">join a team</A>
       <br>
+--%>
       <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21304033">discuss the project</A>
       </td>
    </tr>
