@@ -30,7 +30,7 @@ address provided during registration.
 <br><br>
 <span class="bigRed">You <u>will not</u> be able to compete if you do not activate your account.</span>
 <br><br>
-Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
+Spend time in the Practice Rooms prior to the VeriSign Single Round Matches (SRMs) by clicking the Competition Arena tab above.
 <br><br>
 If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
 
