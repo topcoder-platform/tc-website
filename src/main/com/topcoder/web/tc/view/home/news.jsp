@@ -23,6 +23,36 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.29.06<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing registration extended</A>
+      </span><br><br>
+      We've extended the registration for the current Testing Active Contests until 03.31.2006.  As a result, we've also extended the submission deadline to 04.03.2006.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.29.06<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">Intel Multi-Threading Competition 3 server maintenance, extended deadline</A>
+      </span><br><br>
+There will be scheduled server maintenance that will cause downtime to occur from 8:30 AM EST until 7:30 PM EST on Saturday April 1. Submissions will be disallowed during this time period. In order to accommodate for this downtime, we will be extending the submission deadline for the competition by 24 hours. The new submission deadline will be 12:00 Noon EDT on Thursday April 6.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.27.06<br>9:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,38 +210,6 @@ Puzzles vary in difficulty, but even the hardest ones are quite easy to solve wi
        <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505925" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.16.06<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_3">TCO06 Round 3 - Problem Set & Analysis</A></span><br><br>
-Top 200 coders faced three pretty different problems this time. The easy was a classical read-and-code contest, the hard required some work with probabilities, while the medium problem was a real trap for most of the coders.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_3">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505937" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 3 Results for TCO06 Algorithm Competition</A>
-      </span><br><br>
-      Take a look at who advanced to Round 4.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505937" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
