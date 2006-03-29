@@ -60,6 +60,61 @@
       </td>
    </tr>
    <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team ACCTiVe
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="11845638" /> (Team Captain)
+      <br><tc-webtag:handle coderId="21464942" />
+      <br><tc-webtag:handle coderId="11928943" />
+      <br><tc-webtag:handle coderId="13251393" />
+      <br><tc-webtag:handle coderId="21465175" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team S
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="15222927" /> (Team Captain)
+      <br><tc-webtag:handle coderId="15247202" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team M
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="10697386" /> (Team Captain)
+      <br><tc-webtag:handle coderId="10697776" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team PearlS
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="266149" /> (Team Captain)
+      <br><tc-webtag:handle coderId="21491618" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 </td>
 <!-- Center Column Ends -->
