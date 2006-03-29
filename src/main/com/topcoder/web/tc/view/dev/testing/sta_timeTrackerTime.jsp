@@ -57,15 +57,6 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <tc-webtag:handle coderId="10509379" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      No submission
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
       <tc-webtag:handle coderId="21344330" />
       </td>
       <td class="valueC" nowrap="nowrap">
@@ -93,15 +84,6 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <tc-webtag:handle coderId="20945751" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      No submission
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
       <tc-webtag:handle coderId="21162169" />
       </td>
       <td class="valueC" nowrap="nowrap">
@@ -112,6 +94,15 @@
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <tc-webtag:handle coderId="21380074" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      No submission
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <tc-webtag:handle coderId="16164693" />
       </td>
       <td class="valueC" nowrap="nowrap">
       No submission
