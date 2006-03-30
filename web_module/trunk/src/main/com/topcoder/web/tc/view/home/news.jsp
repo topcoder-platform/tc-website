@@ -23,6 +23,21 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.30.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program</A>
+      </span><br><br>
+TopCoder is actively seeking high quality, experienced full time Project Managers and Application Architects to work on our ever-growing list of clients.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=my_home&d2=empReferrals">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.30.06<br>10:10 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="blank">Students compete in online competition</A></span><br><br>
        <div style="float: right; padding-left: 3px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
@@ -194,23 +209,6 @@ With the TCO stimulating our coding adrenalin to the max, a high number of regis
          <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.20.06<br>11:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_2">Intel Multi-Threading Competition 2 Analysis</A></span><br><br>
-Puzzles vary in difficulty, but even the hardest ones are quite easy to solve with even simple algorithms.  However, in this problem the difficulty increases in two ways.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_2">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505923" message="discuss this" />&#160;|&#160;
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
