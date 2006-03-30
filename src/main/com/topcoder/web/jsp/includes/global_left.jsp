@@ -73,7 +73,7 @@
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?&module=SurveyList", "Surveys", "competitor_surveys"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_my_tc')", "My TopCoder", "m_my_tc"));
          nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
-         nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Members I've Referred", "referrals"));
+         nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Members Referrals", "referrals"));
          nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&amp;c=affidavit_history", "Affidavits", "affidavits"));
          nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=card&amp;d2=description", "Cards / Badges", "cards_badges"));
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth", "Event Calendar", "competition_calendar"));

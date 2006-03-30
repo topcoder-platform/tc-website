@@ -42,7 +42,7 @@
 <div class="fixedWidthBody">
 
 <div align="center" style="margin-bottom: 10px;">
-<img src="/i/about/emp_ref_promo.jpg" alt="" width="500" height="135" border="0" />
+<img src="/i/my_home/empReferrals.jpg" alt="" border="0" />
 </div>
 
 <span class="bigTitle">Overview</span>
@@ -60,7 +60,7 @@ The following are the official rules for the Employee Referral Program:
 <ul>
 <li>Any TopCoder member can refer potential employee candidates.</li>
 <li>Referrals will be honored for six months from the original referral date.</li>
-<li>Referrals are accepted only for full time Project Manager and Application Architect positions as described on the Working at TopCoder page.</li>
+<li>Referrals are accepted only for full time Project Manager and Application Architect positions as described on the <a href="/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a> page.</li>
 <li>Candidates already credited to some other source (advertising, employment agency or their own initiative) are not eligible for referrals.</li>
 <li>If more than one member refers the same candidate, the referral award will be given to the first member to refer the candidate.</li>
 <li>Only candidates who are legal residents of the United States and Canada are eligible for the referral fee.</li>
@@ -89,7 +89,7 @@ TopCoder reserves the right to modify or cancel the Employee Referral Program, i
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                <jsp:param name="level1" value="about"/>
             </jsp:include>
          </td>
