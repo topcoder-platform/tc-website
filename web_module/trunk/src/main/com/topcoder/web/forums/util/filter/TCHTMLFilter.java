@@ -91,6 +91,8 @@ public class TCHTMLFilter implements Filter {
                 disallowedKeywordsString += ","; 
             }
         }
+        
+        Log.info("allowedAttributesString: "+allowedAttributesString);
     }
 
     public String getName() {

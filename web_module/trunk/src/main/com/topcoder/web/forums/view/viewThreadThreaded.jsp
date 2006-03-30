@@ -231,8 +231,14 @@ function displayVotes(messageID, posVotes, negVotes) {
                     int[] ratings = ForumsUtil.getRatings(ratingManager, message);
                     posRatings = ratings[0];
                     negRatings = ratings[1];
-                    ratingCount = posRatings+negRatings; %>
-            | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
+                    ratingCount = posRatings+negRatings; 
+                    int userRating = 0;
+                    if (ratingManager.hasRated(user, message)) {
+                        userRating = ((Rating)ratingManager.getRating(user, message)).getScore();
+                    } %>
+            | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> 
+            | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> 
+              <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <%  } %>
             | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink">Reply</A>
             <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
