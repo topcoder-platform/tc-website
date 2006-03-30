@@ -10,7 +10,7 @@ import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.document.InvalidEditException;
 import com.topcoder.security.TCSubject;
-import com.topcoder.util.TCException;
+import com.topcoder.util.errorhandling.BaseException;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
@@ -111,7 +111,7 @@ public interface ProjectTracker extends EJBObject {
             Date[] dates,
             TCSubject requestor,
             long levelId)
-            throws TCException, RemoteException;
+            throws BaseException, RemoteException;
 
     /**
      * @param userId
@@ -128,11 +128,11 @@ public interface ProjectTracker extends EJBObject {
      *
      * @param userId
      * @param projectId
-     * @throws TCException
+     * @throws BaseException
      * @throws RemoteException
      */
     public void userInquiry(long userId, long projectId)
-            throws TCException, RemoteException;
+            throws BaseException, RemoteException;
 
 
     /**

@@ -10,7 +10,7 @@
 
 package com.topcoder.dde;
 
-import com.topcoder.util.TCException;
+import com.topcoder.util.errorhandling.BaseException;
 
 /**
  * <code>DDEException</code> is the superclass of checked exceptions that are
@@ -19,7 +19,7 @@ import com.topcoder.util.TCException;
  * @version 0.001, 19 July 2002
  * @author  Albert Mao
  */
-public class DDEException extends TCException {
+public class DDEException extends BaseException {
 
 
     /**

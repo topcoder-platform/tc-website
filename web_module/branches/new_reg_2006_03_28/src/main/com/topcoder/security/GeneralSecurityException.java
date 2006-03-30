@@ -1,6 +1,6 @@
 package com.topcoder.security;
 
-import com.topcoder.util.TCException;
+import com.topcoder.util.errorhandling.BaseException;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  * @author Heather Van Aelst
  * @version 0.1
  */
-public class GeneralSecurityException extends TCException {
+public class GeneralSecurityException extends BaseException {
 
     /**
      * Line separator for the local OS
