@@ -45,6 +45,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">Students compete in online competition</A> [March 30 - The Whitworthian]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">SOA vendors partner with LogicLibrary to create integrated governance platform</A> [March 14 - ADT]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">UBS Sponsors TopCoder Open</A> [March 13 - Wall Street &amp; Technology]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">Code jockey contest returns to IT hub</A> [March 13 - DNA India]<br/></td></tr>
