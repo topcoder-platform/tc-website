@@ -196,6 +196,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
+            Students compete in online competition <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">...more</A><br>[March 30]<br><br>
+
             TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">...more</A><br>[March 16]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
@@ -208,10 +211,6 @@ margin:0px auto;
             Code jockey contest returns to IT hub <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">...more</A><br>[March 13]<br><br>
             
             Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member <A href="/tc?module=Static&d1=pressroom&d2=art_031006">...more</A><br>[March 10]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/postOnline_logo.gif" width="88" height="13" alt="The Post Online" border="0" /></div>
-            Gurus compete in coding competition <A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">...more</A><br>[March 8]<br><br>
-
             </td>
          </tr>
       </table>

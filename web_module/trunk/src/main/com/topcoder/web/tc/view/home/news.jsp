@@ -23,6 +23,20 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.30.06<br>10:00 AM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="blank">Students compete in online competition</A></span><br><br>
+       <div style="float: right; padding-left: 3px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
+"Bob the chicken walks only in a sequence of straight lines to reach his destination. How many times will he cross the road along the way? In the world of computer science, this problem and others were the tasks to solve in a recent software coding competition."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505955" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.29.06<br>3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing registration extended</A>
@@ -197,19 +211,6 @@ Puzzles vary in difficulty, but even the hardest ones are quite easy to solve wi
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_2">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505923" message="discuss this" />&#160;|&#160;
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.16.06<br>6:15 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_031606">AMD TCO06 Sponsorship Press Release</A></span><br><br>
-"AMD Developer Central, AMD's program to support software developers, is pleased to sponsor the 2006 TopCoder Open and help showcase the unique creativity and genius shown by TopCoder members in this competition."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505925" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
