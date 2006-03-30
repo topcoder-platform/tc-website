@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -24,6 +25,10 @@
 
                 <span class="bigTitle">Competition Arena</span>
                 <br/><br/>
+
+<%--
+                <A href="/pl/?module=<%=Constants.VERISIGN_06_CREDENTIALS%>&amp;cid=17942">Forgot your password?</A>
+                --%>
 
 
                 The VeriSign Internal Coding Competition Arena will be available on March 31st.
