@@ -29,9 +29,6 @@ function find(n) {
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
-          <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-
-
             <jsp:include page="calendar.jsp" />
 
             <p><br/></p>
@@ -191,12 +188,6 @@ function find(n) {
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
 
-            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
-
-            <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" alt="Contact TCES" width="170" height="119" border="0" /></A><br/>
-
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-
             <jsp:include page="calendar.jsp"/>
 
             <p><br/></p>
@@ -213,8 +204,6 @@ function find(n) {
 <!-- Review Board begins -->
 <% } else if (level1.equals("review_board")) { %>
 
-            <img src="/i/clear.gif" alt="" width="170" height="15" border="0"><br/>
-
             <jsp:include page="calendar.jsp"/>
 
             <p><br/></p>
@@ -224,12 +213,7 @@ function find(n) {
 <!-- Employment Opportunities begins -->
 <% } else if (level1.equals("employmentOpps")) { %>
 
-            <img src="/i/clear.gif" alt="" width="170" height="15" border="0"><br/>
             <jsp:include page="calendar.jsp"/>
-<%--
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            <jsp:include page="contracting/placed_right.jsp"/>
---%>
             <p><br/></p>
 
 <!-- Employment Opportunities ends -->
