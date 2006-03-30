@@ -153,7 +153,7 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Class Name</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="32" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Category</td>
                     <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/></td>
                  </tr>
