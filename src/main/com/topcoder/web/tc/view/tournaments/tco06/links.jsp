@@ -209,6 +209,7 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary"><% if (tabLev3.equals("summary")) {%><img src="/i/tournament/tco06/tabs/L3_summaryOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_summaryOff.gif" border=0 /><% } %></a></td>
 --%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tco06/tabs/L3_bracketOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_bracketOff.gif" border=0 /><% } %></a></td>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_prizes"><% if (tabLev3.equals("prizes")) {%><img src="/i/tournament/tco06/tabs/L3_prizeWinnersOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_prizeWinnersOff.gif" border=0 /><% } %></a></td>
                <% } else if (tabLev2.equals("development")) {%>
                   <td class="subnav"><a href="/tc?module=TCO06ContestDetails&ct=237"><% if (tabLev3.equals("results")) {%><img src="/i/tournament/tco06/tabs/L3_resultsOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_resultsOff.gif" border=0 /><% } %></a></td>
 <%--
@@ -216,6 +217,7 @@
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary"><% if (tabLev3.equals("summary")) {%><img src="/i/tournament/tco06/tabs/L3_summaryOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_summaryOff.gif" border=0 /><% } %></a></td>
 --%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tco06/tabs/L3_bracketOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_bracketOff.gif" border=0 /><% } %></a></td>
+                  <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_prizes"><% if (tabLev3.equals("prizes")) {%><img src="/i/tournament/tco06/tabs/L3_prizeWinnersOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco06/tabs/L3_prizeWinnersOff.gif" border=0 /><% } %></a></td>
                <% } %>
             <% } else if (tabLev1.equals("ccip")) { %>
                <% if (tabLev2.equals("details")) {%>
