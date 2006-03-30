@@ -1,11 +1,11 @@
 package com.topcoder.security.admin;
 
 import com.topcoder.security.*;
-import com.topcoder.util.idgenerator.bean.IdGenException;
-import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import org.apache.log4j.Logger;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class PrincipalMgrBean extends BaseEJB {
 
-    private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);;
+    private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
     public Collection getUsers(TCSubject requestor)
@@ -273,8 +273,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long userId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long userId = gen.getNextID();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
             conn = Util.getConnection(ctx, dataSource);
@@ -288,9 +288,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -448,8 +446,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long groupId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long groupId = gen.getNextID();
             logger.debug("createGroup: " + groupId);
             String query = "INSERT INTO security_groups (group_id, description) VALUES ( ?, ? )";
             conn = Util.getConnection(ctx, DATA_SOURCE);
@@ -461,9 +459,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return gs;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -516,8 +512,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long user_group_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long user_group_xrefid = gen.getNextID();
             long userId = user.getId();
             long groupId = group.getId();
             String deleteQuery = "DELETE FROM user_group-xref where user_id = ? and group_id = ?";
@@ -538,9 +534,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -642,8 +636,8 @@ public class PrincipalMgrBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long roleId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long roleId = gen.getNextID();
             String query = "INSERT INTO security_roles (role_id, description) VALUES ( ?, ? )";
             ps = conn.prepareStatement(query);
             ps.setLong(1, roleId);
@@ -653,9 +647,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return rp;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -723,8 +715,8 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
 
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long user_role_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long user_role_xrefid = gen.getNextID();
 
             ps2 = conn.prepareStatement(deleteQuery);
             ps2.setLong(1, userId);
@@ -739,9 +731,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -792,8 +782,8 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
 
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long group_role_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long group_role_xrefid = gen.getNextID();
 
             ps2 = conn.prepareStatement(deleteQuery);
             ps2.setLong(1, groupId);
@@ -808,9 +798,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
