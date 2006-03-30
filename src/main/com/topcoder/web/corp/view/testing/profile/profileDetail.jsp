@@ -117,12 +117,13 @@ function getProblemDetail(id) {
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
 
                 <tr>
-                   <td colspan="2" align="center" class="screeningTitle">&#160;</td>
+                   <td colspan="3" align="center" class="screeningTitle">&#160;</td>
                    <td colspan="3" align="center" class="screeningTitle">Problems</td>
                    <td align="center" class="screeningTitle">&#160;</td>
                 </tr>
 
                 <tr>
+                   <td align="right" class="screeningHeader">Session</td>
                    <td align="left" class="screeningHeader">Candidate</td>
                    <td align="center" class="screeningHeader">Status</td>
                    <td align="center" class="screeningHeader">Presented</td>
@@ -136,7 +137,7 @@ function getProblemDetail(id) {
 
                 <%-- Do a table body row --%>
                 <% if(row.getItem("num_sessions").toString().equals("0")){ %>
-                <tr><td colspan="6" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions have been scheduled for this test profile.</td></tr>
+                <tr><td colspan="7" align="center" class="bodyText" bgcolor="#EEEEEE">No sessions have been scheduled for this test profile.</td></tr>
 
                 <% } else { %>
                 <%
@@ -146,12 +147,13 @@ function getProblemDetail(id) {
                     String color = (even) ? "bgcolor='#EEEEEE'" : "";
                 %>
                 <tr>
+                    <td width="10%" align="right" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><%=row.getItem("session_id")%></td>
                     <td width="20%" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><rsc:item row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
+                    <td width="14%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
+                    <td width="14%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
+                    <td width="14%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="submitted" /></td>
+                    <td width="14%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="passed" /></td>
+                    <td width="14%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
