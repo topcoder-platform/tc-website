@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+  <loadDefinition>
+    <sourcedb>jdbc:informix-sqli://172.16.214.52:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</sourcedb>
+    <targetdb>jdbc:informix-sqli://172.16.214.52:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</targetdb>
+    <load>
+      <classname>com.topcoder.shared.util.dwload.TCLoadLong</classname>
+      <parameterList>
+        <parameter name="roundid" value="3024"/>
+      </parameterList>
+    </load>
+  </loadDefinition>
