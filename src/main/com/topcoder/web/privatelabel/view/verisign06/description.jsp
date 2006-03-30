@@ -87,9 +87,9 @@ The top two scores from each SRM will be invited to compete in the final round o
 Cash prizes are as follows for each SRM: 
 <br/><br/>
 
-         <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+         <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
-               <td class="sidebarTitle" colspan="2">SRM Prizes</td>
+               <td class="sidebarTitle" colspan="2">SRM Prizes*</td>
             </tr>
             <tr>
                <td class="sidebarText"><b>1st Place Finisher</b></td>
@@ -102,6 +102,9 @@ Cash prizes are as follows for each SRM:
             <tr>
                <td class="sidebarText">3rd Place Finisher</td>
                <td class="sidebarText">$500</td>
+            </tr>
+            <tr>
+               <td class="sidebarText" colspan="2">*VeriSign's first place winner of the 2006 Sponsor Track may participate but is not eligible to win prize money in the VeriSign internal SRMs in April and May, 2006.   The first and second place winners of the VeriSign internal SRM in April, 2006 may participate but are not eligible to win prize money in the internal SRM in May, 2006.</td>
             </tr>
          </table>
 <br/>
