@@ -23,6 +23,23 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.30.06<br>1:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm295">SRM 295 - Problem Set & Analysis</A></span><br><br>
+Being the second money match in a row, SRM 295 attracted 864 participants with 380 competing in division 1 and 484 in division 2.
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="7396310" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm295">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505861" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.30.06<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program</A>
@@ -194,21 +211,6 @@ With the TCO stimulating our coding adrenalin to the max, a high number of regis
          <A href="/tc?module=Static&d1=match_editorials&d2=srm293">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505859" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.21.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing Active Contests</A>
-      </span><br><br>
-      Testing Competitions are now open for registration.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
 
