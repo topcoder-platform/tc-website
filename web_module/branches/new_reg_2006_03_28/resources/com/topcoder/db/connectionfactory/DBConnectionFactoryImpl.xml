@@ -1,0 +1,20 @@
+<CMConfig>
+    <Config name="com.topcoder.db.connectionfactory.DBConnectionFactoryImpl">
+        <Property name="connections">
+            <Property name="default">
+                <Value>java:/DS</Value>
+            </Property>
+            <!--Common DB -->
+            <Property name="java:/DS">
+                <Property name="producer">
+                    <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
+                </Property>
+                <Property name="parameters">
+                    <Property name="jndi_name">
+                        <Value>java:/DS</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+    </Config>
+</CMConfig>
