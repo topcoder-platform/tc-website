@@ -23,7 +23,7 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.30.06<br>10:00 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.30.06<br>10:10 AM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="blank">Students compete in online competition</A></span><br><br>
        <div style="float: right; padding-left: 3px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
 "Bob the chicken walks only in a sequence of straight lines to reach his destination. How many times will he cross the road along the way? In the world of computer science, this problem and others were the tasks to solve in a recent software coding competition."
