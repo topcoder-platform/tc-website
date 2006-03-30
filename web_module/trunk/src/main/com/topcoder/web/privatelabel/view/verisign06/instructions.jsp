@@ -25,7 +25,7 @@
 <div class="bodySpacer">
 
 <span class="bigTitle">Instructions</span><br/><br/>
-<span class="bodySubtitle">How to Register</span><br>
+<span class="bodySubtitle">How to Register for the VeriSign Internal Competitions</span><br>
 Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register.
 <br><br>
 
@@ -49,7 +49,17 @@ log in, you will initially be placed in the main chat lobby.
 
 <div align="center"><img src="/i/events/verisign06/arena2_ver.gif" alt="" border="0"/></div>
 <br/><br/>
+<span class="bodySubtitle">How to Register for a Single Round Match</span><br/>
+Registration for a Single Round Match is open two hours and 55 minutes prior to the start of the contest.  
+<ul>
+<li>Click on the "Active Contests" menu item</li>
+<li>Select the Contest</li>
+<li>Select "Register"</li>
+</ul>
 
+You will then be assigned to a competition room.
+
+<br/><br/>
 Move to your assigned competition room as follows:
 <ul>
     <li>Click on the "Active Contests" menu item</li>

@@ -105,6 +105,30 @@ respective rooms. All decisions relating to the viability of submissions, the ra
 all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its
 designee and shall be final and binding in all respects.
 <br/><br/>
+VeriSign will distribute prizes for the SRM on April 25, 2006 and May 17, 2006.Ê Prizes are as follows:
+<br/><br/>
+         <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <tr>
+               <td class="sidebarTitle" colspan="2">SRM Prizes*</td>
+            </tr>
+            <tr>
+               <td class="sidebarText"><b>1st Place Finisher</b></td>
+               <td class="sidebarText"><b>$1,500 and a trip to the VTS finals</b></td>
+            </tr>
+            <tr>
+               <td class="sidebarText">2nd Place Finisher</td>
+               <td class="sidebarText">$750 and a trip to the VTS finals</td>
+            </tr>
+            <tr>
+               <td class="sidebarText">3rd Place Finisher</td>
+               <td class="sidebarText">$500</td>
+            </tr>
+            <tr>
+               <td class="sidebarText" colspan="2">*VeriSign's first place winner of the 2006 Sponsor Track may participate but is not eligible to win prize money in the VeriSign internal SRMs in April and May, 2006.   The first and second place winners of the VeriSign internal SRM in April, 2006 may participate but are not eligible to win prize money in the internal SRM in May, 2006.</td>
+            </tr>
+         </table>
+<br/>
+
 By participating in these Single Round Matches (SRMs), a winner releases and agrees to hold harmless
 TopCoder and VeriSign, their affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize
 suppliers, and all of their respective directors, officers, employees, representatives and agents, from
