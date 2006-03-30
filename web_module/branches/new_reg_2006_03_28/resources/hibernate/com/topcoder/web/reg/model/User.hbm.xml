@@ -7,16 +7,17 @@
 
     <class name="com.topcoder.web.reg.model.User" table="USER">
         <id name="id" column="USER_ID">
-            <generator class="native"/>
+            <generator class="com.topcoder.web.common.IdGeneratorClient">
+                <param name="seqName">main_sequence</param>
+            </generator>
         </id>
-        <property name="date" type="timestamp" column="EVENT_DATE"/>
-        <property name="title"/>
-
-        <set name="participants" table="PERSON_EVENT" inverse="true">
-            <key column="EVENT_ID"/>
-            <many-to-many column="PERSON_ID" class="events.Person"/>
-        </set>
-
+        <property name="firstName" column="first_name"/>
+        <property name="middleName" column="middle_name"/>
+        <property name="lastName" column="last_name"/>
+        <property name="handle"/>
+        <property name="status"/>
+        <property name="password"/>
+        <property name="activationCode" column="activation_code"/>
     </class>
 
 
