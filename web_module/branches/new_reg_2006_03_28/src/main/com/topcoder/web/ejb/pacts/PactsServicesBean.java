@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
@@ -4452,7 +4453,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw(new EJBException("Wrong number of rows updated in 'useaffidavit_tempater'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
-        } catch (NamingException e) {
+        } catch (IDGenerationException e) {
             throw new EJBException(e);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
