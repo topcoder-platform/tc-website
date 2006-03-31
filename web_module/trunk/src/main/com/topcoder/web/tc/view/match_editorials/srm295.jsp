@@ -48,14 +48,8 @@ Being the second money match in a row, SRM 295 attracted 864 participants with 3
 </p>
 
 <H1>
-
 The Problems
-
 </H1>
-
- 
-
- 
 
 <font size="+2">
 
