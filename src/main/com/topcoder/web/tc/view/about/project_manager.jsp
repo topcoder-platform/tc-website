@@ -59,7 +59,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-                       <h3>Project Manager</h3>
+                       <h3>TopCoder Software Project Manager</h3>
 
 
 						<b>Job Description:</b>
