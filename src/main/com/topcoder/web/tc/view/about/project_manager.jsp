@@ -71,7 +71,7 @@
 						    <li>Activity Diagrams</li>
 						    <li>Requirements Specifications</li>
 						    <li>Quality Assurance Plans</li>
-						    <li>User Interface Prototypes (HTML, CSS, Javascript)/li>
+						    <li>User Interface Prototypes (HTML, CSS, Javascript)</li>
 						    <li>Project Plans</li>
 							</ul>
 						<li>Verify the quality of the software application and the adherence to the specification deliverables, including the execution of the test plan.</li>
