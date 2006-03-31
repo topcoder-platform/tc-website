@@ -40,6 +40,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.8 - 2006.04.xx
+        <ul>
+            <li>Some tweaks to the VeriSign reg process</li>
+            <li>Seperate Coder of the Month archives</li>
+        </ul>
+    </p>
+    <p>
         5.0.7 - 2006.03.28
         <ul>
             <li>Fix bug where login with invalid username would generate error page rather than nice message.</li>
