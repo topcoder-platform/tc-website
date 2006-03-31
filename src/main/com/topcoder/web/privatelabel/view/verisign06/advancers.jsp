@@ -1,51 +1,29 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+    <jsp:include page="/script.jsp"/>
+
+    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
-    <title>VeriSign Coder Challenge 2006, Powered by TopCoder</title>
-    <jsp:include page="../script.jsp"/>
 </head>
 
-<body bgcolor="#FFF">
+<body>
 
-<table align="left" cellspacing="0" cellpadding="0" valign="top" width="760">
-    <tr>
-        <td width="115" height="60" align="left" valign="top" rowspan="2">
-            <a href="http://www.verisign.com/index.html"><img border=0 src="/i/events/verisign06/www_vrsn_logo.gif" alt="VeriSign, Inc.&#0174;"></a>
-        </td>
-        <td width="645" height="20" align="right" valign="top" style="padding: 1px 0px 0px 0px;">
-            <a href="http://www.verisign.com/index.html" class="VStop">US Home</a> &#160;&#160; | &#160;&#160;
-            <a href="http://www.verisign.com/verisign-worldwide/index.html" class="VStop">Worldwide Sites</a> &#160;&#160;
-            | &#160;&#160;
-            <a href="http://www.verisign.com/site-map/index.html" class="VStop">Site Map</a>
-        </td>
-    </tr>
-    <tr>
-        <td width="645" height="40" align="left" valign="top">
-            <img border=0 src="/i/events/verisign06/connectionline.gif" alt=""></td>
-    </tr>
+<!-- Tab barlinks-->
+<jsp:include page="links.jsp">
+    <jsp:param name="tabLev2" value="details"/>
+    <jsp:param name="tabLev3" value="description"/>
+</jsp:include>
 
-    <!-- Tab bar links-->
-    <tr>
-        <td colspan="2">
-            <div align="left">
-                <jsp:include page="links.jsp">
-                    <jsp:param name="selectedTab" value="advancers"/>
-                </jsp:include>
-            </div>
-        </td>
-    </tr>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<!-- Body-->
+<tr valign="top">
+<td valign="top" align="center">
+<div class="bodySpacer">
 
-    <!-- main content -->
-
-    <tr>
-        <td align="left" valign="top" colspan="2" style="padding: 0px 0px 0px 20px;">
-
-            <span valign=top><jsp:include page="right.jsp"/></span><br/>
-
-            <p class="blkBigHead">Advancers</p>
-            <br/>
+<span class="bigTitle">Advancers</span>
+<br/><br/>
 
             <table class="tableFrame" cellpadding="5" cellspacing="2">
                 <tr>
@@ -88,14 +66,24 @@
 
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <br/><br/><br/><br/><br/>
-            To find out more detailed information about the VeriSign&#153; Coder Challenge 2006, including a list of the
+            To find out more detailed information about the VeriSign&#174; Iternal Coding Competition, including a list of the
             prizes, please read the <a href="/pl/?&module=Static&d1=verisign06&d2=rules">Terms and Conditions</a>.
-        </td>
-    <tr>
-    <tr><td colspan="2">&#160;</td></tr>
-    <tr><td colspan="2">
-        <jsp:include page="foot.jsp"/>
-    </td></tr>
+        </div>    
+      </td>
+
+
+<!-- Right Column-->
+<td width="180" align="right" style="padding: 0px 15px 0px 0px;">
+    <jsp:include page="right.jsp"/>
+
+</td>
+
+</tr>
+
 </table>
+
+<jsp:include page="/foot.jsp"/>
+
 </body>
+
 </html>

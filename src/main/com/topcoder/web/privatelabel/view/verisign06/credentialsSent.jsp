@@ -3,7 +3,7 @@
 <html>
 <head>
 <jsp:include page="../script.jsp" />
-    <title>VeriSign Internal SRMs, Powered by TopCoder</title>
+    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 <body>
