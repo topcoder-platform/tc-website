@@ -173,19 +173,15 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>03/01</b> - TCO06 Algorithm - Qualification Round End - 12noon<br><br>
-            <b>03/04</b> - TCO06 Algorithm - Online Round 1 - 12noon<br><br>
-            <b>03/06</b> - SRM 292 - 9PM - NSA<br><br>
-            <b>03/08</b> - TCO06 Algorithm - Online Round 2 - 9:30PM<br><br>
-            <b>03/15</b> - TCO06 Algorithm - Online Round 3 - 9:30PM<br><br>
-            <b>03/16</b> - TCO06 Component - Round #1 projects posted - 9AM<br><br>
-            <b>03/17</b> - SRM 293 - 11AM<br><br>
-            <b>03/22</b> - TCO06 Algorithm - Online Round 4 - 9:30PM<br><br>
-            <b>03/22</b> - Intel Multi-Threading Competition 3 - 12noon<br><br>
-            <b>03/23</b> - TCO06 Component - Round #1 submission deadline - 9AM<br><br>
-            <b>03/25</b> - SRM 294 - 12noon<br><br>
-            <b>03/29</b> - SRM 295 - 9PM<br><br>
-            <b>03/30</b> - TCO06 Component - Round #2 projects posted - 9AM<br><br>
+            <b>04/03</b> - SRM 296 - 7AM - AMD<br><br>
+            <b>04/06</b> - SRM 297 - 9PM - NSA<br><br>
+            <b>04/06</b> - TCO06 Component - Round #2 submission deadline - 9AM<br><br>
+            <b>04/11</b> - SRM 298 - 11AM - AMD<br><br>
+            <b>04/13</b> - TCO06 Component - Round #3 projects posted - 9AM<br><br>
+            <b>04/19</b> - Intel Multi-Threading Competition 4 - 12noon<br><br>
+            <b>04/20</b> - TCO06 Component - Round #3 submission deadline - 9AM<br><br>
+            <b>04/22</b> - SRM 299 - 12 NOON<br><br>
+            <b>04/27</b> - SRM 300 - 9PM - UBS<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
