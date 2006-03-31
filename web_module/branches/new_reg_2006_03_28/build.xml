@@ -40,6 +40,7 @@
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
+        <pathelement location="${resources}/hibernate"/>
         <pathelement location="${images}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
@@ -64,9 +65,13 @@
    -->
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/upload.jar"/>
-        <pathelement location="${jars.dir}/tcsUtil.jar"/>
+<!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
@@ -77,6 +82,13 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
+        <!-- hibernate files -->
+        <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.1/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.1/ehcache-1.1.jar"/>
+        <pathelement location="${jive.dir}/velocity-dep.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.1/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.1/asm.jar"/>
 <!--
         <pathelement location="${jars.dir}/render.jar"/>
         <pathelement location="${jars.dir}/tcs/forum.jar"/>
@@ -155,10 +167,6 @@
             source="1.4"
             target="1.4"
             >
-            <exclude
-                name="com/topcoder/security/**"
-                unless="jdk1.4+"
-                />
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
@@ -287,8 +295,6 @@
         <jar jarfile="${ejb_jars}/QueryServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/query/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/query" includes="*.xml"/>
         </jar>
@@ -407,10 +413,6 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/idgeneratorclient/IdGeneratorClient.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/image/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/image" includes="*.xml"/>
@@ -440,8 +442,6 @@
         <jar jarfile="${ejb_jars}/School.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/school/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/school" includes="*.xml"/>
         </jar>
@@ -479,8 +479,6 @@
         <jar jarfile="${ejb_jars}/Email.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/email" includes="*.xml"/>
         </jar>
@@ -490,8 +488,6 @@
         <jar jarfile="${ejb_jars}/Address.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/address" includes="*.xml"/>
         </jar>
@@ -519,8 +515,6 @@
         <jar jarfile="${ejb_jars}/Phone.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/phone" includes="*.xml"/>
         </jar>
@@ -530,8 +524,6 @@
         <jar jarfile="${ejb_jars}/Product.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/product/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/product" includes="*.xml"/>
         </jar>
@@ -561,8 +553,6 @@
         <jar jarfile="${ejb_jars}/Note.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/note/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/note" includes="*.xml"/>
         </jar>
@@ -572,8 +562,6 @@
         <jar jarfile="${ejb_jars}/Session.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/session/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/session" includes="*.xml"/>
         </jar>
@@ -583,8 +571,6 @@
         <jar jarfile="${ejb_jars}/SessionProfile.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/sessionprofile/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/sessionprofile" includes="*.xml"/>
         </jar>
@@ -594,8 +580,6 @@
         <jar jarfile="${ejb_jars}/TermsOfUse.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
         </jar>
@@ -605,8 +589,6 @@
         <jar jarfile="${ejb_jars}/Company.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/company/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/company" includes="*.xml"/>
         </jar>
@@ -815,16 +797,19 @@
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
                 <include name="bfograph.jar"/>
-   <!--
-                <include name="configmanager2.jar"/>
-   -->
                 <include name="object_formatter.jar"/>
-                <include name="idgenerator.jar"/>
                 <include name="upload.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
+                <include name="idgenerator.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tc/id_generator/3.0">
+                <include name="id_generator.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tc/db_connection_factory/1.0">
+                <include name="db_connection_factory.jar"/>
             </fileset>
         </copy>
 
@@ -1176,6 +1161,25 @@
         </junitreport>
     </target>
 
+    <target name="run_reg_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path"/>
+            <formatter type="xml"/>
+            <batchtest todir="${testclasses}">
+                <fileset dir="${testclasses}">
+                    <include name="com/topcoder/web/reg/**/*TestCase.class"/>
+                </fileset>
+            </batchtest>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
     <target name="deploy-admin" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
@@ -1245,32 +1249,21 @@
 
         <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
             <fileset dir="${jars.dir}">
-                <include name="idgenerator.jar"/>
                 <include name="configmanager2.jar"/>
-                <include name="tcsUtil.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+                <include name="id_generator.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs">
+                <include name="base_exception.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
+                <include name="db_connection_factory.jar"/>
             </fileset>
             <fileset dir="${ejb_jars}">
                 <include name="security.jar"/>
             </fileset>
         </ear>
-    </target>
-
-    <target name="build-idgenerator" depends="">
-        <javac
-            srcdir="${java}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
-            <include name="com/topcoder/util/idgenerator/**"/>
-        </javac>
-        <jar jarfile="${jars.dir}/idgenerator.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/**"/>
-            <metainf dir="${java}/com/topcoder/util/idgenerator/bean/" includes="*.xml"/>
-        </jar>
     </target>
 
 
