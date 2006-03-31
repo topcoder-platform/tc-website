@@ -105,7 +105,7 @@ respective rooms. All decisions relating to the viability of submissions, the ra
 all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its
 designee and shall be final and binding in all respects.
 <br/><br/>
-VeriSign will distribute prizes for the SRM on April 25, 2006 and May 17, 2006.Ê Prizes are as follows:
+VeriSign will distribute prizes for the SRM on April 25, 2006 and May 17, 2006. Prizes are as follows:
 <br/><br/>
          <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
