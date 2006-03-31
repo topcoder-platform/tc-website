@@ -34,8 +34,6 @@ Spend time in the Practice Rooms prior to the VeriSign Single Round Matches (SRM
 <br><br>
 If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
 
-<!-- i made up that email address... don't know what it should be -->
-
 <br><br>
 Good luck to you in the Arena!
 
