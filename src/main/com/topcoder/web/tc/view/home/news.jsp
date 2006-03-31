@@ -23,6 +23,21 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.31.06<br>1:40 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Competition Bracket</A>
+      </span><br><br>
+      Room assignments are up.  May 3-5 is looking pretty interesting.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505957" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.30.06<br>1:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -194,23 +209,6 @@ Explore the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/develop
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.21.06<br>2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm293">SRM 293 - Problem Set & Analysis</A></span><br><br>
-With the TCO stimulating our coding adrenalin to the max, a high number of registrants in regular SRMs has ceased to surprise us. With 898 competitors, this match was no exception.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/supernova_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm293">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505859" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
