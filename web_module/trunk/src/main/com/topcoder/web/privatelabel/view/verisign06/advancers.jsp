@@ -47,7 +47,7 @@
 
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <br/><br/><br/><br/><br/>
-            To find out more detailed information about the VeriSign&#174; Iternal Coding Competition, including a list of the
+            To find out more detailed information about the VeriSign&#174; Internal Coding Competition, including a list of the
             prizes, please read the <a href="/pl/?&module=Static&d1=verisign06&d2=rules">Terms and Conditions</a>.
         </div>    
       </td>
