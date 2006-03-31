@@ -6,13 +6,12 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
-import javax.naming.NamingException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
