@@ -59,7 +59,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-                       <h3>Graphic Designer</h3>
+                       <h3>TopCoder Software Graphic Designer</h3>
                        <b>Job Description:</b>
                        <br><br>
 
