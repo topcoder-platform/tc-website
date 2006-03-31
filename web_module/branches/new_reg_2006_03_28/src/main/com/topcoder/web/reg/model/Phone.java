@@ -1,0 +1,58 @@
+package com.topcoder.web.reg.model;
+
+import com.topcoder.web.common.model.Base;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Mar 31, 2006
+ */
+public class Phone extends Base {
+    private Long id;
+    private Integer phoneTypeId;
+    private Long userId;
+    private Boolean primary;
+    private String number;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getPhoneTypeId() {
+        return phoneTypeId;
+    }
+
+    public void setPhoneTypeId(Integer phoneTypeId) {
+        this.phoneTypeId = phoneTypeId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Boolean getPrimary() {
+        return primary;
+    }
+
+    public void setPrimary(Boolean primary) {
+        this.primary = primary;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+
+}

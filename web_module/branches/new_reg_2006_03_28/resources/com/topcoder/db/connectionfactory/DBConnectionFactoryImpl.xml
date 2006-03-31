@@ -5,7 +5,7 @@
                 <Value>java:/DS</Value>
             </Property>
             <!--Common DB -->
-            <Property name="java:/DS">
+            <!--            <Property name="java:/DS">
                 <Property name="producer">
                     <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
                 </Property>
@@ -14,7 +14,29 @@
                         <Value>java:/DS</Value>
                     </Property>
                 </Property>
+            </Property>-->
+            <!-- for testing -->
+            <Property name="java:/DS">
+                <Property name="producer">
+                    <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
+                </Property>
+                <Property name="parameters">
+                    <Property name="jdbc_driver">
+                        <Value>com.informix.jdbc.IfxDriver</Value>
+                    </Property>
+                    <Property name="jdbc_url">
+                        <Value>jdbc:informix-sqli://65.112.118.221:1526/common_oltp:INFORMIXSERVER=devinformix10_shm</Value>
+                    </Property>
+                    <Property name="user">
+                        <Value>coder</Value>
+                    </Property>
+                    <Property name="password">
+                        <Value>altec</Value>
+                    </Property>
+                </Property>
             </Property>
         </Property>
+
+
     </Config>
 </CMConfig>

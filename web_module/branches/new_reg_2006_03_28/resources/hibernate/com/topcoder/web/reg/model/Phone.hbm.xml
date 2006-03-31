@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.topcoder.web.reg.model.Phone" table="phone">
+        <id name="id" column="phone_id">
+            <generator class="com.topcoder.web.reg.model.IdGenerator">
+                <param name="sequence_name">PHONE_SEQ</param>
+            </generator>
+        </id>
+        <property name="userId" column="user_id"/>
+        <property name="phoneTypeId" column="phone_type_id"/>
+        <property name="number" column="phone_number"/>
+        <property name="primary" type="boolean" column="primary_ind"/>
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.topcoder.web.reg.model.Email" table="email">
+        <id name="id" column="email_id">
+            <generator class="com.topcoder.web.reg.model.IdGenerator">
+                <param name="sequence_name">EMAIL_SEQ</param>
+            </generator>
+        </id>
+        <property name="userId" column="user_id"/>
+        <property name="emailTypeId" column="email_type_id"/>
+        <property name="address"/>
+        <property name="primary" type="boolean" column="primary_ind"/>
+        <property name="statusId" column="status_id"/>
+    </class>
+</hibernate-mapping>

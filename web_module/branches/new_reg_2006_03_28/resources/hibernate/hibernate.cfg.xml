@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    <!--<session-factory name="java:comp/env/hibernate/SessionFactory">-->
+
+        <!-- for testing-->
+        <property name="connection.username">coder</property>
+        <property name="connection.password">altec</property>
+        <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/common_oltp:INFORMIXSERVER=devinformix10_shm</property>
+        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.InformixDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
+<!--        <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/Coder.hbm.xml"/>-->
+        <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>
