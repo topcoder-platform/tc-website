@@ -178,7 +178,7 @@ margin:0px auto;
             <b>04/06</b> - TCO06 Component - Round #2 submission deadline - 9AM<br><br>
             <b>04/11</b> - SRM 298 - 11AM - AMD<br><br>
             <b>04/13</b> - TCO06 Component - Round #3 projects posted - 9AM<br><br>
-            <b>04/19</b> - Intel Multi-Threading Competition 4 - 12noon<br><br>
+            <b>04/19</b> - Intel Multi-Threading Competition 4 - 12 NOON<br><br>
             <b>04/20</b> - TCO06 Component - Round #3 submission deadline - 9AM<br><br>
             <b>04/22</b> - SRM 299 - 12 NOON<br><br>
             <b>04/27</b> - SRM 300 - 9PM - UBS<br><br>
