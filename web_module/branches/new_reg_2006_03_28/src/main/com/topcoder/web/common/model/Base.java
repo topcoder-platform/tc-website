@@ -45,4 +45,8 @@ abstract public class Base implements Serializable, Cloneable {
         }
         return buf.toString();
     }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
