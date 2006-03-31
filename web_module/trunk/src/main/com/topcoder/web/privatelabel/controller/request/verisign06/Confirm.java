@@ -1,9 +1,8 @@
 package com.topcoder.web.privatelabel.controller.request.verisign06;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.Constants;
@@ -11,7 +10,10 @@ import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author dok
@@ -60,7 +62,8 @@ public class Confirm extends FullRegConfirm {
         //check handle
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
-            addError(Constants.HANDLE, getBundle().getProperty("error_handle_length"));
+            addError(Constants.HANDLE,
+                    "The handle ("+info.getHandle()+") that you have chosen is already in use.  If this is your TopCoder VeriSign Sponsor Track handle, you are already registered and you may use it to log in.  Otherwise, you will need to choose a different handle.");
         }
         if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
             addError(Constants.HANDLE, getBundle().getProperty("error_handle_chars"));
@@ -99,7 +102,7 @@ public class Confirm extends FullRegConfirm {
             addError(Constants.EMAIL_CONFIRM, getBundle().getProperty("error_email_mismatch"));
         }
 
-        try {
+/*        try {
             Request r = new Request();
             r.setContentHandle("user_info_using_email");
             r.setProperty("email", info.getEmail());
@@ -110,7 +113,7 @@ public class Confirm extends FullRegConfirm {
             }
         } catch (Exception e) {
             throw new TCWebException(e);
-        }
+        }*/
 
         //check first name
         if (info.getFirstName().length() < 1) {
