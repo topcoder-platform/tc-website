@@ -62,15 +62,15 @@ public class Confirm extends FullRegConfirm {
         //check handle
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
-            addError(Constants.HANDLE,
-                    "The handle ("+info.getHandle()+") that you have chosen is already in use.  If this is your TopCoder VeriSign Sponsor Track handle, you are already registered and you may use it to log in.  Otherwise, you will need to choose a different handle.");
+            addError(Constants.HANDLE, getBundle().getProperty("error_handle_length"));
         }
         if (!StringUtils.containsOnly(info.getHandle(), Constants.HANDLE_ALPHABET, false)) {
             addError(Constants.HANDLE, getBundle().getProperty("error_handle_chars"));
         }
         try {
             if (info.isNew() && !info.isAccountConversion() && userExists(info.getHandle())) {
-                addError(Constants.HANDLE, getBundle().getProperty("error_dup_handle"));
+                addError(Constants.HANDLE,
+                        "The handle ("+info.getHandle()+") that you have chosen is already in use.  If this is your TopCoder VeriSign Sponsor Track handle, you are already registered and you may use it to log in.  Otherwise, you will need to choose a different handle.");
             }
         } catch (Exception e) {
             throw new TCWebException(e);
