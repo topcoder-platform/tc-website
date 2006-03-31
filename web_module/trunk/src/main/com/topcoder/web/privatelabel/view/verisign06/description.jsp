@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>VeriSign Internal Coding Competitions, Powered by TopCoder</title>
+    <title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -22,7 +22,7 @@
 <td valign="top" align="center">
 <div class="bodySpacer">
 
-<span class="bigTitle">VeriSign&#174; Internal Coding Competitions</span>
+<span class="bigTitle">VeriSign&#174; Internal Coding Competition</span>
 <br/><br/>
 Welcome to the 2006 VeriSign Internal Coding Competition! By participating, you can earn cash prizes and a seat at the first-ever VeriSign Technical Symposium (VTS) in Williamsburg, VA from June 11-13.
 <br/><br/>

@@ -9,7 +9,7 @@
 <head>
 <jsp:include page="/script.jsp" />
 
-<title>VeriSign Internal Coding Competitions, Powered by TopCoder</title>
+<title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
     <SCRIPT type="text/javascript">
 function submitEnter(e) {
@@ -40,11 +40,11 @@ function submitEnter(e) {
             
       <span class="bigTitle">Registration</span>
       <br/><br/>
-      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competitions.
+      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competition.
       <br/><br/>
       <b>Update your registration information</b><br>
      
-      If you have already registered for the VeriSign Internal Coding Competitions and would like to update your registration information, please login below: 
+      If you have already registered for the VeriSign Internal Coding Competition and would like to update your registration information, please login below: 
       <br/><br/>
           <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
           <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_LOGIN%>">

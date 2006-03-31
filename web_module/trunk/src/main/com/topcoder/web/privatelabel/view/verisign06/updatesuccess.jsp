@@ -4,7 +4,7 @@
 <head>
 <jsp:include page="/script.jsp" />
 
-<title>VeriSign Internal Coding Competitions, Powered by TopCoder</title>
+<title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
 <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 <body>
@@ -31,7 +31,6 @@
 <br><br>
 If you encounter any problems, please contact us at <A href="mailto:verisign@topcoder.com">verisign@topcoder.com</A>.
 
-<!-- i made up that email address... don't know what it should be -->
 
 <br><br>
 Good luck to you in the Arena!

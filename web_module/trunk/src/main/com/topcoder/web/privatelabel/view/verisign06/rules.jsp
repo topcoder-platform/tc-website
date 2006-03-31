@@ -4,7 +4,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-<title>VeriSign Internal Coding Competitions, Powered by TopCoder</title>
+<title>VeriSign Internal Coding Competition, Powered by TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/verisign06.css"/>
 </head>
 
@@ -23,7 +23,7 @@
 <div class="bodySpacer">
 
 
-<span class="bigTitle">VeriSign&#174; Internal Coding Competitions</span>
+<span class="bigTitle">VeriSign&#174; Internal Coding Competition</span>
 <br/><br/>
 <span class="bodySubtitle">Official Rules and Regulations</span>
 <br/><br/>
@@ -105,7 +105,7 @@ respective rooms. All decisions relating to the viability of submissions, the ra
 all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its
 designee and shall be final and binding in all respects.
 <br/><br/>
-VeriSign will distribute prizes for the SRM on April 25, 2006 and May 17, 2006. Prizes are as follows:
+VeriSign will distribute prizes for the SRMs that are scheduled for April 25, 2006 and May 17, 2006. Prizes are as follows:
 <br/><br/>
          <table width="500" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
             <tr>
