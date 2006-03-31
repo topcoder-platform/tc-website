@@ -59,7 +59,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 
-<h3>Application Architect</h3>
+<h3>Topcoder Software Application Architect</h3>
 
 <b>Job Description:</b>
 <ul>
