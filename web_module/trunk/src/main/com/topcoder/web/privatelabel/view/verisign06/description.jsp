@@ -109,7 +109,7 @@ Cash prizes are as follows for each SRM:
          </table>
 <br/>
 
-Winners from the Sponsor Track and the two SRMs will compete on-site for the following great prizes:
+Winners from the Sponsor Track and the two SRMs will compete on-site at the VTS for the following great prizes:
 <br/><br/>
 
          <table width="300" border="0" align="center" cellpadding="6" cellspacing="2" class="sidebarBox">
