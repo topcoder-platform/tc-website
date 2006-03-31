@@ -39,6 +39,7 @@ function submitEnter(e) {
       <div class="bodySpacer">
 
       <span class="bigTitle">Registration</span>
+          <br /><br/>
 If you are not already a registered competitor, click
           <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
           to register
