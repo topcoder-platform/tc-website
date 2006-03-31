@@ -67,11 +67,11 @@ text-decoration: none;
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="March 2006"/>
+<jsp:param name="title" value="April 2006"/>
 </jsp:include>
 
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="mar_06"/>
+<jsp:param name="currMonth" value="apr_06"/>
 </jsp:include>
 
 <%-----CALENDAR TABLE------%>
@@ -93,158 +93,135 @@ text-decoration: none;
             &#160;<br />
             &#160;<br />
             &#160;<br />
-            &#160;<br />
             &#160;</td>
         <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">&#160;</td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">1</span><br/>
-            <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
-            Qualification Round END: 12:00 PM ET (noon)
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>
-        <td id="calendar">2</td>
-        <td id="calendar">3</td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">4</span><br/>
-            <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
-            Online Round #1<br />
-            Registration: 9:00 - 11:55 AM ET<br />
-            Compete: 12:00 PM ET (noon)
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendar">1</td>
     </tr>
     
     <tr> 
-        <td id="calendar">5</td>
+        <td id="calendar" rowspan="2">2</td>
+        <td id="calendarSRM" rowspan="2">
+            <span id="calendarSRMDate">3</span><br />
+            <strong>Match 296</strong><br />
+            Register: 4:00&#160;AM<br />
+            Compete: 7:00&#160;AM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/tc?module=MatchDetails&rd=9817">Details</A><br/><br/></td>
+        <td id="calendar" rowspan="2">4</td>
+        <td id="calendar" rowspan="2">5</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">6</span><br />
-            <strong>Match 292</strong><br />
+            <strong>Match 297</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9813">Details</A><br/><br/></td>
-        <td id="calendar">7</td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">8</span><br/>
-            <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
-            Online Round #2<br />
-            Registration: 6:30 - 9:25 PM ET<br />
-            Compete: 9:30 PM ET
-            &#160;<br />
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>
-        <td id="calendar">9</td>
-        <td id="calendar">10</td>
-        <td id="calendar">11</td>
+            <A href="/tc?module=MatchDetails&rd=9818">Details</A><br/><br/></td>
+        <td id="calendar" rowspan="2">7</td>
+        <td id="calendar" rowspan="2">8</td>
     </tr>
     
     <tr> 
-        <td id="calendar">12</td>
-        <td id="calendar">13</td>
-        <td id="calendar">14</td>
         <td id="calendarTCO06">
-            <span id="calendarTCO06Date">15</span><br/>            
-            <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
-            Online Round #3<br />
-            Registration: 6:30 - 9:25 PM ET<br />
-            Compete: 9:30 PM ET
-            &#160;<br />
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">16</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #1 Projects Posted: 9:00 AM ET
+            Online Championship Round #2 Submission Deadline: 9:00 AM ET
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
+    </tr>
+    <tr> 
+        <td id="calendar">9</td>
+        <td id="calendar">10</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">17</span><br />
-            <strong>Match 293</strong><br />
+            <span id="calendarSRMDate">11</span><br />
+            <strong>Match 298</strong><br />
             Register: 8:00&#160;AM<br />
             Compete: 11:00&#160;AM<br />
             Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9814">Details</A><br/><br/></td>
-        <td id="calendar">18</td>
-    </tr>
-
-    <tr> 
-        <td id="calendar" rowspan="2">19</td>
-        <td id="calendar" rowspan="2">20</td>
-        <td id="calendar" rowspan="2">21</td>
+            <A href="/tc?module=MatchDetails&rd=9819">Details</A><br/><br/></td>
+        <td id="calendar">12</td>
         <td id="calendarTCO06">
-            <span id="calendarTCO06Date">22</span><br/>
-            <strong>2006 TopCoder Open Algorithm Competition</strong><br/>
-            Online Round #4<br />
-            Registration: 6:30 - 9:25 PM ET<br />
-            Compete: 9:30 PM ET
-            &#160;<br />
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_schedule">Details</A>
-            </td>            
-        <td id="calendarTCO06" rowspan="2">
-            <span id="calendarTCO06Date">23</span><br/>
+            <span id="calendarTCO06Date">13</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #1 Submission Deadline: 9:00 AM ET
+            Online Championship Round #3 Projects Posted: 9:00 AM ET
             &#160;<br />
             <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
             <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
-        <td id="calendar" rowspan="2">24</td>
-        <td id="calendarSRM" rowspan="2">
-            <span id="calendarSRMDate">25</span><br />
-            <strong>Match 294</strong><br />
+        <td id="calendar">14</td>
+        <td id="calendar">15</td>
+    </tr>
+    
+    <tr> 
+        <td id="calendar">16</td>
+        <td id="calendar">17</td>
+        <td id="calendar">18</td>
+        <td id="calendarIntel">
+            <span id="calendarIntelDate">19</span><br />
+            <strong>Intel Multi-threading Competition 4</strong><br />
+            Registration Opens: 12:00 Noon<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>      
+        <td id="calendarTCO06">
+            <span id="calendarTCO06Date">20</span><br/>
+            <strong>2006 TopCoder Open Component Competition</strong><br/>
+            Online Championship Round #3 Submission Deadline: 9:00 AM ET
+            &#160;<br />
+            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
+            </td>
+        <td id="calendar">21</td>
+        <td id="calendarSRM">
+            <span id="calendarSRMDate">22</span><br />
+            <strong>Match 299</strong><br />
             Register: 9:00&#160;AM<br />
             Compete: 12:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9815">Details</A><br/><br/></td>
+            <A href="/tc?module=MatchDetails&rd=9820">Details</A><br/><br/></td>
     </tr>
+    
     <tr> 
-            <td id="calendarIntel">
-            <strong>Intel Multi-threading Competition 3</strong><br />
-            Registration Opens: 12:00 Noon<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
-    </tr>
-   
-    <tr> 
+        <td id="calendar">23</td>
+        <td id="calendar">24</td>
+        <td id="calendar">25</td>
         <td id="calendar">26</td>
-        <td id="calendar">27</td>
-        <td id="calendar">28</td>
         <td id="calendarSRM">
-            <span id="calendarSRMDate">29</span><br />
-            <strong>Match 295</strong><br />
+            <span id="calendarSRMDate">27</span><br />
+            <strong>Match 300</strong><br />
             Register: 6:00&#160;PM<br />
             Compete: 9:00&#160;PM<br />
+            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS</A><br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9816">Details</A><br/><br/></td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">30</span><br/>
-            <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #2 Projects Posted: 9:00 AM ET
+            <A href="/tc?module=MatchDetails&rd=9821">Details</A><br/><br/>
             &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
             </td>
-        <td id="calendar">31</td>
+        <td id="calendar">28</td>
+        <td id="calendar">29</td>
+    </tr>
+    
+    <tr> 
+        <td id="calendar">30</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
+        <td id="calendarBlank">&#160;</td>
         <td id="calendarBlank">
             &#160;<br />
             &#160;<br />
             &#160;<br />
             &#160;<br />
             &#160;<br />
+            &#160;<br />
             &#160;</td>
     </tr>
-        
 </table>
 
 </div>
