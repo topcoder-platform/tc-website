@@ -1,6 +1,8 @@
 package com.topcoder.web.privatelabel.controller.request.verisign06;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
@@ -9,10 +11,7 @@ import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * @author dok
@@ -100,6 +99,19 @@ public class Confirm extends FullRegConfirm {
             addError(Constants.EMAIL_CONFIRM, getBundle().getProperty("error_email_mismatch"));
         }
 
+        try {
+            Request r = new Request();
+            r.setContentHandle("user_info_using_email");
+            r.setProperty("email", info.getEmail());
+            Map m = getDataAccess(db).getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) m.get("user_info_using_email");
+            if (!rsc.isEmpty()) {
+                addError(Constants.EMAIL, "Email address in use, you may only register one account.");
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
         //check first name
         if (info.getFirstName().length() < 1) {
             addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name"));
@@ -118,12 +130,13 @@ public class Confirm extends FullRegConfirm {
     /**
      * the difference between this and the parents makeRegInfo() is that
      * this one does not require there to be reg info in the sesssion already.
+     *
      * @return
      * @throws Exception
      */
     protected SimpleRegInfo makeRegInfo() throws Exception {
 
-        FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
+        FullRegInfo info = (FullRegInfo) getRegInfoFromPersistor();
         if (info == null) {
             log.debug("didn't find info in persistor, proceding with info from request");
             info = new FullRegInfo();
