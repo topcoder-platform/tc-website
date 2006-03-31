@@ -37,14 +37,24 @@ function submitEnter(e) {
    <tr valign="top">
       <td valign="top" align="center">
       <div class="bodySpacer">
-            
+
       <span class="bigTitle">Registration</span>
-      <br/><br/>
-      Click <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a> to register for the VeriSign Internal Coding Competition.
-      <br/><br/>
-      <b>Update your registration information</b><br>
-     
-      If you have already registered for the VeriSign Internal Coding Competition and would like to update your registration information, please login below: 
+If you are not already a registered competitor, click
+          <a href="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>?module=<%=Constants.VERISIGN_06_REG_MAIN%>&amp;<%=Constants.EVENT_ID%>=6&amp;<%=Constants.COMPANY_ID%>=17942">here</a>
+          to register
+an account for the VeriSign Internal Coding Competition.
+          <br/><br/>
+
+<b>Update your registration information</b><br />
+If you have already registered for the VeriSign Internal Coding
+Competition and would like to update your registration information,
+please login below:
+          <br/><br/>
+
+Note: If you participated in the TopCoder VeriSign Sponsor Track
+competition, you do NOT need to register a new account.  You may use
+your existing account credentials to login to the Competition Arena.
+
       <br/><br/>
           <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
           <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.VERISIGN_06_LOGIN%>">
