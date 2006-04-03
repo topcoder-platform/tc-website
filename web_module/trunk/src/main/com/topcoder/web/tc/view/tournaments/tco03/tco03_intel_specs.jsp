@@ -8,6 +8,7 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>
 </head>
 
 <body>

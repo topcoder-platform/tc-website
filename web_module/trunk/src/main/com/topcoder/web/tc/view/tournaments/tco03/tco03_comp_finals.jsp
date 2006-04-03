@@ -8,6 +8,7 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>
 <script>
 function openWin(url, name) {
     win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=yes,toolbar=no,width=800,height=600");

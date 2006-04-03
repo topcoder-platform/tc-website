@@ -13,6 +13,7 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_advancers"); %>
 <% ResultSetContainer contest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest info"); %>
 

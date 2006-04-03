@@ -11,6 +11,7 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+<link type="text/css" rel="stylesheet" href="/css/TCOstyle.css"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
     ResultSetContainer rsc = null;
