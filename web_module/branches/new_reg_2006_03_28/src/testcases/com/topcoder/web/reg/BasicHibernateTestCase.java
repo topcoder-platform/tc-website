@@ -29,9 +29,6 @@ public class BasicHibernateTestCase extends TestCase {
 
         String handle = "f" + System.currentTimeMillis();
         try {
-
-
-
             User u = new User();
             u.setActivationCode("active");
             u.setFirstName("first name");
@@ -65,10 +62,12 @@ public class BasicHibernateTestCase extends TestCase {
             log.debug("start transaction");
             Transaction t = session.beginTransaction();
             log.debug("transaction started");
-            session.saveOrUpdate(u);
+            //session.saveOrUpdate(u);
+            session.save(u);
             log.debug("save complete");
             value = u.getId();
             t.commit();
+            session.clear();
             log.debug("commit transaction");
 
 
