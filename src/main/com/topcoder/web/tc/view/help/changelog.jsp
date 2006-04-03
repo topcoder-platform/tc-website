@@ -40,7 +40,7 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.8 - 2006.04.xx
+        5.0.8 - 2006.04.03
         <ul>
             <li>Some tweaks to the VeriSign reg process</li>
             <li>Seperate Coder of the Month archives</li>
