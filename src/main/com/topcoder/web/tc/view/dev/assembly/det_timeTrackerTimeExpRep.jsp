@@ -97,25 +97,25 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
    <tr>
-      <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
+      <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="center">03.15.2006</td><td align="center">03.28.2006</td>
+      <td>Team Creation:</td><td align="right">03.15.2006</td><td align="right">03.28.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="center">03.29.2006</td><td align="center">04.05.2006</td>
+      <td>Competition Phase:</td><td align="right">03.29.2006</td><td align="right">04.07.2006</td>
    </tr>
    <tr>
-      <td>Test Challenge Phase:</td><td align="center">04.06.2006</td><td align="center">04.07.2006</td>
+      <td>Test Challenge Phase:</td><td align="right">04.10.2006</td><td align="right">04.11.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="center">04.10.2006</td><td align="center">04.21.2006</td>
+      <td>Review Phase:</td><td align="right">04.12.2006</td><td align="right">04.25.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="center">04.24.2006</td><td align="center">04.25.2006</td>
+      <td>Feedback Phase:</td><td align="right">04.26.2006</td><td align="right">04.27.2006</td>
    </tr>
    <tr>
-      <td>Deployment Phase:</td><td align="center">04.24.2006</td><td align="center">04.28.2006</td>
+      <td>Deployment Phase:</td><td align="right">04.26.2006</td><td align="right">05.09.2006</td>
    </tr>
 </table>
 </div>
