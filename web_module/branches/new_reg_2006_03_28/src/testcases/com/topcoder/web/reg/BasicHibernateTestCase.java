@@ -29,8 +29,8 @@ public class BasicHibernateTestCase extends TestCase {
 
         String handle = "f" + System.currentTimeMillis();
         try {
-            log.debug("start transaction");
-            Transaction t = session.beginTransaction();
+
+
 
             User u = new User();
             u.setActivationCode("active");
@@ -62,7 +62,11 @@ public class BasicHibernateTestCase extends TestCase {
 
             u.addEmailAddress(e);
 
+            log.debug("start transaction");
+            Transaction t = session.beginTransaction();
+            log.debug("transaction started");
             session.saveOrUpdate(u);
+            log.debug("save complete");
             value = u.getId();
             t.commit();
             log.debug("commit transaction");
@@ -75,8 +79,12 @@ public class BasicHibernateTestCase extends TestCase {
             session.close();
             factory.close();
         }
+        log.debug("create factory");
         SessionFactory factory1 = conf.buildSessionFactory();
+        log.debug("factory created");
+        log.debug("open session");
         Session session1 = factory1.openSession();
+        log.debug("session opened");
         User u2 = (User) session1.load(User.class, value);
         assertTrue("db contains new user", u2.getHandle().equals(handle));
         session1.close();
