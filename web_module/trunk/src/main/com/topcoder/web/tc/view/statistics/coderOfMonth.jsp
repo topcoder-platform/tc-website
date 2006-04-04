@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map"%>
 <%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="com.topcoder.web.common.tag.HandleTag"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -18,22 +19,25 @@
        int type = Integer.parseInt((String)request.getAttribute(Constants.ACHIEVEMENT_TYPE_ID));
         String node="";
         String pageTitle="";
+        String handleFlag="";
        switch(type) {
         case Constants.ACHIEVEMENT_TYPE_ALGO_COM:
             node="algo_com";
             pageTitle="Algorithm ";
+            handleFlag= HandleTag.DESIGN;
             break;
            case Constants.ACHIEVEMENT_TYPE_DEV_COM:
                node="dev_com";
                pageTitle="Development ";
+               handleFlag= HandleTag.DEVELOPMENT;
                break;
            case Constants.ACHIEVEMENT_TYPE_DESIGN_COM:
                node="des_com";
                pageTitle="Design ";
+               handleFlag= HandleTag.ALGORITHM;
                break;
            case Constants.ACHIEVEMENT_TYPE_COM:
                node="com";
-               pageTitle="";
                break;
 
     }
@@ -82,7 +86,7 @@
    <% boolean even = false; %>
    <rsc:iterator list="<%=results%>" id="resultRow">
        <tr class="<%=even?"dark":"light"%>">
-          <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>'/></td>
+          <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=handleFlag%>"/></td>
           <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/></td>
        </tr>
        <% even = !even;%>
