@@ -37,7 +37,7 @@
                handleFlag= HandleTag.ALGORITHM;
                break;
            case Constants.ACHIEVEMENT_TYPE_COM:
-               node="com";
+               node="m_com";
                break;
 
     }
