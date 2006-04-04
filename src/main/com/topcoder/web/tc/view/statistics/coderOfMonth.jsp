@@ -102,6 +102,8 @@ TopCoder reserves the title of Coder of the Month for any member who has had an 
 <br><br>
     <% if (!ccom) {%>
 View the <A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_COM%>">Classic Coder of the Month Archive</A>
+    <% } else {%>
+    Note: As of April, 2006 TopCoder has stopped awarding Coder of the Month and split the distinction up into Algorithm, Design and Development Coders of the Month.
     <% } %>
 </span>
 
