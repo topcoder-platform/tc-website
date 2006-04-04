@@ -234,6 +234,10 @@ public class Constants implements WebConstants {
     public static final int ACHIEVEMENT_TYPE_DESIGN_COM = 6;
     public static final int ACHIEVEMENT_TYPE_DEV_COM = 7;
 
+
+    public static final String ACHIEVEMENT_TYPE_ID = "achtid";
+
+
     static {
         initialize();
     }
