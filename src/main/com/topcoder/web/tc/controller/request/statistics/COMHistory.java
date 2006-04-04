@@ -26,7 +26,7 @@ public class COMHistory extends com.topcoder.web.tc.controller.request.Base {
         int type;
         try {
             type = Integer.parseInt(getRequest().getParameter(Constants.ACHIEVEMENT_TYPE_ID));
-            if (Arrays.binarySearch(TYPES, type)==-1) {
+            if (Arrays.binarySearch(TYPES, type)<0) {
                 throw new NavigationException("Invalid achievement type specified");
             }
         } catch (NumberFormatException e) {
