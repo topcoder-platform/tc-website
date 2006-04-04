@@ -25,8 +25,9 @@
    <tr valign="top">
 <!-- Left Column Begins-->
       <td width="180">
+         <%--or "des_com" or "dev_com"--%>
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="coder_of_month"/>
+            <jsp:param name="node" value="algo_com"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->
@@ -43,7 +44,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
    <tr>
-      <td class="title" colspan="2">Coder of the Month Archive</td>
+      <td class="title" colspan="2">Coder of the Month: Algorithm</td>
    </tr>
    <tr>
       <td class="header">Handle</td>
@@ -60,9 +61,11 @@
 </table>
 
 <span class="bodyText">
-<span class="title">Coder of the Month</span>
+<span class="title">Coder of the Month</span><br>
+<span class="subtitle">Algorithm Competitions</span>
 <br><br>
-TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
+<%--ALGORITHM--%>
+TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
 </span>
 
 </div>
