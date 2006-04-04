@@ -75,7 +75,7 @@
 <jsp:param name="title" value="Coder of the Month Archive"/>
 </jsp:include>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 150px;">
    <tr>
       <td class="title" colspan="2"><%=pageTitle%>Coder of the Month</td>
    </tr>
