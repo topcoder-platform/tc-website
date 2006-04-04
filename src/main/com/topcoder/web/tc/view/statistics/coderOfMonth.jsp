@@ -44,7 +44,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
    <tr>
-      <td class="title" colspan="2">Coder of the Month: Algorithm</td>
+      <td class="title" colspan="2">Algorithm Coder of the Month</td>
    </tr>
    <tr>
       <td class="header">Handle</td>
@@ -61,8 +61,7 @@
 </table>
 
 <span class="bodyText">
-<span class="title">Coder of the Month</span><br>
-<span class="subtitle">Algorithm Competitions</span>
+<span class="title">Algorithm Coder<br>of the Month</span>
 <br><br>
 <%--ALGORITHM--%>
 TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
