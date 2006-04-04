@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.04.06 7:25 PM - </td><td width="100%">"Coder of the Month" split</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.30.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.29.06 3:15 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">Intel Multi-Threading Competition 3 server maintenance, extended deadline</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.22.06 3:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A></td></tr>
