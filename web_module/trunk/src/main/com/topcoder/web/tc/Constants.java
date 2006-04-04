@@ -230,6 +230,10 @@ public class Constants implements WebConstants {
     public static final int ROUND_END_PROP_ID = 10;
 
 
+    public static final int ACHIEVEMENT_TYPE_ALGO_COM = 5;
+    public static final int ACHIEVEMENT_TYPE_DESIGN_COM = 6;
+    public static final int ACHIEVEMENT_TYPE_DEV_COM = 7;
+
     static {
         initialize();
     }
