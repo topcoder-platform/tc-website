@@ -75,7 +75,7 @@
 <jsp:param name="title" value="Coder of the Month Archive"/>
 </jsp:include>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 150px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 200px;">
    <tr>
       <td class="title" colspan="2"><%=pageTitle%>Coder of the Month</td>
    </tr>
@@ -96,8 +96,9 @@
 <span class="bodyText">
 <span class="title"><%=pageTitle%> Coder<br>of the Month</span>
 <br><br>
-<%--ALGORITHM--%>
 TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
+<br><br>
+View the <A href="">Classic Coder of the Month Archive</A>
 </span>
 
 </div>
