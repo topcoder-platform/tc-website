@@ -25,7 +25,7 @@
         case Constants.ACHIEVEMENT_TYPE_ALGO_COM:
             node="algo_com";
             pageTitle="Algorithm ";
-            handleFlag= HandleTag.DESIGN;
+            handleFlag= HandleTag.ALGORITHM;
             break;
            case Constants.ACHIEVEMENT_TYPE_DEV_COM:
                node="dev_com";
