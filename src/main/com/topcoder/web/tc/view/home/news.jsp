@@ -27,7 +27,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       "Coder of the Month" split
       </span><br><br>
-<A href="/tc?module=COMHistory&achtid=5">Algorithm</A>, <A href="/tc?module=COMHistory&achtid=6">Design</A>, and <A href="/tc?module=COMHistory&achtid=7">Development</A> Competitions will each have their own Coder of the Month from now on.
+<A href="/tc?module=COMHistory&achtid=5">Algorithm</A>, <A href="/tc?module=COMHistory&achtid=6">Design</A>, and <A href="/tc?module=COMHistory&achtid=7">Development</A> Competitions will each have their own "Coder of the Month" from now on.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
