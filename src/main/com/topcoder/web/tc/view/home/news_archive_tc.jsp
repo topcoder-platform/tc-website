@@ -1,5 +1,6 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -55,7 +56,7 @@
 <tr class="bodyText"><td nowrap="nowrap">08.11.05 5:50 PM - </td><td width="100%">New Rating Distribution Graphs</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.25.05 12:20 PM - </td><td width="100%">New Rating History Graphs</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.18.05 8:30 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">07.13.05 11:40 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.13.05 11:40 AM - </td><td width="100%"><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_COM%>">Coder of the Month Archive</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.08.05 11:40 AM - </td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM - </td><td width="100%">Event calendar updated for <A href="/tc?module=Static&d1=calendar&d2=aug_05">August</A>, <A href="/tc?module=Static&d1=calendar&d2=sep_05">September</A>, and <A href="/tc?module=Static&d1=calendar&d2=oct_05">October</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.12.05 5:50 PM - </td><td width="100%">Ratings have been updated</td></tr>
