@@ -173,7 +173,7 @@
 
 <TR><TD CLASS="bodyText"><A NAME="c2"><B>What hardware does TopCoder use?</B></A></TD></TR>
 <TR><TD CLASS="bodyText">
-<P>We use 2 4-way 700 Mhz Pentium III Xeon systems. Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</P>
+<P>We use 2 2-way 3.6 Ghz Pentium IV Xeon systems. </P>
 </TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
