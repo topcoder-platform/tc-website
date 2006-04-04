@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -12,6 +13,34 @@
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 <% ResultSetContainer results = (ResultSetContainer)((Map)request.getAttribute("resultMap")).get("com_history"); %>
+
+    <%
+       int type = Integer.parseInt((String)request.getAttribute(Constants.ACHIEVEMENT_TYPE_ID));
+        String node="";
+        String pageTitle="";
+       switch(type) {
+        case Constants.ACHIEVEMENT_TYPE_ALGO_COM:
+            node="algo_com";
+            pageTitle="Algorithm ";
+            break;
+           case Constants.ACHIEVEMENT_TYPE_DEV_COM:
+               node="dev_com";
+               pageTitle="Development ";
+               break;
+           case Constants.ACHIEVEMENT_TYPE_DESIGN_COM:
+               node="des_com";
+               pageTitle="Design ";
+               break;
+           case Constants.ACHIEVEMENT_TYPE_COM:
+               node="com";
+               pageTitle="";
+               break;
+
+    }
+
+
+
+        %>
 
 </head>
 
@@ -27,7 +56,7 @@
       <td width="180">
          <%--or "des_com" or "dev_com"--%>
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="algo_com"/>
+            <jsp:param name="node" value="<%=node%>"/>
          </jsp:include>
       </td>
 <!-- Left Column Ends -->
@@ -44,7 +73,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
    <tr>
-      <td class="title" colspan="2">Algorithm Coder of the Month</td>
+      <td class="title" colspan="2"><%=pageTitle%>Coder of the Month</td>
    </tr>
    <tr>
       <td class="header">Handle</td>
@@ -61,7 +90,7 @@
 </table>
 
 <span class="bodyText">
-<span class="title">Algorithm Coder<br>of the Month</span>
+<span class="title"><%=pageTitle%> Coder<br>of the Month</span>
 <br><br>
 <%--ALGORITHM--%>
 TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
