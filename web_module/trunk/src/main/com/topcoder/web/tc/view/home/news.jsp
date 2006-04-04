@@ -23,6 +23,20 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.04.06<br>7:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      "Coder of the Month" split
+      </span><br><br>
+<A href="/tc?module=COMHistory&achtid=5">Algorithm</A>, <A href="/tc?module=COMHistory&achtid=6">Design</A>, and <A href="/tc?module=COMHistory&achtid=7">Development</A> Competitions will each have their own Coder of the Month from now on.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505958" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.31.06<br>1:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Competition Bracket</A>
@@ -194,21 +208,6 @@ Explore the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/develop
          <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.22.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">AMD SRM 293 chat session transcript</A>
-      </span><br><br>
-      AMD was in the arena prior to SRM 293, to discuss gaming optimization techniques.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
