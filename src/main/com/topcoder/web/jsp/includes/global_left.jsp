@@ -21,7 +21,10 @@
          nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_recordbook')",  "Record Book", "m_recordbook"));
             nav.search("m_recordbook").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home", "Algorithm", "algo_recordbook"));
             nav.search("m_recordbook").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home", "Component", "comp_recordbook"));
-         nav.search("m_competitor_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&amp;trans=true&amp;c=com_history&amp;d1=statistics&amp;d2=coderOfMonth", "Coder of the Month", "coder_of_month"));
+         nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_com')",  "Coder of the Month", "m_com"));
+            nav.search("m_com").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&amp;trans=true&amp;c=com_history&amp;d1=statistics&amp;d2=coderOfMonth", "Algorithm", "algo_com"));
+            nav.search("m_com").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&amp;trans=true&amp;c=com_history&amp;d1=statistics&amp;d2=coderOfMonth", "Design", "des_com"));
+            nav.search("m_com").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=SimpleStats&amp;trans=true&amp;c=com_history&amp;d1=statistics&amp;d2=coderOfMonth", "Development", "dev_com"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_competitions')", "Algorithm", "m_algo_competitions"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:arena();", "Compete<br>(Launch Arena)", "algo_compete"));
          nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_algo_stats')", "Statistics", "m_algo_stats"));
