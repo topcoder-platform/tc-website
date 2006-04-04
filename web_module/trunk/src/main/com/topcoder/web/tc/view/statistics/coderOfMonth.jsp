@@ -20,6 +20,7 @@
         String node="";
         String pageTitle="";
         String handleFlag="";
+        boolean ccom=false;
        switch(type) {
         case Constants.ACHIEVEMENT_TYPE_ALGO_COM:
             node="algo_com";
@@ -38,6 +39,7 @@
                break;
            case Constants.ACHIEVEMENT_TYPE_COM:
                node="m_com";
+               ccom=true;
                break;
 
     }
@@ -98,7 +100,9 @@
 <br><br>
 TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
 <br><br>
-View the <A href="">Classic Coder of the Month Archive</A>
+    <% if (!ccom) {%>
+View the <A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_COM%>">Classic Coder of the Month Archive</A>
+    <% } %>
 </span>
 
 </div>
