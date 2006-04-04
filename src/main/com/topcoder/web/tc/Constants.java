@@ -229,11 +229,13 @@ public class Constants implements WebConstants {
     public static final int ROUND_START_PROP_ID = 9;
     public static final int ROUND_END_PROP_ID = 10;
 
-
+    public static final int ACHIEVEMENT_TYPE_COM = 1;
+    public static final int ACHIEVEMENT_TYPE_NAUGHTY = 2;
+    public static final int ACHIEVEMENT_TYPE_OTHER = 3;
+    public static final int ACHIEVEMENT_TYPE_TOURNEY_AWARD = 4;
     public static final int ACHIEVEMENT_TYPE_ALGO_COM = 5;
     public static final int ACHIEVEMENT_TYPE_DESIGN_COM = 6;
     public static final int ACHIEVEMENT_TYPE_DEV_COM = 7;
-
 
     public static final String ACHIEVEMENT_TYPE_ID = "achtid";
 
