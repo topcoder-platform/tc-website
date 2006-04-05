@@ -40,6 +40,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.10 - 2006.04.xx
+        <ul>
+            <li>Fix the next/previous links on the example history page for Marathon Matches</li>
+        </ul>
+    </p>
+    <p>
         5.0.9 - 2006.04.04
         <ul>
             <li>Break out COM</li>
