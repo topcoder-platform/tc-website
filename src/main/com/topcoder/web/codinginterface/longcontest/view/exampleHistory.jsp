@@ -101,6 +101,15 @@
             <span class="bodySubtitle">Coder: <tc-webtag:handle coderId='<%=request.getParameter(Constants.CODER_ID)%>'/></span>
             <br>
 
+            <form name="exampleForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
+
+                <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.NUMBER_RECORDS%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="ViewExampleHistory"/>
+
             <div style="clear: both;" align="center">
                <div class="pagingBox">
                     <%=(examples.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
@@ -160,7 +169,8 @@
                         </TABLE>
                     </TD>
                 </tr>
-            </TABLE>
+            </table>
+            </form>
             <p>* Indicates that this submission has not yet been scored</p>
 
             <div class="pagingBox">
