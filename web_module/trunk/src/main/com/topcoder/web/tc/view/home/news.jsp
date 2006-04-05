@@ -23,6 +23,20 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.06<br>3:30 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="blank">TopCoder College Tour: Report from University of Georgia</A></span><br><br>
+       <div style="float: right; padding-left: 3px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
+       "9:00 PM - Rock, Paper, Scissors Tournament, 9:15 PM - Build Card Bridge, 9:45 PM - Help Jimmy "The Lightning" Alberto Steal Diamonds. This looks like an odd (but busy) schedule. Actually, these were the challenges that UGA programmers faced in an algorithm competition Wednesday night."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505959" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.04.06<br>7:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       "Coder of the Month" split
@@ -192,22 +206,6 @@ Round 4 always features some of the hardest problems TopCoder has to offer, and 
          <A href="/tc?module=Static&d1=match_editorials&d2=tco06_online_rd_4">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505938" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.22.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 3 is underway</A>
-      </span><br><br>
-The <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm" target="_blank">Intel&#174; Software Network</A> and TopCoder&#174; have opened registration for the third competition in the <A href="/longcontest/?module=Static&d1=intel_overview">Intel Software Network Multi-Threading Competition Series</A>.  This marathon match style competition encourages the use of multi-threading techniques and will run through April 5th at 12:00 Noon EST.
-<br><br>
-Explore the <A href="/?t=sponsor&c=link&link=http://www.intel.com/cd/ids/developer/asmo-na/eng/index.htm" target="_blank">The Intel&#174; Software Network's</A> wealth of resources to discover how they can benefit you in the Multi-Threading Competition Series!
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewActiveContests&rt=15">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 

@@ -192,6 +192,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
+            TopCoder College Tour: Report from University of Georgia <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">...more</A><br>[April 5]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
             Students compete in online competition <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">...more</A><br>[March 30]<br><br>
 
@@ -205,8 +208,6 @@ margin:0px auto;
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="61" height="33" alt="DNA India" border="0" /></div>
             Code jockey contest returns to IT hub <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">...more</A><br>[March 13]<br><br>
-            
-            Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member <A href="/tc?module=Static&d1=pressroom&d2=art_031006">...more</A><br>[March 10]<br><br>
             </td>
          </tr>
       </table>
