@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.Address" table="ADDRESS">
+    <class name="com.topcoder.web.reg.model.Address" table="address">
         <id name="id" column="address_id">
             <generator class="com.topcoder.web.reg.model.IdGenerator">
                 <param name="sequence_name">ADDRESS_SEQ</param>

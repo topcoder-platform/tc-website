@@ -1,10 +1,7 @@
 package com.topcoder.web.reg.model;
 
 import java.sql.Timestamp;
-import java.util.Set;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author dok
@@ -13,15 +10,18 @@ import java.util.TreeSet;
  */
 public class Coder extends User {
 
+    public static final Integer TYPE_STUDENT = new Integer(1);
+    public static final Integer TYPE_PRO = new Integer(2);
+
     private Timestamp memberSince;
     private String quote;
     private Integer coderTypeId;
-    private String compCountryCoder;
+    private String compCountryCode;
     private Set algoRatings;
 
     public Coder() {
         super();
-        algoRatings = new TreeSet();
+        algoRatings = new HashSet();
     }
 
     public Timestamp getMemberSince() {
@@ -48,12 +48,12 @@ public class Coder extends User {
         this.coderTypeId = coderTypeId;
     }
 
-    public String getCompCountryCoder() {
-        return compCountryCoder;
+    public String getCompCountryCode() {
+        return compCountryCode;
     }
 
-    public void setCompCountryCoder(String compCountryCoder) {
-        this.compCountryCoder = compCountryCoder;
+    public void setCompCountryCode(String compCountryCode) {
+        this.compCountryCode = compCountryCode;
     }
     public Set getAlgoRatings() {
         return Collections.unmodifiableSet(algoRatings);

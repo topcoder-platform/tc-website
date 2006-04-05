@@ -8,6 +8,9 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Mar 31, 2006
  */
 public class Phone extends Base {
+    public static final Integer PHONE_TYPE_OFFICE = new Integer(1);
+    public static final Integer PHONE_TYPE_HOME = new Integer(2); 
+
     private Long id;
     private Integer phoneTypeId;
     private Long userId;

@@ -7,7 +7,7 @@ import com.topcoder.web.common.model.Base;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-public class AlgoRating extends Base {
+public abstract class AlgoRating extends Base {
 
     private Long coderId;
     private Integer ratingTypeId;
@@ -53,6 +53,28 @@ public class AlgoRating extends Base {
 
     public void setNumRatings(Integer numRatings) {
         this.numRatings = numRatings;
+    }
+
+    public boolean equals(Object o) {
+        if (o==null) {
+            return false;
+        } else {
+            try {
+                AlgoRating oa = (AlgoRating)o;
+                return (oa.getCoderId().equals(coderId) &&
+                        oa.getRatingTypeId().equals(ratingTypeId));
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
+    public int hashCode() {
+        StringBuffer buf = new StringBuffer(100);
+        buf.append(coderId);
+        buf.append(" ");
+        buf.append(ratingTypeId);
+        return buf.toString().hashCode();
     }
 
 

@@ -5,11 +5,20 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.AlgoRating" table="algo_rating">
-        <property name="coderId" column="coder_id"/>
-        <property name="ratingTypeId" column="algo_rating_type_id"/>
+    <!--  setting the discriminator value on the superclass seems pretty supid since it doesn't exist,
+          but seems to be necessary -->
+    <class name="com.topcoder.web.reg.model.AlgoRating" table="algo_rating" discriminator-value="0">
+        <composite-id>
+            <key-property name="coderId" type="long" column="coder_id"/>
+            <key-property name="ratingTypeId" type="integer" column="algo_rating_type_id"/>
+        </composite-id>
+        <discriminator column="algo_rating_type_id" type="integer" insert="false"/>
         <property name="rating"/>
         <property name="roundId" column="round_id"/>
         <property name="numRatings" column="num_ratings"/>
+        <subclass name="com.topcoder.web.reg.model.TCAlgoRating" discriminator-value="1"/>
+        <subclass name="com.topcoder.web.reg.model.HSAlgoRating" discriminator-value="2"/>
+
     </class>
+
 </hibernate-mapping>

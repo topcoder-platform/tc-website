@@ -11,7 +11,7 @@
         <!-- for testing-->
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
-        <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/common_oltp:INFORMIXSERVER=devinformix10_shm</property>
+        <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/hs_informixoltp:INFORMIXSERVER=devinformix10_shm</property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 
         <!-- SQL dialect -->
@@ -21,8 +21,7 @@
         <property name="show_sql">true</property>
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
-<!--        <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Coder.hbm.xml"/>-->
+        <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>

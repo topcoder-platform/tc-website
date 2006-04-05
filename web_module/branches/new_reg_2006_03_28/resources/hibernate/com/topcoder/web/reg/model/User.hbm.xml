@@ -19,10 +19,6 @@
         <property name="password"/>
         <property name="activationCode" column="activation_code"/>
 
-<!--        <joined-subclass name="com.topcoder.web.reg.model.Coder" table="CODER">
-            <key column="coder_id"/>
-        </joined-subclass>-->
-
         <set name="addresses" table="user_address_xref" cascade="save-update">
             <key column="user_id"/>
             <many-to-many column="address_id" class="com.topcoder.web.reg.model.Address"/>
@@ -31,12 +27,26 @@
             <key column="user_id"/>
             <one-to-many class="com.topcoder.web.reg.model.Email"/>
         </set>
-<!--        <set name="phoneNumbers">
+        <set name="phoneNumbers" cascade="save-update">
             <key column="user_id"/>
             <one-to-many class="com.topcoder.web.reg.model.Phone"/>
-        </set>-->
+        </set>
 
+        <!--  setting the discriminator value on the superclass seems pretty supid since it doesn't exist,
+              but seems to be necessary -->
+        <joined-subclass name="com.topcoder.web.reg.model.Coder" table="coder">
+            <key column="coder_id"/>
+            <property name="memberSince" type="timestamp" column="member_since"/>
+            <property name="quote"/>
+            <property name="coderTypeId" column="coder_type_id"/>
+            <property name="compCountryCode" column="comp_country_code"/>
 
+            <set name="algoRatings" cascade="save-update">
+                <key column="coder_id"/>
+                <one-to-many class="com.topcoder.web.reg.model.AlgoRating"/>
+            </set>
+
+        </joined-subclass>
 
     </class>
 
