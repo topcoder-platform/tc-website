@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- UGA - ACM --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank"><img src="/i/pressroom/uga_acm_logo.gif" alt="UGA-ACM" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">TopCoder College Tour: Report from University of Georgia</A></strong></font><br />
+                        9:00 PM - Rock, Paper, Scissors Tournament, 9:15 PM - Build Card Bridge, 9:45 PM - Help Jimmy "The Lightning" Alberto Steal Diamonds. This looks like an odd (but busy) schedule. Actually, these were the challenges that UGA programmers faced in an algorithm competition Wednesday night.<span class="prHead"> [April 5]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Whitworthian --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
