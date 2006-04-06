@@ -42,6 +42,7 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 --%>
+<tr class="bodyText"><td nowrap="nowrap">04.06.06 2:25 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">AMD SRM 296 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.06.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Bracket rooms swapped</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.31.06 1:40 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Competition Bracket</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.23.06 12:00 NOON - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">AMD SRM 293 chat session transcript</A></td></tr>
