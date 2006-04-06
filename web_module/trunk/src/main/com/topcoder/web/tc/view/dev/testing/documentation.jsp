@@ -47,7 +47,7 @@
     </tr>
     <tr>
    <td class="projectCells" valign="top">
-   <strong>Sample Assembly Scorecard</strong><br/>
+   <strong>Sample Testing Scorecard</strong><br/>
    
    </td>
    <td class="projectCells" valign="top" align="center">03.15.2006</td>
