@@ -28,6 +28,7 @@
 <div align="center">
 <a href="/?t=sponsor&c=link&link=http://developer.amd.com/">Join AMD Developer Central</a>
 &#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_031706">SRM 293 Chat Transcript</A>
+&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">SRM 296 Chat Transcript</A>
 </div>
 <br><br>
 AMD Developer Central, AMD's program to support software developers, is pleased  to announce sponsorship for the 2006 TopCoder Open and be part of the creativity and genius shown by TopCoder competitors.
