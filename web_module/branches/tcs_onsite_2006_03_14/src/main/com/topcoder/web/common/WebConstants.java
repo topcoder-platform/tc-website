@@ -13,8 +13,8 @@ public interface WebConstants {
     public static final String TIMEZONE = "tz";
     public static final String USER_ID = "uid";
     public static final String COMPANY_ID = "cm";
-
-
+    public static final String COMPONENT_ID = "cd";
+    public static final String CONTEST_ID = "ct";
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
     public static final int PREFERENCE_MULTIPLE_ANSWER = 2;

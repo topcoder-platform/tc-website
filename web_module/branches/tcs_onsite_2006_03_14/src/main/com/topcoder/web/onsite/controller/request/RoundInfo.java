@@ -46,10 +46,11 @@ public class RoundInfo extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getComponentRoundInfoData(long contestId) throws Exception {
+    private Map getComponentRoundInfoData(long componentId, long contestId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.COMPONENT_ROUND_INFO_COMMAND);
-        request.setProperty(Constants.USER_ID, String.valueOf(contestId));
+        request.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
+        request.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
         return dai.getData(request);
@@ -64,8 +65,11 @@ public class RoundInfo extends BaseProcessor {
         RequestComponentRoundInfo requestComponentRoundInfo = 
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
+        log.debug("QueryString: " + getRequest().getQueryString());
+        
         // retrieves data from DB
-        Map m = getComponentRoundInfoData(requestComponentRoundInfo.getContestID());
+        Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
+            requestComponentRoundInfo.getContestID());
 
         ResultSetContainer rscComponentData = (ResultSetContainer)m.get(Constants.COMPONENT_DATA_QUERY);
         ResultSetContainer rscComponentCoder = (ResultSetContainer)m.get(Constants.COMPONENT_CODER_QUERY);
@@ -127,12 +131,9 @@ public class RoundInfo extends BaseProcessor {
             componentCoderList, 
             reviewerDataList);
         
-        // encodes and retrieves the message packets
-        getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
-        
         // first adds message for DefineComponentContest.
-        String xmlString = MessageUtil.encodeXMLMessage(defineComponentContest);
-        getResponse().getOutputStream().print(xmlString);
+        MessagePacket mp = new MessagePacket();
+        mp.add(defineComponentContest);
 
         // adds all ComponentScoreUpdate messages.
         if (rscComponentScore.size() > 0) {
@@ -143,17 +144,20 @@ public class RoundInfo extends BaseProcessor {
                 
                 // ContestID, RoundID and ComponentID are mirrored 
                 // from the request as requested by the front-end application
-                xmlString = MessageUtil.encodeXMLMessage(new ComponentScoreUpdate(
+                mp.add(new ComponentScoreUpdate(
                     requestComponentRoundInfo.getContestID(),
                     requestComponentRoundInfo.getRoundID(),
                     requestComponentRoundInfo.getComponentID(), 
                     rsr.getIntItem(Constants.CODER_ID_COL), 
                     rsr.getIntItem(Constants.REVIEWER_ID_COL),
                     rsr.getIntItem(Constants.SCORE_COL)));
-                
-                getResponse().getOutputStream().print(xmlString);
             }
         }
+
+        // encodes and returns the messages packet
+        String xmlString = MessageUtil.encodeXMLMessage(mp);
+        getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
+        getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
     }
 }
