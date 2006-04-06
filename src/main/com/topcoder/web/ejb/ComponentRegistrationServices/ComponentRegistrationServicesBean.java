@@ -137,10 +137,12 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             //this checks if the user is the winning designer for the project
 
-            query.append("select * ");
+            query.append("select 1 ");
             query.append("from project_result pr, project p ");
             query.append("where p.project_id = pr.project_id and p.cur_version = 1 ");
             query.append("and pr.placed = 1 ");
+            query.append("and pr.passed_review_ind = 1 ");
+            query.append("and p.project_stat_id = 3 ");
             query.append("and p.comp_vers_id = (select comp_vers_id from project where project_id = ? and cur_version = 1) ");
             query.append("and pr.user_id = ? ");
             query.append("and p.project_type_id = 1 ");
