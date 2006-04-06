@@ -155,7 +155,7 @@ public class RoundInfo extends BaseProcessor {
         }
 
         // encodes and returns the messages packet
-        String xmlString = MessageUtil.encodeXMLMessage(mp);
+        String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
