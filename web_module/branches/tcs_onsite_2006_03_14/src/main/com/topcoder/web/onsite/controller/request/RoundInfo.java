@@ -64,8 +64,9 @@ public class RoundInfo extends BaseProcessor {
         // decodes request
         log.debug("QueryString: " + getRequest().getQueryString());
 
+        // plk - take out the "?"
         RequestComponentRoundInfo requestComponentRoundInfo = 
-            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
+            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
 
         /*
         // retrieves data from DB
