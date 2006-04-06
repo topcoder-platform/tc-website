@@ -43,6 +43,7 @@
         5.0.10 - 2006.04.xx
         <ul>
             <li>Fix the next/previous links on the example history page for Marathon Matches</li>
+            <li>Fix component reg.  The end time was calculated incorrectly as well had whether or not they had won the design phase.</li>
         </ul>
     </p>
     <p>
