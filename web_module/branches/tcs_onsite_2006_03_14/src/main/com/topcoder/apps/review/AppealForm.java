@@ -19,6 +19,7 @@ import com.topcoder.apps.review.projecttracker.Phase;
 import javax.servlet.http.HttpServletRequest;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.apps.review.ConfigHelper;
+import com.topcoder.apps.review.AppealHelper;
 
 /**
  * Form bean for the appeal page.
@@ -287,72 +288,10 @@ public final class AppealForm extends ReviewForm {
                 errors.add("successful",
                     new ActionError("error.appealResult.required"));
 
-                // sets request attributes.
-
-                // configured functionality to permit edition during appeals phase.
-                boolean permitEditDuringAppeals;
-                try {
-                    permitEditDuringAppeals = ConfigHelper.getAllowAppealEditing();
-                } catch (Exception e) {
-                   /* log. (Level.INFO, "Couldn't retrieve configuration for permission to edit appeals, using default: "
-                        + (ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT ? "true" : "false") + " reason: " + e.getMessage());*/
-                    permitEditDuringAppeals = ConfigHelper.ALLOW_APPEAL_EDITING_DEFAULT;
-                }
-                
-                System.out.println("permitEditDuringAppeals!!! " + permitEditDuringAppeals);
-
-                // if project allows appeals responses during appeal phase, appeals can't be edited.
-                boolean responseDuringAppeals = false;
-                try {
-                    ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
-                    Project project = projectTracker.getProject(orpd.getProject(), orpd.getUser().getTCSubject());
-                    responseDuringAppeals = project.getResponseDuringAppeals();
-                } catch (Exception e) {
-                    // ignore, default is false.
-                }
-
-                System.out.println("responseDuringAppeals!!! " + responseDuringAppeals);
-                
-                if (responseDuringAppeals) {
-                    request.setAttribute("permitAppealsResponse", new Boolean(true));
-                }
-
-                permitEditDuringAppeals = permitEditDuringAppeals && !responseDuringAppeals;            
-                
-                
-                long phaseId = project.getCurrentPhaseInstance().getPhase().getId();
-                
-                
-                System.out.println("permitEditDuringAppeals!!! " + permitEditDuringAppeals);
-                System.out.println("phaseId!!! " + phaseId);
-                System.out.println("appeal.getId()!!! " + appeal.getId());
-                System.out.println("appeal.getAppealer().getId()!!! " + appeal.getAppealer().getId());
-                System.out.println("orpd.getUser().getId()!!! " + orpd.getUser().getId());
-                System.out.println("appeal.getReviewer().getId()!!! " + appeal.getReviewer().getId());
-                System.out.println("Phase.ID_APPEALS!!! " + Phase.ID_APPEALS);
-                System.out.println("Phase.ID_APPEALS_RESPONSE!!! " + Phase.ID_APPEALS_RESPONSE);
-                System.out.println("appeal.isResolved()!!! " + appeal.isResolved());
-
-                if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
-                        (appeal.getId() == -1 || permitEditDuringAppeals) && phaseId == Phase.ID_APPEALS) {
-                    request.setAttribute("appealerEdit", new Boolean(true));
-                } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
-                    // if project is marked as allow responses during appeals phase, permit the edition.
-                    !appeal.isResolved() && (phaseId == Phase.ID_APPEALS_RESPONSE || (phaseId == Phase.ID_APPEALS &&
-                        responseDuringAppeals))) {
-                    request.setAttribute("reviewerEdit", new Boolean(true));
-                }
+                // sets requests attributes
+                AppealHelper.setAppealPageAttributes(appeal, request, orpd);
             }
         }
-        //plk
-        System.out.println("Validate!!!");
-        
-        /*
-        if ((messageSubject == null) || (messageSubject.length() < 1)) {
-            errors.add("subject",
-                       new ActionError("error.messageSubject.required"));
-        }
-        */
         return errors;
     }
 
@@ -366,7 +305,7 @@ public final class AppealForm extends ReviewForm {
     protected AppealData toAppealData(OnlineReviewProjectData orpd) {
         appeal.setAppealText(this.appealText);
         appeal.setAppealResponse(this.appealResponse);
-        System.out.println(this.successful);
+
         appeal.setSuccessful(this.successful.equals("successful") ? true : false);
         return new AppealData(orpd,
                 new Appeal[]{appeal},
