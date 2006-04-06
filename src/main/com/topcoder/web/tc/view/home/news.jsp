@@ -23,6 +23,21 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.06.06<br>2:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">AMD SRM 296 chat session transcript</A>
+      </span><br><br>
+      AMD was in the arena prior to SRM 296 to discuss business intelligence.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.06.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Bracket rooms swapped</A>
@@ -190,22 +205,6 @@ followed closely by <tc-webtag:handle coderId="251074" context="algorithm"/> and
          <tc-webtag:forumLink forumID="505953" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.23.06<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">Round 4 Results for TCO06 Algorithm Competition</A>
-      </span><br><br>
-      Find out who will make the trip to Las Vegas.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SimpleStats&c=tco06_alg_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=alg_adv_overview">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505938" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
 
 </table>
