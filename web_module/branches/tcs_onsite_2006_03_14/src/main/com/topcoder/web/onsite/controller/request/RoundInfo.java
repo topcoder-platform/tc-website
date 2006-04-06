@@ -67,6 +67,7 @@ public class RoundInfo extends BaseProcessor {
 
         log.debug("QueryString: " + getRequest().getQueryString());
         
+/*        
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
             requestComponentRoundInfo.getContestID());
@@ -159,5 +160,5 @@ public class RoundInfo extends BaseProcessor {
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
-    }
+    }*/
 }
