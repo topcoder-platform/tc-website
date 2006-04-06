@@ -62,12 +62,11 @@ public class RoundInfo extends BaseProcessor {
      */
     protected void businessProcessing() throws Exception {
         // decodes request
-        /*RequestComponentRoundInfo requestComponentRoundInfo = 
+        RequestComponentRoundInfo requestComponentRoundInfo = 
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
-*/
+
         log.debug("QueryString: " + getRequest().getQueryString());
         
-/*        
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
             requestComponentRoundInfo.getContestID());
@@ -159,6 +158,6 @@ public class RoundInfo extends BaseProcessor {
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
-        getResponse().flushBuffer(); */
+        getResponse().flushBuffer(); 
     }
 }
