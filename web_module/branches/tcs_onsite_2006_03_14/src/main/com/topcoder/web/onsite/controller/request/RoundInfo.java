@@ -46,7 +46,7 @@ public class RoundInfo extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getComponentRoundInfoData(long componentId, long contestId) throws Exception {
+    /*private Map getComponentRoundInfoData(long componentId, long contestId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.COMPONENT_ROUND_INFO_COMMAND);
         request.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
@@ -54,7 +54,7 @@ public class RoundInfo extends BaseProcessor {
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
         return dai.getData(request);
-    }
+    }*/
 
     /**
      * Process the ComponentRoundInfo request.
@@ -66,7 +66,7 @@ public class RoundInfo extends BaseProcessor {
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
         log.debug("QueryString: " + getRequest().getQueryString());
-        
+        /*
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
             requestComponentRoundInfo.getContestID());
@@ -158,6 +158,6 @@ public class RoundInfo extends BaseProcessor {
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
-        getResponse().flushBuffer(); 
+        getResponse().flushBuffer(); */
     }
 }
