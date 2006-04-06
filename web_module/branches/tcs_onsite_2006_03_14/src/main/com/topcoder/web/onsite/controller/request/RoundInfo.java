@@ -62,10 +62,11 @@ public class RoundInfo extends BaseProcessor {
      */
     protected void businessProcessing() throws Exception {
         // decodes request
+        log.debug("QueryString: " + getRequest().getQueryString());
+
         RequestComponentRoundInfo requestComponentRoundInfo = 
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
-        log.debug("QueryString: " + getRequest().getQueryString());
         /*
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
