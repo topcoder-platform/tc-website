@@ -32,12 +32,12 @@ import com.topcoder.shared.netCommon.messages.MessagePacket;
  * @author pulky
  * @version 1.0
  */
-public class RoundInfo extends BaseProcessor {
+public class RequestComponentRoundInfo extends BaseProcessor {
 
     /**
      * The logger to log to.
      */
-    private static final Logger log = Logger.getLogger(RoundInfo.class);
+    private static final Logger log = Logger.getLogger(RequestComponentRoundInfo.class);
 
     /**
      * Retrieves data from the DB to the requestor.
