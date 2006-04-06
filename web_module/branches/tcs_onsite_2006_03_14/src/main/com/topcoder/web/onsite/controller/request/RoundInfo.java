@@ -23,6 +23,7 @@ import com.topcoder.shared.netCommon.messages.spectator.ComponentCoder;
 import com.topcoder.shared.netCommon.messages.spectator.CoderData;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.MessagePacket;
+import com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo;
 
 /**
  * <strong>Purpose</strong>:
@@ -31,12 +32,12 @@ import com.topcoder.shared.netCommon.messages.MessagePacket;
  * @author pulky
  * @version 1.0
  */
-public class RequestComponentRoundInfo extends BaseProcessor {
+public class RoundInfo extends BaseProcessor {
 
     /**
      * The logger to log to.
      */
-    private static final Logger log = Logger.getLogger(RequestComponentRoundInfo.class);
+    private static final Logger log = Logger.getLogger(RoundInfo.class);
 
     /**
      * Retrieves data from the DB to the requestor.
@@ -64,8 +65,8 @@ public class RequestComponentRoundInfo extends BaseProcessor {
         log.debug("QueryString: " + getRequest().getQueryString());
 
         // plk - take out the "?"
-        com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo requestComponentRoundInfo = 
-            (com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
+        RequestComponentRoundInfo requestComponentRoundInfo = 
+            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
 
         /*
         // retrieves data from DB
