@@ -183,7 +183,7 @@ public class ViewSystemTestResults extends Base {
                 request.setAttribute("prevPageLink",
                         new StringBuffer(pageLinkBase)
                                 .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + Math.max(1, rsc.getStartRow() - rowCount))
+                                .append("=").append("" + Math.max(1, startRow - rowCount))
                                 .append(pagingCParam)
                                 .toString());
             }
@@ -191,7 +191,7 @@ public class ViewSystemTestResults extends Base {
                 request.setAttribute("nextPageLink",
                         new StringBuffer(pageLinkBase)
                                 .append("&").append(DataAccessConstants.START_RANK)
-                                .append("=").append("" + (rsc.getStartRow() + rowCount))
+                                .append("=").append("" + (startRow + rowCount))
                                 .append(pagingCParam)
                                 .toString());
             }
@@ -200,7 +200,7 @@ public class ViewSystemTestResults extends Base {
                         new StringBuffer(pageLinkBase)
                                 .append(pagingRParam)
                                 .append("&").append(Constants.START_COL)
-                                .append("=").append("" + Math.max(1, rscCol.getStartRow() - colCount))
+                                .append("=").append("" + Math.max(1, startCol - colCount))
                                 .toString());
             }
             if (rscCol.croppedDataAfter()) {
@@ -208,7 +208,7 @@ public class ViewSystemTestResults extends Base {
                         new StringBuffer(pageLinkBase)
                                 .append(pagingRParam)
                                 .append("&").append(Constants.START_COL)
-                                .append("=").append("" + (rscCol.getStartRow() + colCount))
+                                .append("=").append("" + (startCol + colCount))
                                 .toString());
             }
 
