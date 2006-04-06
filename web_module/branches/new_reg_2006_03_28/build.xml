@@ -36,6 +36,8 @@
     <target name="main" depends="compile">
     </target>
 
+
+
     <path id="class.path">
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
@@ -805,7 +807,7 @@
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tc/id_generator/3.0">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tc/db_connection_factory/1.0">
