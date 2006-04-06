@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.Iterator;
 import java.util.ArrayList;
 import com.topcoder.shared.netCommon.messages.spectator.DefineComponentContest;
-import com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo;
 import com.topcoder.shared.netCommon.messages.MessageUtil;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentData;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentCoder;
@@ -65,8 +64,8 @@ public class RequestComponentRoundInfo extends BaseProcessor {
         log.debug("QueryString: " + getRequest().getQueryString());
 
         // plk - take out the "?"
-        RequestComponentRoundInfo requestComponentRoundInfo = 
-            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
+        com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo requestComponentRoundInfo = 
+            (com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
 
         /*
         // retrieves data from DB
