@@ -101,11 +101,15 @@ public class RoundInfo extends BaseProcessor {
             ResultSetContainer.ResultSetRow rsr;
             while (it.hasNext()) {
                  rsr = (ResultSetContainer.ResultSetRow) it.next();
+
+                 Object rank = rsr.getItem(Constants.RANK_COL).getResultData();
+                 Object wagerAmount = rsr.getItem(Constants.WAGER_AMOUNT_COL).getResultData();
+                
                 componentCoderList.add(new ComponentCoder(
                     rsr.getIntItem(Constants.CODER_ID_COL), 
                     rsr.getStringItem(Constants.HANDLE_COL), 
-                    rsr.getIntItem(Constants.RANK_COL), 
-                    rsr.getIntItem(Constants.WAGER_AMOUNT_COL)));
+                    rank == null ? 0 : ((Number) rank).intValue(), 
+                    wagerAmount == null ? 0 : ((Number) wagerAmount).intValue()));
             }
         }
         
