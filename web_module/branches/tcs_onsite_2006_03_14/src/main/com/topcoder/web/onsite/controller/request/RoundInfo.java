@@ -119,7 +119,7 @@ public class RoundInfo extends BaseProcessor {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 reviewerDataList.add(new CoderData(
                     rsr.getIntItem(Constants.CODER_ID_COL), 
-                    rsr.getStringItem(Constants.CODER_ID_COL), 
+                    rsr.getStringItem(Constants.HANDLE_COL), 
                     rsr.getIntItem(Constants.RANK_COL)));
             }
         }
