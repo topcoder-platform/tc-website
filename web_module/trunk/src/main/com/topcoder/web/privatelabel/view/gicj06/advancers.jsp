@@ -42,7 +42,7 @@
 </span>
 <span class="bigTitle">Advancers</span>
                 <br><br>
-                <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400">
+                <table class="tableFrame" cellpadding="5" cellspacing="2" border="0" width="400" style="margin-bottom:500px;">
                     <tr>
                         <td class="advancersTitle">Round</td>
                         <td class="advancersTitle" align="right" width="100%">Advancers</td>
@@ -56,20 +56,13 @@
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1" class="topLink">Round 1</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound1">50</a></td>
                     </tr>
-<!--
-                    <tr valign="top">
-                        <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advRound2" class="topLink">Round 2</a></td>
-                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advRound2">50</a></td>
-                    </tr>
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gicj06&d2=advFinal" class="topLink">Onsite Finals</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj06&d2=advFinal">Winners</a>
                         </td>
                     </tr>
--->
                 </table>
-<br><br><br><br><br><br><br><br><br><br><br
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gicj06&d2=rules">Terms and Conditions</a>.
             </div>
