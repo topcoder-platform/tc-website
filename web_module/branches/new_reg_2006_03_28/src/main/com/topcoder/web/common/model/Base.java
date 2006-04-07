@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  */
 abstract public class Base implements Serializable, Cloneable {
 
-    protected static Logger log = Logger.getLogger(Base.class);
+    protected static final Logger log = Logger.getLogger(Base.class);
 
     private boolean isNew;
 
