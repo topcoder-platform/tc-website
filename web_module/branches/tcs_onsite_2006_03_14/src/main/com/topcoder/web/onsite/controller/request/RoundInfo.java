@@ -61,13 +61,11 @@ public class RoundInfo extends BaseProcessor {
      * Retrieves information from DB and builds the objects to return them as xml encoded messages.
      */
     protected void businessProcessing() throws Exception {
-        // decodes request
         log.debug("QueryString: " + getRequest().getQueryString());
 
-        // plk - take out the "?"
+        // decodes request
         RequestComponentRoundInfo requestComponentRoundInfo = 
             (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
-
         
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
@@ -86,7 +84,7 @@ public class RoundInfo extends BaseProcessor {
         // builds the objects to be returned
         ComponentData componentData = null;
         if (rscComponentData.size() > 0) {
-            // ComponentID is mirrored from the request as requested by the front-end application
+            // ComponentID is mirrored as requested by the front-end application
             componentData  = new ComponentData(
                 requestComponentRoundInfo.getComponentID(), 
                 rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
@@ -127,9 +125,12 @@ public class RoundInfo extends BaseProcessor {
                     rsr.getIntItem(Constants.RANK_COL)));
             }
         }
-        
+
+        log.debug("componentCoderList filled with " +  componentCoderList.size() + " coders.");
+        log.debug("reviewerDataList filled with " +  reviewerDataList.size() + " reviewers.");
+
         // creates DefineComponentContest instance
-        // ContestID and RoundID are mirrored from the request as requested by the front-end application
+        // ContestID and RoundID are mirrored as requested by the front-end application
         DefineComponentContest defineComponentContest = new DefineComponentContest(
             requestComponentRoundInfo.getContestID(), 
             requestComponentRoundInfo.getRoundID(),
@@ -148,8 +149,7 @@ public class RoundInfo extends BaseProcessor {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 
-                // ContestID, RoundID and ComponentID are mirrored 
-                // from the request as requested by the front-end application
+                // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
                 mp.add(new ComponentScoreUpdate(
                     requestComponentRoundInfo.getContestID(),
                     requestComponentRoundInfo.getRoundID(),
