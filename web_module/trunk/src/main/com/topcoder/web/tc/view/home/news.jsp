@@ -6,21 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%------------------------------------------------------ LEAVE COMMENTED OUT TIL JESSIE GETS APPROVAL
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.16.06<br>11:15 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.07.05<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A>
+      <A href="/tc?module=Static&d1=about&d2=graphic_designer">TopCoder Software is hiring graphic designers</A>
       </span><br><br>
-      UBS was in the arena prior to Round 3 of the TCO06, to discuss working at UBS.
+      TopCoder Software has several job openings for graphic designers.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+         <A href="/tc?module=Static&d1=about&d2=graphic_designer">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505966" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
---%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.06.06<br>4:45 PM</td>
@@ -186,26 +186,6 @@ There will be scheduled server maintenance that will cause downtime to occur fro
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">details</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.27.06<br>9:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm294">SRM 294 - Problem Set & Analysis</A></span><br><br>
-SRM 294 attracted a record-breaking 1029 participants.
-Boosted by 4 successful challenges, <tc-webtag:handle coderId="10574855" context="algorithm"/> scored his third Division 1
-victory out of the last five matches,
-followed closely by <tc-webtag:handle coderId="251074" context="algorithm"/> and <tc-webtag:handle coderId="279471" context="algorithm"/> in second and third place.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm294">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505860" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
