@@ -32,8 +32,6 @@
             <one-to-many class="com.topcoder.web.reg.model.Phone"/>
         </set>
 
-        <!--  setting the discriminator value on the superclass seems pretty supid since it doesn't exist,
-              but seems to be necessary -->
         <joined-subclass name="com.topcoder.web.reg.model.Coder" table="coder">
             <key column="coder_id"/>
             <property name="memberSince" type="timestamp" column="member_since"/>

@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import java.io.Serializable;
 
 /**
+ * A class containing user information.
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
@@ -23,6 +24,7 @@ public class User implements Serializable {
     private Set addresses;
     private Set emailAddresses;
     private Set phoneNumbers;
+    private Integer timezoneId;
 
     public User() {
         addresses = new TreeSet();
@@ -128,6 +130,14 @@ public class User implements Serializable {
 
     public void addPhoneNumber(Phone p) {
         this.phoneNumbers.add(p);
+    }
+
+    public Integer getTimezoneId() {
+        return timezoneId;
+    }
+
+    public void setTimezoneId(Integer timezoneId) {
+        this.timezoneId = timezoneId;
     }
 
 

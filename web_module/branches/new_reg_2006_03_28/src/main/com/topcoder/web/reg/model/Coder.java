@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.*;
 
 /**
+ * A class to hold coder data.
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006

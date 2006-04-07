@@ -3,6 +3,7 @@ package com.topcoder.web.reg.model;
 import com.topcoder.web.common.model.Base;
 
 /**
+ * A class to hold address information
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006

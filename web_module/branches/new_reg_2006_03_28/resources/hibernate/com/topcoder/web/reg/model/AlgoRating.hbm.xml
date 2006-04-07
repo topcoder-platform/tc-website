@@ -8,7 +8,7 @@
     <!--  setting the discriminator value on the superclass seems pretty supid since it doesn't exist,
           but seems to be necessary -->
     <class name="com.topcoder.web.reg.model.AlgoRating" table="algo_rating" discriminator-value="0">
-        <composite-id>
+        <composite-id name="id" class="com.topcoder.web.reg.model.AlgoRating$Identifier">
             <key-property name="coderId" type="long" column="coder_id"/>
             <key-property name="ratingTypeId" type="integer" column="algo_rating_type_id"/>
         </composite-id>
@@ -20,5 +20,6 @@
         <subclass name="com.topcoder.web.reg.model.HSAlgoRating" discriminator-value="2"/>
 
     </class>
+
 
 </hibernate-mapping>
