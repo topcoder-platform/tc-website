@@ -66,9 +66,9 @@ public class RoundInfo extends BaseProcessor {
 
         // plk - take out the "?"
         RequestComponentRoundInfo requestComponentRoundInfo = 
-            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage("?" + getRequest().getQueryString());
+            (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
-        /*
+        
         // retrieves data from DB
         Map m = getComponentRoundInfoData(requestComponentRoundInfo.getComponentID(),
             requestComponentRoundInfo.getContestID());
@@ -82,7 +82,7 @@ public class RoundInfo extends BaseProcessor {
         log.debug("Got " +  rscComponentCoder.size() + " rows for: " + Constants.COMPONENT_CODER_QUERY);
         log.debug("Got " +  rscReviewerData.size() + " rows for: " + Constants.REVIEWER_DATA_QUERY);
         log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
-        
+        */
         // builds the objects to be returned
         ComponentData componentData = null;
         if (rscComponentData.size() > 0) {
