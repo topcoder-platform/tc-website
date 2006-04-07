@@ -23,6 +23,24 @@
 --%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.06.06<br>4:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm296">SRM 296 - Problem Set & Analysis</A></span><br><br>
+This was one of the last SRMs before the ACM-ICPC World finals in San Antonio. 
+<tc-webtag:handle coderId="10574855" context="algorithm"/>, who earned 2 gold medals in his two ACM finals, added another SRM win to his perfect record.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm296">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505862" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.06.06<br>2:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">AMD SRM 296 chat session transcript</A>
@@ -188,22 +206,6 @@ followed closely by <tc-webtag:handle coderId="251074" context="algorithm"/> and
          <A href="/tc?module=Static&d1=match_editorials&d2=srm294">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505860" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>03.24.06<br>10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">Using XMI Documenter</A></span><br><br>
-       This article will show how the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=20668655">XMI Documenter component</a> component can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.</td>
-      <td class="newsPhoto"><img src="/i/m/traugust_mug.gif" /><br>by <tc-webtag:handle coderId="15664457" context="development"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505953" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
 
