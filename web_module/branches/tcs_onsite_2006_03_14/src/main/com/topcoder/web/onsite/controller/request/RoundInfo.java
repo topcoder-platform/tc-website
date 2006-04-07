@@ -82,7 +82,7 @@ public class RoundInfo extends BaseProcessor {
         log.debug("Got " +  rscComponentCoder.size() + " rows for: " + Constants.COMPONENT_CODER_QUERY);
         log.debug("Got " +  rscReviewerData.size() + " rows for: " + Constants.REVIEWER_DATA_QUERY);
         log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
-        /*
+        
         // builds the objects to be returned
         ComponentData componentData = null;
         if (rscComponentData.size() > 0) {
@@ -92,7 +92,7 @@ public class RoundInfo extends BaseProcessor {
                 rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
                 rscComponentData.getStringItem(0, Constants.CATALOG_COL));            
         }
-
+        
         ArrayList componentCoderList = null;
         if (rscComponentCoder.size() > 0) {
             componentCoderList = new ArrayList(rscComponentCoder.size());
@@ -136,7 +136,7 @@ public class RoundInfo extends BaseProcessor {
         // first adds message for DefineComponentContest.
         MessagePacket mp = new MessagePacket();
         mp.add(defineComponentContest);
-
+        /*
         // adds all ComponentScoreUpdate messages.
         if (rscComponentScore.size() > 0) {
             Iterator it = rscComponentScore.iterator();
@@ -154,12 +154,12 @@ public class RoundInfo extends BaseProcessor {
                     rsr.getIntItem(Constants.REVIEWER_ID_COL),
                     rsr.getIntItem(Constants.SCORE_COL)));
             }
-        }
+        }*/
 
         // encodes and returns the messages packet
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
-        getResponse().flushBuffer(); */
+        getResponse().flushBuffer();
     }
 }
