@@ -53,7 +53,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerClientAdmin">Time Tracker Client Admin Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Client Admin Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerClientAdmin">standings</A>
@@ -77,7 +80,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerExpenseUser">Time Tracker Expense and User Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Expense and User Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerExpenseUser">standings</A>
@@ -101,7 +107,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerPerformanceGUI">Time Tracker Performance and GUI Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Performance and GUI Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerPerformanceGUI">standings</A>
@@ -125,7 +134,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerProjectAdmin">Time Tracker Project Admin Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Project Admin Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerProjectAdmin">standings</A>
@@ -149,7 +161,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerReports">Time Tracker Reports Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Reports Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerReports">standings</A>
@@ -173,7 +188,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerTime">Time Tracker Time Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Time Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerTime">standings</A>

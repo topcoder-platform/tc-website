@@ -104,6 +104,8 @@ All submissions are required to be submitted by the end of the Test Submission P
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
+Registration is closed.
+<%--
 To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Time Tracker Expense and User Tests">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -111,6 +113,7 @@ To sign up as a participant, send an email to <A href="mailto:TestingCompetition
 <li>Name of Testing Competition in which you would like to participate</li>
 </ul>
 TopCoder staff will respond as to whether you are registered or not.
+--%>
 <br><br>
 <div class="sectionHeader">Submission</div>
 Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Time Tracker Expense and User Tests">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
