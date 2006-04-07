@@ -140,7 +140,7 @@ public class RoundInfo extends BaseProcessor {
         // first adds message for DefineComponentContest.
         MessagePacket mp = new MessagePacket();
         mp.add(defineComponentContest);
-        /*
+        
         // adds all ComponentScoreUpdate messages.
         if (rscComponentScore.size() > 0) {
             Iterator it = rscComponentScore.iterator();
@@ -158,7 +158,7 @@ public class RoundInfo extends BaseProcessor {
                     rsr.getIntItem(Constants.REVIEWER_ID_COL),
                     rsr.getIntItem(Constants.SCORE_COL)));
             }
-        }*/
+        }
 
         // encodes and returns the messages packet
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
