@@ -8,6 +8,25 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.06<br>4:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm297">SRM 297 - Problem Set & Analysis</A></span><br><br>
+The only coder to solve all three problems in Division I, <tc-webtag:handle coderId="15868491" context="algorithm"/>, won the
+match by a wide margin, scoring 1126.13 points, followed by <tc-webtag:handle coderId="7433858" context="algorithm"/> with 812.74 points and <tc-webtag:handle coderId="8493941" context="algorithm"/>
+with 808.46 points.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/igorsk_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7269339" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm297">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505862" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.07.05<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=about&d2=graphic_designer">TopCoder Software is hiring graphic designers</A>
@@ -171,21 +190,6 @@ TopCoder is actively seeking high quality, experienced full time Project Manager
          <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.29.06<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">Intel Multi-Threading Competition 3 server maintenance, extended deadline</A>
-      </span><br><br>
-There will be scheduled server maintenance that will cause downtime to occur from 8:30 AM EST until 7:30 PM EST on Saturday April 1. Submissions will be disallowed during this time period. In order to accommodate for this downtime, we will be extending the submission deadline for the competition by 24 hours. The new submission deadline will be 12:00 Noon EDT on Thursday April 6.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
