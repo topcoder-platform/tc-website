@@ -23,7 +23,7 @@ public class BasicHibernateTestCase extends TestCase {
         Configuration conf = new Configuration();
         conf.configure();
         SessionFactory factory = conf.buildSessionFactory();
-        Session session = factory.openSession();
+        Session session = factory.openSession(new TCInterceptor());
 
         Long userId = null;
 
@@ -87,7 +87,7 @@ public class BasicHibernateTestCase extends TestCase {
             factory.close();
         }
         SessionFactory factory1 = conf.buildSessionFactory();
-        Session session1 = factory1.openSession();
+        Session session1 = factory1.openSession(new TCInterceptor());
         User u2 = (User) session1.load(User.class, userId);
         assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
         assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
@@ -102,7 +102,7 @@ public class BasicHibernateTestCase extends TestCase {
         Configuration conf = new Configuration();
         conf.configure();
         SessionFactory factory = conf.buildSessionFactory();
-        Session session = factory.openSession();
+        Session session = factory.openSession(new TCInterceptor());
 
         Long userId = null;
 
@@ -122,12 +122,15 @@ public class BasicHibernateTestCase extends TestCase {
             u.setMemberSince(new Timestamp(System.currentTimeMillis()));
             u.setCoderTypeId(Coder.TYPE_STUDENT);
 
+
             HSAlgoRating hs = new HSAlgoRating();
             hs.setRating(new Integer(0));
             TCAlgoRating tc = new TCAlgoRating();
             tc.setRating(new Integer(0));
-//            u.addRating(tc);
-//            u.addRating(hs);
+            u.addRating(tc);
+            u.addRating(hs);
+
+
 
 
             Address a = new Address();
@@ -168,7 +171,7 @@ public class BasicHibernateTestCase extends TestCase {
 
         } catch (Throwable e) {
             if (t!=null&&t.isActive()) {
-                t.rollback();
+               t.rollback();
             }
             e.printStackTrace();
             throw new RuntimeException(e);
@@ -177,7 +180,7 @@ public class BasicHibernateTestCase extends TestCase {
             factory.close();
         }
         SessionFactory factory1 = conf.buildSessionFactory();
-        Session session1 = factory1.openSession();
+        Session session1 = factory1.openSession(new TCInterceptor());
         Coder u2 = (Coder) session1.load(Coder.class, userId);
         assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
         assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
