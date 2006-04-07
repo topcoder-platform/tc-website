@@ -71,8 +71,8 @@ function arena() {
 -->
 
 <!-- Support/FAQ begins -->
-                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.branch2.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Design Support / FAQs / Docs</a></td></tr>
-                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.branch2.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Development Support / FAQs / Docs</a></td></tr>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Design Support / FAQs / Docs</a></td></tr>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted" class="<%=level2.equals("support")?"leftOn":"left"%>">Development Support / FAQs / Docs</a></td></tr>
 
 
             </table>
