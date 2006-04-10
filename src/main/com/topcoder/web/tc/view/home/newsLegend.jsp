@@ -1,3 +1,17 @@
+<%----------------MARATHON MATCH-------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.10.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=9958">Intel Multi-Threading Competition 3 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="15500323" />.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505958" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
 <%----------------EDUCATIONAL CONTENT-------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>

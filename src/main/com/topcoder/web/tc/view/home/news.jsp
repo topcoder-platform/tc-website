@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.10.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=9958">Intel Multi-Threading Competition 3 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="15500323" />.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.06<br>4:15 PM</td>
@@ -177,20 +192,6 @@ TopCoder is actively seeking high quality, experienced full time Project Manager
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.29.06<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing registration extended</A>
-      </span><br><br>
-      We've extended the registration for the current Testing Active Contests until 03.31.2006.  As a result, we've also extended the submission deadline to 04.03.2006.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505947" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
 
 
 </table>
@@ -230,8 +231,10 @@ TopCoder is actively seeking high quality, experienced full time Project Manager
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
    </tr>
    <tr class="bodyText">
-      <td colspan="4" align="center"><A href="/tc?module=Static&d1=home&d2=news_archive_podcast"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /></A> &#160;&#160;&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">Podcasts</A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_long"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_long">Marathon Match News</A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_podcast"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=home&d2=news_archive_podcast">Podcasts</A></td>
    </tr>
 </table>
 
