@@ -108,7 +108,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 
 <p>The problem statement describes the solution, so it is only necessary to correctly
 simulate it. One of the most elegant approaches is to simply loop over the boxes,
-and keep a pointer to the largest box packed so far. The solution may look as
+and keep a pointer to the largest part packed so far. The solution may look as
 follows:</p>
 
 <pre>
@@ -313,7 +313,7 @@ must be the same: 1/n.</p>
 <p>Once <span class=SpellE>quicksort</span> has chosen the pivot, it calls <span
 class=GramE>partition(</span>) to split the list into two parts: a part that
 contains all elements smaller than the pivot, and a part that contains all
-elements larger than the pivot. By the <span class=SpellE>constrants</span> of
+elements larger than the pivot. By the <span class=SpellE>constraints</span> of
 the problem, no two elements can have the same value, so no other element will
 be equal to the pivot. Then, <span class=SpellE>quicksort</span> calls itself
 recursively on both smaller lists.</p>
@@ -325,9 +325,10 @@ element of the list will be chosen, and <span class=SpellE>quicksort</span>
 will <span class=SpellE>recurse</span> on lists of sizes 1 and n &#8211; 2. Simply
 extending this argument, <span class=GramE>the <span class=SpellE>i</span></span><span
 class=SpellE>-th</span> smallest element (1 &lt;= <span class=SpellE>i</span>
+
 &lt;= n) of the list will be chosen with probability 1/n, and will cause <span
 class=SpellE>quicksort</span> to call itself recursively on lists with sizes <span
-class=SpellE>i</span> and n &#8211; <span class=SpellE>i</span> &#8211; 1.</p>
+class=SpellE>i</span> &#8211; 1 and n &#8211; <span class=SpellE>i</span>.</p>
 
 <pre>
 public double getExpectedTime(int listSize, int S, int a, int b) {
@@ -340,6 +341,7 @@ public double getExpectedTime(int listSize, int S, int a, int b) {
    }
    return cache[listSize] = ret;
 }
+
 </pre>
 
 <font size="+2"> 
@@ -395,10 +397,10 @@ before successfully tackling it. First, we need to notice that if it is possible
 to contain the monster at all, four force fields must be sufficient. If we have
 more than four force fields, three fields must be parallel, and since the
 monster will be trapped between two of them, the third field is useless. But, if
-we try all possible placements of four fields, we end up with an <span
+we try all possible placements of up to four fields, we end up with an <span
 class=GramE>O(</span>n^6) algorithm which clearly will not run in time for n =
 40. A smarter approach is to realize that the monster can always be contained
-by force fields if we can place it so that it is not on the edge of the
+by four force fields if we can place it so that it is not on the edge of the
 labyrinth. If the map does not allow us to place the monster so that it is not on
 the edge of the labyrinth, then we cannot contain it. So, since we can easily
 tell whether the monster can be captured using four force fields, our brute
@@ -416,7 +418,7 @@ that is to the right of the monster. The force field prevents the monster from
 entering any cell on the map in the column of the force field, or any column to
 the right of the force field. So, instead of thinking about the force field as
 blocking one column, we can think of it as blocking its column, as well as the
-entire section of the labyrinth to the left of it. Then, it becomes clear that
+entire section of the labyrinth to the right of it. Then, it becomes clear that
 shifting the force field to the right cannot possibly constrain the monster
 further.</p>
 
@@ -429,7 +431,37 @@ breadth-first search to check whether the monster can escape. Since we have up
 to <span class=GramE>O(</span>n^2) starting positions to check, and we take
 O(n^2) time to check whether the monster can escape, we end up with an O(n^4)
 algorithm that will easily run in time and is not too difficult to implement.</p>
+<pre>
+public int capture(String[] labyrinth) {
+   lab = labyrinth;
+   h = lab.length;
+   w = lab[0].length();
+      
+   int ret = 10;
+   for(int r = 1; r &lt; h - 1; r++) {
+      for(int c = 1; c &lt; w - 1; c++) {
+         for(int a = 0; a &lt; 16; a++) {
+            if (lab[r].charAt(c) != '^') continue;
+               
+            blockR1 = blockR2 = -2;
+            blockC1 = blockC2 = -2;
+            int cur = 0;
+            if ((a & (1&lt;&lt;0)) != 0) { blockR1 = r - 1; cur++; }               
+            if ((a & (1&lt;&lt;1)) != 0) { blockR2 = r + 1; cur++; }
+            if ((a & (1&lt;&lt;2)) != 0) { blockC1 = c - 1; cur++; }
+            if ((a & (1&lt;&lt;3)) != 0) { blockC2 = c + 1; cur++; }
 
+            vis = new boolean[55][55];
+            if (cur &lt; ret && !escape(r,c)) ret = cur;
+         }
+      }
+   }
+
+   if (ret == 10) return -1;
+   return ret;
+}
+
+</pre>
 <font size="+2"> 
 <b><a href="/stat?c=problem_statement&amp;pm=6168&amp;rd=9818" name="6168">DynamiteBoxes</a></b> 
 </font> 
@@ -500,8 +532,9 @@ to the same cluster.</p>
 
 <p>We iterate over the levels of the stack, and at each level compute the
 possible next states, as well as the transition probabilities. The computation of
-the transition probabilities is conceptually simple, but we have to be careful
-not to make mistakes. </p>
+the transition probabilities is conceptually not too difficult, but we have to be careful
+not to make mistakes. lyimpanda’s solution roughly follows this approach. Alternatively, instead of using bitmasks to represent the previous layer, it is also possible to simply enumerate the 7 cases: no dynamite boxes, one dynamite box, two adjacent dynamite boxes, two diagonal dynamite boxes that are not connected in lower layers, two diagonal dynamite boxes that are connected, three dynamite boxes and four dynamite boxes. kalinov’s solution follows this approach.</p>
+
 
 
   <img src="/i/m/igorsk_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
