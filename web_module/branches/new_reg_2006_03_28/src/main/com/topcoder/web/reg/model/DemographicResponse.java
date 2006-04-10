@@ -1,11 +1,13 @@
 package com.topcoder.web.reg.model;
 
+import com.topcoder.web.common.model.Base;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 7, 2006
  */
-public class DemographicResponse {
+public class DemographicResponse extends Base {
     //todo this may need to change to user id for the corporate demographic question
     //todo or perhaps we just move this stuff to common and refactor a little.
     private Long coderId;

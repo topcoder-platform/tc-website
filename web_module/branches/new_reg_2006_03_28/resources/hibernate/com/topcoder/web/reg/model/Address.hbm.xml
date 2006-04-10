@@ -16,9 +16,9 @@
         <property name="address2"/>
         <property name="address3"/>
         <property name="city"/>
-        <property name="stateCode" column="state_code"/>
+        <one-to-one name="state" class="com.topcoder.web.reg.model.State" fetch="join" cascade="none"/>
+        <one-to-one name="country" class="com.topcoder.web.reg.model.Country" fetch="join" cascade="none"/>
         <property name="zip"/>
         <property name="province"/>
-        <property name="countryCode" column="country_code"/>
     </class>
 </hibernate-mapping>

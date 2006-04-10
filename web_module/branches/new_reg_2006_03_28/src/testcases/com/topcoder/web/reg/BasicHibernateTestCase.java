@@ -1,12 +1,11 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.reg.dao.CoderDAO;
+import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.*;
 import junit.framework.TestCase;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import java.sql.Timestamp;
 
@@ -20,15 +19,8 @@ public class BasicHibernateTestCase extends TestCase {
     private static final Logger log = Logger.getLogger(BasicHibernateTestCase.class);
 
     public void testCreateUser() {
-        Configuration conf = new Configuration();
-        conf.configure();
-        SessionFactory factory = conf.buildSessionFactory();
-        Session session = factory.openSession(new TCInterceptor());
-
         Long userId = null;
-
         String handle = "f" + System.currentTimeMillis();
-        Transaction t =null;
         try {
 
             User u = new User();
@@ -46,8 +38,8 @@ public class BasicHibernateTestCase extends TestCase {
             a.setAddress3("address3");
             a.setAddressTypeId(Address.HOME_TYPE_ID);
             a.setCity("city");
-            //a.setStateCode("CO");
-            a.setCountryCode("840");
+            a.setState(new Util().getState("CO"));
+            a.setCountry(new Util().getCountry("840"));
             a.setProvince("province");
             a.setZip("zip");
 
@@ -68,46 +60,23 @@ public class BasicHibernateTestCase extends TestCase {
 
             u.addPhoneNumber(p);
 
-            t = session.beginTransaction();
-            session.save(u);
-            userId = u.getId();
+            UserDAO dao = new UserDAO();
+            dao.saveOrUpdate(u);
 
-            t.commit();
-            session.clear();
-
-
-        } catch (Throwable e) {
-            if (t!=null&&t.isActive()) {
-                t.rollback();
-            }
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            User u2 = dao.find(userId);
+            assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
+            assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
+            assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
+            assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
         } finally {
-            session.close();
-            factory.close();
+            HibernateUtils.close();
         }
-        SessionFactory factory1 = conf.buildSessionFactory();
-        Session session1 = factory1.openSession(new TCInterceptor());
-        User u2 = (User) session1.load(User.class, userId);
-        assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
-        assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
-        assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
-        assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
-        session1.close();
-        factory1.close();
 
     }
 
     public void testCreateCoder() {
-        Configuration conf = new Configuration();
-        conf.configure();
-        SessionFactory factory = conf.buildSessionFactory();
-        Session session = factory.openSession(new TCInterceptor());
-
         Long userId = null;
-
         String handle = "f" + System.currentTimeMillis();
-        Transaction t = null;
         try {
 
             Coder u = new Coder();
@@ -139,8 +108,8 @@ public class BasicHibernateTestCase extends TestCase {
             a.setAddress3("address3");
             a.setAddressTypeId(Address.HOME_TYPE_ID);
             a.setCity("city");
-            a.setStateCode("CO");
-            a.setCountryCode("840");
+            a.setState(new Util().getState("CO"));
+            a.setCountry(new Util().getCountry("840"));
             a.setProvince("province");
             a.setZip("zip");
 
@@ -161,35 +130,19 @@ public class BasicHibernateTestCase extends TestCase {
 
             u.addPhoneNumber(p);
 
-            t = session.beginTransaction();
-            session.save(u);
-            userId = u.getId();
+            CoderDAO dao = new CoderDAO();
+            dao.saveOrUpdate(u);
 
-            t.commit();
-            session.clear();
+            Coder u2 = dao.find(userId);
+            assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
+            assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
+            assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
+            assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
+            assertTrue("db does not contain our rating info", !u2.getAlgoRatings().isEmpty());
 
-
-        } catch (Throwable e) {
-            if (t!=null&&t.isActive()) {
-               t.rollback();
-            }
-            e.printStackTrace();
-            throw new RuntimeException(e);
         } finally {
-            session.close();
-            factory.close();
+            HibernateUtils.close();
         }
-        SessionFactory factory1 = conf.buildSessionFactory();
-        Session session1 = factory1.openSession(new TCInterceptor());
-        Coder u2 = (Coder) session1.load(Coder.class, userId);
-        assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
-        assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
-        assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
-        assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
-        assertTrue("db does not contain our rating info", !u2.getAlgoRatings().isEmpty());
-        session1.close();
-        factory1.close();
-
     }
 
 

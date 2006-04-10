@@ -21,8 +21,14 @@ public class Address extends Base {
     private String city;
     private String zip;
     private String province;
+/*
     private String stateCode;
+*/
+    private State state;
+/*
     private String countryCode;
+*/
+    private Country country;
 
     public Address() {
 
@@ -92,14 +98,15 @@ public class Address extends Base {
         this.province = province;
     }
 
-    public String getStateCode() {
+/*    public String getStateCode() {
         return stateCode;
     }
 
     public void setStateCode(String stateCode) {
         this.stateCode = stateCode;
-    }
+    }*/
 
+/*
     public String getCountryCode() {
         return countryCode;
     }
@@ -107,7 +114,38 @@ public class Address extends Base {
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
-    
+*/
 
 
+    /**
+     * Return a copy of the state.  Returning a clone
+     * because we don't want anything about the actual
+     * State objec to be changed as we don't
+     * want to persist changes to the state table.
+     * @return the state
+     */
+    public State getState() {
+        try {
+            return (State)state.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("What the heck, how did state stop being clonable?");
+        }
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+
+    public Country getCountry() {
+        try {
+            return (Country)country.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("What the heck, how did country stop being clonable?");
+        }
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

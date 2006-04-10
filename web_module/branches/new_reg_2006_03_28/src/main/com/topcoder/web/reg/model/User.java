@@ -25,11 +25,13 @@ public class User implements Serializable {
     private Set emailAddresses;
     private Set phoneNumbers;
     private Integer timezoneId;
+    private Set demographicResponses;
 
     public User() {
         addresses = new TreeSet();
         emailAddresses = new TreeSet();
         phoneNumbers = new TreeSet();
+        demographicResponses = new TreeSet();
     }
 
     public Long getId() {
@@ -140,6 +142,18 @@ public class User implements Serializable {
         this.timezoneId = timezoneId;
     }
 
+    public Set getDemographicResponses() {
+        return Collections.unmodifiableSet(demographicResponses);
+    }
+
+    public void setDemographicResponses(Set demographicResponses) {
+        this.demographicResponses = demographicResponses;
+    }
+
+    public void addDemographicResponse(DemographicResponse response) {
+        this.demographicResponses.add(response);
+    }
+
 
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
@@ -151,6 +165,9 @@ public class User implements Serializable {
         }
         for(Iterator it =emailAddresses.iterator(); it.hasNext();) {
             ret.addEmailAddress((Email)((Email)it.next()).clone());
+        }
+        for(Iterator it =demographicResponses.iterator(); it.hasNext();) {
+            ret.addDemographicResponse((DemographicResponse)((DemographicResponse)it.next()).clone());
         }
 
         return ret;
