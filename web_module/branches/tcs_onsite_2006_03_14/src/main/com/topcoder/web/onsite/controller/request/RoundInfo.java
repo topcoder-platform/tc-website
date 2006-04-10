@@ -167,7 +167,7 @@ public class RoundInfo extends BaseProcessor {
             // do nothing, an empty message packet will be returned.
         }
 
-        log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
+        //log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
 
         // encodes and returns the messages packet
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
