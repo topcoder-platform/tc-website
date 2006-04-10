@@ -62,6 +62,7 @@ public class Constants implements WebConstants {
     public static String VIEW_WAGER_COMPETITIONS_COMMAND;
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
     public static String COMPONENT_ROUND_INFO_COMMAND;
+    public static String COMPONENT_UPDATE_COMMAND;
 
     /* queries */
     public static String ACTUAL_TCO_CONTESTS_QUERY;
@@ -72,6 +73,7 @@ public class Constants implements WebConstants {
     public static String COMPONENT_CODER_QUERY;
     public static String REVIEWER_DATA_QUERY;
     public static String COMPONENT_SCORE_QUERY;
+    public static String COMPONENT_APPEAL_QUERY;
         
     /* columns */
     public static String CONTEST_NAME_COL;
@@ -86,6 +88,7 @@ public class Constants implements WebConstants {
     public static String RANK_COL;
     public static String REVIEWER_ID_COL;
     public static String SCORE_COL;
+    public static String SUCCESSFUL_COL;
 
     static {
         initialize();
