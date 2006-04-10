@@ -26,6 +26,7 @@ import com.topcoder.shared.netCommon.messages.spectator.RequestComponentUpdate;
 /**
  * <strong>Purpose</strong>:
  * A processor to handle RequestComponentUpdate requests from the Spectator front-end.
+ * Any failure will result in an empty message packet.
  * 
  * @author pulky
  * @version 1.0

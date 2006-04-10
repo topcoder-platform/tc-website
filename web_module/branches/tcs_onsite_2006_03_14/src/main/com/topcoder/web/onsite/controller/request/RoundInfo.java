@@ -28,6 +28,7 @@ import com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInf
 /**
  * <strong>Purpose</strong>:
  * A processor to handle RequestComponentRoundInfo requests from the Spectator front-end.
+ * Any failure will result in an empty message packet.
  * 
  * @author pulky
  * @version 1.0
