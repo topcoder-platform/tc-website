@@ -17,8 +17,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+      <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
