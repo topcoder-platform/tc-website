@@ -1,10 +1,8 @@
 package com.topcoder.web.reg.model;
 
-import java.util.Set;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeSet;
-import java.io.Serializable;
+import com.topcoder.web.common.model.Base;
+
+import java.util.*;
 
 /**
  * A class containing user information.
@@ -12,7 +10,7 @@ import java.io.Serializable;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-public class User implements Serializable {
+public class User extends Base {
     private Long id;
     private String firstName;
     private String middleName;
@@ -26,12 +24,14 @@ public class User implements Serializable {
     private Set phoneNumbers;
     private Integer timezoneId;
     private Set demographicResponses;
+    private Set notifications;
 
     public User() {
-        addresses = new TreeSet();
-        emailAddresses = new TreeSet();
-        phoneNumbers = new TreeSet();
+        addresses = new HashSet();
+        emailAddresses = new HashSet();
+        phoneNumbers = new HashSet();
         demographicResponses = new TreeSet();
+        notifications = new TreeSet();
     }
 
     public Long getId() {
@@ -154,6 +154,18 @@ public class User implements Serializable {
         this.demographicResponses.add(response);
     }
 
+    public Set getNotifications() {
+        return Collections.unmodifiableSet(notifications);
+    }
+
+    public void setNotifications(Set notifications) {
+        this.notifications = notifications;
+    }
+
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+    }
+
 
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
@@ -168,6 +180,9 @@ public class User implements Serializable {
         }
         for(Iterator it =demographicResponses.iterator(); it.hasNext();) {
             ret.addDemographicResponse((DemographicResponse)((DemographicResponse)it.next()).clone());
+        }
+        for(Iterator it =notifications.iterator(); it.hasNext();) {
+            ret.addNotification((Notification)((Notification)it.next()).clone());
         }
 
         return ret;

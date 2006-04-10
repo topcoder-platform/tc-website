@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.topcoder.web.reg.model.RegistrationType" table="registration_type_lu">
+        <id name="id" column="registration_type_id"/>
+        <property name="description" column="registration_type_desc"/>
+    </class>
+</hibernate-mapping>

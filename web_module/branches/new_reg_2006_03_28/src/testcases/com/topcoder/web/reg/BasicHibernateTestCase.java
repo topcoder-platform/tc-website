@@ -1,13 +1,15 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.dao.CoderDAO;
+import com.topcoder.web.reg.dao.CountryDAO;
+import com.topcoder.web.reg.dao.NotificationDAO;
+import com.topcoder.web.reg.dao.StateDAO;
 import com.topcoder.web.reg.dao.UserDAO;
-import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.*;
 import junit.framework.TestCase;
 
-import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.Set;
 
 
 /**
@@ -18,11 +20,19 @@ import java.sql.Timestamp;
 public class BasicHibernateTestCase extends TestCase {
     private static final Logger log = Logger.getLogger(BasicHibernateTestCase.class);
 
+    private Set  notifications;
+    public void setUp() {
+        log.debug("start setup");
+        notifications = new NotificationDAO().getNotifications();
+        log.debug("end setup");
+    }
+
     public void testCreateUser() {
         Long userId = null;
         String handle = "f" + System.currentTimeMillis();
         try {
 
+            log.debug("before user creation");
             User u = new User();
             u.setActivationCode("active");
             u.setFirstName("first name");
@@ -31,19 +41,22 @@ public class BasicHibernateTestCase extends TestCase {
             u.setMiddleName("middle name");
             u.setPassword("password");
             u.setStatus(new Character('A'));
+            log.debug("after user creation");
 
+            log.debug("before address creation");
             Address a = new Address();
             a.setAddress1("address1");
             a.setAddress2("address2");
             a.setAddress3("address3");
             a.setAddressTypeId(Address.HOME_TYPE_ID);
             a.setCity("city");
-            a.setState(new Util().getState("CO"));
-            a.setCountry(new Util().getCountry("840"));
+            a.setState(new StateDAO().getState("CO"));
+            a.setCountry(new CountryDAO().getCountry("840"));
             a.setProvince("province");
             a.setZip("zip");
 
             u.addAddress(a);
+            log.debug("after address addition");
 
             Email e = new Email();
             e.setAddress("dok@topcoder.com");
@@ -52,6 +65,7 @@ public class BasicHibernateTestCase extends TestCase {
             e.setStatusId(Email.STATUS_ID_UNACTIVE);
 
             u.addEmailAddress(e);
+            log.debug("after email addition");
 
             Phone p = new Phone();
             p.setNumber("6666666666");
@@ -60,20 +74,30 @@ public class BasicHibernateTestCase extends TestCase {
 
             u.addPhoneNumber(p);
 
-            UserDAO dao = new UserDAO();
-            dao.saveOrUpdate(u);
+            log.debug("before iterate");
+            for (Iterator it= notifications.iterator(); it.hasNext();) {
+                u.addNotification((Notification)it.next());
+            }
+            log.debug("after iterate");
 
-            User u2 = dao.find(userId);
+
+            new UserDAO().saveOrUpdate(u);
+            userId = u.getId();
+
+            HibernateUtils.closeSession();
+            User u2 = new UserDAO().find(userId);
             assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
             assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
             assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
             assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
+            assertTrue("db does not contain our notifications", u2.getNotifications().size()==notifications.size());
         } finally {
             HibernateUtils.close();
         }
 
     }
 
+/*
     public void testCreateCoder() {
         Long userId = null;
         String handle = "f" + System.currentTimeMillis();
@@ -108,8 +132,8 @@ public class BasicHibernateTestCase extends TestCase {
             a.setAddress3("address3");
             a.setAddressTypeId(Address.HOME_TYPE_ID);
             a.setCity("city");
-            a.setState(new Util().getState("CO"));
-            a.setCountry(new Util().getCountry("840"));
+            a.setState(new StateDAO().getState("CO"));
+            a.setCountry(new CountryDAO().getCountry("840"));
             a.setProvince("province");
             a.setZip("zip");
 
@@ -132,6 +156,7 @@ public class BasicHibernateTestCase extends TestCase {
 
             CoderDAO dao = new CoderDAO();
             dao.saveOrUpdate(u);
+            userId = u.getId();
 
             Coder u2 = dao.find(userId);
             assertTrue("db does not contain our new user", u2.getHandle().equals(handle));
@@ -146,5 +171,6 @@ public class BasicHibernateTestCase extends TestCase {
     }
 
 
+*/
 
 }

@@ -53,6 +53,7 @@ public class HibernateUtils {
         Session session = (Session)tSession.get();
         if (session!=null) {
             session.close();
+            tSession.set(null);
         }
     }
 
@@ -63,6 +64,7 @@ public class HibernateUtils {
         SessionFactory factory = (SessionFactory)tFactory.get();
         if (factory!=null) {
             factory.close();
+            tFactory.set(null);
         }
     }
 

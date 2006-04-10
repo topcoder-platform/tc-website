@@ -19,7 +19,7 @@
         <property name="password"/>
         <property name="activationCode" column="activation_code"/>
 
-        <set name="addresses" table="user_address_xref" cascade="save-update">
+        <set name="addresses" table="user_address_xref" cascade="save-update" outer-join="false">
             <key column="user_id"/>
             <many-to-many column="address_id" class="com.topcoder.web.reg.model.Address"/>
         </set>
@@ -31,7 +31,10 @@
             <key column="user_id"/>
             <one-to-many class="com.topcoder.web.reg.model.Phone"/>
         </set>
-
+        <set name="notifications" table="user_notify_xref" cascade="save-update" outer-join="false">
+            <key column="user_id"/>
+            <many-to-many column="notify_id" class="com.topcoder.web.reg.model.Notification"/>
+        </set>
         <joined-subclass name="com.topcoder.web.reg.model.Coder" table="coder">
             <key column="coder_id"/>
             <property name="memberSince" type="timestamp" column="member_since"/>

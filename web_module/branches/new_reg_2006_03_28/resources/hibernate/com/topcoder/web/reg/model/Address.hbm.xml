@@ -16,8 +16,8 @@
         <property name="address2"/>
         <property name="address3"/>
         <property name="city"/>
-        <one-to-one name="state" class="com.topcoder.web.reg.model.State" fetch="join" cascade="none"/>
-        <one-to-one name="country" class="com.topcoder.web.reg.model.Country" fetch="join" cascade="none"/>
+        <many-to-one name="state" column="state_code" class="com.topcoder.web.reg.model.State"/>
+        <many-to-one name="country" column="country_code" class="com.topcoder.web.reg.model.Country"/>
         <property name="zip"/>
         <property name="province"/>
     </class>
