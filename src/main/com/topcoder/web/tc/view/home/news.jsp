@@ -21,7 +21,7 @@ with 808.46 points.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=match_editorials&d2=srm297">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505862" message="discuss this" />&#160;|&#160;
+         <tc-webtag:forumLink forumID="505863" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
