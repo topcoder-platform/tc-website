@@ -4,51 +4,44 @@
 
 package com.topcoder.web.onsite.controller.request;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.onsite.Constants;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.common.BaseProcessor;
-import java.util.Map;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
-import com.topcoder.shared.netCommon.messages.MessageUtil;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentAppeal;
-import com.topcoder.shared.netCommon.messages.MessagePacket;
-import com.topcoder.shared.netCommon.messages.spectator.RequestComponentUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.DefineComponentContest;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentData;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentCoder;
 import com.topcoder.shared.netCommon.messages.spectator.CoderData;
 
-
 /**
  * <strong>Purpose</strong>:
- * A processor to handle RequestComponentUpdate requests from the Spectator front-end.
- * Any failure will result in an empty message packet.
+ * Helper class to build Spectator messages packets.
  * 
  * @author pulky
  * @version 1.0
  */
 class SpectatorMessagesHelper {
+    
     /**
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(SpectatorMessagesHelper.class);
     
     /**
-     * Retrieves data from the DB to the requestor.
+     * Builds and Gets the ComponentScoreUpdate messages for the processor.
      *
+     * @param rscComponentScore the ResultSetContainer retrieved from the DB.
      * @param contestId the contest id of the required data.
+     * @param roundId the round id of the required data.
+     * @param componentId the component id of the required data.
      *
-     * @return a Map with the retrieved ResultSetContainers.
+     * Notes: ContestID, RoundID and ComponentID are mirrored as requested by the front-end application.
+     *
+     * @return a List with all the ComponentScoreUpdate messages.
      */
     protected static List getScoresMessagePacket(final ResultSetContainer rscComponentScore, final int contestId, 
         final int roundId, final int componentId) {
@@ -70,6 +63,18 @@ class SpectatorMessagesHelper {
         return scoresList;
     }
 
+    /**
+     * Builds and Gets the ComponentAppeal messages for the processor.
+     *
+     * @param rscComponentAppeal the ResultSetContainer retrieved from the DB.
+     * @param contestId the contest id of the required data.
+     * @param roundId the round id of the required data.
+     * @param componentId the component id of the required data.
+     *
+     * Notes: ContestID, RoundID and ComponentID are mirrored as requested by the front-end application.
+     *
+     * @return a List with all the ComponentAppeal messages.
+     */
     protected static List getAppealsMessagePacket(final ResultSetContainer rscComponentAppeal, final int contestId, 
         final int roundId, final int componentId) {
         List appealsList = new ArrayList();
@@ -105,6 +110,20 @@ class SpectatorMessagesHelper {
         return appealsList;
     }
     
+    /**
+     * Builds and Gets the DefineComponentContest message for the processor.
+     *
+     * @param rscComponentCoder the ResultSetContainer retrieved from the DB with the coders data.
+     * @param rscReviewerData the ResultSetContainer retrieved from the DB with the reviewers data.
+     * @param rscComponentData the ResultSetContainer retrieved from the DB with the component data.
+     * @param contestId the contest id of the required data.
+     * @param roundId the round id of the required data.
+     * @param componentId the component id of the required data.
+     *
+     * Notes: ContestID, RoundID and ComponentID are mirrored as requested by the front-end application.
+     *
+     * @return the builded object (DefineComponentContest).
+     */
     protected static DefineComponentContest getContestDefinitionMessage(final ResultSetContainer rscComponentCoder, 
         final ResultSetContainer rscReviewerData, final ResultSetContainer rscComponentData, final int contestId, 
         final int roundId, final int componentId) {
@@ -118,6 +137,7 @@ class SpectatorMessagesHelper {
                 rscComponentData.getStringItem(0, Constants.CATALOG_COL));            
         }
 
+        // builds component coders list
         ArrayList componentCoderList = null;
         if (rscComponentCoder.size() > 0) {
             componentCoderList = new ArrayList(rscComponentCoder.size());
@@ -138,6 +158,7 @@ class SpectatorMessagesHelper {
             }
         }
 
+        // builds reviewers list
         ArrayList reviewerDataList = null;
         if (rscComponentCoder.size() > 0) {
             reviewerDataList = new ArrayList(rscReviewerData.size());
