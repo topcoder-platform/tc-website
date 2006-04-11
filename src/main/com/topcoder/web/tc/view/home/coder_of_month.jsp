@@ -13,7 +13,7 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/w__big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
-         <tc-webtag:handle coderId="10019533" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />: increased his rating by over 800, became red, and advanced to the TCO semis<br><br>
+         <tc-webtag:handle coderId="10019533" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />: increased his rating by over 800, became red, and advanced to the TCO Semifinals<br><br>
       </td>
    </tr>
    <tr>

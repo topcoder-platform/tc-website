@@ -72,7 +72,7 @@
       <br><tc-webtag:handle coderId="21465175" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      No submission
+      Submitted
       </td>
    </tr>
    <% even = !even;%>
