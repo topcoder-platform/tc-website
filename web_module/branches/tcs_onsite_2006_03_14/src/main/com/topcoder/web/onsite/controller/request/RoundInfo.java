@@ -67,7 +67,7 @@ public class RoundInfo extends BaseProcessor {
 
         MessagePacket mp = new MessagePacket();
 
-        try {
+        //try {
             // decodes request
             RequestComponentRoundInfo requestComponentRoundInfo = 
                 (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
@@ -163,9 +163,9 @@ public class RoundInfo extends BaseProcessor {
                         rsr.getIntItem(Constants.SCORE_COL)));
                 }
             }
-        } catch (Exception e) {
+        //} catch (Exception e) {
             // do nothing, an empty message packet will be returned.
-        }
+        //}
 
         //log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
 
