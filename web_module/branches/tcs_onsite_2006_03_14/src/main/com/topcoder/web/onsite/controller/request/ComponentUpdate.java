@@ -16,6 +16,7 @@ import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.List;
 import com.topcoder.shared.netCommon.messages.MessageUtil;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentAppeal;
@@ -63,79 +64,90 @@ public class ComponentUpdate extends BaseProcessor {
 
         MessagePacket mp = new MessagePacket();
 
-        try {
+        //try {
             // decodes request
             RequestComponentUpdate requestComponentUpdate = 
                 (RequestComponentUpdate) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
 
             // retrieves data from DB
             Map m = getComponentUpdateData(requestComponentUpdate.getContestID());
-
             ResultSetContainer rscComponentAppeal = (ResultSetContainer)m.get(Constants.COMPONENT_APPEAL_QUERY);
             ResultSetContainer rscComponentScore = (ResultSetContainer)m.get(Constants.COMPONENT_SCORE_QUERY);
-
             log.debug("Got " +  rscComponentAppeal.size() + " rows for: " + Constants.COMPONENT_APPEAL_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
 
             // adds all ComponentAppeal messages.
-            if (rscComponentAppeal.size() > 0) {
-                Iterator it = rscComponentAppeal.iterator();
-                ResultSetContainer.ResultSetRow rsr;
-                while (it.hasNext()) {
-                    rsr = (ResultSetContainer.ResultSetRow) it.next();
-                    String appealStatus = null;
-                    Object successful = rsr.getItem(Constants.SUCCESSFUL_COL).getResultData();
-                    if (successful == null) {
-                        appealStatus = ComponentAppeal.APPEAL_PENDING;
-                    } else {
-                        switch (((Number) successful).intValue()) {
-                            case 0:
-                                appealStatus = ComponentAppeal.APPEAL_REJECTED;
-                                break;
-                            case 1:
-                                appealStatus = ComponentAppeal.APPEAL_SUCCESSFUL;
-                                break;
-                        }
-                    }
-
-                    // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
-                    mp.add(new ComponentAppeal(
-                        requestComponentUpdate.getContestID(),
-                        requestComponentUpdate.getRoundID(),
-                        requestComponentUpdate.getComponentID(), 
-                        rsr.getIntItem(Constants.CODER_ID_COL), 
-                        rsr.getIntItem(Constants.REVIEWER_ID_COL),
-                        appealStatus));
-                }
-            }
-
+            mp.addAll(getAppealsMessagePacket(requestComponentUpdate, rscComponentAppeal));
+    
             // adds all ComponentScoreUpdate messages.
-            if (rscComponentScore.size() > 0) {
-                Iterator it = rscComponentScore.iterator();
-                ResultSetContainer.ResultSetRow rsr;
-                while (it.hasNext()) {
-                    rsr = (ResultSetContainer.ResultSetRow) it.next();
-
-                    // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
-                    mp.add(new ComponentScoreUpdate(
-                        requestComponentUpdate.getContestID(),
-                        requestComponentUpdate.getRoundID(),
-                        requestComponentUpdate.getComponentID(), 
-                        rsr.getIntItem(Constants.CODER_ID_COL), 
-                        rsr.getIntItem(Constants.REVIEWER_ID_COL),
-                        rsr.getIntItem(Constants.SCORE_COL)));
-                }
-            }
-        } catch (Exception e) {
+            mp.addAll(getScoresMessagePacket(requestComponentUpdate, rscComponentScore));
+        //} catch (Exception e) {
             // do nothing, an empty message packet will be returned.
-        }
-
-        //log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
+        //}
 
         // encodes and returns the messages packet
+        log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
         getResponse().flushBuffer();
+    }
+
+    protected List getScoresMessagePacket(final RequestComponentUpdate requestComponentUpdate, 
+        final ResultSetContainer rscComponentScore) {
+        List scoresList = new ArrayList();
+        if (rscComponentScore.size() > 0) {
+            Iterator it = rscComponentScore.iterator();
+            ResultSetContainer.ResultSetRow rsr;
+            while (it.hasNext()) {
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+
+                // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
+                scoresList.add(new ComponentScoreUpdate(
+                    requestComponentUpdate.getContestID(),
+                    requestComponentUpdate.getRoundID(),
+                    requestComponentUpdate.getComponentID(), 
+                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    rsr.getIntItem(Constants.REVIEWER_ID_COL),
+                    rsr.getIntItem(Constants.SCORE_COL)));
+            }
+        }
+        return scoresList;
+    }
+
+    protected List getAppealsMessagePacket(final RequestComponentUpdate requestComponentUpdate, 
+            final ResultSetContainer rscComponentAppeal) {
+        List appealsList = new ArrayList();
+        if (rscComponentAppeal.size() > 0) {
+            Iterator it = rscComponentAppeal.iterator();
+            ResultSetContainer.ResultSetRow rsr;
+            while (it.hasNext()) {
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                String appealStatus = null;
+                Object successful = rsr.getItem(Constants.SUCCESSFUL_COL).getResultData();
+                if (successful == null) {
+                    appealStatus = ComponentAppeal.APPEAL_PENDING;
+                } else {
+                    switch (((Number) successful).intValue()) {
+                        case 0:
+                            appealStatus = ComponentAppeal.APPEAL_REJECTED;
+                            break;
+                        case 1:
+                            appealStatus = ComponentAppeal.APPEAL_SUCCESSFUL;
+                            break;
+                    }
+                }
+
+                // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
+                appealsList.add(new ComponentAppeal(
+                    requestComponentUpdate.getContestID(),
+                    requestComponentUpdate.getRoundID(),
+                    requestComponentUpdate.getComponentID(), 
+                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    rsr.getIntItem(Constants.REVIEWER_ID_COL),
+                    appealStatus));
+            }
+        }
+        return appealsList;
     }
 }
