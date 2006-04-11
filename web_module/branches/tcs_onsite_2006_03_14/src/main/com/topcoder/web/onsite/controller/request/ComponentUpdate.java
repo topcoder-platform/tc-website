@@ -7,19 +7,13 @@ package com.topcoder.web.onsite.controller.request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.onsite.Constants;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
-import java.util.Iterator;
-import java.util.ArrayList;
-import java.util.List;
 import com.topcoder.shared.netCommon.messages.MessageUtil;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentAppeal;
 import com.topcoder.shared.netCommon.messages.MessagePacket;
 import com.topcoder.shared.netCommon.messages.spectator.RequestComponentUpdate;
 import com.topcoder.web.onsite.controller.request.SpectatorMessagesHelper;
@@ -81,10 +75,12 @@ public class ComponentUpdate extends BaseProcessor {
             int componentId = requestComponentUpdate.getComponentID();
                                     
             // adds all ComponentAppeal messages.
-            mp.addAll(SpectatorMessagesHelper.getAppealsMessagePacket(rscComponentAppeal, contestId, roundId, componentId));
+            mp.addAll(SpectatorMessagesHelper.getAppealsMessagePacket(rscComponentAppeal, contestId, roundId, 
+                componentId));
     
             // adds all ComponentScoreUpdate messages.
-            mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, componentId));
+            mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
+                componentId));
         //} catch (Exception e) {
             // do nothing, an empty message packet will be returned.
         //}

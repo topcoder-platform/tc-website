@@ -45,7 +45,7 @@ class SpectatorMessagesHelper {
      */
     protected static List getScoresMessagePacket(final ResultSetContainer rscComponentScore, final int contestId, 
         final int roundId, final int componentId) {
-        List scoresList = new ArrayList();
+        List scoresList = new ArrayList(rscComponentScore.size());
         if (rscComponentScore.size() > 0) {
             Iterator it = rscComponentScore.iterator();
             ResultSetContainer.ResultSetRow rsr;
@@ -77,7 +77,7 @@ class SpectatorMessagesHelper {
      */
     protected static List getAppealsMessagePacket(final ResultSetContainer rscComponentAppeal, final int contestId, 
         final int roundId, final int componentId) {
-        List appealsList = new ArrayList();
+        List appealsList = new ArrayList(rscComponentAppeal.size());
         if (rscComponentAppeal.size() > 0) {
             Iterator it = rscComponentAppeal.iterator();
             ResultSetContainer.ResultSetRow rsr;
@@ -138,10 +138,8 @@ class SpectatorMessagesHelper {
         }
 
         // builds component coders list
-        ArrayList componentCoderList = null;
+        ArrayList componentCoderList = new ArrayList(rscComponentCoder.size());
         if (rscComponentCoder.size() > 0) {
-            componentCoderList = new ArrayList(rscComponentCoder.size());
-
             Iterator it = rscComponentCoder.iterator();
             ResultSetContainer.ResultSetRow rsr;
             while (it.hasNext()) {
@@ -159,10 +157,8 @@ class SpectatorMessagesHelper {
         }
 
         // builds reviewers list
-        ArrayList reviewerDataList = null;
-        if (rscComponentCoder.size() > 0) {
-            reviewerDataList = new ArrayList(rscReviewerData.size());
-
+        ArrayList reviewerDataList = new ArrayList(rscReviewerData.size());
+        if (rscReviewerData.size() > 0) {
             Iterator it = rscReviewerData.iterator();
             ResultSetContainer.ResultSetRow rsr;
             while (it.hasNext()) {

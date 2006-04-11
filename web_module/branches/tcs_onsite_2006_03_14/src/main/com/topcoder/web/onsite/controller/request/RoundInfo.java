@@ -7,21 +7,13 @@ package com.topcoder.web.onsite.controller.request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.onsite.Constants;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
-import java.util.Iterator;
-import java.util.ArrayList;
-import com.topcoder.shared.netCommon.messages.spectator.DefineComponentContest;
 import com.topcoder.shared.netCommon.messages.MessageUtil;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentData;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentCoder;
-import com.topcoder.shared.netCommon.messages.spectator.CoderData;
-import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.MessagePacket;
 import com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo;
 import com.topcoder.web.onsite.controller.request.SpectatorMessagesHelper;
@@ -92,19 +84,19 @@ public class RoundInfo extends BaseProcessor {
             int componentId = requestComponentRoundInfo.getComponentID();
             
             // first adds message for DefineComponentContest.
-            mp.add(SpectatorMessagesHelper.getContestDefinition(rscComponentCoder, rscReviewerData, rscComponentData, 
-                contestId, roundId, componentId));
+            mp.add(SpectatorMessagesHelper.getContestDefinitionMessage(rscComponentCoder, rscReviewerData, 
+                rscComponentData, contestId, roundId, componentId));
 
             // adds all ComponentScoreUpdate messages.
-            mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, componentId));
+            mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
+                componentId));
 
         //} catch (Exception e) {
             // do nothing, an empty message packet will be returned.
         //}
 
-        //log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
-
         // encodes and returns the messages packet
+        log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
         String xmlString = MessageUtil.encodeXMLMessagePacket(mp);
         getResponse().setContentType(Constants.RESPONSE_CONTENT_TYPE);
         getResponse().getOutputStream().print(xmlString);
