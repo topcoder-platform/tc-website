@@ -24,6 +24,7 @@ import com.topcoder.shared.netCommon.messages.spectator.CoderData;
 import com.topcoder.shared.netCommon.messages.spectator.ComponentScoreUpdate;
 import com.topcoder.shared.netCommon.messages.MessagePacket;
 import com.topcoder.shared.netCommon.messages.spectator.RequestComponentRoundInfo;
+import com.topcoder.web.onsite.controller.request.SpectatorMessagesHelper;
 
 /**
  * <strong>Purpose</strong>:
@@ -48,7 +49,7 @@ public class RoundInfo extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getComponentRoundInfoData(long componentId, long contestId) throws Exception {
+    private Map getComponentRoundInfoData(int componentId, int contestId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.COMPONENT_ROUND_INFO_COMMAND);
         request.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
@@ -86,83 +87,17 @@ public class RoundInfo extends BaseProcessor {
             log.debug("Got " +  rscReviewerData.size() + " rows for: " + Constants.REVIEWER_DATA_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
 
-            // builds the objects to be returned
-            ComponentData componentData = null;
-            if (rscComponentData.size() > 0) {
-                // ComponentID is mirrored as requested by the front-end application
-                componentData  = new ComponentData(
-                    requestComponentRoundInfo.getComponentID(), 
-                    rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
-                    rscComponentData.getStringItem(0, Constants.CATALOG_COL));            
-            }
-
-            ArrayList componentCoderList = null;
-            if (rscComponentCoder.size() > 0) {
-                componentCoderList = new ArrayList(rscComponentCoder.size());
-
-                Iterator it = rscComponentCoder.iterator();
-                ResultSetContainer.ResultSetRow rsr;
-                while (it.hasNext()) {
-                     rsr = (ResultSetContainer.ResultSetRow) it.next();
-
-                     Object rank = rsr.getItem(Constants.RANK_COL).getResultData();
-                     Object wagerAmount = rsr.getItem(Constants.WAGER_AMOUNT_COL).getResultData();
-
-                    componentCoderList.add(new ComponentCoder(
-                        rsr.getIntItem(Constants.CODER_ID_COL), 
-                        rsr.getStringItem(Constants.HANDLE_COL), 
-                        rank == null ? 0 : ((Number) rank).intValue(), 
-                        wagerAmount == null ? 0 : ((Number) wagerAmount).intValue()));
-                }
-            }
-
-            ArrayList reviewerDataList = null;
-            if (rscComponentCoder.size() > 0) {
-                reviewerDataList = new ArrayList(rscReviewerData.size());
-
-                Iterator it = rscReviewerData.iterator();
-                ResultSetContainer.ResultSetRow rsr;
-                while (it.hasNext()) {
-                    rsr = (ResultSetContainer.ResultSetRow) it.next();
-                    reviewerDataList.add(new CoderData(
-                        rsr.getIntItem(Constants.CODER_ID_COL), 
-                        rsr.getStringItem(Constants.HANDLE_COL), 
-                        rsr.getIntItem(Constants.RANK_COL)));
-                }
-            }
-
-            log.debug("componentCoderList filled with " +  componentCoderList.size() + " coders.");
-            log.debug("reviewerDataList filled with " +  reviewerDataList.size() + " reviewers.");
-
-            // creates DefineComponentContest instance
-            // ContestID and RoundID are mirrored as requested by the front-end application
-            DefineComponentContest defineComponentContest = new DefineComponentContest(
-                requestComponentRoundInfo.getContestID(), 
-                requestComponentRoundInfo.getRoundID(),
-                componentData,
-                componentCoderList, 
-                reviewerDataList);
-
+            int contestId = requestComponentRoundInfo.getContestID();
+            int roundId = requestComponentRoundInfo.getRoundID();
+            int componentId = requestComponentRoundInfo.getComponentID();
+            
             // first adds message for DefineComponentContest.
-            mp.add(defineComponentContest);
+            mp.add(SpectatorMessagesHelper.getContestDefinition(rscComponentCoder, rscReviewerData, rscComponentData, 
+                contestId, roundId, componentId));
 
             // adds all ComponentScoreUpdate messages.
-            if (rscComponentScore.size() > 0) {
-                Iterator it = rscComponentScore.iterator();
-                ResultSetContainer.ResultSetRow rsr;
-                while (it.hasNext()) {
-                    rsr = (ResultSetContainer.ResultSetRow) it.next();
+            mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, componentId));
 
-                    // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
-                    mp.add(new ComponentScoreUpdate(
-                        requestComponentRoundInfo.getContestID(),
-                        requestComponentRoundInfo.getRoundID(),
-                        requestComponentRoundInfo.getComponentID(), 
-                        rsr.getIntItem(Constants.CODER_ID_COL), 
-                        rsr.getIntItem(Constants.REVIEWER_ID_COL),
-                        rsr.getIntItem(Constants.SCORE_COL)));
-                }
-            }
         //} catch (Exception e) {
             // do nothing, an empty message packet will be returned.
         //}
