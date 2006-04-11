@@ -43,8 +43,8 @@ class SpectatorMessagesHelper {
      *
      * @return a List with all the ComponentScoreUpdate messages.
      */
-    protected static List getScoresMessagePacket(final ResultSetContainer rscComponentScore, final int contestId, 
-        final int roundId, final int componentId) {
+    protected static List getScoresMessagePacket(final ResultSetContainer rscComponentScore, final long contestId, 
+        final long roundId, final long componentId) {
         List scoresList = new ArrayList(rscComponentScore.size());
         if (rscComponentScore.size() > 0) {
             Iterator it = rscComponentScore.iterator();
@@ -53,11 +53,13 @@ class SpectatorMessagesHelper {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
 
                 // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
+                // int casting must be done due to compatibility issues with the front-end.
+                // score is requested to be transformed to an int(E-2)
                 scoresList.add(new ComponentScoreUpdate(
-                    contestId, roundId, componentId, 
-                    rsr.getIntItem(Constants.CODER_ID_COL), 
-                    rsr.getIntItem(Constants.REVIEWER_ID_COL),
-                    rsr.getIntItem(Constants.SCORE_COL)));
+                    (int) contestId, (int) roundId, componentId, 
+                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
+                    (int) rsr.getLongItem(Constants.REVIEWER_ID_COL),
+                    (int) (rsr.getFloatItem(Constants.SCORE_COL) * 100)));
             }
         }
         return scoresList;
@@ -75,8 +77,8 @@ class SpectatorMessagesHelper {
      *
      * @return a List with all the ComponentAppeal messages.
      */
-    protected static List getAppealsMessagePacket(final ResultSetContainer rscComponentAppeal, final int contestId, 
-        final int roundId, final int componentId) {
+    protected static List getAppealsMessagePacket(final ResultSetContainer rscComponentAppeal, final long contestId, 
+        final long roundId, final long componentId) {
         List appealsList = new ArrayList(rscComponentAppeal.size());
         if (rscComponentAppeal.size() > 0) {
             Iterator it = rscComponentAppeal.iterator();
@@ -100,10 +102,11 @@ class SpectatorMessagesHelper {
                 }
 
                 // ContestID, RoundID and ComponentID are mirrored as requested by the front-end application
+                // int casting must be done due to compatibility issues with the front-end.
                 appealsList.add(new ComponentAppeal(
-                    contestId, roundId, componentId, 
-                    rsr.getIntItem(Constants.CODER_ID_COL), 
-                    rsr.getIntItem(Constants.REVIEWER_ID_COL),
+                    (int) contestId, (int) roundId, componentId, 
+                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
+                    (int) rsr.getLongItem(Constants.REVIEWER_ID_COL),
                     appealStatus));
             }
         }
@@ -125,8 +128,8 @@ class SpectatorMessagesHelper {
      * @return the builded object (DefineComponentContest).
      */
     protected static DefineComponentContest getContestDefinitionMessage(final ResultSetContainer rscComponentCoder, 
-        final ResultSetContainer rscReviewerData, final ResultSetContainer rscComponentData, final int contestId, 
-        final int roundId, final int componentId) {
+        final ResultSetContainer rscReviewerData, final ResultSetContainer rscComponentData, final long contestId, 
+        final long roundId, final long componentId) {
         // builds the objects to be returned
         ComponentData componentData = null;
         if (rscComponentData.size() > 0) {
@@ -148,10 +151,11 @@ class SpectatorMessagesHelper {
                  Object rank = rsr.getItem(Constants.RANK_COL).getResultData();
                  Object wagerAmount = rsr.getItem(Constants.WAGER_AMOUNT_COL).getResultData();
 
+                // int casting must be done due to compatibility issues with the front-end.
                 componentCoderList.add(new ComponentCoder(
-                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
                     rsr.getStringItem(Constants.HANDLE_COL), 
-                    rank == null ? 0 : ((Number) rank).intValue(), 
+                    rank == null ? 0 : (int)(((Number) rank).longValue()), 
                     wagerAmount == null ? 0 : ((Number) wagerAmount).intValue()));
             }
         }
@@ -163,10 +167,11 @@ class SpectatorMessagesHelper {
             ResultSetContainer.ResultSetRow rsr;
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
+                // int casting must be done due to compatibility issues with the front-end.
                 reviewerDataList.add(new CoderData(
-                    rsr.getIntItem(Constants.CODER_ID_COL), 
+                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
                     rsr.getStringItem(Constants.HANDLE_COL), 
-                    rsr.getIntItem(Constants.RANK_COL)));
+                    (int) rsr.getLongItem(Constants.RANK_COL)));
             }
         }
 
@@ -175,9 +180,10 @@ class SpectatorMessagesHelper {
 
         // creates DefineComponentContest instance
         // ContestID and RoundID are mirrored as requested by the front-end application
+        // int casting must be done due to compatibility issues with the front-end.
         return new DefineComponentContest(
-            contestId, 
-            roundId,
+            (int) contestId, 
+            (int) roundId,
             componentData,
             componentCoderList, 
             reviewerDataList);

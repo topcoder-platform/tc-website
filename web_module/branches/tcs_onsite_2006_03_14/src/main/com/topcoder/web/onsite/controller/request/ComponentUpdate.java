@@ -40,7 +40,7 @@ public class ComponentUpdate extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getComponentUpdateData(int contestId) throws Exception {
+    private Map getComponentUpdateData(long contestId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.COMPONENT_UPDATE_COMMAND);
         request.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
@@ -70,9 +70,10 @@ public class ComponentUpdate extends BaseProcessor {
             log.debug("Got " +  rscComponentAppeal.size() + " rows for: " + Constants.COMPONENT_APPEAL_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
 
+            // these are ints due to compatibility issues with the front-end. (should be longs)
             int contestId = requestComponentUpdate.getContestID();
             int roundId = requestComponentUpdate.getRoundID();
-            int componentId = requestComponentUpdate.getComponentID();
+            long componentId = requestComponentUpdate.getComponentID();
                                     
             // adds all ComponentAppeal messages.
             mp.addAll(SpectatorMessagesHelper.getAppealsMessagePacket(rscComponentAppeal, contestId, roundId, 

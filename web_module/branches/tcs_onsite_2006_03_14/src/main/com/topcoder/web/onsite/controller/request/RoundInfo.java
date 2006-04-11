@@ -41,7 +41,7 @@ public class RoundInfo extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getComponentRoundInfoData(int componentId, int contestId) throws Exception {
+    private Map getComponentRoundInfoData(long componentId, long contestId) throws Exception {
         Request request = new Request();
         request.setContentHandle(Constants.COMPONENT_ROUND_INFO_COMMAND);
         request.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
@@ -79,9 +79,10 @@ public class RoundInfo extends BaseProcessor {
             log.debug("Got " +  rscReviewerData.size() + " rows for: " + Constants.REVIEWER_DATA_QUERY);
             log.debug("Got " +  rscComponentScore.size() + " rows for: " + Constants.COMPONENT_SCORE_QUERY);
 
+            // these are ints due to compatibility issues with the front-end. (should be longs)
             int contestId = requestComponentRoundInfo.getContestID();
             int roundId = requestComponentRoundInfo.getRoundID();
-            int componentId = requestComponentRoundInfo.getComponentID();
+            long componentId = requestComponentRoundInfo.getComponentID();
             
             // first adds message for DefineComponentContest.
             mp.add(SpectatorMessagesHelper.getContestDefinitionMessage(rscComponentCoder, rscReviewerData, 
