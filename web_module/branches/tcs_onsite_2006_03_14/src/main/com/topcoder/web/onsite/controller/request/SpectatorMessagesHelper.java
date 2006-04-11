@@ -80,7 +80,8 @@ class SpectatorMessagesHelper {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 String appealStatus = null;
                 Object successful = rsr.getItem(Constants.SUCCESSFUL_COL).getResultData();
-                if (successful == null) {
+                int isResolved = rsr.getIntItem(Constants.IS_RESOLVED_COL);
+                if (isResolved == 0 || successful == null) {
                     appealStatus = ComponentAppeal.APPEAL_PENDING;
                 } else {
                     switch (((Number) successful).intValue()) {
@@ -104,7 +105,7 @@ class SpectatorMessagesHelper {
         return appealsList;
     }
     
-    protected static DefineComponentContest getContestDefinition(final ResultSetContainer rscComponentCoder, 
+    protected static DefineComponentContest getContestDefinitionMessage(final ResultSetContainer rscComponentCoder, 
         final ResultSetContainer rscReviewerData, final ResultSetContainer rscComponentData, final int contestId, 
         final int roundId, final int componentId) {
         // builds the objects to be returned

@@ -89,6 +89,7 @@ public class Constants implements WebConstants {
     public static String REVIEWER_ID_COL;
     public static String SCORE_COL;
     public static String SUCCESSFUL_COL;
+    public static String IS_RESOLVED_COL;
 
     static {
         initialize();
