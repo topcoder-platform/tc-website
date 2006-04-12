@@ -25,7 +25,6 @@ public class RoundOverview extends Base {
             getRequest().setAttribute("resultMap", result);
             
             setNextPage(Constants.HS_ROUND_OVERVIEW);
-            setNextPage("/hs/roundOverview.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
