@@ -5,21 +5,22 @@ import com.topcoder.web.common.model.Base;
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Apr 10, 2006
+ *          Create Date: Apr 11, 2006
  */
-public class RegistrationType extends Base {
+public class SchoolType extends Base {
     private Integer id;
     private String description;
 
-    protected RegistrationType() {
+    protected SchoolType() {
 
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Integer getId() {
-        return id;
-    }
 }

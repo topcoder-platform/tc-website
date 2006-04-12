@@ -5,12 +5,12 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.Notification" table="notify_lu">
-        <id name="id" column="notify_id"/>
-        <property name="name"/>
-        <property name="status"/>
-        <property name="sort"/>
-        <set name="registrationTypes" table="registration_type_notify_xref" cascade="none" outer-join="false">
+    <class name="com.topcoder.web.reg.model.Notification" table="notify_lu" mutable="false">
+        <id name="id" column="notify_id" access="field"/>
+        <property name="name" access="field"/>
+        <property name="status" access="field"/>
+        <property name="sort" access="field"/>
+        <set name="registrationTypes" table="registration_type_notify_xref" cascade="none" access="field">
             <key column="notify_id"/>
             <many-to-many column="registration_type_id" class="com.topcoder.web.reg.model.RegistrationType"/>
         </set>

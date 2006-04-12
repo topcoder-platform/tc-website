@@ -19,18 +19,18 @@ public class User extends Base {
     private Character status;
     private String password;
     private String activationCode;
+    private Integer timezoneId;
     private Set addresses;
     private Set emailAddresses;
     private Set phoneNumbers;
-    private Integer timezoneId;
-    private Set demographicResponses;
     private Set notifications;
+    private Map demographicResponses;
 
     public User() {
         addresses = new HashSet();
         emailAddresses = new HashSet();
         phoneNumbers = new HashSet();
-        demographicResponses = new TreeSet();
+        demographicResponses = new HashMap();
         notifications = new TreeSet();
     }
 
@@ -142,16 +142,16 @@ public class User extends Base {
         this.timezoneId = timezoneId;
     }
 
-    public Set getDemographicResponses() {
-        return Collections.unmodifiableSet(demographicResponses);
+    public Map getDemographicResponses() {
+        return Collections.unmodifiableMap(demographicResponses);
     }
 
-    public void setDemographicResponses(Set demographicResponses) {
+    public void setDemographicResponses(Map demographicResponses) {
         this.demographicResponses = demographicResponses;
     }
 
     public void addDemographicResponse(DemographicResponse response) {
-        this.demographicResponses.add(response);
+        this.demographicResponses.put(response.getQuestion(), response);
     }
 
     public Set getNotifications() {
@@ -178,8 +178,10 @@ public class User extends Base {
         for(Iterator it =emailAddresses.iterator(); it.hasNext();) {
             ret.addEmailAddress((Email)((Email)it.next()).clone());
         }
-        for(Iterator it =demographicResponses.iterator(); it.hasNext();) {
-            ret.addDemographicResponse((DemographicResponse)((DemographicResponse)it.next()).clone());
+        Map.Entry me;
+        for(Iterator it =demographicResponses.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry)it.next();
+            ret.addDemographicResponse((DemographicResponse)((DemographicResponse)me.getValue()).clone());
         }
         for(Iterator it =notifications.iterator(); it.hasNext();) {
             ret.addNotification((Notification)((Notification)it.next()).clone());

@@ -15,5 +15,11 @@ public class HSAlgoRating extends AlgoRating {
         getId().setRatingTypeId(RATING_TYPE_ID);
     }
 
+    public HSAlgoRating(Coder c) {
+        this();
+        id.setCoderId(c.getId());
+    }
+
+
 }
 

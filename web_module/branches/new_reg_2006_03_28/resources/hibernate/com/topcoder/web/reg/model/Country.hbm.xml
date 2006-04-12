@@ -5,9 +5,9 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.Country" table="country">
-        <id name="code" column="country_code"/>
-        <property name="name" column="country_name"/>
+    <class name="com.topcoder.web.reg.model.Country" table="country" mutable="false">
+        <id name="code" column="country_code" access="field"/>
+        <property name="name" column="country_name" access="field"/>
     </class>
 
 </hibernate-mapping>

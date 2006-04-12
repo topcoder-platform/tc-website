@@ -1,7 +1,6 @@
 package com.topcoder.web.reg.model;
 
 import java.sql.Timestamp;
-import java.util.*;
 
 /**
  * A class to hold coder data.
@@ -18,12 +17,8 @@ public class Coder extends User {
     private String quote;
     private Integer coderTypeId;
     private String compCountryCode;
-    private Set algoRatings;
-
-    public Coder() {
-        super();
-        algoRatings = new HashSet();
-    }
+    private HSAlgoRating hsRating;
+    private TCAlgoRating tcRating;
 
     public Timestamp getMemberSince() {
         return memberSince;
@@ -56,22 +51,28 @@ public class Coder extends User {
     public void setCompCountryCode(String compCountryCode) {
         this.compCountryCode = compCountryCode;
     }
-    public Set getAlgoRatings() {
-        return Collections.unmodifiableSet(algoRatings);
+
+    public HSAlgoRating getHSRating() {
+        return hsRating;
     }
 
-    public void setAlgoRatings(Set ratings) {
-        this.algoRatings = ratings;
+    public void setHSRating(HSAlgoRating hsRating) {
+        this.hsRating = hsRating;
     }
-    public void addRating(AlgoRating r) {
-        this.algoRatings.add(r);
+
+    public TCAlgoRating getTCRating() {
+        return tcRating;
+    }
+
+    public void setTCRating(TCAlgoRating tcRating) {
+        this.tcRating = tcRating;
     }
 
     public Object clone() throws CloneNotSupportedException {
-        Coder ret = (Coder)super.clone();
-        for(Iterator it = algoRatings.iterator(); it.hasNext();) {
-            ret.addRating((AlgoRating)((AlgoRating)it.next()).clone());
-        }
+        Coder ret = (Coder) super.clone();
+        ret.setHSRating((HSAlgoRating) hsRating.clone());
+        ret.setTCRating((TCAlgoRating) tcRating.clone());
         return ret;
     }
+
 }

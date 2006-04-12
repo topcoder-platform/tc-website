@@ -14,44 +14,28 @@ public class DemographicAnswer extends Base {
     private Integer sort;
     private String status;
 
+    protected DemographicAnswer() {
+
+    }
+    
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
-    }
-
     public String getText() {
         return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public Integer getSort() {
         return sort;
     }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
 }

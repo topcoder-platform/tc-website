@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+        private User user;
+    private School school;
+    private boolean current;
+    private Degree degree;
+    private Float gpa;
+    private Float gpaScale;
+    private boolean viewable;
+    <class name="com.topcoder.web.reg.model.UserSchool" table="user_school">
+        <id name="id" column="notify_id" access="field"/>
+        <composite-id name="id" class="com.topcoder.web.reg.model.UserSchool$Identifier">
+            <key-property name="userId" type="long" column="user_id"/>
+            <key-property name="schoolId" type="long" column="school_id"/>
+        </composite-id>
+        <property name="user" class="com.topcoder.web.reg.model.User" column="user_id"/>
+        <property name="school" class="com.topcoder.web.reg.model.School" column="school_id"/>
+        <property name="current" type="boolean"/>
+        <property name="GPA"/>
+        <property name="GPAScale"/>
+        <property name="viewable" type="boolean"/>
+
+    </class>
+
+</hibernate-mapping>

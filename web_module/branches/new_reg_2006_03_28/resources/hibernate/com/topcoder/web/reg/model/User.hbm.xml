@@ -23,7 +23,7 @@
             <key column="user_id"/>
             <many-to-many column="address_id" class="com.topcoder.web.reg.model.Address"/>
         </set>
-        <set name="emailAddresses" cascade="save-update">
+        <set name="emailAddresses" cascade="none">
             <key column="user_id"/>
             <one-to-many class="com.topcoder.web.reg.model.Email"/>
         </set>
@@ -35,6 +35,12 @@
             <key column="user_id"/>
             <many-to-many column="notify_id" class="com.topcoder.web.reg.model.Notification"/>
         </set>
+<!--
+        <set name="schools" table="user_school" cascade="save-update" outer-join="false">
+            <key column="user_id"/>
+            <many-to-many column="notify_id" class="com.topcoder.web.reg.model.UserSchool"/>
+        </set>
+-->
         <joined-subclass name="com.topcoder.web.reg.model.Coder" table="coder">
             <key column="coder_id"/>
             <property name="memberSince" type="timestamp" column="member_since"/>
@@ -42,10 +48,12 @@
             <property name="coderTypeId" column="coder_type_id"/>
             <property name="compCountryCode" column="comp_country_code"/>
 
+<!--
             <set name="algoRatings" cascade="save-update">
                 <key column="coder_id"/>
                 <one-to-many class="com.topcoder.web.reg.model.AlgoRating"/>
             </set>
+-->
 
         </joined-subclass>
 

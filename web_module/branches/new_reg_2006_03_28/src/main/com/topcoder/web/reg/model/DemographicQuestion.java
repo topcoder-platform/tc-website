@@ -13,36 +13,28 @@ public class DemographicQuestion extends Base {
     private String selectable;
     private String description;
 
+    protected DemographicQuestion() {
+
+    }
+    
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getText() {
         return text;
     }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
     public String getSelectable() {
         return selectable;
-    }
-
-    public void setSelectable(String selectable) {
-        this.selectable = selectable;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public int hashCode() {
+        return id.hashCode();
     }
 
 }

@@ -14,4 +14,12 @@ public class TCAlgoRating extends AlgoRating {
         super();
         getId().setRatingTypeId(RATING_TYPE_ID);
     }
+
+    public TCAlgoRating(Coder c) {
+        this();
+        id.setCoderId(c.getId());
+    }
+
+
+
 }

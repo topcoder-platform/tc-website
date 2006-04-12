@@ -23,13 +23,15 @@
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Country.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/DemographicAnswer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/DemographicQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/RegistrationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/State.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>
-
     </session-factory>
 
 </hibernate-configuration>

@@ -5,12 +5,11 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.DemographicAnswer" table="demographic_answer">
-        <key name="id" column="demographic_answer_id"/>
-        <property name="questionId" column="demographic_question_id"/>
-        <property name="text"/>
-        <property name="sort"/>
-        <property name="status"/>
+    <class name="com.topcoder.web.reg.model.DemographicQuestion" table="demographic_question" mutable="false">
+        <id name="id" column="demographic_question_id" access="field"/>
+        <property name="text" access="field"/>
+        <property name="selectable" access="field"/>
+        <property name="description" access="field"/>
     </class>
 
 </hibernate-mapping>

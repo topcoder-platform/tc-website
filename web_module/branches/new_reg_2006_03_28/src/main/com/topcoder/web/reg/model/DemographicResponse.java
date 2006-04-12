@@ -8,35 +8,45 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Apr 7, 2006
  */
 public class DemographicResponse extends Base {
-    //todo this may need to change to user id for the corporate demographic question
-    //todo or perhaps we just move this stuff to common and refactor a little.
-    private Long coderId;
-    private Long questionId;
-    private Long answerId;
+    private User user;
+    private DemographicQuestion question;
+    private DemographicAnswer answer;
     private String response;
 
-    public Long getCoderId() {
-        return coderId;
+    public User getUser() {
+        try {
+            return (User)user.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("something wrong, User is not cloneable");
+        }
     }
 
-    public void setCoderId(Long coderId) {
-        this.coderId = coderId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getQuestionId() {
-        return questionId;
+    public DemographicQuestion getQuestion() {
+        try {
+            return (DemographicQuestion)question.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("something wrong, DemographicQuestion is not cloneable");
+        }
     }
 
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
+    public void setQuestion(DemographicQuestion question) {
+        this.question = question;
     }
 
-    public Long getAnswerId() {
-        return answerId;
+    public DemographicAnswer getAnswer() {
+        try {
+            return (DemographicAnswer)answer.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("something wrong, DemographicAnswer is not cloneable");
+        }
     }
 
-    public void setAnswerId(Long answerId) {
-        this.answerId = answerId;
+    public void setAnswer(DemographicAnswer answer) {
+        this.answer = answer;
     }
 
     public String getResponse() {

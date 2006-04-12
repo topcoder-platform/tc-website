@@ -13,26 +13,13 @@ import java.io.Serializable;
  */
 public abstract class AlgoRating extends Base {
 
-    private Identifier id = new Identifier();
-    private Integer rating;
-    private Long roundId;
-    private Integer numRatings;
-    private Coder coder;
+    protected Identifier id = new Identifier();
+    protected Integer rating;
+    protected Long roundId;
+    protected Integer numRatings;
 
-    public AlgoRating() {
+    protected AlgoRating() {
         super();
-    }
-
-    public AlgoRating(Coder coder) {
-        this.coder = coder;
-    }
-
-    public Coder getCoder() {
-        return coder;
-    }
-
-    public void setCoder(Coder coder) {
-        this.coder = coder;
     }
 
     public Identifier getId() {
@@ -67,9 +54,26 @@ public abstract class AlgoRating extends Base {
         this.numRatings = numRatings;
     }
 
-    public class Identifier implements Serializable {
+    public Long getCoderId() {
+        return id.getCoderId();
+    }
+
+    public Integer getRatingTypeId() {
+        return id.getRatingTypeId();
+    }
+
+
+    public static class Identifier implements Serializable {
         private Long coderId;
         private Integer ratingTypeId;
+
+        public Identifier() {
+
+        }
+        public Identifier(Long coderId, Integer ratingTypeId) {
+            this.coderId = coderId;
+            this.ratingTypeId = ratingTypeId;
+        }
 
         public Long getCoderId() {
             return coderId;
@@ -87,23 +91,14 @@ public abstract class AlgoRating extends Base {
             this.ratingTypeId = ratingTypeId;
         }
 
-
-        public Identifier() {
-
-        }
-        public Identifier(Long coderId, Integer ratingTypeId) {
-            this.coderId = coderId;
-            this.ratingTypeId = ratingTypeId;
-        }
-
         public boolean equals(Object o) {
             if (o == null) {
                 return false;
             } else {
                 try {
-                    AlgoRating oa = (AlgoRating) o;
-                    return (oa.getId().getCoderId().equals(coderId) &&
-                            oa.getId().getRatingTypeId().equals(ratingTypeId));
+                    AlgoRating.Identifier oa = (AlgoRating.Identifier) o;
+                    return (oa.coderId.equals(coderId) &&
+                            oa.ratingTypeId.equals(ratingTypeId));
                 } catch (ClassCastException e) {
                     return false;
                 }

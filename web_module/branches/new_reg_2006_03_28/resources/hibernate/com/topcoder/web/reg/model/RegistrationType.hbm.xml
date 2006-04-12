@@ -5,8 +5,8 @@
 
 <hibernate-mapping>
 
-    <class name="com.topcoder.web.reg.model.RegistrationType" table="registration_type_lu">
-        <id name="id" column="registration_type_id"/>
-        <property name="description" column="registration_type_desc"/>
+    <class name="com.topcoder.web.reg.model.RegistrationType" table="registration_type_lu" mutable="false">
+        <id name="id" column="registration_type_id" access="field"/>
+        <property name="description" column="registration_type_desc" access="field"/>
     </class>
 </hibernate-mapping>
