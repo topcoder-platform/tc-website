@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.12.06<br>5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm298">SRM 298 - Problem Set & Analysis</A></span><br><br>
+Since this Single Round Match took place during the ACM ICPC finals, it was surprising (and nice) to see such a big crowd attending, that almost reached a thousand participants.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm298">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505864" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.11.06<br>9:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD chat session scheduled for SRM 298</A>
@@ -176,21 +193,6 @@ Being the second money match in a row, SRM 295 attracted 864 participants with 3
          <A href="/tc?module=Static&d1=match_editorials&d2=srm295">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505861" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>03.30.06<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program</A>
-      </span><br><br>
-TopCoder is actively seeking high quality, experienced full time Project Managers and Application Architects to work on our ever-growing list of clients.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=my_home&d2=empReferrals">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
