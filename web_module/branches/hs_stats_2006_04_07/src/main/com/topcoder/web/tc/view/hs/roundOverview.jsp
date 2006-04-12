@@ -53,7 +53,7 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 // -->
 </script>
 <%
-ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
+ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_rounds");
 
 %>
 <div style="float:right; padding-left:10px;" align="right">
