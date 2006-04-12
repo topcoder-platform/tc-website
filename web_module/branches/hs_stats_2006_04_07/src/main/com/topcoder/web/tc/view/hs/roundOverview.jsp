@@ -58,12 +58,7 @@ ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("re
 %>
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)">
-   		<option value="" selected="selected">View another season:</option>
-        <rsc:iterator list="<%=seasons%>" id="seasonRow">
-	   		<option value="0000"><rsc:item name="season_name" row="seasonRow" /> </option>
-	   </rsc:iterator>
-   </select>
+	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="season_name" fieldValue="season_id"/>
 </div>
 <div style="padding-bottom:5px;">
    <select name="rd" onchange="goTo(this)">
