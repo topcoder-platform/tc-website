@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.SchoolType" table="school_type_lu" mutable="false">
+    <class name="SchoolType" table="school_type_lu" mutable="false">
         <id name="id" column="school_type_id" access="field"/>
         <property name="description" column="school_type_desc" access="field"/>
     </class>

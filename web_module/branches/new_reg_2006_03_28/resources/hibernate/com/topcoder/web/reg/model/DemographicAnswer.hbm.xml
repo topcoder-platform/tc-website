@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.DemographicAnswer" table="demographic_answer" mutable="false">
+    <class name="DemographicAnswer" table="demographic_answer" mutable="false">
         <id name="id" column="demographic_answer_id" access="field"/>
         <property name="questionId" column="demographic_question_id" access="field"/>
         <property name="text" access="field"/>

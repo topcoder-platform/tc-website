@@ -3,14 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.DemographicResponse" table="response">
-        <key name="id" column="demographic_answer_id" access="field"/>
-        <property name="questionId" column="demographic_question_id" access="field"/>
-        <property name="text" access="field"/>
-        <property name="sort" access="field"/>
-        <property name="status" access="field"/>
+    <class name="DemographicResponse" table="response">
+        <composite-id name="id" class="DemographicResponse$Identifier">
+            <key-property name="userId" type="long" column="user_id"/>
+            <key-property name="demographicQuestionId" type="long" column="demographic_question_id"/>
+            <key-property name="demographicAnswerId" type="long" column="demographic_answer_id"/>
+        </composite-id>
+        <property name="response" column="demographic_response" access="field"/>
     </class>
 
 </hibernate-mapping>

@@ -3,18 +3,18 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.School" table="school" mutable="false">
+    <class name="School" table="school" mutable="false">
         <id name="id" column="school_id">
-            <generator class="com.topcoder.web.reg.model.IdGenerator">
+            <generator class="com.topcoder.web.reg.model.com.topcoder.web.reg.model.IdGenerator">
                 <param name="sequence_name">SCHOOL_SEQ</param>
             </generator>
         </id>
-        <many-to-one name="address" column="address_id" class="com.topcoder.web.reg.model.Address"/>
+        <many-to-one name="address" column="address_id" class="Address"/>
         <property name="userId" column="userId"/>
         <property name="name"/>
         <property name="shortName"/>
-        <many-to-one name="type" column="school_type_id" class="com.topcoder.web.reg.model.SchoolType"/>
+        <many-to-one name="type" column="school_type_id" class="SchoolType"/>
     </class>
 </hibernate-mapping>

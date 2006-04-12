@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.Address" table="address">
+    <class name="Address" table="address">
         <id name="id" column="address_id">
             <generator class="com.topcoder.web.reg.model.IdGenerator">
                 <param name="sequence_name">ADDRESS_SEQ</param>
@@ -16,8 +16,8 @@
         <property name="address2"/>
         <property name="address3"/>
         <property name="city"/>
-        <many-to-one name="state" column="state_code" class="com.topcoder.web.reg.model.State"/>
-        <many-to-one name="country" column="country_code" class="com.topcoder.web.reg.model.Country"/>
+        <many-to-one name="state" column="state_code" class="State"/>
+        <many-to-one name="country" column="country_code" class="Country"/>
         <property name="zip"/>
         <property name="province"/>
     </class>

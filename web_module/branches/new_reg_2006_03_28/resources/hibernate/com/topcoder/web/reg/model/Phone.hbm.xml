@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.Phone" table="phone">
+    <class name="Phone" table="phone">
         <id name="id" column="phone_id">
             <generator class="com.topcoder.web.reg.model.IdGenerator">
                 <param name="sequence_name">PHONE_SEQ</param>

@@ -31,7 +31,8 @@ public class IdGenerator implements IdentifierGenerator, Configurable {
             throw new HibernateException("Sequence Name not specified in configuration.");
         }
         try {
-            return new Long(IdGeneratorClient.getSeqId(seqName));
+            long id = IdGeneratorClient.getSeqId(seqName);
+            return new Long(id);
         } catch (Exception e) {
             throw new HibernateException(e);
         }

@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.topcoder.web.reg.model">
 
-    <class name="com.topcoder.web.reg.model.State" table="state" mutable="false">
+    <class name="State" table="state" mutable="false">
         <id name="code" column="state_code" access="field"/>
         <property name="name" column="state_name" access="field"/>
     </class>

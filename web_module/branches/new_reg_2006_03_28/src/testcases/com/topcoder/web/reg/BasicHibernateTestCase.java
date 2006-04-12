@@ -93,18 +93,18 @@ public class BasicHibernateTestCase extends TestCase {
     public void testCreateCoder() {
         try {
 
-            //Coder u = makeCoder();
+            Coder u = makeCoder();
             log.debug("coder made");
 
-            //Coder u2 = new CoderDAO().find(u.getId());
-            Coder u2 = new CoderDAO().find(new Long(80762814));
+            Coder u2 = new CoderDAO().find(u.getId());
+            //Coder u2 = new CoderDAO().find(new Long(80762814));
 
-            //assertTrue("db does not contain our new user", u2.getHandle().equals(u.getHandle()));
+            assertTrue("db does not contain our new user", u2.getHandle().equals(u.getHandle()));
             assertTrue("db does not contain our new address", !u2.getAddresses().isEmpty());
             assertTrue("db does not contain our new email address", !u2.getEmailAddresses().isEmpty());
             assertTrue("db does not contain our new phone", !u2.getPhoneNumbers().isEmpty());
-            //assertTrue("db does not contain our hs rating info", u2.getHSRating().getId().getCoderId()!=null);
-            //assertTrue("db does not contain our tc rating info", u2.getTCRating().getId().getCoderId()!=null);
+            assertTrue("db does not contain our hs rating info", u2.getHSRating().getId().getCoderId()!=null);
+            assertTrue("db does not contain our tc rating info", u2.getTCRating().getId().getCoderId()!=null);
 
         } finally {
             HibernateUtils.close();
