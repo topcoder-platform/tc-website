@@ -52,15 +52,15 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
    <select name="season" onchange="goTo(this)">
    <option value="" selected="selected">View another season:</option>
    <option value="0000">2006-2007</option>
+   </select>
+</div>
+<div style="padding-bottom:5px;">
+   <select name="rd" onchange="goTo(this)">
+   <option value="" selected="selected">View another contest:</option>
+   <option value="0000">High School Single Round Match 1</option>
    </select>
 </div>
 </div>

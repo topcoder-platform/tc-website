@@ -239,6 +239,8 @@ public class Constants implements WebConstants {
 
     public static final String ACHIEVEMENT_TYPE_ID = "achtid";
 
+    //High School statistics
+    public static String HS_ROUND_OVERVIEW;
 
     static {
         initialize();
