@@ -58,7 +58,7 @@ public class ComponentUpdate extends BaseProcessor {
 
         MessagePacket mp = new MessagePacket();
 
-        //try {
+        try {
             // decodes request
             RequestComponentUpdate requestComponentUpdate = 
                 (RequestComponentUpdate) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
@@ -82,9 +82,10 @@ public class ComponentUpdate extends BaseProcessor {
             // adds all ComponentScoreUpdate messages.
             mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
                 componentId));
-        //} catch (Exception e) {
+        } catch (Exception e) {
             // do nothing, an empty message packet will be returned.
-        //}
+            e.printStackTrace();
+        }
 
         // encodes and returns the messages packet
         log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");

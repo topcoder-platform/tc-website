@@ -60,7 +60,7 @@ public class RoundInfo extends BaseProcessor {
 
         MessagePacket mp = new MessagePacket();
 
-        //try {
+        try {
             // decodes request
             RequestComponentRoundInfo requestComponentRoundInfo = 
                 (RequestComponentRoundInfo) MessageUtil.decodeQueryStringMessage(getRequest().getQueryString());
@@ -92,9 +92,10 @@ public class RoundInfo extends BaseProcessor {
             mp.addAll(SpectatorMessagesHelper.getScoresMessagePacket(rscComponentScore, contestId, roundId, 
                 componentId));
 
-        //} catch (Exception e) {
+        } catch (Exception e) {
             // do nothing, an empty message packet will be returned.
-        //}
+            e.printStackTrace();
+        }
 
         // encodes and returns the messages packet
         log.debug("MessagePacket filled with " +  mp.getMessages().size() + " messages.");
