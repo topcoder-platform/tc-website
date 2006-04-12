@@ -1,5 +1,8 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+          java.util.Map"%>
 <%@ page language="java" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -49,12 +52,17 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 }
 // -->
 </script>
+<%
+ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("comp_list");
 
+%>
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
    <select name="season" onchange="goTo(this)">
-   <option value="" selected="selected">View another season:</option>
-   <option value="0000">2006-2007</option>
+   		<option value="" selected="selected">View another season:</option>
+        <rsc:iterator list="<%=seasons%>" id="seasonRow">
+	   		<option value="0000"><rsc:item name="season_name" row="seasonRow" /> </option>
+	   </rsc:iterator>
    </select>
 </div>
 <div style="padding-bottom:5px;">
