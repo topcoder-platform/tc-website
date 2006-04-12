@@ -53,17 +53,17 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 // -->
 </script>
 <%
-ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_rounds");
+ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_seasons");
+ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_rounds");
 
 %>
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="season_name" fieldValue="season_id"/>
+	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="name" fieldValue="season_id"/>
 </div>
 <div style="padding-bottom:5px;">
    <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
+   	<tc-webtag:rscSelect name="ss" list="<%=rounds%>" fieldText="name" fieldValue="round_id"/>
    </select>
 </div>
 </div>

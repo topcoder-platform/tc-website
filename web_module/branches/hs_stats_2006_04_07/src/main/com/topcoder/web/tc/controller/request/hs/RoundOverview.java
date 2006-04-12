@@ -17,7 +17,11 @@ public class RoundOverview extends Base {
         try {
             Request r = new Request();
             r.setContentHandle("HS_RoundOverview");
-
+            
+            if(hasParameter("snid")) {
+                r.setProperty("snid", getRequest().getParameter("snid"));                
+            }
+            
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             //ResultSetContainer rsc = (ResultSetContainer) result.get("hs_rounds");
