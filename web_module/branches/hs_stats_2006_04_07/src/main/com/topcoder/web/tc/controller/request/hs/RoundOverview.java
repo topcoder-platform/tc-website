@@ -36,15 +36,16 @@ public class RoundOverview extends Base {
             Map result = dai.getData(r);
             
             
-            // if no season id specified, get the latest.
+            // if no season id specified, get the most recent.
             if(!hasParameter("snid")) {
                 ResultSetContainer rsc = (ResultSetContainer) result.get("most_recent_season");                
                 getRequest().setAttribute("snid", "" + rsc.getIntItem(0, "season_id"));
             }
             
-            // if no round id specified, get the latest.
+            // if no round id specified, get the most recent.
             if(!hasParameter("rd")) {
-                ResultSetContainer rsc = (ResultSetContainer) result.get("Most_Recent_Round_For_Season");                
+                ResultSetContainer rsc = (ResultSetContainer) result.get("Most_Recent_Round_For_Season");
+                log.info("row count=" +  rsc.getRowCount());
                 getRequest().setAttribute("rd", "" + rsc.getIntItem(0, "round_id"));
             }
             

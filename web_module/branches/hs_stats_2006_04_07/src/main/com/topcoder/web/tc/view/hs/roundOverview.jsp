@@ -47,7 +47,7 @@ ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("re
 ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("rounds_for_season");
 String snid = (String) request.getAttribute("snid");
 String rd = (String) request.getAttribute("rd");
-
+String seasonName = seasons.getStringItem(0, "season_name");
 %>
 
 <script language="JavaScript">
@@ -75,7 +75,7 @@ function selectRound(selection){
 </div>
 
 <span class="bigTitle">High School Single Round Match 1</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
+<span class="bodySubtitle">Season: <%= seasonName %></span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
