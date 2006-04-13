@@ -51,13 +51,24 @@
                                         Wager amount
                                     </td>
                                 </tr>
+                                <rsc:iterator list="<%=wagerHistory%>" id="resultRow">
+                                    <tr valign="top">
+                                        <td>
+                                            <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                                        </td>
+                                        <td align="right">
+                                            <rsc:item name="wager_amount" row="<%=resultRow%>"/>
+                                        </td>
+                                    </tr>
+                                </rsc:iterator>
+                                                
                                 <% for (int i=0; i < wagerHistory.size(); i++) {%>
                                     <tr valign="top">
                                         <td>
-                                            <%= wagerHistory.getStringItem(i, Constants.CONTEST_NAME_COL) %>
+                                            <%= wagerHistory.getStringItem(i, "contest_name") %>
                                         </td>
                                         <td align="right">
-                                            <%= wagerHistory.getIntItem(i, Constants.WAGER_AMOUNT_COL) %>
+                                            <%= wagerHistory.getIntItem(i, "wager_amount") %>
                                         </td>
                                     </tr>
                                 <% } %>
@@ -76,7 +87,7 @@
                         </td>
                         <td>
                             <b>
-                                <%= currentCompetitions.getStringItem(0, Constants.CONTEST_NAME_COL) %>
+                                <%= currentCompetitions.getStringItem(0, "contest_name") %>
                             </b>
                         </td>
                     </tr>
@@ -85,18 +96,18 @@
                     <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager">
-                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, Constants.PROJECT_ID_COL)%>">
+                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, "project_id")%>">
                         <td class="bodyText">
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Amount:</td>
-                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
+                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT_KEY%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
                                     <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
                                 </tr>
                             </table>
                             <p><br/></p>
                             <script>
-                                document.frmWager.<%=Constants.WAGER_AMOUNT%>.focus();
+                                document.frmWager.<%=Constants.WAGER_AMOUNT_KEY%>.focus();
                             </script>
                         </td>
                     </form>
