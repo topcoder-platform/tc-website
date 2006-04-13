@@ -79,7 +79,7 @@
                         </td>
                         <td>
                             <b>
-                                <rsc:item name="contest_name" set="<%=currentCompetitions%>" row="0"/>
+                                <rsc:item set="<%=currentCompetitions%>" name="contest_name"/>
                             </b>
                         </td>
                         <td>
