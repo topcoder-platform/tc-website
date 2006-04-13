@@ -101,13 +101,13 @@
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Amount:</td>
-                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT_KEY%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
+                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
                                     <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
                                 </tr>
                             </table>
                             <p><br/></p>
                             <script>
-                                document.frmWager.<%=Constants.WAGER_AMOUNT_KEY%>.focus();
+                                document.frmWager.<%=Constants.WAGER_AMOUNT%>.focus();
                             </script>
                         </td>
                     </form>
