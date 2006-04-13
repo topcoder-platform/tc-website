@@ -45,8 +45,12 @@ public class RoundOverview extends Base {
             // if no round id specified, get the most recent.
             if(!hasParameter("rd")) {
                 ResultSetContainer rsc = (ResultSetContainer) result.get("Most_Recent_Round_For_Season");
+                if (rsc == null) {
+                    log.info("RSC is nul!!!");
+                } else {
                 log.info("row count=" +  rsc.getRowCount());
                 getRequest().setAttribute("rd", "" + rsc.getIntItem(0, "round_id"));
+                }
             }
             
             getRequest().setAttribute("resultMap", result);

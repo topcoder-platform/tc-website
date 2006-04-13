@@ -47,7 +47,7 @@ ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("re
 ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("rounds_for_season");
 String snid = (String) request.getAttribute("snid");
 String rd = (String) request.getAttribute("rd");
-String seasonName = seasons.getStringItem(0, "season_name");
+String seasonName = rounds.getStringItem(0, "season_name");
 %>
 
 <script language="JavaScript">
