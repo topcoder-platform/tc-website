@@ -10,11 +10,11 @@ import java.util.List;
  *          Create Date: Apr 7, 2006
  */
 public class CountryDAO extends Base {
-        public List getCountries() {
+    public List getCountries() {
         return findAll(Country.class);
     }
 
-    public Country getCountry(String code) {
+    public Country find(String code) {
         return (Country)find(Country.class, code);
     }
 

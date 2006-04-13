@@ -19,10 +19,12 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
+        <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Country.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/CurrentSchool.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicAnswer.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicResponse.hbm.xml"/>
@@ -30,7 +32,10 @@
         <mapping resource="com/topcoder/web/reg/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/RegistrationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/School.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/SchoolType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/State.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>
     </session-factory>
 

@@ -15,7 +15,7 @@ public class StateDAO extends Base {
         return findAll(State.class);
     }
 
-    public State getState(String code) {
+    public State find(String code) {
         return (State)find(State.class, code);
     }
 }

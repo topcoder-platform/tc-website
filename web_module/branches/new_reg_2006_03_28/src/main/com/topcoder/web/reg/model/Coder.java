@@ -17,8 +17,11 @@ public class Coder extends User {
     private String quote;
     private Integer coderTypeId;
     private String compCountryCode;
+/*
     private HSAlgoRating hsRating;
     private TCAlgoRating tcRating;
+*/
+    private CurrentSchool currentSchool;
 
     public Timestamp getMemberSince() {
         return memberSince;
@@ -52,6 +55,7 @@ public class Coder extends User {
         this.compCountryCode = compCountryCode;
     }
 
+/*
     public HSAlgoRating getHSRating() {
         return hsRating;
     }
@@ -67,11 +71,23 @@ public class Coder extends User {
     public void setTCRating(TCAlgoRating tcRating) {
         this.tcRating = tcRating;
     }
+*/
+
+    public CurrentSchool getCurrentSchool() {
+        return currentSchool;
+    }
+
+    public void setCurrentSchool(CurrentSchool currentSchool) {
+        this.currentSchool = currentSchool;
+    }
 
     public Object clone() throws CloneNotSupportedException {
         Coder ret = (Coder) super.clone();
+/*
         ret.setHSRating((HSAlgoRating) hsRating.clone());
         ret.setTCRating((TCAlgoRating) tcRating.clone());
+*/
+        ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
         return ret;
     }
 

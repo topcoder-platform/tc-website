@@ -6,15 +6,15 @@
 <hibernate-mapping package="com.topcoder.web.reg.model">
 
     <class name="School" table="school" mutable="false">
-        <id name="id" column="school_id">
-            <generator class="com.topcoder.web.reg.model.com.topcoder.web.reg.model.IdGenerator">
+        <id name="id" column="school_id" access="field">
+            <generator class="com.topcoder.web.reg.model.IdGenerator">
                 <param name="sequence_name">SCHOOL_SEQ</param>
             </generator>
         </id>
         <many-to-one name="address" column="address_id" class="Address"/>
-        <property name="userId" column="userId"/>
+        <property name="userId" column="user_id"/>
         <property name="name"/>
-        <property name="shortName"/>
+        <property name="shortName" column="short_name"/>
         <many-to-one name="type" column="school_type_id" class="SchoolType"/>
     </class>
 </hibernate-mapping>

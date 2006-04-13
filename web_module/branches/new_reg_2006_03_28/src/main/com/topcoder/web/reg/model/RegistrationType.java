@@ -10,6 +10,8 @@ import com.topcoder.web.common.model.Base;
 public class RegistrationType extends Base {
     private Integer id;
     private String description;
+    private Boolean active;
+    private Long securityGroupId;
 
     protected RegistrationType() {
 
@@ -22,4 +24,14 @@ public class RegistrationType extends Base {
     public Integer getId() {
         return id;
     }
+
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public Long getSecurityGroupId() {
+        return securityGroupId;
+    }
+
 }

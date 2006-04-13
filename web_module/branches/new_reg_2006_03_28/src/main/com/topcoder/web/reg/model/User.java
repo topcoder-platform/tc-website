@@ -19,12 +19,21 @@ public class User extends Base {
     private Character status;
     private String password;
     private String activationCode;
-    private Integer timezoneId;
+    private TimeZone timeZone;
     private Set addresses;
     private Set emailAddresses;
     private Set phoneNumbers;
     private Set notifications;
     private Set demographicResponses;
+
+    /**
+     * this contains only those registration types that the user
+     * currently has.  while in the process of adjusting those
+     * registration types by either adding or removing, that information
+     * will have to be maintained elsewhere as this includes only
+     * those types that were persisted in the db when this object was loaded.
+     */
+    private Set registrationTypes;
 
     public User() {
         addresses = new HashSet();
@@ -32,6 +41,7 @@ public class User extends Base {
         phoneNumbers = new HashSet();
         demographicResponses = new HashSet();
         notifications = new TreeSet();
+        registrationTypes = new HashSet();
     }
 
     public Long getId() {
@@ -134,12 +144,16 @@ public class User extends Base {
         this.phoneNumbers.add(p);
     }
 
-    public Integer getTimezoneId() {
-        return timezoneId;
+    public TimeZone getTimeZone() {
+        try {
+            return (TimeZone)timeZone.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("What the heck, how did Timezone stop being clonable?");
+        }
     }
 
-    public void setTimezoneId(Integer timezoneId) {
-        this.timezoneId = timezoneId;
+    public void setTimeZone(TimeZone timeZone) {
+        this.timeZone = timeZone;
     }
 
     public Set getDemographicResponses() {
@@ -166,9 +180,18 @@ public class User extends Base {
         this.notifications.add(notification);
     }
 
+    public Set getRegistrationTypes() {
+        return Collections.unmodifiableSet(registrationTypes);
+    }
+
+    public void setRegistrationTypes(Set registrationTypes) {
+        this.registrationTypes = registrationTypes;
+    }
+
 
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
+        ret.setTimeZone((TimeZone)timeZone.clone());
         for(Iterator it = addresses.iterator(); it.hasNext();) {
             ret.addAddress((Address)((Address)it.next()).clone());
         }
@@ -183,6 +206,9 @@ public class User extends Base {
         }
         for(Iterator it =notifications.iterator(); it.hasNext();) {
             ret.addNotification((Notification)((Notification)it.next()).clone());
+        }
+        for(Iterator it =registrationTypes.iterator(); it.hasNext();) {
+            ret.registrationTypes.add(((RegistrationType)it.next()).clone());
         }
 
         return ret;

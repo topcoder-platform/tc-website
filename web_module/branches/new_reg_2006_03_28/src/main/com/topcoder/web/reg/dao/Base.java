@@ -48,12 +48,23 @@ public abstract class Base {
     }
 
     protected List findAll(Class c) {
-        List ret = null;
+        return findAll(c, null, null);
+    }
+
+    protected Object findOne(Class c, String property, String value) {
+        Object ret = null;
         try {
             begin();
-            Query q = session.createQuery("from " + c.getName());
-            ret = q.list();
-            commit();
+            StringBuffer query = new StringBuffer(100);
+            query.append("from ");
+            query.append(c.getName());
+            query.append(" where ");
+            query.append(property);
+            query.append(" = ");
+            query.append("?");
+            Query q = session.createQuery(query.toString());
+            q.setString(0, value);
+            ret = q.uniqueResult();
         } catch (HibernateException e) {
             rollback();
             throw e;
@@ -61,12 +72,63 @@ public abstract class Base {
         return ret;
     }
 
+    protected List findAll(Class c, String property, String value) {
+        List ret = null;
+        try {
+            begin();
+            StringBuffer query = new StringBuffer(100);
+            query.append("from ");
+            query.append(c.getName());
+            query.append(" where ");
+            if (property != null && value != null) {
+                query.append(property);
+                query.append(" = ");
+                query.append("?");
+            }
+            Query q = session.createQuery(query.toString());
+            if (property != null && value != null) {
+                q.setString(0, value);
+            }
+            ret = q.list();
+        } catch (HibernateException e) {
+            rollback();
+            throw e;
+        }
+        return ret;
+    }
+
+    protected List findAll(Class c, String property, Integer value) {
+        List ret = null;
+        try {
+            begin();
+            StringBuffer query = new StringBuffer(100);
+            query.append("from ");
+            query.append(c.getName());
+            query.append(" where ");
+            if (property != null && value != null) {
+                query.append(property);
+                query.append(" = ");
+                query.append("?");
+            }
+            Query q = session.createQuery(query.toString());
+            if (property != null && value != null) {
+                q.setInteger(0, value.intValue());
+            }
+            ret = q.list();
+        } catch (HibernateException e) {
+            rollback();
+            throw e;
+        }
+        return ret;
+    }
+
+
     private void init() {
         session = HibernateUtils.getSession();
     }
 
     protected void begin() {
-        if (transaction==null) {
+        if (transaction == null) {
             transaction = session.beginTransaction();
         } else if (transaction.isActive()) {
             throw new TransactionException("Transaction already started");
@@ -77,18 +139,18 @@ public abstract class Base {
     }
 
     protected void commit() {
-        if (transaction==null) {
+        if (transaction == null) {
             throw new TransactionException("No transaction");
         } else {
             transaction.commit();
-            transaction=null;
+            transaction = null;
         }
     }
 
     protected void rollback() {
-        if (transaction!=null&&transaction.isActive()) {
+        if (transaction != null && transaction.isActive()) {
             transaction.rollback();
-            transaction=null;
+            transaction = null;
         }
     }
 }

@@ -1,9 +1,8 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Notification;
-import org.hibernate.Query;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * @author dok
@@ -12,16 +11,11 @@ import java.util.*;
  */
 public class NotificationDAO extends Base {
 
-    public Set getNotifications() {
-        Query q = session.createQuery("from Notification where status = 'A'");
-        Set ret = new TreeSet();
-        for (Iterator it = q.iterate(); it.hasNext();) {
-            ret.add(it.next());
-        }
-        return ret;
+    public List getNotifications() {
+        return findAll(Notification.class, "status", "A");
     }
 
-    public Notification getNotification(Long id) {
+    public Notification find(Long id) {
         return (Notification)find(Notification.class, id);
     }
 
