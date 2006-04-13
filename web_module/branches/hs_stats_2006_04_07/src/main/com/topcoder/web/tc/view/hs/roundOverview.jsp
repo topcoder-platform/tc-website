@@ -53,13 +53,14 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 // -->
 </script>
 <%
-ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_seasons");
-ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("hs_rounds");
+ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("rounds_for_season");
+String snid = (String) request.getAttribute("snid");
 
 %>
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="name" fieldValue="season_id"/>
+	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= snid %>" />
 </div>
 <div style="padding-bottom:5px;">
    <select name="rd" onchange="goTo(this)">

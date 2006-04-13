@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -18,14 +19,23 @@ public class RoundOverview extends Base {
             Request r = new Request();
             r.setContentHandle("HS_RoundOverview");
             
+            
             if(hasParameter("snid")) {
-                r.setProperty("snid", getRequest().getParameter("snid"));                
-            }
+                r.setProperty("snid", getRequest().getParameter("snid"));
+                getRequest().setAttribute("snid", getRequest().getParameter("snid"));
+            } 
+            r.setProperty("sntid", "1"); // HIGH SCHOOL: FIX USE A CONSTANT!
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
-            //ResultSetContainer rsc = (ResultSetContainer) result.get("hs_rounds");
-
+            
+            
+            // no season id specified, get the latest.
+            if(!hasParameter("snid")) {
+                ResultSetContainer rsc = (ResultSetContainer) result.get("most_recent_season");                
+                getRequest().setAttribute("snid", "" + rsc.getIntItem(0, "season_id"));
+            }
+            
             getRequest().setAttribute("resultMap", result);
             
             setNextPage(Constants.HS_ROUND_OVERVIEW);
