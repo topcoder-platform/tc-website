@@ -87,7 +87,7 @@
                 <tr>
                     <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager"/>
-                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<rsc:item set='<%=currentCompetitions%>' name='project_id'/>"/>
+                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, "project_id")%>">
                         <td class="bodyText">
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">
