@@ -69,7 +69,7 @@ public class RoundOverview extends Base {
             String roundName = null;
             for (Iterator it = ((ResultSetContainer) result.get("rounds_for_season")).iterator(); it.hasNext();) {
                 ResultSetRow rsr = (ResultSetRow) it.next();
-                if (snid == rsr.getIntItem("round_id")) {
+                if (rd == rsr.getIntItem("round_id")) {
                     roundName = rsr.getStringItem("name");
                     break;
                 }                
