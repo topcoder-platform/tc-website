@@ -42,30 +42,35 @@
 <jsp:param name="title" value="Match Overview"/>
 </jsp:include>
 
-<script language="JavaScript">
-<!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
-// -->
-</script>
 <%
 ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("rounds_for_season");
 String snid = (String) request.getAttribute("snid");
+String rd = (String) request.getAttribute("rd");
 
 %>
+
+<script language="JavaScript">
+<!--
+function selectSeason(selection){
+	sel = selection.options[selection.selectedIndex].value;
+	window.location='/tc?module=HSRoundOverview&snid='+ sel;
+}
+
+function selectRound(selection){
+	sel = selection.options[selection.selectedIndex].value;
+	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%=snid%>';
+}
+
+// -->
+</script>
+
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="ss" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= snid %>" />
+	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= snid %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   	<tc-webtag:rscSelect name="ss" list="<%=rounds%>" fieldText="name" fieldValue="round_id"/>
-   </select>
+   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%= rd %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 

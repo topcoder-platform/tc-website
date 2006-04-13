@@ -24,16 +24,28 @@ public class RoundOverview extends Base {
                 r.setProperty("snid", getRequest().getParameter("snid"));
                 getRequest().setAttribute("snid", getRequest().getParameter("snid"));
             } 
+
+            if(hasParameter("rd")) {
+                //r.setProperty("rd", getRequest().getParameter("rd"));
+                getRequest().setAttribute("rd", getRequest().getParameter("rd"));
+            } 
+            
             r.setProperty("sntid", "1"); // HIGH SCHOOL: FIX USE A CONSTANT!
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
             
-            // no season id specified, get the latest.
+            // if no season id specified, get the latest.
             if(!hasParameter("snid")) {
                 ResultSetContainer rsc = (ResultSetContainer) result.get("most_recent_season");                
                 getRequest().setAttribute("snid", "" + rsc.getIntItem(0, "season_id"));
+            }
+            
+            // if no round id specified, get the latest.
+            if(!hasParameter("rd")) {
+                ResultSetContainer rsc = (ResultSetContainer) result.get("Most_Recent_Round_For_Season");                
+                getRequest().setAttribute("rd", "" + rsc.getIntItem(0, "round_id"));
             }
             
             getRequest().setAttribute("resultMap", result);
