@@ -62,29 +62,25 @@
                                         </td>
                                     </tr>
                                 </rsc:iterator>
-                                                
-                                <% for (int i=0; i < wagerHistory.size(); i++) {%>
-                                    <tr valign="top">
-                                        <td>
-                                            <%= wagerHistory.getStringItem(i, "contest_name") %>
-                                        </td>
-                                        <td align="right">
-                                            <%= wagerHistory.getIntItem(i, "wager_amount") %>
-                                        </td>
-                                    </tr>
-                                <% } %>
                             </table>
                         </td>
-                    <% } else {%>
+                    </tr>
+                <% } else {%>
+                    <tr valign="top">
                         <td>
                             This is the first competition you are waggering on.
                         </td>
-                    <% } %>
-                </tr>
+                    </tr>
+                <% } %>
                 <table border="0" cellpadding="0" cellspacing="5">
                     <tr valign="top">
                         <td>
                             Please enter your wager for:
+                        </td>
+                        <td>
+                            <b>
+                                <rsc:item name="contest_name" set="<%=currentCompetitions%>" row="0"/>
+                            </b>
                         </td>
                         <td>
                             <b>
