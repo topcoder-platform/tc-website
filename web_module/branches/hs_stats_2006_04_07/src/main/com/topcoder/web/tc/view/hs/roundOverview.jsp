@@ -1,6 +1,6 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map"%>
+          java.util.Map, java.text.DecimalFormat"%>
 <%@ page language="java" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -44,11 +44,14 @@
 
 <%
 Map resultMap = (Map)request.getAttribute("resultMap");
-ResultSetContainer seasons = (ResultSetContainer) map.get("seasons");
-ResultSetContainer rounds = (ResultSetContainer) map.get("rounds_for_season");
-ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
+ResultSetContainer percents = (ResultSetContainer) resultMap.get("Round_Percentages");
 String snid = (String) request.getAttribute("snid");
 String rd = (String) request.getAttribute("rd");
+DecimalFormat df = new DecimalFormat("0.00");
+DecimalFormat dfp = new DecimalFormat("0.00%");
+
 %>
 
 <script language="JavaScript">
@@ -263,7 +266,7 @@ function selectRound(selection){
       &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A>
+      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= rd %>" class="statText"><%=problemName%></A>
       </td>
       <td class="valueR">
       <%=submissions%> &#160;&#160;
@@ -275,7 +278,7 @@ function selectRound(selection){
       <%=avgPoints%>
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</a>
+      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=rd%>&pm=<%= problemID %>','600','400','distribution')" class="statText">Distribution Graph</a>
       </td>
       <td class="valueC">
       &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a>
