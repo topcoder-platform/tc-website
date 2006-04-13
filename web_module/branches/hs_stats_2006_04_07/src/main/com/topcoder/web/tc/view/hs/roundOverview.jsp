@@ -43,8 +43,10 @@
 </jsp:include>
 
 <%
-ResultSetContainer seasons = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("seasons");
-ResultSetContainer rounds = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("rounds_for_season");
+Map resultMap = (Map)request.getAttribute("resultMap");
+ResultSetContainer seasons = (ResultSetContainer) map.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) map.get("rounds_for_season");
+ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
 String snid = (String) request.getAttribute("snid");
 String rd = (String) request.getAttribute("rd");
 %>
@@ -241,79 +243,46 @@ function selectRound(selection){
       <td class="headerR" width="20%" nowrap="nowrap">Average Points</td>
       <td class="header" colspan="2">&#160;</td>
    </tr>
-   <% even = false; %>
+   
+   
+   <rsc:iterator list="<%=percents%>" id="currentRow">
+   <% 
+               even = !even;
+               String problemLevel = currentRow.getItem("problem_level").toString();
+               String problemName = currentRow.getItem("problem_name").toString();
+               int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+               int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+               int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
+               double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+               String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
+               String avgPoints = df.format(total);
+  %>
+
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap="nowrap">
-      Level 1
+      &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      <A href="">Integer Generator</A>
+      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= roundID %>" class="statText"><%=problemName%></A>
       </td>
       <td class="valueR">
-      123
+      <%=submissions%> &#160;&#160;
       </td>
       <td class="valueR">
-      49.85%
+      <%=perCor%> &#160;&#160;
       </td>
       <td class="valueR">
-      183.72
+      <%=avgPoints%>
       </td>
       <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
+      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=roundID%>&pm=<%= problemID %>&dn=<%= currentDivID %>','600','400','distribution')" class="statText">Distribution Graph</a>
       </td>
       <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
+      &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a>
       </td>
    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Level 2
-      </td>
-      <td class="value">
-      <A href="">Integer Generator</A>
-      </td>
-      <td class="valueR">
-      123
-      </td>
-      <td class="valueR">
-      49.85%
-      </td>
-      <td class="valueR">
-      183.72
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
-      </td>
-      <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Level 3
-      </td>
-      <td class="value">
-      <A href="">Integer Generator</A>
-      </td>
-      <td class="valueR">
-      123
-      </td>
-      <td class="valueR">
-      49.85%
-      </td>
-      <td class="valueR">
-      183.72
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
-      </td>
-      <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
-      </td>
-   </tr>
-   <% even = !even;%>
+   </rsc:iterator>
+
 </table>
 <div class="pagingBox">
 Viewing top 
