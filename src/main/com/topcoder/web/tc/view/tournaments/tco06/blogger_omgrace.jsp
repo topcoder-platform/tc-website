@@ -35,7 +35,7 @@ By&#160;<tc-webtag:handle coderId="21518515" darkBG="true" /><br />
 <br clear="all" />
 <br>
 <span class="bodySubtitle">5. I'm already an expert blogger.</span><br>
-You can just visit my current xanga to see: <A target="_blank" href="/?t=sponsor&c=link&link=www.xanga.com/omgrace">www.xanga.com/omgrace</A>.  I recall facts, funny things people said/did, and I take a ton of pictures so every reader is always entertained.  Also, I can make a big deal out of everything...even a programming competition!  I'll report on all of the forums and make sure to keep every reader interested in the TopCoder Open.  
+You can just visit my current xanga to see: <A target="_blank" href="/?t=sponsor&c=link&link=http://www.xanga.com/omgrace">www.xanga.com/omgrace</A>.  I recall facts, funny things people said/did, and I take a ton of pictures so every reader is always entertained.  Also, I can make a big deal out of everything...even a programming competition!  I'll report on all of the forums and make sure to keep every reader interested in the TopCoder Open.  
 <br><br>
 <span class="bodySubtitle">4. I have a technology background.</span><br>
 UIUC is one of the best schools for computer science.  I'm a management information systems major, but I've taken some CS courses, including java, asp.net, and VB.  That means I'll understand the jargon at the tournament and be able to communicate with everyone in Las Vegas.  
