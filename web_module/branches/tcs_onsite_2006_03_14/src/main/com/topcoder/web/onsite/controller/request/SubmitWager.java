@@ -88,7 +88,7 @@ public class SubmitWager extends BaseProcessor {
         // Wager amount format validation
         int wagerAmount;
         try {
-            wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT));
+            wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT_KEY));
         } catch (NumberFormatException nfe) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, Constants.INVALID_WAGER_FORMAT_MESSAGE);
             return;
@@ -109,17 +109,17 @@ public class SubmitWager extends BaseProcessor {
             
             
         int remainingCompetitions = ((ResultSetContainer) m.get(
-            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, Constants.REMAINING_CONTESTS_COL);
+            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
 
         // Validates that the project is current and allowed to wager on
-        if (comp.size() == 0 || projectId != comp.getLongItem(0, Constants.PROJECT_ID_COL)) {
+        if (comp.size() == 0 || projectId != comp.getLongItem(0, "project_id")) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 Constants.INVALID_PROJECT_MESSAGE);
             return;
         }
         
         Object usedPoints = ((ResultSetContainer) m.get(
-            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, Constants.USED_POINTS_COL).getResultData();
+            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, "used_points").getResultData();
         
         int remainingPoints = Constants.TOTAL_WAGER_POINTS;
         if (usedPoints != null) {

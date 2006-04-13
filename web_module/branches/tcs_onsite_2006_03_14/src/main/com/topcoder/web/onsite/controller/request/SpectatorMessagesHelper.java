@@ -57,9 +57,9 @@ class SpectatorMessagesHelper {
                 // score is requested to be transformed to an int(E-2)
                 scoresList.add(new ComponentScoreUpdate(
                     (int) contestId, (int) roundId, componentId, 
-                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
-                    (int) rsr.getLongItem(Constants.REVIEWER_ID_COL),
-                    (int) (rsr.getFloatItem(Constants.SCORE_COL) * 100)));
+                    (int) rsr.getLongItem("user_id"), 
+                    (int) rsr.getLongItem("author_id"),
+                    (int) (rsr.getFloatItem("score") * 100)));
             }
         }
         return scoresList;
@@ -86,8 +86,8 @@ class SpectatorMessagesHelper {
             while (it.hasNext()) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 String appealStatus = null;
-                Object successful = rsr.getItem(Constants.SUCCESSFUL_COL).getResultData();
-                int isResolved = rsr.getIntItem(Constants.IS_RESOLVED_COL);
+                Object successful = rsr.getItem("successful").getResultData();
+                int isResolved = rsr.getIntItem("is_resolved");
                 if (isResolved == 0 || successful == null) {
                     appealStatus = ComponentAppeal.APPEAL_PENDING;
                 } else {
@@ -105,8 +105,8 @@ class SpectatorMessagesHelper {
                 // int casting must be done due to compatibility issues with the front-end.
                 appealsList.add(new ComponentAppeal(
                     (int) contestId, (int) roundId, componentId, 
-                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
-                    (int) rsr.getLongItem(Constants.REVIEWER_ID_COL),
+                    (int) rsr.getLongItem("user_id"), 
+                    (int) rsr.getLongItem("author_id"),
                     appealStatus));
             }
         }
@@ -136,8 +136,8 @@ class SpectatorMessagesHelper {
             // ComponentID is mirrored as requested by the front-end application
             componentData  = new ComponentData(
                 componentId, 
-                rscComponentData.getStringItem(0, Constants.COMPONENT_NAME_COL),
-                rscComponentData.getStringItem(0, Constants.CATALOG_COL));            
+                rscComponentData.getStringItem(0, "component_name"),
+                rscComponentData.getStringItem(0, "category_name"));            
         }
 
         // builds component coders list
@@ -148,13 +148,13 @@ class SpectatorMessagesHelper {
             while (it.hasNext()) {
                  rsr = (ResultSetContainer.ResultSetRow) it.next();
 
-                 Object rank = rsr.getItem(Constants.RANK_COL).getResultData();
-                 Object wagerAmount = rsr.getItem(Constants.WAGER_AMOUNT_COL).getResultData();
+                 Object rank = rsr.getItem("rating").getResultData();
+                 Object wagerAmount = rsr.getItem("wager_amount").getResultData();
 
                 // int casting must be done due to compatibility issues with the front-end.
                 componentCoderList.add(new ComponentCoder(
-                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
-                    rsr.getStringItem(Constants.HANDLE_COL), 
+                    (int) rsr.getLongItem("user_id"), 
+                    rsr.getStringItem("handle"), 
                     rank == null ? 0 : (int)(((Number) rank).longValue()), 
                     wagerAmount == null ? 0 : ((Number) wagerAmount).intValue()));
             }
@@ -169,9 +169,9 @@ class SpectatorMessagesHelper {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
                 // int casting must be done due to compatibility issues with the front-end.
                 reviewerDataList.add(new CoderData(
-                    (int) rsr.getLongItem(Constants.CODER_ID_COL), 
-                    rsr.getStringItem(Constants.HANDLE_COL), 
-                    (int) rsr.getLongItem(Constants.RANK_COL)));
+                    (int) rsr.getLongItem("user_id"), 
+                    rsr.getStringItem("handle"), 
+                    (int) rsr.getLongItem("rating")));
             }
         }
 

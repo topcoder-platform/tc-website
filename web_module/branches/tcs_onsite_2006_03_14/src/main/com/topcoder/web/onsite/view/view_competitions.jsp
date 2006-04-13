@@ -3,6 +3,7 @@
                  com.topcoder.web.onsite.Constants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -101,13 +102,13 @@
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Amount:</td>
-                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
+                                    <td colspan="2" align="left"><input type="text" name="<%=Constants.WAGER_AMOUNT_KEY%>" value="" maxlength="2" size="2" onkeypress="submitEnter(event)"></td>
                                     <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmWager.submit()" class="bodyText">Wager&#160;&gt;</a></td>
                                 </tr>
                             </table>
                             <p><br/></p>
                             <script>
-                                document.frmWager.<%=Constants.WAGER_AMOUNT%>.focus();
+                                document.frmWager.<%=Constants.WAGER_AMOUNT_KEY%>.focus();
                             </script>
                         </td>
                     </form>
