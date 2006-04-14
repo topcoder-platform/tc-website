@@ -56,17 +56,19 @@ public class ViewCompetitions extends BaseProcessor {
         }
         
         Map m = getViewCompetitionsData(getUser().getId());
-        ResultSetContainer comp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY);
+        ResultSetContainer currentComp = (ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY);
 
-        log.debug("Got " +  ((ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY)).size() + 
-            " rows for current contests");
+        log.debug("Got " +  currentComp.size() + " rows for current contests");
         log.debug("Got " +  ((ResultSetContainer)m.get(Constants.WAGER_HISTORY_QUERY)).size() + 
             " rows for old wagers");
 
         getRequest().setAttribute(Constants.CURRENT_COMPETITION_RESULT_KEY, m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY));        
         getRequest().setAttribute(Constants.WAGER_HISTORY_KEY, m.get(Constants.WAGER_HISTORY_QUERY));        
         
-        setDefault(Constants.PROJECT_ID_KEY, ((ResultSetContainer)m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY)).getStringItem(0, "project_id"));
+        if (currentComp != null && currentComp.size() > 0) {
+            setDefault(Constants.PROJECT_ID_KEY, currentComp.getStringItem(0, "project_id"));
+            setDefault(Constants.MODULE_KEY, "SubmitWager");
+        }
         
         setNextPage(Constants.VIEW_COMPETITIONS_PAGE);
         setIsNextPageInContext(true);

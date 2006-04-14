@@ -88,7 +88,7 @@
                 <tr>
                     <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                         <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID_KEY%>"/>
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>"/>
                         <td class="bodyText">
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">
