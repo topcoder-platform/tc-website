@@ -4,6 +4,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -86,8 +87,8 @@
                 </table>
                 <tr>
                     <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                        <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID_KEY%>"/>
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitWager"/>
-                        <input type="hidden" name="<%=Constants.PROJECT_ID_KEY%>" value="<%=currentCompetitions.getStringItem(0, "project_id")%>">
                         <td class="bodyText">
                             <table border="0" cellpadding="3" cellspacing="0">
                                 <tr valign="middle">

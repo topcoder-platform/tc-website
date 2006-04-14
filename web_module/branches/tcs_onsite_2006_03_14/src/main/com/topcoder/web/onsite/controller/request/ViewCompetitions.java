@@ -66,6 +66,8 @@ public class ViewCompetitions extends BaseProcessor {
         getRequest().setAttribute(Constants.CURRENT_COMPETITION_RESULT_KEY, m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY));        
         getRequest().setAttribute(Constants.WAGER_HISTORY_KEY, m.get(Constants.WAGER_HISTORY_QUERY));        
         
+        setDefault(Constants.PROJECT_ID_KEY, currentCompetitions.getStringItem(0, "project_id"));
+        
         setNextPage(Constants.VIEW_COMPETITIONS_PAGE);
         setIsNextPageInContext(true);
     }
