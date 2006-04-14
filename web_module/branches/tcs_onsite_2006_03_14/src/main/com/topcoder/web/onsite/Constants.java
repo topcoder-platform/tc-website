@@ -46,13 +46,6 @@ public class Constants implements WebConstants {
     public static int MAX_WAGER_AMOUNT;
     public static int TOTAL_WAGER_POINTS;
     
-    /* messages */
-    public static String MIN_WAGER_AMOUNT_MESSAGE;
-    public static String MAX_WAGER_AMOUNT_MESSAGE;
-    public static String INVALID_WAGER_FORMAT_MESSAGE;
-    public static String SUCCESSFULL_WAGER_MESSAGE;
-    public static String INVALID_PROJECT_MESSAGE;
-    
     /* commands */
     public static String VIEW_WAGER_COMPETITIONS_COMMAND;
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
