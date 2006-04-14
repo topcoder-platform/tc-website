@@ -37,19 +37,14 @@ public class Constants implements WebConstants {
     public static String VIEW_COMPETITIONS_PAGE;
 
     /* request parameters */
-    public static String MODULE_KEY;
-    public static String PROJECT_ID_KEY;
     public static String CURRENT_COMPETITION_RESULT_KEY;
     public static String WAGER_HISTORY_KEY;
     public static String WAGER_AMOUNT_KEY;
-    public static String USER_NAME;
-    public static String PASSWORD;
     
     /* misc constants */
     public static int MIN_WAGER_AMOUNT;
     public static int MAX_WAGER_AMOUNT;
     public static int TOTAL_WAGER_POINTS;
-    public static String RESPONSE_CONTENT_TYPE;
     
     /* messages */
     public static String MIN_WAGER_AMOUNT_MESSAGE;
@@ -75,22 +70,6 @@ public class Constants implements WebConstants {
     public static String COMPONENT_SCORE_QUERY;
     public static String COMPONENT_APPEAL_QUERY;
         
-    /* columns */
-//    public static String CONTEST_NAME_COL;
-//    public static String PROJECT_ID_COL;
-//    public static String REMAINING_CONTESTS_COL;
-//    public static String USED_POINTS_COL;
-//    public static String WAGER_AMOUNT_COL;
-//    public static String COMPONENT_NAME_COL;
-//    public static String CATALOG_COL;
-//    public static String CODER_ID_COL;
-//    public static String HANDLE_COL;
-//    public static String RANK_COL;
-//    public static String REVIEWER_ID_COL;
-//    public static String SCORE_COL;
-//    public static String SUCCESSFUL_COL;
-//    public static String IS_RESOLVED_COL;
-
     static {
         initialize();
     }

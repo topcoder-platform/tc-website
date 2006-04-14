@@ -90,7 +90,7 @@ public class SubmitWager extends BaseProcessor {
         try {
             wagerAmount = Integer.parseInt(getRequest().getParameter(Constants.WAGER_AMOUNT_KEY));
         } catch (NumberFormatException nfe) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, Constants.INVALID_WAGER_FORMAT_MESSAGE);
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "The wager amount is not a valid number.");
             return;
         }
 
@@ -99,7 +99,7 @@ public class SubmitWager extends BaseProcessor {
         // Minimum wager amount validation
         if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MIN_WAGER_AMOUNT_MESSAGE + " " + Constants.MIN_WAGER_AMOUNT + ".");
+                "The wager amount cannot be lower than " + Constants.MIN_WAGER_AMOUNT + ".");
             return;
         }        
 
@@ -114,7 +114,7 @@ public class SubmitWager extends BaseProcessor {
         // Validates that the project is current and allowed to wager on
         if (comp.size() == 0 || projectId != comp.getLongItem(0, "project_id")) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.INVALID_PROJECT_MESSAGE);
+                "You do not have permission to wager on the selected project.");
             return;
         }
         
@@ -137,7 +137,7 @@ public class SubmitWager extends BaseProcessor {
         
         if (wagerAmount > maxWagerAmount) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                Constants.MAX_WAGER_AMOUNT_MESSAGE + " " + maxWagerAmount + ".");
+                "The wager amount cannot be greater than " + maxWagerAmount + ".");
             return;
         }
 
@@ -149,6 +149,6 @@ public class SubmitWager extends BaseProcessor {
         }
 
         getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-            Constants.SUCCESSFULL_WAGER_MESSAGE);
+            "The wager was processed successfully.");
     }
 }
