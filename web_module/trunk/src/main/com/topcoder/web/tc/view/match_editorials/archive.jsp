@@ -459,11 +459,11 @@
 
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>November</strong></td></tr>
    <tr><td class="bodyText">11.26.02</td><td class="bodyText" nowrap="0">SRM 121 - <a href="/tc?module=Static&d1=match_editorials&d2=srm121">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.23.02</td><td class="bodyText" nowrap="0">2002 Invitational Championship - <a href="/index?t=tournaments&c=invit02_champprob">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #4 - <a href="/index?t=tournaments&c=invit02_semiprob4">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #3 - <a href="/index?t=tournaments&c=invit02_semiprob3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #2 - <a href="/index?t=tournaments&c=invit02_semiprob2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #1 - <a href="/index?t=tournaments&c=invit02_semiprob1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.23.02</td><td class="bodyText" nowrap="0">2002 Invitational Championship - <a href="/tc?module=Static&d1=tournaments&d2=tci02&d3=champprob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #4 - <a href="/tc?module=Static&d1=tournaments&d2=tci02&d3=semiprob4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #3 - <a href="/tc?module=Static&d1=tournaments&d2=tci02&d3=semiprob3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #2 - <a href="/tc?module=Static&d1=tournaments&d2=tci02&d3=semiprob2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">11.22.02</td><td class="bodyText" nowrap="0">2002 Invitational Room #1 - <a href="/tc?module=Static&d1=tournaments&d2=tci02&d3=semiprob1">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.13.02</td><td class="bodyText" nowrap="0">SRM 120 - <a href="/tc?module=Static&d1=match_editorials&d2=srm120">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">11.07.02</td><td class="bodyText" nowrap="0">SRM 119 - <a href="/tc?module=Static&d1=match_editorials&d2=srm119">Problem Set & Analysis</a></td></tr>
 
