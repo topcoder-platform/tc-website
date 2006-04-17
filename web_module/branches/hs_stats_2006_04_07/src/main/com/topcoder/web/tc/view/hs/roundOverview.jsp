@@ -46,7 +46,7 @@
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
-ResultSetContainer percents = (ResultSetContainer) resultMap.get("hs_Round_Percentages");
+ResultSetContainer percents = (ResultSetContainer) resultMap.get("Round_Percentages");
 ResultSetContainer leaders = (ResultSetContainer) resultMap.get("High_Scorers");
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
