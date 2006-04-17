@@ -205,7 +205,7 @@ function discuss()
       &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>" class="statText"><%=problemName%></A>
+      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>"<%=problemName%></A>
       </td>
       <td class="valueR">
       <%=submissions%> &#160;&#160;
@@ -220,7 +220,7 @@ function discuss()
       &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%= round.getRoundId() %>&pm=<%= problemID %>','600','400','distribution')" class="statText">Distribution Graph</a>
       </td>
       <td class="valueC">
-      &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a>
+      &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)"><img border="0" src="/i/rate_it.gif" /></a>
       </td>
    </tr>
    </rsc:iterator>
