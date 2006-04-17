@@ -205,7 +205,7 @@ function discuss()
       &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>"<%=problemName%></A>
+      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>"><%=problemName%></A>
       </td>
       <td class="valueR">
       <%=submissions%> &#160;&#160;
