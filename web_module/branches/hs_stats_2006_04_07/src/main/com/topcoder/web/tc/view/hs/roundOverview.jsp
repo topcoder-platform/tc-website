@@ -61,6 +61,14 @@ try {
   topN = Integer.parseInt((String) request.getParameter("er"));
 } catch(Exception e){}
 
+int forumId = -1;
+if (leaders.getRowCount() > 0) {
+    String forumIDStr = leaders.getItem(0, "forum_id").toString();
+    if (forumIDStr != "") {
+        forumId = Integer.parseInt(forumIDStr);
+    }
+}
+
 %>
 
 <script language="JavaScript">
@@ -84,6 +92,11 @@ function submitForm(){
 	 }
 }
 
+function discuss()
+{
+	window.location='/?module=ThreadList&forumID=<%= forumId %>'
+}
+
 // -->
 </script>
 
@@ -98,7 +111,7 @@ function submitForm(){
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<A href="javascript:discuss()" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
