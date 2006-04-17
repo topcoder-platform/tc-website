@@ -64,6 +64,17 @@ public class Constants {
     public static String GOOGLE_INDIA_05_CREDENTIALS_PAGE;
     public static String GOOGLE_INDIA_05_CREDENTIALS_SENT_PAGE;
 
+    public static final String GOOGLE_EUROPE_06_LOGIN_PAGE="/gecj06/login.jsp";
+    public static final String GOOGLE_EUROPE_06_REG_PAGE="/gecj06/reg.jsp";
+    public static final String GOOGLE_EUROPE_06_REG_DEMOG_PAGE="/gecj06/demog.jsp";
+    public static final String GOOGLE_EUROPE_06_REG_CONFIRM_PAGE="/gecj06/confirm.jsp";
+    public static final String GOOGLE_EUROPE_06_REG_SUCCESS_PAGE="&d1=gecj06&d2=regsuccess";
+    public static final String GOOGLE_EUROPE_06_UPDATE_SUCCESS_PAGE="&d1=gecj06&d2=updatesuccess";
+    public static final String GOOGLE_EUROPE_06_ACTIVATION_PAGE="/gecj06/activation.jsp";
+    public static final String GOOGLE_EUROPE_06_REG_CLOSED_PAGE="/gecj06/reg_closed.jsp";
+    public static final String GOOGLE_EUROPE_06_CREDENTIALS_PAGE="/gecj06/credentials.jsp";
+    public static final String GOOGLE_EUROPE_06_CREDENTIALS_SENT_PAGE="/gecj06/credentialsSent.jsp";
+
     public static final String GOOGLE_INDIA_06_LOGIN_PAGE="/gicj06/login.jsp";
     public static final String GOOGLE_INDIA_06_REG_PAGE="/gicj06/reg.jsp";
     public static final String GOOGLE_INDIA_06_REG_DEMOG_PAGE="/gicj06/demog.jsp";
@@ -83,7 +94,6 @@ public class Constants {
     public static final String VERISIGN_06_ACTIVATION_PAGE="/verisign06/activation.jsp";
     public static final String VERISIGN_06_CREDENTIALS_PAGE="/verisign06/credentials.jsp";
     public static final String VERISIGN_06_CREDENTIALS_SENT_PAGE="/verisign06/credentialsSent.jsp";
-
 
     public static String DEFAULT_PAGE;
 
@@ -206,6 +216,15 @@ public class Constants {
     public static final String GOOGLE_INDIA_06_ACTIVATION="GoogleIndia06Activate";
     public static final String GOOGLE_INDIA_06_CREDENTIALS="GoogleIndia06Credentials";
     public static final String GOOGLE_INDIA_06_LOGIN="GoogleIndia06Login";
+
+    public static final String GOOGLE_EUROPE_06_REG_MAIN="GoogleEurope06Reg";
+    public static final String GOOGLE_EUROPE_06_REG_DEMOG="GoogleEurope06Demog";
+    public static final String GOOGLE_EUROPE_06_REG_CONFIRM="GoogleEurope06Confirm";
+    public static final String GOOGLE_EUROPE_06_REG_SUBMIT="GoogleEurope06Submit";
+    public static final String GOOGLE_EUROPE_06_ACTIVATION="GoogleEurope06Activate";
+    public static final String GOOGLE_EUROPE_06_CREDENTIALS="GoogleEurope06Credentials";
+    public static final String GOOGLE_EUROPE_06_LOGIN="GoogleEurope06Login";
+
     public static final String VERISIGN_06_REG_MAIN="VeriSign06Reg";
     public static final String VERISIGN_06_REG_CONFIRM="VeriSign06Confirm";
     public static final String VERISIGN_06_REG_SUBMIT="VeriSign06Submit";
@@ -213,6 +232,7 @@ public class Constants {
     public static final String VERISIGN_06_CREDENTIALS="VeriSign06Credentials";
     public static final String VERISIGN_06_LOGIN="VeriSign06Login";
 
+    
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
