@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.onsite.Constants" %>
@@ -13,30 +14,53 @@
 %>
 
 <html>
-    <head>
-        <title>TopCoder | Wager | Menu</title>
-    </head>
-    <body>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-                    <p>
-                        <% if (sessionInfo.isAnonymous()) { %>
-                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login<a/>
-                        <% } else { %>
-                            Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
-                        <% } %>
-                    </p>
-                    <p>
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions<a/>
-                    </p>
-                        <% if (!sessionInfo.isAnonymous()) { %>
-                    <p>
-                        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout<a/>
-                    </p>
-                    <% } %>
-                </td>
-            </tr>
-        </table>
-    </body>
+<head>
+<title>TopCoder | Wager | Menu</title>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCO06style.css"/>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
+</head>
+<body>
+
+<div style="float:right;">
+<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tc_logo.gif" border=0/></a>
+</div>
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tco06_logo_AMDgrn.gif" border=0/></A>
+
+<div style="padding: 20px 40px 40px 40px;" align="center">
+   <div style="width: 500px;" align="center">
+
+   <span class="bigTitle">Component Competition Wager System</span>
+   <br><br>
+   
+   <div align="center">
+   <table width="300" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+      <tr>
+         <td class="sidebarTitle">
+            <% if (!sessionInfo.isAnonymous()) { %>
+            <div style="float:right;">
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout</a>
+            </div>
+            <% } %>
+            <% if (sessionInfo.isAnonymous()) { %>
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login</a>
+            <% } else { %>
+             Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
+            <% } %>
+         </td>
+      </tr>
+      <tr>
+         <td class="sidebarText" align="center">
+            <span class="bigTitle">
+            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions</a>
+            </span>
+         </td>
+      </tr>
+   </table>
+   </div>
+
+   </div>
+</div>
+
+<jsp:include page="/foot.jsp" />
+</body>
 </html>
