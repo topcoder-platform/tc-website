@@ -69,6 +69,8 @@ This <a href="/i/downloads/xmi_documenter_ui.zip">package</a> contains the sourc
 <span class="bodySubtitle">1. Introduction</span><br>
 This article will show how the <a href="http://software.topcoder.com/catalog/c_component.jsp?comp=20668655">XMI Documenter component</a> can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.
 <br><br>
+Click <A href="/i/development/downloads/xmi_documenter_ui.jnlp">here</A> to run the XMI Documenter demo as a Java Web Start application (you will need a Java 1.5 Runtime Environment, or a Java 1.4 Runtime Environemnt with JAXP 1.3 installed as explained in section 4.3 of this document).
+<br><br>
 As the functionality and concepts of XMI Documenter component itself are already explained in the <a href="http://software.topcoder.com/catalog/document?id=21224843">XMI Documenter CS</a>, this document will not explain these details again, but will focus on three main topics:
 <ul>
 <li>How to use the XMI Documenter API to build an editor;</li>
