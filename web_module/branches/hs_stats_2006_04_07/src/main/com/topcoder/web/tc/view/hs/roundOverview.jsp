@@ -75,12 +75,12 @@ if (leaders.getRowCount() > 0) {
 <!--
 function selectSeason(selection){
 	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundOverview&snid='+ sel;
+	window.location='/tc?module=HSRoundOverview&snid='+ sel + '&er=<%= topN %>';
 }
 
 function selectRound(selection){
 	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>';
+	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>&er=<%= topN %>';
 }
 function submitForm(){
 	var frm = document.coderRankForm;
@@ -116,11 +116,10 @@ function discuss()
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8"><%= round.getRoundName() %> Leaders</td></tr>
+   <tr><td class="title" colspan="7"><%= round.getRoundName() %> Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
-      <td class="headerC">Room</td>
       <td class="headerR" style="border-right:1px solid #999999;">Score</td>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Individuals</td>
@@ -141,16 +140,13 @@ function discuss()
 		     <%= i + 1 %>
 		     </td>
 		     <td class="value">
-		     <A href="#"><%= teamResult.getStringItem(i, "name") %></A>
-		     </td>
-		     <td class="valueC" nowrap="nowrap">
-		     Room 20
+		     <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
 		     </td>
 		     <td class="valueR" style="border-right:1px solid #999999;">
 		     <%= teamResult.getItem(i, "team_points").toString() %>
 		     </td>
       <% } else { %>
-	      <td class="valueC" colspan="4">
+	      <td class="valueC" colspan="3">
           </td>
       <% } %>
 		     
