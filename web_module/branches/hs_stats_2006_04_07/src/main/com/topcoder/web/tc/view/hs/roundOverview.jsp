@@ -217,7 +217,7 @@ function discuss()
       <%=avgPoints%>
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%= round.getRoundId() %>&pm=<%= problemID %>','600','400','distribution')" class="statText">Distribution Graph</a>
+      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%= round.getRoundId() %>&pm=<%= problemID %>','600','400','distribution')">Distribution Graph</a>
       </td>
       <td class="valueC">
       &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)"><img border="0" src="/i/rate_it.gif" /></a>
