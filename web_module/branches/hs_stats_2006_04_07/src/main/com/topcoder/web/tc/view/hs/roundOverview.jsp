@@ -118,6 +118,9 @@ function submitForm(){
 
       for (int i=0; i < topN; i++) {
        even = !even;
+       if (!teamResult.isValidRow(i) && !leaders.isValidRow(i)) {
+           break;
+       }
    %>
    <tr class="<%=even?"dark":"light"%>">
       <% if (teamResult.isValidRow(i)) {      	     %>
@@ -131,7 +134,7 @@ function submitForm(){
 		     Room 20
 		     </td>
 		     <td class="valueR" style="border-right:1px solid #999999;">
-		     teamResult.getItem(i, "team_points").toString()
+		     <%= teamResult.getItem(i, "team_points").toString() %>
 		     </td>
       <% } else { %>
 	      <td class="valueC" colspan="4">
