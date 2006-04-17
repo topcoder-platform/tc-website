@@ -47,10 +47,18 @@ Map resultMap = (Map)request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
 ResultSetContainer percents = (ResultSetContainer) resultMap.get("hs_Round_Percentages");
+ResultSetContainer leaders = (ResultSetContainer) resultMap.get("High_Scorers");
+
 String snid = (String) request.getAttribute("snid");
 String rd = (String) request.getAttribute("rd");
 DecimalFormat df = new DecimalFormat("0.00");
 DecimalFormat dfp = new DecimalFormat("0.00%");
+
+
+int topN = 5;
+try {
+  topN = Integer.parseInt((String) request.getAttribute("er"));
+} catch(Exception e){}
 
 %>
 
@@ -85,7 +93,7 @@ function selectRound(selection){
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8">HS SRM 1 Leaders</td></tr>
+   <tr><td class="title" colspan="8"><%= request.getAttribute("roundName") %> Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
@@ -96,10 +104,14 @@ function selectRound(selection){
       <td class="headerC">Room</td>
       <td class="headerR">Score</td>
    </tr>
-   <% boolean even = false; %>
+   <% boolean even = false;
+
+      for (int i=0; i < topN; i++) {
+       even = !even;
+   %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="valueC">
-      1
+      <%= i + 1 %>
       </td>
       <td class="value">
       <A href="#">Team 1</A>
@@ -110,128 +122,27 @@ function selectRound(selection){
       <td class="valueR" style="border-right:1px solid #999999;">
       1200
       </td>
+      <% if (leaders.isValidRow(i)) {      	     %>
+        
       <td class="valueC">
-      1
+      <%= i + 1 %>
       </td>
       <td class="value">
-      <tc-webtag:handle coderId="144400" />
+      <tc-webtag:handle coderId='<%= leaders.getIntItem(i, "coder_id") %>' />
       </td>
       <td class="value" nowrap="nowrap">
-      Room 20
+      <%= leaders.getStringItem(i, "room_name") %>
       </td>
       <td class="valueR">
-      1200
+      <%= leaders.getDoubleItem(i, "final_points") %>
       </td>
+      <% } else { %>
+	      <td class="valueC" colspan="4">
+          </td>
+      <% } %>
    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
+   <% } 
+   %>
 </table>
 
 <br><br>
