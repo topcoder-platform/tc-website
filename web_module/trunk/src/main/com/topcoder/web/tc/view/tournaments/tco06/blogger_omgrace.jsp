@@ -29,8 +29,8 @@
 <br><br>
 <img src="/i/m/omgrace_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 <%--
-By&#160;<tc-webtag:handle coderId="21518515" darkBG="true" /><br />
 --%>
+By&#160;<tc-webtag:handle coderId="21518515" darkBG="true" /><br />
 <span class="smallText"><em>TopCoder Member</em></span>
 <br clear="all" />
 <br>
