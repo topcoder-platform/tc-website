@@ -57,7 +57,7 @@ DecimalFormat dfp = new DecimalFormat("0.00%");
 
 int topN = 5;
 try {
-  topN = Integer.parseInt((String) request.getAttribute("er"));
+  topN = Integer.parseInt((String) request.getParameter("er"));
 } catch(Exception e){}
 
 %>
@@ -72,6 +72,16 @@ function selectSeason(selection){
 function selectRound(selection){
 	sel = selection.options[selection.selectedIndex].value;
 	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%=snid%>';
+}
+function submitForm(){
+	var frm = document.coderRankForm;
+	frm.action = "/tc?module=HSRoundOverview";
+	if (isNaN(parseInt(frm.er.value)))
+   		alert(frm.er.value+" is not a valid integer");
+	 else{
+   		frm.er.value = parseInt(frm.er.value);
+   		frm.submit();
+	 }
 }
 
 // -->
@@ -199,9 +209,13 @@ function selectRound(selection){
 
 </table>
 <div class="pagingBox">
+<form name="coderRankForm" method="get">
+<input type="hidden" name="rd" value="<%= rd %>">
+<input type="hidden" name="snid" value="<%= snid %>">
 Viewing top 
 <input name="er" maxlength="4" size="4" value="5" type="text"> 
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
+</form>
 </div>
 
 </td>
