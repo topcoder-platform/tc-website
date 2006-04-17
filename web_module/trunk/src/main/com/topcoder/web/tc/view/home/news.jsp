@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.17.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/i/development/downloads/xmi_documenter_ui.jnlp">Java Web Start version of XMI Documenter</A></span><br><br>
+       We've added a Java Web Start verions of the XMI Documenter to the recent tutorial, <A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">Using XMI Documenter</A>.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/development/downloads/xmi_documenter_ui.jnlp">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505953" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.17.06<br>10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_winners">TCO06 "Pick Me" Contest Winners</A>
@@ -182,20 +196,6 @@ This was one of the last SRMs before the ACM-ICPC World finals in San Antonio.
        <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505959" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.04.06<br>7:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      "Coder of the Month" split
-      </span><br><br>
-<A href="/tc?module=COMHistory&achtid=5">Algorithm</A>, <A href="/tc?module=COMHistory&achtid=6">Design</A>, and <A href="/tc?module=COMHistory&achtid=7">Development</A> Competitions will each have their own "Coder of the Month" from now on.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505958" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
