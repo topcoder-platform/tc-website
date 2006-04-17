@@ -22,7 +22,7 @@
       <td valign=top align=center>
       <div class=bodySpacer>
             
-<span class="bodySubtitle">Why do YOU deserve a trip to the finals in Las Vegas?</span>
+<span class="bigTitle">Why do YOU deserve a trip to the finals in Las Vegas?</span>
 <br><br>
 Did you miss out on making it as a TCO finalist?  Still want to see the finals in Las Vegas anyway?  Here's your chance!
 <br><br>
