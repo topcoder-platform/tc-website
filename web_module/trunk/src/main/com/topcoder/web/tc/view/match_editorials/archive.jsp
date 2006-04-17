@@ -403,11 +403,11 @@
    <tr><td class="bodyText">04.30.03</td><td class="bodyText" nowrap="0">SRM 144 - <a href="/tc?module=Static&d1=match_editorials&d2=srm144">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">04.15.03</td><td class="bodyText" nowrap="0">SRM 142 - <a href="/tc?module=Static&d1=match_editorials&d2=srm142">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">04.10.03</td><td class="bodyText" nowrap="0">SRM 141 - <a href="/tc?module=Static&d1=match_editorials&d2=srm141">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.05.03</td><td class="bodyText" nowrap="0">2003 TCCC Finals - <a href="/index?t=tournaments&c=tccc03_champprob">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/index?t=tournaments&c=tccc03_semiprob4">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/index?t=tournaments&c=tccc03_semiprob3">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/index?t=tournaments&c=tccc03_semiprob2">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/index?t=tournaments&c=tccc03_semiprob1">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.05.03</td><td class="bodyText" nowrap="0">2003 TCCC Finals - <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=champprob">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=semiprob4">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=semiprob3">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=semiprob2">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.04.03</td><td class="bodyText" nowrap="0">2003 TCCC Semifinals - <a href="/tc?module=Static&d1=tournaments&d2=tccc03&d3=semiprob1">Problem Set & Analysis</a></td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
