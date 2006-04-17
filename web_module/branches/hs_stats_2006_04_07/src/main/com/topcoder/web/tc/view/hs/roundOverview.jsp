@@ -48,6 +48,7 @@ ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
 ResultSetContainer percents = (ResultSetContainer) resultMap.get("Round_Percentages");
 ResultSetContainer leaders = (ResultSetContainer) resultMap.get("High_Scorers");
+ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result");
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
 
@@ -75,8 +76,8 @@ function selectRound(selection){
 }
 function submitForm(){
 	var frm = document.coderRankForm;
-	if (isNaN(parseInt(frm.er.value)))
-   		alert(frm.er.value+" is not a valid integer");
+	if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
+   		alert(frm.er.value+" is not a valid positive integer");
 	 else{
    		frm.er.value = parseInt(frm.er.value);
    		frm.submit();
@@ -119,19 +120,25 @@ function submitForm(){
        even = !even;
    %>
    <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      <%= i + 1 %>
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <% if (leaders.isValidRow(i)) {      	     %>
+      <% if (teamResult.isValidRow(i)) {      	     %>
+		     <td class="valueC">
+		     <%= i + 1 %>
+		     </td>
+		     <td class="value">
+		     <A href="#"><%= teamResult.getStringItem(i, "name") %></A>
+		     </td>
+		     <td class="valueC" nowrap="nowrap">
+		     Room 20
+		     </td>
+		     <td class="valueR" style="border-right:1px solid #999999;">
+		     teamResult.getItem(i, "team_points").toString()
+		     </td>
+      <% } else { %>
+	      <td class="valueC" colspan="4">
+          </td>
+      <% } %>
+		     
+	  <% if (leaders.isValidRow(i)) {      	     %>
         
       <td class="valueC">
       <%= i + 1 %>
@@ -213,7 +220,7 @@ function submitForm(){
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundOverview">
 Viewing top 
-<input name="er" maxlength="4" size="4" value="5" type="text"> 
+<input name="er" maxlength="4" size="4" value="<%= topN %>" type="text"> 
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
 </form>
 </div>
