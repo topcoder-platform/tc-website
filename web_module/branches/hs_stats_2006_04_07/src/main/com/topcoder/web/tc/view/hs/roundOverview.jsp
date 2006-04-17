@@ -1,6 +1,6 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map, java.text.DecimalFormat"%>
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo"%>
 <%@ page language="java" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -43,14 +43,14 @@
 </jsp:include>
 
 <%
-Map resultMap = (Map)request.getAttribute("resultMap");
+Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
 ResultSetContainer percents = (ResultSetContainer) resultMap.get("hs_Round_Percentages");
 ResultSetContainer leaders = (ResultSetContainer) resultMap.get("High_Scorers");
 
-String snid = (String) request.getAttribute("snid");
-String rd = (String) request.getAttribute("rd");
+RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+
 DecimalFormat df = new DecimalFormat("0.00");
 DecimalFormat dfp = new DecimalFormat("0.00%");
 
@@ -71,7 +71,7 @@ function selectSeason(selection){
 
 function selectRound(selection){
 	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%=snid%>';
+	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>';
 }
 function submitForm(){
 	var frm = document.coderRankForm;
@@ -89,21 +89,21 @@ function submitForm(){
 
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= snid %>" useTopValue="false" onChange="selectSeason(this)"/>
+	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <div style="padding-bottom:5px;">
-   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%= rd %>" useTopValue="false" onChange="selectRound(this)"/>
+   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 
-<span class="bigTitle"><%= request.getAttribute("roundName") %></span><br>
-<span class="bodySubtitle">Season: <%= request.getAttribute("seasonName") %></span><br>
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
 <A href="" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8"><%= request.getAttribute("roundName") %> Leaders</td></tr>
+   <tr><td class="title" colspan="8"><%= round.getRoundName() %> Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
@@ -187,7 +187,7 @@ function submitForm(){
       &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= rd %>" class="statText"><%=problemName%></A>
+      &#160;&#160;<A HREF="/stat?c=problem_statement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>" class="statText"><%=problemName%></A>
       </td>
       <td class="valueR">
       <%=submissions%> &#160;&#160;
@@ -199,7 +199,7 @@ function submitForm(){
       <%=avgPoints%>
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%=rd%>&pm=<%= problemID %>','600','400','distribution')" class="statText">Distribution Graph</a>
+      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%= round.getRoundId() %>&pm=<%= problemID %>','600','400','distribution')" class="statText">Distribution Graph</a>
       </td>
       <td class="valueC">
       &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)" class="statText"><img border="0" src="/i/rate_it.gif" /></a>
@@ -210,8 +210,8 @@ function submitForm(){
 </table>
 <div class="pagingBox">
 <form name="coderRankForm" method="get">
-<input type="hidden" name="rd" value="<%= rd %>">
-<input type="hidden" name="snid" value="<%= snid %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 Viewing top 
 <input name="er" maxlength="4" size="4" value="5" type="text"> 
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
