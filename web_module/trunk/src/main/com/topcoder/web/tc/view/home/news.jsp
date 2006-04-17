@@ -9,6 +9,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.13.06<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">Intel Multi-Threading Competition 3 Analysis</A></span><br><br>
+The most recent competition in the Intel&#174; Software Network Multi-Threading Competition Series had a rather different flavor from previous events.  In this contest, the each test case had one correct answer and the goal was to find that answer as quickly as possible.
+      </td>
+      <td class="newsPhoto">by <tc-webtag:handle coderId="15500323"/><br>
+      and <tc-webtag:handle coderId="7472513"/><br>
+      introduction by<br><tc-webtag:handle coderId="159052"/>
+      </td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.12.06<br>5:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,22 +198,6 @@ This was one of the last SRMs before the ACM-ICPC World finals in San Antonio.
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.30.06<br>1:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm295">SRM 295 - Problem Set & Analysis</A></span><br><br>
-Being the second money match in a row, SRM 295 attracted 864 participants with 380 competing in division 1 and 484 in division 2.
-      </td>
-      <td class="newsPhoto"><%--<img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="7396310" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm295">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505861" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 
 </table>

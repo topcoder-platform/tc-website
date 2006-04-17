@@ -47,11 +47,11 @@
 <br><br>
 
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
-By&#160;<tc-webtag:handle coderId="159052" context="algorithm"/><br>
+By&#160;<tc-webtag:handle coderId="159052" /><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
-The most recent marathon match had a rather different flavor from previous
+The most recent competition in the Intel&#174; Software Network Multi-Threading Competition Series had a rather different flavor from previous
 events.  In this contest, the each test case had one correct answer and the
 goal was to find that answer as quickly as possible.  Furthermore, each test
 case consisted of exactly 16 searches, an obvious candidate for threading.
@@ -69,7 +69,7 @@ processing ideas and a job queue threading model proved a bit too fast for
 simpler approaches made lightning fast through tremendous optimizations.
 <br><br>
 <span class="bigTitle">String matching as signal processing</span><br>
-By&#160;<tc-webtag:handle coderId="15500323" context="algorithm"/><br>
+By&#160;<tc-webtag:handle coderId="15500323" /><br>
 <strong>First place winner</strong>
 <br><br>
 Sometimes in programming competitions, the problem presented may seem 
@@ -168,9 +168,12 @@ is obvious benefit to having multiple threads work on the same element of
 <b>u</b> -- all processors can be kept busy during the entire execution.  To
 this end, I used a job queue model where 8 threads took and put jobs to a global
 job queue.  This way, all 8 threads were running at 100% most of the time.  
+<br><br>
 
-
-<h3>Low level hacking with ASM and SSE, by szd714 (Runner-up)</h3>
+<span class="bigTitle">Low level hacking with ASM and SSE</span><br>
+By&#160;<tc-webtag:handle coderId="7472513" /><br>
+<strong>Runner-up</strong>
+<br><br>
 The very first realization that probably everyone in this contest came to was
 that the exact solution (thus calculating the sum of squares of circular
 differences for all possible locations) will never finish within the given time
