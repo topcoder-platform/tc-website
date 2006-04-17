@@ -111,7 +111,7 @@ function discuss()
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
-<A href="javascript:discuss()" class="bcLink">Discuss this contest</a>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId%>" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
