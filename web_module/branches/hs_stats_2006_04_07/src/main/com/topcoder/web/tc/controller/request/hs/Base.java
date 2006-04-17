@@ -70,6 +70,7 @@ abstract public class Base extends BaseProcessor {
     private void getMostRecent(RoundInfo round) throws Exception {
         Request r = new Request();
         r.setContentHandle("Most_Recent_Round_And_Season");
+        r.setProperty("sntid", HS_SNTID + "");
         
         if (round.hasRoundId()) {
             r.setProperty("rd", "" + round.getRoundId());

@@ -75,7 +75,6 @@ function selectRound(selection){
 }
 function submitForm(){
 	var frm = document.coderRankForm;
-	frm.action = "/tc?module=HSRoundOverview";
 	if (isNaN(parseInt(frm.er.value)))
    		alert(frm.er.value+" is not a valid integer");
 	 else{
@@ -144,7 +143,7 @@ function submitForm(){
       <%= leaders.getStringItem(i, "room_name") %>
       </td>
       <td class="valueR">
-      <%= leaders.getDoubleItem(i, "final_points") %>
+      <%= leaders.getItem(i, "final_points").toString() %>
       </td>
       <% } else { %>
 	      <td class="valueC" colspan="4">
@@ -209,9 +208,10 @@ function submitForm(){
 
 </table>
 <div class="pagingBox">
-<form name="coderRankForm" method="get">
+<form name="coderRankForm" method="get" action ="/tc">
 <input type="hidden" name="rd" value="<%= round.getRoundId() %>">
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundOverview">
 Viewing top 
 <input name="er" maxlength="4" size="4" value="5" type="text"> 
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
