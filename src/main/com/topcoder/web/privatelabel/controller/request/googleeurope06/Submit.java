@@ -1,23 +1,20 @@
 package com.topcoder.web.privatelabel.controller.request.googleeurope06;
 
-import com.topcoder.web.privatelabel.controller.request.ResumeRegSubmit;
-import com.topcoder.web.privatelabel.controller.request.BaseActivate;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.common.SessionInfo;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.controller.request.BaseActivate;
+import com.topcoder.web.privatelabel.controller.request.ResumeRegSubmit;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Map;
 
 /**
  * @author dok
@@ -145,18 +142,5 @@ public class Submit extends ResumeRegSubmit {
         return buf.toString();
     }
 
-    protected ResultSetContainer getCountryList() throws TCWebException {
-        try {
-            Request request = new Request();
-            request.setContentHandle("country_list_google");
-            Map map = getDataAccess(transDb, true).getData(request);
-            if (map == null)
-                throw new Exception("error getting country list from db");
-            else
-                return (ResultSetContainer) map.get("country_list_google");
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
 
 }
