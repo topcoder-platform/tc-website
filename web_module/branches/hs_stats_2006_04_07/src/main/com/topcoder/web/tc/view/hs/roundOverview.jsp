@@ -83,11 +83,6 @@ function submitForm(){
 	 }
 }
 
-function discuss()
-{
-	window.location='/?module=ThreadList&forumID=<%= forumId %>'
-}
-
 // -->
 </script>
 
