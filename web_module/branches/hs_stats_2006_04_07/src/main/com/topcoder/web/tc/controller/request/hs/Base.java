@@ -137,7 +137,7 @@ abstract public class Base extends BaseProcessor {
     }
     
     /**
-     * Fills the RoundInfo object with the season and round names.
+     * Fills the RoundInfo object with the season and round names and the forum_id
      * The result map must contain ResultSets for queries "seasons" and "rounds_for_season"
      *  
      * @param round a Round having roundId and seasonId, and whose names will be filled
@@ -159,17 +159,20 @@ abstract public class Base extends BaseProcessor {
 
         // Look up Round Name
         String roundName = null;
+        int forumId = -1;
         for (Iterator it = ((ResultSetContainer) result.get("rounds_for_season")).iterator(); it.hasNext();) {
             ResultSetRow rsr = (ResultSetRow) it.next();
             if (round.getRoundId() == rsr.getIntItem("round_id")) {
                 roundName = rsr.getStringItem("name");
+                forumId = rsr.getIntItem("forum_id");
                 break;
             }                
         }
         if (roundName == null) {
             throw new IllegalArgumentException("can't find the round name for round id " + round.getRoundId());
         }
-          
+         
+        round.setForumId(forumId);
         round.setRoundName(roundName);
         round.setSeasonName(seasonName);
     }

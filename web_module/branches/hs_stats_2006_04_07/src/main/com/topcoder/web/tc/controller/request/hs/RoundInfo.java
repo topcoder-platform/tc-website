@@ -22,6 +22,11 @@ public class RoundInfo {
     private String seasonName = null;
 
     /**
+     * Id of the forum for the round.
+     */
+    private int forumId = -1;
+    
+    /**
      * @return Returns the roundId.
      */
     public int getRoundId() {
@@ -93,6 +98,20 @@ public class RoundInfo {
      */
     public boolean hasSeasonId() {
         return seasonId >= 0;    
+    }
+
+    /**
+     * @return Returns the forumId.
+     */
+    public int getForumId() {
+        return forumId;
+    }
+
+    /**
+     * @param forumId The forumId to set.
+     */
+    public void setForumId(int forumId) {
+        this.forumId = forumId;
     }
 
 }

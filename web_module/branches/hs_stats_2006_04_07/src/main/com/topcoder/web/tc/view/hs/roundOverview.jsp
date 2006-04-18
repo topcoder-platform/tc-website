@@ -1,10 +1,9 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo"%>
-<%@ page language="java" %>
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -61,14 +60,6 @@ try {
   topN = Integer.parseInt((String) request.getParameter("er"));
 } catch(Exception e){}
 
-int forumId = -1;
-if (leaders.getRowCount() > 0) {
-    String forumIDStr = leaders.getItem(0, "forum_id").toString();
-    if (forumIDStr != "") {
-        forumId = Integer.parseInt(forumIDStr);
-    }
-}
-
 %>
 
 <script language="JavaScript">
@@ -111,7 +102,7 @@ function discuss()
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
-<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId%>" class="bcLink">Discuss this contest</a>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%= round.getForumId() %>" class="bcLink">Discuss this contest</a>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 

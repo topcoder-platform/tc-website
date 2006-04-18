@@ -1,7 +1,9 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page language="java" %>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -49,25 +51,40 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 }
 // -->
 </script>
+<%
+Map resultMap = (Map) request.getAttribute("resultMap");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
+ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result");
+
+RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+
+DecimalFormat df = new DecimalFormat("0.00");
+DecimalFormat dfp = new DecimalFormat("0.00%");
+
+
+int topN = 5;
+try {
+  topN = Integer.parseInt((String) request.getParameter("er"));
+} catch(Exception e){}
+
+
+%>
+
 
 <div style="float:right; padding-left:10px;" align="right">
 <div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
+	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)">
-   <option value="" selected="selected">View another season:</option>
-   <option value="0000">2006-2007</option>
-   </select>
+   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
+
 
 <div class="pagingBox">
 &lt;&lt; prev

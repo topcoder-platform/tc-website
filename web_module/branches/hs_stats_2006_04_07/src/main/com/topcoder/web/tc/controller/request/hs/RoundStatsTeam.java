@@ -15,7 +15,7 @@ import com.topcoder.web.tc.Constants;
  *
  * @author cucu
  */
-public class RoundOverview extends Base { 
+public class RoundStatsTeam extends Base { 
 
     
     protected void businessProcessing() throws TCWebException {
@@ -23,7 +23,7 @@ public class RoundOverview extends Base {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
 
             Request r = new Request();
-            r.setContentHandle("HS_Round_Overview");
+            r.setContentHandle("hs_round_stats_team");
             r.setProperty("rd", round.getRoundId() + "");
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
@@ -36,7 +36,7 @@ public class RoundOverview extends Base {
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
             
-            setNextPage(Constants.HS_ROUND_OVERVIEW);
+            setNextPage(Constants.HS_ROUND_STATS_TEAM);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
