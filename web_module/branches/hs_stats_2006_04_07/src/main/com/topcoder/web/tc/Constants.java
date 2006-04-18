@@ -241,7 +241,17 @@ public class Constants implements WebConstants {
 
     //High School statistics
     public static String HS_ROUND_OVERVIEW;
+    public static String HS_ROUND_STATS_TEAM;
+    public static String HS_ROUND_STATS_IND;
+    public static String HS_ROOM_STATS;
+    public static String HS_TEAM_RESULTS;
+    public static String HS_RANK;
+    public static String HS_TEAM_RANK;
+    public static String HS_PROBLEM_STATEMENT;
+    public static String HS_PROBLEM_SOLUTION;
+    public static String HS_RATING_HISTORY;
 
+    
     static {
         initialize();
     }
