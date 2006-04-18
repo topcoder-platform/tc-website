@@ -41,16 +41,6 @@
 <jsp:param name="title" value="Match Results - Team"/>
 </jsp:include>
 
-<script language="JavaScript">
-<!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
-// -->
-</script>
 <%
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
@@ -59,17 +49,43 @@ ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result"
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
 
-DecimalFormat df = new DecimalFormat("0.00");
-DecimalFormat dfp = new DecimalFormat("0.00%");
 
-
-int topN = 5;
+int sr = 1;
 try {
-  topN = Integer.parseInt((String) request.getParameter("er"));
+  sr = Integer.parseInt((String) request.getParameter("sr"));
+} catch(Exception e){}
+
+int nr = 50;
+try {
+  nr = Integer.parseInt((String) request.getParameter("nr"));
 } catch(Exception e){}
 
 
 %>
+
+<script language="JavaScript">
+<!--
+function selectSeason(selection){
+	sel = selection.options[selection.selectedIndex].value;
+	window.location='/tc?module=HSRoundStatsTeam&snid='+ sel + '&nr=<%=nr%>&sr=<%=sr%>';
+}
+
+function selectRound(selection){
+	sel = selection.options[selection.selectedIndex].value;
+	window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
+}
+function submitForm(){
+	var frm = document.coderRankForm;
+	if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
+   		alert(frm.er.value+" is not a valid positive integer");
+	 else{
+   		frm.er.value = parseInt(frm.er.value);
+   		frm.submit();
+	 }
+}
+
+// -->
+</script>
 
 
 <div style="float:right; padding-left:10px;" align="right">
@@ -104,27 +120,33 @@ try {
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
    <% boolean even = false; %>
+   <% for (int i = sr - 1; i < (sr + nr) && teamResult.isValidRow(i); i++) {
+       even = !even;
+
+   %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="#">Rocky Hill High School</A>
+    <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' >
+      <%= teamResult.getStringItem(i, "name") %>
+      </A>
       </td>
       <td class="valueR">
-      5
+      <%= teamResult.getItem(i, "team_points").toString() %>
       </td>
       <td class="valueR">
-      1062.82
+      <%= teamResult.getItem(i, "submission_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      775.00
+      <%= teamResult.getItem(i, "challenge_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      0.00
+      <%= teamResult.getItem(i, "system_test_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      1837.82
+      <%= teamResult.getItem(i, "final_points").toString() %>
       </td>
    </tr>
-   <% even = !even;%>
+	<% } %>
 </table>
 
 <div class="pagingBox">
