@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.18.06<br>12:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">.NET 2.0 now supported on TopCoder systems</A>
+      </span><br><br>
+      We've completed our upgrade to our .NET environment. All of our systems (algorithm, marathon, Intel&#174;) now support .NET 2.0.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">full story</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.17.06<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/i/development/downloads/xmi_documenter_ui.jnlp">Java Web Start version of XMI Documenter</A></span><br><br>
@@ -184,19 +198,6 @@ This was one of the last SRMs before the ACM-ICPC World finals in San Antonio.
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.06<br>3:30 PM</td>
-       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="blank">TopCoder College Tour: Report from University of Georgia</A></span><br><br>
-       <div style="float: right; padding-left: 3px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
-       "9:00 PM - Rock, Paper, Scissors Tournament, 9:15 PM - Build Card Bridge, 9:45 PM - Help Jimmy "The Lightning" Alberto Steal Diamonds. This looks like an odd (but busy) schedule. Actually, these were the challenges that UGA programmers faced in an algorithm competition Wednesday night."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505959" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
 
 
 </table>
