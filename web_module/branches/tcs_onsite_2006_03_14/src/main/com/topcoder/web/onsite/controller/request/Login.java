@@ -47,7 +47,7 @@ public class Login extends BaseProcessor {
             } else {
                 try {
                     try {
-                        setNextPage(getNextPage());
+                        setNextPage(checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
                         setIsNextPageInContext(false);
                         getAuthentication().login(new SimpleUser(0, username, password));
                         log.debug("on successful login, going to " + getNextPage());
