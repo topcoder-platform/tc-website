@@ -182,6 +182,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_CHINA_DW", "Google China DW"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_INDIA_OLTP", "Google India"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_INDIA_DW", "Google India DW"));
+        DB_LIST.add(new DatabaseBean("java:/GOOGLE_EUROPE_OLTP", "Google Europe"));
+        DB_LIST.add(new DatabaseBean("java:/GOOGLE_EUROPE_DW", "Google Europe DW"));
     }
 
 }
