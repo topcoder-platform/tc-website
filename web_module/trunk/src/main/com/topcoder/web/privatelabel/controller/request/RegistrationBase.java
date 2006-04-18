@@ -167,6 +167,7 @@ public abstract class RegistrationBase extends BaseProcessor {
         try {
             Request request = new Request();
             request.setContentHandle("country_list");
+            request.setProperty(Constants.EVENT_ID, String.valueOf(regInfo.getEventId()));
             Map map = getDataAccess(transDb, true).getData(request);
             if (map == null)
                 throw new Exception("error getting country list from db");
