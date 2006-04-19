@@ -180,7 +180,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 phoneId = phone.getPrimaryPhoneId(userId, transDb);
             }
             phone.setNumber(phoneId, regInfo.getPhoneNumber(), transDb);
+            phone.setPrimaryPhoneId(userId, phoneId, transDb);
             phone.setPhoneTypeId(phoneId, 2, transDb);
+
         }
 
         return userId;
