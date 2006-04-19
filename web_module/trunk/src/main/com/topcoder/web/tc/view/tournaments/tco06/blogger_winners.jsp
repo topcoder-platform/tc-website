@@ -34,18 +34,18 @@ We had such a hard time picking one winner that we decided to take the easy way 
 <table cellpadding="6" cellspacing="0">
    <tr>
       <td class="bodyText" align="center"><img src="/i/m/davidyang_big.jpg" /><br>
-      <%--
-      --%>
       <tc-webtag:handle coderId="21471147" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_davidyang">winning submission</A>
+      </td>
+      <td class="bodyText" align="center"><img src="/i/m/dplass_big.jpg" /><br>
+      <tc-webtag:handle coderId="251184" darkBG="true" /><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass">winning submission</A>
       </td>
       <td class="bodyText" align="center"><img src="/i/m/Kawigi_big.jpg" /><br>
       <tc-webtag:handle coderId="8416646" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_kawigi">winning submission</A>
       </td>
       <td class="bodyText" align="center"><img src="/i/m/omgrace_big.jpg" /><br>
-      <%--
-      --%>
       <tc-webtag:handle coderId="21518515" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_omgrace">winning submission</A>
       </td>
