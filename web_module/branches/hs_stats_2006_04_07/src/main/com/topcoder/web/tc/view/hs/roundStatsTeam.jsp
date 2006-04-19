@@ -74,14 +74,17 @@ function selectRound(selection){
 	sel = selection.options[selection.selectedIndex].value;
 	window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
 }
-function submitForm(){
+function submitForm()
+{
 	var frm = document.coderRankForm;
 	if (isNaN(parseInt(frm.nr.value)) || parseInt(frm.nr.value) < 1)
-   		alert(frm.nr.value+" is not a valid positive integer");
+	{
+   		alert(frm.nr.value + " is not a valid positive integer");
    		return false:
      }
 	if (isNaN(parseInt(frm.sr.value)) || parseInt(frm.sr.value) < 1)
-   		alert(frm.sr.value+" is not a valid positive integer");
+	{
+   		alert(frm.sr.value + " is not a valid positive integer");
    		return false:
      }
 
@@ -90,16 +93,17 @@ function submitForm(){
  	 frm.submit();
 }
 
-function submitEnter(e) {
+function submitEnter(e) 
+{
     var keycode;
     if (window.event) keycode = window.event.keyCode;
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-     submitForm();
-     return false;
+	     submitForm();
+    	 return false;
     } else return true;
-  }
+ }
 
 // -->
 </script>
