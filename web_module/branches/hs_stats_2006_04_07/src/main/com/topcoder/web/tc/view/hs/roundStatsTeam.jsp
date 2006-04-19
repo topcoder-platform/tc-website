@@ -186,8 +186,8 @@ function clickColumn(n)
 <% } %>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
@@ -232,8 +232,8 @@ function clickColumn(n)
 </table>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\" >&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
 <br>
 <form name="rowsForm" method="get" action ="/tc">
 View &nbsp;
