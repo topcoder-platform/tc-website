@@ -68,8 +68,8 @@ try {
 <!--
 function selectSeason(selection)
 {
-    document.pageForm.snid.value = selection.options[selection.selectedIndex].value;
-    document.pageForm.submit();
+    document.seasonForm.snid.value = selection.options[selection.selectedIndex].value;
+    document.seasonForm.submit();
 }
 
 function selectRound(selection)
@@ -111,13 +111,13 @@ function showRows(sr, nr)
 
 function next()
 {
-    document.pageForm.sr.value += document.pageForm.nr.value;
+    document.pageForm.sr.value = parseInt(document.pageForm.sr.value) + parseInt(document.pageForm.nr.value);
     document.pageForm.submit();
 }
 
 function previous()
 {
-    document.pageForm.sr.value -= document.pageForm.nr.value;
+    document.pageForm.sr.value = parseInt(document.pageForm.sr.value) - parseInt(document.pageForm.nr.value);
     document.pageForm.submit();
 }
 
@@ -149,6 +149,16 @@ function clickColumn(n)
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundStatsTeam">
 </form>
+
+<form name="seasonForm" method="get" action ="/tc">
+<input type="hidden" name="sr" value="<%= li.getStartRow() %>">
+<input type="hidden" name="nr" value="<%= li.getNumberOfRows() %>">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundStatsTeam">
+</form>
+
 
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
