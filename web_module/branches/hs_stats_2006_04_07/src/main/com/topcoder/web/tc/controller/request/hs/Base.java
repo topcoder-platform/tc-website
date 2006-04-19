@@ -181,4 +181,15 @@ abstract public class Base extends BaseProcessor {
         round.setSeasonName(seasonName);
     }
 
+    /**
+     * Sort and crop a ResultSetContainer using the ListInfo parameters.
+     *  
+     * @param rsc ResultSetContainer to sort and crop
+     * @param li information about sorting and croping
+     */
+    protected void sortAndCrop(ResultSetContainer rsc, ListInfo li) {
+        rsc.sortByColumn(li.getSortColumn(), "ASC".equalsIgnoreCase(li.getSortDirection()));
+        rsc = (ResultSetContainer) rsc.subList(li.getStartRow(), li.getEndRow());        
+    }
+
 }

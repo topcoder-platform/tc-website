@@ -46,7 +46,7 @@
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
-ResultSetContainer teamResult = (ResultSetContainer) request.getAttribute("team_result");
+ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result");
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
 ListInfo li = (ListInfo)request.getAttribute("listInfo");
@@ -68,44 +68,44 @@ try {
 <!--
 function selectSeason(selection)
 {
-	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundStatsTeam&snid='+ sel + '&nr=<%=nr%>&sr=<%=sr%>';
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundStatsTeam&snid='+ sel + '&nr=<%=nr%>&sr=<%=sr%>';
 }
 
 function selectRound(selection)
 {
-	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
 }
 
 function submitForm()
 {
-	var frm = document.coderRankForm;
-	if (isNaN(parseInt(frm.nr.value)) || parseInt(frm.nr.value) < 1)
-	{
-   		alert(frm.nr.value + " is not a valid positive integer");
-   		return false:
+    var frm = document.coderRankForm;
+    if (isNaN(parseInt(frm.nr.value)) || parseInt(frm.nr.value) < 1)
+    {
+        alert(frm.nr.value + " is not a valid positive integer");
+        return false;
      }
-	if (isNaN(parseInt(frm.sr.value)) || parseInt(frm.sr.value) < 1)
-	{
-   		alert(frm.sr.value + " is not a valid positive integer");
-   		return false:
+    if (isNaN(parseInt(frm.sr.value)) || parseInt(frm.sr.value) < 1)
+    {
+        alert(frm.sr.value + " is not a valid positive integer");
+        return false;
      }
 
- 	 frm.nr.value = parseInt(frm.nr.value);
- 	 frm.sr.value = parseInt(frm.sr.value);   		
- 	 frm.submit();
+     frm.nr.value = parseInt(frm.nr.value);
+     frm.sr.value = parseInt(frm.sr.value);
+     frm.submit();
 }
 
-function submitEnter(e) 
+function submitEnter(e)
 {
     var keycode;
     if (window.event) keycode = window.event.keyCode;
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-	     submitForm();
-    	 return false;
+         submitForm();
+         return false;
     } else return true;
  }
 
@@ -116,11 +116,11 @@ function submitEnter(e)
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <% }  %>
 <div style="padding-bottom:5px;">
-   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 
@@ -131,8 +131,8 @@ function submitEnter(e)
 <% } %>
 
 <div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
@@ -148,7 +148,7 @@ function submitEnter(e)
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
    <% boolean even = false; %>
-	<rsc:iterator list="<%= teamResult %>" id="resultRow">
+    <rsc:iterator list="<%= teamResult %>" id="resultRow">
    <% //for (int i = sr - 1; i < (sr + nr -1) && teamResult.isValidRow(i); i++) {
        even = !even;
 
@@ -156,26 +156,27 @@ function submitEnter(e)
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
     <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
-      <%= resultRow.getStringItem("name") %>
+          <rsc:item name="name" row="<%=resultRow%>"/>
       </A>
       </td>
       <td class="valueR">
-      <%= resultRow.getItem("team_points").toString() %>
+          <rsc:item name="team_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      <%= resultRow.getItem("submission_points").toString() %>
+          <rsc:item name="submission_points" row="<%=resultRow%>"/>
+
       </td>
       <td class="valueR" colspan="2">
-      <%= resultRow.getItem("challenge_points").toString() %>
+          <rsc:item name="challenge_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR" colspan="2">
-      <%= resultRow.getItem("system_test_points").toString() %>
+          <rsc:item name="system_test_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR" colspan="2">
-      <%= resultRow.getItem("final_points").toString() %>
+          <rsc:item name="final_points" row="<%=resultRow%>"/>
       </td>
    </tr>
-	</rsc:iterator>
+    </rsc:iterator>
 </table>
 
 <div class="pagingBox">

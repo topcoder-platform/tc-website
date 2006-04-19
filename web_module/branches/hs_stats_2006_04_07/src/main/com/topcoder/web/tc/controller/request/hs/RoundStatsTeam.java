@@ -34,11 +34,12 @@ public class RoundStatsTeam extends Base {
             
             fillRoundAndSeasonNames (round, result);
             
-            ResultSetContainer rsc = (ResultSetContainer) ((ResultSetContainer) result.get("team_result")).
-                    subList(li.getStartRow(), li.getEndRow());
-            rsc.sortByColumn(li.getSortColumn(), "ASC".equalsIgnoreCase(li.getSortDirection()));
+//            ResultSetContainer rsc = (ResultSetContainer) ((ResultSetContainer) result.get("team_result")).
+                    //subList(li.getStartRow(), li.getEndRow());
+  //          rsc.sortByColumn(li.getSortColumn(), "ASC".equalsIgnoreCase(li.getSortDirection()));
+            sortAndCrop((ResultSetContainer) result.get("team_result"), li);
             
-            getRequest().setAttribute("team_result", rsc);
+            //getRequest().setAttribute("team_result", rsc);
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
             getRequest().setAttribute("listInfo", li);
@@ -51,5 +52,6 @@ public class RoundStatsTeam extends Base {
             throw new TCWebException(e);
         }
     }
+
 
 }
