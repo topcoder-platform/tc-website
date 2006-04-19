@@ -16,6 +16,7 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.school.CurrentSchool;
+import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
@@ -176,6 +177,7 @@ public abstract class FullLogin extends FullReg {
         User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
+        Phone phone = (Phone) createEJB(getInitialContext(), Phone.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
@@ -183,6 +185,10 @@ public abstract class FullLogin extends FullReg {
         info.setPasswordConfirm(getRequestParameter(Constants.PASSWORD));
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
+        long phoneId = phone.getPrimaryPhoneId(userId, db);
+        if (phoneId>0) {
+            info.setPhoneNumber(phone.getNumber(phoneId, db));
+        }
         info.setFirstName(user.getFirstName(userId, db));
         info.setMiddleName(user.getMiddleName(userId, db));
         info.setLastName(user.getLastName(userId, db));
