@@ -192,6 +192,19 @@ function submitEnter(e) {
 
             <tr>
                 <td colspan="2" class="errorText" align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br></tc-webtag:errorIterator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" nowrap>
+                    Phone Number
+                </td>
+                <td align="left">
+                    <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>"  size="15"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -245,7 +258,7 @@ function submitEnter(e) {
                     <tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="100"/>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator>
                 </td>
@@ -255,7 +268,7 @@ function submitEnter(e) {
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br></tc-webtag:errorIterator>
