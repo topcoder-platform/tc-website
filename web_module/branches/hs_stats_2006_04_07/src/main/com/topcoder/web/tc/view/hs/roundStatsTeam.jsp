@@ -105,6 +105,7 @@ function showRows(sr, nr)
         return;
      }
 
+    if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
     document.pageForm.sr.value = sr;
     document.pageForm.nr.value = nr;
     document.pageForm.submit();
