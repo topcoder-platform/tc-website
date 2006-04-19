@@ -102,11 +102,11 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("You may participate in the Qualification Round at any time between Tuesday, May 23 at 11:00AM GMT and Wednesday, May 24 at 11:00AM GMT.  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
 
                 buf.append("LAUNCHING THE ARENA\n");
-                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://\").append(getSessionInfo().getServerName()).append(\"/codejameurope and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/codejameurope and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
 
-                buf.append("We also suggest that you read up on the competition process by navigating to http://\").append(getSessionInfo().getServerName()).append(\"/codejameurope and clicking the Instructions link at the top.\n\n");
+                buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/codejameurope and clicking the Instructions link at the top.\n\n");
 
                 buf.append("If you have any questions about how to participate, please email them to gcje@topcoder.com.\n\n");
 
