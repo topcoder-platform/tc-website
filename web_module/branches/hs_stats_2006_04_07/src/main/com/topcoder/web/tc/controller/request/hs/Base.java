@@ -164,7 +164,11 @@ abstract public class Base extends BaseProcessor {
             ResultSetRow rsr = (ResultSetRow) it.next();
             if (round.getRoundId() == rsr.getIntItem("round_id")) {
                 roundName = rsr.getStringItem("name");
-                forumId = rsr.getIntItem("forum_id");
+                
+                // if the forum_id can't be retrieved, ignore it so it will be -1
+                try {
+                    forumId = rsr.getIntItem("forum_id");
+                } catch(Exception e) {}
                 break;
             }                
         }

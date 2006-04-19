@@ -76,22 +76,41 @@ function selectRound(selection){
 }
 function submitForm(){
 	var frm = document.coderRankForm;
-	if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
-   		alert(frm.er.value+" is not a valid positive integer");
-	 else{
-   		frm.er.value = parseInt(frm.er.value);
-   		frm.submit();
-	 }
+	if (isNaN(parseInt(frm.nr.value)) || parseInt(frm.nr.value) < 1)
+   		alert(frm.nr.value+" is not a valid positive integer");
+   		return false:
+     }
+	if (isNaN(parseInt(frm.sr.value)) || parseInt(frm.sr.value) < 1)
+   		alert(frm.sr.value+" is not a valid positive integer");
+   		return false:
+     }
+
+ 	 frm.nr.value = parseInt(frm.nr.value);
+ 	 frm.sr.value = parseInt(frm.sr.value);   		
+ 	 frm.submit();
 }
+
+function submitEnter(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     submitForm();
+     return false;
+    } else return true;
+  }
 
 // -->
 </script>
 
 
 <div style="float:right; padding-left:10px;" align="right">
+<% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
 	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
+<% }  %>
 <div style="padding-bottom:5px;">
    	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
@@ -99,8 +118,9 @@ function submitForm(){
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
-
+<% } %>
 
 <div class="pagingBox">
 &lt;&lt; prev
@@ -154,14 +174,17 @@ function submitForm(){
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 
 <br>
-
+<form name="coderRankForm" method="get" action ="/tc">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundOverview">
 View &nbsp;
 <input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text">
 &nbsp;at a time starting with &nbsp;
 
 <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text">
-<a href="javascript:document.matchListForm.submit();" class="bcLink">&nbsp;[ submit ]</a>
-
+<a href="javascript:submitForm();" class="bcLink">&nbsp;[ submit ]</a>
+</form>
 </div>
 </td>
         <!-- Center Column Ends -->

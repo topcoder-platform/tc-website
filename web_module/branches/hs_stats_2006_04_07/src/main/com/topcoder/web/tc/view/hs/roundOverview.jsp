@@ -99,7 +99,9 @@ function submitForm(){
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%= round.getForumId() %>" class="bcLink">Discuss this contest</a>
+<% } %>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
