@@ -69,8 +69,8 @@ function submitEnter(e) {
 
                         <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_EUROPE_06_LOGIN%>">
-                        <input type="hidden" name="<%=Constants.EVENT_ID%>" value="5">
-                        <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="8039">
+                        <input type="hidden" name="<%=Constants.EVENT_ID%>" value="7">
+                        <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="18317">
                            <table border="0" cellpadding="3" cellspacing="0" align="center">
                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
 
@@ -90,7 +90,7 @@ function submitEnter(e) {
                                  <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                               </tr>
                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                              <tr><td colspan="3" class="bodyText" align="center"><A href="/pl/?module=GoogleEurope06Credentials&cid=8039">Forgot your password?</A></td></tr>
+                              <tr><td colspan="3" class="bodyText" align="center"><A href="/pl/?module=GoogleEurope06Credentials&cid=18317">Forgot your password?</A></td></tr>
                            </table>
 
                            <p><br></p>
