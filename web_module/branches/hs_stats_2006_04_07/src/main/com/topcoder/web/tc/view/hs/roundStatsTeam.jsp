@@ -62,6 +62,7 @@ try {
 } catch(Exception e){}
 
 
+int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
 %>
 
 <script language="JavaScript">
@@ -112,7 +113,7 @@ function showRows(sr, nr)
 function next()
 {
     var n = parseInt(document.pageForm.sr.value) + parseInt(document.pageForm.nr.value);
-    if (n > <%= teamResult.getRowCount() %> ) n = <%= teamResult.getRowCount() %>;
+    if (n > <%= totalRows %> ) n = <%= totalRows %>;
 
 
     document.pageForm.sr.value = n;

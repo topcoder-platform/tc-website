@@ -34,8 +34,10 @@ public class RoundStatsTeam extends Base {
             
             fillRoundAndSeasonNames (round, result);
             
-            sortAndCrop(result, "team_result", li);
+            getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("team_result")).getRowCount() + "");
             
+            sortAndCrop(result, "team_result", li);
+                        
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
             getRequest().setAttribute("listInfo", li);
