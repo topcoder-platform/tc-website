@@ -187,9 +187,10 @@ abstract public class Base extends BaseProcessor {
      * @param rsc ResultSetContainer to sort and crop
      * @param li information about sorting and croping
      */
-    protected void sortAndCrop(ResultSetContainer rsc, ListInfo li) {
+    protected void sortAndCrop(Map map, String name, ListInfo li) {
+        ResultSetContainer rsc = (ResultSetContainer) map.get(name);
         rsc.sortByColumn(li.getSortColumn(), "ASC".equalsIgnoreCase(li.getSortDirection()));
-        rsc = (ResultSetContainer) rsc.subList(li.getStartRow(), li.getEndRow());        
+        map.put(name, rsc.subList(li.getStartRow(), li.getEndRow()));        
     }
 
 }

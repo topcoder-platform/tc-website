@@ -104,14 +104,42 @@ function submitEnter(e)
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-         submitForm();
+         document.pageFrom;
          return false;
     } else return true;
  }
 
+function showRows(sr, nr)
+{
+    document.pageForm.sr.value = sr;
+    document.pageForm.nr.value = nr;
+    document.pageForm.submit();
+}
+
+function next()
+{
+    document.pageForm.sr.value += document.pageForm.nr.value;
+    document.pageForm.submit();
+}
+
+function next()
+{
+    document.pageForm.sr.value -= document.pageForm.nr.value;
+    document.pageForm.submit();
+}
+
 // -->
 </script>
 
+<form name="pageForm" method="get" action ="/tc">
+<input type="hidden" name="sr" value="<%= li.getStartRow() %>">
+<input type="hidden" name="nr" value="<%= li.getNumberOfRows() %>">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundOverview">
+</form>
 
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
@@ -184,16 +212,13 @@ function submitEnter(e)
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 
 <br>
-<form name="coderRankForm" method="get" action ="/tc">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoundOverview">
+<form name="rowsForm" method="get" action ="/tc">
 View &nbsp;
 <input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getNumberOfRows() %>" type="text">
 &nbsp;at a time starting with &nbsp;
 
 <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
-<a href="javascript:submitForm();" class="bcLink">&nbsp;[ submit ]</a>
+<a href="javascript:showRows(rowsForm.sr.value, rowsForm.er.value);" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 </div>
 </td>
