@@ -17,7 +17,7 @@ public class Reg extends FullReg {
         Calendar beginning = Calendar.getInstance();
         beginning.set(2006, Calendar.FEBRUARY, 14, 22, 30);
         //beginning.set(2005, Calendar.JULY, 25, 9, 0);
-        end.set(2006, Calendar.MAY, 1, 9, 0);
+        end.set(2006, Calendar.MAY, 23, 4, 0);
 
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
