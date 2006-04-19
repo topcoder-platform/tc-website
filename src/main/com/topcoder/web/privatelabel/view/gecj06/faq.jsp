@@ -80,7 +80,7 @@
                 <br><br>
                 <b>How will I know if I have advanced the next round of Google Code Jam Europe?</b><br>
                 As soon as the Testing Phase has been completed, the advancers to the next round will be posted at
-                <A href="http://www.topcoder.com/europecodejam">www.topcoder.com/europecodejam</a>. In addition, an email will be sent to all participants indicating whether or
+                <A href="http://www.topcoder.com/codejameurope">www.topcoder.com/codejameurope</a>. In addition, an email will be sent to all participants indicating whether or
                 not each has advanced.
                 <br><br>
                 Questions not addressed here should be directed to <A href="mailto:gcje@topcoder.com">gcje@topcoder.com</A>

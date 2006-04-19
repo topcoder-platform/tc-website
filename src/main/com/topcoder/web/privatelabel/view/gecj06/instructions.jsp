@@ -119,8 +119,7 @@ statement is shown, and the solutions are coded, compiled, tested, and submitted
 
 <br><br>
 
-<div align="center"><img src="/i/events/gecj06/arena4.gif" alt="" border="0"/>
-<br><span class="bigRed">(Image will be updated to include all languages.)</span></div>
+<div align="center"><img src="/i/events/gecj06/arena4.gif" alt="" border="0"/></div>
 <br><br>
 
 <blockquote>
@@ -133,7 +132,7 @@ clarify the statement.
 <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
-Google Code Jam India allows coders to utilize Java or C++ as a competition programming language.
+Google Code Jam India allows coders to utilize Java, C++, or C# as a competition programming language.
 You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any
 programming languages to solve each of the problems in a single competition. For this reason, you have the option of
 choosing the programming language from within the coding window. You can find the language selection area in the upper
@@ -142,7 +141,7 @@ attempt to compile your code. Strange compilation results can be a symptom of ha
 <br><br>
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have
-access to your class members and invoke the appropriate methods. Below you will find code templates for Java or C++:
+access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++ or C#:
 <br><br>
 <b>Java Code Template</b><br>
 <pre>import &lt;necessary classes&gt;
@@ -171,6 +170,16 @@ access to your class members and invoke the appropriate methods. Below you will 
     };
 </pre>
 
+<b>C# Code Template</b>
+<pre>using <necessary classes>;
+
+    public class <class-name> {
+    public <return-type> <method-name>(<argument-type> arg1) {
+    //your source here
+    return <result>;
+    }
+    }
+</pre>
 <br>
 
 <strong>Compiling</strong><br>

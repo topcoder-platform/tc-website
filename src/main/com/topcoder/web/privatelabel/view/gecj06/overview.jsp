@@ -45,16 +45,16 @@
 <span class="bigTitle">Google Code Jam Europe</span>
 
 <br><br>
-Hey, European coders, now it’s your turn! Google&#153; is on its way to Dublin and they are looking for the best. Don't miss out on the Google Code Jam Europe 2006.  This exciting contest gives you the chance to show off your coding talent for XXXXX in cash and prizes.
+Hey, European coders, now it’s your turn! Google&#153; is on its way to Dublin and they are looking for the best. Don't miss out on the Google Code Jam Europe 2006.  This exciting contest gives you the chance to show off your coding talent for &#8364;30,000 in cash and prizes.
 <br><br>
 <span class="greenSubtitle">The Competition:</span>
 <br><br>
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. 
 <br><br>
-The competition is available in four programming languages - Java, C++, C#, and VB.NET. 
+The competition is available in four programming languages - Java, C++, and C#. 
 <br><br>
 A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?module=Static&d1=gecj06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
-<br><br>
+<br><br>i
 Here's the line-by-line documentation:
 <br><br>
 
@@ -88,7 +88,7 @@ Registration for the Google Code Jam Europe is open from Monday, May 1, 2006 at 
 <br><br>
 The competitors with the top 250 scores from Round 1 will advance to compete in Round 2.
 <br><br>
-The competitors with the top 50 scores from Round 2 will be invited to compete for XXXXX in cash and prizes at the onsite Championship Round in Dublin, Ireland.
+The competitors with the top 50 scores from Round 2 will be invited to compete for &#8364;30,000 in cash and prizes at the onsite Championship Round in Dublin, Ireland.
 <br><br>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
     <tr>
@@ -156,27 +156,26 @@ The top 250 participants in Round 2 will receive a "Google&#153; Code Jam Europe
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
-<td class="sidebarText"><b>&#160;</b></td>
+<td class="sidebarText"><b>&#8364;2,500</b></td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap">2nd - 5th Place </td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText">&#8364;1,000</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap">6th – 10th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText">&#8364;750</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap">11th – 20th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText">&#8364;500</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">21st – 25th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText" nowrap="nowrap">21st – 50th</td>
+<td class="sidebarText">&#8364;150</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">26th – 50th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText" colspan="2">The Top 50 finishers will also receive a personal listening device.</td>
 </tr>
 </table>
 <br>
