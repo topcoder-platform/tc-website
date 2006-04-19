@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.onsite.controller.request.Login,
@@ -14,8 +15,10 @@
 %>
 
 <html>
-    <head>
-        <title>TopCoder | Wager | Login</title>
+<head>
+<title>TopCoder | Wager | Login</title>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCO06style.css"/>
+<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
         <SCRIPT type="text/javascript">
             function submitEnter(e) {
                 var keycode;
@@ -28,45 +31,52 @@
                 } else return true;
             }
         </SCRIPT>
-    </head>
-    
-    <body>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="middle">
-                <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
-                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
-                    <td class="bodyText" align="center">
-                        <table border="0" cellpadding="3" cellspacing="0">
-                            <tr valign="top">
-                                <td class="errorText" colspan="3">
-                                    <p><%= message %></p>
-                                </td>
-                            </tr>
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left">
-                                    <input type="text" name="<%=Constants.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                 </td>
-                            </tr>
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left">
-                                    <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                </td>
-                                <td nowrap class="bodyText">
-                                    &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
-                                </td>
-                            </tr>
-                        </table>
-                        <p><br/></p>
-                        <script>
-                            document.frmLogin.<%=Constants.USER_NAME%>.focus();
-                        </script>
-                    </td>
-                </form>
-            </tr>
-        </table>
-    </body>
-</html>
+</head>
 
+<body>
+
+<div style="float:right;">
+<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tc_logo.gif" border=0/></a>
+</div>
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tco06_logo_AMDgrn.gif" border=0/></A>
+
+<div style="padding: 20px 40px 200px 40px;" align="center">
+   <div style="width: 500px;" align="center">
+
+   <span class="bigTitle">Component Competition Wager System</span>
+   <br><br>
+   
+    <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
+            <table border="0" cellpadding="3" cellspacing="0">
+                <tr valign="top">
+                    <td class="errorText" colspan="3">
+                        <span class="bigRed"><%= message %></span>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td nowrap class="bodyText" align="right">Handle:</td>
+                    <td colspan="2" align="left">
+                        <input type="text" name="<%=Constants.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                     </td>
+                </tr>
+                <tr valign="middle">
+                    <td nowrap class="bodyText" align="right">Password:</td>
+                    <td align="left">
+                        <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                    </td>
+                    <td nowrap class="bodyText">
+                        &#160;&#160;<a href="JavaScript:document.frmLogin.submit()">Login&#160;&gt;</a>
+                    </td>
+                </tr>
+            </table>
+      <script>
+          document.frmLogin.<%=Constants.USER_NAME%>.focus();
+      </script>
+    </form>
+
+   </div>
+</div>
+</body>
+</html>

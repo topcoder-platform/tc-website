@@ -1,3 +1,4 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
@@ -32,7 +33,6 @@
    <span class="bigTitle">Component Competition Wager System</span>
    <br><br>
    
-   <div align="center">
    <table width="300" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
       <tr>
          <td class="sidebarTitle">
@@ -44,7 +44,7 @@
             <% if (sessionInfo.isAnonymous()) { %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login</a>
             <% } else { %>
-             Logged in as: <jsp:getProperty name="sessionInfo" property="handle"/>
+             Logged in as: <tc-webtag:handle coderId="000000" darkBG="true"/> <jsp:getProperty name="sessionInfo" property="handle"/>
             <% } %>
          </td>
       </tr>
@@ -56,11 +56,9 @@
          </td>
       </tr>
    </table>
-   </div>
 
    </div>
 </div>
 
-<jsp:include page="/foot.jsp" />
 </body>
 </html>
