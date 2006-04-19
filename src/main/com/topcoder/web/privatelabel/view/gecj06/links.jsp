@@ -58,17 +58,18 @@
 
 <%-- Practice Arena  tab --%>
 <% if (selectedTab.equals("arena")) {%>
-<font color="006633">Competition Arena</font> | 
+<font color="006633">Competition Arena</font> <%--| --%> 
 <% } else { %>
-<a href="/pl/?module=Static&d1=gecj06&d2=arena">Competition Arena</a> | 
+<a href="/pl/?module=Static&d1=gecj06&d2=arena">Competition Arena</a> <%--| --%>
 <% } %>
 
-<%-- Google Groups  tab --%>
+<%-- Google Groups  tab 
 <% if (selectedTab.equals("forum")) {%>
 <font color="006633">Code Jam Group</font>
 <% } else { %>
 <a href="/?t=sponsor&c=link&link=http://groups.google.com/group/Europe-Code-Jam" target="_blank">Code Jam Group</a>
 <% } %>
+--%>
 </font>
 
 <br><br>

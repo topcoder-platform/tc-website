@@ -143,7 +143,7 @@ Up to 500 coders will compete in Round 1. The 250 highest scoring competitors wi
 Up to 250 coders will compete in Round 2. The 50 highest scoring competitors will advance to the Championship Round. Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.
 <br><br>
 
-<b>NOTE:</b> In the event of a tie for any advancing position (Positive points only), all tied coders will advance to the Championship Round. 
+<b>NOTE:</b> In the event of a tie for any advancing position (positive points only), all tied coders will advance to the Championship Round. 
 <br><br>
 
 <b>Competition Round Structure</b><br>
