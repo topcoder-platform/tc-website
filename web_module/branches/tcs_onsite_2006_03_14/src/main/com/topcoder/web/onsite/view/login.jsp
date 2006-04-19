@@ -46,13 +46,13 @@
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Handle:</td>
                                 <td colspan="2" align="left">
-                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                    <input type="text" name="<%=Constants.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                  </td>
                             </tr>
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
                                 <td align="left">
-                                    <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                    <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                 </td>
                                 <td nowrap class="bodyText">
                                     &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
@@ -61,7 +61,7 @@
                         </table>
                         <p><br/></p>
                         <script>
-                            document.frmLogin.<%=Login.USER_NAME%>.focus();
+                            document.frmLogin.<%=Constants.USER_NAME%>.focus();
                         </script>
                     </td>
                 </form>
