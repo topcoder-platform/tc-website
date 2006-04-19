@@ -44,7 +44,8 @@
             <% if (sessionInfo.isAnonymous()) { %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login</a>
             <% } else { %>
-             Logged in as: <tc-webtag:handle coderId="<jsp:getProperty name="sessionInfo" property="userId"/>" darkBG="true"/> <jsp:getProperty name="sessionInfo" property="handle"/>
+            <jsp:getProperty name="sessionInfo" property="userId"/>
+             Logged in as: <tc-webtag:handle coderId="8357090" darkBG="true"/> <jsp:getProperty name="sessionInfo" property="handle"/>
             <% } %>
          </td>
       </tr>
