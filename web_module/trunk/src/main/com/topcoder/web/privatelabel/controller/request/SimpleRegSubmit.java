@@ -13,6 +13,7 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -114,6 +115,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
+        Phone phone = (Phone) createEJB(getInitialContext(), Phone.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         long userId = regInfo.getUserId();
@@ -169,6 +171,17 @@ public class SimpleRegSubmit extends SimpleRegBase {
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
         email.setPrimaryEmailId(userId, emailId, transDb);
+
+        if (!(regInfo.getPhoneNumber()==null||regInfo.getPhoneNumber().trim().length()==0)) {
+            long phoneId;
+            if (regInfo.isNew()) {
+                phoneId = phone.createPhone(userId, transDb, db);
+            } else {
+                phoneId = phone.getPrimaryPhoneId(userId, transDb);
+            }
+            phone.setNumber(phoneId, regInfo.getPhoneNumber(), transDb);
+            phone.setPhoneTypeId(phoneId, 2, transDb);
+        }
 
         return userId;
     }
