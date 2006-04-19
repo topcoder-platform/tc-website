@@ -1,6 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.shared.util.ApplicationServer"%>
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
+          com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
@@ -45,10 +46,10 @@
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
 ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
-ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result");
+ResultSetContainer teamResult = (ResultSetContainer) request.getAttribute("team_result");
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
-
+ListInfo li = (ListInfo)request.getAttribute("listInfo");
 
 int sr = 1;
 try {
@@ -65,15 +66,18 @@ try {
 
 <script language="JavaScript">
 <!--
-function selectSeason(selection){
+function selectSeason(selection)
+{
 	sel = selection.options[selection.selectedIndex].value;
 	window.location='/tc?module=HSRoundStatsTeam&snid='+ sel + '&nr=<%=nr%>&sr=<%=sr%>';
 }
 
-function selectRound(selection){
+function selectRound(selection)
+{
 	sel = selection.options[selection.selectedIndex].value;
 	window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
 }
+
 function submitForm()
 {
 	var frm = document.coderRankForm;
@@ -144,33 +148,34 @@ function submitEnter(e)
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
    <% boolean even = false; %>
-   <% for (int i = sr - 1; i < (sr + nr -1) && teamResult.isValidRow(i); i++) {
+	<rsc:iterator list="<%= teamResult %>" id="resultRow">
+   <% //for (int i = sr - 1; i < (sr + nr -1) && teamResult.isValidRow(i); i++) {
        even = !even;
 
    %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-    <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' >
-      <%= teamResult.getStringItem(i, "name") %>
+    <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
+      <%= resultRow.getStringItem("name") %>
       </A>
       </td>
       <td class="valueR">
-      <%= teamResult.getItem(i, "team_points").toString() %>
+      <%= resultRow.getItem("team_points").toString() %>
       </td>
       <td class="valueR">
-      <%= teamResult.getItem(i, "submission_points").toString() %>
+      <%= resultRow.getItem("submission_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      <%= teamResult.getItem(i, "challenge_points").toString() %>
+      <%= resultRow.getItem("challenge_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      <%= teamResult.getItem(i, "system_test_points").toString() %>
+      <%= resultRow.getItem("system_test_points").toString() %>
       </td>
       <td class="valueR" colspan="2">
-      <%= teamResult.getItem(i, "final_points").toString() %>
+      <%= resultRow.getItem("final_points").toString() %>
       </td>
    </tr>
-	<% } %>
+	</rsc:iterator>
 </table>
 
 <div class="pagingBox">
@@ -183,10 +188,10 @@ function submitEnter(e)
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundOverview">
 View &nbsp;
-<input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text">
+<input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getNumberOfRows() %>" type="text">
 &nbsp;at a time starting with &nbsp;
 
-<input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text">
+<input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
 <a href="javascript:submitForm();" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 </div>
