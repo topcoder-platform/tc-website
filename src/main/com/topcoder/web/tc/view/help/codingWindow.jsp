@@ -53,9 +53,9 @@
       <p><span class="bodySubtitle">2 Choosing a Language</span><br/>
       TopCoder currently allows coders to utilize Java, C++, C#, or Visual Basic .Net as a competition programming language.  You have the option to choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve two problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can find the language selection area in the upper right area of the coding window - under "Choose your Language".  The programming language that is automatically selected by default will match the "Default Language" setting in your member profile on TopCoder's website.  Remember to select the appropriate language before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.  For information on exactly how TopCoder performs compilations and tests in each language check here:
       <br/><br/>
-      <A href="http://www.topcoder.com/?&t=support&c=index#java1">Java</A><br/>
-      <A href="http://www.topcoder.com/?&t=support&c=index#181">C++</A><br/>
-      <A href="http://www.topcoder.com/?&t=support&c=index#c1">C# or VB</A>
+      <A href="/tc?module=Static&d1=help&d2=generalFaq#java1">Java</A><br/>
+      <A href="/tc?module=Static&d1=help&d2=generalFaq#181">C++</A><br/>
+      <A href="/tc?module=Static&d1=help&d2=generalFaq#c1">C# or VB</A>
       </p>
 
       <a name="createsolution"></a>
