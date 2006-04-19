@@ -26,7 +26,7 @@
 </div>
 <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tco06_logo_AMDgrn.gif" border=0/></A>
 
-<div style="padding: 20px 40px 40px 40px;" align="center">
+<div style="padding: 20px 40px 200px 40px;" align="center">
    <div style="width: 500px;" align="center">
 
    <span class="bigTitle">Component Competition Wager System</span>
