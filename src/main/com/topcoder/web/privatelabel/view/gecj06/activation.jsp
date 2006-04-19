@@ -70,7 +70,7 @@ function submitEnter(e) {
 
          You may practice for the contest by clicking the Competition Arena link above.
          <br><br>
-         If you encounter any problems, please contact us at <A href="mailto:gcji@topcoder.com">gcji@topcoder.com</A>.
+         If you encounter any problems, please contact us at <A href="mailto:gcje@topcoder.com">gcje@topcoder.com</A>.
 
          
          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
