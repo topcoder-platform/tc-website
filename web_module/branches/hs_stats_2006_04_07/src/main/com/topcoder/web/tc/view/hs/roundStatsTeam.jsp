@@ -124,7 +124,7 @@ function previous()
 function clickColumn(n)
 {
     if(n == <%= li.getSortColumn() %>) {
-        if ("asc".equalsIgnoreCase("<%= li.getSortDirection() %>")) {
+        if ("asc" == "<%= li.getSortDirection() %>") {
             document.pageForm.sd.value = "desc";
         }
         else  {
@@ -174,15 +174,15 @@ function clickColumn(n)
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
    <tr>
-      <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding Phase</td>
+      <td class="header"><A href="javascript:clickColumn(1)">Team</A></td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Placement Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Coding Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">Challenge Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System Tests</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">System Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point Total</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(6)">Point Total</td>
    </tr>
    <% boolean even = false; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">

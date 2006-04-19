@@ -190,7 +190,7 @@ abstract public class Base extends BaseProcessor {
     protected void sortAndCrop(Map map, String name, ListInfo li) {
         ResultSetContainer rsc = (ResultSetContainer) map.get(name);
         rsc.sortByColumn(li.getSortColumn(), "ASC".equalsIgnoreCase(li.getSortDirection()));
-        map.put(name, rsc.subList(li.getStartRow(), li.getEndRow()));        
+        map.put(name, rsc.subList(li.getStartRow() - 1, li.getEndRow() - 1));        
     }
 
 }
