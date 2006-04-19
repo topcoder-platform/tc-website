@@ -96,12 +96,12 @@ function showRows(sr, nr)
     if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
     {
         alert(nr + " is not a valid positive integer");
-        return false;
+        return;
      }
     if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
     {
         alert(sr + " is not a valid positive integer");
-        return false;
+        return;
      }
 
     document.pageForm.sr.value = sr;
@@ -112,7 +112,8 @@ function showRows(sr, nr)
 function next()
 {
     var n = parseInt(document.pageForm.sr.value) + parseInt(document.pageForm.nr.value);
-    if (n < 1) n = 1;
+    if (n > <%= teamResult.getRowCount() %> ) n = <%= teamResult.getRowCount() %>;
+
 
     document.pageForm.sr.value = n;
     document.pageForm.submit();
@@ -121,7 +122,7 @@ function next()
 function previous()
 {
     var n = parseInt(document.pageForm.sr.value) - parseInt(document.pageForm.nr.value);
-    if (n > <%= teamResult.getRowCount() %> ) n = <%= teamResult.getRowCount() %>;
+    if (n < 1) n = 1;
 
     document.pageForm.sr.value = n;
     document.pageForm.submit();
