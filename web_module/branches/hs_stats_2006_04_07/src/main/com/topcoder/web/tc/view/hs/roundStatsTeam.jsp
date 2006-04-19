@@ -68,34 +68,16 @@ try {
 <!--
 function selectSeason(selection)
 {
-    sel = selection.options[selection.selectedIndex].value;
-    window.location='/tc?module=HSRoundStatsTeam&snid='+ sel + '&nr=<%=nr%>&sr=<%=sr%>';
+    document.pageForm.snid.value = selection.options[selection.selectedIndex].value;
+    document.pageForm.submit();
 }
 
 function selectRound(selection)
 {
-    sel = selection.options[selection.selectedIndex].value;
-    window.location='/tc?module=HSRoundStatsTeam&rd='+ sel + '&snid=<%= round.getSeasonId() %>&nr=<%=nr%>&sr=<%=sr%>';
+    document.pageForm.rd.value  = selection.options[selection.selectedIndex].value;
+    document.pageForm.submit();
 }
 
-function submitForm()
-{
-    var frm = document.coderRankForm;
-    if (isNaN(parseInt(frm.nr.value)) || parseInt(frm.nr.value) < 1)
-    {
-        alert(frm.nr.value + " is not a valid positive integer");
-        return false;
-     }
-    if (isNaN(parseInt(frm.sr.value)) || parseInt(frm.sr.value) < 1)
-    {
-        alert(frm.sr.value + " is not a valid positive integer");
-        return false;
-     }
-
-     frm.nr.value = parseInt(frm.nr.value);
-     frm.sr.value = parseInt(frm.sr.value);
-     frm.submit();
-}
 
 function submitEnter(e)
 {
@@ -111,6 +93,17 @@ function submitEnter(e)
 
 function showRows(sr, nr)
 {
+    if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
+    {
+        alert(nr + " is not a valid positive integer");
+        return false;
+     }
+    if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
+    {
+        alert(sr + " is not a valid positive integer");
+        return false;
+     }
+
     document.pageForm.sr.value = sr;
     document.pageForm.nr.value = nr;
     document.pageForm.submit();
@@ -122,12 +115,28 @@ function next()
     document.pageForm.submit();
 }
 
-function next()
+function previous()
 {
     document.pageForm.sr.value -= document.pageForm.nr.value;
     document.pageForm.submit();
 }
 
+function clickColumn(n)
+{
+    if(n == <%= li.getSortColumn() %>) {
+        if ("asc".equalsIgnoreCase("<%= li.getSortDirection() %>") {
+            document.pageForm.sd.value = "desc";
+        }
+        else  {
+            document.pageForm.sd.value = "asc";
+        }
+    } else {
+        document.pageForm.sd.value = "asc";
+        document.pageForm.sc.value = n;
+    }
+    document.pageForm.submit();
+
+}
 // -->
 </script>
 
@@ -138,7 +147,7 @@ function next()
 <input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
 <input type="hidden" name="rd" value="<%= round.getRoundId() %>">
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoundOverview">
+<input type="hidden" name="module" value="HSRoundStatsTeam">
 </form>
 
 <div style="float:right; padding-left:10px;" align="right">
@@ -165,52 +174,48 @@ function next()
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
    <tr>
-      <td class="header"><A href="#">Team</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Coding Phase</td>
+      <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Challenge Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">System Tests</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point Total</td>
    </tr>
    <% boolean even = false; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">
-   <% //for (int i = sr - 1; i < (sr + nr -1) && teamResult.isValidRow(i); i++) {
-       even = !even;
+        <%   even = !even;  %>
+        <tr class="<%=even?"dark":"light"%>">
+          <td class="value">
+        <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
+              <rsc:item name="name" row="<%=resultRow%>"/>
+          </A>
+          </td>
+          <td class="valueR">
+              <rsc:item name="team_points" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR">
+              <rsc:item name="submission_points" row="<%=resultRow%>"/>
 
-   %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-    <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
-          <rsc:item name="name" row="<%=resultRow%>"/>
-      </A>
-      </td>
-      <td class="valueR">
-          <rsc:item name="team_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR">
-          <rsc:item name="submission_points" row="<%=resultRow%>"/>
-
-      </td>
-      <td class="valueR" colspan="2">
-          <rsc:item name="challenge_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR" colspan="2">
-          <rsc:item name="system_test_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR" colspan="2">
-          <rsc:item name="final_points" row="<%=resultRow%>"/>
-      </td>
-   </tr>
+          </td>
+          <td class="valueR" colspan="2">
+              <rsc:item name="challenge_points" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR" colspan="2">
+              <rsc:item name="system_test_points" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR" colspan="2">
+              <rsc:item name="final_points" row="<%=resultRow%>"/>
+          </td>
+       </tr>
     </rsc:iterator>
 </table>
 
 <div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 <br>
 <form name="rowsForm" method="get" action ="/tc">
 View &nbsp;
@@ -218,7 +223,7 @@ View &nbsp;
 &nbsp;at a time starting with &nbsp;
 
 <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
-<a href="javascript:showRows(rowsForm.sr.value, rowsForm.er.value);" class="bcLink">&nbsp;[ submit ]</a>
+<a href="javascript:showRows(rowsForm.sr.value, rowsForm.nr.value);" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 </div>
 </td>

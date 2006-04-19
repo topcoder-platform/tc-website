@@ -70,7 +70,7 @@ public class ListInfo {
      * @param defaultSortDirection
      */
     public ListInfo(TCRequest req, int defaultStartRow, int defaultRowCount, int defaultSortColumn, String defaultSortDirection) {
-        startRow = parseInt(req.getParameter(DataAccessConstants.START_RANK), defaultStartRow);
+        startRow = parseInt(req.getParameter(DataAccessConstants.START_RANK), defaultStartRow) - 1;
         
         int nr = parseInt(req.getParameter(DataAccessConstants.NUMBER_RECORDS), defaultRowCount);
         endRow = startRow + nr;
