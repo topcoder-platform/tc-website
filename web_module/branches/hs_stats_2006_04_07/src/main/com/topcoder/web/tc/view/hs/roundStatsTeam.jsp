@@ -120,7 +120,7 @@ function submitForm(){
       <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
    </tr>
    <% boolean even = false; %>
-   <% for (int i = sr - 1; i < (sr + nr) && teamResult.isValidRow(i); i++) {
+   <% for (int i = sr - 1; i < (sr + nr -1) && teamResult.isValidRow(i); i++) {
        even = !even;
 
    %>
