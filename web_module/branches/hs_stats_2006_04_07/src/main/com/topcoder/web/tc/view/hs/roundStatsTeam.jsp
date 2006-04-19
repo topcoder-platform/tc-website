@@ -111,13 +111,19 @@ function showRows(sr, nr)
 
 function next()
 {
-    document.pageForm.sr.value = parseInt(document.pageForm.sr.value) + parseInt(document.pageForm.nr.value);
+    var n = parseInt(document.pageForm.sr.value) + parseInt(document.pageForm.nr.value);
+    if (n < 1) n = 1;
+
+    document.pageForm.sr.value = n;
     document.pageForm.submit();
 }
 
 function previous()
 {
-    document.pageForm.sr.value = parseInt(document.pageForm.sr.value) - parseInt(document.pageForm.nr.value);
+    var n = parseInt(document.pageForm.sr.value) - parseInt(document.pageForm.nr.value);
+    if (n > <%= teamResult.getRowCount() %> ) n = <%= teamResult.getRowCount() %>;
+
+    document.pageForm.sr.value = n;
     document.pageForm.submit();
 }
 
