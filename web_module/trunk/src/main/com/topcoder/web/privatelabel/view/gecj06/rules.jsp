@@ -48,9 +48,9 @@
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google&#153; Code Jam Europe 2006 is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s lives. The goal of this contest is to encourage and reward the top talents in computer science in Europe. The Code Jam Europe will take place between May 1, 2006 and June 22, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round. The top 250 scores from Round 2 will receive a Google Code Jam Europe t-shirt. In addition, Google will award XXXXX in cash and prizes to the 50 finalists in the tournament.<br><br>
+The Google&#153; Code Jam Europe 2006 is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s lives. The goal of this contest is to encourage and reward the top talents in computer science in Europe. The Code Jam Europe will take place between May 1, 2006 and June 22, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round. The top 250 scores from Round 2 will receive a Google Code Jam Europe t-shirt. In addition, Google will award &#8364;30,000 in cash and prizes to the 50 finalists in the tournament.<br><br>
 <b>Eligibility</b><br>
-All individuals who are legal residents of Europe (Albania, Andorra, Austria, Belarus, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Macedonia, Malta, Moldova, Monaco, Netherlands, Norway, Poland, Portugal, Romania, Russia, San Marino, Serbia and Montenegro, Slovakia (Slovak Republic), Slovenia, Spain, Sweden, Switzerland, Ukraine, United Kingdom, and Vatican City) may register and compete in the Google Code Jam Europe 2006, provided they physically reside in an eligible country from May 1 through June 22, 2006.
+All individuals who are legal residents of <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blreurope.htm">Europe</a>, <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrafrica.htm">Africa</a> and the <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrmideast.htm">Middle East</a> may register and compete in the Google Code Jam Europe 2006 provided they physically reside in an eligible country from May 1 through June 22, 2006.
 <br><br>
 Registrants who are 18 years of age or older as of May 23, 2006 are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam Europe 2006 is void where prohibited by applicable law.
 <br><br>
@@ -187,46 +187,32 @@ The top 250 scores from Round 2 will receive a "Google Code Jam Europe" t-shirt.
 <table width="250" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
 <tr valign="top">
 <td class="sidebarTitle">Competitor(s)</td>
-<td class="sidebarTitle">Prize</td>
+<td class="sidebarTitle">Prize*</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
-<td class="sidebarText"><b>&#160;</b></td>
+<td class="sidebarText"><b>&#8364;2,500</b></td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">2nd Place</td>
-<td class="sidebarText">&#160;</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap="nowrap">3rd Place</td>
-<td class="sidebarText">&#160;</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap="nowrap">4th Place</td>
-<td class="sidebarText">&#160;</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap="nowrap">5th Place</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText" nowrap="nowrap">2nd - 5th Place </td>
+<td class="sidebarText">&#8364;1,000</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap">6th – 10th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText">&#8364;750</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap="nowrap">11th – 20th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText">&#8364;500</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">21st – 25th</td>
-<td class="sidebarText">&#160;</td>
+<td class="sidebarText" nowrap="nowrap">21st – 50th</td>
+<td class="sidebarText">&#8364;150</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">26th – 50th</td>
-<td class="sidebarText">&#160;</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap="nowrap" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
+<td class="sidebarText" colspan="2">The Top 50 finishers will also receive a personal listening device.<br>
+* Winners must be present at the onsite round to receive prize.
+</td>
 </tr>
 </table>
 <br>
