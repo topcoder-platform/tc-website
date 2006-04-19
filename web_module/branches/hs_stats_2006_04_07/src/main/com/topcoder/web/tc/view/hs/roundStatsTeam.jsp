@@ -124,7 +124,7 @@ function previous()
 function clickColumn(n)
 {
     if(n == <%= li.getSortColumn() %>) {
-        if ("asc".equalsIgnoreCase("<%= li.getSortDirection() %>") {
+        if ("asc".equalsIgnoreCase("<%= li.getSortDirection() %>")) {
             document.pageForm.sd.value = "desc";
         }
         else  {
