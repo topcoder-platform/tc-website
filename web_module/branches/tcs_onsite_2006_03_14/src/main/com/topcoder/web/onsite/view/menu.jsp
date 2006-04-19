@@ -16,7 +16,7 @@
 
 <html>
 <head>
-<title>TopCoder | Wager | Menu</title>
+<title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCO06style.css"/>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
 </head>
@@ -33,7 +33,7 @@
    <span class="bigTitle">Component Competition Wager System</span>
    <br><br>
    
-   <table width="300" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+   <table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
       <tr>
          <td class="sidebarTitle">
             <% if (!sessionInfo.isAnonymous()) { %>
@@ -49,7 +49,7 @@
          </td>
       </tr>
       <tr>
-         <td class="sidebarText" align="center">
+         <td class="sidebarText" align="center" style="padding:20px;">
             <span class="bigTitle">
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions</a>
             </span>

@@ -49,24 +49,24 @@
     <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
         <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
-            <table border="0" cellpadding="3" cellspacing="0">
+            <table border="0" cellpadding="3" cellspacing="0" class="bodyText">
                 <tr valign="top">
-                    <td class="errorText" colspan="3">
+                    <td class="bodyText" colspan="3" align="center">
                         <span class="bigRed"><%= message %></span>
                     </td>
                 </tr>
                 <tr valign="middle">
-                    <td nowrap class="bodyText" align="right">Handle:</td>
+                    <td align="right">Handle:</td>
                     <td colspan="2" align="left">
                         <input type="text" name="<%=Constants.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                      </td>
                 </tr>
                 <tr valign="middle">
-                    <td nowrap class="bodyText" align="right">Password:</td>
+                    <td align="right" width="50%">Password:</td>
                     <td align="left">
                         <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                     </td>
-                    <td nowrap class="bodyText">
+                    <td width="50%">
                         &#160;&#160;<a href="JavaScript:document.frmLogin.submit()">Login&#160;&gt;</a>
                     </td>
                 </tr>

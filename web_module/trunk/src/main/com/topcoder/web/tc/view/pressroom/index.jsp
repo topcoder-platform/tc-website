@@ -814,10 +814,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%--  Javaone --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_05_02_05"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_050205"><img src="/i/pressroom/javaone_event.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_05_02_05">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_050205">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</A></strong></font><br />
                         TopCoder today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW) to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco.<span class="prHead"> [May 2]</span></p>
                     </td>
                 </tr>
@@ -829,10 +829,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=art_04_08_05"><img src="/i/pressroom/che_logo.gif" alt="Chronicle of Higher Education" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_04_08_05"><img src="/i/pressroom/che_logo.gif" alt="Chronicle of Higher Education" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=art_04_08_05">Code Warriors</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_04_08_05">Code Warriors</A></strong></font><br />
                      Young computer programmers battle for fame, money, and the love of algorithms<span class="prHead"> [April 8 - Chronicle of Higher Education]</span></p>
                     </td>
                 </tr>
@@ -844,10 +844,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=art_04_22_05"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_04_22_05"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_04_22_05">How Google Searches - For Talent</A></strong></font><br />
                      "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."<span class="prHead">[April 22 - BusinessWeek]</span></p>
                     </td>
                 </tr>
@@ -919,10 +919,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=pr_03_14_05a"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_031405a"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_03_14_05a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_031405a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></strong></font><br />
                         TopCoder today announced that Mathijs Vogelzang of the University of Groningen, The Netherlands, Adrian Nicolae Carcu of  the Babes-Bolyai Computer Science University, Romania, and Gary Linscott of Queens University, Canada have won the Algorithm, Design and Development Component tournaments of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!<span class="prHead"> [March 14]</span></p>
                     </td>
                 </tr>
@@ -934,10 +934,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=pr_03_14_05b"><img src="/i/pressroom/logiclib_logo.gif" alt="Logic Library" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_031405b"><img src="/i/pressroom/logiclib_logo.gif" alt="Logic Library" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_03_14_05b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_031405b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></strong></font><br />
                         "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."<span class="prHead"> [March 14]</span></p>
                     </td>
                 </tr>
@@ -949,10 +949,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=art_02_13_05"><img src="/i/pressroom/nw_polska_logo.gif" alt="NewsWeek Poland" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_02_13_05"><img src="/i/pressroom/nw_polska_logo.gif" alt="NewsWeek Poland" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=art_02_13_05">Program for life</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_02_13_05">Program for life</A></strong></font><br />
                         They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.<span class="prHead"> [February 13 - NewsWeek Poland]</span></p>
                     </td>
                 </tr>
@@ -964,10 +964,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=pr_02_22_05"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_022205"><img src="/i/pressroom/tccc05_logo.gif" alt="TCCC05" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_022205">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></strong></font><br />
                         TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!<span class="prHead"> [February 22]</span></p>
                     </td>
                 </tr>
@@ -978,10 +978,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%-- NVIDIA TCCC--%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_02_16_05"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_021605"><img src="/i/pressroom/nvidia_badge.gif" alt="nvidia" width="135" height="117" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_02_16_05">NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_021605">NVIDIA Corporation Returns as Premier Sponsor of 2005 TopCoder&#174; Collegiate Challenge</A></strong></font><br />
                         TopCoder announced NVIDIA Corporation (Nasdaq: NVDA), a worldwide leader in graphics and digital media processors, as Premier sponsor of its 2005 TopCoder Collegiate Challenge (TCCC 05).<span class="prHead"> [February 16]</span></p>
                     </td>
                 </tr>
@@ -992,10 +992,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%-- Devloper Subscriptions --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_02_15_05"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_021505"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_02_15_05">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_021505">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</A></strong></font><br />
                         TopCoder Software today announced TopCoder Software is providing individual member developers free subscriptions to its full catalog of software components.<span class="prHead"> [February 15]</span></p>
                     </td>
                 </tr>
@@ -1006,10 +1006,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%-- GICJ05 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_02_09_05"><img src="/i/pressroom/gicj05_logo.gif" alt="" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_020905"><img src="/i/pressroom/gicj05_logo.gif" alt="" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_02_09_05">Google Code Jam Comes to India</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_020905">Google Code Jam Comes to India</A></strong></font><br />
                         The Google India Code Jam is an extension of Google's annual Code Jam competition and celebrates the art of computer science, demonstrating to software professionals everywhere the value Google places on excellent coding. <span class="prHead"> [February 9]</span></p>
                     </td>
                 </tr>
@@ -1020,10 +1020,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%-- 50,000 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_02_07_05"><img src="/i/pressroom/50k_promo.gif" alt="" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_020705"><img src="/i/pressroom/50k_promo.gif" alt="" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_020705">TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark</A></strong></font><br />
                         In less than four years since the organization's inception, TopCoder programming tournaments have awarded more than $2 million in prize money to some of the best collegiate and professional programmers from 187 countries around the globe. <span class="prHead"> [February 7]</span></p>
                     </td>
                 </tr>
@@ -1050,10 +1050,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=art_02_01_05"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_02_01_05"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=art_02_01_05">DE-CODER: The kings of coding</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_02_01_05">DE-CODER: The kings of coding</A></strong></font><br />
                         "Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.<span class="prHead"> [February 1 - ADT]</span></p>
                     </td>
                 </tr>
@@ -1064,10 +1064,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <%-- CRPF --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&t=news_events&c=pr_01_25_05"><img src="/i/pressroom/crpf_logo.gif" alt="" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_012505"><img src="/i/pressroom/crpf_logo.gif" alt="" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_01_25_05">TCS Delivers for International Consortium of Spinal Cord Injury Researchers</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_012505">TCS Delivers for International Consortium of Spinal Cord Injury Researchers</A></strong></font><br />
                         TopCoder today announced it has successfully deployed a high-quality, web-based application to disseminate critical microarray data between the Christopher Reeve Paralysis Foundation's (CRPF) Research Consortium on Spinal Cord Injury and the general scientific community. <span class="prHead"> [January 25]</span></p>
                     </td>
                 </tr>
@@ -1079,10 +1079,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/?&t=news_events&c=pr_01_18_05"><img src="/i/pressroom/motorola_logo.gif" alt="Motorola" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_011805"><img src="/i/pressroom/motorola_logo.gif" alt="Motorola" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&t=news_events&c=pr_01_18_05">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_011805">TopCoder&#174; Announces Motorola as Premier Sponsor of 2005 TopCoder Collegiate Challenge</A></strong></font><br />
                         TopCoder today announced Motorola, Inc., (NYSE: MOT), a global leader in wireless, broadband and automotive communications technologies, as a premier sponsor for its 2005 TopCoder Collegiate Challenge (TCCC 05).  <span class="prHead">[January 18]</span></p>
                     </td>
                 </tr>
