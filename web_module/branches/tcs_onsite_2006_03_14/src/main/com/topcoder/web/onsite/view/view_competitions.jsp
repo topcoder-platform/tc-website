@@ -12,8 +12,8 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  int minWagerAmount = ((Integer)request.getAttribute(Constants.MIN_WAGER_AMOUNT_KEY)).intValue();
-  int maxWagerAmount = ((Integer)request.getAttribute(Constants.MAX_WAGER_AMOUNT_KEY)).intValue();
+  String minWagerAmount = (String)request.getAttribute(Constants.MIN_WAGER_AMOUNT_KEY);
+  String maxWagerAmount = (String)request.getAttribute(Constants.MAX_WAGER_AMOUNT_KEY);
 %>
 
 <html>
