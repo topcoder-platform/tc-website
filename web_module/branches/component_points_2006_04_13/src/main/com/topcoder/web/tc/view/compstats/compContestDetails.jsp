@@ -182,6 +182,8 @@
             <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">Initial Points</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">Final Points</TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
         </tr>
         <tr>
@@ -238,9 +240,13 @@
 
 
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="000"
                                                             ifNull="unknown*"/></TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="000"
+                                                               ifNull="unknown*"/></b></TD>
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_points" format="000"
+                                                            ifNull="unknown*"/></TD>
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points" format="000"
                                                                ifNull="unknown*"/></b></TD>
                 <% if(reviewers.isEmpty()) { %>
                     <TD class="<%=even?"statLt":"statDk"%>" align="center">
