@@ -19,6 +19,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import java.util.Map;
+import com.topcoder.web.onsite.controller.request.WagerHelper;
 
 /**
  * <strong>Purpose</strong>:
@@ -54,9 +55,9 @@ public class SubmitWager extends BaseProcessor {
      *
      * @return a Map with the retrieved ResultSetContainers.
      */
-    private Map getValidationData(long userId) throws Exception {
+    private Map getContestsData(long userId) throws Exception {
         Request request = new Request();
-        request.setContentHandle(Constants.WAGER_SUBMITION_VALIDATION_COMMAND);
+        request.setContentHandle(Constants.ACTUAL_CONTESTS_COMMAND);
         request.setProperty(Constants.USER_ID, String.valueOf(userId));
         DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
@@ -96,45 +97,27 @@ public class SubmitWager extends BaseProcessor {
 
         log.debug("Wager amount: " + wagerAmount);
         
-        // Minimum wager amount validation
-        if (wagerAmount < Constants.MIN_WAGER_AMOUNT) {
-            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
-                "The wager amount cannot be lower than " + Constants.MIN_WAGER_AMOUNT + ".");
-            return;
-        }        
-
-        Map m = getValidationData(getUser().getId());
+        Map m = getContestsData(getUser().getId());
         ResultSetContainer comp = (ResultSetContainer) m.get(
             Constants.ACTUAL_TCO_CONTESTS_QUERY);
             
-            
-        int remainingCompetitions = ((ResultSetContainer) m.get(
-            Constants.REMAINING_TCO_CONTESTS_QUERY)).getIntItem(0, "remaining_contests");
-
         // Validates that the project is current and allowed to wager on
         if (comp.size() == 0 || projectId != comp.getLongItem(0, "project_id")) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 "You do not have permission to wager on the selected project.");
             return;
         }
-        
-        Object usedPoints = ((ResultSetContainer) m.get(
-            Constants.USED_WAGER_POINTS_QUERY)).getItem(0, "used_points").getResultData();
-        
-        int remainingPoints = Constants.TOTAL_WAGER_POINTS;
-        if (usedPoints != null) {
-            remainingPoints = remainingPoints - ((Number) usedPoints).intValue();
-        }
- 
-        // With the remaining competitions, used points and maximum wager amount constraint, calculates the real
-        // maximum valid wager amount
-        int maxWagerAmount = remainingPoints - ((remainingCompetitions - 1) * Constants.MIN_WAGER_AMOUNT);
-        maxWagerAmount = maxWagerAmount < Constants.MAX_WAGER_AMOUNT ? maxWagerAmount : Constants.MAX_WAGER_AMOUNT;
-        
-        log.debug("Remaining competitions: " + remainingCompetitions);
-        log.debug("Remaining points: " + remainingPoints);
-        log.debug("Max wager amount allowed: " + maxWagerAmount);
-        
+
+        // Minimum wager amount validation
+        int minWagerAmount = WagerHelper.getMinWagerAmount();
+        if (wagerAmount < minWagerAmount) {
+            getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
+                "The wager amount cannot be lower than " + minWagerAmount + ".");
+            return;
+        }        
+
+        // Maximum wager amount validation
+        int maxWagerAmount = WagerHelper.getMaxWagerAmount(getUser().getId());
         if (wagerAmount > maxWagerAmount) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, 
                 "The wager amount cannot be greater than " + maxWagerAmount + ".");

@@ -15,6 +15,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
+import com.topcoder.web.onsite.controller.request.WagerHelper;
 
 /**
  * <strong>Purpose</strong>:
@@ -64,6 +65,9 @@ public class ViewCompetitions extends BaseProcessor {
 
         getRequest().setAttribute(Constants.CURRENT_COMPETITION_RESULT_KEY, m.get(Constants.ACTUAL_TCO_CONTESTS_QUERY));        
         getRequest().setAttribute(Constants.WAGER_HISTORY_KEY, m.get(Constants.WAGER_HISTORY_QUERY));        
+        getRequest().setAttribute(Constants.MIN_WAGER_AMOUNT_KEY, String.valueOf(WagerHelper.getMinWagerAmount()));
+        getRequest().setAttribute(Constants.MAX_WAGER_AMOUNT_KEY, 
+            String.valueOf(WagerHelper.getMaxWagerAmount(getUser().getId())));
         
         if (currentComp != null && currentComp.size() > 0) {
             setDefault(Constants.PROJECT_ID_KEY, currentComp.getStringItem(0, "project_id"));

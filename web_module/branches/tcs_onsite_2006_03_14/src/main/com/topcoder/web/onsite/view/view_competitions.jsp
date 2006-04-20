@@ -12,8 +12,8 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  String message = (String)request.getAttribute("message");
-  if(message==null) message = "";
+  int minWagerAmount = (int)request.getAttribute(Constants.MIN_WAGER_AMOUNT_KEY);
+  int maxWagerAmount = (int)request.getAttribute(Constants.MAX_WAGER_AMOUNT_KEY);
 %>
 
 <html>
@@ -81,7 +81,7 @@
                <strong>
                <rsc:item set="<%=currentCompetitions%>" name="contest_name"/>
                </strong><br>
-               You may wager between <strong>0</strong> and <strong>35</strong>
+               You may wager between <strong><%=minWagerAmount%></strong> and <strong><%=maxWagerAmount%></strong>
               <form method="post" name="frmWager" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
                   <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID_KEY%>"/>
                   <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>"/>

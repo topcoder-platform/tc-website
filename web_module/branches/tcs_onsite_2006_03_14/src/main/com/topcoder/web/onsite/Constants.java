@@ -40,6 +40,8 @@ public class Constants implements WebConstants {
     public static String CURRENT_COMPETITION_RESULT_KEY;
     public static String WAGER_HISTORY_KEY;
     public static String WAGER_AMOUNT_KEY;
+    public static String MIN_WAGER_AMOUNT_KEY;
+    public static String MAX_WAGER_AMOUNT_KEY;
     
     /* misc constants */
     public static int MIN_WAGER_AMOUNT;
@@ -51,6 +53,7 @@ public class Constants implements WebConstants {
     public static String WAGER_SUBMITION_VALIDATION_COMMAND;
     public static String COMPONENT_ROUND_INFO_COMMAND;
     public static String COMPONENT_UPDATE_COMMAND;
+    public static String ACTUAL_CONTESTS_COMMAND;
 
     /* queries */
     public static String ACTUAL_TCO_CONTESTS_QUERY;
