@@ -5,7 +5,7 @@
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gecj06.css"/>
-    <title>Google Code Jam Europe, Powered by TopCoder</title>
+    <title>Google Code Jam Europe 2006, Powered by TopCoder</title>
 </head>
 
 <body>
