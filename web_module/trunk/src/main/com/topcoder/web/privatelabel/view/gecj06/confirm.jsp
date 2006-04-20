@@ -39,7 +39,7 @@ function submitEnter(e) {
         <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td width="49%"></td>
-                <td valign="bottom" align="center"><img border="0" src="/i/events/gecj06/logo_CodeJam.gif" alt="Google Code Jam Europe logo"></td>
+                <td valign="bottom" align="center"><img border="0" src="/i/events/gecj06/logo_CodeJamEurope.gif" alt="Google Code Jam Europe logo"></td>
                 <td width="49%"></td>
             </tr>
         </table>
