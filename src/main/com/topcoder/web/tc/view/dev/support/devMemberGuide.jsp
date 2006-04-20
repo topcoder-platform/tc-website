@@ -24,7 +24,7 @@
         <td width="180">
 
 <jsp:include page="/includes/global_left.jsp">
-<jsp:param name="node" value="des_documentation"/>
+<jsp:param name="node" value="dev_documentation"/>
 </jsp:include>
         </td>
 <!-- Left Column Ends -->
