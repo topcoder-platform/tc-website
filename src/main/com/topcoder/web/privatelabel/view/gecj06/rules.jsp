@@ -52,7 +52,7 @@ The Google&#153; Code Jam Europe 2006 is being offered by Google, Inc. ("Google"
 <b>Eligibility</b><br>
 All individuals who are legal residents of <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blreurope.htm">Europe</a>, <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrafrica.htm">Africa</a> and the <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrmideast.htm">Middle East</a> may register and compete in the Google Code Jam Europe 2006 provided they physically reside in an eligible country from May 1 through June 22, 2006.
 <br><br>
-Registrants who are 18 years of age or older as of May 23, 2006 are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam Europe 2006 is void where prohibited by applicable law.
+Registrants who are 18 years of age or older as of May 23, 2006 are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam Europe 2006 is void where prohibited by applicable law. Prizes, including t-shirts, will not be paid to residents of Iran, Iraq, Libya, Sudan, or Syria.
 <br><br>
 Full and part-time employees of Google and TopCoder, as well as those who are performing internships at Google from May 1 through June 22, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
