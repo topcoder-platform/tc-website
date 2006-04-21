@@ -59,13 +59,11 @@
       Team ACCTiVe
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="11845638" /> (Team Captain)
       <br><tc-webtag:handle coderId="21464942" />
       <br><tc-webtag:handle coderId="11928943" />
       <br><tc-webtag:handle coderId="13251393" />
       <br><tc-webtag:handle coderId="21465175" />
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       75.00
@@ -86,12 +84,10 @@
       Dragon Team
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="9977783" /> (Team Captain)
       <br><tc-webtag:handle coderId="8395447" />
       <br><tc-webtag:handle coderId="10683912" />
       <br><tc-webtag:handle coderId="21389119" />
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       &#160;

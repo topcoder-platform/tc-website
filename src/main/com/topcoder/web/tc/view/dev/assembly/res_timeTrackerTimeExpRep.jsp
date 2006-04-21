@@ -59,10 +59,8 @@
       Team Chinese Box
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="16096823" /> (Team Captain)
       <br><tc-webtag:handle coderId="20543575" />
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       95.83
@@ -83,10 +81,8 @@
       Apeiron Team
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="15891862" /> (Team Captain)
       <br><tc-webtag:handle coderId="20003257" />
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       84.17
@@ -107,13 +103,11 @@
       Team ACCTiVe
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="11845638" /> (Team Captain)
       <br><tc-webtag:handle coderId="21464942" />
       <br><tc-webtag:handle coderId="11928943" />
       <br><tc-webtag:handle coderId="13251393" />
       <br><tc-webtag:handle coderId="21465175" />
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       &#160;
@@ -128,9 +122,7 @@
       Team V
       </td>
       <td class="value">
-<%--
       <tc-webtag:handle coderId="15729786" /> (Team Captain)
---%>
       </td>
       <td class="valueR" nowrap="nowrap">
       &#160;
