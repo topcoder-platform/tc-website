@@ -59,7 +59,7 @@
 --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerTimeExpRep">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_timeTrackerTimeExpRep">results</A>
       </td>
       <td class="valueC">
       4
@@ -90,7 +90,7 @@
 --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_timeTrackerAdminTime">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_timeTrackerAdminTime">results</A>
       </td>
       <td class="valueC">
       5
