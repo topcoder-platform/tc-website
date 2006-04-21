@@ -198,7 +198,7 @@ z-index: 2;
       <rsc:item name="submission_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR" colspan="2">
-      <rsc:item name="challenge_points" row="<%=resultRow%>"/>
+      <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR" colspan="2">
       <rsc:item name="system_test_points" row="<%=resultRow%>"/>

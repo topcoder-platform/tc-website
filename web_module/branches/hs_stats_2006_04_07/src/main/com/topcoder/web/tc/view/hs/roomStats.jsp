@@ -191,7 +191,7 @@ z-index: 2;
    </tr>
 
    <% boolean even = false; %>
-   <rsc:iterator list="<%= result%>" id="resultRow">
+   <rsc:iterator list="<%= roomResult%>" id="resultRow">
    <%   even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" style="vertical-align: middle;">
