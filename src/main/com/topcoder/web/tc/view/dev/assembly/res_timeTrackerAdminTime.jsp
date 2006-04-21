@@ -40,11 +40,18 @@
 <span class="subtitle">Contest: Time Tracker Admin and Time Approval</span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Assembly Contest Results</td></tr>
+   <tr><td class="title" colspan="6">Assembly Contest Results</td></tr>
    <tr>
-      <td class="header" width="50%" nowrap="nowrap">Team</td>
+      <td class="header" colspan="3">&#160;</td>
+      <td class="headerC" colspan="3">Reviewers</td>
+   </tr>
+   <tr>
+      <td class="header" width="50%">Team</td>
       <td class="header" width="50%" nowrap="nowrap">Team Members</td>
-      <td class="headerR" nowrap="nowrap">Score</td>
+      <td class="header" nowrap="nowrap">Final Score</td>
+      <td class="headerC"><tc-webtag:handle coderId="8544935" /></td>
+      <td class="headerC"><tc-webtag:handle coderId="11781622" /></td>
+      <td class="headerC"><tc-webtag:handle coderId="10336829" /></td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -61,7 +68,16 @@
 --%>
       </td>
       <td class="valueR" nowrap="nowrap">
-      <A href="">75.00</A>
+      75.00
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerAdminTime_acctive_1">69.25</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerAdminTime_acctive_2">75.50</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerAdminTime_acctive_3">80.25</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -77,7 +93,10 @@
       <br><tc-webtag:handle coderId="21389119" />
 --%>
       </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
@@ -92,7 +111,10 @@
       <br><tc-webtag:handle coderId="15247202" />
 --%>
       </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
@@ -107,7 +129,10 @@
       <br><tc-webtag:handle coderId="10697776" />
 --%>
       </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
@@ -122,7 +147,10 @@
       <br><tc-webtag:handle coderId="21491618" />
 --%>
       </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
