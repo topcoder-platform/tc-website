@@ -118,8 +118,16 @@ function AllowTabCharacter() {
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-   <tr>
-       <td class="rtbc">
+<tr>
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <jsp:include page="searchHeader.jsp" />
+   </td>
+</tr>
+
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
             <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
        </tc-webtag:iterator>
@@ -128,7 +136,7 @@ function AllowTabCharacter() {
                > <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
             <%   } %>
             > <%=postHeading%>
-       </td>
+       </b></td>
        <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
    </tr>
 </table>
