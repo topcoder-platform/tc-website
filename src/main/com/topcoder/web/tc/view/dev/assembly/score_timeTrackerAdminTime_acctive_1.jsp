@@ -34,7 +34,7 @@
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Results"/>
+<jsp:param name="title" value="Scorecard"/>
 </jsp:include>
 
 <span class="subtitle">Contest: Time Tracker Admin and Time Approval</span><br>
@@ -44,7 +44,7 @@ Reviewer: <tc-webtag:handle coderId="8544935" />
 </strong>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8">Assembly Contest Results</td></tr>
+   <tr><td class="title" colspan="8">Assembly Contest Scorecard</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="headerC">Weight</td>

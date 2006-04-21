@@ -59,7 +59,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerClientAdmin">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerClientAdmin">results</A>
       </td>
       <td class="valueC">
       7
@@ -86,7 +86,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerExpenseUser">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerExpenseUser">results</A>
       </td>
       <td class="valueC">
       9
@@ -113,7 +113,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerPerformanceGUI">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerPerformanceGUI">results</A>
       </td>
       <td class="valueC">
       8
@@ -140,7 +140,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerProjectAdmin">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerProjectAdmin">results</A>
       </td>
       <td class="valueC">
       9
@@ -167,7 +167,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerReports">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerReports">results</A>
       </td>
       <td class="valueC">
       4
@@ -194,7 +194,7 @@
       --%>
       </td>
       <td class="valueC">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_timeTrackerTime">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_timeTrackerTime">results</A>
       </td>
       <td class="valueC">
       7
