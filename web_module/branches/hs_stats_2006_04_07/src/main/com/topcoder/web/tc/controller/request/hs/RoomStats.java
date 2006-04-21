@@ -4,8 +4,9 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.Equals;
+import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -15,7 +16,19 @@ import com.topcoder.web.tc.Constants;
  */
 public class RoomStats extends Base { 
 
-    
+    class RoomFilter implements ResultFilter {
+
+        private int room;
+        
+        public RoomFilter(int room) {
+            this.room = room;
+        }
+        
+        public boolean include(ResultSetRow rsr) {        
+            return rsr.getIntItem("room_id") == room;
+        }
+        
+    }
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
@@ -44,7 +57,7 @@ public class RoomStats extends Base {
             
             fillRoundAndSeasonNames (round, result);
 
-            ResultSetContainer roomResult = new ResultSetContainer(indResult, new Equals(rm + "", "room_id"));
+            ResultSetContainer roomResult = new ResultSetContainer(indResult, new RoomFilter(rm));
             result.put("room_result", roomResult);
             
             sortAndCrop(result, "room_result", li);                        
