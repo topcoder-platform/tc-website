@@ -67,7 +67,7 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Search</span><br><br>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Search</span><br><br>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
     <td nowrap="nowrap" valign="top">
