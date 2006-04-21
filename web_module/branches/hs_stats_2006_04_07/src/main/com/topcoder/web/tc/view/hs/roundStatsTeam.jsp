@@ -191,7 +191,7 @@ function clickColumn(n)
 | <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="17">High School Single Round Match 1 > Team Results</td></tr>
+   <tr><td class="title" colspan="17"><%= round.getRoundName() %> > Team Results</td></tr>
    <tr>
       <td class="header"><A href="javascript:clickColumn(1)">Team</A></td>
       <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Placement Points</td>

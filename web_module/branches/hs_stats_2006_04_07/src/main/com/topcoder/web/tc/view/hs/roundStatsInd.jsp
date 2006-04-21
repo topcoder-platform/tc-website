@@ -78,6 +78,19 @@ function popHide(){
 }
 // -->
 </script>
+
+<form name="pageForm" method="get" action ="/tc">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundStatsInd">
+</form>
+
+<form name="seasonForm" method="get" action ="/tc">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundStatsInd">
+</form>
+
+
 <STYLE TYPE="text/css">
 #popBox{ position: relative; }
 #popBox div
@@ -142,7 +155,7 @@ z-index: 2;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="10">High School Single Round Match 1 > Individual Results</td></tr>
+   <tr><td class="title" colspan="10"><%= round.getRoundName() %> > Individual Results</td></tr>
    <tr>
       <td class="header" colspan="2"><A href="#">Coder</A></td>
       <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
