@@ -105,6 +105,7 @@ class SpectatorMessagesHelper {
                 // int casting must be done due to compatibility issues with the front-end.
                 appealsList.add(new ComponentAppeal(
                     (int) contestId, (int) roundId, componentId, 
+                    rsr.getLongItem("appeal_id"), 
                     (int) rsr.getLongItem("user_id"), 
                     (int) rsr.getLongItem("author_id"),
                     appealStatus));
