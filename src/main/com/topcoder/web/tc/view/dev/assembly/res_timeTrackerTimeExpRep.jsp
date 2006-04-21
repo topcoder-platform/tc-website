@@ -30,33 +30,50 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyColumn">
+<td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="assembly"/>
-<jsp:param name="title" value="Standings"/>
+<jsp:param name="title" value="Results"/>
 </jsp:include>
 
+<span class="subtitle">Contest: Time Tracker Time, Expense and Reporting</span>
+<br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Assembly Contest Standings</td></tr>
+   <tr><td class="title" colspan="3">Assembly Contest Results</td></tr>
    <tr>
       <td class="header" width="50%" nowrap="nowrap">Team</td>
       <td class="header" width="50%" nowrap="nowrap">Team Members</td>
-      <td class="headerC" nowrap="nowrap">Status</td>
+      <td class="headerR" nowrap="nowrap">Score</td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      Dragon Team
+      Team Chinese Box
       </td>
       <td class="value">
-      <tc-webtag:handle coderId="9977783" /> (Team Captain)
-      <br><tc-webtag:handle coderId="8395447" />
-      <br><tc-webtag:handle coderId="10683912" />
-      <br><tc-webtag:handle coderId="21389119" />
+<%--
+      <tc-webtag:handle coderId="16096823" /> (Team Captain)
+      <br><tc-webtag:handle coderId="20543575" />
+--%>
       </td>
-      <td class="valueC" nowrap="nowrap">
-      No submission
+      <td class="valueR" nowrap="nowrap">
+      <A href="">95.83</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Apeiron Team
+      </td>
+      <td class="value">
+<%--
+      <tc-webtag:handle coderId="15891862" /> (Team Captain)
+      <br><tc-webtag:handle coderId="20003257" />
+--%>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="">84.17</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -65,52 +82,29 @@
       Team ACCTiVe
       </td>
       <td class="value">
+<%--
       <tc-webtag:handle coderId="11845638" /> (Team Captain)
       <br><tc-webtag:handle coderId="21464942" />
       <br><tc-webtag:handle coderId="11928943" />
       <br><tc-webtag:handle coderId="13251393" />
       <br><tc-webtag:handle coderId="21465175" />
+--%>
       </td>
-      <td class="valueC" nowrap="nowrap">
-      Submitted
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Team S
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="15222927" /> (Team Captain)
-      <br><tc-webtag:handle coderId="15247202" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
       No submission
       </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      Team M
+      Team V
       </td>
       <td class="value">
-      <tc-webtag:handle coderId="10697386" /> (Team Captain)
-      <br><tc-webtag:handle coderId="10697776" />
+<%--
+      <tc-webtag:handle coderId="15729786" /> (Team Captain)
+--%>
       </td>
-      <td class="valueC" nowrap="nowrap">
-      No submission
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Team PearlS
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="266149" /> (Team Captain)
-      <br><tc-webtag:handle coderId="21491618" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
+      <td class="valueR" nowrap="nowrap">
       No submission
       </td>
    </tr>
