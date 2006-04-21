@@ -37,9 +37,9 @@
 <jsp:param name="title" value="Scorecard"/>
 </jsp:include>
 
-<span class="subtitle">Contest: Time Tracker Admin and Time Approval</span><br>
+<span class="subtitle">Contest: Time Tracker Time, Expense and Reporting</span><br>
 <strong>
-Team: Team ACCTiVe<br>
+Team: Apeiron Team<br>
 Reviewer: <tc-webtag:handle coderId="10336829" />
 </strong>
 <br><br>
@@ -52,29 +52,28 @@ Reviewer: <tc-webtag:handle coderId="10336829" />
       <td class="headerC">Score</td>
    </tr>
 <% boolean even = false; %>
-
-<tr class="<%=even?"dark":"light"%>"><td class="value">API Development</td><td class="valueC">6.00</td><td class="valueC">3</td><td class="valueC">4.50</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">3</td><td class="valueC">4.50</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">3</td><td class="valueC">4.50</td></tr>
+<tr class="<%=even?"dark":"light"%>"><td class="value">API Development</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">API Implementation</td><td class="valueC">5.00</td><td class="valueC">4</td><td class="valueC">5.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">3.00</td><td class="valueC">4</td><td class="valueC">3.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Component Usage</td><td class="valueC">5.00</td><td class="valueC">4</td><td class="valueC">5.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">2.00</td><td class="valueC">4</td><td class="valueC">2.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Prototype Conversion</td><td class="valueC">6.00</td><td class="valueC">3</td><td class="valueC">4.50</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Prototype Conversion</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Exceptions</td><td class="valueC">5.00</td><td class="valueC">4</td><td class="valueC">5.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Code Review</td><td class="valueC">5.00</td><td class="valueC">3</td><td class="valueC">3.75</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Code Review</td><td class="valueC">5.00</td><td class="valueC">4</td><td class="valueC">5.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">2.00</td><td class="valueC">4</td><td class="valueC">2.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">2.00</td><td class="valueC">1</td><td class="valueC">0.50</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">2.00</td><td class="valueC">3</td><td class="valueC">1.50</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">5.00</td><td class="valueC">4</td><td class="valueC">5.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Test Cases</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">2</td><td class="valueC">3.00</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">3.00</td><td class="valueC">4</td><td class="valueC">3.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">3.00</td><td class="valueC">4</td><td class="valueC">3.00</td></tr>
 <% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">&#160;</td><td class="valueC">2.00</td><td class="valueC">4</td><td class="valueC">2.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Deployment Guide</td><td class="valueC">6.00</td><td class="valueC">2</td><td class="valueC">3.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Test Plan</td><td class="valueC">10.00</td><td class="valueC">2</td><td class="valueC">5.00</td></tr>
-<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value" colspan="3"><strong>Total Score:</strong></td><td class="valueC"><strong>80.25</strong></td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Deployment Guide</td><td class="valueC">6.00</td><td class="valueC">4</td><td class="valueC">6.00</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value">Test Plan</td><td class="valueC">10.00</td><td class="valueC">4</td><td class="valueC">10.00</td></tr>
+<% even = !even;%><tr class="<%=even?"dark":"light"%>"><td class="value" colspan="3"><strong>Total Score:</strong></td><td class="valueC"><strong>99.50</strong></td></tr>
 </table>
 </td>
 

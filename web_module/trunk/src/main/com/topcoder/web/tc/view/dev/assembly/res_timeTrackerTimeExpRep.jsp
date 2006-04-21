@@ -40,11 +40,18 @@
 <span class="subtitle">Contest: Time Tracker Time, Expense and Reporting</span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="3">Assembly Contest Results</td></tr>
+   <tr><td class="title" colspan="6">Assembly Contest Results</td></tr>
    <tr>
-      <td class="header" width="50%" nowrap="nowrap">Team</td>
+      <td class="header" colspan="3">&#160;</td>
+      <td class="headerC" colspan="3">Reviewers</td>
+   </tr>
+   <tr>
+      <td class="header" width="50%">Team</td>
       <td class="header" width="50%" nowrap="nowrap">Team Members</td>
-      <td class="headerR" nowrap="nowrap">Score</td>
+      <td class="header" nowrap="nowrap">Final Score</td>
+      <td class="headerC"><tc-webtag:handle coderId="8544935" /></td>
+      <td class="headerC"><tc-webtag:handle coderId="11781622" /></td>
+      <td class="headerC"><tc-webtag:handle coderId="10336829" /></td>
    </tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
@@ -58,7 +65,16 @@
 --%>
       </td>
       <td class="valueR" nowrap="nowrap">
-      <A href="">95.83</A>
+      95.83
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_zhbox_1">99.50</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_zhbox_2">88.50</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_zhbox_3">99.50</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -73,7 +89,16 @@
 --%>
       </td>
       <td class="valueR" nowrap="nowrap">
-      <A href="">84.17</A>
+      84.17
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_aperion_1">85.75</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_aperion_2">81.00</A>
+      </td>
+      <td class="valueR" nowrap="nowrap">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=score_timeTrackerTimeExpRep_aperion_3">85.75</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -91,6 +116,9 @@
 --%>
       </td>
       <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
@@ -105,6 +133,9 @@
 --%>
       </td>
       <td class="valueR" nowrap="nowrap">
+      &#160;
+      </td>
+      <td class="valueC" colspan="3" nowrap="nowrap">
       No submission
       </td>
    </tr>
