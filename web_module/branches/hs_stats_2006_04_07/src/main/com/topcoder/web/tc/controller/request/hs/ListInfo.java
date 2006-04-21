@@ -10,12 +10,12 @@ import com.topcoder.web.common.TCRequest;
  */
 public class ListInfo {
     /**
-     * First row in the list.
+     * First row in the list, if using cropping.
      */
     private int startRow;
     
     /**
-     * Last row in the list.
+     * Last row in the list, if using cropping.
      */
     private int endRow;
     
@@ -29,6 +29,11 @@ public class ListInfo {
      */
     private String sortDirection;
 
+    /**
+     * Indicates whether to crop rows.
+     */
+    private boolean cropped;
+    
     public int getNumberOfRows() {
         return endRow - startRow;
     }
@@ -78,8 +83,27 @@ public class ListInfo {
         
         String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
         sortDirection = sd == null? defaultSortDirection : sd;
+        cropped = true;
     }
-    
+
+    /**
+     * Builds a ListInfo from the request, using just sort data (no cropping).
+     *   If any parameter can't be read, default values are used.
+     * 
+     * @param req
+     * @param defaultStartRow
+     * @param defaultRowCount
+     * @param defaultSortColumn
+     * @param defaultSortDirection
+     */
+    public ListInfo(TCRequest req, int defaultSortColumn, String defaultSortDirection) {
+        sortColumn = parseInt(req.getParameter(DataAccessConstants.SORT_COLUMN), defaultSortColumn);
+        
+        String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
+        sortDirection = sd == null? defaultSortDirection : sd;
+        cropped = false;
+    }
+
     /**
      * Try to parse a string as an integer, and if it's null or can't be parsed it returns the default value.
      * 
@@ -97,6 +121,9 @@ public class ListInfo {
         } catch(Exception e) {
             return def;
         }
+    }
+    public boolean isCropped() {
+        return cropped;
     }
  
 }

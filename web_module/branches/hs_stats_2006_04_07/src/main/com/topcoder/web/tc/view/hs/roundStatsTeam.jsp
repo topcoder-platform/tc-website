@@ -1,9 +1,7 @@
-<%@  page language="java"
-    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
-          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
-          com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

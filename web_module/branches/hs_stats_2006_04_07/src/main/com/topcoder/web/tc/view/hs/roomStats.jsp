@@ -12,8 +12,42 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+
+<%
+Map resultMap = (Map) request.getAttribute("resultMap");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
+ResultSetContainer rooms = (ResultSetContainer) resultMap.get("rooms_for_round");
+ResultSetContainer roomResult = (ResultSetContainer) resultMap.get("room_result");
+
+int rm = -1;
+String roomName = "";
+if (roomResult.getRowCount() > 0) {
+    rm = roomResult.getIntItem(0, "room_id");
+    roomName = roomResult.getStringItem(0, "name");
+}
+
+RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+%>
+
+
 <script language="JavaScript">
 <!--
+function selectSeason(selection)
+{
+    document.seasonForm.snid.value = selection.options[selection.selectedIndex].value;
+    document.seasonForm.submit();
+}
+
+function selectRound(selection)
+{
+    document.pageForm.rd.value  = selection.options[selection.selectedIndex].value;
+    document.pageForm.submit();
+}
+
+
 function goTo(selection){
 sel = selection.options[selection.selectedIndex].value;
 if (sel && sel != '#'){
@@ -38,6 +72,27 @@ function popHide(){
 }
 // -->
 </script>
+
+</script>
+
+<form name="pageForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="seasonForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+
 <STYLE TYPE="text/css">
 #popBox{ position: relative; }
 #popBox div
@@ -80,35 +135,34 @@ z-index: 2;
 <jsp:param name="title" value="Match Results"/>
 </jsp:include>
 
+
 <div style="float:right; padding-left:10px;" align="right">
+<% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)" width="200">
-   <option value="" selected="selected">View another room:</option>
-   <option value="0000">Room 1</option>
-   </select>
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
+<% }  %>
 <div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)">
-   <option value="" selected="selected">View another season:</option>
-   <option value="0000">2006-2007</option>
-   </select>
-</div>
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1 > Room 1</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<div style="padding-bottom:5px;">
+    <tc-webtag:rscSelect name="rn" list="<%=rooms%>" fieldText="name" fieldValue="room_id" selectedValue="<%=  rm + "" %>" useTopValue="false" onChange="selectRoom(this)"/>
+</div>
+
+</div>
+
+
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
+<% } %>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="18">High School Single Round Match 1 > Room 1 Results</td></tr>
+   <tr><td class="title" colspan="18"><%= round.getRoundName() %> > <%= roomName %> Results</td></tr>
    <tr>
       <td class="headerC" colspan="3">&#160;</td>
       <td class="headerR" colspan="2">Submissions</td>
@@ -798,7 +852,7 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       <td class="valueC"><A href="">details</A></td>
    </tr>
    <% even = !even;%>
-</table>   
+</table>
 
 <br><br>
 
