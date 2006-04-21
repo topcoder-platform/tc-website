@@ -189,61 +189,65 @@ z-index: 2;
       <td class="headerR"><A href="">New</A></td>
       <td class="headerR">&#160;</td>
    </tr>
+
    <% boolean even = false; %>
+   <rsc:iterator list="<%= result%>" id="resultRow">
+   <%   even = !even; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" style="vertical-align: middle;">
       <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
       </td>
       <td class="value">
-         <tc-webtag:handle coderId="144400" />
+         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
       </td>
 
       <td class="value">
          <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
+            <div id="d_CODERID"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
          <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
       </td>
 
       <td class="valueR">
-      2
+      <rsc:item name="problems_submitted" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
+      <rsc:item name="submission_points" row="<%=resultRow%>"/>
       </td>
 
       <td class="valueR">
-      0
+      <rsc:item name="challenge_attempts_received" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      0.00
+      <rsc:item name="defense_points" row="<%=resultRow%>"/>
       </td>
 
       <td class="valueR">
-      0.00
+      <rsc:item name="challenge_attempts_made" row="<%=resultRow%>"/>
+      </td>
+      <td class="valueR">
+      <rsc:item name="challenge_points" row="<%=resultRow%>"/>
+      </td>
+
+      <td class="valueR">
+      <rsc:item name="system_test_points" row="<%=resultRow%>"/>
       </td>
       <td class="valueR" style="border-right:1px solid #999999;">
-      511.86
+      <rsc:item name="final_points" row="<%=resultRow%>"/>
       </td>
 
       <td class="valueR">
-      2484
+      <rsc:item name="old_rating" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      2513
+      <rsc:item name="new_rating" row="<%=resultRow%>"/>
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
-   <% even = !even;%>
+   </rsc:iterator>
+
 <%--
 FOR A HIGHLIGHTED ROW, THE TR NEEDS TO BE class="highlight"
 THE LEFT CELL NEEDS TO HAVE THE SUFFIX _leftside
