@@ -131,9 +131,11 @@ z-index: 2;
 </div>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
+<% } %>
 
 <div class="pagingBox">
 &lt;&lt; prev
@@ -161,14 +163,14 @@ z-index: 2;
        even = !even;
        if (lastRoom != resultRow.getIntItem("room_id")) {
    %>
-   <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href=""><rsc:item name="room_name" row="<%=resultRow%>"/></A></td></tr>
+   <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
    <%
         lastRoom = resultRow.getIntItem("room_id");
       }
    %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-         <tc-webtag:handle coderId="144400" />
+         <tc-webtag:handle coderId="<%= resultRow.getItem("coder_id")%> />
       </td>
       <td class="value">
          <div id="popBox">
