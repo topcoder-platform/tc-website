@@ -170,7 +170,7 @@ z-index: 2;
    %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id")%>' />
+         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
       </td>
       <td class="value">
          <div id="popBox">
