@@ -60,19 +60,16 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td valign="top">
-   <span class="rtbc">
-	    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >>  
-	    </tc-webtag:iterator>
-        <%  if (forum != null) { %>
-            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> >> 
-        <%  } %>
-        <img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%>
-        </span><br><br>
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
    </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <jsp:include page="searchHeader.jsp" ></jsp:include>
+   </td>
+</tr>
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
    <%   if (ForumsUtil.isAdmin(user)) { %>
-   <td align="right" nowrap="nowrap" valign="top">
+   <div style="float:right;white-space: nowrap;">
         <%  Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
             if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %> 
             <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Expire" class="rtbcLink">Expire</A>&#160; |
@@ -80,8 +77,16 @@
             <A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Activate" class="rtbcLink">Activate</A>&#160; |
         <%  } %> 
         &#160;<A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>&<%=ForumConstants.ANNOUNCEMENT_COMMAND%>=Delete" class="rtbcLink">Delete</A><br/>   
-   </td>
+   </div>
    <%   } %> 
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >  
+    </tc-webtag:iterator>
+     <%  if (forum != null) { %>
+         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> > 
+     <%  } %>
+     <img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%>
+   </td>
 </tr>
 </table>
 
@@ -94,7 +99,7 @@
          </div>
          <jsp:getProperty name="announcement" property="subject"/></a>
          <%  if (announcement.getUser() != null && announcement.getUser().equals(user)) { %>
-             &#160;>>&#160; <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtbcLink">Edit</A>
+             &#160;>&#160; <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtbcLink">Edit</A>
          <%  } %>
       </td>
    </tr>
