@@ -353,7 +353,7 @@ z-index: 2;
           <td class="valueC">
               <%= sdfTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %>
           </td>
-          <td class="value"><rsc:item name="end_status_desc" row="<%=resultRow%>"/></td>
+          <td class="value"><rsc:item name="end_status_text" row="<%=resultRow%>"/></td>
           <td class="valueR"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
        </tr>
    </rsc:iterator>
