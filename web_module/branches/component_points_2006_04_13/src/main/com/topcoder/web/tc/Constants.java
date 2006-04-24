@@ -16,7 +16,14 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
+    public static String VIEW_LEADER_BOARD_PAGE;
+    
+    public static String LEADER_BOARD_COMMAND;
+    public static String LEADER_BOARD_QUERY;
+    public static String LEADER_LIST_KEY;
 
+    public static int MAX_LEADERS;
+        
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
