@@ -1,6 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
+          com.topcoder.web.tc.controller.request.hs.Base,
           com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -273,7 +274,8 @@ z-index: 2;
          <div id="popBox">
             <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()"><rsc:item name="team_name" row="<%=resultRow%>"/></A>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+         <%= Base.cutTeamName(resultRow.getStringItem("team_name") %></A>
       </td>
 
       <td class="valueR">
