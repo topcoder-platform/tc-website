@@ -24,8 +24,10 @@ public class RoomStats extends Base {
             this.room = room;
         }
         
-        public boolean include(ResultSetRow rsr) {        
-            return rsr.getIntItem("room_id") == room;
+        public boolean include(ResultSetRow rsr) { 
+            log.debug("getItem="  + rsr.getIntItem("room_id") + ", room="+room);
+           // return rsr.getIntItem("room_id") == room;
+            return true;
         }
         
     }
