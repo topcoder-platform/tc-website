@@ -7,6 +7,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -39,6 +41,9 @@ public class RoomStats extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
+            if (!userIdentified())
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             ListInfo li = new ListInfo(getRequest(), 9, "DESC", columnNames);
             

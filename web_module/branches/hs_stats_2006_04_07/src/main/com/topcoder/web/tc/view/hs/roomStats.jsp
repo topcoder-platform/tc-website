@@ -275,7 +275,7 @@ z-index: 2;
             <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
          <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
-         <%= Base.cutTeamName(resultRow.getStringItem("team_name") %></A>
+         <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
       </td>
 
       <td class="valueR">
