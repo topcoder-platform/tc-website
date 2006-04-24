@@ -329,6 +329,7 @@ z-index: 2;
 <% if ((cr >= 0) && (coderName != null)) {
     ResultSetContainer rscProblems = (ResultSetContainer) (ResultSetContainer) resultMap.get("Coder_Problems");
     ResultSetContainer rscChallenge = (ResultSetContainer) resultMap.get("Coder_Challenges");
+    ResultSetContainer rscDefense = (ResultSetContainer) resultMap.get("Coder_Defenses");
 
     java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
     sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
@@ -390,9 +391,42 @@ z-index: 2;
 
         <br><br>
 
-<%      } // rscChallenge has rows
-    }
-%>
+<%    |} // rscChallenge has rows %>
+
+<br><br>
+
+    <% if (rscDefense.getRowCount() > 0) { %>
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+           <tr><td class="title" colspan="17">Defense Information > <%= coderName %></td></tr>
+           <tr>
+              <td class="header">Defendant</td>
+              <td class="header">Challenger</td>
+              <td class="header">Problem</td>
+              <td class="header">Succeeded</td>
+              <td class="headerR">Points</td>
+              <td class="headerC">&#160;</td>
+           </tr>
+           <% even = false; %>
+           <rsc:iterator list="<%= rscDefense %>" id="resultRow">
+               <% even = !even; %>
+               <tr class="<%=even?"dark":"light"%>">
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
+                  <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
+                  <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
+                  <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
+                  <td class="valueC">&#160;</td>
+               </tr>
+           </rsc:iterator>
+        </table>
+
+        <br><br>
+
+<%    |} // rscDefense has rows %>
+
+
+
+<%  }    // cr >= 0 %>
 </td>
         <!-- Center Column Ends -->
 
