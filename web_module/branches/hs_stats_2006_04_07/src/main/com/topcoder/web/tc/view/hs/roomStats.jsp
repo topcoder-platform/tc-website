@@ -270,7 +270,7 @@ z-index: 2;
          <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
       </td>
 
-      <td class="value">
+      <td class="value" nowrap>
          <div id="popBox">
             <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
