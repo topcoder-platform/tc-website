@@ -94,7 +94,7 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in Google Code Jam Europe.\n\n");
 
                 buf.append("PRACTICING FOR THE EVENT\n");
-                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in Google Code Jam Europe.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 8:00AM GMT on May 1, 2006 through 4:00PM GMT on June 23, 2006.\n\n");
+                buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in Google Code Jam Europe.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 8:00AM GMT on May 1, 2006 through 4:00PM GMT on June 29, 2006.\n\n");
 
                 buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/codejameurope and clicking on the Competition Arena tab.\n\n");
 
