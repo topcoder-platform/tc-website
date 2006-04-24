@@ -45,12 +45,12 @@
 <%--
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=component_status&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Status</A></LI>
 --%>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component_Downloads&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads Detail</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component_Downloads&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads by Member</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Customer&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads by Customer</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Day&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads Summary by Day</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Month&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads Summary by Month</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Month%20-%20Customer&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads Summary by Month / Customer</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Month%20-%20Component&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads Summary by Month / Component</A></LI>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Customer&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Downloads by Customer</A></LI>
 <%--
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ComponentPricing&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Pricing</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ready_components&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Ready Components</A></LI>
@@ -62,6 +62,7 @@
         <LI>Fulfillment rate: Projects posted in last <a href="<%=baseURL+"fulfillment_rate&days=90"%>">3 months?</a> <a href="<%=baseURL+"fulfillment_rate&days=180"%>">6 months?</a> <a href="<%=baseURL+"fulfillment_rate&days=3600"%>">all?</a> </LI>
         <LI>Fulfillment rate by week by catalog: Posted in last <a href="<%=baseURL+"fulfillment_rate_week&days=90"%>">3 months?</a> <a href="<%=baseURL+"fulfillment_rate_week&days=180"%>">6 months?</a> <a href="<%=baseURL+"fulfillment_rate_week&days=3600"%>">all?</a> </LI>
         <LI><A HREF="<%=baseURL+"reposts"%>">Reposted projects</A></LI>
+        <LI><A HREF="<%=baseURL+"reposts_month"%>">Average number of reposted projects per month</A></LI>
         <LI><A HREF="<%=baseURL+"new_participants_week"%>">New participants per week</A></LI>
         <LI><A HREF="<%=baseURL+"new_ratio"%>">Ratio of new members who participate in TCS</A></LI>
         <LI><A HREF="<%=baseURL+"drop_off"%>">Drop-off rates by month</A></LI>
@@ -79,7 +80,9 @@
       <br/>
       Submission Reports
       <UL>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=AverageCompTime&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Average Time</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=SubmissionsByMonthByPhase&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submissions by Month and Phase</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ScoresBySubmitters&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Scores by Submitter - Last 6 Months</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=AverageCompTime&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Average Time by Phase</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=LateTCSReviews&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Late Reviews</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=WeeklyFillRate&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Weekly Fill Rate</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submissions&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submission Detail</A></LI>
