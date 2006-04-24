@@ -36,13 +36,13 @@
 <img src="/i/digital_run/banner.jpg" alt="The Digital Run" />
 </div>
 
-The Digital Run marks another stride for TopCoder in recognizing talent through competition.  Essentially, the Digital Run will reward the top software designers and developers, giving them <strong>placement points</strong> based on their performance.  Place well in a competition, earn points.  Accumulate lots of points over the course of a leg (4 per year) or year, you win.  It's that simple.
+The Digital Run marks another stride for TopCoder in recognizing talent through competition.  Essentially, the Digital Run will reward the top software designers and developers, giving them <strong>placement points</strong> based on their performance.  Place well in a competition, earn points.  Accumulate lots of points over the course of a stage (four per year), you win.  It's that simple.
 <br><br>
 <span class="subtitle">How to compete</span><br>
 If you're an active competitor in Software Design or Development, you are already competing in the Digital Run.  Easy right?  Only the next step is winning it.
 <br><br>
 <span class="subtitle">How to win</span><br>
-Each component posted for a competition will carry a point value of placement points.  Placement Points will be awarded to competitors based on the number of submissions that pass review.  The members with the highest point totals at the end of each leg and year win big.
+Each component posted for a competition will carry a point value of placement points.  Placement Points will be awarded to competitors based on the number of submissions that pass review.  The members with the highest point totals at the end of each stage and year win big.
 <br><br>
 <span class="subtitle">Rookie of the Year</span><br>
 New competitors can also make a run for the Rookie of the Year title, given to the member with the best performance in his/her first year of competition.
