@@ -391,7 +391,7 @@ z-index: 2;
 
         <br><br>
 
-<%    |} // rscChallenge has rows %>
+<%    } // rscChallenge has rows %>
 
 <br><br>
 
@@ -422,7 +422,7 @@ z-index: 2;
 
         <br><br>
 
-<%    |} // rscDefense has rows %>
+<%    } // rscDefense has rows %>
 
 
 
