@@ -42,17 +42,17 @@ public class RoomStats extends Base {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             ListInfo li = new ListInfo(getRequest(), 9, "DESC", columnNames);
             
+            int cr = -1;
+            if (hasParameter("cr")) {
+                cr = Integer.parseInt(getRequest().getParameter("cr"));                
+            } 
+            
             Request r = new Request();
             r.setContentHandle("hs_room_stats");
             r.setProperty("rd", round.getRoundId() + "");
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
-            int cr = -1;
-            if (hasParameter("cr")) {
-                cr = Integer.parseInt(getRequest().getParameter("cr"));
-                r.setProperty("cr", cr + "");
-            } 
-            
+            r.setProperty("cr", cr + "");
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);

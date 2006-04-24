@@ -414,7 +414,7 @@ z-index: 2;
                   <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
                   <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
                   <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
-                  <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
+                  <td class="valueR"><rsc:item name="defendant_points" row="<%=resultRow%>" format="0.00"/></td>
                   <td class="valueC">&#160;</td>
                </tr>
            </rsc:iterator>
