@@ -280,25 +280,25 @@ z-index: 2;
       <rsc:item name="problems_submitted" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      <rsc:item name="submission_points" row="<%=resultRow%>"/>
+      <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/>
       </td>
 
       <td class="valueR">
       <rsc:item name="challenge_attempts_received" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      <rsc:item name="defense_points" row="<%=resultRow%>"/>
+      <rsc:item name="defense_points" row="<%=resultRow%>" format="0.00"/>
       </td>
 
       <td class="valueR">
       <rsc:item name="challenge_attempts_made" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-      <rsc:item name="challenge_points" row="<%=resultRow%>"/>
+      <rsc:item name="challenge_points" row="<%=resultRow%>" format="0.00"/>
       </td>
 
       <td class="valueR">
-      <rsc:item name="system_test_points" row="<%=resultRow%>"/>
+      <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00"/>
       </td>
       <td class="valueR" style="border-right:1px solid #999999;">
       <rsc:item name="final_points" row="<%=resultRow%>"/>
@@ -331,6 +331,7 @@ z-index: 2;
     ResultSetContainer rscChallenge = (ResultSetContainer) resultMap.get("Coder_Challenges");
 
     java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
+    sdfTime.setTimeZone(java.util.TimeZone.getTimeZone("GMT"));
 
 %>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
@@ -350,44 +351,48 @@ z-index: 2;
           <td class="value"><A href=""><rsc:item name="class_name" row="<%=resultRow%>"/></A></td>
           <td class="value"><rsc:item name="method_name" row="<%=resultRow%>"/></td>
           <td class="value"><rsc:item name="level_desc" row="<%=resultRow%>"/></td>
-          <td class="valueC">
+
+          <td class="valueC"><rsc:item name="time_elapsed" row="<%=resultRow%>" format="H:mm:ss.SSS"/>*
               <%= sdfTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %>
           </td>
           <td class="value"><rsc:item name="end_status_text" row="<%=resultRow%>"/></td>
-          <td class="valueR"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/></td>
        </tr>
    </rsc:iterator>
 </table>
 
 <br><br>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="17">Challenge Information > <%= coderName %></td></tr>
-   <tr>
-      <td class="header">Challenger</td>
-      <td class="header">Defendant</td>
-      <td class="header">Problem</td>
-      <td class="header">Succeeded</td>
-      <td class="headerR">Points</td>
-      <td class="headerC">&#160;</td>
-   </tr>
-   <% even = false; %>
-   <rsc:iterator list="<%= rscChallenge %>" id="resultRow">
-       <% even = !even; %>
-       <tr class="<%=even?"dark":"light"%>">
-          <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
-          <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
-          <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
-          <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
-          <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>"/></td>
-          <td class="valueC"><A href="">details</A></td>
-       </tr>
-   </rsc:iterator>
-</table>
+    <% if (rscChallenge.getRowCount() > 0) { %>
+        <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+           <tr><td class="title" colspan="17">Challenge Information > <%= coderName %></td></tr>
+           <tr>
+              <td class="header">Challenger</td>
+              <td class="header">Defendant</td>
+              <td class="header">Problem</td>
+              <td class="header">Succeeded</td>
+              <td class="headerR">Points</td>
+              <td class="headerC">&#160;</td>
+           </tr>
+           <% even = false; %>
+           <rsc:iterator list="<%= rscChallenge %>" id="resultRow">
+               <% even = !even; %>
+               <tr class="<%=even?"dark":"light"%>">
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
+                  <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
+                  <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
+                  <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
+                  <td class="valueC"><A href="">details</A></td>
+               </tr>
+           </rsc:iterator>
+        </table>
 
-<br><br>
+        <br><br>
 
-<% } %>
+<%      } // rscChallenge has rows
+    }
+%>
 </td>
         <!-- Center Column Ends -->
 
