@@ -255,7 +255,7 @@ z-index: 2;
                %>'>
       <td class="value" style="vertical-align: middle;">
       <A href="javascript:selectCoder(<%= resultRow.getItem("coder_id").toString() %>)">
-      <img src='<%= resultRow.getIntItem("coder_id") == cr? "" : "/i/interface/exp_w.gif" %>" alt="" />
+      <img src='<%= resultRow.getIntItem("coder_id") == cr? "" : "/i/interface/exp_w.gif" %>' alt="" />
       </A>
       </td>
       <td class="value">
@@ -305,10 +305,10 @@ z-index: 2;
       </td>
       <td class="value" style="vertical-align: middle;">
 <% if (resultRow.getIntItem("rating_change")<0) { %>
-<IMG src="/i/interface/redDown.gif" width="10" height="10" border="0"/>
+<IMG src="/i/interface/redDown.gif" border="0"/>
 <% } %>
 <% if (resultRow.getIntItem("rating_change")>0) { %>
-<IMG src="/i/interface/greenUp.gif" width="10" height="10" border="0"/>
+<IMG src="/i/interface/greenUp.gif" border="0"/>
 <% } %>
 </TD>
 
