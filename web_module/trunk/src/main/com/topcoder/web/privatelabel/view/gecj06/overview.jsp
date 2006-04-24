@@ -133,7 +133,7 @@ The competitors with the top 50 scores from Round 2 will be invited to compete f
     </tr>
 
     <tr valign="top">
-        <td class="sidebarText">Thursday, June 22**</td>
+        <td class="sidebarText">Thursday, June 29**</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">Championship Round - 50 participants</td>
     </tr>

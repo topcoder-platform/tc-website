@@ -29,7 +29,7 @@
             Saturday, June 3
             <br><br>
             <b>Championship Round</b><br>
-            Thursday, June 22
+            Thursday, June 29
         </td>
     </tr>
     <tr><td>&#160;</td></tr>
