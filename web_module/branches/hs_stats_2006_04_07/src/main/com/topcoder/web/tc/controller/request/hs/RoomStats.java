@@ -25,16 +25,14 @@ public class RoomStats extends Base {
         }
         
         public boolean include(ResultSetRow rsr) { 
-            log.debug("getItem="  + rsr.getIntItem("room_id") + ", room="+room);
-           // return rsr.getIntItem("room_id") == room;
-            return true;
+            return rsr.getIntItem("room_id") == room;
         }
         
     }
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
-            ListInfo li = new ListInfo(getRequest(), 2, "ASC");
+            ListInfo li = new ListInfo(getRequest(), 9, "DESC");
             
             Request r = new Request();
             r.setContentHandle("hs_room_stats");
@@ -57,6 +55,11 @@ public class RoomStats extends Base {
                 } 
             }
             
+            int cr = -1;
+            if (hasParameter("cr")) {
+                cr = Integer.parseInt(getRequest().getParameter("cr"));
+            } 
+
             fillRoundAndSeasonNames (round, result);
 
             ResultSetContainer roomResult = new ResultSetContainer(indResult, new RoomFilter(rm));
@@ -66,6 +69,7 @@ public class RoomStats extends Base {
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
             getRequest().setAttribute("listInfo", li);
+            getRequest().setAttribute("cr", cr + "");
             
             setNextPage(Constants.HS_ROOM_STATS);
             setIsNextPageInContext(true);
