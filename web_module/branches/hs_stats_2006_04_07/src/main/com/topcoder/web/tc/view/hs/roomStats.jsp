@@ -372,7 +372,7 @@ z-index: 2;
       <td class="headerC">&#160;</td>
    </tr>
    <% even = false; %>
-   <rsc:iterator list="<%= rscProblems %>" id="resultRow">
+   <rsc:iterator list="<%= rscChallenge %>" id="resultRow">
        <% even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
           <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
