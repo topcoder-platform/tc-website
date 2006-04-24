@@ -223,7 +223,7 @@ z-index: 2;
    <% boolean even = false; %>
    <rsc:iterator list="<%= roomResult%>" id="resultRow">
    <%   even = !even; %>
-   <tr class='<%= resultRow.getIntItem("cr") == cr? "highlight" :
+   <tr class='<%= resultRow.getIntItem("coder_id") == cr? "highlight" :
                    even? "dark":"light"
                %>'>
       <td class="value" style="vertical-align: middle;">
