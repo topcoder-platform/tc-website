@@ -351,7 +351,8 @@ z-index: 2;
     <rsc:iterator list="<%= rscProblems %>" id="resultRow">
    <% even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
-          <td class="value"><A href=""><rsc:item name="class_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href='tc?Module=HSProblemSolution&cr=<%=cr%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>'>
+          <rsc:item name="class_name" row="<%=resultRow%>"/></A></td>
           <td class="value"><rsc:item name="method_name" row="<%=resultRow%>"/></td>
           <td class="value"><rsc:item name="level_desc" row="<%=resultRow%>"/></td>
 
@@ -385,7 +386,8 @@ z-index: 2;
                   <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
                   <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
                   <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
-                  <td class="valueC"><A href="">details</A></td>
+                  <td class="valueC"><A href='tc?Module=HSProblemSolution&cr=<%=cr%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
+                  details</A></td>
                </tr>
            </rsc:iterator>
         </table>
