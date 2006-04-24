@@ -105,7 +105,11 @@ z-index: 2;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="10">High School Single Round Match 1 > Individual Results</td></tr>
+   <tr><td class="title" colspan="15">High School Single Round Match 1 > Individual Results</td></tr>
+   <tr>
+      <td class="header" colspan="10" style="border-right:1px solid #999999;">&#160;</td>
+      <td class="headerC" colspan="5">Rating</td>
+   </tr>
    <tr>
       <td class="header" colspan="2"><A href="#">Coder</A></td>
       <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
@@ -115,9 +119,14 @@ z-index: 2;
       <td class="headerR">+</td>
       <td class="headerR" nowrap="nowrap"><A href="#">System Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
+      <td class="headerR" nowrap="nowrap" style="border-right:1px solid #999999;"><A href="#">Point Total</td>
+      <td class="headerR"><A href="">Old</A></td>
+      <td class="headerR">+</td>
+      <td class="headerR"><A href="">&#916;</A></td>
+      <td class="headerR">=</td>
+      <td class="headerR"><A href="">New</A></td>
    </tr>
-   <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href="">Room 1</A></td></tr>
+   <tr><td class="title" colspan="15" style="border-top:1px solid #999999;"><A href="">Room 1</A></td></tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -141,8 +150,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -168,8 +186,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -195,8 +222,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -222,8 +258,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -249,8 +294,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -276,8 +330,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -303,8 +366,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -330,8 +402,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -357,8 +438,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -384,12 +474,21 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
-   <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href="">Room 2</A></td></tr>
+   <tr><td class="title" colspan="15" style="border-top:1px solid #999999;"><A href="">Room 2</A></td></tr>
    <% even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -413,8 +512,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -440,8 +548,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -467,8 +584,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -494,8 +620,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -521,8 +656,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -548,8 +692,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -575,8 +728,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -602,8 +764,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -629,8 +800,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
@@ -656,8 +836,17 @@ z-index: 2;
       <td class="valueR" colspan="2">
       0.00
       </td>
-      <td class="valueR" colspan="2">
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
       1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
    </tr>
    <% even = !even;%>
