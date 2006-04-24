@@ -33,7 +33,7 @@ if (roomResult.getRowCount() > 0) {
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
 ListInfo li = (ListInfo)request.getAttribute("listInfo");
 
-int cr = Integer.parseInt(request.getAttribute("cr"));
+int cr = Integer.parseInt((String) request.getAttribute("cr"));
 %>
 
 
@@ -55,6 +55,12 @@ function selectRoom(selection)
 {
     document.roomForm.rm.value  = selection.options[selection.selectedIndex].value;
     document.roomForm.submit();
+}
+
+function selectCoder(coderId)
+{
+    document.coderForm.cr.value  = coderId;
+    document.coderForm.submit();
 }
 
 
@@ -105,6 +111,16 @@ function popHide(){
 <input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
 <input type="hidden" name="rd" value="<%= round.getRoundId() %>">
 <input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="coderForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="cr" value="<%= cr %>">
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoomStats">
 </form>
@@ -211,7 +227,7 @@ z-index: 2;
                    even? "dark":"light"
                %>'>
       <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      <A href="javascript:selectCoder(<%= resultRow.getItem("coder_id").toString() %>)"><img src="/i/interface/exp_w.gif" alt="" /></A>
       </td>
       <td class="value">
          <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
