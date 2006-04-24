@@ -34,6 +34,9 @@ RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
 ListInfo li = (ListInfo)request.getAttribute("listInfo");
 
 int cr = Integer.parseInt((String) request.getAttribute("cr"));
+
+String coderName = null;
+
 %>
 
 
@@ -249,13 +252,17 @@ z-index: 2;
 
    <% boolean even = false; %>
    <rsc:iterator list="<%= roomResult%>" id="resultRow">
-   <%   even = !even; %>
+   <%   even = !even;
+        if (resultRow.getIntItem("coder_id") == cr) {
+            coderName = resultRow.getStringItem("handle");
+        }
+   %>
    <tr class='<%= resultRow.getIntItem("coder_id") == cr? "highlight" :
                    even? "dark":"light"
                %>'>
       <td class="value" style="vertical-align: middle;">
       <A href="javascript:selectCoder(<%= resultRow.getItem("coder_id").toString() %>)">
-      <img src='<%= resultRow.getIntItem("coder_id") == cr? "" : "/i/interface/exp_w.gif" %>' alt="" />
+      <img src='<%= "/i/interface/" + (resultRow.getIntItem("coder_id") == cr? "exp_ed_w.gif" : "exp_w.gif") %>' alt="" />
       </A>
       </td>
       <td class="value">
@@ -319,10 +326,13 @@ z-index: 2;
 
 <br><br>
 
-<% if (cr >= 0) {
+<% if ((cr >= 0) && (coderName != null)) {
+    ResultSetContainer rscProblems = (ResultSetContainer) (ResultSetContainer) resultMap.get("Coder_Problems");
+    java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
+
 %>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="6">Problem Information > tomek</td></tr>
+   <tr><td class="title" colspan="6">Problem Information > <%= coderName %></td></tr>
    <tr>
       <td class="header">Class</td>
       <td class="header">Method</td>
@@ -332,38 +342,25 @@ z-index: 2;
       <td class="headerR">Points</td>
    </tr>
    <% even = false; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value"><A href="">FallingBall</A></td>
-      <td class="value">howMany</td>
-      <td class="value">Level One</td>
-      <td class="valueC">0:06:09.903</td>
-      <td class="value">Failed System Test</td>
-      <td class="valueR">238.92</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value"><A href="">CMajor</A></td>
-      <td class="value">getLongest</td>
-      <td class="value">Level Two</td>
-      <td class="valueC">0:22:36.876</td>
-      <td class="value">Passed System Test</td>
-      <td class="valueR">333.32</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value"><A href="">ShrinkingPills</A></td>
-      <td class="value">escape</td>
-      <td class="value">Level Three</td>
-      <td class="valueC">0:14:30.420</td>
-      <td class="value">Passed System Test</td>
-      <td class="valueR">809.41</td>
-   </tr>
+    <rsc:iterator list="<%= rscProblems %>" id="resultRow">
+   <% even = !even; %>
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="value"><A href=""><rsc:item name="class_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><rsc:item name="method_name" row="<%=resultRow%>"/></td>
+          <td class="value"><rsc:item name="level_desc" row="<%=resultRow%>"/></td>
+          <td class="valueC">
+              <%= sdfTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %>
+          </td>
+          <td class="value"><rsc:item name="end_status_desc" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="submission_points" row="<%=resultRow%>"/></td>
+       </tr>
+   </rsc:iterator>
 </table>
 
 <br><br>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="17">Challenge Information > tomek</td></tr>
+   <tr><td class="title" colspan="17">Challenge Information > <%= coderName %></td></tr>
    <tr>
       <td class="header">Challenger</td>
       <td class="header">Defendant</td>
