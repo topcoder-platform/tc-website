@@ -198,8 +198,14 @@ abstract public class Base extends BaseProcessor {
     }
     
     
+    /**
+     * Cuts the team name so that it can be displayed with at most 15 chars.
+     * 
+     * @param name the team name
+     * @return a team name of at most 15 characters 
+     */
     public static String cutTeamName(String name) {
-        if (name.length() <= 12) {
+        if (name.length() <= 15) {
             return name;
         }
         

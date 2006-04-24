@@ -273,7 +273,7 @@ z-index: 2;
          <div id="popBox">
             <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">team</A>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()"><rsc:item name="team_name" row="<%=resultRow%>"/></A>
       </td>
 
       <td class="valueR">
