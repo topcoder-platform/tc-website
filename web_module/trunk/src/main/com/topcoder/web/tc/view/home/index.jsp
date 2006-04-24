@@ -52,10 +52,18 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-      <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A></td>
+ <%-- <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A></td> --%>
+<map name="tco06prog_map">
+<area shape="rect" alt="" coords="1,1, 258,158" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+<area shape="rect" alt="" coords="263,1, 509,158" href="/pdfs/tournaments/tco06_program.pdf" />
+</map>
+      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_program.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06prog_map" /></td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
+
+
+
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
 <%-- Banners --%>
