@@ -54,7 +54,7 @@ public class LeaderBoard extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
         }
         
-        Map m = getLeadersData(getRequest().getParameter(Constants.PHASE_ID));
+        Map m = getLeadersData(Long.parseLong(getRequest().getParameter(Constants.PHASE_ID)));
         
         ResultSetContainer leaderBoard = (ResultSetContainer)m.get(Constants.LEADER_BOARD_QUERY);
 
