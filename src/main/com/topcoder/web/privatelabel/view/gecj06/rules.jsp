@@ -48,13 +48,13 @@
 <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
 <span class="greenSubtitle">Summary of the Tournament</span><br>
-The Google&#153; Code Jam Europe 2006 is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s lives. The goal of this contest is to encourage and reward the top talents in computer science in Europe. The Code Jam Europe will take place between May 1, 2006 and June 22, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round. The top 250 scores from Round 2 will receive a Google Code Jam Europe t-shirt. In addition, Google will award &#8364;30,000 in cash and prizes to the 50 finalists in the tournament.<br><br>
+The Google&#153; Code Jam Europe 2006 is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder"). Google always focuses on creating innovative technologies that could benefit ordinary people’s lives. The goal of this contest is to encourage and reward the top talents in computer science in Europe. The Code Jam Europe will take place between May 1, 2006 and June 29, 2006. It begins with an online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament. The tournament consists of one (1) online qualification round, two (2) online elimination rounds and one (1) onsite final round. The top 250 scores from Round 2 will receive a Google Code Jam Europe t-shirt. In addition, Google will award &#8364;30,000 in cash and prizes to the 50 finalists in the tournament.<br><br>
 <b>Eligibility</b><br>
-All individuals who are legal residents of <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blreurope.htm">Europe</a>, <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrafrica.htm">Africa</a> and the <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrmideast.htm">Middle East</a> may register and compete in the Google Code Jam Europe 2006 provided they physically reside in an eligible country from May 1 through June 22, 2006.
+All individuals who are legal residents of <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blreurope.htm">Europe</a>, <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrafrica.htm">Africa</a> and the <a href="/?t=sponsor&c=link&link=http://geography.about.com/library/maps/blrmideast.htm">Middle East</a> may register and compete in the Google Code Jam Europe 2006 provided they physically reside in an eligible country from May 1 through June 29, 2006.
 <br><br>
 Registrants who are 18 years of age or older as of May 23, 2006 are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam Europe 2006 is void where prohibited by applicable law. Prizes, including t-shirts, will not be paid to residents of Iran, Iraq, Libya, Sudan, or Syria.
 <br><br>
-Full and part-time employees of Google and TopCoder, as well as those who are performing internships at Google from May 1 through June 22, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+Full and part-time employees of Google and TopCoder, as well as those who are performing internships at Google from May 1 through June 29, 2006 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
 <b>Registration</b><br>
 Registration will open on Monday, May 1, 2006 at 8:00AM GMT/UTC and will close on Tuesday, May 23, 2006 at 8:00AM GMT/UTC. There is no limit to the number of registrants for the competition; however each individual may only register once.
@@ -104,7 +104,7 @@ Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers f
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Championship Round</td>
-<td class="sidebarText">Thursday, June 22, 2006**<br>START: TBD
+<td class="sidebarText">Thursday, June 29, 2006**<br>START: TBD
 </td>
 </tr>
 <tr valign="top">
@@ -170,7 +170,7 @@ added to the sets of inputs for the System Testing Phase.</li>
 </ul>
 
 <b>Onsite Championship Round</b><br>
-Up to 50 advancers from Round 2 will compete in the onsite Championship Round of the tournament being held on Thursday, June 22, 2006. Google will contact all finalists for travel information.
+Up to 50 advancers from Round 2 will compete in the onsite Championship Round of the tournament being held on Thursday, June 29, 2006. Google will contact all finalists for travel information.
 <br><br>
 Google will provide all travel accommodations for each finalist to attend the Championship Round. In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from the onsite round facility. All other expenses are the responsibility of the contestant.
 <br><br>

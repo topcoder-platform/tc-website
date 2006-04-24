@@ -113,7 +113,7 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText" nowrap="nowrap">Championship Round</td>
-                    <td class="sidebarText">June 22, 2006<br>Time TBD</td>
+                    <td class="sidebarText">June 29, 2006<br>Time TBD</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
                 <tr valign="top">
