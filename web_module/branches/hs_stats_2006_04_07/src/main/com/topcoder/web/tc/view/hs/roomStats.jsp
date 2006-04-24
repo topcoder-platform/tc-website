@@ -353,8 +353,7 @@ z-index: 2;
           <td class="value"><rsc:item name="method_name" row="<%=resultRow%>"/></td>
           <td class="value"><rsc:item name="level_desc" row="<%=resultRow%>"/></td>
 
-          <td class="valueC"><rsc:item name="time_elapsed" row="<%=resultRow%>" format="H:mm:ss.SSS"/>*
-              <%= sdfTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %>
+          <td class="valueC"><%= sdfTime.format(new java.sql.Time(resultRow.getLongItem("time_elapsed"))).toString() %>
           </td>
           <td class="value"><rsc:item name="end_status_text" row="<%=resultRow%>"/></td>
           <td class="valueR"><rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/></td>
@@ -392,8 +391,6 @@ z-index: 2;
         <br><br>
 
 <%    } // rscChallenge has rows %>
-
-<br><br>
 
     <% if (rscDefense.getRowCount() > 0) { %>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
