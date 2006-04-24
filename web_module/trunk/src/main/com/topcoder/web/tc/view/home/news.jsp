@@ -8,6 +8,24 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.24.06<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm299">SRM 299 - Problem Set & Analysis</A></span><br><br>
+In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his first SRM victory, closely followed by 
+<tc-webtag:handle coderId="7452866" context="algorithm"/> (one failed challenge from first place) and <tc-webtag:handle coderId="144400" context="algorithm"/>.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm299">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505865" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.24.06<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program [PDF - 3.5MB]</A>
@@ -195,23 +213,6 @@ This was one of the last SRMs before the ACM-ICPC World finals in San Antonio.
          <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.06.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Bracket rooms swapped</A>
-      </span><br><br>
-      Due to a scheduling conflict, the competitors in Semifinal Room #1 and #3 have been swapped.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505960" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-
 
 </table>
 <br><br>
