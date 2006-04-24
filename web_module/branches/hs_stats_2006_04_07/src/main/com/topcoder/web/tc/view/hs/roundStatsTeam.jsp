@@ -193,15 +193,15 @@ function clickColumn(n)
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="17"><%= round.getRoundName() %> > Team Results</td></tr>
    <tr>
-      <td class="header"><A href="javascript:clickColumn(1)">Team</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Coding Phase</td>
+      <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">Challenge Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">System Tests</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(6)">Point Total</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point Total</td>
    </tr>
    <% boolean even = false; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">
@@ -220,7 +220,7 @@ function clickColumn(n)
 
           </td>
           <td class="valueR" colspan="2">
-              <rsc:item name="challenge_points" row="<%=resultRow%>"/>
+              <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
           </td>
           <td class="valueR" colspan="2">
               <rsc:item name="system_test_points" row="<%=resultRow%>"/>

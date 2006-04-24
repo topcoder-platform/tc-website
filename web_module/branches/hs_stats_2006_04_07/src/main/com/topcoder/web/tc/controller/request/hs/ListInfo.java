@@ -25,6 +25,11 @@ public class ListInfo {
     private int sortColumn;
     
     /**
+     * The name of the sorting column.
+     */
+    private String sortColumnName;
+    
+    /**
      * Sort direction: ASC or DESC
      */
     private String sortDirection;
@@ -74,7 +79,8 @@ public class ListInfo {
      * @param defaultSortColumn
      * @param defaultSortDirection
      */
-    public ListInfo(TCRequest req, int defaultStartRow, int defaultRowCount, int defaultSortColumn, String defaultSortDirection) {
+    public ListInfo(TCRequest req, int defaultStartRow, int defaultRowCount, int defaultSortColumn, String defaultSortDirection,
+            String sortColumnNames[]) {
         startRow = parseInt(req.getParameter(DataAccessConstants.START_RANK), defaultStartRow);
         
         int nr = parseInt(req.getParameter(DataAccessConstants.NUMBER_RECORDS), defaultRowCount);
@@ -83,6 +89,7 @@ public class ListInfo {
         
         String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
         sortDirection = sd == null? defaultSortDirection : sd;
+        sortColumnName = sortColumnNames[sortColumn];
         cropped = true;
     }
 
@@ -96,11 +103,12 @@ public class ListInfo {
      * @param defaultSortColumn
      * @param defaultSortDirection
      */
-    public ListInfo(TCRequest req, int defaultSortColumn, String defaultSortDirection) {
+    public ListInfo(TCRequest req, int defaultSortColumn, String defaultSortDirection,  String sortColumnNames[]) {
         sortColumn = parseInt(req.getParameter(DataAccessConstants.SORT_COLUMN), defaultSortColumn);
         
         String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
         sortDirection = sd == null? defaultSortDirection : sd;
+        sortColumnName = sortColumnNames[sortColumn];
         cropped = false;
     }
 
@@ -124,6 +132,9 @@ public class ListInfo {
     }
     public boolean isCropped() {
         return cropped;
+    }
+    public String getSortColumnName() {
+        return sortColumnName;
     }
  
 }

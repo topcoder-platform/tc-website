@@ -47,8 +47,8 @@ function selectSeason(selection)
 
 function selectRound(selection)
 {
-    document.pageForm.rd.value  = selection.options[selection.selectedIndex].value;
-    document.pageForm.submit();
+    document.roundForm.rd.value  = selection.options[selection.selectedIndex].value;
+    document.roundForm.submit();
 }
 
 function selectRoom(selection)
@@ -63,6 +63,23 @@ function selectCoder(coderId)
     document.coderForm.submit();
 }
 
+
+function clickColumn(n)
+{
+    if(n == <%= li.getSortColumn() %>) {
+        if ("asc" == "<%= li.getSortDirection() %>") {
+            document.sortForm.sd.value = "desc";
+        }
+        else  {
+            document.sortForm.sd.value = "asc";
+        }
+    } else {
+        document.sortForm.sd.value = "asc";
+        document.sortForm.sc.value = n;
+    }
+    document.sortForm.submit();
+
+}
 
 function goTo(selection){
 sel = selection.options[selection.selectedIndex].value;
@@ -91,10 +108,20 @@ function popHide(){
 
 </script>
 
-<form name="pageForm" method="get" action ="/tc">
+<form name="roundForm" method="get" action ="/tc">
 <input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
 <input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
 <input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="sortForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="cr" value="<%= cr %>">
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoomStats">
 </form>
@@ -206,17 +233,17 @@ z-index: 2;
    </tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="16%" colspan="2"><A href="">Coders</A></td>
-      <td class="headerR" width="16%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="16%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="16%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="16%"><A href="">System Tests</A></td>
-      <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="">Point Total</A></td>
-      <td class="headerR"><A href="">Old</A></td>
-      <td class="headerR"><A href="">New</A></td>
+      <td class="header" width="16%" colspan="2"><A href="javascript:clickColumn(0)">Coders</A></td>
+      <td class="headerR" width="16%"><A href="javascript:clickColumn(1)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(2)">Points</A></td>
+      <td class="headerR" width="16%"><A href="javascript:clickColumn(3)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(4)">Points</A></td>
+      <td class="headerR" width="16%"><A href="javascript:clickColumn(5)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(6)">Points</A></td>
+      <td class="headerR" width="16%"><A href="javascript:clickColumn(7)">System Tests</A></td>
+      <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(8)">Point Total</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(9)">Old</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(10)">New</A></td>
       <td class="headerR">&#160;</td>
    </tr>
 
@@ -227,7 +254,9 @@ z-index: 2;
                    even? "dark":"light"
                %>'>
       <td class="value" style="vertical-align: middle;">
-      <A href="javascript:selectCoder(<%= resultRow.getItem("coder_id").toString() %>)"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      <A href="javascript:selectCoder(<%= resultRow.getItem("coder_id").toString() %>)">
+      <img src='<%= resultRow.getIntItem("coder_id") == cr? "" : "/i/interface/exp_w.gif" %>" alt="" />
+      </A>
       </td>
       <td class="value">
          <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
@@ -275,17 +304,17 @@ z-index: 2;
       <rsc:item name="new_rating" row="<%=resultRow%>"/>
       </td>
       <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
+<% if (resultRow.getIntItem("rating_change")<0) { %>
+<IMG src="/i/interface/redDown.gif" width="10" height="10" border="0"/>
+<% } %>
+<% if (resultRow.getIntItem("rating_change")>0) { %>
+<IMG src="/i/interface/greenUp.gif" width="10" height="10" border="0"/>
+<% } %>
+</TD>
+
       </td>
    </tr>
    </rsc:iterator>
-
-<%--
-FOR A HIGHLIGHTED ROW, THE TR NEEDS TO BE class="highlight"
-THE LEFT CELL NEEDS TO HAVE THE SUFFIX _leftside
-THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
-(all because god damn IE won't recognize a <TR> border, a w3c standard, BLA!)
---%>
 </table>
 
 <br><br>
