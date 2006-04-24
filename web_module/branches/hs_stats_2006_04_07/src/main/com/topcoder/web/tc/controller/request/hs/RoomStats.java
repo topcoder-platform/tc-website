@@ -47,6 +47,11 @@ public class RoomStats extends Base {
             r.setProperty("rd", round.getRoundId() + "");
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
+            int cr = -1;
+            if (hasParameter("cr")) {
+                cr = Integer.parseInt(getRequest().getParameter("cr"));
+                r.setProperty("cr", cr + "");
+            } 
             
             
             DataAccessInt dai = getDataAccess(true);
@@ -63,10 +68,6 @@ public class RoomStats extends Base {
                 } 
             }
             
-            int cr = -1;
-            if (hasParameter("cr")) {
-                cr = Integer.parseInt(getRequest().getParameter("cr"));
-            } 
 
             fillRoundAndSeasonNames (round, result);
 
