@@ -115,7 +115,7 @@ z-index: 2;
       <td class="headerR" colspan="2">Defenses</td>
       <td class="headerR" colspan="2">Challenges</td>
       <td class="headerC" colspan="2" style="border-right:1px solid #999999;">&#160;</td>
-      <td class="headerC" colspan="3">Rating</td>
+      <td class="headerC" colspan="6">Rating</td>
    </tr>
    <tr>
       <td class="header">&#160;</td>
@@ -129,6 +129,9 @@ z-index: 2;
       <td class="headerR" width="16%"><A href="">System Tests</A></td>
       <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="">Point Total</A></td>
       <td class="headerR"><A href="">Old</A></td>
+      <td class="headerR">+</td>
+      <td class="headerR"><A href="">&#916;</A></td>
+      <td class="headerR">=</td>
       <td class="headerR"><A href="">New</A></td>
       <td class="headerR">&#160;</td>
    </tr>
@@ -177,10 +180,13 @@ z-index: 2;
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -237,64 +243,13 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
       </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      511.86
-      </td>
-
-      <td class="valueR">
-      2484
-      </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -345,64 +300,13 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
       </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      511.86
-      </td>
-
-      <td class="valueR">
-      2484
-      </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -453,64 +357,13 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
       </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      511.86
-      </td>
-
-      <td class="valueR">
-      2484
-      </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -561,64 +414,13 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
       </td>
-      <td class="value" style="vertical-align: middle;">
-      <img src="/i/interface/greenUp.gif" alt="" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
-
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      511.86
-      </td>
-
-      <td class="valueR">
-      2484
-      </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -669,10 +471,13 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
       </td>
-      <td class="valueR">
-      2513
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />
@@ -723,10 +528,241 @@ THE RIGHT CELL NEEDS TO HAVE THE SUFFIC _rightside
       </td>
 
       <td class="valueR">
-      2484
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+
+      <td class="valueR">
+      2
       </td>
       <td class="valueR">
-      2513
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+
+      <td class="valueR">
+      2
+      </td>
+      <td class="valueR">
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+
+      <td class="valueR">
+      2
+      </td>
+      <td class="valueR">
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value" style="vertical-align: middle;">
+      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="144400" />
+      </td>
+
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+
+      <td class="valueR">
+      2
+      </td>
+      <td class="valueR">
+      511.86
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0
+      </td>
+      <td class="valueR">
+      0.00
+      </td>
+
+      <td class="valueR">
+      0.00
+      </td>
+      <td class="valueR" style="border-right:1px solid #999999;">
+      511.86
+      </td>
+
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
       </td>
       <td class="value" style="vertical-align: middle;">
       <img src="/i/interface/greenUp.gif" alt="" />

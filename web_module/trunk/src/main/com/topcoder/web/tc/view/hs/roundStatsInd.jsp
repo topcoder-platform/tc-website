@@ -105,28 +105,28 @@ z-index: 2;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">High School Single Round Match 1 > Individual Results</td></tr>
+   <tr><td class="title"  colspan="16">High School Single Round Match 1 > Individual Results</td></tr>
    <tr>
-      <td class="header" colspan="10" style="border-right:1px solid #999999;">&#160;</td>
-      <td class="headerC" colspan="5">Rating</td>
+      <td class="header" colspan="2" rowspan="2"><A href="#">Coder</A></td>
+      <td class="headerR" rowspan="2"><A href="#">Placement<br>Points</td>
+      <td class="headerR" rowspan="2"><A href="#">Coding<br>Phase</td>
+      <td class="headerR" rowspan="2">+</td>
+      <td class="headerR" rowspan="2"><A href="#">Challenge<br>Phase</td>
+      <td class="headerR" rowspan="2">+</td>
+      <td class="headerR" rowspan="2"><A href="#">System<br>Tests</td>
+      <td class="headerR" rowspan="2">=</td>
+      <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="#">Point<br>Total</td>
+      <td class="headerC" colspan="6">Rating</td>
    </tr>
    <tr>
-      <td class="header" colspan="2"><A href="#">Coder</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Coding Phase</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Challenge Phase</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">System Tests</td>
-      <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap" style="border-right:1px solid #999999;"><A href="#">Point Total</td>
       <td class="headerR"><A href="">Old</A></td>
       <td class="headerR">+</td>
       <td class="headerR"><A href="">&#916;</A></td>
       <td class="headerR">=</td>
       <td class="headerR"><A href="">New</A></td>
+      <td class="headerR">&#160;</td>
    </tr>
-   <tr><td class="title" colspan="15" style="border-top:1px solid #999999;"><A href="">Room 1</A></td></tr>
+   <tr><td class="title"  colspan="16" style="border-top:1px solid #999999;"><A href="">Room 1</A></td></tr>
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -162,41 +162,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -234,41 +201,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -306,41 +240,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -378,41 +279,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -450,6 +318,9 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
@@ -486,9 +357,168 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
    </tr>
    <% even = !even;%>
-   <tr><td class="title" colspan="15" style="border-top:1px solid #999999;"><A href="">Room 2</A></td></tr>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr><td class="title"  colspan="16" style="border-top:1px solid #999999;"><A href="">Room 2</A></td></tr>
    <% even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -524,41 +554,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -596,41 +593,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -668,41 +632,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -740,41 +671,8 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID">Rocky Hill High School</div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      5
-      </td>
-      <td class="valueR">
-      1062.82
-      </td>
-      <td class="valueR" colspan="2">
-      775.00
-      </td>
-      <td class="valueR" colspan="2">
-      0.00
-      </td>
-      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
-      1837.82
-      </td>
-      <td class="valueR">
-      1554
-      </td>
-      <td class="valueR" colspan="2">
-      237
-      </td>
-      <td class="valueR" colspan="2">
-      1791
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
@@ -812,6 +710,9 @@ z-index: 2;
       <td class="valueR" colspan="2">
       1791
       </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
    </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
@@ -847,6 +748,165 @@ z-index: 2;
       </td>
       <td class="valueR" colspan="2">
       1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+         <tc-webtag:handle coderId="144400" />
+      </td>
+      <td class="value">
+         <div id="popBox">
+            <div id="d_CODERID">Rocky Hill High School</div>
+         </div>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+      </td>
+      <td class="valueR">
+      5
+      </td>
+      <td class="valueR">
+      1062.82
+      </td>
+      <td class="valueR" colspan="2">
+      775.00
+      </td>
+      <td class="valueR" colspan="2">
+      0.00
+      </td>
+      <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+      1837.82
+      </td>
+      <td class="valueR">
+      1554
+      </td>
+      <td class="valueR" colspan="2">
+      237
+      </td>
+      <td class="valueR" colspan="2">
+      1791
+      </td>
+      <td class="value" style="vertical-align: middle;">
+      <img src="/i/interface/greenUp.gif" alt="" />
       </td>
    </tr>
    <% even = !even;%>
