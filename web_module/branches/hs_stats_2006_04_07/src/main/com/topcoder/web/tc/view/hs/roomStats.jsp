@@ -328,6 +328,8 @@ z-index: 2;
 
 <% if ((cr >= 0) && (coderName != null)) {
     ResultSetContainer rscProblems = (ResultSetContainer) (ResultSetContainer) resultMap.get("Coder_Problems");
+    ResultSetContainer rscChallenge = (ResultSetContainer) resultMap.get("Coder_Challenges");
+
     java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.SSS");
 
 %>
@@ -370,15 +372,17 @@ z-index: 2;
       <td class="headerC">&#160;</td>
    </tr>
    <% even = false; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value"><tc-webtag:handle coderId="144400" /></td>
-      <td class="value"><tc-webtag:handle coderId="272072" /></td>
-      <td class="value">FallingBall</td>
-      <td class="value">Yes</td>
-      <td class="valueR">50.00</td>
-      <td class="valueC"><A href="">details</A></td>
-   </tr>
-   <% even = !even;%>
+   <rsc:iterator list="<%= rscProblems %>" id="resultRow">
+       <% even = !even; %>
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
+          <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
+          <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
+          <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>"/></td>
+          <td class="valueC"><A href="">details</A></td>
+       </tr>
+   </rsc:iterator>
 </table>
 
 <br><br>
