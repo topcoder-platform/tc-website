@@ -271,9 +271,9 @@ z-index: 2;
 
       <td class="value">
          <div id="popBox">
-            <div id="d_CODERID"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
+            <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
          </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">team</A>
       </td>
 
       <td class="valueR">
