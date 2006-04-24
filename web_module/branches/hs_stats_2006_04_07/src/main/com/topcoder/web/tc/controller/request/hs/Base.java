@@ -196,5 +196,23 @@ abstract public class Base extends BaseProcessor {
             map.put(name, rsc);
         }
     }
+    
+    
+    public static String cutTeamName(String name) {
+        if (name.length() <= 12) {
+            return name;
+        }
+        
+        int last = name.lastIndexOf(' ', 12);
+        
+        // if there is an space and is not in the first 4 characters, cut there
+        if (last > 3) {
+            name = name.substring(0, last);
+        } else {
+            name = name.substring(0, 12);
+        }
+        
+        return name + "...";
+    }
 
 }
