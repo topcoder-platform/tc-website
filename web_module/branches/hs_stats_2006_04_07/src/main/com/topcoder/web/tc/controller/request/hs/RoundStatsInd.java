@@ -13,11 +13,21 @@ import com.topcoder.web.tc.Constants;
  */
 public class RoundStatsInd extends Base { 
 
-    
+
+    /**
+     * Column names used for sorting. 
+     */
+    private static String columnNames[] = {"handle", "division_placed",
+         "submission_points", "total_challenge_points", "system_test_points", "final_points", 
+         "old_rating", "rating_change", "new_rating"};
+
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
-            //ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC");
+            
+            boolean groupByRoom = !hasParameter("sc");
+            
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC", columnNames);
             
             Request r = new Request();
             r.setContentHandle("hs_round_stats_ind");
@@ -29,13 +39,15 @@ public class RoundStatsInd extends Base {
             Map result = dai.getData(r);
             
             fillRoundAndSeasonNames (round, result);
-            
-                       
-//            sortAndCrop(result, "team_result", li);
+                                  
+            if (!groupByRoom) {
+                sortAndCrop(result, "team_result", li);
+            }
                         
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
-  //          getRequest().setAttribute("listInfo", li);
+            getRequest().setAttribute("groupByRoom", groupByRoom? "true" : "false");
+            getRequest().setAttribute("listInfo", li);
             
             setNextPage(Constants.HS_ROUND_STATS_IND);
             setIsNextPageInContext(true);

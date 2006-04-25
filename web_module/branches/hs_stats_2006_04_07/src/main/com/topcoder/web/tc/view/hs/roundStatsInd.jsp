@@ -35,6 +35,7 @@ try {
   nr = Integer.parseInt((String) request.getParameter("nr"));
 } catch(Exception e){}
 
+boolean groupByRoom = "true".equals(request.getAttribute("groupByRoom"));
 
 %>
 
@@ -43,14 +44,11 @@ try {
 
 function selectSeason(selection)
 {
-    document.seasonForm.snid.value = selection.options[selection.selectedIndex].value;
-    document.seasonForm.submit();
-}
+	window.location = "/tc?module=HSRoundStatsInd&snid=" + selection.options[selection.selectedIndex].value;}
 
 function selectRound(selection)
 {
-    document.pageForm.rd.value  = selection.options[selection.selectedIndex].value;
-    document.pageForm.submit();
+	window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
 }
 
 
@@ -76,20 +74,26 @@ function popHide(){
    objPopUp.style.visibility = 'hidden';
    objPopUp = null;
 }
+
+function clickColumn(n)
+{
+    if(n == <%= li.getSortColumn() %>) {
+        if ("asc" == "<%= li.getSortDirection() %>") {
+            document.pageForm.sd.value = "desc";
+        }
+        else  {
+            document.pageForm.sd.value = "asc";
+        }
+    } else {
+        document.pageForm.sd.value = "asc";
+        document.pageForm.sc.value = n;
+    }
+    document.pageForm.submit();
+
+}
+
 // -->
 </script>
-
-<form name="pageForm" method="get" action ="/tc">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoundStatsInd">
-</form>
-
-<form name="seasonForm" method="get" action ="/tc">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoundStatsInd">
-</form>
-
 
 <STYLE TYPE="text/css">
 #popBox{ position: relative; }
@@ -157,56 +161,81 @@ z-index: 2;
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="10"><%= round.getRoundName() %> > Individual Results</td></tr>
    <tr>
-      <td class="header" colspan="2"><A href="#">Coder</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Coding Phase</td>
+      <td class="header" colspan="2" rowspan="2"><A href="#">Coder</A></td>
+      <td class="headerR" rowspan="2"><A href="#">Placement<br>Points</td>
+      <td class="headerR" rowspan="2"><A href="#">Coding<br>Phase</td>
+
+      <td class="headerR" rowspan="2">+</td>
+      <td class="headerR" rowspan="2"><A href="#">Challenge<br>Phase</td>
+      <td class="headerR" rowspan="2">+</td>
+      <td class="headerR" rowspan="2"><A href="#">System<br>Tests</td>
+      <td class="headerR" rowspan="2">=</td>
+
+      <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="#">Point<br>Total</td>
+      <td class="headerC" colspan="6">Rating</td>
+   </tr>
+   <tr>
+      <td class="headerR"><A href="">Old</A></td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Challenge Phase</td>
-      <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">System Tests</td>
+
+      <td class="headerR"><A href="">&#916;</A></td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="#">Point Total</td>
+      <td class="headerR"><A href="">New</A></td>
+      <td class="headerR">&#160;</td>
    </tr>
 
    <% boolean even = false;
       int lastRoom = -1;
+      int roomNumber = 0;
    %>
    <rsc:iterator list="<%= result%>" id="resultRow">
    <%
-       even = !even;
-       if (lastRoom != resultRow.getIntItem("room_id")) {
+	   roomNumber++;
+   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow())) {
+	       even = !even;
+    	   if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
    %>
-   <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
-   <%
-        lastRoom = resultRow.getIntItem("room_id");
-      }
-   %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
-      </td>
-      <td class="value">
-         <div id="popBox">
-            <div id="d_CODERID"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
-         </div>
-         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
-      </td>
-      <td class="valueR">
-      <rsc:item name="division_placed" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR">
-      <rsc:item name="submission_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR" colspan="2">
-      <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR" colspan="2">
-      <rsc:item name="system_test_points" row="<%=resultRow%>"/>
-      </td>
-      <td class="valueR" colspan="2">
-      <rsc:item name="final_points" row="<%=resultRow%>"/>
-      </td>
-   </tr>
+		  		 <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
+		   <%
+		         lastRoom = resultRow.getIntItem("room_id");
+		   }
+		   %>
+		   <tr class="<%=even?"dark":"light"%>">
+		      <td class="value">
+		         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
+		      </td>
+		      <td class="value">
+		         <div id="popBox">
+		            <div id="d_CODERID"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
+		         </div>
+		         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+		      </td>
+		      <td class="valueR">
+		      <rsc:item name="division_placed" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR">
+		      <rsc:item name="submission_points" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="system_test_points" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="final_points" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="old_rating" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="rating_change" row="<%=resultRow%>"/>
+		      </td>
+		      <td class="valueR" colspan="2">
+		      <rsc:item name="new_rating" row="<%=resultRow%>"/>
+		      </td>
+		   </tr>
+	<% } %>		   
    </rsc:iterator>
 
 </table>
