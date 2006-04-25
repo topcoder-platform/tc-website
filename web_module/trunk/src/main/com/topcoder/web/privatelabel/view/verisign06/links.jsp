@@ -37,18 +37,20 @@
                     <A href="/pl/?module=Static&d1=verisign06&d2=login"><img src="/i/events/verisign06/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></A>
                 </td>
                 <% } %>
+                <% if (tabLev2.equals("results")) {%>
+                <td class="nav">
+                    <A href="/pl/?module=Static&d1=verisign06&d2=results"><img src="/i/events/verisign06/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
+                </td>
+                <% } else { %>
+                <td class="nav">
+                    <A href="/pl/?module=Static&d1=verisign06&d2=results"><img src="/i/events/verisign06/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
+                </td>
+                <% } %>
                 <%--
                            <% if (tabLev2.equals("registrants")) {%>
                                <td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/events/verisign06/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
                             <% } else { %>
                                <td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/events/verisign06/tabs/L2_registrantsOff.gif" alt="" border="0" /></A></td>
-                            <% } %>
-                --%>
-                <%--
-                            <% if (tabLev2.equals("advancers")) {%>
-                               <td class="nav"><A href="/tc?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=adv_overview"><img src="/i/events/verisign06/tabs/L2_advancersOn.gif" alt="" border="0" /></A></td>
-                            <% } else { %>
-                               <td class="nav"><A href="/tc?module=SimpleStats&c=tco06_spon_adv_overview&trans=true&d1=tournaments&d2=tco06&d3=adv_overview"><img src="/i/events/verisign06/tabs/L2_advancersOff.gif" alt="" border="0" /></A></td>
                             <% } %>
                 --%>
                 <%--
