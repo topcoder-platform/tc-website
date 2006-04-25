@@ -200,8 +200,8 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + li.getStartRow() +", " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + li.getStartRow() +", "+ (li.getStartRow() + li.getNumberOfRows()) + ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
 <% if (!groupByRoom) { %>
@@ -299,15 +299,16 @@ z-index: 2;
 </table>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + li.getStartRow() +", " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + li.getStartRow() +", "+ (li.getStartRow() + li.getNumberOfRows()) + ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 
 <form name="pagingForm">
 View &nbsp;
-<input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text">
+<input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getNumberOfRows() %>" type="text">
+<%= groupByRoom? " rooms " : "" %>
 &nbsp;at a time starting with &nbsp;
 
-<input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text">
+<input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
 <a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value)" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 
