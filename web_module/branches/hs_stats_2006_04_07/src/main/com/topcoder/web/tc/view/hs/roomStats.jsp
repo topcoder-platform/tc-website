@@ -112,51 +112,6 @@ function popHide(){
 
 </script>
 
-<form name="roundForm" method="get" action ="/tc">
-<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
-<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoomStats">
-</form>
-
-<form name="sortForm" method="get" action ="/tc">
-<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
-<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="rm" value="<%= rm %>">
-<input type="hidden" name="cr" value="<%= cr %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoomStats">
-</form>
-
-<form name="seasonForm" method="get" action ="/tc">
-<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
-<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoomStats">
-</form>
-
-<form name="roomForm" method="get" action ="/tc">
-<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
-<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="rm" value="<%= rm %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoomStats">
-</form>
-
-<form name="coderForm" method="get" action ="/tc">
-<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
-<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
-<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
-<input type="hidden" name="rm" value="<%= rm %>">
-<input type="hidden" name="cr" value="<%= cr %>">
-<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
-<input type="hidden" name="module" value="HSRoomStats">
-</form>
-
-
 <STYLE TYPE="text/css">
 #popBox{ position: relative; }
 #popBox div
@@ -446,6 +401,50 @@ z-index: 2;
 </table>
 
 <jsp:include page="/foot.jsp"/>
+
+<form name="roundForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="sortForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="cr" value="<%= cr %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="seasonForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="roomForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
+
+<form name="coderForm" method="get" action ="/tc">
+<input type="hidden" name="sc" value="<%= li.getSortColumn() %>">
+<input type="hidden" name="sd" value="<%= li.getSortDirection() %>">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="rm" value="<%= rm %>">
+<input type="hidden" name="cr" value="<%= cr %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoomStats">
+</form>
 
 </body>
 

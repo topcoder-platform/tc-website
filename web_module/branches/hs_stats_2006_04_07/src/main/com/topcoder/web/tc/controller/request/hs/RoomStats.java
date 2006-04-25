@@ -41,8 +41,9 @@ public class RoomStats extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            if (!userIdentified())
+            if (!userIdentified()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
 
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             ListInfo li = new ListInfo(getRequest(), 9, "DESC", columnNames);
