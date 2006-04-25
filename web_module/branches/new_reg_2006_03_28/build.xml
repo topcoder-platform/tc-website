@@ -816,14 +816,12 @@
             <fileset dir="${jars.dir}/tc/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tc/base_exception/1.0">
-                <include name="base_exception.jar"/>
-            </fileset>
         </copy>
 
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="catalog.jar"/>
+                <include name="base_exception.jar"/>
                 <include name="user.jar"/>
             </fileset>
         </copy>

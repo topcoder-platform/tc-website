@@ -12,4 +12,7 @@
     <module>
         <ejb>security.jar</ejb>
     </module>
+    <module>
+        <ejb>base_exception.jar</ejb>
+    </module>
 </application>
