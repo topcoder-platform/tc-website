@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.25.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=digital_run&d2=description">Introducing The Digital Run</A>
+      </span><br><br>
+      The Digital Run marks another stride for TopCoder in recognizing talent through competition. Essentially, the Digital Run will reward the top software designers and developers, giving them placement points based on their performance.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=digital_run&d2=description">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505969" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.24.06<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -197,21 +211,6 @@ This was one of the last SRMs before the ACM-ICPC World finals in San Antonio.
          <A href="/tc?module=Static&d1=match_editorials&d2=srm296">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505862" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.06.06<br>2:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">AMD SRM 296 chat session transcript</A>
-      </span><br><br>
-      AMD was in the arena prior to SRM 296 to discuss business intelligence.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd_chat_040306">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
