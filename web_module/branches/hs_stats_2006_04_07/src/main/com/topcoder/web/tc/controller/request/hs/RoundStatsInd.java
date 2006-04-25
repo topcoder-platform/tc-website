@@ -80,8 +80,8 @@ public class RoundStatsInd extends Base {
             return 0;
         }
         
-        int startRow = rsc.getRowCount() -1;
-        int endRow = rsc.getRowCount() - 1;
+        int startRow = rsc.getRowCount();
+        int endRow = rsc.getRowCount();
         int lastRoom = -1;
         int roomNumber = 0;
         
@@ -95,7 +95,7 @@ public class RoundStatsInd extends Base {
                 startRow = i;
             }
             if ((roomNumber == li.getEndRow()) && (i < endRow)) {
-                endRow = i - 1;
+                endRow = i;
             }
 
         }
