@@ -63,7 +63,7 @@ function submitEnter(e) {
          </div>
          <br><br>
 
-    Registration will close on Tuesday, May 23 at 8:00 AM GMT.<br/><br/>
+    Registration will close on Tuesday, May 23 at 8:00 AM GMT/UTC.<br/><br/>
     If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_EUROPE_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=18317&<%=Constants.EVENT_ID%>=7" class="bigRed">not currently a TopCoder member</A>
     or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_EUROPE_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=18317&<%=Constants.EVENT_ID%>=7" class="bigRed">here</a>.
     <br><br>
