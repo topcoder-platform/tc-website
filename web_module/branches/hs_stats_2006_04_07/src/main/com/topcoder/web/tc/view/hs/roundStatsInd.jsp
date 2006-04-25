@@ -89,7 +89,7 @@ function clickColumn(n)
     }
 
     window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&sc=" + n +
-                  "&sd=" + sd + "&sr=<%= li.getStartRow() %>&nr=<%= li.getNumberOfRows() %>";
+                  "&sd=" + sd;
 
 
 }
