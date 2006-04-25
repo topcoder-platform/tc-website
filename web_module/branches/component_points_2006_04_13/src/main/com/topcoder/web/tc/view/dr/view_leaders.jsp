@@ -24,7 +24,7 @@
         <rsc:iterator list="<%=leaderBoard%>" id="resultRow">
             <tr valign="top">
                 <td>
-                    <tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'/>
+                    <rsc:item name="user_id" row="<%=resultRow%>"/>
                 </td>
                 <td>
                     <rsc:item name="total_points" row="<%=resultRow%>"/>
