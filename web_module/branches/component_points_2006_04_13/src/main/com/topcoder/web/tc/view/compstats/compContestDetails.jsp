@@ -237,9 +237,6 @@
                     <% } %>
 
                 </TD>
-                initial: 
-<rsc:item row="<%=resultRow%>" name="initial_points"/>
-
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
                                                             ifNull="unknown*"/></TD>
