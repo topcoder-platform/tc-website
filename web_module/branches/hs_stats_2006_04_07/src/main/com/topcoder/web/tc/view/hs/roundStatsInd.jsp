@@ -45,11 +45,11 @@ boolean groupByRoom = "true".equals(request.getAttribute("groupByRoom"));
 
 function selectSeason(selection)
 {
-	window.location = "/tc?module=HSRoundStatsInd&snid=" + selection.options[selection.selectedIndex].value;}
+    window.location = "/tc?module=HSRoundStatsInd&snid=" + selection.options[selection.selectedIndex].value;}
 
 function selectRound(selection)
 {
-	window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
+    window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
 }
 
 
@@ -78,20 +78,55 @@ function popHide(){
 
 function clickColumn(n)
 {
+    var sd = "asc";
+
     if(n == <%= li.getSortColumn() %>) {
         if ("asc" == "<%= li.getSortDirection() %>") {
-            document.pageForm.sd.value = "desc";
+            sd = "desc";
         }
-        else  {
-            document.pageForm.sd.value = "asc";
-        }
-    } else {
-        document.pageForm.sd.value = "asc";
-        document.pageForm.sc.value = n;
     }
-    document.pageForm.submit();
+
+    window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&sc=" + n +
+                      "&sd=" + sd + "&sr=<%= li.getStartRow() %>&nr=<%= li.getNumberOfRows() %>";
+
 
 }
+
+
+
+
+function showRows(sr, nr)
+{
+    if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
+    {
+        alert(nr + " is not a valid positive integer");
+        return;
+     }
+    if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
+    {
+        alert(sr + " is not a valid positive integer");
+        return;
+     }
+
+    if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
+    if (sr < 1) sr = 1;
+
+    window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
+                      "&sc=<%= li.getSortColumn() %>&sd=<%= li.getSortDirection() %>&sr=" + sr + "&nr=" + nr;
+}
+
+function submitEnter(e)
+{
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+        showRows(document.pagingForm.sr.value, document.pagingForm.nr.value);
+    } else return true;
+ }
+
+
 
 // -->
 </script>
@@ -156,9 +191,11 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>);\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
+
+
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="16"><%= round.getRoundName() %> > Individual Results</td></tr>
    <tr>
@@ -191,75 +228,84 @@ z-index: 2;
    %>
    <rsc:iterator list="<%= result%>" id="resultRow">
    <%
-	   if (lastRoom != resultRow.getIntItem("room_id")) {
-	       roomNumber++;
-	   }
-   
-//   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
-	       even = !even;
-    	   if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
+       if (lastRoom != resultRow.getIntItem("room_id")) {
+           roomNumber++;
+       }
+
+//         if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
+           even = !even;
+           if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
    %>
-		  		 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
-		   <%
-		         lastRoom = resultRow.getIntItem("room_id");
-		   }
-		   %>
-		   <tr class="<%=even?"dark":"light"%>">
-		      <td class="value">
-		         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
-		      </td>
-			  <td class="value" nowrap>
-		         <div id="popBox">
-		            <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
-		         </div>
-		         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
-		         <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
-		      </td>
-		      
-		      
-		      <td class="valueR">
-		      <rsc:item name="division_placed" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR">
-		      <rsc:item name="submission_points" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="system_test_points" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="final_points" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="old_rating" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="rating_change" row="<%=resultRow%>"/>
-		      </td>
-		      <td class="valueR" colspan="2">
-		      <rsc:item name="new_rating" row="<%=resultRow%>"/>
-		      </td>
-		   </tr>
-	<% // } 
-	%>		   
+                 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
+           <%
+                 lastRoom = resultRow.getIntItem("room_id");
+           }
+           %>
+           <tr class="<%=even?"dark":"light"%>">
+              <td class="value">
+                 <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
+              </td>
+              <td class="value" nowrap>
+                 <div id="popBox">
+                    <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
+                 </div>
+                 <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+                 <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
+              </td>
+
+
+              <td class="valueR">
+              <rsc:item name="division_placed" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR">
+              <rsc:item name="submission_points" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR" colspan="2">
+              <rsc:item name="total_challenge_points" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR" colspan="2">
+              <rsc:item name="system_test_points" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+              <rsc:item name="final_points" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR">
+              <rsc:item name="old_rating" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR" colspan="2">
+              <rsc:item name="rating_change" row="<%=resultRow%>"/>
+              </td>
+              <td class="valueR" colspan="2">
+              <rsc:item name="new_rating" row="<%=resultRow%>"/>
+              </td>
+              <td class="value" style="vertical-align: middle;">
+                <% if (resultRow.getIntItem("rating_change")<0) { %>
+                <IMG src="/i/interface/redDown.gif" border="0"/>
+                <% } %>
+                <% if (resultRow.getIntItem("rating_change")>0) { %>
+                <IMG src="/i/interface/greenUp.gif" border="0"/>
+                <% } %>
+            </TD>
+
+           </tr>
+    <% // }
+    %>
    </rsc:iterator>
 
 </table>
 
 <div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>);\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
 
-<br>
-
+<form name="pagingForm">
 View &nbsp;
 <input name="nr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="50" type="text">
 &nbsp;at a time starting with &nbsp;
 
 <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="1" type="text">
-<a href="javascript:document.matchListForm.submit();" class="bcLink">&nbsp;[ submit ]</a>
+<a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value)" class="bcLink">&nbsp;[ submit ]</a>
+</form>
 
 </div>
 </td>
