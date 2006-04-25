@@ -9,9 +9,6 @@
 </map>
 <IMG SRC="/i/home/tcoo5_movies.jpg" border="0" ALT="TCO05" usemap="#tco05_map"/><br>
 --%>
-<%-- COMP PROJECTS
-<A href="/tc?module=ViewActiveContests"><IMG SRC="/i/home/promos/comp_projects.gif" border="0" ALT="Component Projects"/></A><br>
---%>
 <%-- TCO06
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
@@ -21,12 +18,16 @@
 
 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A>
 --%>
-<%-- TCO06 --%>
+<%-- TCO06 
 <map name="tco06prog_map">
 <area shape="rect" alt="" coords="1,1, 258,158" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
 <area shape="rect" alt="" coords="263,1, 509,158" href="/pdfs/tournaments/tco06_program.pdf" />
 </map>
 <IMG SRC="/i/home/tco06_program.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06prog_map" />
+--%>
+
+<%-- Digital Run --%>
+<A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digital_run.jpg" border="0" ALT="The Digital Run"/></A>
 
 
 <%-- Marathon Matches
