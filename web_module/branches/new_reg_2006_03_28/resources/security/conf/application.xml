@@ -4,7 +4,7 @@
 <application>
     <display-name>Security Manager</display-name>
     <module>
-          <ejb>idgenerator.jar</ejb>
+          <ejb>id_generator.jar</ejb>
     </module>
     <module>
         <java>configmanager2.jar</java>
