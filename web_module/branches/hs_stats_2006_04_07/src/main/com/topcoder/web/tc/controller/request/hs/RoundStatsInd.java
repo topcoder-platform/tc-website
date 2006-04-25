@@ -1,9 +1,12 @@
 package com.topcoder.web.tc.controller.request.hs;
 
+import java.util.Iterator;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.util.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -27,7 +30,7 @@ public class RoundStatsInd extends Base {
             
             boolean groupByRoom = !hasParameter("sc");
             
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, groupByRoom? 10 : 50, 2, "ASC", columnNames);
             
             Request r = new Request();
             r.setContentHandle("hs_round_stats_ind");
@@ -42,6 +45,8 @@ public class RoundStatsInd extends Base {
                                   
             if (!groupByRoom) {
                 sortAndCrop(result, "team_result", li);
+            } else {
+                cropRoom(result, "team_result", li);
             }
                         
             getRequest().setAttribute("resultMap", result);
@@ -58,5 +63,36 @@ public class RoundStatsInd extends Base {
         }
     }
 
+
+    /**
+     * Crop a ResultSetContainer using the ListInfo parameters, but the rows will refer to rooms,.
+     *  
+     * @param rsc ResultSetContainer to sort
+     * @param li information about sorting
+     */
+    private void cropRoom(Map map, String name, ListInfo li) {
+        ResultSetContainer rsc = (ResultSetContainer) map.get(name);
+        int startRow = rsc.getRowCount() -1;
+        int endRow = rsc.getRowCount() - 1;
+        int lastRoom = -1;
+        int roomNumber = 0;
+        
+        for (int i = 0 ; i < rsc.getRowCount(); i++)
+        {            
+            if (rsc.getIntItem(i, "room_id") != lastRoom) {
+                lastRoom = rsc.getIntItem(i, "room_id");
+                roomNumber++;
+            }
+            if (roomNumber == li.getStartRow()) {
+                startRow = i;
+            }
+            if (roomNumber == (li.getEndRow() + 1)) {
+                startRow = i - 1;
+            }
+
+        }
+        
+        map.put(name, rsc.subList(startRow, endRow));
+    }
 
 }

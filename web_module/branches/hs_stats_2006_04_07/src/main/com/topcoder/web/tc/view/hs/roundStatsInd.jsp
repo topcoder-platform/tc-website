@@ -1,6 +1,7 @@
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
           java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
+                    com.topcoder.web.tc.controller.request.hs.Base,
           com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -159,28 +160,28 @@ z-index: 2;
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 </div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="10"><%= round.getRoundName() %> > Individual Results</td></tr>
+   <tr><td class="title" colspan="16"><%= round.getRoundName() %> > Individual Results</td></tr>
    <tr>
-      <td class="header" colspan="2" rowspan="2"><A href="#">Coder</A></td>
-      <td class="headerR" rowspan="2"><A href="#">Placement<br>Points</td>
-      <td class="headerR" rowspan="2"><A href="#">Coding<br>Phase</td>
+      <td class="header" colspan="2" rowspan="2"><A href="javascript:clickColumn(0)">Coder</A></td>
+      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Placement<br>Points</td>
+      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
 
       <td class="headerR" rowspan="2">+</td>
-      <td class="headerR" rowspan="2"><A href="#">Challenge<br>Phase</td>
+      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(3)">Challenge<br>Phase</td>
       <td class="headerR" rowspan="2">+</td>
-      <td class="headerR" rowspan="2"><A href="#">System<br>Tests</td>
+      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(4)">System<br>Tests</td>
       <td class="headerR" rowspan="2">=</td>
 
-      <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="#">Point<br>Total</td>
+      <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(5)">Point<br>Total</td>
       <td class="headerC" colspan="6">Rating</td>
    </tr>
    <tr>
-      <td class="headerR"><A href="">Old</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(6)">Old</A></td>
       <td class="headerR">+</td>
 
-      <td class="headerR"><A href="">&#916;</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(7)">&#916;</A></td>
       <td class="headerR">=</td>
-      <td class="headerR"><A href="">New</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(8)">New</A></td>
       <td class="headerR">&#160;</td>
    </tr>
 
@@ -190,12 +191,15 @@ z-index: 2;
    %>
    <rsc:iterator list="<%= result%>" id="resultRow">
    <%
-	   roomNumber++;
-   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
+	   if (lastRoom != resultRow.getIntItem("room_id")) {
+	       roomNumber++;
+	   }
+   
+//   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
 	       even = !even;
     	   if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
    %>
-		  		 <tr><td class="title" colspan="10" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
+		  		 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
 		   <%
 		         lastRoom = resultRow.getIntItem("room_id");
 		   }
@@ -204,12 +208,15 @@ z-index: 2;
 		      <td class="value">
 		         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
 		      </td>
-		      <td class="value">
+			  <td class="value" nowrap>
 		         <div id="popBox">
-		            <div id="d_CODERID"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
+		            <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
 		         </div>
-		         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID')" onmouseout="popHide()">team</A>
+		         <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+		         <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
 		      </td>
+		      
+		      
 		      <td class="valueR">
 		      <rsc:item name="division_placed" row="<%=resultRow%>"/>
 		      </td>
@@ -235,7 +242,8 @@ z-index: 2;
 		      <rsc:item name="new_rating" row="<%=resultRow%>"/>
 		      </td>
 		   </tr>
-	<% } %>		   
+	<% // } 
+	%>		   
    </rsc:iterator>
 
 </table>
