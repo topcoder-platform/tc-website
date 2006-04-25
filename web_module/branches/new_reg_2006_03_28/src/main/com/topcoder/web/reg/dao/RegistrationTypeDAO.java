@@ -1,13 +1,8 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author dok
@@ -23,7 +18,7 @@ public class RegistrationTypeDAO extends Base {
         return (RegistrationType)find(RegistrationType.class, id);
     }
 
-    public Set getRegistrationTypes(User u) {
+/*    public Set getRegistrationTypes(User u) {
         Set ret = new HashSet();
         try {
             begin();
@@ -40,5 +35,5 @@ public class RegistrationTypeDAO extends Base {
             throw e;
         }
         return ret;
-    }
+    }*/
 }

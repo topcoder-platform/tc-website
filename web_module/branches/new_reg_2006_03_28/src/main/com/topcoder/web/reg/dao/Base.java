@@ -80,8 +80,8 @@ public abstract class Base {
             StringBuffer query = new StringBuffer(100);
             query.append("from ");
             query.append(c.getName());
-            query.append(" where ");
             if (property != null && value != null) {
+                query.append(" where ");
                 query.append(property);
                 query.append(" = ");
                 query.append("?");

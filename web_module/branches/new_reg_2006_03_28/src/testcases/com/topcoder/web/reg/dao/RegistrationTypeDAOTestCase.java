@@ -1,6 +1,9 @@
 package com.topcoder.web.reg.dao;
 
 import junit.framework.TestCase;
+import com.topcoder.web.reg.model.RegistrationType;
+
+import java.util.List;
 
 /**
  * @author dok
@@ -9,9 +12,15 @@ import junit.framework.TestCase;
  */
 public class RegistrationTypeDAOTestCase extends TestCase {
 
-/*    public void testLoadUserRegTypes() {
-        Coder c = new CoderDAO().find(new Long(144400));
-        Set regTypes = new RegistrationTypeDAO().getRegistrationTypes(c);
-        assertTrue("Reg types is not empty for tomek and should be", regTypes.isEmpty());
-    }*/
+    public void testFind() {
+        RegistrationType rt = new RegistrationTypeDAO().find(new Long(1));
+        assertTrue("could not find the registration type for competitions", rt!=null);
+    }
+
+    public void testGetRegistrationTypes() {
+        List types = new RegistrationTypeDAO().getRegistrationTypes();
+        assertTrue("count not find any registration types in the db", types!=null&&!types.isEmpty());
+    }
+
+
 }

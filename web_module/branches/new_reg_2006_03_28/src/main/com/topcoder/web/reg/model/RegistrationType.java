@@ -8,6 +8,7 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Apr 10, 2006
  */
 public class RegistrationType extends Base {
+    
     private Integer id;
     private String description;
     private Boolean active;
