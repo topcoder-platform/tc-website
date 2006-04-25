@@ -191,8 +191,8 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()?"<a href='Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)'>&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()?"<a href='Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>)' >next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(teamResult.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
 
@@ -224,18 +224,12 @@ z-index: 2;
 
    <% boolean even = false;
       int lastRoom = -1;
-      int roomNumber = 0;
    %>
    <rsc:iterator list="<%= result%>" id="resultRow">
    <%
-       if (lastRoom != resultRow.getIntItem("room_id")) {
-           roomNumber++;
-       }
-
-//         if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
            even = !even;
            if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
-   %>
+		   %>
                  <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
            <%
                  lastRoom = resultRow.getIntItem("room_id");
@@ -288,15 +282,13 @@ z-index: 2;
             </TD>
 
            </tr>
-    <% // }
-    %>
    </rsc:iterator>
 
 </table>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>);\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(teamResult.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
 
 <form name="pagingForm">
 View &nbsp;
