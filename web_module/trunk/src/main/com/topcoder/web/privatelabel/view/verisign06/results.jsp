@@ -26,13 +26,13 @@
 <br/><br/>
 Congratulations to the following winners from SRM 1:
 <br><br>
-1st Place, $1,500 and a trip to the VTS Finals: <b>Winner Name</b>
-<br><br>Ê
-2nd Place, $750 and a trip to the VTS Finals: <b>Winner Name</b>
-<br><br>Ê
-3rd Place and $500: <b>Winner Name</b>
-<br><br>Ê
-Best of luck to XXXXXXXXX and XXXXXXXX.Ê They will join Relic, the VeriSign Sponsor Track Winner, at the VeriSign Technical Symposium (VTS) June 11 Ð 13, 2006 for the final showdown.
+1st Place, $1,500 and a trip to the VTS Finals:&#160;<b>Winner Name</b>
+<br><br>
+2nd Place, $750 and a trip to the VTS Finals:&#160;<b>Winner Name</b>
+<br><br>
+3rd Place and $500:&#160;<b>Winner Name</b>
+<br><br>
+Best of luck to <b>XXXXXX</b> and <b>XXXXXX</b>! They will join <b>Relic</b>, the VeriSign Sponsor Track Winner, at the VeriSign Technical Symposium (VTS) June 11 - 13, 2006, for the final showdown.
 
 
 <!--
