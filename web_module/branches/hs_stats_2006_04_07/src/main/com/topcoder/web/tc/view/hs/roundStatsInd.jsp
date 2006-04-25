@@ -89,7 +89,7 @@ function clickColumn(n)
     }
 
     window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&sc=" + n +
-                      "&sd=" + sd + "&sr=<%= li.getStartRow() %>&nr=<%= li.getNumberOfRows() %>";
+                  "&sd=" + sd + "&sr=<%= li.getStartRow() %>&nr=<%= li.getNumberOfRows() %>";
 
 
 }
@@ -113,8 +113,15 @@ function showRows(sr, nr)
     if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
     if (sr < 1) sr = 1;
 
-    window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
+
+    <%= if (groupByRoom) { %>
+        window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
+                      "&sr=" + sr + "&nr=" + nr;
+    <% } else { %>
+        window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
                       "&sc=<%= li.getSortColumn() %>&sd=<%= li.getSortDirection() %>&sr=" + sr + "&nr=" + nr;
+    <% } %>
+
 }
 
 function submitEnter(e)
@@ -193,8 +200,8 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + li.getStartRow() +", " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + li.getStartRow() +", "+ (li.getStartRow() + li.getNumberOfRows()) + ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
 <% if (!groupByRoom) { %>
@@ -292,8 +299,8 @@ z-index: 2;
 </table>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + li.getStartRow() +", " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + li.getStartRow() +", "+ (li.getStartRow() + li.getNumberOfRows()) + ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 
 <form name="pagingForm">
 View &nbsp;

@@ -45,7 +45,7 @@ public class RoundStatsInd extends Base {
                                   
             if (!groupByRoom) {
                 sortAndCrop(result, "hs_ind_result", li);
-                getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("team_result")).getRowCount() + "");                
+                getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("hs_ind_result")).getRowCount() + "");                
             } else {
                 int roomCount = cropRoom(result, "hs_ind_result", li);
                 getRequest().setAttribute("totalRows", roomCount + "");                
