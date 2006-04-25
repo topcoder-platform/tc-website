@@ -41,7 +41,8 @@
 
 <div align="center">
    <div style="width:500px; text-align:left;">
-<h2>Getting Started in Design Competitions</h2>
+<!--  <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desFlash"><img src="/i/support/click_tutorials.gif" valign="top" align="right" width="100" height="51" border="0" alt="Click Here to View the Flash Tutorials"></a><br>-->
+<h2>Getting Started in Design Competitions</h2> 
 
 <p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Design Tutorial</span><br/>
 Read the <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desTutorial">Component Design Tutorial</a>.
@@ -66,7 +67,7 @@ Upon registering for the project you will be granted access to the developer for
 When you go to the developer forum for the project download the Design Distribution for that component.  Read through the docs and get familiar with the requirements.</p>
 
 <p><span class="bodySubtitle">Step 8 - Read the TopCoder Software Member Guide</span><br/>
-Download the <a href="http://www.topcoder.com/i/development/downloads/TopCoder_Software_Member_Guide.pdf" target="_blank">Software Member Guide</a>.  This document is a guide for developers new to the TopCoder component development methodology and environment. It will guide you through the required elements for submission.</p>
+Download the <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desMemberGuide">Software Member Guide</a>.  This document is a guide for developers new to the TopCoder component development methodology and environment. It will guide you through the required elements for submission.</p>
 
 <p><span class="bodySubtitle">Step 9 - Complete the Requirements</span><br/>
 Complete all of the necessary elements to the project as specified in the Member guide tutorial for design.</p>
