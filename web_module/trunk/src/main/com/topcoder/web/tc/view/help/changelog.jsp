@@ -40,11 +40,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.0.10 - 2006.04.xx
+        5.0.10 - 2006.04.24
         <ul>
             <li>Fix the next/previous links on the example history page for Marathon Matches</li>
             <li>Fix component reg.  The end time was calculated incorrectly as well had whether or not they had won the design phase.</li>
             <li>Add Google Europe site.</li>
+            <li>Fix bug in Marathon Match results where one couldn't scroll.</li>
         </ul>
     </p>
     <p>
