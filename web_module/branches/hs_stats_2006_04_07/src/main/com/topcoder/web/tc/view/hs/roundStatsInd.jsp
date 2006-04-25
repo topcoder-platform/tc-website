@@ -38,6 +38,8 @@ try {
 
 boolean groupByRoom = "true".equals(request.getAttribute("groupByRoom"));
 
+int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
+
 %>
 
 <script language="JavaScript">
@@ -191,10 +193,13 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
+<% if (!groupByRoom) { %>
+    <a href="/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>">Group by room</a>
+<% } %>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="16"><%= round.getRoundName() %> > Individual Results</td></tr>
@@ -229,7 +234,7 @@ z-index: 2;
    <%
            even = !even;
            if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
-		   %>
+           %>
                  <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
            <%
                  lastRoom = resultRow.getIntItem("room_id");
@@ -243,7 +248,7 @@ z-index: 2;
                  <div id="popBox">
                     <div id="d_CODERID_<%=resultRow.getItem("coder_id").toString() %>"><rsc:item name="team_name" row="<%=resultRow%>"/></div>
                  </div>
-                 <A href="teamResults" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
+                 <A href="results" id="a_CODERID" onmouseover="popUp(this.id,'d_CODERID_<%=resultRow.getItem("coder_id").toString() %>')" onmouseout="popHide()">
                  <%= Base.cutTeamName(resultRow.getStringItem("team_name")) %></A>
               </td>
 
@@ -287,8 +292,8 @@ z-index: 2;
 </table>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() + li.getNumberOfRows()) + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(n, " + (li.getStartRow() - li.getNumberOfRows()) + ")'>&lt;&lt; >next &gt;&gt;</a>") :"next &gt;&gt;")%>
 
 <form name="pagingForm">
 View &nbsp;

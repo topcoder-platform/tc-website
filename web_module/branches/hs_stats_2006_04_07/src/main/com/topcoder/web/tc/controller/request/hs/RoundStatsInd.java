@@ -45,8 +45,10 @@ public class RoundStatsInd extends Base {
                                   
             if (!groupByRoom) {
                 sortAndCrop(result, "hs_ind_result", li);
+                getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("team_result")).getRowCount() + "");                
             } else {
-                cropRoom(result, "hs_ind_result", li);
+                int roomCount = cropRoom(result, "hs_ind_result", li);
+                getRequest().setAttribute("totalRows", roomCount + "");                
             }
                         
             getRequest().setAttribute("resultMap", result);
@@ -69,9 +71,14 @@ public class RoundStatsInd extends Base {
      *  
      * @param rsc ResultSetContainer to sort
      * @param li information about sorting
+     * @return total number of rows
      */
-    private void cropRoom(Map map, String name, ListInfo li) {
+    private int cropRoom(Map map, String name, ListInfo li) {
         ResultSetContainer rsc = (ResultSetContainer) map.get(name);
+        if (rsc.getRowCount() == 0) {
+            return 0;
+        }
+        
         int startRow = rsc.getRowCount() -1;
         int endRow = rsc.getRowCount() - 1;
         int lastRoom = -1;
@@ -86,14 +93,14 @@ public class RoundStatsInd extends Base {
             if ((roomNumber == li.getStartRow()) && (i < startRow)) {
                 startRow = i;
             }
-            if (roomNumber == li.getEndRow()) {
+            if ((roomNumber == li.getEndRow()) && (i < endRow)) {
                 endRow = i - 1;
-                break;
             }
 
         }
         
         map.put(name, rsc.subList(startRow, endRow));
+        return roomNumber;
     }
 
 }
