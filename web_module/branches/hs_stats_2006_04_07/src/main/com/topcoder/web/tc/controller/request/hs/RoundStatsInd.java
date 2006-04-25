@@ -86,7 +86,7 @@ public class RoundStatsInd extends Base {
             if ((roomNumber == li.getStartRow()) && (i < startRow)) {
                 startRow = i;
             }
-            if (roomNumber == (li.getEndRow() + 1)) {
+            if (roomNumber == li.getEndRow()) {
                 endRow = i - 1;
                 break;
             }
