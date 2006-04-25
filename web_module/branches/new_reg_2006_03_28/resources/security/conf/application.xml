@@ -10,9 +10,6 @@
         <java>configmanager2.jar</java>
     </module>
     <module>
-        <java>tcsUtil.jar</java>
-    </module>
-    <module>
         <ejb>security.jar</ejb>
     </module>
 </application>
