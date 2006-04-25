@@ -2,7 +2,10 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,14 +24,21 @@ public class RegistrationTypeDAO extends Base {
     }
 
     public Set getRegistrationTypes(User u) {
-
-        /*
-        select rt.*
-          from registration_type_lu rt, user_group_xref x
-           where tr.security_group_id = x.group_id
-             and x.user_id = ?
-
-             from RegistrationType 
-        */
+        Set ret = new HashSet();
+        try {
+            begin();
+            StringBuffer query = new StringBuffer(100);
+            query.append("from RegistrationType rt join user_group_xref x ");
+            query.append("where x.groupId = rt.securityGroupId ");
+            query.append( " and x.userId = ?");
+            Query q = session.createQuery(query.toString());
+            q.setLong(0, u.getId().longValue());
+            ret.addAll(q.list());
+            commit();
+        } catch (HibernateException e) {
+            rollback();
+            throw e;
+        }
+        return ret;
     }
 }

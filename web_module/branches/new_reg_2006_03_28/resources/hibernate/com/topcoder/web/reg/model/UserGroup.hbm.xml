@@ -10,7 +10,7 @@
         <property name="userId" column="login_id" access="field"/>
         <property name="groupId" column="group_id" access="field"/>
         <property name="createUserId" column="create_user_id" access="field"/>
-        <property name="securityStatusid" column="security_status_id" access="field"/>
+        <property name="securityStatusId" column="security_status_id" access="field"/>
     </class>
 
 </hibernate-mapping>

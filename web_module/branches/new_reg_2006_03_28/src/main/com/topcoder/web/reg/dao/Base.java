@@ -48,7 +48,7 @@ public abstract class Base {
     }
 
     protected List findAll(Class c) {
-        return findAll(c, null, null);
+        return findAll(c, null, (String)null);
     }
 
     protected Object findOne(Class c, String property, String value) {
@@ -65,6 +65,7 @@ public abstract class Base {
             Query q = session.createQuery(query.toString());
             q.setString(0, value);
             ret = q.uniqueResult();
+            commit();
         } catch (HibernateException e) {
             rollback();
             throw e;
@@ -90,6 +91,7 @@ public abstract class Base {
                 q.setString(0, value);
             }
             ret = q.list();
+            commit();
         } catch (HibernateException e) {
             rollback();
             throw e;
@@ -115,6 +117,7 @@ public abstract class Base {
                 q.setInteger(0, value.intValue());
             }
             ret = q.list();
+            commit();
         } catch (HibernateException e) {
             rollback();
             throw e;

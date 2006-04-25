@@ -22,14 +22,12 @@
 
         <set name="addresses" table="user_address_xref" cascade="save-update">
             <key column="user_id"/>
-            <many-to-many column="address_id" class="Address" unique="true"/>
-        </set>
-<!--
-        <set name="addresses" table="user_address_xref" cascade="save-update" outer-join="false">
-            <key column="user_id"/>
             <many-to-many column="address_id" class="Address"/>
         </set>
--->
+        <set name="securityGroups" table="user_group_xref" cascade="none">
+            <key column="login_id"/>
+            <many-to-many column="group_id" class="SecurityGroup"/>
+        </set>
         <set name="emailAddresses" cascade="save-update">
             <key column="user_id"/>
             <one-to-many class="Email"/>

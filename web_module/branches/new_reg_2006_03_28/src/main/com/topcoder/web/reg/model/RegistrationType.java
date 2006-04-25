@@ -11,7 +11,7 @@ public class RegistrationType extends Base {
     private Integer id;
     private String description;
     private Boolean active;
-    private Long securityGroupId;
+    private SecurityGroup securityGroup;
 
     protected RegistrationType() {
 
@@ -30,8 +30,12 @@ public class RegistrationType extends Base {
         return active;
     }
 
-    public Long getSecurityGroupId() {
-        return securityGroupId;
+    public SecurityGroup getSecurityGroup() {
+        try {
+            return (SecurityGroup)securityGroup.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("What the heck, how did SecurityGroup stop being clonable?");
+        }
     }
 
 }

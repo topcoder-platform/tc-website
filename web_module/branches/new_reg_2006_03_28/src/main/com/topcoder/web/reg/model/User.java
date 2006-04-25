@@ -25,15 +25,7 @@ public class User extends Base {
     private Set phoneNumbers;
     private Set notifications;
     private Set demographicResponses;
-
-    /**
-     * this contains only those registration types that the user
-     * currently has.  while in the process of adjusting those
-     * registration types by either adding or removing, that information
-     * will have to be maintained elsewhere as this includes only
-     * those types that were persisted in the db when this object was loaded.
-     */
-    private Set registrationTypes;
+    private Set securityGroups;
 
     public User() {
         addresses = new HashSet();
@@ -41,7 +33,7 @@ public class User extends Base {
         phoneNumbers = new HashSet();
         demographicResponses = new HashSet();
         notifications = new TreeSet();
-        registrationTypes = new HashSet();
+        securityGroups = new HashSet();
     }
 
     public Long getId() {
@@ -180,14 +172,28 @@ public class User extends Base {
         this.notifications.add(notification);
     }
 
+    public Set getSecurityGroups() {
+        return Collections.unmodifiableSet(securityGroups);
+    }
+
+    public void setSecurityGroups(Set securityGroups) {
+        this.securityGroups = securityGroups;
+    }
+
     public Set getRegistrationTypes() {
-        return Collections.unmodifiableSet(registrationTypes);
+        //i think this could be done better with an HQL query, but dunno how yet
+        SecurityGroup g;
+        Set ret = new HashSet();
+        for (Iterator it = securityGroups.iterator(); it.hasNext();) {
+            g = (SecurityGroup)it.next();
+            for (Iterator it1 = g.getRegistrationTypes().iterator(); it1.hasNext();) {
+                RegistrationType o = (RegistrationType)it1.next();
+                log.debug(o.getDescription());
+                ret.add(o);
+            }
+        }
+        return Collections.unmodifiableSet(ret);
     }
-
-    public void setRegistrationTypes(Set registrationTypes) {
-        this.registrationTypes = registrationTypes;
-    }
-
 
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
@@ -207,8 +213,8 @@ public class User extends Base {
         for(Iterator it =notifications.iterator(); it.hasNext();) {
             ret.addNotification((Notification)((Notification)it.next()).clone());
         }
-        for(Iterator it =registrationTypes.iterator(); it.hasNext();) {
-            ret.registrationTypes.add(((RegistrationType)it.next()).clone());
+        for(Iterator it =securityGroups.iterator(); it.hasNext();) {
+            ret.securityGroups.add(((SecurityGroup)it.next()).clone());
         }
 
         return ret;
