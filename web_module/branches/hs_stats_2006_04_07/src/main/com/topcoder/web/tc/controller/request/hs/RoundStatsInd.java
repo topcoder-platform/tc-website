@@ -44,9 +44,9 @@ public class RoundStatsInd extends Base {
             fillRoundAndSeasonNames (round, result);
                                   
             if (!groupByRoom) {
-                sortAndCrop(result, "team_result", li);
+                sortAndCrop(result, "hs_ind_result", li);
             } else {
-                cropRoom(result, "team_result", li);
+                cropRoom(result, "hs_ind_result", li);
             }
                         
             getRequest().setAttribute("resultMap", result);
