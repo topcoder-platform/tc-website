@@ -55,12 +55,6 @@ function selectRound(selection)
 }
 
 
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
 var objPopUp = null;
 function popUp(event,objectID){
    objPopTrig = document.getElementById(event);
@@ -96,22 +90,26 @@ function clickColumn(n)
 
 
 
-
-function showRows(sr, nr)
+function showRows(sr, nr, adjust)
 {
-    if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
-    {
-        alert(nr + " is not a valid positive integer");
-        return;
-     }
-    if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
-    {
-        alert(sr + " is not a valid positive integer");
-        return;
-     }
 
-    if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
-    if (sr < 1) sr = 1;
+    if (adjust) {
+        if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
+        if (sr < 1) sr = 1;
+    } else {
+
+        if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
+        {
+            alert(nr + " is not a valid positive integer");
+            return;
+         }
+        if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
+        {
+            alert(sr + " is not a valid positive integer");
+            return;
+         }
+    }
+
 
 
     <% if (groupByRoom) { %>
@@ -131,7 +129,7 @@ function submitEnter(e)
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-        showRows(document.pagingForm.sr.value, document.pagingForm.nr.value);
+        showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false);
     } else return true;
  }
 
@@ -200,8 +198,8 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
 <% if (!groupByRoom) { %>
@@ -299,8 +297,8 @@ z-index: 2;
 </table>
 
 <div class="pagingBox">
-<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ")'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ")'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+<%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+| <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 
 <form name="pagingForm">
 View &nbsp;
@@ -309,7 +307,7 @@ View &nbsp;
 &nbsp;at a time starting with &nbsp;
 
 <input name="sr" size="4" maxlength="4" onkeypress="submitEnter(event)" value="<%= li.getStartRow() %>" type="text">
-<a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value)" class="bcLink">&nbsp;[ submit ]</a>
+<a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false)" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 
 </div>
