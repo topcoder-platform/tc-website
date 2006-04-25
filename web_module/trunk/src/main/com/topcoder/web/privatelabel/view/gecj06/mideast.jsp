@@ -48,7 +48,6 @@
 Armenia<br>
 Azerbaijan<br>
 Bahrain<br>
-Egypt<br>
 Georgia<br>
 Iran<br>
 Iraq<br>
