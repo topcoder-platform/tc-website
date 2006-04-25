@@ -114,7 +114,7 @@ function showRows(sr, nr)
     if (sr < 1) sr = 1;
 
 
-    <%= if (groupByRoom) { %>
+    <% if (groupByRoom) { %>
         window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
                       "&sr=" + sr + "&nr=" + nr;
     <% } else { %>
