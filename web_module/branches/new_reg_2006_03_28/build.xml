@@ -810,11 +810,14 @@
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
                 <include name="id_generator.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tc/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tc/base_exception/1.0">
+                <include name="base_exception.jar"/>
             </fileset>
         </copy>
 
