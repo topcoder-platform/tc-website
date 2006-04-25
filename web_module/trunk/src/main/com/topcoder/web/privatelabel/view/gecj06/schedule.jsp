@@ -68,8 +68,8 @@
             </table>
 
             <br><br>
-            <span class="greenSubtitle">Online Elimination Round</span><br>
-            Everyone who advances to the online round must log in to the TopCoder Competition Arena no later than ten
+            <span class="greenSubtitle">Online Elimination Rounds</span><br>
+            Everyone who advances to the online rounds must log in to the TopCoder Competition Arena no later than ten
             minutes prior to the start of the round. All start times will be communicated as GMT/UTC. If a coder does not
             participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic
             loss in that round of competition.
@@ -102,7 +102,7 @@
 
             <br><br>
             <span class="greenSubtitle">Onsite Championship Round</span><br>
-            Up to 50 coders will compete at an onsite Championship Round.  Each finalist must be present onsite to compete in the onsite finals.
+            Up to 50 coders will compete at an onsite Championship Round. Each finalist must be present onsite to compete in the Championship Round.
             <br><br>
 
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">

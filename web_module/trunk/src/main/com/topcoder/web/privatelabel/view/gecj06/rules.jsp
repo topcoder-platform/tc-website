@@ -122,8 +122,8 @@ The use of external TopCoder Arena plugins or any modifications to the TopCoder 
 prohibited.
 <br><br>
 <b>Online Elimination Rounds</b><br>
-Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the
-start of the online round. All start times will be communicated as IST, so contestants in other time zones must
+Everyone who competes in the online elimination rounds must log in to the TopCoder Competition Arena no later than ten minutes prior to the
+start of the online round. All start times will be communicated as GMT/UTC, so contestants in other time zones must
 adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will
 be treated as an automatic loss in that round of competition.
 <br><br>
@@ -139,7 +139,7 @@ structure of the online rounds is as follows:
 <b>Round 1 (online)</b><br>
 Up to 500 coders will compete in Round 1. The 250 highest scoring competitors will advance to Round 2. Each coder must have positive points to advance, so if there are less than 250 competitors who score positive points, only those competitors with a positive point total will advance.
 <br><br>
-<b>Round 1 (online)</b><br>
+<b>Round 2 (online)</b><br>
 Up to 250 coders will compete in Round 2. The 50 highest scoring competitors will advance to the Championship Round. Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.
 <br><br>
 
@@ -147,7 +147,7 @@ Up to 250 coders will compete in Round 2. The 50 highest scoring competitors wil
 <br><br>
 
 <b>Competition Round Structure</b><br>
-Round 1 and the onsite round of competition (excluding the Qualification Round) consists of three phases: the Coding
+Round 1, Round 2 and the Championship Round (excluding the Qualification Round) consists of three phases: the Coding
 Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and
 System Testing Phase. (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase
 of the Qualification Round.)
@@ -190,7 +190,7 @@ The top 250 scores from Round 2 will receive a "Google Code Jam Europe" t-shirt.
 <td class="sidebarTitle">Prize*</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap"><b>First Prize</b></td>
+<td class="sidebarText" nowrap="nowrap"><b>First Place</b></td>
 <td class="sidebarText"><b>&#8364;2,500</b></td>
 </tr>
 <tr valign="top">
@@ -198,19 +198,19 @@ The top 250 scores from Round 2 will receive a "Google Code Jam Europe" t-shirt.
 <td class="sidebarText">&#8364;1,000</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">6th – 10th</td>
+<td class="sidebarText" nowrap="nowrap">6th – 10th Place</td>
 <td class="sidebarText">&#8364;750</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">11th – 20th</td>
+<td class="sidebarText" nowrap="nowrap">11th – 20th Place</td>
 <td class="sidebarText">&#8364;500</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap="nowrap">21st – 50th</td>
+<td class="sidebarText" nowrap="nowrap">21st – 50th Place</td>
 <td class="sidebarText">&#8364;150</td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" colspan="2">The Top 50 finishers will also receive a personal listening device.<br>
+<td class="sidebarText" colspan="2">The Top 50 finishers will also receive a personal listening device.<br><br>
 * Winners must be present at the onsite round to receive prize.
 </td>
 </tr>
