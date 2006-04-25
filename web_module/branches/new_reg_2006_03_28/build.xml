@@ -1109,7 +1109,58 @@
         <delete dir="${jboss_home}/server/all/deploy/techassess.war/META-INF"/>
     </target>
 
-     <target name="package-TCUser" depends="compile_TCUser">
+    <target name="compile-reg" depends="jar_shared,init">
+        <javac
+            srcdir="${java}"
+            destdir="${classes}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            source="1.4"
+            target="1.4"
+            >
+            <include name="com/topcoder/web/reg/**"/>
+            <include name="com/topcoder/web/common/**"/>
+        </javac>
+    </target>
+
+    <target name="war-reg" depends="compile-reg">
+        <war warfile="${war.dir}/reg.war" webxml="${resources}/reg/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/reg/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
+            </classes>
+<!--
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="codinginterface.tld"/>
+            </webinf>
+-->
+
+
+            <fileset dir="${java}/com/topcoder/web/reg/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <webinf dir="${resources}/reg">
+                <include name="jboss-web.xml"/>
+            </webinf>
+
+        </war>
+    </target>
+
+    <target name="deploy-reg" depends="war-reg">
+<!--
+        <copy file="${resources}/Reg.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
+-->
+        <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+        <copydir src="${resources}/hibernate" dest="${jboss_home}/server/all/conf"/>
+        <delete file="${jboss_home}/server/all/deploy/reg.war"/>
+        <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
+        <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
+    </target>
+
+
+    <target name="package-TCUser" depends="compile_TCUser">
          <jar jarfile="${jars.dir}/tcuser.jar">
              <fileset dir="${classes}/">
                  <include name="com/topcoder/web/forums/model/TCUser.class"/>
