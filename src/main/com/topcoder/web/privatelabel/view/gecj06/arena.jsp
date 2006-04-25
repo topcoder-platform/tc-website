@@ -44,7 +44,7 @@
 </span>
 <span class="bigTitle">Competition Arena</span>
          <br><br>
-         The Competition Arena will open on May 23.
+         The Competition Arena will open on May 1.
          <%--
                 <br><br>
                 <A href="/pl/?module=GoogleIndia06Credentials&cid=8039&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
