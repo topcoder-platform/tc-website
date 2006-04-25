@@ -829,10 +829,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_04_08_05"><img src="/i/pressroom/che_logo.gif" alt="Chronicle of Higher Education" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_040805"><img src="/i/pressroom/che_logo.gif" alt="Chronicle of Higher Education" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_04_08_05">Code Warriors</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_040805">Code Warriors</A></strong></font><br />
                      Young computer programmers battle for fame, money, and the love of algorithms<span class="prHead"> [April 8 - Chronicle of Higher Education]</span></p>
                     </td>
                 </tr>
@@ -844,10 +844,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_04_22_05"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_042205"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_04_22_05">How Google Searches - For Talent</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_042205">How Google Searches - For Talent</A></strong></font><br />
                      "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. "Wherever the best talent is, Google wants them."<span class="prHead">[April 22 - BusinessWeek]</span></p>
                     </td>
                 </tr>
@@ -949,10 +949,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_02_13_05"><img src="/i/pressroom/nw_polska_logo.gif" alt="NewsWeek Poland" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_021305"><img src="/i/pressroom/nw_polska_logo.gif" alt="NewsWeek Poland" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_02_13_05">Program for life</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_021305">Program for life</A></strong></font><br />
                         They get their Ph.D.'s at the age of twenty. At thirty they become professors in America. Warsaw University graduates are some of the best computer scientists in the world.<span class="prHead"> [February 13 - NewsWeek Poland]</span></p>
                     </td>
                 </tr>
@@ -1050,10 +1050,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_02_01_05"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_020105"><img src="/i/pressroom/adt_logo.gif" alt="ADT" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_02_01_05">DE-CODER: The kings of coding</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_020105">DE-CODER: The kings of coding</A></strong></font><br />
                         "Tomek" and "Pops" may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars.  Now they're at the top of the stack, according to their peers who participate in online programming contests at TopCoder.com, a mecca for those willing to publicly test their programming chops.<span class="prHead"> [February 1 - ADT]</span></p>
                     </td>
                 </tr>
