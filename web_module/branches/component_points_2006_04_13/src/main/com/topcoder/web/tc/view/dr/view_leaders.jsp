@@ -25,8 +25,8 @@
             <tr valign="top">
                 <td>
                     <tc-webtag:handle 
-                        coderId='<%= resultRow.getLongItem("user_id") %>'
-                        context='112'/>
+                        coderId='<%= resultRow.getLongItem("289826") %>'
+                        context='algorithm'/>
                     <rsc:item name="user_id" row="<%=resultRow%>"/>
                 </td>
                 <td>
