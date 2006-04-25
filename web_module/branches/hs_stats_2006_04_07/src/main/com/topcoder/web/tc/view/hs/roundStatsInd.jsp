@@ -191,8 +191,8 @@ z-index: 2;
 <% } %>
 
 <div class="pagingBox">
-<%=(teamResult.croppedDataBefore()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(teamResult.croppedDataAfter()?"<a href=\"Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>);\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
+<%=(teamResult.croppedDataBefore()?"<a href='Javascript:showRows(n, <%= li.getStartRow() %> + <%= li.getNumberOfRows() %>)'>&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(teamResult.croppedDataAfter()?"<a href='Javascript:showRows(n, <%= li.getStartRow() %> - <%= li.getNumberOfRows() %>)' >next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 
 
