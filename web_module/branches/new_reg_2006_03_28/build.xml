@@ -1153,7 +1153,12 @@
         <copy file="${resources}/Reg.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
 -->
         <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
-        <copydir src="${resources}/hibernate" dest="${jboss_home}/server/all/conf"/>
+        <mkdir dir="${jboss_conf}/hibernate"/>
+        <copy todir="${jboss_conf}/hibernate">
+            <fileset dir="${resources}/hibernate">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
         <delete file="${jboss_home}/server/all/deploy/reg.war"/>
         <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
