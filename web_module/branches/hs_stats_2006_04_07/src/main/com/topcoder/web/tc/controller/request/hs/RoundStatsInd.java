@@ -83,11 +83,12 @@ public class RoundStatsInd extends Base {
                 lastRoom = rsc.getIntItem(i, "room_id");
                 roomNumber++;
             }
-            if (roomNumber == li.getStartRow()) {
+            if ((roomNumber == li.getStartRow()) && (i < startRow)) {
                 startRow = i;
             }
             if (roomNumber == (li.getEndRow() + 1)) {
-                startRow = i - 1;
+                endRow = i - 1;
+                break;
             }
 
         }
