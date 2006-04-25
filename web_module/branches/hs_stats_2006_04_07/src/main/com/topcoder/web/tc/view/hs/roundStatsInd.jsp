@@ -191,7 +191,7 @@ z-index: 2;
    <rsc:iterator list="<%= result%>" id="resultRow">
    <%
 	   roomNumber++;
-   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow())) {
+   	   if (!groupByRoom || ((roomNumber >= li.getStartRow()) && (roomNumber <= li.getEndRow()))) {
 	       even = !even;
     	   if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
    %>
