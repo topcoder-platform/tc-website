@@ -38,7 +38,7 @@ public class TeamResults extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
-            fillRoundAndSeasonNames (round, result);
+            fillRoundAndSeasonNames (round, result, "seasons_for_team", "rounds_for_season_and_team");
 
             sortAndCrop(result, "hs_ind_result_for_team", li);                        
             getRequest().setAttribute("listInfo", li);

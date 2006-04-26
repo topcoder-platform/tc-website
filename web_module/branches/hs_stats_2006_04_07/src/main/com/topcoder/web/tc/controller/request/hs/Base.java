@@ -136,6 +136,7 @@ abstract public class Base extends BaseProcessor {
         return round;        
     }
     
+
     /**
      * Fills the RoundInfo object with the season and round names and the forum_id
      * The result map must contain ResultSets for queries "seasons" and "rounds_for_season"
@@ -144,9 +145,21 @@ abstract public class Base extends BaseProcessor {
      * @param result a map that must contain ResultSets for queries "seasons" and "rounds_for_season"
      */
     protected void fillRoundAndSeasonNames(RoundInfo round, Map result) {
+        fillRoundAndSeasonNames(round, result, "seasons", "rounds_for_season");
+    }
+    
+    /**
+     * Fills the RoundInfo object with the season and round names and the forum_id
+     *  
+     * @param round a Round having roundId and seasonId, and whose names will be filled
+     * @param seasonQueryName name of the query that retrieves the seasons.
+     * @param roundQueryName  name of the query that retrieves the rounds.
+     * @param result a map that must contain ResultSets for queries "seasons" and "rounds_for_season"
+     */
+    protected void fillRoundAndSeasonNames(RoundInfo round, Map result, String seasonQueryName, String roundQueryName) {
         // Look up Season Name
         String seasonName = null;
-        for (Iterator it = ((ResultSetContainer) result.get("seasons")).iterator(); it.hasNext();) {
+        for (Iterator it = ((ResultSetContainer) result.get(seasonQueryName)).iterator(); it.hasNext();) {
             ResultSetRow rsr = (ResultSetRow) it.next();
             if (round.getSeasonId() == rsr.getIntItem("season_id")) {
                 seasonName = rsr.getStringItem("name");
@@ -160,7 +173,7 @@ abstract public class Base extends BaseProcessor {
         // Look up Round Name
         String roundName = null;
         int forumId = -1;
-        for (Iterator it = ((ResultSetContainer) result.get("rounds_for_season")).iterator(); it.hasNext();) {
+        for (Iterator it = ((ResultSetContainer) result.get(roundQueryName)).iterator(); it.hasNext();) {
             ResultSetRow rsr = (ResultSetRow) it.next();
             if (round.getRoundId() == rsr.getIntItem("round_id")) {
                 roundName = rsr.getStringItem("name");
