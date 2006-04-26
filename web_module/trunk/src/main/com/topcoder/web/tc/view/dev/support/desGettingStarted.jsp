@@ -41,7 +41,13 @@
 
 <div align="center">
    <div style="width:500px; text-align:left;">
-<!--  <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desFlash"><img src="/i/support/click_tutorials.gif" valign="top" align="right" width="100" height="51" border="0" alt="Click Here to View the Flash Tutorials"></a><br>-->
+   
+<map name="tutorial_map">
+<area shape="rect" alt="audio" coords="42,98, 106,136" href="#" onClick="window.open('/i/development/demos/designdemo1.html','screen','height=490,width=640'); return false;" />
+<area shape="rect" alt="text" coords="116,98, 180,136" href="#" onClick="window.open('/i/development/demos/designdemo2.html','screen','height=490,width=640'); return false;" />
+</map>   
+<div align="center"><img src="/i/support/des_promo.gif" valign="top" align="center" width="510" height="150" border="0" alt="Watch the Tutorial Movie" usemap="#tutorial_map" /></div>
+
 <h2>Getting Started in Design Competitions</h2> 
 
 <p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Design Tutorial</span><br/>
