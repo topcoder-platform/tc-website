@@ -446,6 +446,7 @@
 
     <target name="deploy" depends="build-ear,build-screening">
         <antcall target="explode"/>
+        <antcall target="deploy-onsite"/> 
     </target>
 
     <target name="package-EJB-ProjectBean" depends="compile">
@@ -493,6 +494,6 @@
         <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
     </target>
-    
-    
+
+
 </project>
