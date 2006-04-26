@@ -110,7 +110,7 @@ function clickColumn(n)
 <% } %>
 
 
-<% if (participated) %>
+<% if (participated) { %>
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
