@@ -22,6 +22,21 @@
    </td></tr>
 --%>
 
+<%------------------------------------------------------ payment post: waiting for 4/26 7PM
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.26.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">Changes to member payment options</A>
+      </span><br><br>
+      TopCoder recognizes that as our company has grown, our ability to effectively manage member payments has become a growing challenge and this has caused problems with some members receiving their payments. At this time, TopCoder is making several changes in an effort to create a more efficient payment process.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+--%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.25.06<br>3:30 PM</td>
@@ -191,26 +206,6 @@ Since this Single Round Match took place during the ACM ICPC finals, it was surp
       <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.06<br>4:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm297">SRM 297 - Problem Set & Analysis</A></span><br><br>
-The only coder to solve all three problems in Division I, <tc-webtag:handle coderId="15868491" context="algorithm"/>, won the
-match by a wide margin, scoring 1126.13 points, followed by <tc-webtag:handle coderId="7433858" context="algorithm"/> with 812.74 points and <tc-webtag:handle coderId="8493941" context="algorithm"/>
-with 808.46 points.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/igorsk_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7269339" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm297">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505863" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
