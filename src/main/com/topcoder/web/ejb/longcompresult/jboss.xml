@@ -4,7 +4,7 @@
         <session>
             <ejb-name>LongCompResult</ejb-name>
             <jndi-name>com.topcoder.web.ejb.longcompresult.LongCompResultHome</jndi-name>
-            <local-jndi-name>com.topcoder.web.ejb.longcompresult.LongCompResultLocalHome</local-jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.longcompresult.LongCompResultLocalHome</local-jndi-name>
         </session>
     </enterprise-beans>
 </jboss>

@@ -4,7 +4,7 @@
     <session>
       <ejb-name>TermsOfUse</ejb-name>
       <jndi-name>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</jndi-name>
-        <local-jndi-name>com.topcoder.web.ejb.termsofuse.TermsOfUseLocalHome</local-jndi-name>
+        <local-jndi-name>java:/com.topcoder.web.ejb.termsofuse.TermsOfUseLocalHome</local-jndi-name>
     </session>
   </enterprise-beans>
 </jboss>
