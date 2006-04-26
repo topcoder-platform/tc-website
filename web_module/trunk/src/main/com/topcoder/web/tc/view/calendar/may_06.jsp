@@ -156,7 +156,7 @@
             <strong>Marathon Match 1</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>
+            <A href="/longcontest/?module=Static&d1=instructions">Details</A><br/><br/></td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">11</span><br />
             <strong>Match 302</strong><br />
