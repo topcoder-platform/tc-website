@@ -460,6 +460,11 @@
     </target>
 
     <target name="deploy-onsite" depends="compile_onsite">
+         <copy todir="${jboss.conf.dir}">
+            <fileset dir="${resources.dir}">
+                <include name="onsite.properties"/>
+            </fileset>
+        </copy>
         <antcall target="package-EJB-ProjectBean"/>
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
