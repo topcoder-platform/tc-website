@@ -1,8 +1,9 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
+         import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.dataAccess.*,
+                 com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
