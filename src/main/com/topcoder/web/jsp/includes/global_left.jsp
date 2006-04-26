@@ -91,16 +91,16 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=help&amp;d2=charity", "Charity Donations", "algo_charity"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this,'m_des_support')", "Design", "m_des_support"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desGettingStarted", "How to Compete", "des_getting_started"));
-            nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=getPaid&node=des_get_paid", "How to Get Paid", "des_get_paid"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desDocumentation", "Documentation", "des_documentation"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desRatings", "Ratings", "des_ratings"));
             nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=desReliability", "Reliability Ratings", "des_reliability_ratings"));
+            nav.search("m_des_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=getPaid&node=des_get_paid", "How to Get Paid", "des_get_paid"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_dev_support')", "Development", "m_dev_support"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devGettingStarted", "How to Compete", "dev_getting_started"));
-            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=getPaid&node=dev_get_paid", "How to Get Paid", "dev_get_paid"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devDocumentation", "Documentation", "dev_documentation"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devRatings", "Ratings", "dev_ratings"));
             nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devReliability", "Reliability Ratings", "dev_reliability_ratings"));
+            nav.search("m_dev_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=getPaid&node=dev_get_paid", "How to Get Paid", "dev_get_paid"));
          nav.search("m_support").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_assembly_support')", "Assembly", "m_assembly_support"));
             nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=instructions", "How to Compete", "assembly_how_to_compete"));
             nav.search("m_assembly_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=dev&d2=assembly&d3=tutorial", "Tutorial", "assembly_tutorial"));

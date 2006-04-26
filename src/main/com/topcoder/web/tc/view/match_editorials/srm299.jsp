@@ -44,13 +44,14 @@
 
 <span class="bigTitle">Match summary</span>
 
-<P>In division 1 Iliympanda took his first SRM victory, closely followed by 
+<P>In division 1 liympanda took his first SRM victory, closely followed by 
 Im2Good (one failed challenge from first place) and tomek. For a long time 
 though it looked like ACRush would go home with the victory, but after failing 
 one of the last system cases on the hard problem, he fell back. The problem set 
 contained two fairly standard problems which caused little trouble for most reds 
 and yellows, while the third problem stumped a lot of coders. There were also a 
-lot of challenges, mainly time-outs on the medium problem. </P>
+lot of challenges, mainly time-outs on the medium problem. 
+</P>
 <P>Division 2 also saw a hard last problem that had many submissions but where 
 few passed. First place was taken by Aesop thanks to a successful challenge, 
 closely followed by first timers taral and dan19. A notable first timer was also 
