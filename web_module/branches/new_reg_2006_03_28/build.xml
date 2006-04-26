@@ -809,6 +809,8 @@
                 <include name="idgenerator.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
                 <include name="id_generator.jar"/>
