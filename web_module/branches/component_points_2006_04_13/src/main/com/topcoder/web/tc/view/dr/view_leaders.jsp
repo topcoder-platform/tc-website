@@ -72,13 +72,13 @@
              <tr>
                <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>" class="statText">Rank</a>
+                    Rank
                </td>
                <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
-           <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Handle</a>
-           </td>
+                    Handle
+               </td>
                <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%">
-           <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Points</a>
+           <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>" class="statText">Points</a>
            </td>
                <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
              </tr>
@@ -101,7 +101,7 @@
                    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
                    &#160;at a time starting with &#160;
                    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                   <a href="javascript:document.coderRankForm.submit();" class="statText">&#160;[ submit ]</a>
+                   <a href="javascript:document.leaderBoardForm.submit();" class="statText">&#160;[ submit ]</a>
                </td>
              </tr>
            </table>
