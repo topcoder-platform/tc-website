@@ -148,6 +148,7 @@
             <include name="com/topcoder/web/onsite/**" />
             <include name="com/topcoder/web/common/**" />
             <include name="com/topcoder/web/ejb/project/**"/>
+            <exclude name="com/topcoder/web/common/tag/ForumLinkTag.java" />
         </javac>
     </target>
 
@@ -446,7 +447,7 @@
 
     <target name="deploy" depends="build-ear,build-screening">
         <antcall target="explode"/>
-        <antcall target="deploy-onsite"/> 
+        <antcall target="deploy-onsite"/>
     </target>
 
     <target name="package-EJB-ProjectBean" depends="compile">
