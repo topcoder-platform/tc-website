@@ -19,6 +19,10 @@
 <html>
     <head>
         <title>Digital Run - Leader Board</title>
+        <jsp:include page="/script.jsp" />
+        <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+        </jsp:include>
         <script type="text/javascript">
             function submitEnter(e) {
                 var keycode;
