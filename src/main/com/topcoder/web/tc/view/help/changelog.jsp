@@ -40,6 +40,12 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.0.11 - 2006.04.26
+        <ul>
+            <li>Add ability to have the same page highlight different left nav items</li>
+        </ul>
+    </p>
+    <p>
         5.0.10 - 2006.04.24
         <ul>
             <li>Fix the next/previous links on the example history page for Marathon Matches</li>
