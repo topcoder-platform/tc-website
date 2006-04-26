@@ -43,40 +43,36 @@
    <jsp:param name="title" value="How to Get Paid"/>
 </jsp:include>
 
-<span class="title">How to Get Paid</span>
+<span class="subtitle">Tax requirements for foreign persons, non-resident aliens or foreign nationals performing work outside the U.S.</span>
 <br><br>
-TopCoder begins the payment process for algorithm, design and development contests one business day after each contest is concluded. Design and development contests are over when either the winning submission goes through a successful final review, or when the contest is closed because no submission has passed screening or review. 
-<br><br>
-<strong>Timing</strong><br>
-Once the payment process begins, TopCoder will send out your payment within 14 days. When you actually receive your payment will depend on the payment method you select.
-<br><br>
-<strong>Payment Methods</strong><br>
-Members can be paid by check, by wire transfer, or by PayPal®. <A href="/tc?module=Static&d1=help&d2=paymentMethods&node=<%=node==null?"":node%>">Learn more</A>.
-<br><br>
-<strong>Requirements</strong><br>
-Before TopCoder can process payment, we must have your full name and an accurate address in your member profile, as well as the required affidavits and completed tax form on file. 
+Form W-8BEN should be completed by all foreign persons, including non-resident aliens and foreign nationals.
 <ul>
-<li>Update your <A href="/Registration">member profile</A> now.</li>
+<li><A href="/contest/fw8ben.pdf">Form W-8BEN</A></li>
+<li><A href="/contest/iw8ben.pdf">Instructions for Form W-8BEN</A></li>
 </ul>
-
-<% if (node.equals("algo_get_paid")) { %>
-To receive payments from Algorithm Competitions, you must have submitted a notarized affidavit and affirmed the affidavit from the relevant competition online (note: does not apply to design or development competitions).  
+<strong>Why do you need to complete Form W-8BEN?</strong><br>
+Foreign persons are not subject to U.S. income tax withholding if performing the work outside the U.S. If you receive certain types of income, including prize money won in TopCoder competitions, you must provide a Form W-8BEN to:
 <ul>
-<li><A href="/tc?module=Static&d1=help&d2=affidavits&node=<%=node==null?"":node%>">Learn more about affidavits.</A></li>
-<li>Affidavits can also be used to <A href="/tc?module=Static&d1=help&d2=paymentTracking&node=<%=node==null?"":node%>">track payments</A>.</li>
+<li>Establish that you are not a U.S. person</li>
+<li>Claim that you are the beneficial owner of the income for which Form W-8BEN is being provided.</li>
 </ul>
-<% } %>
-
-
-The tax forms we need will vary, depending on where you live. Learn more:</li>
-<ul>
-<li>Requirements for <A href="/tc?module=Static&d1=help&d2=taxUS&node=<%=node==null?"":node%>">U.S. persons</A>, including U.S. citizens and resident alien</li>
-<li>Requirements for foreign person, non-resident alien or foreign national performing work <A href="/tc?module=Static&d1=help&d2=taxForeignUS&node=<%=node==null?"":node%>">inside the United States</A>. </li>
-<li>Foreign person, non-resident alien or foreign national performing work <A href="/tc?module=Static&d1=help&d2=taxForeignNonUS&node=<%=node==null?"":node%>">outside the U.S.</A></li>
-</ul>
+If you are a foreign person, non-resident alien or foreign national performing work in the U.S., TopCoder will withhold taxes (currently at a rate of 29%). You may claim exemption from or reduction of your withholding due to an income tax treaty benefit by completing Form W-8ECI and Form 8233 (both available here), in addition to Form W-8BEN.
+<br><br>
+<strong>Do you need a tax identification number (TIN)?</strong><br>
+You are only required to provide a tax identification number if you are claiming a reduced rate of, or exemption from, withholding as a resident of a foreign country with which the U.S. has an income tax treaty and you are performing work in the U.S. (If you complete Part II of Form W-8BEN, you must provide a U.S. TIN.) If you are not claiming a reduce rate of, or exemption from, withholding, you do not need to furnish a TIN. 
+<br><br>
+TopCoder can not tell you whether the country you are a resident of has an income tax treaty with the U.S. Furthermore, TopCoder can not assist you in determining your ability to claim a reduced rate of, or exemption from, withholdings.
+<br><br>
 <strong>Please note:</strong>  TopCoder can not determine which requirements apply to your situation.  You are responsible for determining which requirements apply to you, and you are responsible for completing the applicable tax form(s).  For further guidance, refer to the instructions on each tax form, or consult an attorney or other expert for advice.
 <br><br>
 Please email any other questions to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
+<br><br>
+Send tax forms via postal mail to:
+<br><br>
+TopCoder, Inc.<br>
+Attn: Payments<br>
+703 Hebron Avenue<br>
+Glastonbury, CT 06033
 </div>
 </td>
 <!-- Center Column Ends -->
