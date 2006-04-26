@@ -1,7 +1,11 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page language="java" %>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
+          com.topcoder.web.tc.controller.request.hs.Base,
+          com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -12,14 +16,54 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+
+
+<%
+Map resultMap = (Map) request.getAttribute("resultMap");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
+ResultSetContainer rooms = (ResultSetContainer) resultMap.get("rooms_for_round");
+ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
+
+RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
+
+// there should be at least one row!
+String teamName = result.getStringItem(0, "team_name");
+%>
+
+
 <script language="JavaScript">
 <!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
+
+function selectSeason(selection)
+{
+    window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=" + selection.options[selection.selectedIndex].value;}
+
+function selectRound(selection)
+{
+    window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
 }
+
+function clickColumn(n)
+{
+    var sd = "asc";
+
+    if(n == <%= li.getSortColumn() %>) {
+        if ("asc" == "<%= li.getSortDirection() %>") {
+            sd = "desc";
+        }
+    }
+
+    window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&sc=" + n +
+                  "&sd=" + sd;
+
+
 }
+
+
 // -->
 </script>
 
@@ -50,34 +94,26 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 </jsp:include>
 
 <div style="float:right; padding-left:10px;" align="right">
+<% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)" width="200">
-   <option value="" selected="selected">View another room:</option>
-   <option value="0000">Room 1</option>
-   </select>
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
+<% }  %>
 <div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)">
-   <option value="" selected="selected">View another season:</option>
-   <option value="0000">2006-2007</option>
-   </select>
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1 > Rocky Hill High School</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
+<% } %>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15">High School Single Round Match 1 > Rocky Hill High School Team Results</td></tr>
+   <tr><td class="title" colspan="15"><%= round.getRoundName() %> > <%= teamName %> Results</td></tr>
    <tr>
       <td class="headerC" colspan="3">&#160;</td>
       <td class="headerR" colspan="2">Submissions</td>
@@ -86,59 +122,61 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="headerC" colspan="2">&#160;</td>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="14%"><A href="">Coders</A></td>
-      <td class="headerR" width="14%"><A href="">Position Points</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">Qnty</A></td>
-      <td class="headerR"><A href="">Points</A></td>
-      <td class="headerR" width="14%"><A href="">System Tests</A></td>
-      <td class="headerR" width="14%"><A href="">Point Total</A></td>
+      <td class="header" width="14%"><A href="javascript:clickColumn(0)">Coders</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(1)">Position Points</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(2)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(3)">Points</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(4)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(5)">Points</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(6)">Qnty</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(7)">Points</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(8)">System Tests</A></td>
+      <td class="headerR" width="14%"><A href="javascript:clickColumn(9)">Point Total</A></td>
    </tr>
    <% boolean even = false; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value" style="vertical-align: middle;">
-      <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
-      </td>
+   <rsc:iterator list="<%= result %>" id="resultRow">
+       <%   even = !even;
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="value" style="vertical-align: middle;">
+          <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+          </td>
       <td class="value">
-      <tc-webtag:handle coderId="144400" />
+         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
       </td>
 
-      <td class="valueR">
-      10
-      </td>
-      <td class="valueR">
-      2
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
+          <td class="valueR">
+          <rsc:item name="division_placed" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR">
+          <rsc:item name="problems_submitted" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR">
+          <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/>
+          </td>
 
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
+          <td class="valueR">
+          <rsc:item name="challenge_attempts_received" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR">
+          <rsc:item name="defense_points" row="<%=resultRow%>" format="0.00"/>
+          </td>
 
-      <td class="valueR">
-      0
-      </td>
-      <td class="valueR">
-      0.00
-      </td>
+          <td class="valueR">
+          <rsc:item name="challenge_attempts_made" row="<%=resultRow%>"/>
+          </td>
+          <td class="valueR">
+          <rsc:item name="challenge_points" row="<%=resultRow%>" format="0.00"/>
+          </td>
 
-      <td class="valueR">
-      0.00
-      </td>
-      <td class="valueR">
-      511.86
-      </td>
+          <td class="valueR">
+          <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00"/>
+          </td>
+          <td class="valueR">
+          <rsc:item name="final_points" row="<%=resultRow%>"/>
+          </td>
 
-   </tr>
-   <% even = !even;%>
+       </tr>
+   </rsc:iterator>
 </table>
 
 <br><br>
