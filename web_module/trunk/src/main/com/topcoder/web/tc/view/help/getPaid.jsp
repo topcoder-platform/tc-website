@@ -51,7 +51,7 @@ TopCoder begins the payment process for algorithm, design and development contes
 Once the payment process begins, TopCoder will send out your payment within 14 days. When you actually receive your payment will depend on the payment method you select.
 <br><br>
 <strong>Payment Methods</strong><br>
-Members can be paid by check, by wire transfer, or by PayPal®. <A href="#methods">Learn more</A>.
+Members can be paid by check, by wire transfer, or by PayPal®. <A href="/tc?module=Static&d1=help&d2=paymentMethods&node=<%=node==null?"":node%>">Learn more</A>.
 <br><br>
 <strong>Requirements</strong><br>
 Before TopCoder can process payment, we must have your full name and an accurate address in your member profile, as well as the required affidavits and completed tax form on file. 
@@ -62,22 +62,25 @@ Before TopCoder can process payment, we must have your full name and an accurate
 <% if (node.equals("algo_get_paid")) { %>
 To receive payments from Algorithm Competitions, you must have submitted a notarized affidavit and affirmed the affidavit from the relevant competition online (note: does not apply to design or development competitions).  
 <ul>
-<li><A href="#affidavits">Learn more about affidavits.</A></li>
-<li>Affidavits can also be used to <A href="#tracking">track payments</A>.</li>
+<li><A href="/tc?module=Static&d1=help&d2=affidavits&node=<%=node==null?"":node%>">Learn more about affidavits.</A></li>
+<li>Affidavits can also be used to <A href="/tc?module=Static&d1=help&d2=paymentTracking&node=<%=node==null?"":node%>">track payments</A>.</li>
 </ul>
 <% } %>
 
 
 The tax forms we need will vary, depending on where you live. Learn more:</li>
 <ul>
-<li>Requirements for <A href="#us">U.S. persons</A>, including U.S. citizens and resident alien</li>
-<li>Requirements for foreign person, non-resident alien or foreign national performing work <A href="#foreignus">inside the United States</A>. </li>
-<li>Foreign person, non-resident alien or foreign national performing work <A href="#foreignnonus">outside the U.S.</A></li>
+<li>Requirements for <A href="/tc?module=Static&d1=help&d2=taxUS&node=<%=node==null?"":node%>">U.S. persons</A>, including U.S. citizens and resident alien</li>
+<li>Requirements for foreign person, non-resident alien or foreign national performing work <A href="/tc?module=Static&d1=help&d2=taxForeignUS&node=<%=node==null?"":node%>">inside the United States</A>. </li>
+<li>Foreign person, non-resident alien or foreign national performing work <A href="/tc?module=Static&d1=help&d2=taxForeignNonUS&node=<%=node==null?"":node%>">outside the U.S.</A></li>
 </ul>
 <strong>Please note:</strong>  TopCoder can not determine which requirements apply to your situation.  You are responsible for determining which requirements apply to you, and you are responsible for completing the applicable tax form(s).  For further guidance, refer to the instructions on each tax form, or consult an attorney or other expert for advice.
 <br><br>
 Please email any other questions to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
 <br><br>
+
+
+<%--------------------------------------------------------------------------------------%>
 
 
 <% if (node.equals("algo_get_paid")) { %>
