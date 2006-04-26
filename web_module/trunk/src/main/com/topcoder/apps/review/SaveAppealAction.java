@@ -47,6 +47,10 @@ public final class SaveAppealAction extends ReviewAction {
                 + orpd.getUser().getHandle() + "' in session "
                 + request.getSession().getId());
 
+        //plk
+        System.out.println("SaveAppealAction!!!");
+        
+        
         long qid = -1;
         try {
             qid = Long.parseLong(String.valueOf(request.getParameter(Constants.QUESTION_ID_KEY)));

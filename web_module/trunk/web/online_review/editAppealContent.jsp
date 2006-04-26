@@ -80,7 +80,7 @@ The following items can NOT be appealed:
               <table class="forumBkgd" cellspacing="1" cellpadding="0" width="70%" border="0">
                 <tbody>
                   <tr>
-                    <td class="errorText" colspan="2"></td>
+                    <td class="errorText" colspan="2"><html:errors/></td>
                   </tr>
                   <tr>
                     <td class="forumTextEven" nowrap><strong>Appeal Submission Form</strong></td>
@@ -183,6 +183,13 @@ The following items can NOT be appealed:
                       <html:textarea property="appealResponse" rows="10" cols="60"/>
                     </td>
                   </tr>
+                  <tr>
+                    <td class="forumTextOdd" colspan="2">
+                      <strong>Appeal Result:</strong><br>
+                      <html:radio property="successful" value="successful"/>Successful&nbsp;<br/>
+                      <html:radio property="successful" value="denied"/>Denied&nbsp;<br/>
+                    </td>
+                  </tr>
 </logic:present>
 <%-- Else just write current appealResponse if resolved --%>
 <logic:notPresent name="reviewerEdit">
@@ -191,6 +198,16 @@ The following items can NOT be appealed:
                     <td class="forumTextOdd" colspan="2">
                       <strong>Appeal Response:</strong><br>
                       <bean:write name="appealForm" property="appealResponse" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="appealResult" colspan="2">
+                      <logic:equal name="appealForm" property="appeal.successful" value="true">
+                        <strong>Appeal Succeeded</strong>
+                      </logic:equal>
+                      <logic:equal name="appealForm" property="appeal.successful" value="false">
+                        <strong>Appeal denied</strong>
+                      </logic:equal>
                     </td>
                   </tr>
 </logic:equal>

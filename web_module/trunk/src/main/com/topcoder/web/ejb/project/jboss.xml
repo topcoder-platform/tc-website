@@ -4,7 +4,12 @@
         <session>
             <ejb-name>Project</ejb-name>
             <jndi-name>com.topcoder.web.ejb.project.ProjectHome</jndi-name>
-            <local-jndi-name>com.topcoder.web.ejb.project.ProjectLocalHome</local-jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.project.ProjectLocalHome</local-jndi-name>
+        </session>
+        <session>
+            <ejb-name>ProjectWager</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.project.ProjectWagerHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.project.ProjectWagerLocalHome</local-jndi-name>
         </session>
     </enterprise-beans>
 </jboss>
