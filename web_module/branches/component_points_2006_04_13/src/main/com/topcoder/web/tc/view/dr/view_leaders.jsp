@@ -61,8 +61,8 @@
            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
              <tr>
                 <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
-                    <%=(list.leaderBoard()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(list.leaderBoard()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                    <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                </td>
              </tr>
              <tr>
