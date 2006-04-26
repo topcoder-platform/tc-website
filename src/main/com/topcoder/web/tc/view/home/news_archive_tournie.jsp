@@ -42,7 +42,8 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 --%>
-<tr class="bodyText"><td nowrap="nowrap">04.24.06 3:45 PM - </td><td width="100%"><A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program [PDF - 3.5MB]</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.25.06 3:00 PM - </td><td width="100%"><A href="/pdfs/tournaments/tco06_tshirt.pdf">TCO06 T-shirt</A> [PDF - 1.6MB]</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.24.06 3:45 PM - </td><td width="100%"><A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.17.06 10:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_winners">TCO06 "Pick Me" Contest Winners</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.06 9:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD chat session scheduled for SRM 298</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.06.06 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_bracket">TCO06 Algorithm Bracket rooms swapped</A></td></tr>

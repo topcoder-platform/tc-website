@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.25.06<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/pdfs/tournaments/tco06_tshirt.pdf">TCO06 T-shirt</A> [PDF - 1.6MB]
+      </span><br><br>
+      A sneak preview of the TCO06 t-shirt.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/pdfs/tournaments/tco06_tshirt.pdf">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505970" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.25.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=digital_run&d2=description">Introducing The Digital Run</A>
@@ -42,7 +57,7 @@ In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.24.06<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program [PDF - 3.5MB]</A>
+      <A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]
       </span><br><br>
       Download the PDF to view all the Finalist Stats and Facts, Pick Me Contest Winner Submissions, Weirdest SRM Locations, and see where in the world the Admin Staff might show up someday.</td>
    </tr>
@@ -195,23 +210,6 @@ with 808.46 points.
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.06.06<br>4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm296">SRM 296 - Problem Set & Analysis</A></span><br><br>
-This was one of the last SRMs before the ACM-ICPC World finals in San Antonio. 
-<tc-webtag:handle coderId="10574855" context="algorithm"/>, who earned 2 gold medals in his two ACM finals, added another SRM win to his perfect record.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm296">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505862" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
