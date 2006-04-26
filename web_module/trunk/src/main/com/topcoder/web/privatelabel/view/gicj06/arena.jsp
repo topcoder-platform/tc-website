@@ -54,8 +54,9 @@
 </span>
 <span class="bigTitle">Competition Arena</span>
          <br><br>
-<!--         The Competition Arena will open on Febuary 27.-->
+                The Google&#153; Code Jam India Arena is no longer available. 
                 <br><br>
+<%--
                 <A href="/pl/?module=GoogleIndia06Credentials&cid=8039&<%=Constants.LOCALE%>=<%=Locale.US.getLanguage()%>">Forgot your password?</A>
                 <br><br>
                 You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version
@@ -83,6 +84,7 @@
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
 				<A href="gcji06@topcoder.com?subject=Question regarding Google Code Jam India">gcji06@topcoder.com</A>.
+--%>
 <br><br><br><br><br><br><br><br><br><br><br
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 To find out more detailed information about Google&#153; Code Jam India, including a list of the prizes, please read the
