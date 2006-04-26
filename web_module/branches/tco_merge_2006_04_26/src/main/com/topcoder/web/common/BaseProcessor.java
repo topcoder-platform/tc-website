@@ -261,7 +261,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      *
      */
     public static Object createLocalEJB(InitialContext ctx, Class c) throws NamingException, Exception {
-        Object home = ctx.lookup(c.getName() + "LocalHome");
+        Object home = ctx.lookup("java:/"+c.getName() + "LocalHome");
         Method createmethod = PortableRemoteObject.narrow(home,
                 home.getClass()).getClass().getMethod("create", null);
         return createmethod.invoke(home, null);
