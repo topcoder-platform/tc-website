@@ -164,12 +164,12 @@
         <td id="calendar">16</td>
         <td id="calendar">17</td>
         <td id="calendar">18</td>
-        <td id="calendarIntel">
-            <span id="calendarIntelDate">19</span><br />
+        <td id="calendarLong">
+            <span id="calendarLongDate">19</span><br />
             <strong>Intel Multi-threading Competition 4</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>      
+            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>      
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">20</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>

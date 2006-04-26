@@ -151,7 +151,12 @@
             Compete: 9:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>
-        <td id="calendar">10</td>
+        <td id="calendarLong">
+            <span id="calendarLongDate">10</span><br />
+            <strong>Marathon Match 1</strong><br />
+            Registration Opens: 12:00 Noon<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">11</span><br />
             <strong>Match 302</strong><br />
@@ -167,12 +172,12 @@
         <td id="calendar">14</td>
         <td id="calendar">15</td>
         <td id="calendar">16</td>
-        <td id="calendarIntel">
-            <span id="calendarIntelDate">17</span><br />
+        <td id="calendarLong">
+            <span id="calendarLongDate">17</span><br />
             <strong>Intel Multi-threading Competition 5</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
+            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">18</span><br />
             <strong>Match 303</strong><br />

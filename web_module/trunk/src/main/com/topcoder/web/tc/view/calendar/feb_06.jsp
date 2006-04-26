@@ -197,12 +197,12 @@ text-decoration: none;
             Compete: 11:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/tc?module=MatchDetails&rd=9812">Details</A><br/><br/></td>
-        <td id="calendarIntel">
-            <span id="calendarIntelDate">22</span><br />
+        <td id="calendarLong">
+            <span id="calendarLongDate">22</span><br />
             <strong>Intel Multi-threading Competition 2</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
+            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
         <td id="calendarTCO06">
             <span id="calendarTCO06Date">23</span><br/>
             <strong>2006 TopCoder Open Component Competition</strong><br/>
