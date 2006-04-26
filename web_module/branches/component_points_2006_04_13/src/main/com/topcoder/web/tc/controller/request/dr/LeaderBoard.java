@@ -37,9 +37,6 @@ public class LeaderBoard extends BaseProcessor {
      * @return a Map with the retrieved ResultSetContainers.
      */
     private Map getLeadersData(long compType) throws Exception {
-        Request request = new Request();
-        request.setContentHandle(Constants.LEADER_BOARD_COMMAND);
-        request.setProperty(Constants.PHASE_ID, String.valueOf(compType));
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
 
         return dai.getData(request);
@@ -53,15 +50,55 @@ public class LeaderBoard extends BaseProcessor {
         if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
         }
-        
-        Map m = getLeadersData(Long.parseLong(getRequest().getParameter(Constants.PHASE_ID)));
-        
+
+        if (!hasParameter(Constants.STAGE_ID)) {
+            throw new TCWebException("parameter " + Constants.STAGE_ID + " expected.");
+        }
+
+        Request request = new Request();
+
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        if (!(sortCol.equals("") || sortDir.equals(""))) {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+        }
+
+        SortInfo s = new SortInfo();
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+        if ("".equals(numRecords)) {
+            numRecords = "50";
+        } else if (Integer.parseInt(numRecords)>200) {
+            numRecords="200";
+        }
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+        if ("".equals(startRank)||Integer.parseInt(startRank)<=0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);   
+
+        r.setProperty(DataAccessConstants.START_RANK, startRank);                       
+        r.setProperty(DataAccessConstants.END_RANK,                                     
+            String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
+
+        request.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        request.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
+        request.setContentHandle(Constants.LEADER_BOARD_COMMAND);
+
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+
+        Map m = dai.getData(request);
+
         ResultSetContainer leaderBoard = (ResultSetContainer)m.get(Constants.LEADER_BOARD_QUERY);
 
         log.debug("Got " +  leaderBoard.size() + " rows for leader board");
 
-        getRequest().setAttribute(Constants.LEADER_LIST_KEY, 
-                new ResultSetContainer(leaderBoard, 1, Constants.MAX_LEADERS));
+        getRequest().setAttribute(Constants.LEADER_LIST_KEY, leaderBoard);
         
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);

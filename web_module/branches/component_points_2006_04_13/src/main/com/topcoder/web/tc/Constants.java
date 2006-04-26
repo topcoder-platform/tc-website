@@ -58,6 +58,7 @@ public class Constants implements WebConstants {
 
     public static String PROJECT_ID;
     public static String PHASE_ID;
+    public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
