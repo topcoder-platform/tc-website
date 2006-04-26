@@ -6,6 +6,22 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%------------------------------------------------------ waiting til 4/27
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.26.06<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A>
+      </span><br><br>
+      Marathon Match 1 will run from May 10th to May 17th.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=instructions">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505971" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+--%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.25.06<br>3:30 PM</td>
@@ -193,21 +209,6 @@ with 808.46 points.
          <A href="/tc?module=Static&d1=match_editorials&d2=srm297">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505863" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.07.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=about&d2=graphic_designer">TopCoder Software is hiring graphic designers</A>
-      </span><br><br>
-      TopCoder Software has several job openings for graphic designers.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=about&d2=graphic_designer">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505966" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
