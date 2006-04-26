@@ -65,22 +65,22 @@ try {
 <script language="JavaScript">
 <!--
 function selectSeason(selection){
-	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundOverview&snid='+ sel + '&er=<%= topN %>';
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundOverview&snid='+ sel + '&er=<%= topN %>';
 }
 
 function selectRound(selection){
-	sel = selection.options[selection.selectedIndex].value;
-	window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>&er=<%= topN %>';
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>&er=<%= topN %>';
 }
 function submitForm(){
-	var frm = document.coderRankForm;
-	if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
-   		alert(frm.er.value+" is not a valid positive integer");
-	 else{
-   		frm.er.value = parseInt(frm.er.value);
-   		frm.submit();
-	 }
+    var frm = document.coderRankForm;
+    if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
+        alert(frm.er.value+" is not a valid positive integer");
+     else{
+        frm.er.value = parseInt(frm.er.value);
+        frm.submit();
+     }
 }
 
 // -->
@@ -89,11 +89,11 @@ function submitForm(){
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
-	<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <% } %>
 <div style="padding-bottom:5px;">
-   	<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
 
@@ -125,23 +125,23 @@ function submitForm(){
        }
    %>
    <tr class="<%=even?"dark":"light"%>">
-      <% if (teamResult.isValidRow(i)) {      	     %>
-		     <td class="valueC">
-		     <%= i + 1 %>
-		     </td>
-		     <td class="value">
-		     <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
-		     </td>
-		     <td class="valueR" style="border-right:1px solid #999999;">
-		     <%= teamResult.getItem(i, "team_points").toString() %>
-		     </td>
+      <% if (teamResult.isValidRow(i)) {             %>
+             <td class="valueC">
+             <%= i + 1 %>
+             </td>
+             <td class="value">
+             <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
+             </td>
+             <td class="valueR" style="border-right:1px solid #999999;">
+             <%= teamResult.getItem(i, "team_points").toString() %>
+             </td>
       <% } else { %>
-	      <td class="valueC" colspan="3">
+          <td class="valueC" colspan="3">
           </td>
       <% } %>
-		     
-	  <% if (leaders.isValidRow(i)) {      	     %>
-        
+
+      <% if (leaders.isValidRow(i)) {            %>
+
       <td class="valueC">
       <%= i + 1 %>
       </td>
@@ -155,11 +155,11 @@ function submitForm(){
       <%= leaders.getItem(i, "final_points").toString() %>
       </td>
       <% } else { %>
-	      <td class="valueC" colspan="4">
+          <td class="valueC" colspan="4">
           </td>
       <% } %>
    </tr>
-   <% } 
+   <% }
    %>
 </table>
 
@@ -175,10 +175,10 @@ function submitForm(){
       <td class="headerR" width="20%" nowrap="nowrap">Average Points</td>
       <td class="header" colspan="2">&#160;</td>
    </tr>
-   
-   
+
+
    <rsc:iterator list="<%=percents%>" id="currentRow">
-   <% 
+   <%
                even = !even;
                String problemLevel = currentRow.getItem("problem_level").toString();
                String problemName = currentRow.getItem("problem_name").toString();
@@ -221,8 +221,8 @@ function submitForm(){
 <input type="hidden" name="rd" value="<%= round.getRoundId() %>">
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundOverview">
-Viewing top 
-<input name="er" maxlength="4" size="4" value="<%= topN %>" type="text"> 
+Viewing top
+<input name="er" maxlength="4" size="4" value="<%= topN %>" type="text">
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
 </form>
 </div>

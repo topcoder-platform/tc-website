@@ -139,7 +139,7 @@ function clickColumn(n)
        <%   even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
           <td class="value" style="vertical-align: middle;">
-          <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
+          <A href="/tc?module=HSRoomStats&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&cr=<%= resultRow.getItem("coder_id") %>&rm=<%= resultRow.getItem("room_id") %>"><img src="/i/interface/exp_w.gif" alt="" /></A>
           </td>
       <td class="value">
          <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />

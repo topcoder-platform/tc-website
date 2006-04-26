@@ -208,7 +208,7 @@ function clickColumn(n)
         <%   even = !even;  %>
         <tr class="<%=even?"dark":"light"%>">
           <td class="value">
-        <A href='/tc?module=TeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
+        <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= resultRow.getItem("team_id") %>' >
               <rsc:item name="name" row="<%=resultRow%>"/>
           </A>
           </td>
