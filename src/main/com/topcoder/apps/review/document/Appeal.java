@@ -1,8 +1,5 @@
 /*
- * Appeal.java
- *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.document;
 
@@ -15,8 +12,17 @@ import java.io.Serializable;
 /**
  * Corresponds to one appeal.
  *
- * @author FatClimber
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * successful flag was added
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author FatClimber, Pulky
+ * @version 1.0.1
  */
 public class Appeal implements Serializable {
     private long id;
@@ -34,7 +40,12 @@ public class Appeal implements Serializable {
     private Evaluation rawEvaluation;
     private int rawTotalTests;
     private int rawTotalPass;
-
+    
+     /**
+      * The appeal result flag.
+      * @since 1.0.1
+      */
+    private boolean successful;
 
     /**
      * Constructor
@@ -48,7 +59,7 @@ public class Appeal implements Serializable {
                   User appealer, User submitter, User reviewer,
                   long submissionId, long appealerSubmissionId,
                   long versionId, Evaluation rawEvaluation,
-                  int rawTotalTests, int rawTotalPass
+                  int rawTotalTests, int rawTotalPass, boolean successful
                   ) {
         this.id = id;
         this.appealText = appealText;
@@ -64,6 +75,7 @@ public class Appeal implements Serializable {
         this.rawEvaluation = rawEvaluation;
         this.rawTotalTests = rawTotalTests;
         this.rawTotalPass = rawTotalPass;
+        this.successful = successful;
         if (id == -1) {
             this.dirtyFlag = true;
         }
@@ -285,6 +297,25 @@ public class Appeal implements Serializable {
         return rawTotalPass;
     }
 
+    /**
+     * @return Returns the successful flag.
+     * @since 1.0.1
+     */
+    public boolean getSuccessful() {
+        return successful;
+    }
+
+    /**
+     * @param successful The successful flag to set.
+     * @since 1.0.1
+     */
+    public void setSuccessful(boolean successful) {
+        if (!this.successful == successful) {
+            this.successful = successful;
+            this.dirtyFlag = true;
+        }
+    }
+    
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */

@@ -135,6 +135,22 @@
         </javac>
     </target>
 
+    <target name="compile_onsite" depends="init,jar_shared">
+        <javac
+            srcdir="${java.dir}"
+            destdir="${classes.dir}"
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}"
+            source="1.4"
+            target="1.4"
+            >
+            <include name="com/topcoder/web/onsite/**" />
+            <include name="com/topcoder/web/common/**" />
+            <include name="com/topcoder/web/ejb/project/**"/>
+        </javac>
+    </target>
+
     <target name="war-or" depends="compile">
         <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
             <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
@@ -431,4 +447,52 @@
     <target name="deploy" depends="build-ear,build-screening">
         <antcall target="explode"/>
     </target>
+
+    <target name="package-EJB-ProjectBean" depends="compile">
+        <jar jarfile="${ejb.jars.dir}/Project.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/project/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/project" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="deploy-onsite" depends="compile_onsite">
+        <antcall target="package-EJB-ProjectBean"/>
+        <copy todir="${jboss.deploy.dir}">
+            <fileset dir="${ejb.jars.dir}">
+                <include name="Project.jar"/>
+            </fileset>
+        </copy>
+        <antcall target="war-onsite"/>
+    </target>
+
+    <target name="war-onsite" depends="compile_onsite">
+        <war warfile="${war.dir}/onsite.war" webxml="${resources.dir}/onsite/web.xml">
+            <fileset dir="${java.dir}/com/topcoder/web/onsite/view">
+                <include name="**/*.*"/>
+            </fileset>
+            <fileset dir="${java.dir}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="script.jsp"/>
+                <include name="style.jsp"/>
+            </fileset>
+            <classes dir="${classes.dir}">
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/web/onsite/**/*.class"/>
+            </classes>
+            <webinf dir="${resources.dir}/taglib">
+                <include name="rsc-taglib.tld"/>
+                <include name="tc-webtags.tld"/>
+            </webinf>
+            <webinf dir="${resources.dir}/onsite">
+                <include name="jboss-web.xml"/>
+            </webinf>
+        </war>
+        <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
+        <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
+    </target>
+    
+    
 </project>

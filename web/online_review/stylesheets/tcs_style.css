@@ -2061,6 +2061,19 @@ A.topLink:active
 	padding: 0px;
 	}
 
+.appealResult
+{
+	font-size: 11px;
+	color: #C00;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 14px;
+	text-align: left;
+	background-color: #FFF;
+	padding: 5px;
+}
+
+
 .appealWarningNote
 {
 	font-size: 11px;
