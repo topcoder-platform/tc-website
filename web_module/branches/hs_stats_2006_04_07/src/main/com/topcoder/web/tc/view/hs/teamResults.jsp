@@ -181,7 +181,7 @@ function clickColumn(n)
 </table>
 
 <br><br>
-<% } else { %}
+<% } else { %>
 <span class="bodySubtitle">The team didn't compite on that round</span>
 <% } %>
 
