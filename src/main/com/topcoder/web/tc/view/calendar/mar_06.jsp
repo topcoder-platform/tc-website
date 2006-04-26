@@ -210,11 +210,11 @@
             <A href="/tc?module=MatchDetails&rd=9815">Details</A><br/><br/></td>
     </tr>
     <tr> 
-            <td id="calendarIntel">
+            <td id="calendarLong">
             <strong>Intel Multi-threading Competition 3</strong><br />
             Registration Opens: 12:00 Noon<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A id="calendarIntelLink" href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
+            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
     </tr>
    
     <tr> 
