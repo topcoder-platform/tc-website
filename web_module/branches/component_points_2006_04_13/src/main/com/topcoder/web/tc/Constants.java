@@ -59,9 +59,7 @@ public class Constants implements WebConstants {
     public static String PROJECT_ID;
     public static String PHASE_ID;
     
-     log.debug("!!!STAGE_ID!!!");
     public static String STAGE_ID;
-     log.debug("!!!STAGE_ID!!!");
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
@@ -259,9 +257,11 @@ public class Constants implements WebConstants {
     }
 
     public static void initialize() {
+     log.debug("!!!STAGE_ID!!!");
 
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
+            log.debug("--------=====> " + f[i].getName().toLowerCase());
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
