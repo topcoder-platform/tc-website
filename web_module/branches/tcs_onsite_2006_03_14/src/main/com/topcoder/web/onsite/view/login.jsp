@@ -16,7 +16,7 @@
 
 <html>
 <head>
-<title>TopCoder | Wager | Login</title>
+<title>2006 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCO06style.css"/>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
         <SCRIPT type="text/javascript">
@@ -41,7 +41,7 @@
 <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco06/tco06_logo_AMDgrn.gif" border=0/></A>
 
 <div style="padding: 20px 40px 200px 40px;" align="center">
-   <div style="width: 500px;" align="center">
+   <div style="width: 500px;" align="center" class="bodyText">
 
    <span class="bigTitle">Component Competition Wager System</span>
    <br><br>
