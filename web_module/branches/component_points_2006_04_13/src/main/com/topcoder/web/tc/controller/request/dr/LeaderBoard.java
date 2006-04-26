@@ -14,6 +14,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.web.common.model.SortInfo;
 
 /**
  * <strong>Purpose</strong>:
@@ -55,7 +57,7 @@ public class LeaderBoard extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.STAGE_ID + " expected.");
         }
 
-        Request request = new Request();
+        Request r = new Request();
 
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
@@ -86,13 +88,13 @@ public class LeaderBoard extends BaseProcessor {
         r.setProperty(DataAccessConstants.END_RANK,                                     
             String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
-        request.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        request.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
-        request.setContentHandle(Constants.LEADER_BOARD_COMMAND);
+        r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
+        r.setContentHandle(Constants.LEADER_BOARD_COMMAND);
 
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
 
-        Map m = dai.getData(request);
+        Map m = dai.getData(r);
 
         ResultSetContainer leaderBoard = (ResultSetContainer)m.get(Constants.LEADER_BOARD_QUERY);
 
