@@ -20,9 +20,8 @@
 
 <%
 Map resultMap = (Map) request.getAttribute("resultMap");
-ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
-ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
-ResultSetContainer rooms = (ResultSetContainer) resultMap.get("rooms_for_round");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons_for_team");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season_and_team");
 ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
 
 RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
@@ -30,8 +29,8 @@ ListInfo li = (ListInfo)request.getAttribute("listInfo");
 
 int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
 
-// there should be at least one row!
-String teamName = result.getStringItem(0, "team_name");
+boolean participated = result.getRowCount() > 0;
+String teamName = participated? result.getStringItem(0, "team_name") : "";
 %>
 
 
@@ -110,6 +109,8 @@ function clickColumn(n)
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
 <% } %>
 
+
+<% if (participated) %>
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
@@ -172,7 +173,7 @@ function clickColumn(n)
           <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00"/>
           </td>
           <td class="valueR">
-          <rsc:item name="final_points" row="<%=resultRow%>"/>
+          <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
           </td>
 
        </tr>
@@ -180,6 +181,9 @@ function clickColumn(n)
 </table>
 
 <br><br>
+<% } else { %}
+<span class="bodySubtitle">The team didn't compite on that round</span>
+<% } %>
 
 </td>
         <!-- Center Column Ends -->

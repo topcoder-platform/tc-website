@@ -258,7 +258,7 @@ z-index: 2;
       <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00"/>
       </td>
       <td class="valueR" style="border-right:1px solid #999999;">
-      <rsc:item name="final_points" row="<%=resultRow%>"/>
+      <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
       </td>
 
       <td class="valueR">
