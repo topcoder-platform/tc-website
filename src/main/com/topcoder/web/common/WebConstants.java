@@ -39,5 +39,7 @@ public interface WebConstants {
     public static final int PREFERENCE_PERMANENT_TRUE = 34;
     public static final int PREFERENCE_PERMANENT_FALSE = 35;
 
+    public static final String LEFT_NAV_KEY = "node";
+
 
 }
