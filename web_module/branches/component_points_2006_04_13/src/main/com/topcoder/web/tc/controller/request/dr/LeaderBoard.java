@@ -16,6 +16,7 @@ import java.util.Map;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.common.StringUtils;
 
 /**
  * <strong>Purpose</strong>:
@@ -30,19 +31,6 @@ public class LeaderBoard extends BaseProcessor {
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
-
-    /**
-     * Retrieves data from the DB to show leader board.
-     *
-     * @param compType the competition type
-     *
-     * @return a Map with the retrieved ResultSetContainers.
-     */
-    private Map getLeadersData(long compType) throws Exception {
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-
-        return dai.getData(request);
-    }
 
     /**
      * Process the dr leader board request.
