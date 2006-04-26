@@ -135,7 +135,7 @@ function clickColumn(n)
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= result %>" id="resultRow">
-       <%   even = !even;
+       <%   even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
           <td class="value" style="vertical-align: middle;">
           <A href="#"><img src="/i/interface/exp_w.gif" alt="" /></A>
