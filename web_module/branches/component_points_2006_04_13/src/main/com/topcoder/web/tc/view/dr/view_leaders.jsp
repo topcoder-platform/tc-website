@@ -66,7 +66,7 @@
              <tr>
                 <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
                     <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+                    | <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
                </td>
              </tr>
              <tr>
