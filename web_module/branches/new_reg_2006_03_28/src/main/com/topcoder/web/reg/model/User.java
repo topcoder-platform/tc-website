@@ -116,6 +116,20 @@ public class User extends Base {
         this.emailAddresses = emailAddresses;
     }
 
+    public Email getPrimaryEmailAddress() {
+        Email e;
+        for (Iterator it = getEmailAddresses().iterator(); it.hasNext();) {
+            e = (Email)it.next();
+            if (e.isPrimary()) {
+                try {
+                    return (Email)e.clone();
+                } catch (CloneNotSupportedException ex) {
+                    throw new RuntimeException("What the heck, how did Email stop being clonable?");
+                }
+            }
+        }
+    }
+
     public Set getPhoneNumbers() {
         return Collections.unmodifiableSet(phoneNumbers);
     }
