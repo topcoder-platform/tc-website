@@ -15,25 +15,8 @@
 
 <body>
 
-<jsp:useBean id="registrationTypeList" scope="request" type="java.util.List" />
-<%
-    for (Iterator it = registrationTypeList.iterator(); it.hasNext();) {
-        RegistrationType type = (RegistrationType)it.next();
-%>
-<c:out value="${type.description}" />
-<%
-        out.println(type.getDescription());
-        %> <br /> <%
-    }
-
-    String s= "kickass";
-%>
-    <c:out value="${s}"/>
-<c:out value="${s}" />
-
-
+    <jsp:useBean id="registrationTypeList" scope="request" type="java.util.List" />
     <c:forEach items="${registrationTypeList}" var="type">
-        <c:out value="${1}" />
         <c:out value="${type.description}" /><br />
     </c:forEach>
 
