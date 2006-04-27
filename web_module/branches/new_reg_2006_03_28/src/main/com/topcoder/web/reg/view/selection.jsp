@@ -20,8 +20,9 @@
         out.println(((RegistrationType)it.next()).getDescription());
     }
 %>
-<c:out value="${1+3}"/>
-    
+    <c:forEach items="${requestScope.registrationTypeList}" var="type">
+        <c:out values="${type}" /><br />
+    </c:forEach>
 
 </body>
 </html>
