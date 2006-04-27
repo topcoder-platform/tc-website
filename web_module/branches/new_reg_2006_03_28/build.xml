@@ -1131,14 +1131,10 @@
                 <include name="com/topcoder/web/reg/**/*.class"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
-<!--
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="codinginterface.tld"/>
             </webinf>
--->
-
-
             <fileset dir="${java}/com/topcoder/web/reg/view">
                 <include name="**/*.jsp"/>
             </fileset>
