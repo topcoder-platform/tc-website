@@ -80,6 +80,13 @@ public class TeamResults extends Base {
         }
     }
     
+    /**
+     * Get the most recent season where the team has competed.
+     * 
+     * @param tmid team to check
+     * @return the most recent season where the team has competed.
+     * @throws Exception
+     */
     private int getMostRecentSeason(int tmid) throws Exception {
         Request r = new Request();
         r.setContentHandle("seasons_for_team");
@@ -96,6 +103,14 @@ public class TeamResults extends Base {
         return rsc.getIntItem(rsc.getRowCount() - 1, "season_id");
     }
 
+    /**
+     * Get the most recent round in a season where the team has competed.
+     * 
+     * @param tmid team to check
+     * @param snid season id of the round
+     * @return the most recent round in a season where the team has competed.
+     * @throws Exception
+     */
     private int getMostRecentRound(int tmid, int snid) throws Exception {
         Request r = new Request();
         r.setContentHandle("rounds_for_season_and_team");

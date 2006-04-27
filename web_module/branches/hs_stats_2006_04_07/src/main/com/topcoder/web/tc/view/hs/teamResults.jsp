@@ -40,7 +40,8 @@ if (competed) {
 
 function selectSeason(selection)
 {
-    window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=" + selection.options[selection.selectedIndex].value;}
+    window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=" + selection.options[selection.selectedIndex].value;
+}
 
 function selectRound(selection)
 {

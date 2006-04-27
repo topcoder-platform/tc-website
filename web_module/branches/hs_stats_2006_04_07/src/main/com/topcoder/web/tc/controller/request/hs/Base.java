@@ -167,7 +167,7 @@ abstract public class Base extends BaseProcessor {
      *  
      * @param round a Round having roundId and seasonId, and whose names will be filled
      * @param seasonQueryName name of the query that retrieves the seasons.
-     * @param roundQueryName  name of the query that retrieves the rounds.
+     * @param roundQueryName  name of the query that retrieves the rounds. If null, it won't retrieve round names
      * @param result a map that must contain ResultSets for queries "seasons" and "rounds_for_season"
      */
     protected void fillRoundAndSeasonNames(RoundInfo round, Map result, String seasonQueryName, String roundQueryName) {
@@ -184,28 +184,32 @@ abstract public class Base extends BaseProcessor {
             throw new IllegalArgumentException("can't find the season name for season id " + round.getSeasonId() );
         }
 
-        // Look up Round Name
-        String roundName = null;
-        int forumId = -1;
-        for (Iterator it = ((ResultSetContainer) result.get(roundQueryName)).iterator(); it.hasNext();) {
-            ResultSetRow rsr = (ResultSetRow) it.next();
-            if (round.getRoundId() == rsr.getIntItem("round_id")) {
-                roundName = rsr.getStringItem("name");
-                
-                // if the forum_id can't be retrieved, ignore it so it will be -1
-                try {
-                    forumId = rsr.getIntItem("forum_id");
-                } catch(Exception e) {}
-                break;
-            }                
-        }
-        if (roundName == null) {
-            throw new IllegalArgumentException("can't find the round name for round id " + round.getRoundId());
-        }
-         
-        round.setForumId(forumId);
-        round.setRoundName(roundName);
         round.setSeasonName(seasonName);
+        
+        if (roundQueryName != null) {
+            // Look up Round Name
+            String roundName = null;
+            int forumId = -1;
+            for (Iterator it = ((ResultSetContainer) result.get(roundQueryName)).iterator(); it.hasNext();) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
+                if (round.getRoundId() == rsr.getIntItem("round_id")) {
+                    roundName = rsr.getStringItem("name");
+                    
+                    // if the forum_id can't be retrieved, ignore it so it will be -1
+                    try {
+                        forumId = rsr.getIntItem("forum_id");
+                    } catch(Exception e) {}
+                    break;
+                }                
+            }
+            if (roundName == null) {
+                throw new IllegalArgumentException("can't find the round name for round id " + round.getRoundId());
+            }
+             
+            round.setForumId(forumId);
+            round.setRoundName(roundName);
+        }
+            
     }
 
     /**
