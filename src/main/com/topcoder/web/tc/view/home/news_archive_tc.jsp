@@ -40,7 +40,7 @@
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
 <%--
-<tr class="bodyText"><td nowrap="nowrap">04.26.06 6:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">Changes to member payment options</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.26.06 7:30 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">Changes to member payment options</A></td></tr>
 --%>
 <tr class="bodyText"><td nowrap="nowrap">04.18.06 12:15 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">.NET 2.0 now supported on TopCoder systems</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.04.06 7:25 PM - </td><td width="100%">"Coder of the Month" split</td></tr>

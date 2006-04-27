@@ -22,20 +22,20 @@
    </td></tr>
 --%>
 
-<%------------------------------------------------------ payment post: waiting for 4/26 7PM
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.26.06<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.26.06<br>7:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">Changes to member payment options</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">Changes to member payment options</A>
       </span><br><br>
       TopCoder recognizes that as our company has grown, our ability to effectively manage member payments has become a growing challenge and this has caused problems with some members receiving their payments. At this time, TopCoder is making several changes in an effort to create a more efficient payment process.
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=505972">discuss this</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
---%>
+
 
 <%--------------------------------------------------------%>
    <tr>
