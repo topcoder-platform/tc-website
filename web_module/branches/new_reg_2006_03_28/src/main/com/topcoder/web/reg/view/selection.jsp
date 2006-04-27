@@ -17,8 +17,7 @@
 
 <jsp:useBean id="registrationTypeList" scope="request" type="java.util.List" />
 <%
-    List l = (List)request.getAttribute("registrationTypeList");
-    for (Iterator it = l.iterator(); it.hasNext();) {
+    for (Iterator it = registrationTypeList.iterator(); it.hasNext();) {
         out.println(((RegistrationType)it.next()).getDescription());
     }
 %>
