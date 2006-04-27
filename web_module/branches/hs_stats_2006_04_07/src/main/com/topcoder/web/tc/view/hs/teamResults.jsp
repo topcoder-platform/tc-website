@@ -33,7 +33,9 @@ boolean participated = (result != null) && (result.getRowCount() > 0);
 String teamName = participated? result.getStringItem(0, "team_name") : "";
 %>
 
-
+<% if (seasons != null ) {
+    %>
+}
 <script language="JavaScript">
 <!--
 
@@ -65,7 +67,8 @@ function clickColumn(n)
 
 // -->
 </script>
-
+<% } // end if season is null
+%>
 </head>
 
 <body>
@@ -92,7 +95,7 @@ function clickColumn(n)
 <jsp:param name="title" value="Team Results"/>
 </jsp:include>
 
-<% if(seasons.getRowCount() == 0) { %>
+<% if(seasons == null) { %>
 <center><span class="bigTitle">This team has never competed</span></center>
 <% } else { %>
 <div style="float:right; padding-left:10px;" align="right">
