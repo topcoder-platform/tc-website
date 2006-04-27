@@ -415,6 +415,17 @@
                 <include name="shared.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss.conf.dir}">
+            <fileset dir="${resources.dir}">
+                <include name="onsite.properties"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="build-site" depends="">
+        <antcall target="build-ear"/>
+        <antcall target="build-onsite"/>
     </target>
 
     <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
@@ -424,6 +435,7 @@
             </fileset>
             <fileset dir="${ejb.jars.dir}">
                 <include name="*.jar"/>
+                <exclude name="Project.jar"/>
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
@@ -443,34 +455,30 @@
 
         <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
+
+        <copy todir="${jboss.deploy.dir}">
+            <fileset dir="${ejb.jars.dir}">
+                <include name="Project.jar"/>
+            </fileset>
+        </copy>
+
+        <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
+        <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
+
     </target>
 
-    <target name="deploy" depends="build-ear,build-screening">
+    <target name="deploy" depends="build-ear,build-screening,build-onsite">
         <antcall target="explode"/>
-        <antcall target="deploy-onsite"/>
     </target>
 
-    <target name="package-EJB-ProjectBean" depends="compile">
+    <target name="build-onsite" depends="compile_onsite">
         <jar jarfile="${ejb.jars.dir}/Project.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/project/*.class"/>
             <metainf dir="${java.dir}/com/topcoder/web/ejb/project" includes="*.xml"/>
         </jar>
-    </target>
-
-    <target name="deploy-onsite" depends="compile_onsite">
-         <copy todir="${jboss.conf.dir}">
-            <fileset dir="${resources.dir}">
-                <include name="onsite.properties"/>
-            </fileset>
-        </copy>
-        <antcall target="package-EJB-ProjectBean"/>
-        <copy todir="${jboss.deploy.dir}">
-            <fileset dir="${ejb.jars.dir}">
-                <include name="Project.jar"/>
-            </fileset>
-        </copy>
+        
         <antcall target="war-onsite"/>
     </target>
 
@@ -497,8 +505,6 @@
                 <include name="jboss-web.xml"/>
             </webinf>
         </war>
-        <unwar src="${war.dir}/onsite.war" dest="${jboss.deploy.dir}/onsite.war/" overwrite="yes"/>
-        <delete dir="${jboss.deploy.dir}/onsite.war/META-INF"/>
     </target>
 
 
