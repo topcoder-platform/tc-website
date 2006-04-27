@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.27.06<br>6:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to SRM 300</A>
+      </span><br><br>
+      UBS will be in the arena at 8:00 PM, just prior to SRM 300, to discuss working at UBS.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.27.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A>
@@ -191,20 +206,6 @@ Since this Single Round Match took place during the ACM ICPC finals, it was surp
          <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.10.06<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=9958">Intel Multi-Threading Competition 3 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="15500323" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
 </table>
