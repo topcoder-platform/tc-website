@@ -21,7 +21,7 @@ public class CoderRankings extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {            
-            ListInfo li = new ListInfo(getRequest(), 2, 1, 50, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC", columnNames);
             RoundInfo round = new RoundInfo();
             
             Request r = new Request();
