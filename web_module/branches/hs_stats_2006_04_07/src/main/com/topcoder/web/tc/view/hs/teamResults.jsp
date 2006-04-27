@@ -67,9 +67,7 @@ function clickColumn(n)
 
 
 }
-
-
-
+-->
 </script>
 </head>
 
