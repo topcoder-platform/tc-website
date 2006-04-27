@@ -24,6 +24,7 @@ public class Constants implements WebConstants {
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;
+    public static String TYPE_KEY;
         
     /* request parameters */
     public static String PROBLEM_ID;

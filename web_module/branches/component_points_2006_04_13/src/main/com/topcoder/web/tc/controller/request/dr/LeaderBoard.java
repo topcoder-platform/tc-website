@@ -17,6 +17,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.tag.HandleTag;
 
 /**
  * <strong>Purpose</strong>:
@@ -27,6 +28,9 @@ import com.topcoder.web.common.StringUtils;
  */
 public class LeaderBoard extends BaseProcessor {
 
+    public final static String DEV_PHASE = "113";
+    public final static String DESIGN_PHASE = "112";
+
     /**
      * The logger to log to.
      */
@@ -34,12 +38,17 @@ public class LeaderBoard extends BaseProcessor {
 
     /**
      * Process the dr leader board request.
-     * Retrieves leader list for development or design.
+     * Retrieves leader list for development or design for a particular stage.
      */
     protected void businessProcessing() throws Exception {
         // Phase ID and Stage ID are required.
         if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
+        }
+        
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(DESIGN_PHASE)) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
         if (!hasParameter(Constants.STAGE_ID)) {
@@ -90,6 +99,8 @@ public class LeaderBoard extends BaseProcessor {
 
         log.debug("Got " +  leaderBoard.size() + " rows for leader board");
         getRequest().setAttribute(Constants.LEADER_LIST_KEY, leaderBoard);
+        getRequest().setAttribute(Constants.TYPE_KEY, 
+            (getRequest().getParameter(Constants.PHASE_ID) == DEV_PHASE) ? HandleTag.DEVELOPMENT : HandleTag.DESIGN);
         
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
