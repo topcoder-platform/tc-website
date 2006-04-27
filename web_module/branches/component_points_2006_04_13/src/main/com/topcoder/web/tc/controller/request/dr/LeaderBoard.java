@@ -99,6 +99,8 @@ public class LeaderBoard extends BaseProcessor {
 
         log.debug("Got " +  leaderBoard.size() + " rows for leader board");
         getRequest().setAttribute(Constants.LEADER_LIST_KEY, leaderBoard);
+        log.debug("Board type: " +  
+            (getRequest().getParameter(Constants.PHASE_ID) == DEV_PHASE) ? HandleTag.DEVELOPMENT : HandleTag.DESIGN);
         getRequest().setAttribute(Constants.TYPE_KEY, 
             (getRequest().getParameter(Constants.PHASE_ID) == DEV_PHASE) ? HandleTag.DEVELOPMENT : HandleTag.DESIGN);
         
