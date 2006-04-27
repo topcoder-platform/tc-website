@@ -11,10 +11,11 @@
 </head>
 
 <body>
-
+<%--
     <jsp:useBean id="registrationTypeList" scope="request" type="java.util.List" />
+ --%>
     <c:forEach items="${registrationTypeList}" var="type">
-        <tc-webtag:chkBox name="${type.id}"/> <c:out value="${type.description}" /> <br />
+        <tc-webtag:chkBox name="${Constants.REGISTRATION_TYPE+type.id}"/> <c:out value="${type.description}" /> <br />
     </c:forEach>
 
 </body>
