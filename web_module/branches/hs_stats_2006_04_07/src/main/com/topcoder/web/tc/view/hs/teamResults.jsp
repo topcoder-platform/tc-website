@@ -29,7 +29,7 @@ ListInfo li = (ListInfo)request.getAttribute("listInfo");
 
 int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
 
-boolean participated = result.getRowCount() > 0;
+boolean participated = (result != null) && (result.getRowCount() > 0);
 String teamName = participated? result.getStringItem(0, "team_name") : "";
 %>
 

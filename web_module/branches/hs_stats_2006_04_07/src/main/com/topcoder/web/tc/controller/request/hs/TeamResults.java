@@ -30,9 +30,21 @@ public class TeamResults extends Base {
             // just rounds and seasons where the team has participated are needed
             RoundInfo round = getRoundAndSeasonIds(getRequest(), false);
 
+            // retrieve the last season if necessary
             if (!round.hasSeasonId()) {
                 round.setSeasonId(getMostRecentSeason(tmid));
+                
+                // if still no season found, the team has never competed, then set the required values so that
+                // a legend is written in the page.
+                if (!round.hasSeasonId()) {
+                    getRequest().setAttribute("tmid", tmid + "");            
+                    setNextPage(Constants.HS_TEAM_RESULTS);
+                    setIsNextPageInContext(true);                    
+                    return;
+                }
             }
+            
+                    
             if (!round.hasRoundId()) {
                 round.setRoundId(getMostRecentRound(tmid, round.getSeasonId()));
             }
