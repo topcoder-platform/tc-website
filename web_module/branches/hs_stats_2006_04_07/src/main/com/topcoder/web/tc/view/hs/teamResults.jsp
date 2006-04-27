@@ -19,23 +19,21 @@
 
 
 <%
-Map resultMap = (Map) request.getAttribute("resultMap");
-ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons_for_team");
-ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season_and_team");
-ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
+boolean competed = "true".equals(request.getAttribute("competed"));
+if (competed) {
+	Map resultMap = (Map) request.getAttribute("resultMap");
+	ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons_for_team");
+	ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season_and_team");
+	ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
+	
+	RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+	ListInfo li = (ListInfo)request.getAttribute("listInfo");
+	
+	int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
+	
+	String teamName = result.getStringItem(0, "team_name");
+	%>
 
-RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
-ListInfo li = (ListInfo)request.getAttribute("listInfo");
-
-int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
-
-boolean participated = (result != null) && (result.getRowCount() > 0);
-String teamName = participated? result.getStringItem(0, "team_name") : "";
-%>
-
-<% if (seasons != null ) {
-    %>
-}
 <script language="JavaScript">
 <!--
 
@@ -65,10 +63,8 @@ function clickColumn(n)
 }
 
 
-// -->
+
 </script>
-<% } // end if season is null
-%>
 </head>
 
 <body>
@@ -95,9 +91,6 @@ function clickColumn(n)
 <jsp:param name="title" value="Team Results"/>
 </jsp:include>
 
-<% if(seasons == null) { %>
-<center><span class="bigTitle">This team has never competed</span></center>
-<% } else { %>
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
@@ -184,7 +177,36 @@ function clickColumn(n)
        </tr>
    </rsc:iterator>
 </table>
-<% } // ends the else for having at least 1 season
+<% }  else { // the team didn't compete
+%>
+</head>
+
+<body>
+
+<jsp:include page="/top.jsp">
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+        <!-- Left Column Begins-->
+        <td width="180">
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitions"/>
+         </jsp:include>
+        </td>
+        <!-- Left Column Ends -->
+
+        <!-- Center Column Begins -->
+<td width="100%" align="left" class="bodyColumn">
+
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="high_school"/>
+<jsp:param name="title" value="Team Results"/>
+</jsp:include>
+
+<center><span class="bigTitle">This team has never competed</span></center>
+<% }  // end the team didn't compete
 %>
 <br><br>
 

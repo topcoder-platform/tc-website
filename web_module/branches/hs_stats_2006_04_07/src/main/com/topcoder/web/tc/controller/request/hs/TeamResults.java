@@ -37,7 +37,7 @@ public class TeamResults extends Base {
                 // if still no season found, the team has never competed, then set the required values so that
                 // a legend is written in the page.
                 if (!round.hasSeasonId()) {
-                    getRequest().setAttribute("tmid", tmid + "");            
+                    getRequest().setAttribute("competed", "false");            
                     setNextPage(Constants.HS_TEAM_RESULTS);
                     setIsNextPageInContext(true);                    
                     return;
@@ -69,6 +69,7 @@ public class TeamResults extends Base {
             getRequest().setAttribute("tmid", tmid + "");            
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
+            getRequest().setAttribute("competed", "true");
             
             setNextPage(Constants.HS_TEAM_RESULTS);
             setIsNextPageInContext(true);
