@@ -5,8 +5,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<jsp:useBean id="myTest" scope="request" class="com.topcoder.web.reg.model.User" />
-<c:set target="${myTest}" property="firstName" value="dok" />
+
 
 <html>
 <head>
@@ -17,8 +16,8 @@
 
 <body>
 
+<jsp:useBean id="registrationTypeList" scope="request" type="java.util.List" />
 <%
-    out.println(((User)request.getAttribute("myTest")).getFirstName());
     List l = (List)request.getAttribute("registrationTypeList");
     for (Iterator it = l.iterator(); it.hasNext();) {
         out.println(((RegistrationType)it.next()).getDescription());
