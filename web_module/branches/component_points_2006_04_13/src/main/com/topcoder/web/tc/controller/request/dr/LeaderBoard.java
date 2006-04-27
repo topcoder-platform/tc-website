@@ -85,7 +85,7 @@ public class LeaderBoard extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, Constants.LEADER_BOARD_COMMAND);            
         } else {
             // this is the default order.
-            setDefault(DataAccessConstants.SORT_DIRECTION, "desc");  
+            setDefault(DataAccessConstants.SORT_DIRECTION, "asc");  
             setDefault(DataAccessConstants.SORT_COLUMN, "0");  
         }
         r.setProperty(DataAccessConstants.START_RANK, startRank);                       
