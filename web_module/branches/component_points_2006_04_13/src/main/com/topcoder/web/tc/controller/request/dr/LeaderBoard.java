@@ -64,8 +64,6 @@ public class LeaderBoard extends BaseProcessor {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-        //SortInfo s = new SortInfo();
-        //getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
         // Normalizes optional parameters and sets defaults
         if ("".equals(numRecords)) {
             numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
@@ -84,6 +82,7 @@ public class LeaderBoard extends BaseProcessor {
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.LEADER_BOARD_COMMAND);            
         }
         r.setProperty(DataAccessConstants.START_RANK, startRank);                       
         r.setProperty(DataAccessConstants.END_RANK, 
@@ -96,13 +95,12 @@ public class LeaderBoard extends BaseProcessor {
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer leaderBoard = (ResultSetContainer)m.get(Constants.LEADER_BOARD_QUERY);
-
+       
         log.debug("Got " +  leaderBoard.size() + " rows for leader board");
         getRequest().setAttribute(Constants.LEADER_LIST_KEY, leaderBoard);
-        log.debug("Board type: " +  
-            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? HandleTag.DEVELOPMENT : HandleTag.DESIGN));
+            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? 
+                HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
