@@ -47,7 +47,7 @@ function selectRound(selection)
     window.location = "/tc?module=HSTeamResults&tmid=<%= tmid %>&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
 }
 
-function selectRound(team)
+function selectTeam(selection)
 {
     window.location = "/tc?module=HSTeamResults&tmid=" + selection.options[selection.selectedIndex].value + "&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>";
 }
@@ -100,14 +100,14 @@ function clickColumn(n)
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId()%>" useTopValue="false" onChange="selectSeason(this)"/>
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + ""%>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <% }  %>
 <div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() %>" useTopValue="false" onChange="selectRound(this)"/>
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + ""%>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 <div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="tmid" list="<%=teams%>" fieldText="name" fieldValue="team_id" selectedValue="<%=  tmid %>" useTopValue="false" onChange="selectTeam(this)"/>
+    <tc-webtag:rscSelect name="tmid" list="<%=teams%>" fieldText="name" fieldValue="team_id" selectedValue="<%=  tmid + "" %>" useTopValue="false" onChange="selectTeam(this)"/>
 </div>
 
 </div>
