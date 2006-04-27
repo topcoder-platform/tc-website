@@ -14,7 +14,7 @@
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   ResultSetContainer leaderBoard = (ResultSetContainer) request.getAttribute(Constants.LEADER_LIST_KEY);
-  String type = (String)request.getParameter(Constants.TYPE_KEY);
+  String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
 
 <html>
