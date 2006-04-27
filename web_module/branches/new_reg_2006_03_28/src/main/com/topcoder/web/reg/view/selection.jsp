@@ -23,7 +23,7 @@
 %>
 
     <c:forEach items="${registrationTypeList}" var="type">
-        <c:out value="${type}" /><br />
+        <c:out value="${type.description}" /><br />
     </c:forEach>
 
 </body>
