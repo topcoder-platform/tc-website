@@ -19,6 +19,7 @@ public class Constants implements WebConstants {
     private static final Logger log = Logger.getLogger(Constants.class);
 
 
+    public static final String REGISTRATION_TYPE = "rt";
 
     private Constants() {
 
