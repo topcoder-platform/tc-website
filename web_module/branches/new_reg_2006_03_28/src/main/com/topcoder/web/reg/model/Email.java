@@ -56,6 +56,10 @@ public class Email extends Base {
         this.address = address;
     }
 
+    public boolean isPrimary() {
+        return primary.booleanValue();
+    }
+
     public Boolean getPrimary() {
         return primary;
     }
