@@ -15,21 +15,6 @@ color: #FFFFFF;
 font-weight: bold;
 text-decoration: none;
 }
-#calendarLongMini
-{
-color: #FFFFFF;
-font-size: 11px;
-font-weight: bold;
-text-align: center;
-vertical-align: middle;
-background-color: #007DC5;;
-}
-#calendarLongDate
-{
-color: #FFFFFF;
-font-weight: bold;
-text-decoration: none;
-}
 
 </style>
 
