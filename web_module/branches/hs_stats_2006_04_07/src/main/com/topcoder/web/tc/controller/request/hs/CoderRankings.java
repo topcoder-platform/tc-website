@@ -12,7 +12,7 @@ import com.topcoder.web.tc.Constants;
  *
  * @author cucu
  */
-public class HSRank extends Base { 
+public class CoderRankings extends Base { 
 
     /**
      * Column names used for sorting. 
