@@ -809,8 +809,6 @@
                 <include name="idgenerator.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
                 <include name="id_generator.jar"/>
@@ -1153,6 +1151,10 @@
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/reg/model/**/*.xml"/>
             </classes>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
 
         </war>
     </target>
