@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
@@ -23,10 +24,21 @@ public class TeamResults extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            RoundInfo round = getRoundAndSeasonIds(getRequest());
+            int tmid = Integer.parseInt((String) getRequest().getParameter("tmid"));
+
+            // if the most recent round or season are not found, don't use the typical query because
+            // just rounds and seasons where the team has participated are needed
+            RoundInfo round = getRoundAndSeasonIds(getRequest(), false);
+
+            if (!round.hasSeasonId()) {
+                round.setSeasonId(getMostRecentSeason(tmid));
+            }
+            if (!round.hasRoundId()) {
+                round.setRoundId(getMostRecentRound(tmid, round.getSeasonId()));
+            }
+
             ListInfo li = new ListInfo(getRequest(), 1, "ASC", columnNames);
             
-            int tmid = Integer.parseInt((String) getRequest().getParameter("tmid"));
             
             Request r = new Request();
             r.setContentHandle("hs_team_result");
@@ -54,5 +66,38 @@ public class TeamResults extends Base {
             throw new TCWebException(e);
         }
     }
+    
+    private int getMostRecentSeason(int tmid) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("seasons_for_team");
+        r.setProperty("sntid", HS_SNTID + "");
+        r.setProperty("tmid", tmid + "");
+
+        Map result = getDataAccess(true).getData(r);
+
+        ResultSetContainer rsc = (ResultSetContainer) result.get("seasons_for_team");
+        
+        if (rsc.getRowCount() == 0) {
+            return -1;
+        }
+        return rsc.getIntItem(rsc.getRowCount() - 1, "season_id");
+    }
+
+    private int getMostRecentRound(int tmid, int snid) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("rounds_for_season_and_team");
+        r.setProperty("snid", snid + "");
+        r.setProperty("tmid", tmid + "");
+
+        Map result = getDataAccess(true).getData(r);
+
+        ResultSetContainer rsc = (ResultSetContainer) result.get("rounds_for_season_and_team");
+        
+        if (rsc.getRowCount() == 0) {
+            return -1;
+        }
+        return rsc.getIntItem(rsc.getRowCount() - 1, "round_id");
+    }
+
 
 }

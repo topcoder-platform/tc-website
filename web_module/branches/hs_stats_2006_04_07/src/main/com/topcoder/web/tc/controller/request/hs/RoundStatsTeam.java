@@ -25,6 +25,7 @@ public class RoundStatsTeam extends Base {
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
+            
             ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "ASC", columnNames);
 
             Request r = new Request();

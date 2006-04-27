@@ -92,6 +92,9 @@ function clickColumn(n)
 <jsp:param name="title" value="Team Results"/>
 </jsp:include>
 
+<% if(seasons.getRowCount() == 0) { %>
+<center><span class="bigTitle">This team has never competed</span></center>
+<% } else { %>
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
 <div style="padding-bottom:5px;">
@@ -110,7 +113,6 @@ function clickColumn(n)
 <% } %>
 
 
-<% if (participated) { %>
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
@@ -179,11 +181,10 @@ function clickColumn(n)
        </tr>
    </rsc:iterator>
 </table>
-
+<% } // ends the else for having at least 1 season
+%>
 <br><br>
-<% } else { %>
-<span class="bodySubtitle">The team didn't compite on that round</span>
-<% } %>
+
 
 </td>
         <!-- Center Column Ends -->

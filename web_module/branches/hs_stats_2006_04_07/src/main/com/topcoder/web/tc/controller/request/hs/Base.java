@@ -111,6 +111,20 @@ abstract public class Base extends BaseProcessor {
      * @return a RoundInfo with round id and season id filled and emtpy names.
      */
     protected RoundInfo getRoundAndSeasonIds(TCRequest req) throws Exception {
+        return getRoundAndSeasonIds(req, true);
+    }
+    
+    /**
+     * Retrieves the round and season ids.
+     * If possible, it gets them from the request parameters.
+     * If season is missing but round is present, it looks up the season of the round.
+     * If both parameters are missing or just the round id, the most recents are looked up
+     * 
+     * @param req Request where snid and rd may be present
+     * @param retrieveMostRecent whether to retrieve the most  recent season and round if not present.
+     * @return a RoundInfo with round id and season id filled and emtpy names.
+     */
+    protected RoundInfo getRoundAndSeasonIds(TCRequest req, boolean retrieveMostRecent) throws Exception {
         RoundInfo round = new RoundInfo();
         
         
@@ -129,7 +143,7 @@ abstract public class Base extends BaseProcessor {
         
         
         // If either season or round were not specified, retrieve the most recent ones
-        if (!round.hasSeasonId() || !round.hasRoundId()) {
+        if (retrieveMostRecent && (!round.hasSeasonId() || !round.hasRoundId())) {
             getMostRecent(round);
         }
 
