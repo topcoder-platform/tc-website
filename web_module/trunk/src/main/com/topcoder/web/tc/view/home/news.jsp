@@ -6,9 +6,9 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%------------------------------------------------------ waiting til 4/27
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.26.06<br>1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.27.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A>
       </span><br><br>
@@ -20,7 +20,7 @@
       <tc-webtag:forumLink forumID="505971" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
---%>
+
 
 <%--------------------------------------------------------%>
    <tr>
