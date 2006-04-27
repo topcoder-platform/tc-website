@@ -55,11 +55,11 @@
        <tr>
          <td valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><BR>
         <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
            <tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
-           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
 
            <br><br>
            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
