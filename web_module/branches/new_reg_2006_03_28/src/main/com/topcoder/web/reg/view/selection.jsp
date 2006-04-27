@@ -23,8 +23,14 @@
 <c:out value="${type.description}" />
 <%
         out.println(type.getDescription());
+        %> <br /> <%
     }
+
+    String s= "kickass";
 %>
+    <c:out value="${s}"/>
+<c:out value="${s}" />
+
 
     <c:forEach items="${registrationTypeList}" var="type">
         <c:out value="${1}" />
