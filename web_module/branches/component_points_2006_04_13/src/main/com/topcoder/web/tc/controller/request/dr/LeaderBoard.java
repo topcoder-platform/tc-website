@@ -45,6 +45,9 @@ public class LeaderBoard extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.STAGE_ID + " expected.");
         }
 
+        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
+        setDefault(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));   
+
         Request r = new Request();
 
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
