@@ -21,7 +21,7 @@
     }
 %>
     <c:forEach items="${requestScope.registrationTypeList}" var="type">
-        <c:out values="${type}" /><br />
+        <c:out value="${type}" /><br />
     </c:forEach>
 
 </body>
