@@ -37,7 +37,8 @@ public class CoderRankings extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
-            fillRoundAndSeasonNames (round, result);
+            // just fill season, but not round
+            fillRoundAndSeasonNames (round, result, "seasons", null);
 
             getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("hs_coder_rank")).getRowCount() + "");
             
