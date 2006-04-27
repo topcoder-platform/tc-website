@@ -40,4 +40,8 @@ public interface WebConstants {
     public static final int PREFERENCE_PERMANENT_FALSE = 35;
 
 
+    public static final char[] INACTIVE_STATI = {'0', '9', '6', '5', '4', 'I'};
+    public static final char[] UNACTIVE_STATI = {'2', 'U'};
+    public static final char[] ACTIVE_STATI = {'1', 'A'};
+
 }
