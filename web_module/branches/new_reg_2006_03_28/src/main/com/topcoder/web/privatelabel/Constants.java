@@ -2,6 +2,7 @@ package com.topcoder.web.privatelabel;
 
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -11,7 +12,7 @@ import java.util.MissingResourceException;
  * Contains constants for the private label web application.
  * @author gpaul 06.26.2003
  */
-public class Constants {
+public class Constants implements WebConstants {
 
     private static final Logger log = Logger.getLogger(Constants.class);
     private static final TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
@@ -119,7 +120,6 @@ public class Constants {
     public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
-    public static String HANDLE;
     public static String PASSWORD;
     public static String PASSWORD_CONFIRM;
     public static String EMAIL;
@@ -145,12 +145,9 @@ public class Constants {
     public static String RESUME;
 
     //other parameters
-    public static String MODULE_KEY;
     public static String STATIC_PREFIX;
-    public static String COMPANY_ID;
     public static String EVENT_ID;
     public static String REGISTRATION_INFO;
-    public static String USER_ID;
     public static String FILE;
     public static String LOCALE;
 
