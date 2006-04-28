@@ -6,6 +6,22 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      New <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</A> Component Tutorial Movies
+      </span><br><br>
+      Thinking about taking a shot at The Digital Run? If you're new to TopCoder component competitions, our new interactive Design and Development tutorials can help you get started.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">design</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">development</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505973" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>   
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.27.06<br>6:45 PM</td>
