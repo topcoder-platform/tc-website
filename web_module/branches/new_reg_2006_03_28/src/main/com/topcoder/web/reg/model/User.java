@@ -196,13 +196,12 @@ public class User extends Base {
 
     public Set getRegistrationTypes() {
         //i think this could be done better with an HQL query, but dunno how yet
-        SecurityGroup g;
+        UserGroup g;
         Set ret = new HashSet();
         for (Iterator it = securityGroups.iterator(); it.hasNext();) {
-            g = (SecurityGroup)it.next();
-            for (Iterator it1 = g.getRegistrationTypes().iterator(); it1.hasNext();) {
+            g = (UserGroup)it.next();
+            for (Iterator it1 = g.getSecurityGroup().getRegistrationTypes().iterator(); it1.hasNext();) {
                 RegistrationType o = (RegistrationType)it1.next();
-                log.debug(o.getDescription());
                 ret.add(o);
             }
         }

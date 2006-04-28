@@ -49,6 +49,7 @@ public class CoderDAO extends Base {
                 session.save(hsRating);
             }
 
+            
             commit();
         } catch (HibernateException e) {
             rollback();

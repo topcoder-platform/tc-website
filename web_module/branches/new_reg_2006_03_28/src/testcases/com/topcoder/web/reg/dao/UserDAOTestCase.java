@@ -27,4 +27,9 @@ public class UserDAOTestCase extends TestCase {
         }
 
     }
+
+    public void testSecurityGroupsLoaded() {
+        User dok = new UserDAO().find(new Long(132456));
+        assertTrue("did not load groups for dok", !dok.getSecurityGroups().isEmpty());
+    }
 }

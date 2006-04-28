@@ -9,8 +9,8 @@ import com.topcoder.web.common.model.Base;
  */
 public class UserGroup extends Base {
     private Long id;
-    private Long userId;
-    private Long groupId;
+    private User user;
+    private SecurityGroup securityGroup;
     private Long createUserId;
     private Integer securityStatusId;
 
@@ -22,20 +22,20 @@ public class UserGroup extends Base {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getGroupId() {
-        return groupId;
+    public SecurityGroup getSecurityGroup() {
+        return securityGroup;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public void setSecurityGroup(SecurityGroup securityGroup) {
+        this.securityGroup = securityGroup;
     }
 
     public Long getCreateUserId() {

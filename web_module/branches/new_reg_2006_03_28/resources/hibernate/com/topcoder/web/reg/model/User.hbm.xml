@@ -26,7 +26,7 @@
         </set>
         <set name="securityGroups" table="user_group_xref" cascade="none">
             <key column="login_id"/>
-            <many-to-many column="group_id" class="SecurityGroup"/>
+            <one-to-many class="UserGroup"/>
         </set>
         <set name="emailAddresses" cascade="save-update">
             <key column="user_id"/>
