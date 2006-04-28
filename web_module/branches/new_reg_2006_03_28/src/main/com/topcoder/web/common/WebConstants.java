@@ -13,6 +13,7 @@ public interface WebConstants {
     public static final String TIMEZONE = "tz";
     public static final String USER_ID = "uid";
     public static final String COMPANY_ID = "cm";
+    public static final String MODULE_KEY = "module";
 
 
 
