@@ -20,7 +20,6 @@ public class Constants implements WebConstants {
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
-    public static String MODULE_KEY;
     public static String FIRST_NAME;
     public static String LAST_NAME;
     public static String EMAIL;
