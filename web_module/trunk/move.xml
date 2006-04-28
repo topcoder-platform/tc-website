@@ -119,7 +119,7 @@
             <arg line="update -dP src"/>
         </exec>
         <ant antfile="build.xml" target="clean"/>
-        <ant antfile="build_tcs.xml" target="build-ear"/>
+        <ant antfile="build_tcs.xml" target="build-site"/>
         <ant antfile="build_tcs.xml" target="build-screening"/>
 
         <jar destfile="software.jar" update="true">
@@ -129,6 +129,8 @@
                 <include name="build/ears/dde.ear"/>
                 <include name="build/wars/review.war"/>
                 <include name="build/wars/dde.war"/>
+                <include name="build/wars/onsite.war"/>
+                <include name="build/ejb_jars/Project.jar"/>
             </fileset>
         </jar>
     </target>
