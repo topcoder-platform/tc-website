@@ -41,13 +41,13 @@
 
 <div align="center">
    <div style="width:500px; text-align:left;">
-<!--  
+
 <map name="tutorial_map">
 <area shape="rect" alt="audio" coords="42,98, 106,136" href="#" onClick="window.open('/i/development/demos/devdemo1.html','screen','height=490,width=640'); return false;" />
 <area shape="rect" alt="text" coords="116,98, 180,136" href="#" onClick="window.open('/i/development/demos/devdemo2.html','screen','height=490,width=640'); return false;" />
 </map>   
 <div align="center"><img src="/i/support/dev_promo.gif" valign="top" align="center" width="510" height="150" border="0" alt="Watch the Tutorial Movie" usemap="#tutorial_map" /></div>
--->
+
 <h2>Getting Started in Development Competitions</h2>
 
 <p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Development Tutorial</span><br/>
