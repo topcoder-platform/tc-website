@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
         <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regTypeKey"/>

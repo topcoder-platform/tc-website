@@ -26,7 +26,7 @@ public class TestUtils {
         ret.setStatus(new Character('A'));
         ret.setCompCountryCode("840");
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        ret.setCoderTypeId(Coder.TYPE_STUDENT);
+        ret.setCoderType(new CoderTypeDAO().find(CoderType.STUDENT));
 
 
         Address a = new Address();

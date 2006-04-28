@@ -10,12 +10,9 @@ import java.sql.Timestamp;
  */
 public class Coder extends User {
 
-    public static final Integer TYPE_STUDENT = new Integer(1);
-    public static final Integer TYPE_PRO = new Integer(2);
-
     private Timestamp memberSince;
     private String quote;
-    private Integer coderTypeId;
+    private CoderType coderType;
     private String compCountryCode;
 /*
     private HSAlgoRating hsRating;
@@ -37,14 +34,6 @@ public class Coder extends User {
 
     public void setQuote(String quote) {
         this.quote = quote;
-    }
-
-    public Integer getCoderTypeId() {
-        return coderTypeId;
-    }
-
-    public void setCoderTypeId(Integer coderTypeId) {
-        this.coderTypeId = coderTypeId;
     }
 
     public String getCompCountryCode() {
@@ -72,6 +61,14 @@ public class Coder extends User {
         this.tcRating = tcRating;
     }
 */
+
+    public CoderType getCoderType() {
+        return coderType;
+    }
+
+    public void setCoderType(CoderType coderType) {
+        this.coderType = coderType;
+    }
 
     public CurrentSchool getCurrentSchool() {
         return currentSchool;

@@ -14,6 +14,12 @@ public class RegistrationType extends Base {
     private Boolean active;
     private SecurityGroup securityGroup;
 
+    public static final Integer COMPETITION_ID = new Integer(1);
+    public static final Integer CORPORATE_ID = new Integer(2);
+    public static final Integer HIGH_SCHOOL_ID = new Integer(3);
+    public static final Integer MINIMAL_ID = new Integer(4);
+    public static final Integer SOFTWARE_ID = new Integer(5);
+
     protected RegistrationType() {
 
     }
@@ -32,11 +38,7 @@ public class RegistrationType extends Base {
     }
 
     public SecurityGroup getSecurityGroup() {
-        try {
-            return (SecurityGroup)securityGroup.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("What the heck, how did SecurityGroup stop being clonable?");
-        }
+        return securityGroup;
     }
 
 }

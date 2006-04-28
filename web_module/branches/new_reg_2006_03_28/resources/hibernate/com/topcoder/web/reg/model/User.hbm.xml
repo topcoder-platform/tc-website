@@ -50,7 +50,7 @@
             <key column="coder_id"/>
             <property name="memberSince" type="timestamp" column="member_since"/>
             <property name="quote"/>
-            <property name="coderTypeId" column="coder_type_id"/>
+            <many-to-one name="coderType" column="coder_type_id" class="CoderType"/>
             <property name="compCountryCode" column="comp_country_code"/>
             <one-to-one name="currentSchool" class="CurrentSchool" constrained="false" cascade="save-update"/>
         </joined-subclass>
