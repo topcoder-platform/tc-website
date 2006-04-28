@@ -163,7 +163,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         typeId = TCData.getTCInt(rsr, "payment_type_id", 0, true);
         user = new UserProfileHeader(
                 TCData.getTCLong(rsr, "user_id", 0, true),
-                TCData.getTCString(rsr, "handle", "default handle", true));
+                TCData.getTCString(rsr, "handle", "default handle", true),
+                TCData.getTCString(rsr, "first_name", "", true),
+                TCData.getTCString(rsr, "middle_name", "", true),
+                TCData.getTCString(rsr, "last_name", "", true));
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
@@ -176,8 +179,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public PaymentHeader(Map results) {
         this(results, 0);
     }
-
-
+    
     public long getId() {
         return id;
     }

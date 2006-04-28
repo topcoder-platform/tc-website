@@ -70,6 +70,24 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         first = "";
         groupId = new long[0];
     }
+    
+    /* This constructor makes the object out of raw data.
+    *
+    *  @ARGS
+    *   o id       - DB id of the TC member
+    *   o handle   - handle of the TC member
+    *	o last     - last name of the TC member
+    *	o middle   - middle name of the TC member
+    *	o first    - first name of the TC member
+    */
+    public UserProfileHeader(long id, String handle, String last, String middle, String first) {
+        this.id = id;
+        this.handle = handle;
+        this.last = last;
+        this.middle = middle;
+        this.first = first;
+        groupId = new long[0];
+    }
 
 
 /* This constructor makes the object out of a Navigation object.
