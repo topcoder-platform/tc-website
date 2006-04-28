@@ -43,8 +43,8 @@
    <div style="width:500px; text-align:left;">
    
 <map name="tutorial_map">
-<area shape="rect" alt="audio" coords="42,98, 106,136" href="#" onClick="window.open('/i/development/demos/designdemo1.html','screen','height=490,width=640'); return false;" />
-<area shape="rect" alt="text" coords="116,98, 180,136" href="#" onClick="window.open('/i/development/demos/designdemo2.html','screen','height=490,width=640'); return false;" />
+<area shape="rect" alt="audio" coords="42,98, 106,136" href="#" onClick="window.open('/flash/demos/designdemo1.html','screen','height=490,width=640'); return false;" />
+<area shape="rect" alt="text" coords="116,98, 180,136" href="#" onClick="window.open('/flash/demos/designdemo2.html','screen','height=490,width=640'); return false;" />
 </map>   
 <div align="center"><img src="/i/support/des_promo.gif" valign="top" align="center" width="510" height="150" border="0" alt="Watch the Tutorial Movie" usemap="#tutorial_map" /></div>
 
