@@ -49,11 +49,7 @@ public class DemographicResponse extends Base {
     }
 
     public DemographicAnswer getAnswer() {
-        try {
-            return (DemographicAnswer)answer.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("something wrong, DemographicAnswer is not cloneable");
-        }
+        return answer;
     }
 
     public void setAnswer(DemographicAnswer answer) {

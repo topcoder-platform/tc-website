@@ -125,11 +125,7 @@ public class Address extends Base {
      * @return the state
      */
     public State getState() {
-        try {
-            return (State)state.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("What the heck, how did state stop being clonable?");
-        }
+        return state;
     }
 
     public void setState(State state) {
@@ -138,11 +134,7 @@ public class Address extends Base {
 
 
     public Country getCountry() {
-        try {
-            return (Country)country.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("What the heck, how did country stop being clonable?");
-        }
+        return country;
     }
 
     public void setCountry(Country country) {

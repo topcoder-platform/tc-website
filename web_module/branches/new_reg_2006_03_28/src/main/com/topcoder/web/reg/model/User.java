@@ -155,11 +155,7 @@ public class User extends Base {
     }
 
     public TimeZone getTimeZone() {
-        try {
-            return (TimeZone)timeZone.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("What the heck, how did Timezone stop being clonable?");
-        }
+        return timeZone;
     }
 
     public void setTimeZone(TimeZone timeZone) {
