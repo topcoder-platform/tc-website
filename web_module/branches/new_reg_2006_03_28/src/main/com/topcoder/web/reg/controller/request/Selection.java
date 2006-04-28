@@ -26,7 +26,7 @@ public class Selection extends Base {
             RegistrationType rt;
             for (Iterator it = new UserDAO().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
                 rt = (RegistrationType)it.next();
-                setDefault(Constants.REGISTRATION_TYPE+rt.getId(), "on");
+                setDefault(Constants.REGISTRATION_TYPE+rt.getId(), String.valueOf(true));
             }
 
             setNextPage("/selection.jsp");
