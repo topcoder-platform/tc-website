@@ -4350,7 +4350,7 @@ public class DocumentManagerBean implements SessionBean {
             ", e.value " +
             ", a.raw_total_tests " +
             ", a.raw_total_pass " +
-            ", a.successful " +
+            ", a.successful_ind " +
             "FROM appeal a " +
             ", scorecard_question sq " +
             ", scorecard s " +
@@ -4693,7 +4693,7 @@ public class DocumentManagerBean implements SessionBean {
                             "appealer_id, question_id, " +
                             "is_resolved, appeal_text, " +
                             "appeal_response, modify_user, raw_evaluation_id,  " +
-                            "raw_total_tests, raw_total_pass, successful, " +
+                            "raw_total_tests, raw_total_pass, successful_ind, " +
                             "cur_version) " +
                             "VALUES " +
                             "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
