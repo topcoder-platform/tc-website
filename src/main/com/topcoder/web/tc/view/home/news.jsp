@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
    
-<%--------------------------------------------------------%>
+<%------------------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -21,7 +21,26 @@
          <tc-webtag:forumLink forumID="505973" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>   
-   
+--%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.28.06<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm300">SRM 300 - Problem Set & Analysis</A></span><br><br>
+The turnout for the 300th Single Round Match probably wasn't as high as some predicted,
+with "only" 639 registered coders. Both divisions saw rather hard problem sets, and most
+of the problems left just enough space for challenge opportunities.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm300">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505866" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.27.06<br>6:45 PM</td>
@@ -207,21 +226,6 @@ Since this Single Round Match took place during the ACM ICPC finals, it was surp
          <A href="/tc?module=Static&d1=match_editorials&d2=srm298">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505864" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.11.06<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD chat session scheduled for SRM 298</A>
-      </span><br><br>
-      AMD will be in the Arena at 10AM, just prior to SRM 298, to discuss Linux optimizations.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505952" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
