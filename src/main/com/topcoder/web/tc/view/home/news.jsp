@@ -7,9 +7,9 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
    
-<%-----------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>4:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       New Software <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</A> Tutorial Movies
       </span><br><br>
@@ -21,7 +21,6 @@
          <tc-webtag:forumLink forumID="505973" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>   
----%>
 
 <%--------------------------------------------------------%>
    <tr>
