@@ -119,31 +119,6 @@ public class Constants implements WebConstants {
 
     public static int QUESTION_AREAS_OF_INTEREST;
 
-    //main reg parameters
-    public static String PASSWORD;
-    public static String PASSWORD_CONFIRM;
-    public static String EMAIL;
-    public static String EMAIL_CONFIRM;
-    public static String FIRST_NAME;
-    public static String MIDDLE_NAME;
-    public static String LAST_NAME;
-    public static String ADDRESS1;
-    public static String ADDRESS2;
-    public static String ADDRESS3;
-    public static String COUNTRY_CODE;
-    public static String STATE_CODE;
-    public static String PROVINCE;
-    public static String CITY;
-    public static String ZIP;
-    public static String PHONE_NUMBER;
-
-    //secondary reg parameters
-    public static String CODER_TYPE;
-    public static String DEMOG_PREFIX;
-
-    //resume parameters
-    public static String RESUME;
-
     //other parameters
     public static String STATIC_PREFIX;
     public static String EVENT_ID;
