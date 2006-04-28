@@ -116,17 +116,21 @@ public class User extends Base {
         this.emailAddresses = emailAddresses;
     }
 
+    /**
+     * Get the user's primary email address.
+     * @return the user's primary email address or null if they don't have one.
+     */
     public Email getPrimaryEmailAddress() {
-        Email e;
-        for (Iterator it = getEmailAddresses().iterator(); it.hasNext();) {
+        Email e=null;
+        boolean found = false;
+        for (Iterator it = getEmailAddresses().iterator(); it.hasNext()&&!found;) {
             e = (Email)it.next();
-            if (e.isPrimary()) {
-                try {
-                    return (Email)e.clone();
-                } catch (CloneNotSupportedException ex) {
-                    throw new RuntimeException("What the heck, how did Email stop being clonable?");
-                }
-            }
+            found = e.isPrimary();
+        }
+        if (found) {
+            return e;
+        } else {
+            return null;
         }
     }
 
