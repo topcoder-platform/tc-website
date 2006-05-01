@@ -7,7 +7,7 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br>- April</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br>- May</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/cypressx_big.jpg" alt="" width="55" height="61"/></td>
