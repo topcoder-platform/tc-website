@@ -100,6 +100,9 @@
              </rsc:iterator>
              <tr>
                    <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+             </tr>
+             <tr>
+                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                    <td class="statText" height="13" colspan="4">
                     * Not confirmed.
                    </td>
