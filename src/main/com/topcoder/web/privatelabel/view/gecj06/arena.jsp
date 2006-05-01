@@ -2,9 +2,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gecj06.css"/>
+    <script>
+        function openWin(url, name, w, h) {
+            win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width=" + w + ",height=" + h);
+            win.location.href = url;
+            win.focus();
+        }
+    </script>
     <title>Google Code Jam Europe 2006, Powered by TopCoder</title>
 </head>
 
