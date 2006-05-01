@@ -13,7 +13,7 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.ROOKIE_LIST_KEY);
+  ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
 
