@@ -58,7 +58,7 @@
         <form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-           <tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/>
+           <tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
@@ -89,17 +89,18 @@
                    <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                    <td class="statText" height="13">
                         <rsc:item name="rank" row="<%=resultRow%>"/>
-                        <%if (resultRow.getLongItem("confirmed_ind")== 0) {%>*<%}%>
                    </td>
                    <td class="statText" valign="middle" align="left">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' darkBG="true" />
+                    <%if (resultRow.getLongItem("confirmed_ind")== 0) {%>*<%}%>
                    </td>
                    <td class="statText" valign="middle" align="right"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                  </tr>
              </rsc:iterator>
              <tr>
-                   <td class="statText" height="13">
+                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
+                   <td class="statText" height="13" colspan="4">
                     * Not confirmed.
                    </td>
              </tr>
