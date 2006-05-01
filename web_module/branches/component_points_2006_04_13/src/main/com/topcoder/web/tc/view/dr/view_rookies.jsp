@@ -13,7 +13,7 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.LEADER_LIST_KEY);
+  ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.ROOKIE_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
 
@@ -87,7 +87,10 @@
              <rsc:iterator list="<%=rookieBoard%>" id="resultRow">
                  <tr>
                    <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                   <td class="statText" height="13"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+                   <td class="statText" height="13">
+                        <rsc:item name="rank" row="<%=resultRow%>"/>
+                        <%if (resultRow.getLongItem("confirmed_ind").equals(0)) {}%>*<%}%>
+                   </td>
                    <td class="statText" valign="middle" align="left">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' darkBG="true" />
                    </td>
@@ -95,6 +98,11 @@
                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                  </tr>
              </rsc:iterator>
+             <tr>
+                   <td class="statText" height="13">
+                    * Not confirmed.
+                   </td>
+             </tr>
              
              <tr>
                <td colspan="5" align="center" class="statText">

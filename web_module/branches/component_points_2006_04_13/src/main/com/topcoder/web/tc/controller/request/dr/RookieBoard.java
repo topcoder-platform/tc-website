@@ -38,10 +38,10 @@ public class RookieBoard extends BaseProcessor {
 
     /**
      * Process the dr rookie board request.
-     * Retrieves rookie list for development or design for a particular stage.
+     * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
-        // Phase ID and Stage ID are required.
+        // Phase ID and Season ID are required.
         if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
         }
@@ -51,12 +51,12 @@ public class RookieBoard extends BaseProcessor {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        if (!hasParameter(Constants.STAGE_ID)) {
-            throw new TCWebException("parameter " + Constants.STAGE_ID + " expected.");
+        if (!hasParameter(Constants.SEASON_ID)) {
+            throw new TCWebException("parameter " + Constants.SEASON_ID + " expected.");
         }
 
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
-        setDefault(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));   
+        setDefault(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));   
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -82,27 +82,27 @@ public class RookieBoard extends BaseProcessor {
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.LEADER_BOARD_COMMAND);            
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ROOKIE_BOARD_COMMAND);            
         }
         r.setProperty(DataAccessConstants.START_RANK, startRank);                       
         r.setProperty(DataAccessConstants.END_RANK, 
             String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
-        r.setContentHandle(Constants.LEADER_BOARD_COMMAND);
+        r.setProperty(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
+        r.setContentHandle(Constants.ROOKIE_BOARD_COMMAND);
 
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer rookieBoard = (ResultSetContainer)m.get(Constants.LEADER_BOARD_QUERY);
+        ResultSetContainer rookieBoard = (ResultSetContainer)m.get(Constants.ROOKIE_BOARD_QUERY);
        
         log.debug("Got " +  rookieBoard.size() + " rows for rookie board");
-        getRequest().setAttribute(Constants.LEADER_LIST_KEY, rookieBoard);
+        getRequest().setAttribute(Constants.ROOKIE_LIST_KEY, rookieBoard);
         getRequest().setAttribute(Constants.TYPE_KEY, 
             (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
-        setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
+        setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
     }
 }
