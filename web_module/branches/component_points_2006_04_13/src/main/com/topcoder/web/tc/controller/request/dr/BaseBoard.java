@@ -52,17 +52,17 @@ public abstract class BaseBoard extends BaseProcessor {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
         
-        if (!getRequest().getParameter(period_id).equals(DEV_PHASE) && 
-            !getRequest().getParameter(period_id).equals(DESIGN_PHASE)) {
-            throw new TCWebException("invalid " + period_id + " parameter.");
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(DESIGN_PHASE)) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        if (!hasParameter(Constants.SEASON_ID)) {
-            throw new TCWebException("parameter " + Constants.SEASON_ID + " expected.");
+        if (!hasParameter(period_id)) {
+            throw new TCWebException("parameter " + period_id + " expected.");
         }
 
+        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
         setDefault(period_id, getRequest().getParameter(period_id));   
-        setDefault(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));   
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -93,8 +93,8 @@ public abstract class BaseBoard extends BaseProcessor {
         r.setProperty(DataAccessConstants.START_RANK, startRank);                       
         r.setProperty(DataAccessConstants.END_RANK, 
             String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
+        r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(period_id, getRequest().getParameter(period_id));
-        r.setProperty(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
         r.setContentHandle(command);
 
         // retrieves data from DB
