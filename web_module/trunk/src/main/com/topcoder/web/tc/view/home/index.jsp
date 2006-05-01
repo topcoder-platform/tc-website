@@ -176,20 +176,19 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">April Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">May Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>04/03</b> - SRM 296 - 7AM - AMD<br><br>
-            <b>04/06</b> - SRM 297 - 9PM - NSA<br><br>
-            <b>04/06</b> - TCO06 Component - Round #2 submission deadline - 9AM<br><br>
-            <b>04/11</b> - SRM 298 - 11AM - AMD<br><br>
-            <b>04/13</b> - TCO06 Component - Round #3 projects posted - 9AM<br><br>
-            <b>04/19</b> - Intel Multi-Threading Competition 4 - 12 NOON<br><br>
-            <b>04/20</b> - TCO06 Component - Round #3 submission deadline - 9AM<br><br>
-            <b>04/22</b> - SRM 299 - 12 NOON<br><br>
-            <b>04/27</b> - SRM 300 - 9PM - UBS<br><br>
+            <b>05/03 - 05/05</b> - TCO06 Semis and Finals<br><br>
+            <b>05/09</b> - SRM 301 - 9 PM<br><br>
+            <b>05/10</b> - Marathon Match 1 - 12 NOON<br><br>
+            <b>05/11</b> - SRM 302 - 7 AM<br><br>
+            <b>05/17</b> - Intel Multi-Threading Competition 5 - 12 NOON<br><br>
+            <b>05/18</b> - SRM 303 - 11 AM<br><br>
+            <b>05/27</b> - SRM 304 - 12 NOON - AMD<br><br>
+            <b>05/31</b> - SRM 305 - 9 PM - VeriSign<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
