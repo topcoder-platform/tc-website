@@ -89,7 +89,7 @@
                    <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                    <td class="statText" height="13">
                         <rsc:item name="rank" row="<%=resultRow%>"/>
-                        <%if (resultRow.getLongItem("confirmed_ind").equals(0)) {}%>*<%}%>
+                        <%if (resultRow.getLongItem("confirmed_ind").equals(0)) {%>*<%}%>
                    </td>
                    <td class="statText" valign="middle" align="left">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' darkBG="true" />
