@@ -105,7 +105,7 @@ public abstract class BaseBoard extends BaseProcessor {
         log.debug("Got " +  board.size() + " rows for board");
         getRequest().setAttribute(Constants.CODER_LIST_KEY, board);
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(period_id).equals(DEV_PHASE) ? 
+            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(nextpage);
