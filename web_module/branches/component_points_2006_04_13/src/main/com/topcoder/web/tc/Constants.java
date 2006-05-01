@@ -23,8 +23,7 @@ public class Constants implements WebConstants {
     public static String LEADER_BOARD_QUERY;
     public static String ROOKIE_BOARD_COMMAND;
     public static String ROOKIE_BOARD_QUERY;
-    public static String LEADER_LIST_KEY;
-    public static String ROOKIE_LIST_KEY;
+    public static String CODER_LIST_KEY;
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;

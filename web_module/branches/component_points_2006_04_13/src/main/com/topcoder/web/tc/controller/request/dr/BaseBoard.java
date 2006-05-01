@@ -39,7 +39,7 @@ public abstract class BaseBoard extends BaseProcessor {
     /**
      * Child must implement businessProcessing.
      */
-     protected void businessProcessing() {
+     protected void businessProcessing() throws Exception  {
      }
 
     /**
