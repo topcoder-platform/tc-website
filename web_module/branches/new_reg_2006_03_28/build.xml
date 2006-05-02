@@ -783,6 +783,11 @@
                 <include name="FileUpload.xml"/>
             </fileset>
         </copy>
+        <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory">
+            <fileset dir="${resources}/com/topcoder/db/connectionfactory">
+                <include name="DBConnectionFactoryImpl.xml"/>
+            </fileset>
+        </copy>
     </target>
     <target name="move-libs" depends="">
    <!--
