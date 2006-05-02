@@ -76,7 +76,7 @@ public class PointsHistory extends BaseProcessor {
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer board = (ResultSetContainer)m.get("points_history");
+        ResultSetContainer board = (ResultSetContainer)m.get("dr_points_history");
        
         log.debug("Got " +  board.size() + " rows for board");
         getRequest().setAttribute(Constants.CODER_LIST_KEY, board);
