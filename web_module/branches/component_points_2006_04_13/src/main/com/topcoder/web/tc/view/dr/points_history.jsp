@@ -127,10 +127,10 @@
          </td></tr>
          <tr>
             <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Project</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Submissions</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Placed</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a></TD>
+            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Project</a></TD>
+            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
+            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Placed</a></TD>
+            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a></TD>
             <TD CLASS="tableHeader" WIDTH="15%" align="right">&#160;</TD>
          </tr>
          <%boolean even = true;%>
@@ -138,15 +138,15 @@
          <tr>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="posting_date" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>">
-                <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/> CLASS="statLink">
-                    <rsc:item name="component_id" row="<%=resultRow%>"/>
+                <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                    <rsc:item name="component_name" row="<%=resultRow%>"/>
                 </A>
             </TD>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="points_awarded" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>">
-                <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/> CLASS="statLink">
+                <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                     Contest Details
                 </A>
             </TD>
