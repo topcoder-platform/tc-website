@@ -89,9 +89,9 @@ The amount of time you will be given will vary depending on the round of competi
 <ul>
     <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened
         and the contestants will be given two problems to solve.</li>
-    <li>In Online Round 1 of Google Code Jam India, the Coding Phase will last 75 minutes and the contestants
+    <li>In Online Round 1 of Google Code Jam Europe, the Coding Phase will last 75 minutes and the contestants
         will be given three problems to solve.</li>
-    <li>In the Onsite Final Round of Google Code Jam India, the coding phase will last 75 minutes and the
+    <li>In the Onsite Final Round of Google Code Jam Europe, the coding phase will last 75 minutes and the
         contestants will be given three problems to solve.</li>
 </ul>
 
@@ -132,7 +132,7 @@ clarify the statement.
 <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
-Google Code Jam India allows coders to utilize Java, C++, or C# as a competition programming language.
+Google Code Jam Europe allows coders to utilize Java, C++, or C# as a competition programming language.
 You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any
 programming languages to solve each of the problems in a single competition. For this reason, you have the option of
 choosing the programming language from within the coding window. You can find the language selection area in the upper
