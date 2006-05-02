@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.06<br>7:50 PM</td>
+       <td class="newsTextCell"><span class="newsTitle"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A></span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News border="0" /></div>
+       "Las Vegas has seen its share of title fights, but the only thing that will get pounded by the 64 finalists arriving this week for the 2006 TopCoder Open will be a computer keyboard."
+      <br><br>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505974" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       New Software <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</A> Tutorial Movies
@@ -176,57 +191,6 @@ In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his
          <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.17.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_winners">TCO06 "Pick Me" Contest Winners</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="21471147" />, <tc-webtag:handle coderId="8416646" />, and <tc-webtag:handle coderId="21518515" />.  <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_winners">Here</A> are their submissions.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_winners">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505936" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.13.06<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">Intel Multi-Threading Competition 3 Analysis</A></span><br><br>
-The most recent competition in the Intel&#174; Software Network Multi-Threading Competition Series had a rather different flavor from previous events.  In this contest, the each test case had one correct answer and the goal was to find that answer as quickly as possible.
-      </td>
-      <td class="newsPhoto">by <tc-webtag:handle coderId="15500323"/><br>
-      and <tc-webtag:handle coderId="7472513"/><br>
-      introduction by<br><tc-webtag:handle coderId="159052"/>
-      </td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505951" message="discuss this" />&#160;|&#160;
-         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.12.06<br>5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm298">SRM 298 - Problem Set & Analysis</A></span><br><br>
-Since this Single Round Match took place during the ACM ICPC finals, it was surprising (and nice) to see such a big crowd attending, that almost reached a thousand participants.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm298">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505864" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
