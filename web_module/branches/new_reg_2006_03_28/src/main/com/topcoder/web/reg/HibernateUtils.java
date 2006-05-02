@@ -1,9 +1,14 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.web.reg.model.TCInterceptor;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.error.HibernateInitializationException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import com.topcoder.web.reg.model.TCInterceptor;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  * @author dok
@@ -12,36 +17,64 @@ import com.topcoder.web.reg.model.TCInterceptor;
  */
 public class HibernateUtils {
     private static final ThreadLocal tSession = new ThreadLocal();
-    private static final ThreadLocal tFactory = new ThreadLocal();
+    private static final String HIBERNATE_JNDI_KEY = "java:comp/env/hibernate/SessionFactory";
+    private static boolean factoryInitComplete = false;
 
     /**
      * If the session doesn't exist in the currently executing thread,
      * create it, hang onto it if the current thread needs it aggain
      * and return it.
+     *
+     * If for some reason the hibernate factory failed to initialize
+     * properly and we're still executing the application, then
+     * we'll throw a runtime exception.
      * @return the session for this thread.
      */
     public static Session getSession() {
-        Session ret = (Session)tSession.get();
-        if (ret == null) {
-            ret = getFactory().openSession(new TCInterceptor());
+        try {
+            Session ret = (Session) tSession.get();
+            if (ret == null) {
+                ret = getFactory().openSession(new TCInterceptor());
+            }
             tSession.set(ret);
+            return ret;
+        } catch (HibernateInitializationException e) {
+            throw new RuntimeException(e);
         }
-        return ret;
     }
 
     /**
-     * If the factory doesn't exist in the currently executing thread,
-     * create it, hang onto it if the current thread needs it again
-     * and return it.
-     * @return the session factory for this thread.
+     * Create the session factory.  We will only have one
+     * for the application.
      */
-    public static SessionFactory getFactory() {
-        SessionFactory factory = (SessionFactory)tFactory.get();
-        if (factory == null) {
-            Configuration conf = new Configuration();
-            conf.configure();
-            factory = conf.buildSessionFactory();
-            tFactory.set(factory);
+    public static synchronized void initFactory() {
+            if (!factoryInitComplete) {
+                Configuration conf = new Configuration();
+                conf.configure();
+                conf.buildSessionFactory();
+                factoryInitComplete = true;
+            }
+    }
+
+    /**
+     * Return the session factory.
+     *
+     * @return the session factory
+     * @throws HibernateInitializationException if for some reason getting the factory fails.
+     */
+    public static SessionFactory getFactory() throws HibernateInitializationException {
+        if (!factoryInitComplete) {
+            initFactory();
+        }
+        InitialContext ctx = null;
+        SessionFactory factory;
+        try {
+            ctx = new InitialContext();
+            factory = (SessionFactory) ctx.lookup(HIBERNATE_JNDI_KEY);
+        } catch (NamingException e) {
+            throw new HibernateInitializationException(e);
+        } finally {
+            BaseProcessor.close(ctx);
         }
         return factory;
     }
@@ -50,21 +83,24 @@ public class HibernateUtils {
      * Close the session if it exists in the currently executing thread.
      */
     public static void closeSession() {
-        Session session = (Session)tSession.get();
-        if (session!=null) {
+        Session session = (Session) tSession.get();
+        if (session != null) {
             session.close();
             tSession.set(null);
         }
     }
 
     /**
-     * Close the factory if it exists in the currently executing thread.
+     * Close the factory.
      */
     public static void closeFactory() {
-        SessionFactory factory = (SessionFactory)tFactory.get();
-        if (factory!=null) {
-            factory.close();
-            tFactory.set(null);
+        try {
+            SessionFactory f = getFactory();
+            if (f != null) {
+                f.close();
+            }
+        } catch (HibernateInitializationException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -75,7 +111,6 @@ public class HibernateUtils {
         closeSession();
         closeFactory();
     }
-
 
 
 }

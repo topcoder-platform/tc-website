@@ -7,6 +7,10 @@ import org.hibernate.type.Type;
 import java.io.Serializable;
 
 /**
+ * Right now, this is just handling the AlgoRating class.  Since it has a compound
+ * primary key, hibernate needs a little help figuring out if it's a new object that
+ * needs to be inserted into the db or not.
+ *
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 7, 2006
