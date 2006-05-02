@@ -15,7 +15,29 @@ public interface WebConstants {
     public static final String COMPANY_ID = "cm";
     public static final String MODULE_KEY = "module";
 
+    public static String PASSWORD="pa";
+    public static String PASSWORD_CONFIRM="pac";
+    public static String EMAIL="em";
+    public static String EMAIL_CONFIRM="emc";
+    public static String FIRST_NAME="fn";
+    public static String MIDDLE_NAME="mn";
+    public static String LAST_NAME="ln";
+    public static String ADDRESS1="a1";
+    public static String ADDRESS2="a2";
+    public static String ADDRESS3="a3";
+    public static String COUNTRY_CODE="cc";
+    public static String STATE_CODE="sc";
+    public static String PROVINCE="prov";
+    public static String CITY="city";
+    public static String ZIP="zip";
+    public static String PHONE_NUMBER="ph";
 
+    //secondary reg parameters
+    public static String CODER_TYPE="ct";
+    public static String DEMOG_PREFIX="demog_";
+
+    //resume parameters
+    public static String RESUME="resume";
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
     public static final int PREFERENCE_MULTIPLE_ANSWER = 2;
