@@ -199,6 +199,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News" border="0" /></div>
+            Coding for fame, and dollars <A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">...more</A><br>[May 2]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
             TopCoder College Tour: Report from University of Georgia <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">...more</A><br>[April 5]<br><br>
 
@@ -213,8 +216,6 @@ margin:0px auto;
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
             UBS Sponsors TopCoder Open <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">...more</A><br>[March 13]<br><br>
             
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="61" height="33" alt="DNA India" border="0" /></div>
-            Code jockey contest returns to IT hub <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">...more</A><br>[March 13]<br><br>
             </td>
          </tr>
       </table>
