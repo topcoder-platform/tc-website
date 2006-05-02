@@ -6,8 +6,14 @@
 <hibernate-configuration>
 
     <session-factory>
-    <!--<session-factory name="java:comp/env/hibernate/SessionFactory">-->
 
+<!--
+    <session-factory name="java:comp/env/hibernate/SessionFactory">
+-->
+
+<!--
+        <property name="connection.datasource">java:/JTS_HS_OLTP</property>
+-->
         <!-- for testing-->
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -23,6 +29,7 @@
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/CoderType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Country.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CurrentSchool.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicAnswer.hbm.xml"/>
