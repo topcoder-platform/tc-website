@@ -86,7 +86,7 @@
     </jsp:include>
 <% } %>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="'<%=type%>'/></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
     <% if(phaseId.equals("113")){ %>
         <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
