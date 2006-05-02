@@ -1,9 +1,11 @@
 <%@ page
   language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.util.ApplicationServer"
-
+  import="com.topcoder.shared.util.ApplicationServer,
+         com.topcoder.shared.dataAccess.resultSet.*,
+         com.topcoder.shared.dataAccess.*,
+         com.topcoder.web.common.BaseServlet,
+         com.topcoder.web.tc.Constants" %>
 %>
-<%@ page import="com.topcoder.web.tc.Constants"%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
