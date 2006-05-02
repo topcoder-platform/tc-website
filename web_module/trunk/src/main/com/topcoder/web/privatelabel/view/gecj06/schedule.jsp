@@ -121,7 +121,8 @@
                     is subject to change with or without prior notice.</td>
                 </tr>
             </table>
-
+            <br><br>
+            We understand that final exams may occur in May and June for students; however, please note that the online rounds in May and June only last 60-75 minutes.  We hope that the June 29th finals in Dublin, Ireland will fit within your exam schedule.
             <br><br>
 To find out more detailed information about the Google&#153; Code Jam Europe, including a list of the prizes, please read the
 <a href="/pl/?module=Static&d1=gecj06&d2=rules">Terms and Conditions</a>.
