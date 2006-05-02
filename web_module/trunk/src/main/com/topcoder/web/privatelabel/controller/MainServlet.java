@@ -166,7 +166,9 @@ public class MainServlet extends BaseServlet {
              companyId= Long.parseLong(request.getParameter(Constants.COMPANY_ID));
              db = RegistrationBase.getCompanyDb(companyId, Constants.TRANSACTIONAL);
         } catch (Exception e) {
-            log.warn("no db found for company " + companyId);
+            if (companyId > 0) {
+                log.warn("no db found for company " + companyId);
+            }
         }
         return db;
     }
