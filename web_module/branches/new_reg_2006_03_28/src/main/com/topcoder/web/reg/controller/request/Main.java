@@ -1,15 +1,12 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
-import com.sun.corba.se.internal.core.Constant;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author dok
@@ -26,7 +23,7 @@ public class Main extends Base {
         HashSet requestedTypes = new HashSet();
         for (Iterator it = types.iterator(); it.hasNext();) {
             rt = (RegistrationType)it.next();
-            if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId())) {
+            if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
                 requestedTypes.add(rt);
             }
         }
@@ -37,7 +34,7 @@ public class Main extends Base {
 
             //todo we need to figure out how to put the user in the session, and detach at the end of every request
             //todo that means we need to add a couple servlet filters.  one to handle the session/factory stuff.  one to detach/attach
-            
+
             //getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getMainFieldSet(requestedTypes, ));
         }
 
