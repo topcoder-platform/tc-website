@@ -13,7 +13,7 @@ import java.util.List;
 public class RegistrationTypeDAOTestCase extends TestCase {
 
     public void testFind() {
-        RegistrationType rt = new RegistrationTypeDAO().find(new Long(1));
+        RegistrationType rt = new RegistrationTypeDAO().find(new Integer(1));
         assertTrue("could not find the registration type for competitions", rt!=null);
     }
 
