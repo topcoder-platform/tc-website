@@ -72,7 +72,7 @@ They made awesome shirts for the Open:
 <br><br>
 <div align="center"><img src="/i/tournament/tco06/blogs/omgrace-0-06.jpg"></div>
 <br><br>
-=That's <tc-webtag:handle coderId="7311097" darkBG="true" />, <tc-webtag:handle coderId="7452866" darkBG="true" />, Cintia Gloier (she works for Medallia and came for support and recruiting), and <tc-webtag:handle coderId="261024" darkBG="true" />.  Medallia is actually opening an office in Oslo next week (Cintia refers to the team as the Viking invasion since they're all from Norway).  All of these guys from Medallia have competed in tournaments before, and after talking with 
+That's <tc-webtag:handle coderId="7311097" darkBG="true" />, <tc-webtag:handle coderId="7452866" darkBG="true" />, Cintia Gloier (she works for Medallia and came for support and recruiting), and <tc-webtag:handle coderId="261024" darkBG="true" />.  Medallia is actually opening an office in Oslo next week (Cintia refers to the team as the Viking invasion since they're all from Norway).  All of these guys from Medallia have competed in tournaments before, and after talking with 
 <tc-webtag:handle coderId="261024" darkBG="true" />, I think he's more psyched for tomorrow's poker tournament than the algorithm competition! :-)
 <br><br>
 I also met some people from China (I've nicknamed them the Asian Invasion - I can be their groupie):
