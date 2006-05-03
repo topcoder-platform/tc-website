@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>2:35 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06 Semis</A>
+      </span><br><br>
+      cyfra and Petr advance to the Finals. SnapDragon, bladerunner, Ying, and grotmol advance to the WildCard Room.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505961" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.06<br>8:20 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET" News border="0" /></div>
@@ -175,20 +190,6 @@ In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">full story</A>&#160;|&#160;
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.17.06<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/i/development/downloads/xmi_documenter_ui.jnlp">Java Web Start version of XMI Documenter</A></span><br><br>
-       We've added a Java Web Start verions of the XMI Documenter to the recent tutorial, <A href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter">Using XMI Documenter</A>.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/development/downloads/xmi_documenter_ui.jnlp">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505953" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
 
