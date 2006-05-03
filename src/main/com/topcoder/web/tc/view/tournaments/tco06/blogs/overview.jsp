@@ -33,16 +33,12 @@
    <tr>
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
       <tc-webtag:handle coderId="21471147" darkBG="true" />
-<%--
       <div align="left">
          <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_1">Episode I: The Phantom Menace</A></li>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_1">TopCoder's May Madness</A></li>
          </ul>
       </div>
---%>
       </td>
-
-
 
 
 
@@ -57,32 +53,24 @@
 
 
 
-
-
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/Kawigi_big.jpg" /><br>
       <tc-webtag:handle coderId="8416646" darkBG="true" />
-<%--
       <div align="left">
          <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_1">Episode I: The Phantom Menace</A></li>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_1">This morning was like Christmas</A></li>
          </ul>
       </div>
---%>
       </td>
-
-
 
 
 
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/omgrace_big.jpg" /><br>
       <tc-webtag:handle coderId="21518515" darkBG="true" />
-<%--
       <div align="left">
          <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_1">Episode I: The Phantom Menace</A></li>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_1">From Champaign to Vegas</A></li>
          </ul>
       </div>
---%>
       </td>
    </tr>
 </table>
