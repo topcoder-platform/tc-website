@@ -142,7 +142,7 @@
                 </A>
             </TD>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="points_awarded" row="<%=resultRow%>"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>">
                 <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
