@@ -31,216 +31,142 @@
 <img src="/i/tournament/tco06/onsite_photos/shot_room1.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
-<p>
-<span class="bigTitle">ploh wins Room 1</span>
+<p style="vertical-align:top;">
+<span class="bigTitle">cyfra wins Room 1</span>
 <br><br>
-<img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-<tc-webtag:forumLink forumID="505776" message="Discuss this match" /><br>
-Thursday, October 13, 2006<br>
-Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
-<br><br><br>
-The Room 1 results are finally in at 9PM PST here at the 2006 TopCoder Open finals.  The backup problem set used proved to be rather difficult, as only five of the twelve 250-point submissions ended up passing system tests.  The coders struggled with timeout issues and the fastest submission scored a relatively low 171.24.  Fortunately for some, the 500-point problem proved slightly easier, as seven of the finalists submitted solutions that eventually passed the system tests.  Petr was the only competitor to submit a solution to the 1000-point problem, just before the coding phase ended.  The challenge phase included a good amount of action and four submissions were brought down.  In the end, ploh and Petr came out on top with scores of 400.43 and 390.96, respectively.  Congratulations to them for making it to the final championship round!  HilbertRaum, marek.cygan, lars, and HiltonLange will get a second chance in tomorrow's wildcard round at 8AM PST.
-</p>
-
-<h1>WordGrid</h1>
-by <tc-webtag:handle coderId="310430" context="algorithm"/>
+<img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<tc-webtag:forumLink forumID="505961" message="Discuss this match" /><br>
+Wednesday, May 3, 2006<br>
+Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 <br><br>
-Since we have only up to 3 unknown letters, one may be tempted to
-try all 26<sup>3</sup> combinations, and brute force each of them,
-until a solution is found. But brute forcing the word search problem
-may be slow in a 50 x 50 grid with up to 50 words, so we have to do
-do the actual word search before trying the letter combinations.
-
-<p>
-For each word in the given word list we try to locate this in the
-given grid (without using any periods '.') - this can be done
-simply by brute force checking all possible starting positions
-and directions. If it is found, we can remove this word from the
-list, since it does not affect the result (whatever letters we place
-at the positions of the periods, we can always find this word in the
-grid). If a word is not found, we repeat the word search procedure
-(checking all possible starting positions and directions), but now
-regarding the periods as wildcards. We make a list of all possible
-period-letter combinations found that allow the word to be found in
-the grid. For this, it is convenient to enumerate the periods in
-the grid, and to store a three-letter string for every placement
-we found (e.g. in the form <code>"X.Y"</code>, which would mean that if we
-replace the first period with 'X' and the third with 'Y', we
-can find the word in the grid independent of how we replace the
-second period). It is convenient to create in such a way a <code>Set</code>
-of strings for each word in the given word list, so that we avoid
-duplicates.
-</p>
-<p>
-After this preprocessing we have several options for solving the problem.
-Let's say we have an array <code>Set[] letters</code> with
-
-<code>letters[i]</code> containing three-letter combinations as described
-above (including '.' for wildcards), that allow the word <code>words[i]</code>
-from the given word list to be found in the grid.
-</p>
-<p>
-A simple solution is to iterate over all 26<sup>3</sup> three-letter
-combinations and check for each of them if all <code>letters[i]</code>
-contains at least one string that is consistent with the current
-three-letter-string we are checking. In Java (with some pseudo-code)
-this would look like:
-</p>
-<pre>
-
-Iterate String test from "AAA" to "ZZZ" {
-    boolean solution = true;
-    for (int i = 0; i < letters.length; i++) {
-        boolean found = false;
-        for (int j = 0; j < letters[i].size(); j++) {
-            if (test.matches(letters[i].get(j)) {
-                found = true;
-                break;
-            }
-        }
-        if (found == false) {
-            solution = false;
-            break;
-        }
-    }
-    if (solution == true) {
-        // test represents the solution
-        Replace first period in grid with test.charAt(0);
-        Replace second period in grid with test.charAt(1);
-        Replace third period in grid with test.charAt(2);
-        return grid;
-    }
-}
-</pre>
-<p>
-Alternatively we can use backtracking, starting with iterating over
-the strings of <code>letters[0]</code>. For each such string, try
-to find strings in <code>letters[1]</code> that are consistent with
-the current string, iterate over them extending the string accordingly,
-and continue similarly with <code>letters[2]</code> etc. until a solution
-is found or for some <code>letters[i]</code> there is no consistent
-string included, in which case we backtrack to the next string of the previous
-step:
-
-</p>
-<pre>
-String backtrack(String test, int position) {
-    if (position == letters.length) {
-        return test;
-    }
-    for (int i = 0; i < letters[i].size(); i++) {
-        if (consistent(test, letters[i])) {
-            backtrack(combine(test, letters[i]), position + 1);
-        }
-    }
-}
-</pre>
-<p>
-In the above, <code>consistent(s1, s2)</code> checks if two strings
-with periods used as wildcards are consistent - i.e., at each position
-the two strings either have the same letter or at least one of the strings
-has a wildcard ('.'). <code>combine(s1, s2)</code> returns a string
-that is a combination of the two given strings - i.e., the return value
-is the string s1, with all wildcards ('.') replaced by the character at
-the corresponding position of s2.
-</p>
-<p>
-Of course, if we have less than 3 periods in the original grid, we can
-also use smaller strings in the above procedures.
-</p>
-
-<p>
-After we have found the period-letter mappings (e.g. the return
-value in the above backtracking implementation - after an initial
-call <code>backtrack("...", 0)</code>), we simply have to replace
-the periods in the grid with the letters in the corresponding positions
-of the returned string, and return the updated grid.
-</p>
-
-<h1>BinaryBoard</h1>
-by <tc-webtag:handle coderId="310430" context="algorithm"/>
+The TCO kicked off this morning in sunny Las Vegas.  With more
+competitors from more countries and more spectators than every before
+this year's TCO promises to be a thrilling event.
 <br><br>
-It is clear that we can not brute force this problem trying
-all possible 2<sup>36</sup> boards. We have to use backtracking,
-by filling the positions in the board in some clever order.
-<p>
-Let's start by filling in only the first row and first column.
-With this we have at least the first bit of all 12 numbers.
-We can now check this bit, if it is consistent with the given
-ordering (for this we must have
-firstBit(order[0]) <= firstBit(order[1]) <= firstBit(order[2])
-<= ... <= firstBit(order[11])). This allows for up to
-13 combinations for the first row and first column in the
-worst case (instead of 2<sup>11</sup>). For each combination
-that is consistent with the given ordering, we go on with the
-second bit of all rows/columns, and check that
-firstTwoBits(order[0]) <= firstTwoBits(order[1]) <= ...
-<= firstTwoBits(order[11]). In the worst case, 5 of the
-first bits in rows/columns H2-H6, V2-V6 are 0 and the other
-5 are 1, which allow for the second bits up to 6 * 6 = 36
-combinations (instead of 2<sup>9</sup>). We continue with
-the rest of the bits using the same procedure, until we
-reach the last bit, where we finally check if the board
-we have built up is a solution to the problem. If yes,
-we return this (since the constraints guarantee that there
-is only one solution), otherwise we continue with the
-backtracking.
-
-</p>
-<p>
-In pseudocode:
-</p>
-<pre>
-backtracking(int bitnumber) {
-    if (bitnumber == 7) {
-        // we have set all bits 1-6 of all numbers, check that they conform to the ordering
-        if (number(order[0]) < number(order[1]) < number(order[2]) < ... < number(order[11])) {
-            Return the solution found, abort the backtracking.
-        }
-        return; // no solution found yet, jump to the previous backtracking step
-    }
-    Iterate over all values for the bitnumber-th bit of the 12 numbers H1-H6, V1-V6 {
-        // (ignore in the iteration bits that have already been assigned a value,
-        //  e.g. when we set the first bit of V2 when calling backtracking(1), this
-        //  is also the second bit of H1, so we don't need to reset it during the
-        //  call to backtracking(2)).
-
-        if (first-bitnumber-bits(order[0]) <= first-bitnumber-bits(order[1]) <= ... <= first-bitnumber-bits(order[11])) {
-            backtracking(bitnumber + 1);
-        }
-    }
-}
-</pre>
-<p>
-Here, <code>first-bitnumber-bits(order[i])</code> is the number represented
-by the first <code>bitnumber</code> bits of the row/column
-specified by <code>order[i]</code>,
-
-<code>number(order[i])</code> is the number represented by all bits of the
-row/column specified by <code>order[i]</code>.
-</p>
-
-<h1>SackJourney</h1>
-by <tc-webtag:handle coderId="251317" context="algorithm"/>
+The round started with all but one of the competitors opening the easy
+problem.  OpenGL was first to submit, but he found a flaw in his
+solution and eventually resubmitted.  Petr submitted second, 13
+points ahead of krijgertje.  The easy proved difficulty for most
+though, and after 25 minutes, only half of the competitors had
+submitted it, but the other half were all still working hard on it.
+As the seconds ticked by, the easies rolled slowly in, and after 40
+minutes all but 3 of the competitors had submitted it.  Petr was the
+first to submit the second problem, with a little over 40 minutes left
+to go.  krijgertje was next to submit the medium problem, but he had
+to resubmit, putting him over 2 challenges behind Petr, but giving him
+enough points to stay in second until the end.  At the end of the
+coding phase, all but one of the competitors had submitted the easy
+problem, and 10 of the 16 competitors had submitted the medium.  Petr
+had a comfortable lead, and seemed sure to advance as long as his two
+submissions held up.  krijgertje, on the other hand, was less than on
+challenge ahead of cyfra and Egor in third and fourth places.
 <br><br>
-The infinite sack described in this problem is really an infinite stack.  Translated into the
-language of automata theory, this problem asks which states are reachable in a PDA (pushdown
-automaton).  To solve the problem, we incrementally build a reachability graph.  A directed edge
-from p to q in this graph indicates the ability to travel from p to q without changing the stack
-configuration.  Edges of the form "__" can immediately be added to this graph, since they do not
-involve the stack.  Furthermore, if you can get from location x to location s while adding A to your
-sack, and you can get from location t to location y by removing A from your sack, then a
-reachability edge from s to t implies a reachability edge from x to y.  Lastly, the reachability
-graph should be transitive.  In other words, an edge from p to q and an edge from q to r yields an
-edge from p to r.  Repeating these steps until no more changes can be made, we can determine which
-locations are reachable from 0 without changing the stack.  <br>
-<br>
-To check if a specific location k is
-reachable, add a new location k' to the graph.  In addition, add an edge of the form "__" from k to
-k'.  Lastly, add loops to k' permitting the removal of all types of elements from the sack.  The
-previously described algorithm will determine whether there is a path from 0 to k' resulting in an empty sack.
-This is equivalent to being able to reach k.
+The challenge phase started off slow, with a couple of unsuccessful
+challenge in the first few minutes.  With two minutes to go though,
+Petr successfully challenged krijgertje, expanding his lead.  Shortly
+later, SnapDragon successfully challenged OpenGL, moving him into
+third place, with cyfra holding on in second.
+<br><br>
+System tests were not kind to the competitors and only cyfra had two
+submissions survive for the win.  Petr's medium fell, but his fast
+easy problem was enough to get him into the finals (by 0.25 points).
+SnapDragon, bladerunner, Ying, and grotmol, the only other competitors
+with positive points, advance to the wildcard round.
+</p>
 
+<h1>ThirstyGroup </h1>
+by <tc-webtag:handle coderId="7390467" context="algorithm"/>
+<br><br>
+Regardless of which glass we choose, the amount of water each glass gets doesn't change. We need to find the glass which will get us the most water in the end.
+<br><br>
+Simulating the entire party can take a billion time units, so we need to think of something better. Assume that we have an infinite supply of water available. Suppose we evaluate the situation at time index T. The problem statement describes the participants as greedy i.e. everyone attempts to gather as much water as possible. But this enables us to calculate the exact amount of water everyone got by time T and the overall water used. The exact formula for the i-th person is <tt>ceil(T / (capacities[i]+1)) * capacities[i]</tt>, which can be written as <tt>(T+capacities[i]) / (capacities[i]+1) * capacities[i]</tt>, when division truncates.
+<br><br>
+The next thing to note is that the total amount of water used is a nondecreasing function of T. This allows us to use binary search to find the last time index at which the amount of water used is no more than the amount of water available. Earlier we assumed that the supply of water was infinite and everyone could always fully refill their glass. This is not the case, but our binary search will calculate the last time index for which the assumption holds.
+<br><br>
+What's left is to distribute the remaining water. A bit of insight tells us that all the remaining water will be taken in an instant (otherwise, our binary search would have returned a later time index). But the only ones to get water will be those whose glasses are empty at time T, which the division remainder operator will happily tell us: the condition is <tt>T mod (capacities[i]+1) == 0</tt>. We now know how much water each glass gets and which one to choose
+<br><br>
+
+
+
+<h1>Postman</h1>
+by <tc-webtag:handle coderId="309453" context="algorithm"/>
+<br><br>
+The easy part is parsing the input and splitting it in two sets: the
+odd house numbers and the even ones. Let's say these two sets have
+N<sub>1</sub> and N<sub>2</sub> elements, and are given by the numbers
+num<sub>1</sub>[1]...num<sub>1</sub>[N<sub>1</sub>] and
+num<sub>2</sub>[1]...num<sub>2</sub>[N<sub>2</sub>]. We assume these
+two arrays to be sorted.
+<br><br>
+We start in front of house number 1 and have to walk our way to
+the increasing numbers. The first observation is that it never helps
+to deliver a letter to a house on one side of the road if there are
+still houses to deliver to on the same side with both smaller and
+larger numbers. So to start off with, we can deliver the letters on both
+sides in increasing order. Only in the end, delivering the last
+letter first and then walking back, can be useful.
+<br><br>
+This increasing order in which the letters can be delivered
+immediately smells like a dynamic programming approach, which indeed
+is the right way to solve it. If we call
+best<sub>i</sub>[n<sub>1</sub>,n<sub>2</sub>] the best time to deliver all
+letters up to n<sub>1</sub> on side one and up to n<sub>2</sub> on
+side two, with the last letter being delivered on side i (so that we
+are in front of house number num<sub>i</sub>[n<sub>i</sub>]), we can express
+this best time recursively. The relation for best<sub>1</sub> is:
+<br><br>
+best<sub>1</sub>[n<sub>1</sub>,n<sub>2</sub>] = min
+(best<sub>1</sub>[n<sub>1</sub>-1,n<sub>2</sub>] +
+distance(n<sub>1</sub>-1,n<sub>1</sub>), 
+best<sub>2</sub>[n<sub>1</sub>-1,n<sub>2</sub>] +
+distance(n<sub>2</sub>,n<sub>1</sub>) + crosstime).
+<br><br>
+The intuition behind this recursion should be clear. A similar
+equation with some ones and twos interchanged holds for
+best<sub>2</sub>. To obtain the final answer one subtlety arises as
+already mentioned: after delivering every letter on one side, it can
+be quicker to walk to the end of the other side, deliver there, and
+then walk back. The final answer therefore is either
+best<sub>1</sub>[N<sub>1</sub>,N<sub>2</sub>],
+best<sub>2</sub>[N<sub>1</sub>,N<sub>2</sub>], the minimum of the
+following expressions (with n<sub>2</sub> being the free parameter)
+<br><br>
+best<sub>1</sub>[N<sub>1</sub>,n<sub>2</sub>] + crosstime 
++ distance(N<sub>1</sub>,N<sub>2</sub>) 
++ distance(N<sub>2</sub>,n<sub>2</sub>+1)
+<br><br>
+or the similar expression for best<sub>2</sub>. The minimal one is the
+final answer.
+
+
+
+<h1>SymmericalTree</h1>
+by <tc-webtag:handle coderId="7485898" context="algorithm"/>
+<br><br>
+To solve the main problem let's solve the following subproblem. For
+two given nodes of the tree v1 and v2 let's find the best in terms of
+the problem common string representation B[v1, v2], i.e. such first
+lexicographically representation which is obtained for both nodes by
+removing the least number of child nodes. This can be done using
+dynamic programming. Let's introduce A1[v1, v2, s1, s2], where s1 is
+any subset of children of the node v1, s2 is any subset of children of
+the node v2, and A1 is the best common string representation of nodes
+v1 and v2, if it is allowed to take only children from s1 and s2
+correspondingly. Let's define A[v1, v2, s1, s2] equal to A1[v1, v2,
+s1, s2] without leading '1' and last '0'.
+So, B[v1, v2] = '1' + A[v1, v2, all children of v1, all children of
+v2] + '0'. To find A[v1, v2, s1, s2] let's iterate the last child node
+i1 in s1 and i2 in s2. In this case A[v1, v2, s1, s2] = A[v1, v2,
+s1-i1, s2-i2] + B[i1, i2].
+Now back to the main problem. For the root node let's iterate through
+all possible first c1 and last c2 children of the root in the result
+tree. In this case the answer will be B[c1, c2] + answer for the
+problem without nodes c1 and c2 + reversed B[c1, c2]. From all such
+answers choose the best. In such a way we reduced the dimension of the
+problem. If the root node has only one child left, the answer will be
+the answer for this node with '1' and '0' attached correspondingly. If
+the root node has two children we can try to delete one of them and
+get the previous case.
         </div>
       </td>
         
