@@ -9,27 +9,20 @@
 </map>
 <IMG SRC="/i/home/tcoo5_movies.jpg" border="0" ALT="TCO05" usemap="#tco05_map"/><br>
 --%>
-<%-- TCO06
+
+<%-- TCO06 --%>
 <map name="tco06_map">
-<area shape="rect" alt="" coords="1,1, 265,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="275,1, 499,149" href="/tc?module=TCO06AlgorithmTerms" />
+<area shape="rect" alt="" coords="1,1, 310,179" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+<area shape="rect" alt="" coords="375,72, 490,92" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule" />
+<area shape="rect" alt="" coords="438,96, 490,118" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
+<area shape="rect" alt="" coords="440,120, 490,144" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
 </map>
-<IMG SRC="/i/home/tco06_algo_reg_AMD.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
+<IMG SRC="/i/home/tco06_onsite_start.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
 
-<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A>
---%>
-<%-- TCO06 
-<map name="tco06prog_map">
-<area shape="rect" alt="" coords="1,1, 258,158" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="263,1, 509,158" href="/pdfs/tournaments/tco06_program.pdf" />
-</map>
-<IMG SRC="/i/home/tco06_program.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06prog_map" />
---%>
 
-<%-- Digital Run --%>
+<%-- Digital Run 
 <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digital_run.jpg" border="0" ALT="The Digital Run"/></A>
-
-
+--%>
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
