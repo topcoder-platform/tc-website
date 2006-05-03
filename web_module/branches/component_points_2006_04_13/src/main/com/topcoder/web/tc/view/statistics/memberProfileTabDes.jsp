@@ -48,6 +48,7 @@ if ( plugin ) {
             <%}%>
             </td></tr>
             <tr><td class="catNW" colspan="2"><A href='/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=112&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
+            <tr><td class="catNW" colspan="2"><A href='/tc?module=PointsHistory&amp;<%=Constants.PHASE_ID%>=113&cr=<%=request.getParameter("cr")%>'>[points history]</A><br><br></td></tr>
             <tr><td class="catNW">Percentile:</td><td class="statRNW"><rsc:item name="percentile" set="<%=rscDesData%>" ifNull="N/A" /></td></tr>
             <tr><td class="catNW">Rank:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscDesData%>" ifNull="not ranked" /><% if (rscDesData.getStringItem(0, "rank")!=null) { %> of <rsc:item name="num_ranked" set="<%=rscDesData%>"/><% } %></td></tr>
             <tr><td class="catNW">Country Rank:</td><td class="statRNW"><rsc:item name="country_rank" set="<%=rscDesData%>" ifNull="not ranked" /><% if (rscDesData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscDesData%>"/><% } %></td></tr>
