@@ -11,7 +11,7 @@
    <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.06<br>8:20 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A></span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News border="0" /></div>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET" News border="0" /></div>
        "Las Vegas has seen its share of title fights, but the only thing that will get pounded by the 64 finalists arriving this week for the 2006 TopCoder Open will be a computer keyboard."
       <br><br>
       </td>
@@ -153,12 +153,12 @@ In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.24.06<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]
+      <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]
       </span><br><br>
       Download the PDF to view all the Finalist Stats and Facts, Pick Me Contest Winner Submissions, Weirdest SRM Locations, and see where in the world the Admin Staff might show up someday.</td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/pdfs/tournaments/tco06_program.pdf">view</A>&#160;|&#160;
+         <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_program.pdf">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505968" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
