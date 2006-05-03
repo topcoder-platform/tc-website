@@ -63,6 +63,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
 &#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
 &#160;|&#160;Earnings History
+&#160;|&#160;<A HREF='/tc?module=PointsHistory&amp;<%=Constants.PHASE_ID%>=113&amp;cr=<%=pageContext.getAttribute("coder_id")%>' class="bcLink">Points History</A>
 </span>
 
 <% } else { %>
@@ -74,6 +75,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
 &#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="bcLink">Rating History</A>
 &#160;|&#160;Earnings History
+&#160;|&#160;<A HREF='/tc?module=PointsHistory&amp;<%=Constants.PHASE_ID%>=112&amp;cr=<%=pageContext.getAttribute("coder_id")%>' class="bcLink">Points History</A>
 </span>
 
 <% } %>
