@@ -59,7 +59,7 @@ Funny how things work out, though, because I did wind up meeting all the above p
 Reid is at Harvard now -- my son Aaron would be impressed, since he aspires to go to Harvard too, which is funny considering... <tc-webtag:handle coderId="269554" darkBG="true" /> was there too -- great sense of humor!
 <br/><br/>
 For a while I was hanging out with just <tc-webtag:handle coderId="8416646" darkBG="true" /> and <tc-webtag:handle coderId="282718" darkBG="true" /> when they started
-the introductory speeches.  Jack Hughes thanked each sponsor (and in fact right now I'm typing on an AMD laptop, generously
+the introductory speeches.  Rob Hughes thanked each sponsor (and in fact right now I'm typing on an AMD laptop, generously
 loaned to us bloggers by AMD), and <tc-webtag:handle coderId="7267401" darkBG="true" /> went over some of the rules for the algorithms competitions
 tomorrow.  The one line that solicited a response was that the <a href="/tc?module=Static&d1=help&d2=ratedEvent#extracoderule">Unused Code Rule</a>
 was NOT going to be in effect, which everyone laughed at.
