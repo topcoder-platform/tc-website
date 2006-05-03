@@ -46,6 +46,7 @@
       <tc-webtag:handle coderId="251184" darkBG="true" />
       <div align="left">
          <ul>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_2">Episode II: Attack of the... oh, never mind</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_1">Episode I: The Phantom Menace</A></li>
          </ul>
       </div>
