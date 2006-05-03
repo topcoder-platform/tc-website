@@ -41,8 +41,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private double recentGrossAmount;
     private String description;
     private String type;
+    private String method;
     private int recentStatusId;
     private int typeId;
+    private int methodId;
     private boolean reviewed;
 
     /**************\
@@ -62,13 +64,15 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentNetAmount = 0;
         description = "Default Description";
         type = "Default Type";
+        method = "";
         recentStatusId = 0;
         typeId = 0;
+        methodId = 0;
         reviewed = false;
     }
 
 /* This constructor makes the object out of raw data.
-*  DEPRECIATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
+*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
 *
 *  @ARGS
 *   o id          - the DB id of the payment details
@@ -79,10 +83,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 *   o netAmount   - the current net amount of the payment
 *   o description - the description of the payment
 *   o type        - type of the payment
-*
+*	o method      - payment method
 */
     public PaymentHeader(long id, long userID, String handle, long groupID[],
-                         String status, double netAmount, String description, String type) {
+                         String status, double netAmount, String description, String type, String method) {
 
         this.id = id;
         user = new UserProfileHeader(userID, handle);
@@ -90,10 +94,11 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentNetAmount = netAmount;
         this.description = description;
         this.type = type;
+        this.method = method;
     }
 
 /* This constructor makes the object out of raw data & headers.
-*  DEPRECIATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
+*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
 *
 *  @ARGS
 *   o id          - the DB id of the payment details
@@ -102,10 +107,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 *   o netAmount   - the current net amount of the payment
 *   o description - the description of the payment
 *   o type        - type of the payment
-*
+*	o method      - payment method
 */
     public PaymentHeader(long id, UserProfileHeader user,
-                         String status, double netAmount, String description, String type) {
+                         String status, double netAmount, String description, String type, String method) {
 
         this.id = id;
         this.user = user;
@@ -113,6 +118,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentNetAmount = netAmount;
         this.description = description;
         this.type = type;
+        this.method = method;
     }
 
 /* This constructor makes the object out of the Map containing
@@ -133,6 +139,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             recentNetAmount = 0;
             description = "Default Description";
             type = "Default Type";
+            method = "";
             reviewed = false;
             return;
         }
@@ -146,6 +153,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             recentNetAmount = 0;
             description = "Default Description";
             type = "Default Type";
+            method = "";
             reviewed = false;
             return;
         }
@@ -161,6 +169,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         description = TCData.getTCString(rsr, "payment_desc", "default description", true);
         type = TCData.getTCString(rsr, "payment_type_desc", "default type description", true);
         typeId = TCData.getTCInt(rsr, "payment_type_id", 0, true);
+        method = TCData.getTCString(rsr, "payment_method_desc", "", true);
+        methodId = TCData.getTCInt(rsr, "payment_method_id", 0, true);
         user = new UserProfileHeader(
                 TCData.getTCLong(rsr, "user_id", 0, true),
                 TCData.getTCString(rsr, "handle", "default handle", true),
@@ -235,6 +245,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setType(String type) {
         this.type = type;
     }
+    
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
 
     public int getRecentStatusId() {
         return recentStatusId;
@@ -250,6 +268,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setTypeId(int typeId) {
         this.typeId = typeId;
+    }
+    
+    public int getMethodId() {
+        return methodId;
+    }
+
+    public void setMethodId(int methodId) {
+        this.methodId = methodId;
     }
 
     public boolean isReviewed() {

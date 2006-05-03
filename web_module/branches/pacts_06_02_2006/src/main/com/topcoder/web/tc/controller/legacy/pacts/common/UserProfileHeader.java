@@ -80,12 +80,12 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     *	o middle   - middle name of the TC member
     *	o first    - first name of the TC member
     */
-    public UserProfileHeader(long id, String handle, String last, String middle, String first) {
+    public UserProfileHeader(long id, String handle, String first, String middle, String last) {
         this.id = id;
         this.handle = handle;
-        this.last = last;
-        this.middle = middle;
         this.first = first;
+        this.middle = middle;
+        this.last = last;
         groupId = new long[0];
     }
 

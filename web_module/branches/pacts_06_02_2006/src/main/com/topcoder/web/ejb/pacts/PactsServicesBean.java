@@ -1512,18 +1512,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
-        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-        selectHeaders.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectHeaders.append("p.user_id, u.handle, c.first_name, c.middle_name, c.last_name, ");
         selectHeaders.append("pd.date_modified, pd.gross_amount, p.review ");
 
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
+        from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         from.append("status_lu s, user u, coder c ");
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         whereClauses.append(" AND pt.payment_type_id = pd.payment_type_id ");
+        whereClauses.append(" AND pm.payment_method_id = pd.payment_method_id ");
         whereClauses.append(" AND s.status_id = pd.status_id ");
         whereClauses.append(" AND p.user_id = u.user_id ");
         whereClauses.append(" AND u.user_id = c.coder_id ");

@@ -67,6 +67,7 @@
 		<td><b>Description</b></td>
 		<td><b>Net Amount</b></td>
 		<td><b>Type</b></td>
+		<td><b>Method</b></td>
 		<td><b>Status</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
@@ -101,6 +102,7 @@
 
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+paymentList[n].getType()+"</td>\n");
+			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
 			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
