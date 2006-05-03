@@ -52,12 +52,15 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
- <%-- <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A></td> --%>
-<map name="tco06prog_map">
-<area shape="rect" alt="" coords="1,1, 258,158" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="263,1, 509,158" href="/pdfs/tournaments/tco06_program.pdf" />
+<%-- TCO06 --%>
+<map name="tco06_map">
+<area shape="rect" alt="" coords="1,1, 310,179" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+<area shape="rect" alt="" coords="375,72, 490,92" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule" />
+<area shape="rect" alt="" coords="438,96, 490,118" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
+<area shape="rect" alt="" coords="440,120, 490,144" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
 </map>
-      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_program.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06prog_map" /></td>
+
+      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_onsite_start.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>

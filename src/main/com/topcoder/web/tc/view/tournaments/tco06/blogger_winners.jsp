@@ -25,7 +25,8 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div style="float:right;"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">What is the "Pick Me Contest"?</A></div>
+<div style="float:right;"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">What is the "Pick Me Contest"?</A><br>
+<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview">Read the blogs</A></div>
 <span class="bigTitle">Pick Me Contest Winners</span>
 <br><br>
 <div align="center">
@@ -34,59 +35,18 @@
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
       <tc-webtag:handle coderId="21471147" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_davidyang">winning submission</A>
-<%--
-      <br><br>
-         <div align="left">
-         <span class="bodySubtitle">Onsite Blogs:</span>
-         <br><br><A href="">Title for the first blog</A>
-         </div>
---%>
       </td>
-
-
-
-
-
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/dplass_big.jpg" /><br>
       <tc-webtag:handle coderId="251184" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass">winning submission</A>
-      <br><br>
-         <div align="left">
-         <span class="bodySubtitle">Onsite Blogs:</span>
-         <br><br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass_onsite#001">Title for the first blog</A>
-         </div>
       </td>
-
-
-
-
-
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/Kawigi_big.jpg" /><br>
       <tc-webtag:handle coderId="8416646" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_kawigi">winning submission</A>
-<%--
-      <br><br>
-         <div align="left">
-         <span class="bodySubtitle">Onsite Blogs:</span>
-         <br><br><A href="">Title for the first blog</A>
-         </div>
---%>
       </td>
-
-
-
-
-
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/omgrace_big.jpg" /><br>
       <tc-webtag:handle coderId="21518515" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_omgrace">winning submission</A>
-<%--
-      <br><br>
-         <div align="left">
-         <span class="bodySubtitle">Onsite Blogs:</span>
-         <br><br><A href="">Title for the first blog</A>
-         </div>
---%>
       </td>
    </tr>
 </table>
