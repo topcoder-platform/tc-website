@@ -79,8 +79,9 @@ public class PointsHistory extends BaseProcessor {
         ResultSetContainer board = (ResultSetContainer)m.get("dr_points_history");
        
         log.debug("Got " +  board.size() + " rows for board");
-        ResultSetContainer rsc = new ResultSetContainer(board, r.getProperty(DataAccessConstants.START_RANK), 
-            r.getProperty(DataAccessConstants.END_RANK), false);
+        ResultSetContainer rsc = new ResultSetContainer(board, 
+            Integer.parseInt(r.getProperty(DataAccessConstants.START_RANK)), 
+                Integer.parseInt(r.getProperty(DataAccessConstants.END_RANK)), false);
 
         getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY, 
