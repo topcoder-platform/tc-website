@@ -64,6 +64,9 @@ public abstract class BaseBoard extends BaseProcessor {
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
         setDefault(period_id, getRequest().getParameter(period_id));   
 
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));   
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));   
+
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));

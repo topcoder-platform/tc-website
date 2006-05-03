@@ -160,7 +160,15 @@
    </TR>
 </TABLE>
 
-
+    <div class="pagingBox">
+        <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
+            <%=(rsc2.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+            | <%=(rsc2.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+        <% } else { %>
+            &#160;
+        <% } %>
+    </div> 
+    
          <p><br></p>
          <!-- END BODY -->
 
