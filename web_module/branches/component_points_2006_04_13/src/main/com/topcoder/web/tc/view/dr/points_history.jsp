@@ -88,7 +88,7 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
     &#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=<%=phaseId%>&cr=<%=coderId%>" CLASS="bcLink">Rating History</A>
-    &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%=coderId%>" class="bcLink">Earnings History</A>
+    &#160;|&#160;<A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Earnings History</A>
     &#160;|&#160;Points History
 </span>
 
