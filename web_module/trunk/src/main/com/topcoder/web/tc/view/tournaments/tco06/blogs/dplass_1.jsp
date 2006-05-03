@@ -95,7 +95,7 @@ on who is who.
 <br><br>
 The staff was really nice, and "accepted me as one of their own."  They let me hang out around the competition arena itself, which, as it turned out, 
 was strictly off-limits to the competitors.  <tc-webtag:handle coderId="144400" darkBG="true" /> knocked on the door with one of the TopCoder staff, and I got to chat with them a bit 
-<tc-webtag:handle coderId="156859" darkBG="true" />(mostly about what to eat, and where, for dinner).  I spent a while talking with <tc-webtag:handle coderId="305384" darkBG="true" />, <tc-webtag:handle coderId="7267401" darkBG="true" /> and <tc-webtag:handle coderId="156859" darkBG="true" />, 
+(mostly about what to eat, and where, for dinner).  I spent a while talking with <tc-webtag:handle coderId="305384" darkBG="true" />, <tc-webtag:handle coderId="7267401" darkBG="true" /> and <tc-webtag:handle coderId="156859" darkBG="true" />, 
 each of whom have a distinctly different view of the event that is the TCO.  I learned a little bit about how the onsite and "public" arena 
 networks are 'intertwingled' (that's a word sometimes heard at 2 Penn, hi guys).  I also met <tc-webtag:handle coderId="154754" darkBG="true" />, also an <a href="/?t=sponsor&c=link&link=http://web.mit.edu">MIT</a>
 alum, who was present as a representative for UBS, a TCO sponsor. He said it was his first time onsite as NOT a competitor.  Mine too, in a way. ;-)
