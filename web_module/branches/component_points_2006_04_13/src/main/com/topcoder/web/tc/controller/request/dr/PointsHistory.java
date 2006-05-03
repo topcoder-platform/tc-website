@@ -59,14 +59,14 @@ public class PointsHistory extends BaseProcessor {
         setDefault(DataAccessConstants.START_RANK, startRank);   
         
         if ("".equals(endRank)) {
-            endRank = String.valueOf(Integer.valueOf(startRank) + Constants.DEFAULT_LEADERS);
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_LEADERS);
         } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_LEADERS) {
-            endRank = String.valueOf(Integer.valueOf(startRank) + Constants.DEFAULT_LEADERS);
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_LEADERS);
         }
         setDefault(DataAccessConstants.END_RANK, endRank);
 
-        setDefault(Constants.SORT_DIRECTION, getRequest().getParameter(Constants.SORT_DIRECTION));   
-        setDefault(Constants.SORT_COLUMN, getRequest().getParameter(Constants.SORT_COLUMN));   
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));   
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));   
         setDefault("cr", getRequest().getParameter("cr"));   
 
         // Prepare request for data retrieval

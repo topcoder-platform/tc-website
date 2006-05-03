@@ -21,26 +21,20 @@
     <jsp:include page="baseHRef.jsp" />
     <jsp:include page="../script.jsp" />
     <script type="text/javascript">
-        function submitEnter(e) {
-            var keycode;
-            if (window.event) keycode = window.event.keyCode;
-            else if (e) keycode = e.which;
-            else return true;
-            if (keycode == 13) {
-             document.rookieBoardForm.submit();
-             return false;
-            } else return true;
-          }
           function next() {
-            var myForm = document.rookieBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            var myForm = document.pointsHistoryForm;
+            var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
+            myForm.<%=DataAccessConstants.START_RANK%>.value=myForm.<%=DataAccessConstants.END_RANK%>.value;
+            myForm.<%=DataAccessConstants.END_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value)-parseInt(oldStartRank);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
           }
           function previous() {
-            var myForm = document.rookieBoardForm;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            var myForm = document.pointsHistoryForm;
+            var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
+            myForm.<%=DataAccessConstants.END_RANK%>.value=myForm.<%=DataAccessConstants.START_RANK%>.value;
+            myForm.<%=DataAccessConstants.START_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(oldEndRank);
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
@@ -115,44 +109,53 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="6">
-         <% if(phaseId.equals("113")){%>
-            Development
-         <% } else { %>
-            Design
-         <% } %>
-         Points History
-         </td></tr>
-         <tr>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Placed</a></TD>
-            <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a></TD>
-            <TD CLASS="tableHeader" WIDTH="15%" align="right">&#160;</TD>
-         </tr>
-         <%boolean even = true;%>
-         <rsc:iterator list="<%=rsc2%>" id="resultRow">
-         <tr>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>">
-                <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                    <rsc:item name="component_name" row="<%=resultRow%>"/>
-                </A>
-            </TD>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="points_awarded" row="<%=resultRow%>"/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>">
-                <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                    Contest Details
-                </A>
-            </TD>
-         </tr>
-         <%even=!even;%>
-         </rsc:iterator>
-      </TABLE>
+        <form name="pointsHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PointsHistory"/>
+           <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
+           <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+           <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+           <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+           <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+           <tc-webtag:hiddenInput name="cr"/>
+              <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+                 <tr><td class="tableTitle" colspan="6">
+                 <% if(phaseId.equals("113")){%>
+                    Development
+                 <% } else { %>
+                    Design
+                 <% } %>
+                 Points History
+                 </td></tr>
+                 <tr>
+                    <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
+                    <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a></TD>
+                    <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
+                    <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Placed</a></TD>
+                    <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a></TD>
+                    <TD CLASS="tableHeader" WIDTH="15%" align="right">&#160;</TD>
+                 </tr>
+                 <%boolean even = true;%>
+                 <rsc:iterator list="<%=rsc2%>" id="resultRow">
+                 <tr>
+                    <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="<%=even?"statLt":"statDk"%>">
+                        <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                            <rsc:item name="component_name" row="<%=resultRow%>"/>
+                        </A>
+                    </TD>
+                    <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
+                    <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
+                    <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="points_awarded" row="<%=resultRow%>"/></TD>
+                    <TD class="<%=even?"statLt":"statDk"%>">
+                        <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                            Contest Details
+                        </A>
+                    </TD>
+                 </tr>
+                 <%even=!even;%>
+                 </rsc:iterator>
+              </TABLE>
+          </FORM>
       </TD>
    </TR>
 </TABLE>
