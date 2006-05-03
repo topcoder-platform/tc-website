@@ -47,8 +47,8 @@ public abstract class BaseBoard extends BaseProcessor {
      * Retrieves coders list for development or design for a particular period.
      */
     protected void businessProcessing(String period_id, String command, String query, String nextpage) throws Exception {
-        // Phase ID and Season ID are required.
-        if (!hasParameter(period_id)) {
+        // Phase ID and Period ID are required.
+        if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
         

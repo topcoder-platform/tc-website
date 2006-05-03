@@ -18,15 +18,20 @@ public class Constants implements WebConstants {
     public static String HOME_PAGE;
     public static String VIEW_LEADER_BOARD_PAGE;
     public static String VIEW_ROOKIE_BOARD_PAGE;
+    public static String VIEW_POINTS_HISTORY_PAGE;
     
     public static String LEADER_BOARD_COMMAND;
     public static String LEADER_BOARD_QUERY;
     public static String ROOKIE_BOARD_COMMAND;
     public static String ROOKIE_BOARD_QUERY;
     public static String CODER_LIST_KEY;
+    public static String POINTS_HISTORY_COMMAND;
+    public static String POINTS_HISTORY_QUERY;
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;
+    public static int MAX_HISTORY;
+    public static int DEFAULT_HISTORY;
     public static String TYPE_KEY;
         
     /* request parameters */

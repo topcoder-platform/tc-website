@@ -6,9 +6,6 @@
          com.topcoder.web.common.BaseServlet,
          com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%@ taglib uri="struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -24,8 +21,8 @@
           function next() {
             var myForm = document.pointsHistoryForm;
             var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=myForm.<%=DataAccessConstants.END_RANK%>.value;
-            myForm.<%=DataAccessConstants.END_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value)-parseInt(oldStartRank);
+            myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value)-parseInt(oldStartRank)+1;
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
@@ -33,8 +30,8 @@
           function previous() {
             var myForm = document.pointsHistoryForm;
             var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
-            myForm.<%=DataAccessConstants.END_RANK%>.value=myForm.<%=DataAccessConstants.START_RANK%>.value;
-            myForm.<%=DataAccessConstants.START_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(oldEndRank);
+            myForm.<%=DataAccessConstants.END_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(oldEndRank) - 1;
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
             myForm.submit();
@@ -66,7 +63,7 @@
   ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
   String phaseId = (String)request.getParameter(Constants.PHASE_ID);
-  String coderId = (String)request.getParameter("cr");
+  String coderId = (String)request.getParameter(Constants.CODER_ID);
 %>
 
 <% if(phaseId.equals("113")){ %>
@@ -89,7 +86,7 @@
         <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } %>
     <span class="bc">
-    <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+    <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
     &#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=<%=phaseId%>&cr=<%=coderId%>" CLASS="bcLink">Rating History</A>
     &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%=coderId%>" class="bcLink">Earnings History</A>
     &#160;|&#160;Points History
@@ -116,7 +113,7 @@
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-           <tc-webtag:hiddenInput name="cr"/>
+           <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                  <tr><td class="tableTitle" colspan="6">
                  <% if(phaseId.equals("113")){%>
