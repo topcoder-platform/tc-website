@@ -67,7 +67,7 @@
    -->
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
-        <pathelement location="${jars.dir}/tcs/id_generator/3.0.1/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
@@ -815,7 +815,7 @@
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
@@ -1317,7 +1317,7 @@
             <fileset dir="${jars.dir}">
                 <include name="configmanager2.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0.1">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
                 <include name="id_generator.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs">
