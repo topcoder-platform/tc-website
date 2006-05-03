@@ -40,8 +40,8 @@ Wednesday, May 3, 2006<br>
 Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 <br><br>
 The TCO kicked off this morning in sunny Las Vegas.  With more
-competitors from more countries and more spectators than every before
-this year's TCO promises to be a thrilling event.
+competitors from more countries and more spectators than ever before
+This year's TCO promises to be a thrilling event.
 <br><br>
 The round started with all but one of the competitors opening the easy
 problem.  OpenGL was first to submit, but he found a flaw in his
@@ -58,7 +58,7 @@ enough points to stay in second until the end.  At the end of the
 coding phase, all but one of the competitors had submitted the easy
 problem, and 10 of the 16 competitors had submitted the medium.  Petr
 had a comfortable lead, and seemed sure to advance as long as his two
-submissions held up.  krijgertje, on the other hand, was less than on
+submissions held up.  krijgertje, on the other hand, was less than one
 challenge ahead of cyfra and Egor in third and fourth places.
 <br><br>
 The challenge phase started off slow, with a couple of unsuccessful
@@ -140,7 +140,7 @@ final answer.
 
 
 
-<h1>SymmericalTree</h1>
+<h1>SymmetricalTree</h1>
 by <tc-webtag:handle coderId="7485898" context="algorithm"/>
 <br><br>
 To solve the main problem let's solve the following subproblem. For
