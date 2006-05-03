@@ -5,7 +5,6 @@
          com.topcoder.shared.dataAccess.*,
          com.topcoder.web.common.BaseServlet,
          com.topcoder.web.tc.Constants" %>
-%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
@@ -136,7 +135,7 @@
          <%boolean even = true;%>
          <rsc:iterator list="<%=rsc2%>" id="resultRow">
          <tr>
-            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="posting_date" row="<%=resultRow%>"/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
             <TD class="<%=even?"statLt":"statDk"%>">
                 <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
