@@ -89,8 +89,8 @@ public class PointsHistory extends BaseProcessor {
        
         log.debug("Got " +  board.size() + " rows for board");
         ResultSetContainer rsc = new ResultSetContainer(board, 
-            Integer.parseInt(r.getProperty(DataAccessConstants.START_RANK)) + 1, 
-                Integer.parseInt(r.getProperty(DataAccessConstants.END_RANK)) + 1);
+            Integer.parseInt(r.getProperty(DataAccessConstants.START_RANK)), 
+                Integer.parseInt(r.getProperty(DataAccessConstants.END_RANK)));
 
         getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY, 
