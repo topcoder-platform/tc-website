@@ -28,26 +28,65 @@
 <div style="float:right;"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=pickme_contest">What is the "Pick Me Contest"?</A></div>
 <span class="bigTitle">Pick Me Contest Winners</span>
 <br><br>
-We had such a hard time picking one winner that we decided to take the easy way out and just pick FOUR winners.  So here they are.  Congratulations and we'll see you in Las Vegas.
-<br><br>
 <div align="center">
-<table cellpadding="6" cellspacing="0">
+<table cellpadding="6" cellspacing="0" width="600">
    <tr>
-      <td class="bodyText" align="center"><img src="/i/m/davidyang_big.jpg" /><br>
+      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
       <tc-webtag:handle coderId="21471147" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_davidyang">winning submission</A>
+<%--
+      <br><br>
+         <div align="left">
+         <span class="bodySubtitle">Onsite Blogs:</span>
+         <br><br><A href="">Title for the first blog</A>
+         </div>
+--%>
       </td>
-      <td class="bodyText" align="center"><img src="/i/m/dplass_big.jpg" /><br>
+
+
+
+
+
+      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/dplass_big.jpg" /><br>
       <tc-webtag:handle coderId="251184" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass">winning submission</A>
+      <br><br>
+         <div align="left">
+         <span class="bodySubtitle">Onsite Blogs:</span>
+         <br><br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass_onsite#001">Title for the first blog</A>
+         </div>
       </td>
-      <td class="bodyText" align="center"><img src="/i/m/Kawigi_big.jpg" /><br>
+
+
+
+
+
+      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/Kawigi_big.jpg" /><br>
       <tc-webtag:handle coderId="8416646" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_kawigi">winning submission</A>
+<%--
+      <br><br>
+         <div align="left">
+         <span class="bodySubtitle">Onsite Blogs:</span>
+         <br><br><A href="">Title for the first blog</A>
+         </div>
+--%>
       </td>
-      <td class="bodyText" align="center"><img src="/i/m/omgrace_big.jpg" /><br>
+
+
+
+
+
+      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/omgrace_big.jpg" /><br>
       <tc-webtag:handle coderId="21518515" darkBG="true" /><br>
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_omgrace">winning submission</A>
+<%--
+      <br><br>
+         <div align="left">
+         <span class="bodySubtitle">Onsite Blogs:</span>
+         <br><br><A href="">Title for the first blog</A>
+         </div>
+--%>
       </td>
    </tr>
 </table>
