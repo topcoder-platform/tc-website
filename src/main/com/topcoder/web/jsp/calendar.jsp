@@ -15,7 +15,32 @@ color: #FFFFFF;
 font-weight: bold;
 text-decoration: none;
 }
+#calendarLong
+{
+color: #000;
+font-size: 11px;
+font-weight: normal;
+text-align: left;
+vertical-align: top;
+background-color: #CCCCFF;
+}
 
+#calendarLongMini
+{
+color: #000000;
+font-size: 11px;
+font-weight: bold;
+text-align: center;
+vertical-align: top;
+background-color: #CCCCFF;
+}
+
+#calendarLongDate
+{
+color: #000000;
+font-weight: bold;
+text-decoration: none;
+}
 </style>
 
 <table width="170" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
