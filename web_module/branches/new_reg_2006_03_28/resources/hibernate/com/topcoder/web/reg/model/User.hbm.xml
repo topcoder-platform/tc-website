@@ -21,23 +21,23 @@
         <many-to-one name="timeZone" column="timezone_id" class="TimeZone"/>
 
         <set name="addresses" table="user_address_xref" cascade="save-update">
-            <key column="user_id"/>
+            <key column="user_id" not-null="true"/>
             <many-to-many column="address_id" class="Address"/>
         </set>
         <set name="securityGroups" table="user_group_xref" cascade="none">
-            <key column="login_id"/>
+            <key column="login_id" not-null="true"/>
             <one-to-many class="UserGroup"/>
         </set>
         <set name="emailAddresses" cascade="save-update">
-            <key column="user_id"/>
+            <key column="user_id" not-null="true"/>
             <one-to-many class="Email"/>
         </set>
         <set name="phoneNumbers" cascade="save-update">
-            <key column="user_id"/>
+            <key column="user_id" not-null="true"/>
             <one-to-many class="Phone"/>
         </set>
         <set name="notifications" table="user_notify_xref" cascade="save-update" outer-join="false">
-            <key column="user_id"/>
+            <key column="user_id" not-null="true"/>
             <many-to-many column="notify_id" class="Notification"/>
         </set>
 <!--
