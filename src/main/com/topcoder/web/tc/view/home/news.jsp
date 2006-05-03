@@ -9,7 +9,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.06<br>7:50 PM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.06<br>8:20 PM</td>
        <td class="newsTextCell"><span class="newsTitle"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A></span><br><br>
        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News border="0" /></div>
        "Las Vegas has seen its share of title fights, but the only thing that will get pounded by the 64 finalists arriving this week for the 2006 TopCoder Open will be a computer keyboard."
