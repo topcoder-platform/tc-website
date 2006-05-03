@@ -96,13 +96,13 @@ on who is who.
 The staff was really nice, and "accepted me as one of their own."  They let me hang out around the competition arena itself, which, as it turned out, 
 was strictly off-limits to the competitors.  <tc-webtag:handle coderId="144400" darkBG="true" /> knocked on the door with one of the TopCoder staff, and I got to chat with them a bit 
 <tc-webtag:handle coderId="156859" darkBG="true" />(mostly about what to eat, and where, for dinner).  I spent a while talking with <tc-webtag:handle coderId="305384" darkBG="true" />, <tc-webtag:handle coderId="7267401" darkBG="true" /> and <tc-webtag:handle coderId="156859" darkBG="true" />, 
-each of whom have a distinctly different view of the event that is the TCO.  I learned a little bit about how the on-site and "public" arena 
+each of whom have a distinctly different view of the event that is the TCO.  I learned a little bit about how the onsite and "public" arena 
 networks are 'intertwingled' (that's a word sometimes heard at 2 Penn, hi guys).  I also met <tc-webtag:handle coderId="154754" darkBG="true" />, also an <a href="/?t=sponsor&c=link&link=http://web.mit.edu">MIT</a>
 alum, who was present as a representative for UBS, a TCO sponsor. He said it was his first time onsite as NOT a competitor.  Mine too, in a way. ;-)
 <br><br>
 And then.... my biggest thrill so far. Little-known fact: TC staff test the algorithms arena before the competitors see it.  They allowed me to "compete" too,
-which was awesome.  Here I was, <i>in the actual physical on-site arena</i>, working on SRM problems!  I even made it onto the 
-<a href="/i/tournament/tco06/blogs/dplass_1.jpg">on-site leader board.</a>  That's me there in first place, ahead of <tc-webtag:handle coderId="156859" darkBG="true" />.  It was
+which was awesome.  Here I was, <i>in the actual physical onsite arena</i>, working on SRM problems!  I even made it onto the 
+<a href="/i/tournament/tco06/blogs/dplass_1.jpg">onsite leader board.</a>  That's me there in first place, ahead of <tc-webtag:handle coderId="156859" darkBG="true" />.  It was
 eerie, doing SRM problems with other people around!  Also, there were no plug-ins, so I had to actually type the name of the
 class, and the method signature.  It's been over 2 years since I've had to do that, and it takes some getting used to. 
 (Full disclosure: It was a div 2 problem set from <a href="/stat?c=round_overview&er=5&rd=9813">SRM 292</a>
@@ -118,8 +118,8 @@ P.S. While waiting for the welcome reception, what do y'all think I'm doing?  I'
 of course!
 <br><br>
 <a name="1"></A>
-<font size="-1"><sup>[1]</sup>Coders like me, who never thought I'd make it
-to an on-site (at least not based on my algorithm coding skills).  As you might recall from my
+<font size="-2"><sup>[1]</sup>Coders like me, who never thought I'd make it
+to an onsite (at least not based on my algorithm coding skills).  As you might recall from my
 <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogger_dplass">"Pick Me" submission</a>, I semi-qualified for TCO 2004 in the CDDC and was therefore hopeful to qualify
 again for TCO 2005, but I did not.</font>
 </a>
