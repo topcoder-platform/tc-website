@@ -11,7 +11,7 @@
 
 var imageDir = "/i/tournament/tco06/onsite_photos/";
 var imageNum = 1;
-var totalImages = 270;
+var totalImages = 31;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -90,26 +90,25 @@ function changeImage(place, imageIndex) {
 <br><br>
             <a name="spot"></a>
             <p class="terciary"><div align="center" nowrap="nowrap">
-                <a href="Javascript:void changeImage('slideImg', 1);">Game Room</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 29);">Reception</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 51);">Component Finals</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 82);">Room 2</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 118);">Room 3</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 154);">Room 1</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 197);">WildCard</a>
+                <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 13);">Room 1</a>
 <%--
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Component Finals</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Room 2</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Room 3</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">WildCard</a>
 --%>
 
-<br/>
-                <a href="Javascript:void changeImage('slideImg', 229);">Algorithm Finals</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 256);">Winners</a>
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 264);">Press Conference</a>
 <%--
+<br/>
+                <a href="Javascript:void changeImage('slideImg', 0);">Algorithm Finals</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Winners</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Press Conference</a>
 --%>                
             </div></p>
             
             <table cellpadding="0" cellspacing="5" border="0" align="center">
-                <tr valign="middle"><form name="blah" action="/tc"><td class="terciary">&lt;&lt; <a href="#spot" onClick="prevImage('slideImg');">previous</a>&#160;&#160;&#160;&#160;</td>
+                <tr valign="middle"><form name="blah" action="/tc"><td class="bodyText">&lt;&lt; <a href="#spot" onClick="prevImage('slideImg');">previous</a>&#160;&#160;&#160;&#160;</td>
                     <td class="terciary">
                         <input type="hidden" name="module" value="Static"/>
                         <input type="hidden" name="d1" value="tournaments"/>
