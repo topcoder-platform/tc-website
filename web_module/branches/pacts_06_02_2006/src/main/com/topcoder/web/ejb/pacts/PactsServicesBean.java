@@ -569,7 +569,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeader.append("pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-        selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
+        selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeader.append("status_lu s, user u ");
         selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
@@ -867,7 +867,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-        selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
+        selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeaders.append("status_lu s, user u ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
         selectPaymentHeaders.append("AND u.user_id = " + userId + " ");
@@ -968,7 +968,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, ");
+        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm ");
         selectPaymentHeaders.append("payment_detail pd, status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
         selectPaymentHeaders.append("AND cpx.payment_id = p.payment_id ");
