@@ -41,6 +41,11 @@ public class PointsHistory extends BaseProcessor {
      * Retrieves the points history list for development or design for a particular coder.
      */
      protected void businessProcessing() throws Exception  {
+        // requesting user should be authenticated.
+        if (getUser().isAnonymous()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
         // Phase ID and coder ID are required.
         if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
