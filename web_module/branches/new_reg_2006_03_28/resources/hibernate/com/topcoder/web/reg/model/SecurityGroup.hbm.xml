@@ -9,10 +9,10 @@
         <id name="groupId" column="group_id" access="field"/>
         <property name="description" access="field"/>
         <property name="createUserId" column="create_user_id" access="field"/>
-        <set name="users" table="user_group_xref" cascade="none" inverse="true" access="field">
+        <!--        <set name="users" table="user_group_xref" cascade="none" inverse="true" access="field">
             <key column="group_id"/>
             <many-to-many column="login_id" class="User"/>
-        </set>
+        </set>-->
         <set name="registrationTypes" inverse="true" access="field">
             <key column="security_group_id"/>
             <one-to-many class="RegistrationType"/>

@@ -14,6 +14,10 @@
             <key column="notify_id"/>
             <many-to-many column="registration_type_id" class="RegistrationType"/>
         </set>
+        <set name="users" table="user_notify_xref">
+            <key column="notify_id" not-null="true"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
     </class>
 
 </hibernate-mapping>

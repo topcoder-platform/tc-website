@@ -11,7 +11,7 @@
                 <param name="sequence_name">PHONE_SEQ</param>
             </generator>
         </id>
-        <property name="userId" column="user_id" insert="false" update="false"/>
+        <many-to-one name="user" column="user_id" not-null="true"/>
         <property name="phoneTypeId" column="phone_type_id"/>
         <property name="number" column="phone_number"/>
         <property name="primary" type="boolean" column="primary_ind"/>

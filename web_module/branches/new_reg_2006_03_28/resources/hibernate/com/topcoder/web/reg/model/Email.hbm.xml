@@ -11,7 +11,7 @@
                 <param name="sequence_name">EMAIL_SEQ</param>
             </generator>
         </id>
-        <property name="userId" column="user_id" access="field" insert="false" update="false"/>
+        <many-to-one name="user" column="user_id" not-null="true"/>
         <property name="emailTypeId" column="email_type_id" access="field"/>
         <property name="address" access="field"/>
         <property name="primary" type="boolean" column="primary_ind" access="field"/>

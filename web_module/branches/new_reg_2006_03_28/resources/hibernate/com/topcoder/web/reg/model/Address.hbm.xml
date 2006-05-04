@@ -11,6 +11,11 @@
                 <param name="sequence_name">ADDRESS_SEQ</param>
             </generator>
         </id>
+        <set name="users" inverse="true" table="user_address_xref">
+            <key column="address_id"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
+
         <property name="addressTypeId" column="address_type_id"/>
         <property name="address1"/>
         <property name="address2"/>
