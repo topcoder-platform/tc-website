@@ -81,7 +81,7 @@
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
-    <% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){ %>
+    <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
         <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
     <% } else { %>
         <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
@@ -117,7 +117,7 @@
            <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                  <tr><td class="tableTitle" colspan="6">
-                 <% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){%>
+                 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
                     Development
                  <% } else { %>
                     Design

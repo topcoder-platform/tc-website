@@ -48,8 +48,8 @@ public abstract class BaseBoard extends BaseProcessor {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) && 
-            !getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DESIGN_PHASE)) {
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
@@ -104,7 +104,7 @@ public abstract class BaseBoard extends BaseProcessor {
         log.debug("Got " +  board.size() + " rows for board");
         getRequest().setAttribute(Constants.CODER_LIST_KEY, board);
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) ? 
+            (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(nextpage);

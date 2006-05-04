@@ -53,8 +53,8 @@ public class PointsHistory extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) && 
-            !getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DESIGN_PHASE)) {
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
@@ -109,7 +109,7 @@ public class PointsHistory extends BaseProcessor {
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) ? 
+            (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(Constants.VIEW_POINTS_HISTORY_PAGE);
