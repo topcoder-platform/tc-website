@@ -171,12 +171,18 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         typeId = TCData.getTCInt(rsr, "payment_type_id", 0, true);
         method = TCData.getTCString(rsr, "payment_method_desc", "", true);
         methodId = TCData.getTCInt(rsr, "payment_method_id", 0, true);
-        user = new UserProfileHeader(
-                TCData.getTCLong(rsr, "user_id", 0, true),
-                TCData.getTCString(rsr, "handle", "default handle", true),
-                TCData.getTCString(rsr, "first_name", "", true),
-                TCData.getTCString(rsr, "middle_name", "", true),
-                TCData.getTCString(rsr, "last_name", "", true));
+        if (rsr.isValidColumn("first_name")) {
+        	user = new UserProfileHeader(
+        			TCData.getTCLong(rsr, "user_id", 0, true),
+        			TCData.getTCString(rsr, "handle", "default handle", true),
+        			TCData.getTCString(rsr, "first_name", "", true),
+        			TCData.getTCString(rsr, "middle_name", "", true),
+        			TCData.getTCString(rsr, "last_name", "", true));
+        } else {
+        	user = new UserProfileHeader(
+        			TCData.getTCLong(rsr, "user_id", 0, true),
+                    TCData.getTCString(rsr, "handle", "default handle", true));
+        }
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
