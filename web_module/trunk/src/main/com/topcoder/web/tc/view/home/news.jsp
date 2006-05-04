@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.04.06<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">tomek wins Room 3 of the TCO06</A>
+      </span><br><br>
+      tomek and John Dethridge advance to the Finals. reid, ploh, liympanda, and JongMan advance to the WildCard Room.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505963" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>10:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">misof wins Room 2 of the TCO06</A>
@@ -159,38 +174,6 @@ of the problems left just enough space for challenge opportunities.
          <A href="/tc?module=Static&d1=digital_run&d2=description">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505969" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.24.06<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm299">SRM 299 - Problem Set & Analysis</A></span><br><br>
-In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his first SRM victory, closely followed by 
-<tc-webtag:handle coderId="7452866" context="algorithm"/> (one failed challenge from first place) and <tc-webtag:handle coderId="144400" context="algorithm"/>.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Yarin_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269554" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm299">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505865" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.24.06<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]
-      </span><br><br>
-      Download the PDF to view all the Finalist Stats and Facts, Pick Me Contest Winner Submissions, Weirdest SRM Locations, and see where in the world the Admin Staff might show up someday.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_program.pdf">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505968" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
