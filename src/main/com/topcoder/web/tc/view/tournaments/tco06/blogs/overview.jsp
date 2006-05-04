@@ -47,6 +47,7 @@
       <tc-webtag:handle coderId="251184" darkBG="true" />
       <div align="left">
          <ul>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_5">Components in the "Real World"</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_4">Finally, dplass talks about Design and Development</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_3">The one where dplass takes a walk</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_2">Episode II: Attack of the... oh, never mind</A></li>
