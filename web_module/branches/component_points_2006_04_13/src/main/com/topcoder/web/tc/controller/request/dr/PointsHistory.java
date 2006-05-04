@@ -89,8 +89,6 @@ public class PointsHistory extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             r.setProperty(DataAccessConstants.SORT_QUERY, Constants.POINTS_HISTORY_QUERY);            
         }
-        r.setProperty(DataAccessConstants.START_RANK, startRank);                       
-        r.setProperty(DataAccessConstants.END_RANK, endRank);
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));        
         r.setContentHandle(Constants.POINTS_HISTORY_COMMAND);
@@ -102,9 +100,8 @@ public class PointsHistory extends BaseProcessor {
         log.debug("Got " +  history.size() + " rows for points history");
         
         // crops data
-        ResultSetContainer rsc = new ResultSetContainer(history, 
-            Integer.parseInt(r.getProperty(DataAccessConstants.START_RANK)), 
-                Integer.parseInt(r.getProperty(DataAccessConstants.END_RANK)));
+        ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
+            Integer.parseInt(endRank));
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);

@@ -99,7 +99,7 @@ public abstract class BaseBoard extends BaseProcessor {
         log.debug("Got " +  board.size() + " rows for board");
 
         // crops data
-        ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
+        ResultSetContainer rsc = new ResultSetContainer(board, Integer.parseInt(startRank), 
             Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1);
         
         // sets attributes for the jsp
