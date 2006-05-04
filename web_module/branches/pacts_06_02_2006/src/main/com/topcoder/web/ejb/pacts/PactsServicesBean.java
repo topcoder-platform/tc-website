@@ -1088,7 +1088,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getPaymentMethods() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_method_id, payment_method_desc FROM payment_method_lu ORDER BY 2");
+        sb.append("SELECT payment_method_id, payment_method_desc FROM payment_method_lu ORDER BY payment_method_list_order, 2");
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_METHOD_LIST, rsc);

@@ -98,7 +98,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         loginfo.append(info.getRequestString());
         loginfo.append(" *]");
         log.info(loginfo);
-
     }
 
 
