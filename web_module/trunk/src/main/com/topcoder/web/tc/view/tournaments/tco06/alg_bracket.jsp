@@ -75,6 +75,8 @@
       <tc-webtag:handle coderId="16056363" context="algorithm"/><br>
       <tc-webtag:handle coderId="309982" context="algorithm"/><br>
       <tc-webtag:handle coderId="10574855" context="algorithm"/><br>
+      <tc-webtag:handle coderId="144400" context="algorithm"/><br>
+      <tc-webtag:handle coderId="270505" context="algorithm"/><br>
       </td>
    </tr>
    <tr>
@@ -123,6 +125,10 @@
       <tc-webtag:handle coderId="113178" context="algorithm"/><br>
       <tc-webtag:handle coderId="10599449" context="algorithm"/><br>
       <tc-webtag:handle coderId="293874" context="algorithm"/><br>
+      <tc-webtag:handle coderId="260835" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7462740" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7433858" context="algorithm"/><br>
+      <tc-webtag:handle coderId="7446789" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
