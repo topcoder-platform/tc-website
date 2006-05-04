@@ -32,7 +32,7 @@
 </div>
 
 <p style="vertical-align:top;">
-<span class="bigTitle"> wins Room 3</span>
+<span class="bigTitle">tomek wins Room 3</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 <tc-webtag:forumLink forumID="505963" message="Discuss this match" /><br>
