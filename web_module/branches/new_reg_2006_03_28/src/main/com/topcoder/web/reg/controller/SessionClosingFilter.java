@@ -29,7 +29,11 @@ public class SessionClosingFilter implements Filter {
             throws IOException, ServletException {
 
         //log.debug("oh yeah, filtering!!!");
-        HibernateUtils.closeSession();
+        try {
+            chain.doFilter(request, response);
+        } finally {
+            HibernateUtils.closeSession();
+        }
 
 
     }
