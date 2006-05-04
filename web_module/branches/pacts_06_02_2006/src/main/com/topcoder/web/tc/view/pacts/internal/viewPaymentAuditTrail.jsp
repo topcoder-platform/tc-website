@@ -62,6 +62,7 @@
 		<td><b>Description</b></td>
 		<td><b>Status</b></td>
 		<td><b>Type</b></td>
+		<td><b>Method</b></td>
 		<td><b>Net Amount</b></td>
 		<td><b>Gross Amount</b></td>
 		<td><b>Date Printed</b></td>
@@ -76,6 +77,7 @@
 			out.print("<td>"+payments[n].getDescription()+"</td>\n");
 			out.print("<td>"+payments[n].getStatusDesc()+"</td>\n");
 			out.print("<td>"+payments[n].getType()+"</td>\n");
+			out.print("<td>"+payments[n].getMethod()+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getGrossAmount())+"</td>\n");
 			out.print("<td>"+payments[n].getPrintDate()+"</td>\n");

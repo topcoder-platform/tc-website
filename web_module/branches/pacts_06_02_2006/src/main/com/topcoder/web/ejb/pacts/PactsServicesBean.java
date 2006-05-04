@@ -2597,7 +2597,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer insertNote = new StringBuffer(300);
             insertNote.append("INSERT INTO note ");
             insertNote.append(" (text, note_type_id, note_id, submitted_by) ");
-            insertNote.append(" VALUES(?,?,?,?,?,?)");
+            insertNote.append(" VALUES(?,?,?,?)");
             ps = c.prepareStatement(insertNote.toString());
             ps.setBytes(1, DBMS.serializeTextString(n.getText()));
             ps.setInt(2, n.getHeader().getTypeId());
