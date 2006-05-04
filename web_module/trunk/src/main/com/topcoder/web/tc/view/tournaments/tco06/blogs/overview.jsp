@@ -61,6 +61,7 @@
       <tc-webtag:handle coderId="8416646" darkBG="true" />
       <div align="left">
          <ul>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_3">I'm blogging this.</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_2">Algrorithm Semifinal 1: Dropping like flies</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_1">This morning was like Christmas</A></li>
          </ul>
