@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Country;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -10,6 +11,15 @@ import java.util.List;
  *          Create Date: Apr 7, 2006
  */
 public class CountryDAO extends Base {
+
+    public CountryDAO() {
+        super();
+    }
+
+    public CountryDAO(Session session) {
+        super(session);
+    }
+
     public List getCountries() {
         return findAll(Country.class);
     }

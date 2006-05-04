@@ -14,7 +14,7 @@ public class CoderDAOTestCase extends TestCase {
 
     public void testFind() {
 
-        Coder tomek = new CoderDAO().find(new Long(144400));
+        Coder tomek = new CoderDAO(HibernateUtils.getLocalSession()).find(new Long(144400));
 
         assertTrue("could not load tomek", tomek != null);
 
@@ -23,11 +23,11 @@ public class CoderDAOTestCase extends TestCase {
     public void testSaveOrUpdate() {
         try {
             Coder c= TestUtils.makeCoder();
-            new CoderDAO().saveOrUpdate(c);
-            Coder c1= new CoderDAO().find(c.getId());
+            new CoderDAO(HibernateUtils.getLocalSession()).saveOrUpdate(c);
+            Coder c1= new CoderDAO(HibernateUtils.getLocalSession()).find(c.getId());
             assertTrue("new coder does not exist", c1!=null);
         } finally {
-            HibernateUtils.close();
+            HibernateUtils.closeLocal();
         }
 
     }

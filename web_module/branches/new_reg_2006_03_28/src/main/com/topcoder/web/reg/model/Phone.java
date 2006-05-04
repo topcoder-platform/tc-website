@@ -14,7 +14,7 @@ public class Phone extends Base {
 
     private Long id;
     private Integer phoneTypeId;
-    private Long userId;
+    private User user;
     private Boolean primary;
     private String number;
 
@@ -34,13 +34,14 @@ public class Phone extends Base {
         this.phoneTypeId = phoneTypeId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
+
 
     public Boolean getPrimary() {
         return primary;

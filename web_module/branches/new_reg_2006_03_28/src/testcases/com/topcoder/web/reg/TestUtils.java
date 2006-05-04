@@ -26,7 +26,7 @@ public class TestUtils {
         ret.setStatus(new Character('A'));
         ret.setCompCountryCode("840");
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        ret.setCoderType(new CoderTypeDAO().find(CoderType.STUDENT));
+        ret.setCoderType(new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.STUDENT));
 
 
         Address a = new Address();
@@ -35,8 +35,8 @@ public class TestUtils {
         a.setAddress3("address3");
         a.setAddressTypeId(Address.HOME_TYPE_ID);
         a.setCity("city");
-        a.setState(new StateDAO().find("CO"));
-        a.setCountry(new CountryDAO().find("840"));
+        a.setState(new StateDAO(HibernateUtils.getLocalSession()).find("CO"));
+        a.setCountry(new CountryDAO(HibernateUtils.getLocalSession()).find("840"));
         a.setProvince("province");
         a.setZip("zip");
         ret.addAddress(a);
@@ -54,7 +54,7 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        School s = new SchoolDAO().find(new Long(775));//MIT
+        School s = new SchoolDAO(HibernateUtils.getLocalSession()).find(new Long(775));//MIT
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
         cs.setGPA(new Float(3));
@@ -63,11 +63,11 @@ public class TestUtils {
         cs.setViewable(Boolean.TRUE);
         ret.setCurrentSchool(cs);
 
-        for (Iterator it = new NotificationDAO().getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = new NotificationDAO(HibernateUtils.getLocalSession()).getNotifications().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 
-        ret.setTimeZone(new TimeZoneDAO().find(java.util.TimeZone.getDefault()));
+        ret.setTimeZone(new TimeZoneDAO(HibernateUtils.getLocalSession()).find(java.util.TimeZone.getDefault()));
 
         return ret;
     }
@@ -92,8 +92,8 @@ public class TestUtils {
         a.setAddress3("address3");
         a.setAddressTypeId(Address.HOME_TYPE_ID);
         a.setCity("city");
-        a.setState(new StateDAO().find("CO"));
-        a.setCountry(new CountryDAO().find("840"));
+        a.setState(new StateDAO(HibernateUtils.getLocalSession()).find("CO"));
+        a.setCountry(new CountryDAO(HibernateUtils.getLocalSession()).find("840"));
         a.setProvince("province");
         a.setZip("zip");
         ret.addAddress(a);
@@ -111,11 +111,11 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        for (Iterator it = new NotificationDAO().getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = new NotificationDAO(HibernateUtils.getLocalSession()).getNotifications().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 
-        ret.setTimeZone(new TimeZoneDAO().find(java.util.TimeZone.getDefault()));
+        ret.setTimeZone(new TimeZoneDAO(HibernateUtils.getLocalSession()).find(java.util.TimeZone.getDefault()));
 
         return ret;
     }

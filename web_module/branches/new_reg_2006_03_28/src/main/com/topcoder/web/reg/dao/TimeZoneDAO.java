@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.TimeZone;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -10,6 +11,14 @@ import java.util.List;
  *          Create Date: Apr 12, 2006
  */
 public class TimeZoneDAO extends Base {
+
+    public TimeZoneDAO() {
+        super();
+    }
+
+    public TimeZoneDAO(Session session) {
+        super(session);
+    }
 
     public List getTimeZones() {
         return findAll(TimeZone.class);

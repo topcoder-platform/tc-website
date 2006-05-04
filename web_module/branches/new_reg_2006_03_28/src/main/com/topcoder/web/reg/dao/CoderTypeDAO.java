@@ -2,6 +2,7 @@ package com.topcoder.web.reg.dao;
 
 
 import com.topcoder.web.reg.model.CoderType;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -11,6 +12,15 @@ import java.util.List;
  *          Create Date: Apr 28, 2006
  */
 public class CoderTypeDAO extends Base {
+
+    public CoderTypeDAO() {
+        super();
+    }
+
+    public CoderTypeDAO(Session session) {
+        super(session);
+    }
+
     public List getCoderTypes() {
         return findAll(CoderType.class, "status", "A");
     }

@@ -15,9 +15,11 @@ public class Notification extends Base implements Comparable {
     private String status;
     private Integer sort;
     private Set registrationTypes;
+    private Set users;
 
     protected Notification() {
         this.registrationTypes = new HashSet();
+        this.users = new HashSet();
     }
 
     public Integer getId() {
@@ -38,6 +40,14 @@ public class Notification extends Base implements Comparable {
 
     public Set getRegistrationTypes() {
         return Collections.unmodifiableSet(registrationTypes);
+    }
+
+    public Set getUsers() {
+        return Collections.unmodifiableSet(users);
+    }
+
+    public void setUsers(Set users) {
+        this.users = users;
     }
 
     public Object clone() throws CloneNotSupportedException {

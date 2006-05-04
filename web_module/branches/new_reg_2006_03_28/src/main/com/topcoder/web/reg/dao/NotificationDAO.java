@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Notification;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -10,6 +11,14 @@ import java.util.List;
  *          Create Date: Apr 10, 2006
  */
 public class NotificationDAO extends Base {
+
+    public NotificationDAO() {
+        super();
+    }
+
+    public NotificationDAO(Session session) {
+        super(session);
+    }
 
     public List getNotifications() {
         return findAll(Notification.class, "status", "A");

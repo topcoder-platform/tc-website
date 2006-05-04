@@ -2,6 +2,9 @@ package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
 
+import java.util.Set;
+import java.util.Collections;
+
 /**
  * A class to hold address information
  * @author dok
@@ -29,6 +32,7 @@ public class Address extends Base {
     private String countryCode;
 */
     private Country country;
+    private Set users;
 
     public Address() {
 
@@ -140,4 +144,14 @@ public class Address extends Base {
     public void setCountry(Country country) {
         this.country = country;
     }
+
+    public Set getUsers() {
+        return Collections.unmodifiableSet(users);
+    }
+
+    public void setUsers(Set users) {
+        this.users = users;
+    }
+
+
 }

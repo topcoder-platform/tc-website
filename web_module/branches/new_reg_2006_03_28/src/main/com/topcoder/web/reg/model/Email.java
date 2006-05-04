@@ -18,7 +18,7 @@ public class Email extends Base {
     public static final Integer STATUS_ID_FAILED = new Integer(3);
 
     private Long id;
-    private Long userId;
+    private User user;
     private Integer emailTypeId;
     private String address;
     private Boolean primary;
@@ -32,12 +32,12 @@ public class Email extends Base {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getEmailTypeId() {

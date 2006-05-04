@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.State;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -10,6 +11,13 @@ import java.util.List;
  *          Create Date: Apr 7, 2006
  */
 public class StateDAO extends Base {
+    public StateDAO() {
+        super();
+    }
+
+    public StateDAO(Session session) {
+        super(session);
+    }
 
     public List getStates() {
         return findAll(State.class);

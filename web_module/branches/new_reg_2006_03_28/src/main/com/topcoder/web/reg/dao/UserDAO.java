@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.User;
+import org.hibernate.Session;
 
 /**
  * @author dok
@@ -8,6 +9,15 @@ import com.topcoder.web.reg.model.User;
  *          Create Date: Apr 7, 2006
  */
 public class UserDAO extends Base {
+
+    public UserDAO() {
+        super();
+    }
+
+    public UserDAO(Session session) {
+        super(session);
+    }
+
     public User find(Long id) {
         return (User)super.find(User.class, id);
     }
@@ -15,6 +25,6 @@ public class UserDAO extends Base {
     public void saveOrUpdate(User u) {
         super.saveOrUpdate(u);
     }
-    
+
 
 }

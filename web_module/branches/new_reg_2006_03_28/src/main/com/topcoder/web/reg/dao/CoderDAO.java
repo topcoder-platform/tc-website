@@ -4,6 +4,7 @@ import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.model.HSAlgoRating;
 import com.topcoder.web.reg.model.TCAlgoRating;
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 /**
  * @author dok
@@ -11,6 +12,19 @@ import org.hibernate.HibernateException;
  *          Create Date: Apr 7, 2006
  */
 public class CoderDAO extends Base {
+
+    /**
+     * Create a CoderDAO object using the default connection information.
+     */
+    public CoderDAO() {
+        super();
+    }
+
+    public CoderDAO(Session session) {
+        super(session);
+    }
+
+
     public Coder find(Long id) {
         Coder ret = null;
         try {
@@ -49,7 +63,7 @@ public class CoderDAO extends Base {
                 session.save(hsRating);
             }
 
-            
+
             commit();
         } catch (HibernateException e) {
             rollback();

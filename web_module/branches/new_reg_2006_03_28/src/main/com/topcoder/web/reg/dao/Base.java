@@ -1,11 +1,11 @@
 package com.topcoder.web.reg.dao;
 
-import org.hibernate.*;
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.reg.HibernateUtils;
+import org.hibernate.*;
 
-import java.util.List;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author dok
@@ -19,7 +19,11 @@ public abstract class Base {
     protected Session session;
 
     public Base() {
-        init();
+        session = HibernateUtils.getSession();
+    }
+
+    public Base(Session session) {
+        this.session = session;
     }
 
 
@@ -125,10 +129,6 @@ public abstract class Base {
         return ret;
     }
 
-
-    private void init() {
-        session = HibernateUtils.getSession();
-    }
 
     protected void begin() {
         if (transaction == null) {
