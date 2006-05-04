@@ -39,8 +39,8 @@
 Thursday, May 4, 2006<br>
 Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 <br><br>
-Semifinal round 3 proved to be the most exciting so far with a tight
-races and a slew of challenges.   The match started out slow with may 
+Semifinal round 3 proved to be the most exciting so far with tight
+races and a slew of challenges.   The match started out slowly with many 
 competitors taking over half an hour to submit the easy problem.  The
 medium problem didn't prove much easier and it was about an hour
 before anyone had two submissions.  John Dethridge tried to skip the
