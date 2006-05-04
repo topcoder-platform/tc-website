@@ -10,7 +10,7 @@ import java.io.IOException;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 4, 2006
  */
-public class GZIPResponseFilter {
+public class GZIPResponseFilter implements Filter {
 
     public void doFilter(ServletRequest req, ServletResponse res,
                          FilterChain chain) throws IOException, ServletException {
