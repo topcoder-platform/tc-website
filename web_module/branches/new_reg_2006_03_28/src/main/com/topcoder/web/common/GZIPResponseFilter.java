@@ -21,7 +21,7 @@ public class GZIPResponseFilter implements Filter {
             HttpServletRequest request = (HttpServletRequest) req;
             HttpServletResponse response = (HttpServletResponse) res;
             String ae = request.getHeader("accept-encoding");
-            if (ae != null && ae.indexOf("gzip") != -1) {
+            if (ae != null && ae.indexOf("gzip") != -1 && "text/html".equalsIgnoreCase(response.getContentType())) {
                 log.debug("GZIP supported, compressing.");
                 GZIPResponseWrapper wrappedResponse =
                         new GZIPResponseWrapper(response);
