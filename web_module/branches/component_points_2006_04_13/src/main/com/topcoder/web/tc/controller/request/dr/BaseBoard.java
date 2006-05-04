@@ -48,20 +48,17 @@ public abstract class BaseBoard extends BaseProcessor {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
         
+        if (!hasParameter(period_id)) {
+            throw new TCWebException("parameter " + period_id + " expected.");
+        }
+
         if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) && 
             !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        if (!hasParameter(period_id)) {
-            throw new TCWebException("parameter " + period_id + " expected.");
-        }
-
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
         setDefault(period_id, getRequest().getParameter(period_id));   
-
-        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));   
-        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));   
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -88,10 +85,9 @@ public abstract class BaseBoard extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             r.setProperty(DataAccessConstants.SORT_QUERY, query);            
+            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);   
+            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);   
         }
-        r.setProperty(DataAccessConstants.START_RANK, startRank);                       
-        r.setProperty(DataAccessConstants.END_RANK, 
-            String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(period_id, getRequest().getParameter(period_id));
         r.setContentHandle(command);
@@ -100,9 +96,14 @@ public abstract class BaseBoard extends BaseProcessor {
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer board = (ResultSetContainer)m.get(query);
-       
         log.debug("Got " +  board.size() + " rows for board");
-        getRequest().setAttribute(Constants.CODER_LIST_KEY, board);
+
+        // crops data
+        ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
+            Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1);
+        
+        // sets attributes for the jsp
+        getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY, 
             (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
