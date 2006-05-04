@@ -67,7 +67,7 @@
   String coderId = (String)request.getParameter(Constants.CODER_ID);
 %>
 
-<% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){ %>
+<% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="Component Development Points History"/>
