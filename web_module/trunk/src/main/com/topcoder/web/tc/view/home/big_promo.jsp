@@ -13,11 +13,12 @@
 <%-- TCO06 --%>
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 310,179" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="375,72, 490,92" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule" />
-<area shape="rect" alt="" coords="438,96, 490,118" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
-<area shape="rect" alt="" coords="440,120, 490,144" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
+<area shape="rect" alt="" coords="375,64, 490,82" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule" />
+<area shape="rect" alt="" coords="438,88, 490,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
+<area shape="rect" alt="" coords="436,110, 490,130" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
+<area shape="rect" alt="" coords="446,105, 490,156" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
 </map>
-<IMG SRC="/i/home/tco06_onsite_start.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
+<IMG SRC="/i/home/tco06_onsite.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" />
 
 
 <%-- Digital Run 

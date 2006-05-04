@@ -42,7 +42,8 @@ Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
 The fact that only 7 submissions were successful in round 1 was not
 enough to deter the round 2 competitors from the tried and true
 strategy of solving the easy problem first.  Only nicka81 tried a
-different strategy, skipping to the medium problem first.<br><br>
+different strategy, skipping to the medium problem first.
+<br><br>
 But, this easy proved quite a bit more manageable than round one's,
 and 3 competitors submitted it in the first 10 minutes.  After half an hour, all
 but 3 of the competitors had submitted the easy problem, and Eryx and kalinov
