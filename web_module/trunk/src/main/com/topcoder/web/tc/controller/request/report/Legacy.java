@@ -1107,6 +1107,7 @@ public class Legacy extends Base {
             " ,refer" +
             " ,count(*)" +
             " FROM link_hit" +
+            " where timestamp > current - 30 units day " +
             " GROUP BY 1, link, refer" +
             " ORDER BY 1 DESC, link ASC, refer ASC";
 
