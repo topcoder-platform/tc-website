@@ -74,6 +74,8 @@ advanced to the finals.
 
 <%-- EASY --%>
 <h1>Alignment</h1>
+by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<br><br>
 This is a classic dynamic programming problem.  To solve it, we need
 to compute the cost to align the first i characters of A with the
 first j characters of B given that either a) the i<sup>th</sup>
