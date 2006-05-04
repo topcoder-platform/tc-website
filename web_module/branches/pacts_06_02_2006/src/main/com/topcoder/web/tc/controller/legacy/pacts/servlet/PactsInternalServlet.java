@@ -213,6 +213,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         if (
                                 checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
                                 && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(METHOD_CODE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
@@ -607,6 +608,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                 message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
                             if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                                 message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                            if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                                message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                             if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
                                 message += "Payment Description was invalid.<br>\n";
                             if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
@@ -688,6 +691,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                             message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                            message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                         if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
                             message += "Description was invalid.<br>\n";
                         if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
@@ -895,6 +900,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                             message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                            message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("modification_rationale_id"), true))
                             message += "Invalid parameter modification_rationale_id = " + request.getParameter("modification_rationale_id") + ".<br>\n";
                         if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
@@ -1156,14 +1163,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         // Give the JSP the list of Payment Types
         map = dib.getPaymentTypes();
         request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
-
-
+        
+        
+        // Give the JSP the list of Payment Methods
+        map = dib.getPaymentMethods();
+        request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
+        
+        
         // Give the JSP the list of Affidavit Statuss
         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
 
-        // Give the JSP the list of Payment Statuss
+        // Give the JSP the list of Payment Statuses
         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
         request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
 
@@ -1208,6 +1220,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     Long.parseLong(request.getParameter("user_id")),
                     request.getParameter("payment_desc"),
                     Integer.parseInt(request.getParameter("payment_type_id")),
+                    Integer.parseInt(request.getParameter("payment_method_id")),
                     // dpecora 05/03 - fix
                     // Double.parseDouble(request.getParameter(net)),
                     Double.parseDouble(net),
@@ -1311,6 +1324,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         Map map = dib.getPaymentTypes();
         request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+        map = dib.getPaymentMethods();
+        request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
@@ -1334,6 +1349,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 Long.parseLong(request.getParameter("user_id")),
                 request.getParameter("payment_desc"),
                 Integer.parseInt(request.getParameter("payment_type_id")),
+                Integer.parseInt(request.getParameter("payment_method_id")),
                 Double.parseDouble(net),
                 Double.parseDouble(request.getParameter("gross_amount")),
                 Integer.parseInt(request.getParameter("status_id")));
@@ -1757,6 +1773,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
 
         forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
     }
@@ -2047,10 +2064,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
 
         forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
-
     }
 
 
@@ -2069,6 +2086,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         payment.getHeader().setDescription(request.getParameter("payment_desc"));
         payment.getHeader().setTypeId(Integer.parseInt(request.getParameter("payment_type_id")));
+        payment.getHeader().setMethodId(Integer.parseInt(request.getParameter("payment_method_id")));
         payment.setGrossAmount(Double.parseDouble(request.getParameter("gross_amount")));
         // dpecora 05/03 - fix
         // payment._netAmount = Double.parseDouble(request.getParameter(net));

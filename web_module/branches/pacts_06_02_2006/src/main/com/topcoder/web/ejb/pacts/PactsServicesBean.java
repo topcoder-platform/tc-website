@@ -370,15 +370,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (hasPayment) {
                 long paymentId = Long.parseLong(rsc.getItem(0, "payment_id").toString());
                 // Get payment header for affidavit
-                StringBuffer selectPaymentHeader = new StringBuffer(300);
+                StringBuffer selectPaymentHeader = new StringBuffer(400);
                 selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-                selectPaymentHeader.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+                selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
+                selectPaymentHeader.append("pd.net_amount, pd.status_id, s.status_desc, ");
                 selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-                selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
+                selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
                 selectPaymentHeader.append("status_lu s, user u ");
                 selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
                 selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
                 selectPaymentHeader.append("AND pt.payment_type_id = pd.payment_type_id ");
+                selectPaymentHeader.append("AND pm.payment_method_id = pd.payment_method_id ");
                 selectPaymentHeader.append("AND s.status_id = pd.status_id ");
                 selectPaymentHeader.append("AND p.user_id = u.user_id ");
 
@@ -428,15 +430,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectContractDetails.append("WHERE contract_id = " + contractId);
 
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, ");
+        selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("payment_detail pd, status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
         selectPaymentHeaders.append("AND cpx.payment_id = p.payment_id ");
         selectPaymentHeaders.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
         selectPaymentHeaders.append("AND p.user_id = u.user_id ");
         selectPaymentHeaders.append("ORDER BY 1");
@@ -500,15 +503,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
         selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
         selectPaymentDetails.append("pd.payment_type_id, pt.payment_type_desc, pd.payment_desc, ");
+        selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
-        selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, ");
+        selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentDetails.append("AND pa.payment_address_id = pd.payment_address_id ");
         selectPaymentDetails.append("AND s.status_id = pd.status_id ");
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
@@ -534,16 +539,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
         selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
         selectPaymentDetails.append("pd.payment_type_id, pt.payment_type_desc, pd.payment_desc, ");
+        selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
-        selectPaymentDetails.append("status_lu s, modification_rationale_lu mr, payment_type_lu pt, ");
+        selectPaymentDetails.append("status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentDetails.append("AND pdx.payment_id = p.payment_id ");
         selectPaymentDetails.append("AND pd.payment_detail_id = pdx.payment_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentDetails.append("AND pa.payment_address_id = pd.payment_address_id ");
         selectPaymentDetails.append("AND s.status_id = pd.status_id ");
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
@@ -559,13 +566,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         log.debug("dopayment(long, String) called...");
         StringBuffer selectPaymentHeader = new StringBuffer(300);
         selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-        selectPaymentHeader.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeader.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
+        selectPaymentHeader.append("pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
         selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
         selectPaymentHeader.append("status_lu s, user u ");
         selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         selectPaymentHeader.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeader.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentHeader.append("AND s.status_id = pd.status_id ");
         selectPaymentHeader.append("AND p.user_id = u.user_id");
 
@@ -855,8 +864,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserPaymentList(long userId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
         selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
         selectPaymentHeaders.append("status_lu s, user u ");
@@ -864,6 +873,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND u.user_id = " + userId + " ");
         selectPaymentHeaders.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
         selectPaymentHeaders.append("ORDER BY 1");
 
@@ -955,8 +965,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getContractPaymentList(long contractId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
         selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, ");
         selectPaymentHeaders.append("payment_detail pd, status_lu s, user u ");
@@ -964,6 +974,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND cpx.payment_id = p.payment_id ");
         selectPaymentHeaders.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
         selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
         selectPaymentHeaders.append("AND p.user_id = u.user_id ");
         selectPaymentHeaders.append("ORDER BY 1");
@@ -1066,6 +1077,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_TYPE_LIST, rsc);
+        return hm;
+    }
+    
+    /**
+     * Returns the list of all payment methods.
+     *
+     * @return  The list of payment methods
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getPaymentMethods() throws SQLException {
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT payment_method_id, payment_method_desc FROM payment_method_lu ORDER BY 2");
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        HashMap hm = new HashMap();
+        hm.put(PAYMENT_METHOD_LIST, rsc);
         return hm;
     }
 
@@ -1572,6 +1598,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND pd.status_id = " + value);
                 } else if (key.equals(TYPE_CODE)) {
                     whereClauses.append(" AND pd.payment_type_id = " + value);
+                } else if (key.equals(METHOD_CODE)) {
+                    whereClauses.append(" AND pm.payment_method_id = " + value);
                 } else if (key.equals(LOWEST_NET_AMOUNT)) {
                     whereClauses.append(" AND pd.net_amount >= " + value);
                 } else if (key.equals(HIGHEST_NET_AMOUNT)) {
@@ -2250,8 +2278,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
             insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, date_modified, date_due) ");
-            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?)");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?)");
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
@@ -2260,8 +2288,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(5, MODIFICATION_NEW); // modification_rationale_id
             ps.setString(6, p.getHeader().getDescription());
             ps.setInt(7, p.getHeader().getTypeId());
-            ps.setTimestamp(8, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(9, makeTimestamp(p.getDueDate(), true, false));
+            ps.setInt(8, p.getHeader().getMethodId());
+            ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
+            ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
             ps.executeUpdate();
             ps.close();
             ps = null;
@@ -3079,8 +3108,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
             insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, date_modified, date_due) ");
-            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?)");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?)");
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
@@ -3089,8 +3118,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(5, p.getRationaleId());
             ps.setString(6, p.getHeader().getDescription());
             ps.setInt(7, p.getHeader().getTypeId());
-            ps.setTimestamp(8, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(9, makeTimestamp(p.getDueDate(), true, false));
+            ps.setInt(8, p.getHeader().getMethodId());
+            ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
+            ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
             ps.executeUpdate();
             ps.close();
             ps = null;
@@ -3387,7 +3417,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get all the payment detail data
             StringBuffer selectData = new StringBuffer(300);
             selectData.append("SELECT p.payment_id, pd.net_amount, pd.gross_amount, pd.status_id, ");
-            selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.date_due ");
+            selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, pd.date_due ");
             selectData.append("FROM payment p, payment_detail pd ");
             selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
             selectData.append("AND p.payment_id = " + paymentId[i]);
@@ -3407,6 +3437,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
+            p.getHeader().setMethodId(TCData.getTCInt(detailData.getRow(0), "payment_method_id", 1, false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(0), "date_due", null, false));
 
             // All the data modifications happen here
@@ -3472,7 +3503,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // Get all the payment detail data
         StringBuffer selectData = new StringBuffer(300);
         selectData.append("SELECT p.payment_id, pd.net_amount, pd.gross_amount, pd.status_id, ");
-        selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.date_due ");
+        selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, pd.date_due ");
         selectData.append("FROM payment p, payment_detail pd ");
         selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         selectData.append("AND p.payment_id IN(" + paymentList + ") ");
@@ -3493,6 +3524,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(i), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(i), "payment_type_id", 1, false));
+            p.getHeader().setMethodId(TCData.getTCInt(detailData.getRow(i), "payment_method_id", 1, false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(i), "date_due", null, false));
 
             // All the data modifications happen here
@@ -3971,7 +4003,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (printCount > 0 && review == 0) {
                     long pid = TCData.getTCLong(rsc.getRow(i), "payment_id", 0, false);
 
-                    //Matt 4/13/02 - Removed Carraige Return From The Exception Message
+                    //Matt 4/13/02 - Removed Carriage Return From The Exception Message
                     //Front End Uses \n as a Token When Displaying Error
 
                     //throw new PaymentNotReviewedException("Payment " + pid + " has been previously printed.\n" +

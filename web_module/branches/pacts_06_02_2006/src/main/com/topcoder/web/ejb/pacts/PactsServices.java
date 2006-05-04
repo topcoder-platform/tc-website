@@ -64,6 +64,8 @@ public interface PactsServices extends EJBObject {
     Map getNoteTypes() throws RemoteException, SQLException;
 
     Map getPaymentTypes() throws RemoteException, SQLException;
+    
+    Map getPaymentMethods() throws RemoteException, SQLException;
 
     Map getModificationRationales() throws RemoteException, SQLException;
 

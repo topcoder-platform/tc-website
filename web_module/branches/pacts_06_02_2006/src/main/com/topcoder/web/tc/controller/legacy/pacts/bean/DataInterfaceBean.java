@@ -400,6 +400,18 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getPaymentTypes();
     }
+    
+    /**
+     * Returns the list of all payment methods.
+     *
+     * @return  The list of payment methods
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getPaymentMethods() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getPaymentMethods();
+    }
 
     /**
      * Returns the list of all payment modification rationales.
@@ -731,7 +743,8 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
                     key.equals(STATUS_CODE) ||
-                    key.equals(TYPE_CODE))
+                    key.equals(TYPE_CODE) || 
+                    key.equals(METHOD_CODE))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
                     key.equals(HIGHEST_NET_AMOUNT))

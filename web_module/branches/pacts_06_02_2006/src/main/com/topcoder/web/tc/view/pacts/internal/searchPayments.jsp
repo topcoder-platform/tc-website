@@ -15,6 +15,7 @@
 
 <% int statusRowCount = 0;
    int paymentTypeRowCount = 0;
+   int paymentMethodRowCount = 0;
    ResultSetContainer status = (ResultSetContainer) request.getAttribute(PactsConstants.STATUS_CODE_LIST);
    if (status == null) {
       out.println("No Status List!");
@@ -27,6 +28,12 @@
       //paymentType = new ResultSetContainer();
    }
    else paymentTypeRowCount = paymentType.getRowCount();
+   ResultSetContainer paymentMethod = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
+   if (paymentMethod == null) {
+      out.println("No Payment Method List!");
+      //paymentMethod = new ResultSetContainer();
+   }
+   else paymentMethodRowCount = paymentMethod.getRowCount();
    ResultSetContainer.ResultSetRow rsr;
 %>
 
@@ -80,6 +87,16 @@
    for (int n = 0; n < paymentTypeRowCount; n++) {
       rsr = paymentType.getRow(n);
       out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_type_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_type_desc","type",true)+"</option>");
+   } %>
+              </select></td>
+          </tr>
+          <tr>
+            <td>Method:</td>
+<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\">");
+   out.println("              <option value=\"\" selected>Any</option>");
+   for (int n = 0; n < paymentMethodRowCount; n++) {
+      rsr = paymentMethod.getRow(n);
+      out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_method_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_method_desc","method",true)+"</option>");
    } %>
               </select></td>
           </tr>

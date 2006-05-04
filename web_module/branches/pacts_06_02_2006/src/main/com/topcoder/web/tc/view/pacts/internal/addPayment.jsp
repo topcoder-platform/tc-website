@@ -22,6 +22,8 @@
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
 	ResultSetContainer paymentTypes = (ResultSetContainer)
 		request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
+	ResultSetContainer paymentMethods = (ResultSetContainer)
+		request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
 	String message = (String)
 		request.getAttribute("message");
 	if (message == null) {
@@ -51,6 +53,8 @@
 	if (desc == null) desc = "";
 	int type = -1;
 	try { type = Integer.parseInt(request.getParameter("payment_type_id")); } catch (Exception e) {}
+	int method = -1;
+	try { method = Integer.parseInt(request.getParameter("payment_method_id")); } catch (Exception e) {}
 	String net = request.getParameter("net_amount");
 	if (net == null) net = "";
 	String gross = request.getParameter("gross_amount");
@@ -158,39 +162,62 @@ Payment</h2>
 		<input type=text width=25 name="payment_desc" value="<% out.print(desc); %>">
 		</td></tr>
 		<tr>
-		<td><b>Type:</b></td><td>
-		<select name="payment_type_id">
-<%		if (paymentTypes != null) {
-			rowCount = paymentTypes.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = paymentTypes.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCInt(rsr,"payment_type_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-				if (type < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE)) {
-					out.print(" selected");
-				} else if (type < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_TYPE)) {
-					out.print(" selected");
-				} else if (type == s_id) out.print(" selected");
-				out.print(">" + s + "</option>\n");
+			<td><b>Type:</b></td><td>
+			<select name="payment_type_id">
+	<%		if (paymentTypes != null) {
+				rowCount = paymentTypes.getRowCount();
+				for (int n = 0; n < rowCount; n++) {
+					rsr = paymentTypes.getRow(n);
+					out.print("<option value=");
+					s_id = TCData.getTCInt(rsr,"payment_type_id",0,true);
+					out.print(s_id);
+					s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
+					if (type < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_TYPE)) {
+						out.print(" selected");
+					} else if (type < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_TYPE)) {
+						out.print(" selected");
+					} else if (type == s_id) out.print(" selected");
+					out.print(">" + s + "</option>\n");
+				}
 			}
-		}
-%>
-		</select>
-		</td></tr>
+	%>
+			</select>
+			</td>
+		</tr>
 		<tr>
-		<td><b>Net Amount:</b></td><td>
-		<input type=text width=25 name="net_amount" value="<% out.print(net); %>">
-		</td></tr>
+			<td><b>Method:</b></td><td>
+			<select name="payment_method_id">
+	<%		if (paymentMethods != null) {
+				rowCount = paymentMethods.getRowCount();
+				for (int n = 0; n < rowCount; n++) {
+					rsr = paymentMethods.getRow(n);
+					out.print("<option value=");
+					s_id = TCData.getTCInt(rsr,"payment_method_id",0,true);
+					out.print(s_id);
+					s = TCData.getTCString(rsr,"payment_method_desc","default payment method",true);
+					if (method < 0 && s.equals(PactsConstants.DEFAULT_PAYMENT_METHOD)) {
+						out.print(" selected");
+					} else if (method == s_id) out.print(" selected");
+					out.print(">" + s + "</option>\n");
+				}
+			}
+	%>
+			</select>
+			</td>
+		</tr>
 		<tr>
-		<td><b>Gross Amount:</b></td><td>
-		<input type=text width=25 name="gross_amount" value="<% out.print(gross); %>">
-		</td></tr>
-		<tr>
-		<td><b>Date Due:</b></td><td>
-		<input type=text width=25 name="date_due" value="<% out.print(due); %>">
-		</td></tr>
+			<td><b>Net Amount:</b></td><td>
+			<input type=text width=25 name="net_amount" value="<% out.print(net); %>">
+			</td></tr>
+			<tr>
+			<td><b>Gross Amount:</b></td><td>
+			<input type=text width=25 name="gross_amount" value="<% out.print(gross); %>">
+			</td></tr>
+			<tr>
+			<td><b>Date Due:</b></td><td>
+			<input type=text width=25 name="date_due" value="<% out.print(due); %>">
+			</td>
+		</tr>
 
 	</table>
 

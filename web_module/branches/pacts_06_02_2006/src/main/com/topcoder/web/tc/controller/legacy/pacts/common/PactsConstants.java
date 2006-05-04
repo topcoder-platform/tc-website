@@ -150,6 +150,7 @@ public interface PactsConstants {
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
     public static final String NOTE_TYPE_LIST = "note_type_list";
     public static final String PAYMENT_TYPE_LIST = "payment_type_list";
+    public static final String PAYMENT_METHOD_LIST = "payment_method_list";
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
     // Miscellaneous
@@ -251,6 +252,7 @@ public interface PactsConstants {
     public static final String USER_ID = "user_id";
     public static final String STATUS_CODE = "status_code";
     public static final String TYPE_CODE = "type_code";
+    public static final String METHOD_CODE = "method_code";
     public static final String EARLIEST_CREATION_DATE = "earliest_creation_date";
     public static final String LATEST_CREATION_DATE = "latest_creation_date";
     public static final String PAYMENT_ID = "payment_id";
@@ -478,6 +480,7 @@ public interface PactsConstants {
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
     public static final String DEFAULT_PAYMENT_TYPE = "Problem Payment";
+    public static final String DEFAULT_PAYMENT_METHOD = "";
     //public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Inactive";
     //public static final String DEFAULT_PAYMENT_STATUS = "Inactive";
     public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Pending";
