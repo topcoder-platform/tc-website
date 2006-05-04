@@ -23,18 +23,17 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <!-- Body-->
    <tr valign=top>
-      <td valign=top align=center>
-      <div class="bodySpacer">
+      <td valign="top" align="center" style="padding-top: 10px; padding-bottom: 40px; padding-left: 15px; padding-right: 15px;">
 
 <span class="bigTitle">Member Blogs</span>
 <br><br>
-<div align="center">
-<table cellpadding="6" cellspacing="0" width="600">
+<table cellpadding="6" cellspacing="0" width="800">
    <tr>
       <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
       <tc-webtag:handle coderId="21471147" darkBG="true" />
       <div align="left">
          <ul>
+         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_3"><font size="-2">davidyang.blog(Math.Floor(Action));</font></A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_2">Your mission, if you choose to accept it</A></li>
          <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_1">TopCoder's May Madness</A></li>
          </ul>
@@ -82,16 +81,14 @@
       </td>
    </tr>
 </table>
-</div>
 <br><br>
-
         </div>
       </td>
         
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
