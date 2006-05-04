@@ -15,7 +15,6 @@ import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
 
