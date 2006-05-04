@@ -72,7 +72,7 @@ the wildcard round.  misof and fuwenjie survived them though, and
 advanced to the finals.
 </p>
 
-<%-- MEDIUM --%>
+<%-- EASY --%>
 <h1>Alignment</h1>
 This is a classic dynamic programming problem.  To solve it, we need
 to compute the cost to align the first i characters of A with the
@@ -121,7 +121,7 @@ return the count plus the number of marked vertices
 
 
 <%-- HARD --%>
-<h1>FactCount</h1>
+<h1>InverseSoundex</h1>
 by <tc-webtag:handle coderId="7390467" context="algorithm"/>
 <br><br>
 It takes some time to get familiar with the problem and develop some sense of what's going on. We need to think backwards i.e. given a Soundex code, we are trying to count possible original strings. The given code says something about what the original string looked like; it says that certain classes of characters must appear in a certain order. The bulk of the problem is counting in how many ways we can fill the rest in. Here are a few observations to help us with that: 
