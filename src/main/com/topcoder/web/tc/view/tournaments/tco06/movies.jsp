@@ -29,6 +29,8 @@
             <br><A href="/movies/tournament/tco06/05_01_hi.mov">May 1 (compilation)<br>(12.3 MB)</A><br></td>
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/05_02_hi.mov"><img src="/i/tournament/tco06/onsite_movies/05_02_hi.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/05_02_hi.mov">May 2 (compilation)<br>(12.1 MB)</A><br></td>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/room1.mov"><img src="/i/tournament/tco06/onsite_movies/room1.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/room1.mov">cyfra wins Room 1<br>(5.0 MB)</A><br></td>
          </tr>
       </table>
         </div>
@@ -37,7 +39,7 @@
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
