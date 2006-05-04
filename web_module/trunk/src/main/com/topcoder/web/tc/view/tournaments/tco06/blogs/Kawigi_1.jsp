@@ -206,7 +206,7 @@ And David - I <em>swear</em> that's the last DP Lass joke.
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>

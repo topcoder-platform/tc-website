@@ -102,7 +102,7 @@ P.S. Darn time change, it's now 4:41AM PDT... right about now I'd be getting on 
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>

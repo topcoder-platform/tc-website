@@ -72,7 +72,7 @@ As system testing began, the top nine places (<tc-webtag:handle coderId="8355516
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>

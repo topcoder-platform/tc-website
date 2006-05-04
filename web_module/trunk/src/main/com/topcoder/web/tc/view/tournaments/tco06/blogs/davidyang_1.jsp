@@ -59,7 +59,7 @@ The next few days promise to be exciting ones - the "May Madness" of the coding 
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
