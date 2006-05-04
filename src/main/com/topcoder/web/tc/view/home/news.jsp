@@ -9,9 +9,24 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>10:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">misof wins Room 2 of the TCO06</A>
+      </span><br><br>
+      misof and fuwenjie advance to the Finals. andrewzta, po, natori, and nicka81 advance to the WildCard Room.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505962" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>2:35 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06 Semis</A>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06</A>
       </span><br><br>
       cyfra and Petr advance to the Finals. SnapDragon, bladerunner, Ying, and grotmol advance to the WildCard Room.
       </td>
@@ -176,20 +191,6 @@ In division 1 <tc-webtag:handle coderId="7433858" context="algorithm"/> took his
          <A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_program.pdf">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505968" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.18.06<br>12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">.NET 2.0 now supported on TopCoder systems</A>
-      </span><br><br>
-      We've completed our upgrade to our .NET environment. All of our systems (algorithm, marathon, Intel&#174;) now support .NET 2.0.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">full story</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510488">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 

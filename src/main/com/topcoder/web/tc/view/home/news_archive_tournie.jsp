@@ -42,7 +42,8 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 --%>
-<tr class="bodyText"><td nowrap="nowrap">05.03.06 2:35 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06 Semis</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.03.06 10:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">misof wins Room 2 of the TCO06</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.03.06 2:35 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.27.06 6:45 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to SRM 300</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.25.06 3:00 PM - </td><td width="100%"><A href="/?t=sponsor&c=link&link=/pdfs/tournaments/tco06_tshirt.pdf">TCO06 T-shirt</A> [PDF - 1.6MB]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.24.06 3:45 PM - </td><td width="100%"><A href="/pdfs/tournaments/tco06_program.pdf">TCO06 Program</A> [PDF - 3.5MB]</td></tr>
