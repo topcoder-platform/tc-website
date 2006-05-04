@@ -56,7 +56,7 @@ Many were admiring (and fretting) over <tc-webtag:handle coderId="8357090" darkB
 <br /><br />
 <div align="center"><img src="/i/tournament/tco06/blogs/davidyang-03-01.jpg" /></div>
 <br /><br />
-Here’s a picture of <tc-webtag:handle coderId="10574855" darkBG="true" /> studying [handle]andrewzta’s screen.  <tc-webta/g:handle coderId="10574855" darkBG="true" />, the victor of the first round, told me that <tc-webtag:handle coderId="11829284" darkBG="true" /> is the person that first taught him about programming over 8 or 9 years ago.  Nice work!
+Here’s a picture of <tc-webtag:handle coderId="10574855" darkBG="true" /> studying <tc-webtag:handle coderId="11829284" darkBG="true" />'s screen.  <tc-webta/g:handle coderId="10574855" darkBG="true" />, the victor of the first round, told me that <tc-webtag:handle coderId="11829284" darkBG="true" /> is the person that first taught him about programming over 8 or 9 years ago.  Nice work!
 <br /><br />
 <div align="center"><img src="/i/tournament/tco06/blogs/davidyang-03-02.jpg" /></div>
 <br /><br />
