@@ -60,7 +60,7 @@ One last thing - after the round ended, <tc-webtag:handle coderId="270505" darkB
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>

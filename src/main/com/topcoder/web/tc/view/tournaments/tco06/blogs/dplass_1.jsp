@@ -131,7 +131,7 @@ again for TCO 2005, but I did not.</font>
          
 <!-- Right Column-->
         <td width=170 align=right>
-            <jsp:include page="right.jsp">
+            <jsp:include page="../right.jsp">
             <jsp:param name="level1" value="all"/>
             </jsp:include>
          </td>
