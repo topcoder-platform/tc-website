@@ -28,7 +28,7 @@ public class SessionClosingFilter implements Filter {
                          ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        log.debug("oh yeah, filtering!!!");
+        //log.debug("oh yeah, filtering!!!");
         HibernateUtils.closeSession();
 
 
