@@ -19,19 +19,16 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve dr coders board.
+ * A processor to retrieve dr points history.
  * 
  * @author pulky
  * @version 1.0
  */
 public class PointsHistory extends BaseProcessor {
-
-    public final static String DEV_PHASE = "113";
-    public final static String DESIGN_PHASE = "112";
-
     /**
      * The logger to log to.
      */
@@ -42,7 +39,7 @@ public class PointsHistory extends BaseProcessor {
      * Retrieves the points history list for development or design for a particular coder.
      */
      protected void businessProcessing() throws Exception  {
-        // requesting user should be authenticated.
+        // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -52,15 +49,16 @@ public class PointsHistory extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
         }
 
-        if (!hasParameter(Constants.PHASE_ID)) {
-            throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
+        if (!hasParameter(Constants.CODER_ID)) {
+            throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) && 
-            !getRequest().getParameter(Constants.PHASE_ID).equals(DESIGN_PHASE)) {
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DESIGN_PHASE)) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
+        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));   
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -77,13 +75,12 @@ public class PointsHistory extends BaseProcessor {
         if ("".equals(endRank)) {
             endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY);
         } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
-            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY);
+            endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
         }
         setDefault(DataAccessConstants.END_RANK, endRank);
 
         setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));   
         setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));   
-        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));   
 
         // Prepare request for data retrieval
         Request r = new Request();
@@ -101,17 +98,18 @@ public class PointsHistory extends BaseProcessor {
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer board = (ResultSetContainer)m.get(Constants.POINTS_HISTORY_QUERY);
-        log.debug("Got " +  board.size() + " rows for points history");
+        ResultSetContainer history = (ResultSetContainer)m.get(Constants.POINTS_HISTORY_QUERY);
+        log.debug("Got " +  history.size() + " rows for points history");
         
         // crops data
-        ResultSetContainer rsc = new ResultSetContainer(board, 
+        ResultSetContainer rsc = new ResultSetContainer(history, 
             Integer.parseInt(r.getProperty(DataAccessConstants.START_RANK)), 
                 Integer.parseInt(r.getProperty(DataAccessConstants.END_RANK)));
 
+        // sets attributes for the jsp
         getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? 
+            (getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(Constants.VIEW_POINTS_HISTORY_PAGE);

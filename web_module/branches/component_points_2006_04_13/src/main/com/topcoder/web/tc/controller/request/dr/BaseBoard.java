@@ -17,6 +17,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:
@@ -26,10 +27,6 @@ import com.topcoder.web.common.tag.HandleTag;
  * @version 1.0
  */
 public abstract class BaseBoard extends BaseProcessor {
-
-    public final static String DEV_PHASE = "113";
-    public final static String DESIGN_PHASE = "112";
-
     /**
      * The logger to log to.
      */
@@ -51,8 +48,8 @@ public abstract class BaseBoard extends BaseProcessor {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) && 
-            !getRequest().getParameter(Constants.PHASE_ID).equals(DESIGN_PHASE)) {
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) && 
+            !getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DESIGN_PHASE)) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
@@ -107,7 +104,7 @@ public abstract class BaseBoard extends BaseProcessor {
         log.debug("Got " +  board.size() + " rows for board");
         getRequest().setAttribute(Constants.CODER_LIST_KEY, board);
         getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(DEV_PHASE) ? 
+            (getRequest().getParameter(Constants.PHASE_ID).equals(SoftwareComponent.DEV_PHASE) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
         setNextPage(nextpage);

@@ -4,7 +4,8 @@
          com.topcoder.shared.dataAccess.resultSet.*,
          com.topcoder.shared.dataAccess.*,
          com.topcoder.web.common.BaseServlet,
-         com.topcoder.web.tc.Constants" %>
+         com.topcoder.web.tc.Constants,
+         com.topcoder.web.tc.model.SoftwareComponent" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -66,7 +67,7 @@
   String coderId = (String)request.getParameter(Constants.CODER_ID);
 %>
 
-<% if(phaseId.equals("113")){ %>
+<% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="Component Development Points History"/>
@@ -80,7 +81,7 @@
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
-    <% if(phaseId.equals("113")){ %>
+    <% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){ %>
         <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
     <% } else { %>
         <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
@@ -116,7 +117,7 @@
            <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
               <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                  <tr><td class="tableTitle" colspan="6">
-                 <% if(phaseId.equals("113")){%>
+                 <% if(phaseId.equals(SoftwareComponent.DEV_PHASE)){%>
                     Development
                  <% } else { %>
                     Design
