@@ -161,6 +161,7 @@ public class LongContest {
             query.append(" AND u.user_id = rr.coder_id ");
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.long_component_state_id = s.long_component_state_id");
+            query.append(" AND s.example = 0");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);
             ps.setLong(2, roundId);
