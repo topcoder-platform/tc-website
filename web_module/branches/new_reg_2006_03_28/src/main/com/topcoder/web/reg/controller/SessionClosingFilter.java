@@ -13,15 +13,11 @@ import java.io.IOException;
  */
 public class SessionClosingFilter implements Filter {
     protected static final Logger log = Logger.getLogger(SessionClosingFilter.class);
-    private FilterConfig filterConfig = null;
 
-    public void init(FilterConfig filterConfig)
-            throws ServletException {
-        this.filterConfig = filterConfig;
+    public void init(FilterConfig filterConfig) {
     }
 
     public void destroy() {
-        this.filterConfig = null;
     }
 
     public void doFilter(ServletRequest request,
