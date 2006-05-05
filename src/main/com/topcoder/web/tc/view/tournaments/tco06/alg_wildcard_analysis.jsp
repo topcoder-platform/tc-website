@@ -32,7 +32,7 @@
 </div>
 
 <p>
-<span class="bigTitle">John Dethridge wins the WildCard</span>
+<span class="bigTitle">andrewzta wins the WildCard</span>
 <br><br>
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 <tc-webtag:forumLink forumID="505964" message="Discuss this match" /><br>

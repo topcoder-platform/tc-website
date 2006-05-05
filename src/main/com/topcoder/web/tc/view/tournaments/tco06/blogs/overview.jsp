@@ -38,6 +38,14 @@ font-size: 10px;
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_6">"An afternoon excursion..."</span></A><br>
+      [May 4 - 9:35 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/davidyang_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="21471147" darkBG="true" /></span>
       </td>
