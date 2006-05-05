@@ -223,7 +223,7 @@ Vectors:<br>
 <br><br>
 STL:<br>
 <a href="http://www.sgi.com/tech/stl/">STL Programmer's Guide</a><br>
-<a href="http://www.topcoder.com/index?t=features&c=feat_082803">A Crash Course in the C++ Standard Template Library</a>
+<a href="/tc?module=Static&d1=features&d2=082803">A Crash Course in the C++ Standard Template Library</a>
 
 <br><br>
 To find out more detailed information about Google&#153; Code Jam Europe, including a list of the prizes, please read the
