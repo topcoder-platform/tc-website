@@ -2538,7 +2538,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
             else
-                throw new NavigationException("Payments Being Updatd in the Background");
+                throw new NavigationException("Payments Being Updated in the Background");
 
         } catch (NumberFormatException e) {
             throw new NavigationException("One or more of the Payment IDs specified is invalid.");

@@ -62,7 +62,11 @@
 <%			out.print(payment.getHeader().getType());
 %>
 		</td></tr>
-
+		<tr>
+		<td><b>Method:</b></td><td>
+<%			out.print(payment.getHeader().getMethod());
+%>
+		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td>
 <%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
