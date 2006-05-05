@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.04.06<br>9:40 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">andrewzta wins the WildCard Room of the TCO06</A>
+      </span><br><br>
+      andrewzta and natori advance to the Finals.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505964" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.04.06<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">tomek wins Room 3 of the TCO06</A>
@@ -160,20 +175,6 @@ of the problems left just enough space for challenge opportunities.
          <A href="/pdfs/tournaments/tco06_tshirt.pdf">view</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="505970" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.25.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=digital_run&d2=description">Introducing The Digital Run</A>
-      </span><br><br>
-      The Digital Run marks another stride for TopCoder in recognizing talent through competition. Essentially, the Digital Run will reward the top software designers and developers, giving them placement points based on their performance.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=digital_run&d2=description">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505969" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
