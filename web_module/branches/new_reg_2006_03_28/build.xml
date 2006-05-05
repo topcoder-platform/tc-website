@@ -1138,6 +1138,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
+                <include name="common-functions.tld"/>
             </webinf>
             <fileset dir="${java}/com/topcoder/web/reg/view">
                 <include name="**/*.jsp"/>
@@ -1228,7 +1229,7 @@
     </target>
 
     <target name="run_reg_tests" depends="compile_tests" description="run junit tests">
-        <junit printsummary="${junitsummary}" fork="yes">
+<!--        <junit printsummary="${junitsummary}" fork="yes">
             <classpath refid="class.path"/>
             <formatter type="xml"/>
             <batchtest todir="${testclasses}">
@@ -1236,6 +1237,13 @@
                     <include name="com/topcoder/web/reg/**/*TestCase.class"/>
                 </fileset>
             </batchtest>
+        </junit>
+        -->
+
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path"/>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.reg.RegTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
