@@ -832,7 +832,7 @@ public class AddressBean extends BaseEJB {
      * @throws EJBException
      */
     public void setZip(long addressId, String zip, String dataSource) {
-        log.debug("setZip called...addressId: " + addressId + " zip: " + zip);
+        log.debug("setPostalCode called...addressId: " + addressId + " zip: " + zip);
 
         Context ctx = null;
         PreparedStatement ps = null;

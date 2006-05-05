@@ -50,9 +50,9 @@ public class InternalDispatchUserProfileList implements PactsConstants {
         Map search = new HashMap();
 
 /*
-    public static final String FIRST_NAME = "first_name";
+    public static final String GIVEN_NAME = "first_name";
     public static final String MIDDLE_NAME = "middle_name";
-    public static final String LAST_NAME = "last_name";
+    public static final String SURNAME = "last_name";
     public static final String HAS_ACTIVE_CONTRACTS = "has_active_contracts";
     public static final String HAS_PENDING_AFFIDAVITS = "has_pending_affidavits";
     public static final String HAS_TAX_FORMS_ON_FILE = "has_tax_forms_on_file";

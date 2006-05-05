@@ -140,7 +140,7 @@ public class Contact
       result.setCity( getCity() );
       result.setState( (State) getState().clone() );
       result.setCountry( (Country) getCountry().clone() );
-      result.setZip( getZip() );
+      result.setPostalCode( getPostalCode() );
       result.setPhone( getPhone() );
       result.setFax( getFax() );
       result.setEmail( getEmail() );

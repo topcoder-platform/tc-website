@@ -91,7 +91,7 @@
 
 <tr>
     <td colspan="2" class="errorText" align="center" nowrap="nowrap">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -99,13 +99,13 @@
         <span class="errorText">*</span> Given Name
     </td>
     <td align="left" nowrap="nowrap">
-        <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="15" maxlength="50"/>
+        <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="50"/>
     </td>
 </tr>
 
 <tr>
     <td colspan="2" class="errorText" align="center" nowrap="nowrap">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -113,7 +113,7 @@
         <span class="errorText">*</span> Surname
     </td>
     <td align="left" nowrap="nowrap">
-        <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="15" maxlength="50"/>
+        <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="50"/>
     </td>
 </tr>
 
@@ -250,7 +250,7 @@
 </tr>
 <tr>
     <td colspan="2" class="errorText" align="center" nowrap="nowrap">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -258,7 +258,7 @@
         <span class="errorText">*</span> Postal Code
     </td>
     <td align="left" nowrap="nowrap">
-        <tc-webtag:textInput name="<%=Constants.ZIP%>" size="10" maxlength="15"/>
+        <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="10" maxlength="15"/>
     </td>
 </tr>
 

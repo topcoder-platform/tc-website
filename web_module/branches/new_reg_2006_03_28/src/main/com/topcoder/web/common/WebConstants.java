@@ -19,9 +19,9 @@ public interface WebConstants {
     public static String PASSWORD_CONFIRM="pac";
     public static String EMAIL="em";
     public static String EMAIL_CONFIRM="emc";
-    public static String FIRST_NAME="fn";
+    public static String GIVEN_NAME ="fn";
     public static String MIDDLE_NAME="mn";
-    public static String LAST_NAME="ln";
+    public static String SURNAME ="ln";
     public static String ADDRESS1="a1";
     public static String ADDRESS2="a2";
     public static String ADDRESS3="a3";
@@ -29,7 +29,7 @@ public interface WebConstants {
     public static String STATE_CODE="sc";
     public static String PROVINCE="prov";
     public static String CITY="city";
-    public static String ZIP="zip";
+    public static String POSTAL_CODE ="zip";
     public static String PHONE_NUMBER="ph";
 
     //secondary reg parameters

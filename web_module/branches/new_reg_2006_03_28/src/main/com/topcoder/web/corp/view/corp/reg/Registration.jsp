@@ -154,7 +154,7 @@
                     </td>
                 </tr>
 
-<!-- ZIP CODE -->
+<!-- POSTAL_CODE CODE -->
                 <tr>
                     <td colspan="2" class="errorTextEven">
                         <tc-webtag:errorIterator id="err" name="prim-company-zip"><%=err%><br></tc-webtag:errorIterator>
