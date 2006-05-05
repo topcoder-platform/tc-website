@@ -23,7 +23,7 @@
         <property name="city"/>
         <many-to-one name="state" column="state_code" class="State"/>
         <many-to-one name="country" column="country_code" class="Country"/>
-        <property name="postalCode" code="zip"/>
+        <property name="postalCode" column="zip"/>
         <property name="province"/>
     </class>
 </hibernate-mapping>
