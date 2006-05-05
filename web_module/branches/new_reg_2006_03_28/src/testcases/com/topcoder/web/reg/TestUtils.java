@@ -38,7 +38,7 @@ public class TestUtils {
         a.setState(new StateDAO(HibernateUtils.getLocalSession()).find("CO"));
         a.setCountry(new CountryDAO(HibernateUtils.getLocalSession()).find("840"));
         a.setProvince("province");
-        a.setZip("zip");
+        a.setPostalCode("zip");
         ret.addAddress(a);
 
         Email e = new Email();
@@ -95,7 +95,7 @@ public class TestUtils {
         a.setState(new StateDAO(HibernateUtils.getLocalSession()).find("CO"));
         a.setCountry(new CountryDAO(HibernateUtils.getLocalSession()).find("840"));
         a.setProvince("province");
-        a.setZip("zip");
+        a.setPostalCode("zip");
         ret.addAddress(a);
 
         Email e = new Email();

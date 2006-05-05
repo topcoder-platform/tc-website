@@ -28,8 +28,39 @@ public class Constants implements WebConstants {
     public static final String GPA = "gpa";
     public static final String GPA_SCALE = "gpas";
     public static final String VISIBLE_SCHOOL = "vschl";
+    public static final String USER = "regUser";
 
     public static final String FIELDS = "fields";
+
+
+    private final static String PUNCTUATION = "-_.{}[]()";
+    public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" + PUNCTUATION;
+    public final static String PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "abcdefghijklmnopqrstuvwxyz" +
+            "0123456789" + PUNCTUATION;
+
+    public static int MIN_HANDLE_LENGTH;
+    public static int MAX_HANDLE_LENGTH;
+    public static int MIN_PASSWORD_LENGTH;
+    public static int MAX_PASSWORD_LENGTH;
+    public static int MAX_GIVEN_NAME_LENGTH;
+    public static int MAX_SURNAME_LENGTH;
+    public static int MAX_MIDDLE_NAME_LENGTH;
+    public static int MAX_ADDRESS_LENGTH;
+    public static int MAX_CITY_LENGTH;
+    public static int MAX_POSTAL_CODE_LENGTH;
+    public static int MAX_PROVINCE_LENGTH;
+    public static int MAX_TITLE_LENGTH;
+    public static int MAX_COMPANY_NAME_LENGTH;
+    public static int MAX_EMAIL_LENGTH;
+    public static int MAX_PHONE_LENGTH;
+    public static int MAX_QUOTE_LENGTH;
+
+
+
+
 
     private Constants() {
 

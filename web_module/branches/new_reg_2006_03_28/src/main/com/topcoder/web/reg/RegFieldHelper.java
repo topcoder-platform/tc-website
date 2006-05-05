@@ -32,14 +32,14 @@ public class RegFieldHelper {
     private static Set secondarySoftwareFields = new HashSet();
 
     static {
-        mainCompFields.add(Constants.FIRST_NAME);
-        mainCompFields.add(Constants.LAST_NAME);
+        mainCompFields.add(Constants.GIVEN_NAME);
+        mainCompFields.add(Constants.SURNAME);
         mainCompFields.add(Constants.ADDRESS1);
         mainCompFields.add(Constants.ADDRESS2);
         mainCompFields.add(Constants.ADDRESS3);
         mainCompFields.add(Constants.CITY);
         mainCompFields.add(Constants.STATE_CODE);
-        mainCompFields.add(Constants.ZIP);
+        mainCompFields.add(Constants.POSTAL_CODE);
         mainCompFields.add(Constants.PROVINCE);
         mainCompFields.add(Constants.COUNTRY_CODE);
         mainCompFields.add(Constants.PHONE_NUMBER);
@@ -66,8 +66,8 @@ public class RegFieldHelper {
 
 
     static {
-        mainHSFields.add(Constants.FIRST_NAME);
-        mainHSFields.add(Constants.LAST_NAME);
+        mainHSFields.add(Constants.GIVEN_NAME);
+        mainHSFields.add(Constants.SURNAME);
         mainHSFields.add(Constants.CITY);
         mainHSFields.add(Constants.STATE_CODE);
         mainHSFields.add(Constants.COUNTRY_CODE);
@@ -82,14 +82,14 @@ public class RegFieldHelper {
     }
 
     static {
-        mainCorpFields.add(Constants.FIRST_NAME);
-        mainCorpFields.add(Constants.LAST_NAME);
+        mainCorpFields.add(Constants.GIVEN_NAME);
+        mainCorpFields.add(Constants.SURNAME);
         mainCorpFields.add(Constants.ADDRESS1);
         mainCorpFields.add(Constants.ADDRESS2);
         mainCorpFields.add(Constants.ADDRESS3);
         mainCorpFields.add(Constants.CITY);
         mainCorpFields.add(Constants.STATE_CODE);
-        mainCorpFields.add(Constants.ZIP);
+        mainCorpFields.add(Constants.POSTAL_CODE);
         mainCorpFields.add(Constants.PROVINCE);
         mainCorpFields.add(Constants.COUNTRY_CODE);
         mainCorpFields.add(Constants.PHONE_NUMBER);
@@ -105,14 +105,14 @@ public class RegFieldHelper {
     }
 
     static {
-        mainSoftwareFields.add(Constants.FIRST_NAME);
-        mainSoftwareFields.add(Constants.LAST_NAME);
+        mainSoftwareFields.add(Constants.GIVEN_NAME);
+        mainSoftwareFields.add(Constants.SURNAME);
         mainSoftwareFields.add(Constants.ADDRESS1);
         mainSoftwareFields.add(Constants.ADDRESS2);
         mainSoftwareFields.add(Constants.ADDRESS3);
         mainSoftwareFields.add(Constants.CITY);
         mainSoftwareFields.add(Constants.STATE_CODE);
-        mainSoftwareFields.add(Constants.ZIP);
+        mainSoftwareFields.add(Constants.POSTAL_CODE);
         mainSoftwareFields.add(Constants.PROVINCE);
         mainSoftwareFields.add(Constants.COUNTRY_CODE);
         mainSoftwareFields.add(Constants.PHONE_NUMBER);

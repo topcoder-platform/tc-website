@@ -1,6 +1,9 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.Constants;
 
 /**
  * @author dok
@@ -10,8 +13,22 @@ import com.topcoder.web.common.BaseProcessor;
 abstract class Base extends BaseProcessor {
 
 
+    private User user = null;
+
     protected void businessProcessing() throws Exception {
         registrationProcessing();
+    }
+
+    protected User getRegUser() {
+        if (user==null) {
+            if (userLoggedIn()) {
+                user = (User)getRequest().getSession().getAttribute(Constants.USER);
+                if (user==null) {
+                    user = new UserDAO().find(new Long(getUser().getId()));
+                }
+            }
+        }
+        return user;
     }
 
     abstract protected void registrationProcessing() throws Exception;

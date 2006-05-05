@@ -33,13 +33,8 @@ public class Login extends BaseProcessor {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
-        // hack would be to parse out server name from //.../ in next page
-        // find server name from sessionInfo
-        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
-        log.debug("rememberUser: " + rememberUser);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */

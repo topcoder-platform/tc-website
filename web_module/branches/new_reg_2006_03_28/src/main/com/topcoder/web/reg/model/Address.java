@@ -22,7 +22,7 @@ public class Address extends Base {
     private String address2;
     private String address3;
     private String city;
-    private String zip;
+    private String postalCode;
     private String province;
 /*
     private String stateCode;
@@ -86,12 +86,12 @@ public class Address extends Base {
         this.city = city;
     }
 
-    public String getZip() {
-        return zip;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getProvince() {
