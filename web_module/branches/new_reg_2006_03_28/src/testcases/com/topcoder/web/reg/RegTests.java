@@ -15,7 +15,8 @@ public class RegTests extends TestCase {
         final TestSuite suite = new TestSuite();
 
         //dao
-/*
+
+
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
@@ -23,7 +24,6 @@ public class RegTests extends TestCase {
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
-*/
         suite.addTest(new TestSuite(UserDAOTestCase.class));
 
         return suite;

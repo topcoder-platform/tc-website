@@ -1,7 +1,6 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.model.User;
 import org.hibernate.event.SaveOrUpdateEventListener;
 
 /**
@@ -15,9 +14,6 @@ public class SaveListener implements SaveOrUpdateEventListener {
     public void onSaveOrUpdate(org.hibernate.event.SaveOrUpdateEvent saveOrUpdateEvent) throws org.hibernate.HibernateException {
         log.debug("name: " + saveOrUpdateEvent.getEntityName());
         Thread.dumpStack();
-        if (saveOrUpdateEvent.getObject() instanceof User) {
-            log.debug("user: " + ((User)saveOrUpdateEvent.getEntity()).getHandle());
-        }
     }
 
 }

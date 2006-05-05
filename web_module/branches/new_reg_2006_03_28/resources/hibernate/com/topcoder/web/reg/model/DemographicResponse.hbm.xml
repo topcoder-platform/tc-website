@@ -7,9 +7,9 @@
 
     <class name="DemographicResponse" table="response">
         <composite-id name="id" class="DemographicResponse$Identifier">
-            <key-property name="userId" type="long" column="user_id"/>
-            <key-property name="demographicQuestionId" type="long" column="demographic_question_id"/>
-            <key-property name="demographicAnswerId" type="long" column="demographic_answer_id"/>
+            <key-property name="userId" type="long" column="user_id" access="field"/>
+            <key-property name="demographicQuestionId" type="long" column="demographic_question_id" access="field"/>
+            <key-property name="demographicAnswerId" type="long" column="demographic_answer_id" access="field"/>
         </composite-id>
         <property name="response" column="demographic_response" access="field"/>
     </class>

@@ -11,32 +11,32 @@
                 <param name="sequence_name">main_sequence</param>
             </generator>
         </id>
-        <property name="firstName" column="first_name"/>
-        <property name="middleName" column="middle_name"/>
-        <property name="lastName" column="last_name"/>
-        <property name="handle"/>
-        <property name="status"/>
-        <property name="password"/>
-        <property name="activationCode" column="activation_code"/>
-        <many-to-one name="timeZone" column="timezone_id" class="TimeZone"/>
+        <property name="firstName" column="first_name" access="field"/>
+        <property name="middleName" column="middle_name" access="field"/>
+        <property name="lastName" column="last_name" access="field"/>
+        <property name="handle" access="field"/>
+        <property name="status" access="field"/>
+        <property name="password" access="field"/>
+        <property name="activationCode" column="activation_code" access="field"/>
+        <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
 
-        <set name="addresses" inverse="true" table="user_address_xref" cascade="save-update">
-            <key column="user_id"/>
-            <many-to-many column="address_id" class="Address"/>
-        </set>
-        <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true">
-            <key column="login_id"/>
+        <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true" access="field">
+            <key column="login_id" not-null="true"/>
             <one-to-many class="UserGroup"/>
         </set>
-        <set name="emailAddresses" cascade="save-update" inverse="true">
-            <key column="user_id"/>
+        <set name="emailAddresses" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
             <one-to-many class="Email"/>
         </set>
-        <set name="phoneNumbers" cascade="save-update" inverse="true">
-            <key column="user_id"/>
+        <set name="phoneNumbers" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
             <one-to-many class="Phone"/>
         </set>
-        <set name="notifications" inverse="true" table="user_notify_xref" outer-join="false">
+        <set name="addresses" table="user_address_xref" cascade="save-update" access="field">
+            <key column="user_id" not-null="true"/>
+            <many-to-many column="address_id" class="Address"/>
+        </set>
+        <set name="notifications" table="user_notify_xref" cascade="save-update" access="field">
             <key column="user_id" not-null="true"/>
             <many-to-many column="notify_id" class="Notification"/>
         </set>
@@ -48,11 +48,11 @@
         -->
         <joined-subclass name="Coder" table="coder">
             <key column="coder_id"/>
-            <property name="memberSince" type="timestamp" column="member_since"/>
-            <property name="quote"/>
-            <many-to-one name="coderType" column="coder_type_id" class="CoderType"/>
-            <property name="compCountryCode" column="comp_country_code"/>
-            <one-to-one name="currentSchool" class="CurrentSchool" constrained="false" cascade="save-update"/>
+            <property name="memberSince" type="timestamp" column="member_since" access="field"/>
+            <property name="quote" access="field"/>
+            <many-to-one name="coderType" column="coder_type_id" class="CoderType" access="field" cascade="none"/>
+            <property name="compCountryCode" column="comp_country_code" access="field"/>
+            <one-to-one name="currentSchool" class="CurrentSchool" constrained="false" cascade="save-update" access="field" fetch="select"/>
         </joined-subclass>
 
     </class>

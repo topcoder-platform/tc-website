@@ -11,19 +11,18 @@
                 <param name="sequence_name">ADDRESS_SEQ</param>
             </generator>
         </id>
-        <set name="users" inverse="true" table="user_address_xref">
+        <set name="users" table="user_address_xref" inverse="true" access="field">
             <key column="address_id"/>
             <many-to-many column="user_id" class="User"/>
         </set>
-
-        <property name="addressTypeId" column="address_type_id"/>
-        <property name="address1"/>
-        <property name="address2"/>
-        <property name="address3"/>
-        <property name="city"/>
-        <many-to-one name="state" column="state_code" class="State"/>
-        <many-to-one name="country" column="country_code" class="Country"/>
-        <property name="postalCode" column="zip"/>
-        <property name="province"/>
+        <property name="addressTypeId" column="address_type_id" access="field"/>
+        <property name="address1" access="field"/>
+        <property name="address2" access="field"/>
+        <property name="address3" access="field"/>
+        <property name="city" access="field"/>
+        <many-to-one name="state" column="state_code" class="State" access="field"/>
+        <many-to-one name="country" column="country_code" class="Country" access="field"/>
+        <property name="postalCode" column="zip" access="field"/>
+        <property name="province" access="field"/>
     </class>
 </hibernate-mapping>
