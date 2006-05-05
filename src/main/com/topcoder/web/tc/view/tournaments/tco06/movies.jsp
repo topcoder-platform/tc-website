@@ -33,10 +33,14 @@
             <br><A href="/movies/tournament/tco06/05_03_hi.mov">May 3 (compilation)<br>(12.0 MB)</A><br></td>
          </tr>
          <tr>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/gameworks.mov"><img src="/i/tournament/tco06/onsite_movies/gameworks.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/gameworks.mov">AMD event at Gameworks arcade<br>(3.5 MB)</A><br></td>
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/room1.mov"><img src="/i/tournament/tco06/onsite_movies/room1.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/room1.mov">cyfra wins Room 1<br>(5.0 MB)</A><br></td>
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/room2.mov"><img src="/i/tournament/tco06/onsite_movies/room2.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/room2.mov">misof wins Room 2<br>(2.5 MB)</A><br></td>
+         </tr>
+         <tr>
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/room2.mov"><img src="/i/tournament/tco06/onsite_movies/room3.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/room3.mov">tomek wins Room 3<br>(3.2 MB)</A><br></td>
          </tr>
