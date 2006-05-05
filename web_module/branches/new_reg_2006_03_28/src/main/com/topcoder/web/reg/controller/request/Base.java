@@ -25,8 +25,13 @@ abstract class Base extends BaseProcessor {
                 user = (User)getRequest().getSession().getAttribute(Constants.USER);
                 if (user==null) {
                     user = new UserDAO().find(new Long(getUser().getId()));
+                    log.debug("get user from the dao");
+                } else {
+                    log.debug("got user from request");
                 }
             }
+        } else {
+            log.debug("got user from processor");
         }
         return user;
     }
