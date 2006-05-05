@@ -34,87 +34,100 @@
 <p>
 <span class="bigTitle">John Dethridge wins the WildCard</span>
 <br><br>
-<img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-<tc-webtag:forumLink forumID="505779" message="Discuss this match" /><br>
-Friday, October 14, 2006<br>
-Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
-<br><br><br>
-The wildcard round for the 2006 TopCoder Open started bright and early this morning at 8 AM.  This round served as a second chance for twelve of the finalists to try for a spot in today's final championship round.  A high number of submissions made this round especially exciting, as the rankings changed several times.  Five coders were able to submit all three problems.  gawry had the highest submission score on the 250, with 206.01 points.  John Dethridge had the fastest submissions on both the 500 and 1000-point problems, for 361.55 points and an amazing 903.24 points, respectively.  There was a lot of action during the challenge phase but only two challenges proved successful.  Many submissions were brought down during the system test phase, but the top two held their ground and will move on to the final round.  Congratulations to John Dethridge and gawry for passing all three problem submissions and getting their chance to win the championship!
+<img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<tc-webtag:forumLink forumID="505964" message="Discuss this match" /><br>
+Thursday, May 4, 2006<br>
+Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<br><br>
+The wildcard round has always proved to be one of the most exciting
+parts of TopCoder finals.  The competitors are already all warmed up,
+and the competition is always extremely fierce.  TCO '06 was certainly
+no exception and no one was sure what would happen until the system
+test finished.
+<br><br>
+Most of the 12 competitors breezed through the easy problem, almost
+all of them solving it in the first 15 minutes (it took po only 7).
+The medium problem proved quite difficult for everyone though.
+Only reid was able to submit it quickly, for 363 points.  natori
+checked in next, but for only 281.  ploh and andrewzta were not far
+behind, each submitting it with about half an hour to go.  But, they
+would all have to hope reid would fail a problem, as he scored a solid
+616 on the hard, and saved plenty of time to test his code and work on
+challenges.  The other competitors were far from calling it quits
+though, as both andrewzta and SnapDragon submitted the hard problem in
+the final minutes of the round.  Since reid had to resubmit the
+medium, this left andrewzta on top, followed by reid in second, and
+SnapDragon in third.  Of the competitors with only easy and medium
+submissions, natori stood on top, over 100 points above the next
+coder.
+<br><br> 
+The challenge phase was not so exciting as the coding phase, but it
+did result in ploh netting 75 points at the expense of reid and
+JongMan's mediums.  Unfortunately for reid and SnapDragon, the dust
+had not settled yet, and the system testing phase brought down both of
+their hard submissions.  This left andrewzta on top, with the only
+successful hard submission from any of the rounds so far.  natori, the
+only one to successfully solve the medium problem, took second.  Good
+luck to everyone in the finals tomorrow!
 </p>
 
-<h1>CaterpillarTree</h1>
-by <tc-webtag:handle coderId="269554" context="algorithm"/>
-<br><br>
-Caterpillar trees have some theoretical importance in graph theory. For one thing, a caterpillar tree will always have a graceful labeling (a way to label the nodes in tree with distinct integers from 0 to m such that the edge-differences are all integers 1 to m).
-<br><br>
-Since each node in the tree requires two characters input (except the start node), the maximum size of the input tree is 1251 nodes. So a O(N2) algorithm should be enough, and that's what I'll describe here. It's not very hard to turn this into an O(N) solution, but I'll leave that as an exercise to the reader.
-<br><br>
-The problem asked for the fewest number of nodes to remove to end up with a caterpillar tree. This is really the same thing as finding the largest subtree in the given tree so that the subtree is a caterpillar tree. The easiest way to find the largest such subtree is to consider all possible stalks in the subtree. This can be done by testing all nodes as potential start nodes in the stalk. Since it makes no sense for the stalk to begin on something other than a leaf node this can be optimized a bit, even though it's not really necessary. For each start node we do a depth first search, exploring all possible paths in the tree. When doing this traversal, we make sure to keep track on the number of nodes that we touch but never visit in the current path; the touched nodes are part of the caterpillar tree. Whenever the traversal should backtrack, we have a potential stalk. Since we during the recursion kept track of the number of touched nodes, we know the size of the caterpillar tree if the current stalk is used. 
-<br><br>
-If one tries to simplify the problem by assuming that the optimal solution would always be reached by selecting the longest path in the original tree as the stalk to use, one would fail. A counterexample is a graph that has one node with 100 neighbors, but where this node is not on the longest path. 
-
-<h1>TriangleRooks</h1>
+<h1>TrafficMonitor</h1>
 by <tc-webtag:handle coderId="251317" context="algorithm"/>
 <br><br>
-Each step in the given sequence provides some information about the columns and rows of the board.
-If the sequence ever increases by more than 1 or decreases by more than 1 we know something is
-fishy.  In addition, we know that moving horizontally can only add rooks, while moving vertically
-can only subtract rooks.  If the input doesn't agree with either of these two observations, we can
-return an empty array.  Assuming neither of these oddities occurs, we can process the sequence as
-follows.  Each column we pass potentially gives us a rook to place.  
-These rooks are added to a stack, so the rooks on top occur in later columns.  When we pass a
-row that requires a rook, we pop a column off the stack and place the rook.  Clearly placing the
-last possible rook will guarantee our ordering is desirable (early rows should get earlier rooks).
-The only potential qualm would be that placing a rook in the wrong column could ruin the board, thus
-making the placement of future rooks impossible.  Fortunately, this is not an issue.  If there is a
-feasible board setup that places the rook in the currently observed row earlier, and thus
-uses the column at the top of the stack in a higher row, then we could swap these two rooks yielding another
-feasible (and better) assignment.
+The problem begins with an important structural consideration: each pair of nodes is connected by at
+most 1 path.  This is another way of saying the underlying graph of the network is a forest.  Since
+(non-trivial) forests always have leaves, we can use a leaf-driven approach to solve the task.  The
+link connected to a leaf must be monitored, so this forces one of two vertices to have a monitor
+(the leaf or its neighbor).
+<br><br>
+It is always optimal to choose the leaf's neighbor (why?), so we do so, and remove all newly monitored
+edges from the network.  This leaves a smaller network, which can be simiilarly solved (by
+induction).
 
-<h1>XORing</h1>
-by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<h1>BishopOnTheBoard</h1>
+by <tc-webtag:handle coderId="7485898" context="algorithm"/>
 <br><br>
-It may not be obvious, but this problem is strongly related to linear algebra, though with slightly different operations then you are used to in linear algebra problems. Instead of addition, we have the XOR operation. However, it turns out that XOR has many of the same properties as addition. Both are commutative, associative, and distributive. There is also an identity value and an inverse function for each of them.
+In case of <b>k</b> equals to 1, it is easy to calculate the answer by trying all possible moves. 
+Let's find solution for cases <b>k</b> &gt; 1. If  <b>x</b> &gt; 0, 
+let's solve the problem for the parts of the board to the left of <b>x</b> 
+and to the right independently. So now we can assume that the bishop stands 
+at the leftmost column of the board. 
 <br><br>
-Now, lets look at a simple example, that should make it clear how these similarities come into play. Lets say we have the input M = [11,10], t = [01]. We can represent this as two equations: 
-<pre>
-a<sub>0</sub>*1 ^ a<sub>1</sub>*1 = 0
-a<sub>0</sub>*1 ^ a<sub>1</sub>*0 = 1
-</pre>
-Now, lets think about what happens if we XOR the two equations together. Because of the properties of XOR, we end up with a new equation: 
-<pre>
-a<sub>0</sub>*1 ^ a<sub>1</sub>*1 ^ a<sub>0</sub>*1 ^ a<sub>1</sub>*0 = 0^1
-= (a<sub>0</sub>^a<sub>0</sub>)*1 ^ a<sub>1</sub>*1 = a<sub>1</sub> = 1
-</pre>
-Furthermore, we no longer need both of the original equations. If we have just one of them and the new equation that we derived above, we can derive the discarded equation with the same process. Now, if you are familiar with solving systems of linear equations, this should all look very familiar. We can put all of the equations and the answers in one big matrix, as you would when solving any linear algebra problem. For instance, the above example would go in a matrix like this (note how we combined m and t) 
-<pre>
-110
-101
-</pre>
-The algorithm for this problem is analogous to row reducing a matrix. First, sort the rows in descending order by the first column. Break ties by the second column, and so on. Now, find the leftmost 1 in the first row. For every other row that has a 1 in the same position, XOR that row with the first row, in place. This will eliminate 1's from the leftmost column in every row but the first. Next, resort the rows, and find the leftmost 1 in the second row and repeat, removing all the 1's in that position except for one of them. Repeat this process until you get to the last row. Now, if any of the rows have just a single 1 in the rightmost position (the answer column) then there are 0 valid functions, as you can't get a 1 by XORing a bunch of 0's. Otherwise, we want to count the free variables. A variable is free if whenever there is 1 in the column that represents that variable, there is another 1 in the same row that is further left (this is trivially true when there is no column containing a 1 for that variable). Finally, the answer is simply 2<sup>number of free variables</sup>. This is because we can assign the free variables however we want, and once we've assigned them, each of the bound (not free) variables must be assigned in a certain way to make the equations all true. For instance, lets say that you start out with the following matrix: 
-<pre>
-010101
-010010
-001011
-000111
-</pre>
-Its already sorted properly, so first we remove the 1's from the second column by XORing the first row into the second: 
-<pre>
-010101        010101
-000111  SORT  001011
-001011  --->  000111
-000111        000111
-</pre>
-Now, we don't have to remove any 1's from the third column, as there is already only one row with a 1 there, so we move on to the third row. Now, we XOR that row into the first and fourth rows and get: 
-<pre>
-010010
-001011
-000111
-000000
-</pre>
-Here, we are done. There are no rows that have just a 1 in the rightmost position, so there is at least one solution. The variables corresponding to the first and fifth columns are free, so we can make both of them either 0 or 1, and thus there are 4 valid solutions. You can verify that for each of the 4 choices for the first and fifth variables, there is only one possibility for the bound variables.
+Let's draw two polylines consisting of <b>k</b> segments each from the initial 
+position of the bishop, like it is shown on the figure. 
 <br><br>
-An implementation detail is that if you use a 64 bit integer for each row, all of the coding becomes pretty simple.
+<div align="center"><img src="/i/srm/tco06_wildcard.gif"/></div>
+<br><br>
+Clearly bishop can visit all the squares of its color left to the column where <b>k</b>-th segments of 
+the polylines intersect. From the part of the board laying to the right of the intersection 
+bishop can visit only squares from the colored triangles. The number of 
+the reachable squares in the described area can be easily calculated by iterating through 
+the x-coordinate till the end of the last segment of the polylines or the 
+end of the border, whatever comes first.
+
+<h1>MapFolder</h1>
+by <tc-webtag:handle coderId="159544" context="algorithm"/>
+<br><br>
+This problem is hard primarily because the problem domain (paper folding) is unfamiliar. Actually pulling out a piece of paper and folding it helps.
+<br><br>
+First observe that whenever there are whole columns that have a common map fold direction (all 'u' or all 'd') there cannot be a legal row fold. Second notice that after a fold has been made, the only part of the map that matters for future folding is the bigger of the two areas divided by the fold. So we keep track of the "active" rectangular part of the map. Awe continue to fold, this active region will become smaller and smaller until it is just a single row and column indicating a complete folding of the map.
+<br><br>
+So the algorithm (using a rotate method to avoid code duplication for rows and columns) becomes
+<pre>
+activeRegion = whole map.
+ct = foldColumns(activeRegion)  //does column folds sequence, modifying activeRegion
+size = area of the activeRegion
+while(size>1)
+   rotate everything 90 degrees
+      ct += foldColumns( activeRegion )
+      if(  size == area of activeRegion ) return -1    //NO PROGRESS
+      size = area of activeRegion
+return ct
+</pre>
+So that leaves foldColumns: how to choose a minimum sequence of column folds. No matter what sequence you choose you will finish with the same size active region, but the number of folds required varies. Greedy methods do not work (e.g. always fold nearest the middle).  One approach is to do a breath-first search, starting with the entire active Region. Do all legal single folds of that to determine all sub-regions that we can reduce to in one fold. Continue on until we find the first sub-region which allows no further column folding.  Then reset the activeRegion to that sub-region and report how many folds were used.
+<br><br>
+Determining if a fold is legal requires verifying that all the map fold directions on the fold are the same, and that for all the positions in the active region their reflections across the fold have opposite directions.  There are a variety of data structures that can be used for the bread-first search, but you cannot afford to allow duplicate sub-regions to propagate or the process can time out.
+<br><br>
         </div>
       </td>
         
