@@ -33,7 +33,7 @@
 <%-- anchor link from bloggers page --%>
 <a name="001"></a>
 <span class="bigTitle">Kawigi's writing an editor.  What else is new?</span><br>
-05.03.06 3:10 PM
+05.04.06 3:10 PM
 <br><br>
 <img src="/i/m/Kawigi_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 By&#160;<tc-webtag:handle coderId="8416646" darkBG="true" /><br />
