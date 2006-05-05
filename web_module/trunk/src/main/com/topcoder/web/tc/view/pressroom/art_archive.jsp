@@ -37,6 +37,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview from the TCO06</A> [PODCAST] [May  4 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A> [May 2 - CNET]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">TopCoder College Tour: Report from University of Georgia</A> [April 5 - UGA - ACM]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">Students compete in online competition</A> [March 30 - The Whitworthian]<br/></td></tr>
