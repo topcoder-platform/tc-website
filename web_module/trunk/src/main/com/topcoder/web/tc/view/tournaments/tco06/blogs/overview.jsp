@@ -38,6 +38,54 @@ font-size: 10px;
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_9">"CDDC 2 - What the reviewers saw"</span></A><br>
+      [May 4 - 7:25 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_8">"Secondhand Shopping: Efficient Component Reuse"</span></A><br>
+      [May 4 - 3:20 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_7">"Still in 'Gee-whiz' phase"</span></A><br>
+      [May 4 - 3:15 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_6">"Art imitates life"</span></A><br>
+      [May 4 - 3:15 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_5">"Everyone’s a winner here"</span></A><br>
+      [May 4 - 3:15 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_4">"Kawigi's writing an editor.  What else is new?"</span></A><br>
+      [May 4 - 3:10 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
       </td>

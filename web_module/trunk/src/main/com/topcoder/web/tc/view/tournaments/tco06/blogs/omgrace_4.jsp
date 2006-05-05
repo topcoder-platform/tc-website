@@ -40,7 +40,7 @@ By&#160;<tc-webtag:handle coderId="21518515" darkBG="true" /><br />
 <span class="smallText"><em>TopCoder Member</em></span>
 <br clear="all" />
 <br>
-After today's grueling tournaments, the competitors took a chance to relax...and compete some more.  TopCoder provided a game room for the competitors to relax and hang out after the tournaments (also good for those that don't gamble!).  Some of the competitor's skipped part of lunch this afternoon to play (they REALLY like to solve problems!).  Here are some of the games TopCoder provided:
+After today's grueling tournaments, the competitors took a chance to relax... and compete some more.  TopCoder provided a game room for the competitors to relax and hang out after the tournaments (also good for those that don't gamble!).  Some of the competitor's skipped part of lunch this afternoon to play (they REALLY like to solve problems!).  Here are some of the games TopCoder provided:
 <br /><br />
 <div align="center"><img src="/i/tournament/tco06/blogs/omgrace-04-01.jpg" /></div>
 <br /><br />
