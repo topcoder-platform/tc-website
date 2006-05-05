@@ -12,6 +12,8 @@
 
     <short-name>cf</short-name>
 
+    <uri>common-functions</uri>
+
     <function>
         <name>contains</name>
         <function-class>com.topcoder.web.common.function.Util</function-class>
