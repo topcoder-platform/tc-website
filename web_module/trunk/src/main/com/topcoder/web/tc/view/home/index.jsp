@@ -54,14 +54,20 @@ margin:0px auto;
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
 <%-- TCO06 --%>
 <map name="tco06_map">
-<area shape="rect" alt="" coords="1,1, 310,179" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="375,64, 490,82" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule" />
-<area shape="rect" alt="" coords="438,88, 490,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
-<area shape="rect" alt="" coords="436,110, 490,130" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
-<area shape="rect" alt="" coords="446,105, 490,156" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
+<area shape="rect" alt="" coords="1,1, 260,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+<area shape="rect" alt="" coords="316,8, 364,105" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis" />
+<area shape="rect" alt="" coords="371,8, 420,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary" />
+<area shape="rect" alt="" coords="426,8, 473,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary" />
 </map>
-
-      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_onsite.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></td>
+<map name="tco06_links">
+<area shape="rect" alt="" coords="9,1, 65,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
+<area shape="rect" alt="" coords="82,1, 143,24" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
+<area shape="rect" alt="" coords="159,1, 209,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
+</map>
+      <td class="BIGPromoBox" align="center">
+      <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
+      <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
+      </td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
