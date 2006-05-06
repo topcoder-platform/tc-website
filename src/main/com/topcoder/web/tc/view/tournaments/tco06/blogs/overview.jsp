@@ -38,6 +38,54 @@ font-size: 10px;
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_13">"Final results for all the 'Finals,' finally!"</span></A><br>
+      [May 5 - 9:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_12">"AJAX, my boy, AJAX."</span></A><br>
+      [May 5 - 7:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_8">"Hearts, Stars, and Fanny Packs"</span></A><br>
+      [May 5 - 6:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_7">"A night of fun and games"</span></A><br>
+      [May 5 - 4:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_11">"ResultSetAssociatedDataAndColumnAddedDecoratedCollection. Nuff said."</span></A><br>
+      [May 5 - 3:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_6">"Who's that?"</span></A><br>
+      [May 5 - 2:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
       </td>

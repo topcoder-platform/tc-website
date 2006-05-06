@@ -32,7 +32,7 @@
 
 <%-- anchor link from bloggers page --%>
 <a name="001"></a>
-<span class="bigTitle">An afternoon excursion...</span><br>
+<span class="bigTitle">A night of fun and games</span><br>
 05.04.06 9:35 PM
 <br><br>
 <img src="/i/m/omgrace_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
