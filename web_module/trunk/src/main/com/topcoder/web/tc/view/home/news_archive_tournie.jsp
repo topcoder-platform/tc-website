@@ -42,6 +42,9 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 --%>
+<tr class="bodyText"><td nowrap="nowrap">05.05.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.05.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">Congratulations to Pops, TCO06 Design Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.05.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">Congratulations to sindu, TCO06 Development Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.04.06 9:40 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">andrewzta wins the WildCard Room of the TCO06</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.04.06 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">tomek wins Room 3 of the TCO06</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.03.06 10:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">misof wins Room 2 of the TCO06</A></td></tr>
