@@ -65,7 +65,9 @@
 		<td><b>Last Name</b></td>
 		<td><b>User</b></td>
 		<td><b>Description</b></td>
-		<td><b>Net Amount</b></td>
+		<td><b>Gross</b></td>
+		<td><b>Tax</b></td>
+		<td><b>Net</b></td>
 		<td><b>Type</b></td>
 		<td><b>Method</b></td>
 		<td><b>Status</b></td>
@@ -100,6 +102,9 @@
 
 			total_net += paymentList[n].getRecentNetAmount();
 
+			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount())+"</td>\n");
+			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
+				- paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+paymentList[n].getType()+"</td>\n");
 			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");

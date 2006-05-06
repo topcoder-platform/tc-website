@@ -68,17 +68,20 @@
 %>
 		</td></tr>
 		<tr>
-		<td><b>Net Amount:</b></td>
-<%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
-%>
-		</tr>
-
-		<tr>
 		<td><b>Gross Amount:</b></td>
 <%			out.print("<td>"+df.format(payment.getGrossAmount())+"</td>\n");
 %>
 		</tr>
-
+		<tr>
+		<td><b>Tax:</b></td>
+<%			out.print("<td>"+df.format(payment.getGrossAmount()-payment.getNetAmount())+"</td>\n");
+%>
+		</tr>
+		<tr>
+		<td><b>Net Amount:</b></td>
+<%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
+%>
+		</tr>
 		<tr>
 		<td><b>Date Printed:</b></td>
 <%			out.print("<td>"+payment.getPrintDate()+"</td>\n");
