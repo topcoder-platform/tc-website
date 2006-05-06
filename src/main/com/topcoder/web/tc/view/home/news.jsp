@@ -9,6 +9,67 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A>
+      </span><br><br>
+      <tc-webtag:handle coderId="10574855" context="algorithm"/> is the new Algorithm Champion and the winner of $20,000.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">Congratulations to Pops, TCO06 Design Champion</A>
+      </span><br><br>
+      <tc-webtag:handle coderId="119676" context="design"/> is the new Algorithm Champion and the winner of $20,000.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">Congratulations to sindu, TCO06 Development Champion</A>
+      </span><br><br>
+      <tc-webtag:handle coderId="7548200" context="development"/> is the new Algorithm Champion and the winner of $12,500.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">details</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.05.06<br>1:30 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview from the TCO06</A> [PODCAST]
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="Java Posse" News border="0" /></div>
+       The Java Posse interviews TopCoder Founder Jack Hughes right from the TCO06 Arena, including topics like how Jack came up with the idea for TopCoder.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">listen</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505976" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.04.06<br>9:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">andrewzta wins the WildCard Room of the TCO06</A>
@@ -116,66 +177,6 @@ of the problems left just enough space for challenge opportunities.
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.27.06<br>6:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS chat session prior to SRM 300</A>
-      </span><br><br>
-      UBS will be in the arena at 8:00 PM, just prior to SRM 300, to discuss working at UBS.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505918" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.27.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A>
-      </span><br><br>
-      Marathon Match 1 will run from May 10th to May 17th.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=Static&d1=instructions">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505971" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>04.26.06<br>7:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">Changes to member payment options</A>
-      </span><br><br>
-      TopCoder recognizes that as our company has grown, our ability to effectively manage member payments has become a growing challenge and this has caused problems with some members receiving their payments. At this time, TopCoder is making several changes in an effort to create a more efficient payment process.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">details</A>&#160;|&#160;
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=510664">discuss this</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.25.06<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/pdfs/tournaments/tco06_tshirt.pdf">TCO06 T-shirt</A> [PDF - 1.6MB]
-      </span><br><br>
-      A sneak preview of the TCO06 t-shirt.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/pdfs/tournaments/tco06_tshirt.pdf">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505970" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
 
 </table>
