@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A>
       </span><br><br>
       <tc-webtag:handle coderId="10574855" context="algorithm"/> is the new Algorithm Champion and the winner of $20,000.
       </td>
@@ -28,7 +28,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">Congratulations to Pops, TCO06 Design Champion</A>
       </span><br><br>
-      <tc-webtag:handle coderId="119676" context="design"/> is the new Algorithm Champion and the winner of $20,000.
+      <tc-webtag:handle coderId="119676" context="design"/> is the new Design Champion and the winner of $20,000.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -43,7 +43,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">Congratulations to sindu, TCO06 Development Champion</A>
       </span><br><br>
-      <tc-webtag:handle coderId="7548200" context="development"/> is the new Algorithm Champion and the winner of $12,500.
+      <tc-webtag:handle coderId="7548200" context="development"/> is the new Development Champion and the winner of $12,500.
       </td>
    </tr>
    <tr><td class="newsLinksCell">

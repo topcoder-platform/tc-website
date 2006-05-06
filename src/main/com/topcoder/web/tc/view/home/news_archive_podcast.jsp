@@ -37,6 +37,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText" valign="top"><td nowrap="nowrap">05.05.06 1:30 PM&#160;-&#160</td><td width="100%"><A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview</A></td></tr> 
 <tr class="bodyText" valign="top"><td nowrap="nowrap">03.10.06 3:00 PM&#160;-&#160</td><td width="100%"><A href="http://www.topcoder.com/audio/Pat_Conley_03_10_06.mp3">Exclusive: Interview with Pat Conley, VP VeriSign O&I and TopCoder Member</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">01.20.06 11:00 AM&#160;-&#160</td><td width="100%"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview</A></td></tr> 
 </table>
