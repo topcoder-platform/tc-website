@@ -56,8 +56,7 @@ to the punch-card days.)  You give a web application input, and you have to wait
 for its output.  He showed a cute graphic with the analogy that we used to give punch cards to the mainframe
 and get paper tape or other output in response some hours later.
 <br/><br/>
-Along the way, web application (middle-layer) architectures evolved, but the front end still suffered
-from the need for a run-time (either applets, Flash, Java Web Start, or the browser itself.)
+Along the way, web application (middle-layer) architectures evolved, but the front end still suffered from the need for users to download a run-time separate from the browser (either applets, Flash, or Java Web Start).
 <br/><br/>
 So what can be done to improve this situation, to change the paradigm for web applications?  
 Like the family friend in <a target="_blank" href="/?t=sponsor&c=link&link=http://www.imdb.com/title/tt0061722/">The Graduate</a> who said "Plastics, my boy, plastics", the
@@ -91,8 +90,7 @@ Similar to the <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&
  approach, you should build libraries of JavaScript files instead of using an ad hoc
 method of putting some in the &lt;head&gt; and some in .js files.
 <br/><br/>
-Andy then pointed out the benefits and drawbacks of AJAX versus IFrames, the other dominant method of refreshing
-parts of pages dynamically.  Right now, AJAX does not have easy, standard universal support in all browsers.
+Andy then pointed out the benefits and drawbacks of XMLHttpRequest versus IFrames. Right now, XMLHTTPRequest does not have easy, standard universal support in all browsers.
 Internet Explorer 7 will do away with the need to have ActiveX enabled; the default setting is that ActiveX is
 disabled in IE 6, causing many users to not be able to take advantage of AJAX.  (The irony is that Microsoft
 invented the XMLHttpRequest object, which is the basis for all AJAX communications.)  Security is an issue for all
