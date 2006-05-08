@@ -38,6 +38,14 @@ font-size: 10px;
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_7">"Unsolved mysteries (and another opportunity to embarrass SnapDragon)"</span></A><br>
+      [May 5 - 9:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/dplass_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="251184" darkBG="true" /></span>
       </td>
@@ -293,66 +301,6 @@ font-size: 10px;
       [May 2]</td>
    </tr>
 </table>
-
-
-
-<%--
-<table cellpadding="6" cellspacing="0" width="800">
-   <tr>
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/davidyang_big.jpg" /><br>
-      <tc-webtag:handle coderId="21471147" darkBG="true" />
-      <div align="left">
-         <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_3"><font size="-2">davidyang.blog(Math.Floor(Action));</font></A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_2">Your mission, if you choose to accept it</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_1">TopCoder's May Madness</A></li>
-         </ul>
-      </div>
-      </td>
-
-
-
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/dplass_big.jpg" /><br>
-      <tc-webtag:handle coderId="251184" darkBG="true" />
-      <div align="left">
-         <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_5">Components in the "Real World"</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_4">Finally, dplass talks about Design and Development</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_3">The one where dplass takes a walk</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_2">Episode II: Attack of the... oh, never mind</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_1">Episode I: The Phantom Menace</A></li>
-         </ul>
-      </div>
-      </td>
-
-
-
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/Kawigi_big.jpg" /><br>
-      <tc-webtag:handle coderId="8416646" darkBG="true" />
-      <div align="left">
-         <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_3">I'm blogging this.</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_2">Algrorithm Semifinal 1: Dropping like flies</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_1">This morning was like Christmas</A></li>
-         </ul>
-      </div>
-      </td>
-
-
-
-      <td class="bodyText" align="center" valign="top" width="25%"><img src="/i/m/omgrace_big.jpg" /><br>
-      <tc-webtag:handle coderId="21518515" darkBG="true" />
-      <div align="left">
-         <ul>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_3">Nothing in this world has prepared you for this</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_2">Exploring the Strip</A></li>
-         <li><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_1">From Champaign to Vegas</A></li>
-         </ul>
-      </div>
-      </td>
-   </tr>
-</table>
---%>
 
 <br><br>
         </div>

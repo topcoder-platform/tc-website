@@ -11,7 +11,7 @@
 
 var imageDir = "/i/tournament/tco06/onsite_photos/";
 var imageNum = 1;
-var totalImages = 130;
+var totalImages = 150;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -102,8 +102,8 @@ function changeImage(place, imageIndex) {
 <br/>
                 <a href="Javascript:void changeImage('slideImg', 111);">Algorithm Finals</a>
                 &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 131);">Winners</a>
+                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 145);">Press Conference</a>
 <%--
-                &#160;&#160;|&#160;&#160;<a href="Javascript:void changeImage('slideImg', 0);">Press Conference</a>
 --%>                
             </div></p>
             
