@@ -38,11 +38,19 @@ font-size: 10px;
 <table cellpadding="2" cellspacing="0" width="500" class="bodyText">
    <tr>
       <td align="center">
+      <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=omgrace_9">"And the winners are..."</span></A><br>
+      [May 5 - 9:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
       </td>
-      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_7">"Unsolved mysteries (and another opportunity to embarrass SnapDragon)"</span></A><br>
-      [May 5 - 9:30 PM]</td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_9">"Petr takes the lead"</span></A><br>
+      [May 5 - 9:00 PM]</td>
    </tr>
    <tr>
       <td align="center">
@@ -51,6 +59,14 @@ font-size: 10px;
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_13">"Final results for all the 'Finals,' finally!"</span></A><br>
       [May 5 - 9:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/davidyang_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21471147" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_7">"Down to the wire"</span></A><br>
+      [May 5 - 7:00 PM]</td>
    </tr>
    <tr>
       <td align="center">
@@ -70,6 +86,22 @@ font-size: 10px;
    </tr>
    <tr>
       <td align="center">
+      <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_7">"Solved mysteries (and another opportunity to embarrass SnapDragon)"</span></A><br>
+      [May 5 - 4:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/Kawigi_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="8416646" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=Kawigi_8">"Expensive water and free beer"</span></A><br>
+      [May 5 - 4:00 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
       <img src="/i/m/omgrace_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
       <span class="smallHandle"><tc-webtag:handle coderId="21518515" darkBG="true" /></span>
       </td>
@@ -83,6 +115,14 @@ font-size: 10px;
       </td>
       <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=dplass_11">"ResultSetAssociatedDataAndColumnAddedDecoratedCollection. Nuff said."</span></A><br>
       [May 5 - 3:30 PM]</td>
+   </tr>
+   <tr>
+      <td align="center">
+      <img src="/i/m/davidyang_big.jpg" alt="" width="27" height="30" border="0" hspace="6" vspace="1" class="myStatsPhoto"/><br />
+      <span class="smallHandle"><tc-webtag:handle coderId="21471147" darkBG="true" /></span>
+      </td>
+      <td><span class="bodySubtitle"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=davidyang_6">"Highlights from the UBS Presentation"</span></A><br>
+      [May 5 - 3:00 PM]</td>
    </tr>
    <tr>
       <td align="center">
