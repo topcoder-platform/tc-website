@@ -105,7 +105,7 @@ in the Relation component, the outcome might've been different.
 <br/><br/>
 Today, I had the pleasure of meeting <tc-webtag:handle coderId="7548200" darkBG="true" />, when he came up to me and introduced himself (he was the first one
 to say that he didn't recognize me from my profile picture!)  I hadn't met him previously this week, so I'm glad I got 
-a chance to meet him before the finalists were announced.  He was shocked that he had won, since he had never done a .NET
+a chance to meet him before the finalists were announced.  He was shocked that he had won, since he had never done a ASP.NET
 component before!  The same thing with regard to the wagering happened in development as design -- if the wagering had been
 different, it's possible that second-place development finalist <tc-webtag:handle coderId="299979" darkBG="true" /> might've pulled out a victory.
 <br/><br/>
