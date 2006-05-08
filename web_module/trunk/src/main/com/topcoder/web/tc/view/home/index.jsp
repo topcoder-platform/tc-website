@@ -209,6 +209,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            Russian, US and Indonesian Programmers Win $150,000 TopCoder Open Sponsored By AMD in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_050806">...more</A><br>[May 8]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News" border="0" /></div>
             Coding for fame, and dollars <A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">...more</A><br>[May 2]<br><br>
 
@@ -221,11 +223,7 @@ margin:0px auto;
             TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">...more</A><br>[March 16]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
-            SOA vendors partner with LogicLibrary to create integrated governance platform <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">...more</A><br>[March 14]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
-            UBS Sponsors TopCoder Open <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">...more</A><br>[March 13]<br><br>
-            
+            SOA vendors partner with LogicLibrary to create integrated governance platform <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">...more</A><br>[March 14]<br><br>            
             </td>
          </tr>
       </table>
