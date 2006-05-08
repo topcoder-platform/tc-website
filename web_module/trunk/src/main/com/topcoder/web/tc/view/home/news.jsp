@@ -9,6 +9,20 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.08.06<br>2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=9974">Intel Multi-Threading Competition 4 Results</A>
+      </span><br><br>
+      The results are in.  Congratulations to the winners.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <tc-webtag:forumLink forumID="505967" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.08.06<br>12:00 Noon</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=pressroom&d2=pr_050806">TCO Champions Press Release</A>
@@ -172,25 +186,6 @@
          <tc-webtag:forumLink forumID="505973" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.28.06<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm300">SRM 300 - Problem Set & Analysis</A></span><br><br>
-The turnout for the 300th Single Round Match probably wasn't as high as some predicted,
-with "only" 639 registered coders. Both divisions saw rather hard problem sets, and most
-of the problems left just enough space for challenge opportunities.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm300">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505866" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 
 
