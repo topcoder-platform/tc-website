@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.08.06<br>12:00 Noon</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=pressroom&d2=pr_050806">TCO Champions Press Release</A>
+      </span><br><br>
+      Russian, US and Indonesian Programmers Win $150,000 TopCoder Open Sponsored By AMD in Las Vegas. Computer Programmers Celebrated at TopCoder Open World Championship Sponsored by AMD, UBS, National Security Agency and VeriSign.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_050806">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505978" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A>
