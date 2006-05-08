@@ -21,7 +21,11 @@ public class Selection extends Base {
         //if the user is logged in, figure out what registration types they have
         //so that the check boxes can be populated.
 
-        if (userLoggedIn()) {
+        if (userIdentified()) {
+            //they must be attempting to update their profile, but are not logged in
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } else if (userLoggedIn()) {
+            //they're updating their info, and they're logged in, so here we go
             getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
             RegistrationType rt;
             for (Iterator it = new UserDAO().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
@@ -32,7 +36,10 @@ public class Selection extends Base {
             setNextPage("/selection.jsp");
             setIsNextPageInContext(true);
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            //they must be attempting to register
+            getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
+            setNextPage("/selection.jsp");
+            setIsNextPageInContext(true);
         }
     }
 
