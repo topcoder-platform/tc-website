@@ -8,7 +8,7 @@
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 </head>
 <body>
 
