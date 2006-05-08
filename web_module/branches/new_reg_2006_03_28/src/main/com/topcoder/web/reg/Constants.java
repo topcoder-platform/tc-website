@@ -15,7 +15,7 @@ import java.util.MissingResourceException;
  */
 public class Constants implements WebConstants {
 
-    private static final TCResourceBundle bundle = new TCResourceBundle("Reg");
+    private static final TCResourceBundle bundle = new TCResourceBundle("Registration");
     private static final Logger log = Logger.getLogger(Constants.class);
 
 
