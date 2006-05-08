@@ -98,7 +98,7 @@
             <tr>
                <td class="projectCells" valign=top>
                <strong>Poseidon C# Template</strong><br/>
-               You can use this template to facilitate the creation of new C# designs in Poseidon 2.x Community Edition.  It contains all of the most common C# data types.  You may have to disable the Java profile in your Poseidon settings for this template to work properly.
+               You can use this template to facilitate the creation of new C# designs in Poseidon for UML 4.1 Community Edition.  It contains all of the most common C# data types.  You may have to disable the Java profile in your Poseidon settings for this template to work properly.
                </td>
                <td class="projectCells" valign="top" align="center">08.25.2004</td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/dotnetFramework.zuml">Template</A></td>

@@ -46,7 +46,7 @@ padding: 3px 5px 3px 5px;
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/ubs_logo_new.gif" alt="UBS" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/ubs_logo_final.gif" alt="UBS" border="0" /></div>
 <br><br>
 
 <br><br>
