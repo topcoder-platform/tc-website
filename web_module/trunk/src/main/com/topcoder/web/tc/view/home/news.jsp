@@ -9,6 +9,19 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.08.06<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Poseidon 4.1 now the official standard
+      </span><br><br>
+      Gentleware's Poseidon for UML 4.1 Community Edition is now the official standard for TopCoder Component Competitions.  You can get Poseidon <A target="_blank" href="/?=sponsor&c=link&link=http://gentleware.com/download.0.html">here</A>.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="505979" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.08.06<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=9974">Intel Multi-Threading Competition 4 Results</A>
@@ -171,21 +184,6 @@
        <tc-webtag:forumLink forumID="505974" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.28.06<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      New Software <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</A> Tutorial Movies
-      </span><br><br>
-      Thinking about taking a shot at The Digital Run? If you're new to TopCoder component competitions, our new interactive Design and Development tutorials can help you get started.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">design</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">development</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505973" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>   
 
 
 
