@@ -6,6 +6,20 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.08.06<br>6:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for June-December</A>
+      </span><br><br>
+      The months June through December have been added to the Events Calendar.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=calendar&d2=jun_06">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505980" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
    
 <%--------------------------------------------------------%>
    <tr>
