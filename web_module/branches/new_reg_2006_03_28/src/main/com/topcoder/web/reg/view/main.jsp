@@ -24,7 +24,7 @@
                 <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
             </p>
             <p>
-                <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true>"/>
+                Given Name: <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true>"/>
             </p>
         </c:if>
 
@@ -32,63 +32,63 @@
             <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
+            Surname: <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+            Title: <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
+            Company: <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
+            Address1: <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
+            Address2: <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
+            Address3: <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
+            City: <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
         </p>
 <%--todo state goes in here--%>
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/>
+            Postal Code: <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
+            Province: <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
         </p>
 
         <%--todo put country here --%>
@@ -96,49 +96,49 @@
             <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+            Handle: <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+            Password: <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+            Confirm Password: <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+            Email Address: <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+            Confirm Email Address: <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="15" maxlength="<%=Constants.MAX_PHONE_LENGTH%>" editable="true"/>
+            Phone Number: <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="15" maxlength="<%=Constants.MAX_PHONE_LENGTH%>" editable="true"/>
         </p>
 
         <p>
             <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-            <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="15" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
+            Quote: <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="15" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
         </p>
 
 
