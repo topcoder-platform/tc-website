@@ -48,6 +48,18 @@
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/room3.mov"><img src="/i/tournament/tco06/onsite_movies/room3.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/room3.mov">tomek wins Room 3<br>(3.2 MB)</A><br></td>
          </tr>
+         <tr>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/wildcard.mov"><img src="/i/tournament/tco06/onsite_movies/wildcard.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/wildcard.mov">andrewzta wins the WildCard<br>(1.6 MB)</A><br></td>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/algorithm.mov"><img src="/i/tournament/tco06/onsite_movies/algorithm.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/algorithm.mov">Petr wins the Algorithm Finals<br>(1.8 MB)</A><br></td>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/design.mov"><img src="/i/tournament/tco06/onsite_movies/design.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/design.mov">Pops wins the Design Finals<br>(1.1 MB)</A><br></td>
+         </tr>
+         <tr>
+            <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/development.mov"><img src="/i/tournament/tco06/onsite_movies/development.jpg" border=0/></A>
+            <br><A href="/movies/tournament/tco06/development.mov">sindu wins the Development Finals<br>(1.0 MB)</A><br></td>
+         </tr>
       </table>
         </div>
       </td>
