@@ -35,7 +35,7 @@
         <jsp:param name="image" value="tc_tournaments"/>
         <jsp:param name="title" value="TopCoder Tournaments"/>
     </jsp:include>
-
+<!--
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -53,8 +53,26 @@
          </td>
       </tr>
    </table>
-
+-->
    <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/tournament/photo_tco06.jpg" alt="2006 TopCoder Open" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2006 TopCoder&#174; Open Sponsored by AMD</span>
+         <br><br>
+         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/pressroom/tco06_logo.gif" alt="" border="0" /></A></div>
+         May 3-5<br>
+         Aladdin Resort and Casino<br/>
+         Las Vegas, NV, USA<br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">Details</A>
+         <br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+
+   <hr width="100%" size="1" noshade="noshade" />
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
@@ -79,7 +97,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=about"><img src="/i/tournament/photo_tccc05.jpg" alt="2005 TopCoder Collegiate Challenge" border="0" /></A></td>
          <td width="100%">
-         <span class="bodySubtitle">2005 TopCoder&#174; Collegiate Challenge sponsored by Yahoo!&#174;</span>
+         <span class="bodySubtitle">2005 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo!&#174;</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=about"><img src="/i/pressroom/tccc05_logo.gif" alt="" border="0" /></A></div>
          March 10-11<br />
@@ -96,7 +114,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=about"><img src="/i/tournament/photo_tco04.jpg" alt="2004 TopCoder Open" border="0" /></A></td>
          <td width="100%">
-         <span class="bodySubtitle">2004 TopCoder&#174; Open sponsored by Microsoft&#174;</span>
+         <span class="bodySubtitle">2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=about"><img src="/i/pressroom/tco04_logo.gif" alt="" border="0" /></A></div>
          November 11-12<br />
@@ -113,7 +131,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/photo_tccc04.jpg" alt="2004 TopCoder Collegiate Challenge" border="0" /></A></td>
          <td width="100%">
-         <span class="bodySubtitle">2004 TopCoder&#174; Collegiate Challenge sponsored by Yahoo&#174;</span>
+         <span class="bodySubtitle">2004 TopCoder&#174; Collegiate Challenge Sponsored by Yahoo&#174;</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/logo_tccc04.gif" alt="" border="0" /></A></div>
          April 15-16<br />
@@ -130,7 +148,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/photo_tco03.jpg" alt="2003 TopCoder Open" border="0" /></A></td>
          <td width="100%">
-         <span class="bodySubtitle">2003 TopCoder&#174; Open sponsored by Intel&#174;</span>
+         <span class="bodySubtitle">2003 TopCoder&#174; Open Sponsored by Intel&#174;</span>
          <br><br>
          <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/logo_tco03.gif" alt="" border="0" /></A></div>
          December 4-5<br />
