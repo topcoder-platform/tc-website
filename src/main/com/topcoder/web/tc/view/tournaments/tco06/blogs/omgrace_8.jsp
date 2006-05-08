@@ -64,7 +64,7 @@ You might be thinking, wow, let's declare her the winner NOW, but read on and yo
 <br><br>
 <div align="center"><img src="/i/tournament/tco06/blogs/omgrace-08-04.jpg" /></div>
 <br><br>
-5. <tc-webtag:handle coderId="262056" darkBG="true" /> carries off the sweater around the waist well; so well that we should just call off the contest and announce the winner now. But we will continue...
+5. <tc-webtag:handle coderId="310430" darkBG="true" /> carries off the sweater around the waist well; so well that we should just call off the contest and announce the winner now. But we will continue...
 <br><br>
 <div align="center"><img src="/i/tournament/tco06/blogs/omgrace-08-05.jpg" /></div>
 <br><br>
