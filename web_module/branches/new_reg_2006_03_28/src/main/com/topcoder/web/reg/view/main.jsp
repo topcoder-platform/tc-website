@@ -19,7 +19,7 @@
 
 
         <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
-        <c:if test="${cf:contains(registrationTypeList, givenName)}">
+        <c:if test="${cf:contains(fields, givenName)}">
             <p>
                 <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
             </p>
