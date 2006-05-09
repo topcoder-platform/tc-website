@@ -32,6 +32,8 @@ public class Constants implements WebConstants {
 
     public static final String FIELDS = "fields";
 
+    public static final String NEW_REG = "nrg";
+
 
     private final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
