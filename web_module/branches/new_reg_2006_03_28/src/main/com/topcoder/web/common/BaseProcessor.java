@@ -230,6 +230,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         return !"".equals(StringUtils.checkNull(getRequest().getParameter(param)));
     }
 
+    protected String getTrimmedParameter(String param) {
+        return StringUtils.checkNull(getRequest().getParameter(param).trim());
+    }
+
 
     /**
      * Get a remote instance of the specified EJB.
