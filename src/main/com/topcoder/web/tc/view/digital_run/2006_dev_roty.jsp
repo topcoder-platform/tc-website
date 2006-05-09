@@ -48,7 +48,7 @@
 <br><br>
 We will also recognize a TopCoder&#174; Rookie of the Year.  Placement Points will accumulate for Rookie of the Year in the <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">same manner</A> as they do for all component competitions:
 <br><br>
-If a competitor has passed review in fewer than 6 development competitions as of May 11, 2006, the competitor will be considered eligible to be a development rookie for the 2006 TopCoder® Development Cup Series.  If a competitor passes review on fewer than 6 development components during the 2006 TopCoder® Development Cup Series, the next Series year will be that competitor's rookie year.  If a competitor passes review on 6 or more development components during the 2006 TopCoder® Development Cup Series, it will count as the competitor's rookie year and the competitor will be eligible for TopCoder Rookie of the Year prizes. 
+If a competitor has passed review in fewer than 6 development competitions as of May 11, 2006, the competitor will be considered eligible to be a development rookie for the 2007 TopCoder&#174; Development Cup Series.  If a competitor passes review on fewer than 6 development components during the 2007 TopCoder&#174; Development Cup Series, the next Series year will be that competitor's rookie year.  If a competitor passes review on 6 or more development components during the 2007 TopCoder&#174; Development Cup Series, it will count as the competitor's rookie year and the competitor will be eligible for TopCoder Rookie of the Year prizes. 
 <br><br>
 TopCoder Rookie of the Year prizes for development competitors total $20,000 and will be awarded as follows:
 <br><br>
