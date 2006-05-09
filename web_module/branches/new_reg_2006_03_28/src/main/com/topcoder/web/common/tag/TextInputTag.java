@@ -25,11 +25,11 @@ public class TextInputTag extends BaseTag {
     private boolean escapeHtml = true;
 
     public int doStartTag() {
-        log.debug("XXXX TextInputTag called for " + name);
+        //log.debug("XXXX TextInputTag called for " + name);
         StringBuffer ret = new StringBuffer();
 
         if (editable) {
-            log.debug("editable");
+            //log.debug("editable");
             ret.append("<input type=\"").append(passw ? "password" : "text")
                     .append("\" name=\"").append(name).append("\" ");
             if (size >= 0) {
@@ -53,7 +53,7 @@ public class TextInputTag extends BaseTag {
             }
             ret.append("/>");
         } else {
-            log.debug("not editable");
+            //log.debug("not editable");
             if (value == null) {
                 value = getDefaultValue() == null ? null : getDefaultValue();
             }
@@ -61,7 +61,7 @@ public class TextInputTag extends BaseTag {
                 ret.append(format(value));
             }
         }
-        log.debug("gonna print " + ret.toString());
+        //log.debug("gonna print " + ret.toString());
         try {
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {
