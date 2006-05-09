@@ -24,7 +24,7 @@
                 <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
             </p>
             <p>
-                Given Name: <tc-webtag:textInput name="gn" size="15" maxlength="15" editable="true>"/>
+                Given Name: <tc-webtag:textInput name="gn" size="15" maxlength="15" editable="true"/>
             </p>
         </c:if>
 
