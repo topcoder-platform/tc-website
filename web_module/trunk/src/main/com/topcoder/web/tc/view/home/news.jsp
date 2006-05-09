@@ -27,7 +27,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       Poseidon 4.1 now the official standard
       </span><br><br>
-      Gentleware's Poseidon for UML 4.1 Community Edition is now the official standard for TopCoder Component Competitions.  You can get Poseidon <A target="_blank" href="/?=sponsor&c=link&link=http://gentleware.com/download.0.html">here</A>.
+      Gentleware's Poseidon for UML 4.1 Community Edition is now the official standard for TopCoder Component Competitions.  You can get Poseidon <A target="_blank" href="/?t=sponsor&c=link&link=http://gentleware.com/download.0.html">here</A>.
    </tr>
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="505979" message="discuss this" />&#160;|&#160;
