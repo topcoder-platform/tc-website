@@ -56,7 +56,7 @@
 
 <h3>Templates and Samples</h3>
 <p>The presentation of your diagrams needs to follow TopCoder Software guidelines. TopCoder supplies two sets of diagram styles - one for Java and one for .NET. You can view them <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A>.</p>
-<p>In addition, TopCoder Software provides two sample design submissions for the Credit Card Validation (CCV) component - one for Java and one for .NET. These are real components that won in a competition against other submissions. This tutorial references these sample designs, so you need to download and unpack them. The sample submissions are available <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A>.</p>
+<p>In addition, TopCoder Software provides free downloads of winning components from its component catalog.  The tutorial references the Credit Card Validation (CCV) component, so you need to download and unpack the component (Java or .NET depending on your preference). The components are available <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_showroom.jsp">here</A>.</p>
 <p>Finally, the Community Edition of Poseidon does not provide support for .NET designs. It comes with a set of pre-defined classes from java.lang and java.util packages, but no .NET classes. If you are designing for .NET, you need to download a Poseidon template with pre-defined .NET classes. The template is available <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A>.</p>
 
 <h3>Registration</h3>
