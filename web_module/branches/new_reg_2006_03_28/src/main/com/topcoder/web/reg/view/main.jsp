@@ -15,7 +15,7 @@
 <body>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Selection"/>
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
 
 
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
