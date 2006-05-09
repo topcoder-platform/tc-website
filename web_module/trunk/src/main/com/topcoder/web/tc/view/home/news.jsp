@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.09.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">TCO06 CCIP results</A>
+      </span><br><br>
+      Here are the results for TCO06 Complete Coder Incentive Program.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">results</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="505851" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.08.06<br>6:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for June-December</A>
@@ -168,22 +183,6 @@
       <tc-webtag:forumLink forumID="505962" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>2:35 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">cyfra wins Room 1 of the TCO06</A>
-      </span><br><br>
-      cyfra and Petr advance to the Finals. SnapDragon, bladerunner, Ying, and grotmol advance to the WildCard Room.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room1_analysis">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505961" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
 
 </table>
