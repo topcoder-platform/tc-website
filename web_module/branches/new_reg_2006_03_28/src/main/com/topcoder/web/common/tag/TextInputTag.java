@@ -29,6 +29,7 @@ public class TextInputTag extends BaseTag {
         StringBuffer ret = new StringBuffer();
 
         if (editable) {
+            log.debug("editable");
             ret.append("<input type=\"").append(passw ? "password" : "text")
                     .append("\" name=\"").append(name).append("\" ");
             if (size >= 0) {
@@ -52,6 +53,7 @@ public class TextInputTag extends BaseTag {
             }
             ret.append("/>");
         } else {
+            log.debug("not editable");
             if (value == null) {
                 value = getDefaultValue() == null ? null : getDefaultValue();
             }
@@ -59,6 +61,7 @@ public class TextInputTag extends BaseTag {
                 ret.append(format(value));
             }
         }
+        log.debug("gonna print " + ret.toString());
         try {
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {
@@ -146,15 +149,7 @@ public class TextInputTag extends BaseTag {
      * @param edit The editable to set
      */
     public void setEditable(String edit) {
-        editable = edit.equalsIgnoreCase("true");
-    }
-
-    /**
-     * Sets the editable.
-     * @param edit The editable to set
-     */
-    public void setEditable(boolean edit) {
-        editable = edit;
+        editable = String.valueOf(true).equalsIgnoreCase(edit);
     }
 
     public void setFormat(String format) {
@@ -170,7 +165,7 @@ public class TextInputTag extends BaseTag {
     }
     
     public void setEscapeHtml(String escapeHtml) {
-        this.escapeHtml = escapeHtml.equalsIgnoreCase("true");
+        this.escapeHtml = String.valueOf(true).equalsIgnoreCase(escapeHtml);
     }
 
     protected void init() {
