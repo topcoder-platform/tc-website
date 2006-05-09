@@ -20,7 +20,6 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
-        <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
 </xs:simpleType>
 
@@ -176,6 +175,7 @@
             <xs:element ref="constraints"/>
             <xs:element ref="test-cases"/>
             <xs:element ref="memlimit" minOccurs="0"/>
+            <xs:element ref="roundType" minOccurs="0"/>
         </xs:all>
         <xs:attribute name="name" type="xs:token"/>
     </xs:complexType>
@@ -269,5 +269,6 @@
 </xs:element>
 
 <xs:element name="memlimit" type="flow"/>
-</xs:schema>
+<xs:element name="roundType" type="flow"/>
 
+</xs:schema>
