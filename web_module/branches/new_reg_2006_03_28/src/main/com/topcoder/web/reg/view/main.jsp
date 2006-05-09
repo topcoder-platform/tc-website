@@ -15,7 +15,7 @@
 <body>
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Selection"/>
 
 
         <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
@@ -24,7 +24,7 @@
                 <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
             </p>
             <p>
-                Given Name: <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true>"/>
+                Given Name: <tc-webtag:textInput name="gn" size="15" maxlength="15" editable="true>"/>
             </p>
         </c:if>
 
