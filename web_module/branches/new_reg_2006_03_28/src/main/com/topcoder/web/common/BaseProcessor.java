@@ -231,7 +231,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected String getTrimmedParameter(String param) {
-        return StringUtils.checkNull(getRequest().getParameter(param).trim());
+        return StringUtils.getTrimmedParameter(getRequest(), param);
     }
 
 
