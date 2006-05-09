@@ -25,7 +25,7 @@ public class TextInputTag extends BaseTag {
     private boolean escapeHtml = true;
 
     public int doStartTag() {
-        log.debug("XXXX TextInputTag called");
+        log.debug("XXXX TextInputTag called for " + name);
         StringBuffer ret = new StringBuffer();
 
         if (editable) {
