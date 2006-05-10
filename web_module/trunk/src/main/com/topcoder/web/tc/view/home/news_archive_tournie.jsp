@@ -42,6 +42,7 @@
 <%--
 <tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
 --%>
+<tr class="bodyText"><td nowrap="nowrap">05.10.06 1:30 PM - </td><td width="100%">TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_finals">Design</A> & <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">Development</A> Finals results</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.09.06 10:45 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">TCO06 CCIP results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.05.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">Congratulations to Petr, TCO06 Algorithm Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.05.06 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">Congratulations to Pops, TCO06 Design Champion</A></td></tr>
