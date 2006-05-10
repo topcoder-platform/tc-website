@@ -248,7 +248,13 @@ public final class StringUtils {
     }
 
     public static String getTrimmedParameter(TCRequest r, String param) {
-        return checkNull(r.getParameter(param)).trim();
+        String val = r.getParameter(param);
+        if (val==null) {
+            return null;
+        } else {
+            return val.trim();
+        }
+
     }
 
 }
