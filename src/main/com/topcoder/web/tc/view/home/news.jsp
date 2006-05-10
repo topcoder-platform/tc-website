@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.10.06<br>1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_finals">Design</A> & <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">Development</A> Finals results
+      </span><br><br>
+      Here are the results for TCO06 CDDC Finals.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_finals">design</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">development</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="506009" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.10.06<br>12:15 PM</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A>
@@ -167,21 +183,6 @@
    <tr><td class="newsLinksCell">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_wildcard_analysis">details</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505964" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.04.06<br>3:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">tomek wins Room 3 of the TCO06</A>
-      </span><br><br>
-      tomek and John Dethridge advance to the Finals. reid, ploh, liympanda, and JongMan advance to the WildCard Room.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505963" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
