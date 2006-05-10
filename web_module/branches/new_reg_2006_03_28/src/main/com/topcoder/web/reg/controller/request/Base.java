@@ -30,6 +30,7 @@ abstract class Base extends BaseProcessor {
             registrationProcessing();
         } catch (Throwable e) {
             HibernateUtils.rollback();
+            throw new Exception(e);
         }
     }
 
