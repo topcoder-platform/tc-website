@@ -135,7 +135,7 @@
       <td rowspan="2" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_bar.gif" alt="" border="0" /></td>
       <td valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="8355516" context="algorithm"/></span>--%></td>
+      <td valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span></td>
    </tr>
    <tr>
       <td align="right"><img src="/i/tournament/tco06/bracket_BL.gif" alt="" border="0" /></td>
