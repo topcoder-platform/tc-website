@@ -194,6 +194,10 @@ public class User extends Base {
         this.securityGroups = securityGroups;
     }
 
+    public String getHandleLower() {
+        return handle.toLowerCase();
+    }
+
     public Set getRegistrationTypes() {
         //i think this could be done better with an HQL query, but dunno how yet
         UserGroup g;

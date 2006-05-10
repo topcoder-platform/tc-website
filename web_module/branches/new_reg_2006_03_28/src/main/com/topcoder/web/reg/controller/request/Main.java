@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
-        if (userLoggedIn()) {
+        if ((getRegUser()==null||getRegUser().isNew()) || userLoggedIn()) {
             List types = new RegistrationTypeDAO().getRegistrationTypes();
 
             RegistrationType rt;
@@ -31,6 +31,10 @@ public class Main extends Base {
                 }
             }
 
+            setRequestedTypes(requestedTypes);
+
+
+
             if (requestedTypes.isEmpty()) {
                 //error message, back to selection page
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
@@ -39,7 +43,8 @@ public class Main extends Base {
             } else {
                 //todo if they are attempting to register for high school, and they are not eligible,
                   //todo give them a message saying they are not eligible to register for highschool
-                getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
+                getRequest().setAttribute(Constants.FIELDS,
+                        RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

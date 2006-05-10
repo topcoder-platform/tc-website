@@ -6,10 +6,7 @@ import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.List;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * @author dok
@@ -150,7 +147,13 @@ public class RegFieldHelper {
      */
     public static Set getMainFieldSet(Set regTypes, User user) {
         Set ret = new HashSet();
-        Set currentTypes = user.getRegistrationTypes();
+
+        Set currentTypes;
+        if (user==null || user.isNew()) {
+            currentTypes = Collections.EMPTY_SET;
+        } else {
+            currentTypes =user.getRegistrationTypes();
+        }
 
         RegistrationTypeDAO dao = new RegistrationTypeDAO();
 

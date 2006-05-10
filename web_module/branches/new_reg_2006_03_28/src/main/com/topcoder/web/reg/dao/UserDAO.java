@@ -22,6 +22,10 @@ public class UserDAO extends Base {
         return (User)super.find(User.class, id);
     }
 
+    public User find(String userName) {
+        return (User)findOne(User.class, "handle_lower", userName.toLowerCase());
+    }
+
     public void saveOrUpdate(User u) {
         super.saveOrUpdate(u);
     }

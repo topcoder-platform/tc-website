@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.framework.Test;
 import com.topcoder.web.reg.dao.*;
+import com.topcoder.web.reg.validation.*;
 
 /**
  * @author dok
@@ -25,6 +26,24 @@ public class RegTests extends TestCase {
         suite.addTest(new TestSuite(StateDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+
+        suite.addTest(new TestSuite(Address1ValidatorTestCase.class));
+        suite.addTest(new TestSuite(Address2ValidatorTestCase.class));
+        suite.addTest(new TestSuite(Address3ValidatorTestCase.class));
+        suite.addTest(new TestSuite(CityValidatorTestCase.class));
+        suite.addTest(new TestSuite(CompanyNameValidatorTestCase.class));
+        suite.addTest(new TestSuite(EmailValidatorTestCase.class));
+        suite.addTest(new TestSuite(EmailConfirmValidatorTestCase.class));
+        suite.addTest(new TestSuite(GivenNameValidatorTestCase.class));
+        suite.addTest(new TestSuite(MiddleNameValidatorTestCase.class));
+        suite.addTest(new TestSuite(PasswordConfirmValidatorTestCase.class));
+        suite.addTest(new TestSuite(PasswordValidatorTestCase.class));
+        suite.addTest(new TestSuite(PostalCodeValidatorTestCase.class));
+        suite.addTest(new TestSuite(ProvinceValidatorTestCase.class));
+        suite.addTest(new TestSuite(QuoteValidatorTestCase.class));
+        suite.addTest(new TestSuite(SurnameValidatorTestCase.class));
+        suite.addTest(new TestSuite(TitleValidatorTestCase.class));
+        suite.addTest(new TestSuite(UserNameValidatorTestCase.class));
 
         return suite;
     }

@@ -29,13 +29,14 @@ public class Constants implements WebConstants {
     public static final String GPA_SCALE = "gpas";
     public static final String VISIBLE_SCHOOL = "vschl";
     public static final String USER = "regUser";
+    public static final String REG_TYPES = "regTypes";
 
     public static final String FIELDS = "fields";
 
     public static final String NEW_REG = "nrg";
 
 
-    private final static String PUNCTUATION = "-_.{}[]()";
+    public final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
             "abcdefghijklmnopqrstuvwxyz" +
             "0123456789" + PUNCTUATION;
@@ -53,6 +54,7 @@ public class Constants implements WebConstants {
     public static int MAX_ADDRESS_LENGTH;
     public static int MAX_CITY_LENGTH;
     public static int MAX_POSTAL_CODE_LENGTH;
+    public static int MIN_POSTAL_CODE_LENGTH;
     public static int MAX_PROVINCE_LENGTH;
     public static int MAX_TITLE_LENGTH;
     public static int MAX_COMPANY_NAME_LENGTH;

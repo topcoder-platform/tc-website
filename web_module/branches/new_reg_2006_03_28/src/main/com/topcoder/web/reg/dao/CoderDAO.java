@@ -55,6 +55,7 @@ public class CoderDAO extends Base {
             //can't figure out how to get hibernate to handle this, so
             //i'm doing it here.
             if (addRatings) {
+                //todo add logic so that only the appropriate rating records get created
                 TCAlgoRating tcRating = new TCAlgoRating(u);
                 tcRating.setRating(new Integer(0));
                 HSAlgoRating hsRating = new HSAlgoRating(u);

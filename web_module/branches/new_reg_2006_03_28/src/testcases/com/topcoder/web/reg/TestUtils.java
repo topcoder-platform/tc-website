@@ -120,4 +120,11 @@ public class TestUtils {
         return ret;
     }
 
+    public static User makeUser(String handle) {
+        User ret = makeUser();
+        ret.setHandle(handle);
+        return ret;
+    }
+
+
 }

@@ -45,4 +45,14 @@ public class UserDAOTestCase extends TestCase {
         User dok = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(132456));
         assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
     }
+
+    public void testFindByUserName() {
+        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
+        assertTrue("did not load dok", dok!=null);
+    }
+
+    public void testFailureFindByUserName() {
+        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dokd9d898df333");
+        assertTrue("loaded dokd9d898df333", dok==null);
+    }
 }
