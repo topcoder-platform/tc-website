@@ -1,6 +1,7 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -37,12 +38,10 @@ public class Constants implements WebConstants {
 
 
     public final static String PUNCTUATION = "-_.{}[]()";
-    public final static String HANDLE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-            "abcdefghijklmnopqrstuvwxyz" +
-            "0123456789" + PUNCTUATION;
-    public final static String PASSWORD_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-            "abcdefghijklmnopqrstuvwxyz" +
-            "0123456789" + PUNCTUATION;
+    public final static String HANDLE_ALPHABET =  StringUtils.ALPHABET_ALPHA_EN +
+            StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
+    public final static String PASSWORD_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
+            StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
 
     public static int MIN_HANDLE_LENGTH;
     public static int MAX_HANDLE_LENGTH;

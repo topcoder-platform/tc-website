@@ -4,7 +4,12 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.Contact;
+import com.topcoder.web.reg.model.Coder;
+import com.topcoder.web.reg.model.CoderType;
 import junit.framework.TestCase;
+
+import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -14,20 +19,20 @@ import junit.framework.TestCase;
 public class UserDAOTestCase extends TestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
+    public void tearDown() {
+        HibernateUtils.closeLocal();
+    }
+
     public void testFind() {
         User tomek = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(144400));
         assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
     }
 
     public void testSaveOrUpdate() {
-        User u= TestUtils.makeUser();
-        try {
-            new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-            User u1= new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
-            assertTrue("new coder does not exist", u1!=null);
-        } finally {
-            HibernateUtils.closeLocal();
-        }
+        User u = TestUtils.makeUser();
+        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
+        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
 
     }
 
@@ -48,11 +53,46 @@ public class UserDAOTestCase extends TestCase {
 
     public void testFindByUserName() {
         User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
-        assertTrue("did not load dok", dok!=null);
+        assertTrue("did not load dok", dok != null);
     }
 
     public void testFailureFindByUserName() {
         User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dokd9d898df333");
-        assertTrue("loaded dokd9d898df333", dok==null);
+        assertTrue("loaded dokd9d898df333", dok == null);
     }
+
+    public void testSaveUpdateWithCoder() {
+        User u = TestUtils.makeUser();
+        Coder c = new Coder();
+        c.setCompCountryCode("840");
+        c.setMemberSince(new Timestamp(System.currentTimeMillis()));
+        c.setCoderType(new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.STUDENT));
+
+        u.setCoder(c);
+        c.setUser(u);
+        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
+        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
+
+    }
+
+    public void testSaveUpdateWithContact() {
+        User u = TestUtils.makeUser();
+        Contact c = new Contact();
+        c.setCompany(new CompanyDAO(HibernateUtils.getLocalSession()).find(new Long(1)));
+        c.setTitle("the man!");
+        u.setContact(c);
+        c.setUser(u);
+        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
+        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
+
+    }
+
+    public void testFindWithContactAndCoder() {
+        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
+        assertTrue("couldn't find dok's contact information", dok.getContact() != null);
+        assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
+    }
+
 }

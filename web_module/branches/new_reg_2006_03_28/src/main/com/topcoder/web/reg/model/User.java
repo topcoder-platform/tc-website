@@ -26,6 +26,8 @@ public class User extends Base {
     private Set notifications;
     private Set demographicResponses;
     private Set securityGroups;
+    private Coder coder;
+    private Contact contact;
 
     public User() {
         addresses = new HashSet();
@@ -134,6 +136,16 @@ public class User extends Base {
         }
     }
 
+    public Address getHomeAddress() {
+        Address a = null;
+        boolean found = false;
+        for (Iterator it = getAddresses().iterator(); it.hasNext()&&!found;) {
+            a = (Address)it.next();
+            found = Address.HOME_TYPE_ID.equals(a.getAddressTypeId());
+        }
+        return a;
+    }
+
     public Set getPhoneNumbers() {
         return Collections.unmodifiableSet(phoneNumbers);
     }
@@ -212,9 +224,28 @@ public class User extends Base {
         return Collections.unmodifiableSet(ret);
     }
 
+    public Coder getCoder() {
+        return coder;
+    }
+
+    public void setCoder(Coder coder) {
+        this.coder = coder;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
         ret.setTimeZone((TimeZone)timeZone.clone());
+        ret.setCoder((Coder)coder.clone());
+        ret.setContact((Contact)contact.clone());
         for(Iterator it = addresses.iterator(); it.hasNext();) {
             ret.addAddress((Address)((Address)it.next()).clone());
         }

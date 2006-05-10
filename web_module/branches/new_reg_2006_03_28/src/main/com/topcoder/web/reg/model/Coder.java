@@ -1,5 +1,7 @@
 package com.topcoder.web.reg.model;
 
+import com.topcoder.web.common.model.Base;
+
 import java.sql.Timestamp;
 
 /**
@@ -8,8 +10,9 @@ import java.sql.Timestamp;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-public class Coder extends User {
+public class Coder extends Base {
 
+    private Long id;
     private Timestamp memberSince;
     private String quote;
     private CoderType coderType;
@@ -19,6 +22,17 @@ public class Coder extends User {
     private TCAlgoRating tcRating;
 */
     private CurrentSchool currentSchool;
+    private User user;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public Timestamp getMemberSince() {
         return memberSince;
@@ -78,6 +92,14 @@ public class Coder extends User {
         this.currentSchool = currentSchool;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Object clone() throws CloneNotSupportedException {
         Coder ret = (Coder) super.clone();
 /*
@@ -85,6 +107,7 @@ public class Coder extends User {
         ret.setTCRating((TCAlgoRating) tcRating.clone());
 */
         ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
+        ret.setUser((User) user.clone());
         return ret;
     }
 

@@ -2,6 +2,9 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.Contact;
+import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.common.PermissionException;
@@ -19,8 +22,9 @@ import java.util.Iterator;
 public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
-        if ((getRegUser()==null||getRegUser().isNew()) || userLoggedIn()) {
-            List types = new RegistrationTypeDAO().getRegistrationTypes();
+        if (getRegUser()==null||getRegUser().isNew() || userLoggedIn()) {
+            RegistrationTypeDAO regTypeDAO = new RegistrationTypeDAO();
+            List types = regTypeDAO.getRegistrationTypes();
 
             RegistrationType rt;
             HashSet requestedTypes = new HashSet();
@@ -33,6 +37,23 @@ public class Main extends Base {
 
             setRequestedTypes(requestedTypes);
 
+            //set up the user object we're gonna use
+            User u = getRegUser();
+            if (u==null) {
+                log.debug("user doesn't exist, must be a new registration, setting it up");
+                u = new User();
+                if (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())) {
+                    Contact c = new Contact();
+                    u.setContact(c);
+                    c.setUser(u);
+                }
+                if (requestedTypes.contains(regTypeDAO.getCompetitionType()) || requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                    Coder c= new Coder();
+                    u.setCoder(c);
+                    c.setUser(u);
+                }
+                setRegUser(u);
+            }
 
 
             if (requestedTypes.isEmpty()) {

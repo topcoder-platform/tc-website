@@ -1,10 +1,10 @@
 package com.topcoder.web.reg;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.framework.Test;
 import com.topcoder.web.reg.dao.*;
 import com.topcoder.web.reg.validation.*;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
  * @author dok
@@ -26,6 +26,9 @@ public class RegTests extends TestCase {
         suite.addTest(new TestSuite(StateDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+        suite.addTest(new TestSuite(CoderDAOTestCase.class));
+        suite.addTest(new TestSuite(ContactDAOTestCase.class));
+        suite.addTest(new TestSuite(CompanyDAOTestCase.class));
 
         suite.addTest(new TestSuite(Address1ValidatorTestCase.class));
         suite.addTest(new TestSuite(Address2ValidatorTestCase.class));

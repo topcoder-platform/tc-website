@@ -1,10 +1,9 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.Coder;
-import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
+import com.topcoder.web.reg.model.CoderType;
+import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.User;
 
 import java.util.*;
 
@@ -223,7 +222,7 @@ public class RegFieldHelper {
             } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    ct = ((Coder)user).getCoderType();
+                    ct = user.getCoder().getCoderType();
                     if (ct==null) {
                         throw new RuntimeException("User had no coder type");
                     } else {

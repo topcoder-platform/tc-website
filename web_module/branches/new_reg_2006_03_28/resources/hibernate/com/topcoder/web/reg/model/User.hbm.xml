@@ -19,6 +19,8 @@
         <property name="password" access="field"/>
         <property name="activationCode" column="activation_code" access="field"/>
         <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
+        <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="contact" class="Contact" cascade="save-update" access="field" fetch="select"/>
 
         <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true" access="field">
             <key column="login_id" not-null="true"/>
@@ -46,14 +48,7 @@
                     <one-to-many class="DemographicResponse"/>
                 </set>
         -->
-        <joined-subclass name="Coder" table="coder">
-            <key column="coder_id"/>
-            <property name="memberSince" type="timestamp" column="member_since" access="field"/>
-            <property name="quote" access="field"/>
-            <many-to-one name="coderType" column="coder_type_id" class="CoderType" access="field" cascade="none"/>
-            <property name="compCountryCode" column="comp_country_code" access="field"/>
-            <one-to-one name="currentSchool" class="CurrentSchool" constrained="false" cascade="save-update" access="field" fetch="select"/>
-        </joined-subclass>
+
 
     </class>
 

@@ -10,7 +10,7 @@
                 <param name="property">coder</param>
             </generator>
         </id>
-        <one-to-one name="coder" class="Coder" constrained="false"/>
+        <one-to-one name="coder" class="Coder" constrained="true"/>
         <many-to-one name="school" column="school_id" class="School"/>
         <property name="GPA" column="gpa"/>
         <property name="GPAScale" column="gpa_scale"/>
