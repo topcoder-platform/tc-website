@@ -37,7 +37,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     private boolean nextPageInContext = false;
 
     public BaseProcessor() {
-        log.debug("constructing " + this.getClass().getName());
+        //log.debug("constructing " + this.getClass().getName());
         errors = new HashMap();
         defaults = new HashMap();
     }

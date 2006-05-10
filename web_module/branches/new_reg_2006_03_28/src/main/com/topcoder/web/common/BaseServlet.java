@@ -146,7 +146,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
-                    log.debug("got module attribute " + cmd);
+                    //log.debug("got module attribute " + cmd);
                     if (cmd.equals("")) {
                         cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
                     }
@@ -158,7 +158,7 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException();
                     }
 
-                    log.debug("path " + PATH);
+                    //log.debug("path " + PATH);
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
