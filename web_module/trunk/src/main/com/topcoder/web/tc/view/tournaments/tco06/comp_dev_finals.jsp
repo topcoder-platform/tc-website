@@ -86,28 +86,6 @@
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>86</strong></td>
                </tr>
                <tr>
-                  <td class="advanceDk"><tc-webtag:handle coderId="10098406" context="development"/></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.16</td>
-                  <td class="advanceDk" align="center">92.01</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Document_Indexer_Persistence_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.99</td>
-                  <td class="advanceDk" align="center">96.30</td>
-                  <td class="advanceDk" align="center">6</td>
-                  <td class="advanceDk" align="center">20</td>
-                  <td class="advanceDk" align="center">3</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Testing_Framework_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.33</td>
-                  <td class="advanceDk" align="center">95.46</td>
-                  <td class="advanceDk" align="center">2</td>
-                  <td class="advanceDk" align="center">60</td>
-                  <td class="advanceDk" align="center">30</td>
-                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Bread_Crumb_Trail_Tag_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
-                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>39</strong></td>
-               </tr>
-               <tr>
                   <td class="advanceDk"><tc-webtag:handle coderId="299979" context="development"/></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">87.52</td>
                   <td class="advanceDk" align="center">93.18</td>
@@ -128,6 +106,28 @@
                   <td class="advanceDk" align="center">6</td>
                   <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Bread_Crumb_Trail_Control_visualage.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
                   <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>50</strong></td>
+               </tr>
+               <tr>
+                  <td class="advanceDk"><tc-webtag:handle coderId="10098406" context="development"/></td>
+                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.16</td>
+                  <td class="advanceDk" align="center">92.01</td>
+                  <td class="advanceDk" align="center">3</td>
+                  <td class="advanceDk" align="center">20</td>
+                  <td class="advanceDk" align="center">6</td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Document_Indexer_Persistence_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">93.99</td>
+                  <td class="advanceDk" align="center">96.30</td>
+                  <td class="advanceDk" align="center">6</td>
+                  <td class="advanceDk" align="center">20</td>
+                  <td class="advanceDk" align="center">3</td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Testing_Framework_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;">91.33</td>
+                  <td class="advanceDk" align="center">95.46</td>
+                  <td class="advanceDk" align="center">2</td>
+                  <td class="advanceDk" align="center">60</td>
+                  <td class="advanceDk" align="center">30</td>
+                  <td class="advanceDk" align="center"><A href="/i/tournament/tco06/comp_submissions/Bread_Crumb_Trail_Tag_colau.zip"><img src="/i/interface/download.gif" alt="download" border="0" /></A></td>
+                  <td class="advanceDk" align="center" style="border-left: 1px solid #999999;"><strong>39</strong></td>
                </tr>
                <tr>
                   <td class="advanceDk"><tc-webtag:handle coderId="14926554" context="development"/></td>
