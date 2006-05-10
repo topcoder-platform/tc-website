@@ -15,7 +15,6 @@ import java.util.List;
 public abstract class Base {
     protected static final Logger log = Logger.getLogger(Base.class);
 
-    protected Transaction transaction;
     protected Session session;
 
     public Base() {
@@ -28,27 +27,11 @@ public abstract class Base {
 
 
     protected void saveOrUpdate(Object o) {
-        try {
-            begin();
             session.saveOrUpdate(o);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
     }
 
     protected Object find(Class c, Serializable id) {
-        Object ret = null;
-        try {
-            begin();
-            ret = session.load(c, id);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
-        return ret;
+        return session.load(c, id);
     }
 
     protected List findAll(Class c) {
@@ -56,9 +39,7 @@ public abstract class Base {
     }
 
     protected Object findOne(Class c, String property, String value) {
-        Object ret = null;
-        try {
-            begin();
+        Object ret;
             StringBuffer query = new StringBuffer(100);
             query.append("from ");
             query.append(c.getName());
@@ -69,18 +50,11 @@ public abstract class Base {
             Query q = session.createQuery(query.toString());
             q.setString(0, value);
             ret = q.uniqueResult();
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
         return ret;
     }
 
     protected List findAll(Class c, String property, String value) {
         List ret = null;
-        try {
-            begin();
             StringBuffer query = new StringBuffer(100);
             query.append("from ");
             query.append(c.getName());
@@ -95,18 +69,11 @@ public abstract class Base {
                 q.setString(0, value);
             }
             ret = q.list();
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
         return ret;
     }
 
     protected List findAll(Class c, String property, Integer value) {
         List ret = null;
-        try {
-            begin();
             StringBuffer query = new StringBuffer(100);
             query.append("from ");
             query.append(c.getName());
@@ -121,39 +88,9 @@ public abstract class Base {
                 q.setInteger(0, value.intValue());
             }
             ret = q.list();
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
         return ret;
     }
 
 
-    protected void begin() {
-        if (transaction == null) {
-            transaction = session.beginTransaction();
-        } else if (transaction.isActive()) {
-            throw new TransactionException("Transaction already started");
-        } else {
-            transaction = null;
-            transaction = session.beginTransaction();
-        }
-    }
 
-    protected void commit() {
-        if (transaction == null) {
-            throw new TransactionException("No transaction");
-        } else {
-            transaction.commit();
-            transaction = null;
-        }
-    }
-
-    protected void rollback() {
-        if (transaction != null && transaction.isActive()) {
-            transaction.rollback();
-            transaction = null;
-        }
-    }
 }

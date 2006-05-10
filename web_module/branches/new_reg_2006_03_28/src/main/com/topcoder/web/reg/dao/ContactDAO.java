@@ -1,7 +1,6 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Contact;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -24,29 +23,12 @@ public class ContactDAO extends Base {
 
 
     public Contact find(Long id) {
-        Contact ret = null;
-        try {
-            begin();
-            ret = (Contact)session.load(Contact.class, id);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
-        return ret;
+        return (Contact)session.load(Contact.class, id);
 
     }
 
     public void saveOrUpdate(Contact u) {
-        try {
-            begin();
             session.saveOrUpdate(u);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
-
     }
 }
 

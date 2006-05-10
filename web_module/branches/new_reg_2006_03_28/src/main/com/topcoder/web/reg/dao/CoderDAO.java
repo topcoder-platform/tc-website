@@ -3,7 +3,6 @@ package com.topcoder.web.reg.dao;
 import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.model.HSAlgoRating;
 import com.topcoder.web.reg.model.TCAlgoRating;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -27,8 +26,6 @@ public class CoderDAO extends Base {
 
     public Coder find(Long id) {
         Coder ret = null;
-        try {
-            begin();
             ret = (Coder)session.load(Coder.class, id);
             //can't figure out how to get hibernate to handle this, so
             //i'm doing it here.
@@ -38,18 +35,11 @@ public class CoderDAO extends Base {
             ret.setHSRating((HSAlgoRating)session.load(HSAlgoRating.class,
                     new HSAlgoRating.Identifier(id, HSAlgoRating.RATING_TYPE_ID)));
 */
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
         return ret;
 
     }
 
     public void saveOrUpdate(Coder u) {
-        try {
-            begin();
             boolean addRatings =u.getId()==null;
             session.saveOrUpdate(u);
             //can't figure out how to get hibernate to handle this, so
@@ -64,12 +54,6 @@ public class CoderDAO extends Base {
                 session.save(hsRating);
             }
 
-
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
 
     }
 }

@@ -1,7 +1,6 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Company;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 /**
@@ -24,29 +23,12 @@ public class CompanyDAO extends Base {
 
 
     public Company find(Long id) {
-        Company ret = null;
-        try {
-            begin();
-            ret = (Company)session.load(Company.class, id);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
-        return ret;
+        return (Company)session.load(Company.class, id);
 
     }
 
     public void saveOrUpdate(Company u) {
-        try {
-            begin();
             session.saveOrUpdate(u);
-            commit();
-        } catch (HibernateException e) {
-            rollback();
-            throw e;
-        }
-
     }
 }
 

@@ -2,8 +2,10 @@ package com.topcoder.web.reg;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.error.HibernateInitializationException;
+import com.topcoder.web.reg.model.TCInterceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import javax.naming.InitialContext;
@@ -20,11 +22,12 @@ public class HibernateUtils {
     private static final String HIBERNATE_JNDI_KEY = "java:comp/env/hibernate/SessionFactory";
     private static boolean factoryInitComplete = false;
     private static final ThreadLocal tLocalFactory = new ThreadLocal();
+    private static final ThreadLocal tTransaction = new ThreadLocal();
 
     /**
      * If the session doesn't exist in the currently executing thread,
-     * create it, hang onto it if the current thread needs it aggain
-     * and return it.
+     * create it and begin a transaction, hang onto it in case the
+     * current thread needs it again and return it.
      * <p/>
      * If for some reason the hibernate factory failed to initialize
      * properly and we're still executing the application, then
@@ -36,8 +39,8 @@ public class HibernateUtils {
         try {
             Session ret = (Session) tSession.get();
             if (ret == null) {
-//                ret = getFactory().openSession(new TCInterceptor());
-                ret = getFactory().openSession();
+                ret = getFactory().openSession(new TCInterceptor());
+                begin(ret);
             }
             tSession.set(ret);
             return ret;
@@ -48,8 +51,8 @@ public class HibernateUtils {
 
     /**
      * If the session doesn't exist in the currently executing thread,
-     * create it, hang onto it if the current thread needs it aggain
-     * and return it.
+     * create it and begin a transaction, hang onto it in case the
+     * current thread needs it again  and return it.
      * <p/>
      * If for some reason the hibernate factory failed to initialize
      * properly and we're still executing the application, then
@@ -60,8 +63,8 @@ public class HibernateUtils {
     public static Session getLocalSession() {
         Session ret = (Session) tLocalSession.get();
         if (ret == null) {
-//            ret = getLocalFactory().openSession(new TCInterceptor());
-            ret = getLocalFactory().openSession();
+            ret = getLocalFactory().openSession(new TCInterceptor());
+            begin(ret);
         }
         tLocalSession.set(ret);
         return ret;
@@ -129,6 +132,7 @@ public class HibernateUtils {
     public static void closeSession() {
         Session session = (Session) tSession.get();
         if (session != null) {
+            commit();
             session.close();
             tSession.set(null);
         }
@@ -140,6 +144,7 @@ public class HibernateUtils {
     public static void closeLocalSession() {
         Session session = (Session) tLocalSession.get();
         if (session != null) {
+            commit();
             session.close();
             tLocalSession.set(null);
         }
@@ -181,6 +186,34 @@ public class HibernateUtils {
         closeLocalSession();
         closeLocalFactory();
     }
+
+
+    private static void begin(Session session) {
+        Transaction transaction = (Transaction)tTransaction.get();
+        if (transaction == null || !transaction.isActive()) {
+            transaction = session.beginTransaction();
+        } 
+        tTransaction.set(transaction);
+    }
+
+    private static void commit() {
+        Transaction transaction = (Transaction)tTransaction.get();
+        if (transaction != null && transaction.isActive()) {
+            transaction.commit();
+            tTransaction.set(null);
+        }
+    }
+
+    public static void rollback() {
+        Transaction transaction = (Transaction)tTransaction.get();
+        if (transaction != null && transaction.isActive()) {
+            transaction.rollback();
+            closeSession();
+            closeLocalSession();
+            tTransaction.set(null);
+        }
+    }
+
 
 
 }

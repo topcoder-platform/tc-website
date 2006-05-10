@@ -6,6 +6,7 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.dao.UserDAO;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.validation.*;
@@ -25,7 +26,11 @@ abstract class Base extends BaseProcessor {
     private User user = null;
 
     protected void businessProcessing() throws Exception {
-        registrationProcessing();
+        try {
+            registrationProcessing();
+        } catch (Throwable e) {
+            HibernateUtils.rollback();
+        }
     }
 
     /**
