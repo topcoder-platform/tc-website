@@ -17,29 +17,27 @@ import java.util.Iterator;
 public class Selection extends Base {
 
     protected void registrationProcessing() throws Exception {
-        log.debug("got in and executing Selection processor");
 
         boolean newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
 
-        if (userLoggedIn()) {
-            //they're updating their info, and they're logged in, so here we go
+        log.debug("new reg " + newReg);
+        if (newReg) {
             getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
-            RegistrationType rt;
-            for (Iterator it = new UserDAO().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
-                rt = (RegistrationType) it.next();
-                setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
-            }
             setNextPage("/selection.jsp");
             setIsNextPageInContext(true);
         } else {
-            if (newReg) {
-                //they must be attempting to register
+            if (userLoggedIn()) {
+                //they're updating their info, and they're logged in, so here we go
                 getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
+                RegistrationType rt;
+                for (Iterator it = new UserDAO().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
+                    rt = (RegistrationType) it.next();
+                    setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
+                }
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-
             }
         }
     }
