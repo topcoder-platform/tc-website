@@ -17,6 +17,7 @@ import java.util.Iterator;
 public class Selection extends Base {
 
     protected void registrationProcessing() throws Exception {
+        log.debug("got in and executing Selection processor");
 
         boolean newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
 
