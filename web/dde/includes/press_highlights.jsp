@@ -6,6 +6,10 @@
 </table>
 <table width="530" border="0" cellspacing="0" cellpadding="4">   
 
+   <tr><td class="prHead">
+         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/computerworld.gif" width="88" height="23" alt="Computerworld" border="0" /></div>
+         <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A> [May 10]
+   </td></tr>
    <tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=pr_012606">TopCoder Software Component Libraries Selected as Finalist for the 16th Annual Jolt Awards</A> [January 26]</td></tr>
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/incDOTcom_logo.gif" width="67" height="25" alt="Inc.com" border="0" /></div>
@@ -20,10 +24,6 @@
    <tr><td class="prHead">
          <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/ftponline_logo.gif" width="67" height="18" alt="FTPONLINE" border="0" /></div>
          <A href="http://www.ftponline.com/weblogger/forum.aspx?ID=13&DATE=11/01/2005&blog=#449" target="_blank">Spirited Reusable Component Development</A> [November 1]
-   </td></tr>
-   <tr><td class="prHead">
-         <div style="float: right; padding-left: 5px;"><img src="http://www.topcoder.com/i/pressroom/info_week_logo.gif" width="67" height="10" alt="Information Week" border="0" /></div>
-         <A href="http://www.informationweek.com/showArticle.jhtml?articleID=172901456" target="_blank">Winning Design Ways</A> [October 31]
    </td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>

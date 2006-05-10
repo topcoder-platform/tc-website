@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.10.06<br>12:15 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A>
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="88" height="23" alt="Computerworld" News border="0" /></div>
+       <i>Users tap TopCoder's "virtual sourcing" model</i> - More than 64 computer programmers from 19 countries gathered in Las Vegas last week for the 2006 TopCoder Open, a competition where developers go head-to-head to solve a complex algorithmic problem, design an application or develop a software component for $150,000 in cash prizes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506008" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.09.06<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">TCO06 CCIP results</A>
@@ -166,21 +182,6 @@
    <tr><td class="newsLinksCell">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room3_analysis">details</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505963" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.03.06<br>10:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">misof wins Room 2 of the TCO06</A>
-      </span><br><br>
-      misof and fuwenjie advance to the Finals. andrewzta, po, natori, and nicka81 advance to the WildCard Room.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_room2_analysis">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505962" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 

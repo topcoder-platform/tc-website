@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- ComputerWorld --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank"><img src="/i/pressroom/computerworld.gif" alt="Computerworld" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A></strong></font><br />
+                        <i>Users tap TopCoder's "virtual sourcing" model</i> - More than 64 computer programmers from 19 countries gathered in Las Vegas last week for the 2006 TopCoder Open, a competition where developers go head-to-head to solve a complex algorithmic problem, design an application or develop a software component for $150,000 in cash prizes.<span class="prHead"> [May 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- TCO champions --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
