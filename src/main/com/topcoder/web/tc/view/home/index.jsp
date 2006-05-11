@@ -209,6 +209,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/moscowTimes_logo.gif" width="88" height="10" alt="The Moscow Times" border="0" /></div>
+            Russian Talents Shine in IT Contests <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">...more</A><br>[May 11]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="67" height="18" alt="Computerworld" border="0" /></div>
             Programming contest garners enterprise interest <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">...more</A><br>[May 10]<br><br>
 
@@ -222,8 +225,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
             Students compete in online competition <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">...more</A><br>[March 30]<br><br>
-
-            TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">...more</A><br>[March 16]<br><br>
 
             </td>
          </tr>
