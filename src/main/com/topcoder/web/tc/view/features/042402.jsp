@@ -108,7 +108,7 @@ Two and Three problems are worth more points, so I figured I could outscore the 
 the Level One and Two problems in succession." 
 </P>
 
-<P><IMG SRC="/i/2002tccc/tourney_feat_photo2.jpg" ALT="" WIDTH="300" HEIGHT="200" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
+<P><IMG SRC="/i/tournament/tccc02/tourney_feat_photo2.jpg" ALT="" WIDTH="300" HEIGHT="200" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 His strategy paid off, even though he had to leave the Level Three problem to go back to code the Level 
 One problem, as all three of his opponents could only submit code for the Level One problem.  After some 
 pretty tense moments in the Challenge Phase, when both of his submissions were thoroughly examined by 
