@@ -173,7 +173,7 @@ text-decoration: none;
         <td id="calendarLong">
             <span id="calendarLongDate">17</span><br />
             <strong>Intel Multi-threading Competition 5</strong><br />
-            Registration Opens: 12:00 Noon<br />
+            Registration Opens: 2:00 PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
         <td id="calendarSRM">
