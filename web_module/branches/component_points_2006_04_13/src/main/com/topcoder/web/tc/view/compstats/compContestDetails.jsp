@@ -21,7 +21,7 @@ var objPopUp = null;
 function popUp(event,objectID){
    objPopTrig = document.getElementById(event);
    objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft+10;
+   xPos = objPopTrig.offsetLeft+15;
    yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
    if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
    if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
@@ -39,7 +39,6 @@ function popHide(){
 <STYLE TYPE="text/css">
 .popUp
 {
-width: 140px;
 font-size: 10px;
 text-align: center;
 background-color: #FFFFCC;
@@ -225,8 +224,8 @@ position: relative;
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">
                <div id="container">
-                  <img src="/i/interface/emblem/digital_run.gif" alt="Digital Run" border="0" id="popperEmblem0" onmouseover="popUp(this.id,'popUp" onmouseout="popHide()"/>
-                  <div id="poppedEmblem0" class="popUp">The Digital Run</div>
+                  <img src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                  <div id="pop0" class="popUp">The Digital Run</div>
                </div>
                Points
             </TD>
