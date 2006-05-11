@@ -52,7 +52,7 @@ abstract class Base extends BaseProcessor {
                         log.debug("get user from the dao");
                     }
                 } else {
-                    log.debug("got user from request");
+                    log.debug("got user from session");
                 }
             }
         } else {

@@ -19,11 +19,11 @@ public class UserDAO extends Base {
     }
 
     public User find(Long id) {
-        return (User)super.find(User.class, id);
+        return (User) super.find(User.class, id);
     }
 
     public User find(String userName) {
-        return (User)findOne(User.class, "handle_lower", userName.toLowerCase());
+        return (User) findOne(User.class, "handle_lower", userName.toLowerCase());
     }
 
     public void saveOrUpdate(User u) {

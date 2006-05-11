@@ -3,10 +3,10 @@ package com.topcoder.web.reg.dao;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.TestUtils;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.Contact;
 import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.model.CoderType;
+import com.topcoder.web.reg.model.Contact;
+import com.topcoder.web.reg.model.User;
 import junit.framework.TestCase;
 
 import java.sql.Timestamp;
@@ -73,7 +73,20 @@ public class UserDAOTestCase extends TestCase {
         new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
         User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
+    }
 
+    public void testSaveUpdateWithOutCoder() {
+        User u = TestUtils.makeUser();
+        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
+        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        assertTrue("coder exists and should not", u1.getCoder() == null);
+    }
+
+    public void testSaveUpdateWithOutContact() {
+        User u = TestUtils.makeUser();
+        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
+        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        assertTrue("contactexists and should not", u1.getContact() == null);
     }
 
     public void testSaveUpdateWithContact() {

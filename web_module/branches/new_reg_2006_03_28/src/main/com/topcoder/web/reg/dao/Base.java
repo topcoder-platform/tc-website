@@ -2,7 +2,8 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;
-import org.hibernate.*;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 import java.io.Serializable;
 import java.util.List;
@@ -27,70 +28,69 @@ public abstract class Base {
 
 
     protected void saveOrUpdate(Object o) {
-            session.saveOrUpdate(o);
+        session.saveOrUpdate(o);
     }
 
     protected Object find(Class c, Serializable id) {
-        return session.load(c, id);
+        return session.get(c, id);
     }
 
     protected List findAll(Class c) {
-        return findAll(c, null, (String)null);
+        return findAll(c, null, (String) null);
     }
 
     protected Object findOne(Class c, String property, String value) {
         Object ret;
-            StringBuffer query = new StringBuffer(100);
-            query.append("from ");
-            query.append(c.getName());
-            query.append(" where ");
-            query.append(property);
-            query.append(" = ");
-            query.append("?");
-            Query q = session.createQuery(query.toString());
-            q.setString(0, value);
-            ret = q.uniqueResult();
+        StringBuffer query = new StringBuffer(100);
+        query.append("from ");
+        query.append(c.getName());
+        query.append(" where ");
+        query.append(property);
+        query.append(" = ");
+        query.append("?");
+        Query q = session.createQuery(query.toString());
+        q.setString(0, value);
+        ret = q.uniqueResult();
         return ret;
     }
 
     protected List findAll(Class c, String property, String value) {
-        List ret = null;
-            StringBuffer query = new StringBuffer(100);
-            query.append("from ");
-            query.append(c.getName());
-            if (property != null && value != null) {
-                query.append(" where ");
-                query.append(property);
-                query.append(" = ");
-                query.append("?");
-            }
-            Query q = session.createQuery(query.toString());
-            if (property != null && value != null) {
-                q.setString(0, value);
-            }
-            ret = q.list();
+        List ret;
+        StringBuffer query = new StringBuffer(100);
+        query.append("from ");
+        query.append(c.getName());
+        if (property != null && value != null) {
+            query.append(" where ");
+            query.append(property);
+            query.append(" = ");
+            query.append("?");
+        }
+        Query q = session.createQuery(query.toString());
+        if (property != null && value != null) {
+            q.setString(0, value);
+        }
+        ret = q.list();
         return ret;
     }
 
     protected List findAll(Class c, String property, Integer value) {
         List ret = null;
-            StringBuffer query = new StringBuffer(100);
-            query.append("from ");
-            query.append(c.getName());
-            query.append(" where ");
-            if (property != null && value != null) {
-                query.append(property);
-                query.append(" = ");
-                query.append("?");
-            }
-            Query q = session.createQuery(query.toString());
-            if (property != null && value != null) {
-                q.setInteger(0, value.intValue());
-            }
-            ret = q.list();
+        StringBuffer query = new StringBuffer(100);
+        query.append("from ");
+        query.append(c.getName());
+        query.append(" where ");
+        if (property != null && value != null) {
+            query.append(property);
+            query.append(" = ");
+            query.append("?");
+        }
+        Query q = session.createQuery(query.toString());
+        if (property != null && value != null) {
+            q.setInteger(0, value.intValue());
+        }
+        ret = q.list();
         return ret;
     }
-
 
 
 }

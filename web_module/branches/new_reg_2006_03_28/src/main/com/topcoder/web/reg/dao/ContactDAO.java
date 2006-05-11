@@ -23,12 +23,12 @@ public class ContactDAO extends Base {
 
 
     public Contact find(Long id) {
-        return (Contact)session.load(Contact.class, id);
+        return (Contact) find(Contact.class, id);
 
     }
 
     public void saveOrUpdate(Contact u) {
-            session.saveOrUpdate(u);
+        session.saveOrUpdate(u);
     }
 }
 

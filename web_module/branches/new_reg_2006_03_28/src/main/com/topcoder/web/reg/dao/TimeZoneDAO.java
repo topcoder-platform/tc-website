@@ -25,11 +25,11 @@ public class TimeZoneDAO extends Base {
     }
 
     public TimeZone find(Integer id) {
-        return (TimeZone)find(TimeZone.class, id);
+        return (TimeZone) find(TimeZone.class, id);
     }
 
     public TimeZone find(String s) {
-        return (TimeZone)findOne(TimeZone.class, "description", s);
+        return (TimeZone) findOne(TimeZone.class, "description", s);
     }
 
     public TimeZone find(java.util.TimeZone t) {

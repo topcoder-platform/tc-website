@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.dao;
 
-import junit.framework.TestCase;
-import com.topcoder.web.reg.model.School;
 import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.model.School;
+import junit.framework.TestCase;
 
 /**
  * @author dok

@@ -6,5 +6,5 @@ package com.topcoder.web.reg.dao;
  *          Create Date: Apr 10, 2006
  */
 public class DemographicQuestionDAO extends Base {
-    
+
 }

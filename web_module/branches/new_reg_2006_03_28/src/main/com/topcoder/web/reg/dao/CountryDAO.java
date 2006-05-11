@@ -25,7 +25,7 @@ public class CountryDAO extends Base {
     }
 
     public Country find(String code) {
-        return (Country)find(Country.class, code);
+        return (Country) find(Country.class, code);
     }
 
 }

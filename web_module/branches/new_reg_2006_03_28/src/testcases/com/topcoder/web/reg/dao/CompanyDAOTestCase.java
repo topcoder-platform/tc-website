@@ -14,7 +14,7 @@ public class CompanyDAOTestCase extends TestCase {
     public void testFind() {
 
         Company topcoder = new CompanyDAO(HibernateUtils.getLocalSession()).find(new Long(1));
-        assertTrue("could not load topcoder", topcoder!=null);
+        assertTrue("could not load topcoder", topcoder != null);
 
     }
 
@@ -27,13 +27,12 @@ public class CompanyDAOTestCase extends TestCase {
             new CompanyDAO(HibernateUtils.getLocalSession()).saveOrUpdate(c);
             //Coder c1= new CoderDAO(HibernateUtils.getLocalSession()).find(c.getId());
             Company c1 = new CompanyDAO(HibernateUtils.getLocalSession()).find(c.getId());
-            assertTrue("new company does not exist", c1!=null);
+            assertTrue("new company does not exist", c1 != null);
         } finally {
             HibernateUtils.closeLocal();
         }
 
     }
-
 
 
 }

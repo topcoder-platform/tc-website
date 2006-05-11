@@ -18,6 +18,6 @@ public class SchoolDAO extends Base {
     }
 
     public School find(Long id) {
-        return (School)find(School.class, id);
+        return (School) find(School.class, id);
     }
 }

@@ -1,7 +1,5 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.*;
-import com.topcoder.web.reg.validation.*;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -18,6 +16,7 @@ public class RegTests extends TestCase {
         //dao
 
 
+/*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
@@ -47,6 +46,9 @@ public class RegTests extends TestCase {
         suite.addTest(new TestSuite(SurnameValidatorTestCase.class));
         suite.addTest(new TestSuite(TitleValidatorTestCase.class));
         suite.addTest(new TestSuite(UserNameValidatorTestCase.class));
+*/
+
+        suite.addTest(new TestSuite(DetachedTestCase.class));
 
         return suite;
     }

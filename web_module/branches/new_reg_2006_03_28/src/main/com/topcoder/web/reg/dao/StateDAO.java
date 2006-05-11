@@ -24,6 +24,6 @@ public class StateDAO extends Base {
     }
 
     public State find(String code) {
-        return (State)find(State.class, code);
+        return (State) find(State.class, code);
     }
 }

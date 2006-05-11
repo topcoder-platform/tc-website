@@ -15,16 +15,17 @@ public class RegistrationTypeDAO extends Base {
     public RegistrationTypeDAO() {
         super();
     }
+
     public RegistrationTypeDAO(Session session) {
         super(session);
     }
-    
+
     public List getRegistrationTypes() {
         return findAll(RegistrationType.class, "active", new Integer(1));
     }
 
     public RegistrationType find(Integer id) {
-        return (RegistrationType)find(RegistrationType.class, id);
+        return (RegistrationType) find(RegistrationType.class, id);
     }
 
     public RegistrationType getCompetitionType() {

@@ -26,6 +26,6 @@ public class CoderTypeDAO extends Base {
     }
 
     public CoderType find(Integer id) {
-        return (CoderType)find(CoderType.class, id);
+        return (CoderType) find(CoderType.class, id);
     }
 }

@@ -25,7 +25,7 @@ public class NotificationDAO extends Base {
     }
 
     public Notification find(Long id) {
-        return (Notification)find(Notification.class, id);
+        return (Notification) find(Notification.class, id);
     }
 
     /**

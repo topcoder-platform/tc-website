@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.model.State;
 import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.model.State;
 import junit.framework.TestCase;
 
 import java.util.List;

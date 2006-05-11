@@ -23,12 +23,12 @@ public class CompanyDAO extends Base {
 
 
     public Company find(Long id) {
-        return (Company)session.load(Company.class, id);
+        return (Company) find(Company.class, id);
 
     }
 
     public void saveOrUpdate(Company u) {
-            session.saveOrUpdate(u);
+        session.saveOrUpdate(u);
     }
 }
 

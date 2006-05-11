@@ -8,7 +8,4 @@ package com.topcoder.web.reg.dao;
 public class Util extends Base {
 
 
-
-
-
 }
