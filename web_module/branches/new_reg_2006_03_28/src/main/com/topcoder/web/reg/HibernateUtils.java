@@ -143,7 +143,10 @@ public class HibernateUtils {
      * Close the session if it exists in the currently executing thread.
      */
     public static void closeSession() {
-        getFactory().getCurrentSession().close();
+        Session s = getFactory().getCurrentSession();
+        if (s.isOpen()) {
+            getFactory().getCurrentSession().close();
+        }
 /*
         Session session = (Session) tSession.get();
         if (session != null) {
