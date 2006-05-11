@@ -28,9 +28,9 @@ abstract class Base extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         try {
             registrationProcessing();
-        } catch (Throwable e) {
+        } catch (Exception e) {
             HibernateUtils.rollback();
-            throw new Exception(e);
+            throw e;
         }
     }
 
