@@ -337,7 +337,7 @@ z-index: 1;
 </table>
 
 * Some information may be unknown due to missing data from old projects
-
+<br>**  Points may be altered to reflect Final Fixes
 </td>
 <!-- Center Column Ends -->
 <td width="170">
