@@ -1,7 +1,6 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.error.HibernateInitializationException;
 import com.topcoder.web.reg.model.TCInterceptor;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
@@ -100,7 +99,7 @@ public class HibernateUtils {
      * @return the session for this thread.
      */
     public static Session getSession() {
-        return sessionFactory.getCurrentSession();
+        return getFactory().getCurrentSession();
 /*
         try {
             Session ret = (Session) tSession.get();
@@ -115,17 +114,16 @@ public class HibernateUtils {
         }
 */
     }
+
     /**
      * Return the session factory.
      *
      * @return the session factory
-     * @throws HibernateInitializationException
-     *          if for some reason getting the factory fails.
      */
-    public static SessionFactory getFactory() throws HibernateInitializationException {
+    public static SessionFactory getFactory() {
         SessionFactory ret;
         String sfName = configuration.getProperty(Environment.SESSION_FACTORY_NAME);
-        if ( sfName != null) {
+        if (sfName != null) {
             log.debug("Looking up SessionFactory in JNDI.");
             try {
                 ret = (SessionFactory) new InitialContext().lookup(sfName);
@@ -145,7 +143,7 @@ public class HibernateUtils {
      * Close the session if it exists in the currently executing thread.
      */
     public static void closeSession() {
-        sessionFactory.getCurrentSession().close();
+        getFactory().getCurrentSession().close();
 /*
         Session session = (Session) tSession.get();
         if (session != null) {
@@ -160,13 +158,9 @@ public class HibernateUtils {
      * Close the factory.
      */
     public static void closeFactory() {
-        try {
-            SessionFactory f = getFactory();
-            if (f != null) {
-                f.close();
-            }
-        } catch (HibernateInitializationException e) {
-            throw new RuntimeException(e);
+        SessionFactory f = getFactory();
+        if (f != null) {
+            f.close();
         }
     }
 
@@ -195,8 +189,8 @@ public class HibernateUtils {
     }*/
 
     public static void rollback() {
-        Transaction t= sessionFactory.getCurrentSession().getTransaction();
-        if (t!=null && t.isActive()) {
+        Transaction t = getFactory().getCurrentSession().getTransaction();
+        if (t != null && t.isActive()) {
             t.rollback();
             closeSession();
         }
