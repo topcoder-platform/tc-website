@@ -154,7 +154,7 @@
         <td id="calendarLong">
             <span id="calendarLongDate">10</span><br />
             <strong>Marathon Match 1</strong><br />
-            Registration Opens: 12:00 Noon<br />
+            Registration Opens: 2:00 PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
             <A href="/longcontest/?module=Static&d1=instructions">Details</A><br/><br/></td>
         <td id="calendarSRM">

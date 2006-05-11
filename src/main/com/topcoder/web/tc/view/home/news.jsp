@@ -9,6 +9,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.11.06<br>10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Intel&#174; Multi-Threading Competition 5 delayed
+      </span><br><br>
+      Intel&#174; Multi-Threading Competition 5 will start at <strong>2:00 PM</strong> rather than <strong>12:00 NOON</strong>.  The end of the competition will also be delayed by 2 hours.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="http://forums.topcoder.com/?module=Thread&threadID=510919&mc=1#541170">discuss this</A>&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.10.06<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -155,37 +169,6 @@
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">details</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">Congratulations to sindu, TCO06 Development Champion</A>
-      </span><br><br>
-      <tc-webtag:handle coderId="7548200" context="development"/> is the new Development Champion and the winner of $12,500.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.05.06<br>1:30 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview from the TCO06</A> [PODCAST]
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="67" height="37" alt="Java Posse" News border="0" /></div>
-       The Java Posse interviews TopCoder Founder Jack Hughes right from the TCO06 Arena, including topics like how Jack came up with the idea for TopCoder.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505976" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
