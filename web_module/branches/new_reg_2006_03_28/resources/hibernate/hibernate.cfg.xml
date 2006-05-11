@@ -24,6 +24,11 @@
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext</property>
 
+
+        <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+        <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+
+
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
