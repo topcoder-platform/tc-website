@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -12,14 +12,17 @@ import java.util.List;
  *          Create Date: Apr 17, 2006
  */
 public class RegistrationTypeDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
 
     public void testFind() {
-        RegistrationType rt = new RegistrationTypeDAO(HibernateUtils.getLocalSession()).find(new Integer(1));
+        RegistrationType rt = Util.getFactory().getRegistrationTypeDAO().find(new Integer(1));
         assertTrue("could not find the registration type for competitions", rt != null);
     }
 
     public void testGetRegistrationTypes() {
-        List types = new RegistrationTypeDAO(HibernateUtils.getLocalSession()).getRegistrationTypes();
+        List types = Util.getFactory().getRegistrationTypeDAO().getRegistrationTypes();
         assertTrue("count not find any registration types in the db", types != null && !types.isEmpty());
     }
 

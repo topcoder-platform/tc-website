@@ -1,6 +1,5 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
@@ -154,7 +153,7 @@ public class RegFieldHelper {
             currentTypes =user.getRegistrationTypes();
         }
 
-        RegistrationTypeDAO dao = new RegistrationTypeDAO();
+        com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate dao = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;
@@ -197,7 +196,7 @@ public class RegFieldHelper {
         Set ret = new HashSet();
         Set currentTypes = user.getRegistrationTypes();
 
-        RegistrationTypeDAO dao = new RegistrationTypeDAO();
+        com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate dao = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;

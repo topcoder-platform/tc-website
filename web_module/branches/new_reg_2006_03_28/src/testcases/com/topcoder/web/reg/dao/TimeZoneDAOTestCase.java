@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.TimeZone;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -14,26 +14,30 @@ import java.util.List;
 public class TimeZoneDAOTestCase extends TestCase {
 
 
+    public void tearDown() {
+        HibernateUtils.close();
+    }
+    
     public void testGetTimeZones() {
-        List zones = new TimeZoneDAO(HibernateUtils.getLocalSession()).getTimeZones();
+        List zones = Util.getFactory().getTimeZoneDAO().getTimeZones();
         assertTrue("could not find any time zones in the db", !zones.isEmpty());
     }
 
     public void testFind1() {
         java.util.TimeZone here = java.util.TimeZone.getDefault();
-        TimeZone t = new TimeZoneDAO(HibernateUtils.getLocalSession()).find(here);
+        TimeZone t = Util.getFactory().getTimeZoneDAO().find(here);
         assertTrue("could not find the timezone " + here.getID() + " in the db", t != null && t.getDescription().equals(here.getID()));
     }
 
     public void testFind2() {
         java.util.TimeZone here = java.util.TimeZone.getDefault();
-        TimeZone t = new TimeZoneDAO(HibernateUtils.getLocalSession()).find(here.getID());
+        TimeZone t = Util.getFactory().getTimeZoneDAO().find(here.getID());
         assertTrue("could not find the timezone " + here.getID() + " in the db", t != null && t.getDescription().equals(here.getID()));
 
     }
 
     public void testFind3() {
-        TimeZone t = new TimeZoneDAO(HibernateUtils.getLocalSession()).find(new Integer(90));
+        TimeZone t = Util.getFactory().getTimeZoneDAO().find(new Integer(90));
         assertTrue("could not find the timezone 90 in the db", t != null && t.getDescription().equals("America/Denver"));
     }
 

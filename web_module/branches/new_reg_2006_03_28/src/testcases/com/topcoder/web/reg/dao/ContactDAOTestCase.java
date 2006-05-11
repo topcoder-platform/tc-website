@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.Contact;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 /**
@@ -10,10 +10,13 @@ import junit.framework.TestCase;
  *          Create Date: May 10, 2006
  */
 public class ContactDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
 
     public void testFind() {
 
-        Contact dok = new ContactDAO(HibernateUtils.getLocalSession()).find(new Long(132456));
+        Contact dok = Util.getFactory().getContactDAO().find(new Long(132456));
         assertTrue("could not load dok", dok != null);
 
     }

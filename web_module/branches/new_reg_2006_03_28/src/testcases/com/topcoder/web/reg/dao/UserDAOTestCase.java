@@ -20,44 +20,44 @@ public class UserDAOTestCase extends TestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
     public void tearDown() {
-        HibernateUtils.closeLocal();
+        HibernateUtils.close();
     }
 
     public void testFind() {
-        User tomek = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(144400));
+        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
     }
 
     public void testSaveOrUpdate() {
         User u = TestUtils.makeUser();
-        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
 
     }
 
     public void testSecurityGroupsLoaded() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(132456));
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load groups for dok", !dok.getSecurityGroups().isEmpty());
     }
 
     public void testAddressesLoaded() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(132456));
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load addresses for dok", !dok.getAddresses().isEmpty());
     }
 
     public void testNotificationsLoaded() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find(new Long(132456));
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
     }
 
     public void testFindByUserName() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
+        User dok = Util.getFactory().getUserDAO().find("dok");
         assertTrue("did not load dok", dok != null);
     }
 
     public void testFailureFindByUserName() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dokd9d898df333");
+        User dok = Util.getFactory().getUserDAO().find("dokd9d898df333");
         assertTrue("loaded dokd9d898df333", dok == null);
     }
 
@@ -66,44 +66,44 @@ public class UserDAOTestCase extends TestCase {
         Coder c = new Coder();
         c.setCompCountryCode("840");
         c.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        c.setCoderType(new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.STUDENT));
+        c.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
         u.setCoder(c);
         c.setUser(u);
-        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
     }
 
     public void testSaveUpdateWithOutCoder() {
         User u = TestUtils.makeUser();
-        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("coder exists and should not", u1.getCoder() == null);
     }
 
     public void testSaveUpdateWithOutContact() {
         User u = TestUtils.makeUser();
-        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("contactexists and should not", u1.getContact() == null);
     }
 
     public void testSaveUpdateWithContact() {
         User u = TestUtils.makeUser();
         Contact c = new Contact();
-        c.setCompany(new CompanyDAO(HibernateUtils.getLocalSession()).find(new Long(1)));
+        c.setCompany(Util.getFactory().getCompanyDAO().find(new Long(1)));
         c.setTitle("the man!");
         u.setContact(c);
         c.setUser(u);
-        new UserDAO(HibernateUtils.getLocalSession()).saveOrUpdate(u);
-        User u1 = new UserDAO(HibernateUtils.getLocalSession()).find(u.getId());
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
 
     }
 
     public void testFindWithContactAndCoder() {
-        User dok = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
+        User dok = Util.getFactory().getUserDAO().find("dok");
         assertTrue("couldn't find dok's contact information", dok.getContact() != null);
         assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
     }

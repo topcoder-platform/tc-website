@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.Country;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -12,14 +12,17 @@ import java.util.List;
  *          Create Date: Apr 25, 2006
  */
 public class CountryDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
 
     public void testGetCountries() {
-        List countries = new CountryDAO(HibernateUtils.getLocalSession()).getCountries();
+        List countries = Util.getFactory().getCountryDAO().getCountries();
         assertTrue("could not find any countries in the db", countries != null && !countries.isEmpty());
     }
 
     public void testFind() {
-        Country c = new CountryDAO(HibernateUtils.getLocalSession()).find("840");
+        Country c = Util.getFactory().getCountryDAO().find("840");
         assertTrue("could not find the United States", c != null && c.getName().equals("United States"));
     }
 }

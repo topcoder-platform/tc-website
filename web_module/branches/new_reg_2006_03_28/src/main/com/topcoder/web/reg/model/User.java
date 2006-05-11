@@ -138,10 +138,12 @@ public class User extends Base {
 
     public Address getHomeAddress() {
         Address a = null;
-        boolean found = false;
-        for (Iterator it = getAddresses().iterator(); it.hasNext()&&!found;) {
-            a = (Address)it.next();
-            found = Address.HOME_TYPE_ID.equals(a.getAddressTypeId());
+        if (getAddresses().size()>0) {
+            boolean found = false;
+            for (Iterator it = getAddresses().iterator(); it.hasNext()&&!found;) {
+                a = (Address)it.next();
+                found = Address.HOME_TYPE_ID.equals(a.getAddressTypeId());
+            }
         }
         return a;
     }

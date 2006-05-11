@@ -1,4 +1,4 @@
-package com.topcoder.web.reg.dao;
+package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;

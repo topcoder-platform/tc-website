@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.State;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -12,13 +12,17 @@ import java.util.List;
  *          Create Date: Apr 25, 2006
  */
 public class StateDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
+    
     public void testGetStates() {
-        List states = new StateDAO(HibernateUtils.getLocalSession()).findAll(State.class);
+        List states = Util.getFactory().getStateDAO().findAll();
         assertTrue("could not find any states in the db", !states.isEmpty());
     }
 
     public void testFind(Long id) {
-        State c = new StateDAO(HibernateUtils.getLocalSession()).find("CO");
+        State c = Util.getFactory().getStateDAO().find("CO");
         assertTrue("could not find colorado", c.getName().equals("Colorado"));
     }
 }

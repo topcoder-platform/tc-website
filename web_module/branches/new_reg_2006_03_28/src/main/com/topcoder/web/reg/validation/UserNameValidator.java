@@ -4,7 +4,7 @@ import com.topcoder.web.common.validation.*;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 
 /**
  * @author dok
@@ -31,7 +31,7 @@ public class UserNameValidator implements Validator {
                 String handle = (String)input.getInput();
                 //if they're new, or if they are changing their user name
                 if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
-                    ret = new BasicResult(new UserDAO().find(handle)!=null, "Please choose another handle.");
+                    ret = new BasicResult(new UserDAOHibernate().find(handle)!=null, "Please choose another handle.");
                 }
                 if (StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
                     ret = new BasicResult(false, "Your user name may contain only letters, numbers and " +  Constants.PUNCTUATION);

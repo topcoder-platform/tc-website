@@ -1,34 +1,16 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.Contact;
-import org.hibernate.Session;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 10, 2006
+ *          Create Date: May 11, 2006
  */
-public class ContactDAO extends Base {
+public interface ContactDAO {
 
-    /**
-     * Create a ContactDAO object using the default connection information.
-     */
-    public ContactDAO() {
-        super();
-    }
+    Contact find(Long id);
 
-    public ContactDAO(Session session) {
-        super(session);
-    }
-
-
-    public Contact find(Long id) {
-        return (Contact) find(Contact.class, id);
-
-    }
-
-    public void saveOrUpdate(Contact u) {
-        session.saveOrUpdate(u);
-    }
+    void saveOrUpdate(Contact u);
+    
 }
-

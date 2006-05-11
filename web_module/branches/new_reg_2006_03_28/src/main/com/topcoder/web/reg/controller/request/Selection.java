@@ -1,8 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
@@ -22,15 +21,15 @@ public class Selection extends Base {
 
         log.debug("new reg " + newReg);
         if (newReg) {
-            getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
+            getRequest().setAttribute("registrationTypeList", new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate().getRegistrationTypes());
             setNextPage("/selection.jsp");
             setIsNextPageInContext(true);
         } else {
             if (userLoggedIn()) {
                 //they're updating their info, and they're logged in, so here we go
-                getRequest().setAttribute("registrationTypeList", new RegistrationTypeDAO().getRegistrationTypes());
+                getRequest().setAttribute("registrationTypeList", new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate().getRegistrationTypes());
                 RegistrationType rt;
-                for (Iterator it = new UserDAO().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
+                for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
                     rt = (RegistrationType) it.next();
                     setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
                 }

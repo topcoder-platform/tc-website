@@ -1,7 +1,7 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.*;
-import com.topcoder.web.reg.dao.*;
 
 import java.sql.Timestamp;
 import java.util.Iterator;
@@ -18,9 +18,9 @@ public class TestUtils {
         ret = new Coder();
         ret.setCompCountryCode("840");
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        ret.setCoderType(new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.STUDENT));
+        ret.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
-        School s = new SchoolDAO(HibernateUtils.getLocalSession()).find(new Long(775));//MIT
+        School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
         cs.setGPA(new Float(3));
@@ -54,8 +54,8 @@ public class TestUtils {
         a.setAddress3("address3");
         a.setAddressTypeId(Address.HOME_TYPE_ID);
         a.setCity("city");
-        a.setState(new StateDAO(HibernateUtils.getLocalSession()).find("CO"));
-        a.setCountry(new CountryDAO(HibernateUtils.getLocalSession()).find("840"));
+        a.setState(Util.getFactory().getStateDAO().find("CO"));
+        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
         a.setProvince("province");
         a.setPostalCode("zip");
         ret.addAddress(a);
@@ -73,11 +73,11 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        for (Iterator it = new NotificationDAO(HibernateUtils.getLocalSession()).getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = Util.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 
-        ret.setTimeZone(new TimeZoneDAO(HibernateUtils.getLocalSession()).find(java.util.TimeZone.getDefault()));
+        ret.setTimeZone(Util.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
 
         return ret;
     }

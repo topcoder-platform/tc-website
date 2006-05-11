@@ -13,8 +13,6 @@ public class RegTests extends TestCase {
     public static Test suite() {
         final TestSuite suite = new TestSuite();
 
-        //dao
-
 
 /*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
@@ -47,6 +45,7 @@ public class RegTests extends TestCase {
         suite.addTest(new TestSuite(TitleValidatorTestCase.class));
         suite.addTest(new TestSuite(UserNameValidatorTestCase.class));
 */
+
 
         suite.addTest(new TestSuite(DetachedTestCase.class));
 

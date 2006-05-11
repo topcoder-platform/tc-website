@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.dao;
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.Coder;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 /**
@@ -10,10 +10,13 @@ import junit.framework.TestCase;
  *          Create Date: Apr 25, 2006
  */
 public class CoderDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
 
     public void testFind() {
 
-        Coder tomek = new CoderDAO(HibernateUtils.getLocalSession()).find(new Long(144400));
+        Coder tomek = Util.getFactory().getCoderDAO().find(new Long(144400));
 
         assertTrue("could not load tomek", tomek != null);
 

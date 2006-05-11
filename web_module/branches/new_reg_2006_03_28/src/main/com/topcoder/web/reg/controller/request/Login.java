@@ -7,7 +7,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
 import java.util.Arrays;
@@ -130,12 +130,12 @@ public class Login extends BaseProcessor {
      * @throws Exception if user doesn't exist or some other ejb problem
      */
     private char getStatus(long userId) throws Exception {
-        return new UserDAO().find(new Long(userId)).getStatus().charValue();
+        return new UserDAOHibernate().find(new Long(userId)).getStatus().charValue();
 
     }
 
     private int getEmailStatus(long userId) throws Exception {
-        return new UserDAO().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
+        return new UserDAOHibernate().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
     }
 
 

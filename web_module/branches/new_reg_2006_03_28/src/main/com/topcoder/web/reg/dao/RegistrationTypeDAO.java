@@ -1,56 +1,29 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.RegistrationType;
-import org.hibernate.Session;
 
 import java.util.List;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Apr 13, 2006
+ *          Create Date: May 11, 2006
  */
-public class RegistrationTypeDAO extends Base {
+public interface RegistrationTypeDAO {
+    List getRegistrationTypes();
 
-    public RegistrationTypeDAO() {
-        super();
-    }
+    RegistrationType find(Integer id);
 
-    public RegistrationTypeDAO(Session session) {
-        super(session);
-    }
 
-    public List getRegistrationTypes() {
-        return findAll(RegistrationType.class, "active", new Integer(1));
-    }
+    RegistrationType getCompetitionType();
 
-    public RegistrationType find(Integer id) {
-        return (RegistrationType) find(RegistrationType.class, id);
-    }
+    RegistrationType getHighSchoolType();
 
-    public RegistrationType getCompetitionType() {
-        //todo perhaps we should cache this
-        return find(RegistrationType.COMPETITION_ID);
-    }
+    RegistrationType getCorporateType();
 
-    public RegistrationType getHighSchoolType() {
-        //todo perhaps we should cache this
-        return find(RegistrationType.HIGH_SCHOOL_ID);
-    }
+    RegistrationType getMinimalType();
 
-    public RegistrationType getCorporateType() {
-        //todo perhaps we should cache this
-        return find(RegistrationType.CORPORATE_ID);
-    }
+    RegistrationType getSoftwareType();
 
-    public RegistrationType getMinimalType() {
-        //todo perhaps we should cache this
-        return find(RegistrationType.MINIMAL_ID);
-    }
-
-    public RegistrationType getSoftwareType() {
-        //todo perhaps we should cache this
-        return find(RegistrationType.SOFTWARE_ID);
-    }
 
 }

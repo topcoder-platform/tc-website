@@ -1,6 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.Contact;
@@ -23,7 +22,7 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
         if (getRegUser()==null||getRegUser().isNew() || userLoggedIn()) {
-            RegistrationTypeDAO regTypeDAO = new RegistrationTypeDAO();
+            com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate regTypeDAO = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
             List types = regTypeDAO.getRegistrationTypes();
 
             RegistrationType rt;

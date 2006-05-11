@@ -7,7 +7,7 @@ import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.HibernateUtils;
-import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.validation.*;
 
@@ -46,11 +46,11 @@ abstract class Base extends BaseProcessor {
             if (userLoggedIn()) {
                 user = (User) getRequest().getSession().getAttribute(Constants.USER);
                 if (user == null) {
-                    user = new UserDAO().find(new Long(getUser().getId()));
+                    user = new UserDAOHibernate().find(new Long(getUser().getId()));
                     if (user != null) {
                         getRequest().getSession().setAttribute(Constants.USER, user);
                         log.debug("get user from the dao");
-                    }
+                    } 
                 } else {
                     log.debug("got user from session");
                 }

@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.dao;
 
 
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.CoderType;
+import com.topcoder.web.reg.HibernateUtils;
 import junit.framework.TestCase;
 
 import java.util.Iterator;
@@ -14,9 +14,12 @@ import java.util.List;
  *          Create Date: Apr 28, 2006
  */
 public class CoderTypeDAOTestCase extends TestCase {
+    public void tearDown() {
+        HibernateUtils.close();
+    }
 
     public void testGetCoderTypes() {
-        List coderTypes = new CoderTypeDAO(HibernateUtils.getLocalSession()).getCoderTypes();
+        List coderTypes = Util.getFactory().getCoderTypeDAO().getCoderTypes();
         boolean foundStudent = false;
         boolean foundPro = false;
 
@@ -35,8 +38,8 @@ public class CoderTypeDAOTestCase extends TestCase {
     }
 
     public void testFind() {
-        CoderType stud = new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.STUDENT);
-        CoderType pro = new CoderTypeDAO(HibernateUtils.getLocalSession()).find(CoderType.PROFESSIONAL);
+        CoderType stud = Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT);
+        CoderType pro = Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL);
         assertTrue("could not find the student type", stud != null && stud.getId().equals(CoderType.STUDENT));
         assertTrue("could not find the pro type", pro != null && pro.getId().equals(CoderType.PROFESSIONAL));
     }

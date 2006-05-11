@@ -1,12 +1,11 @@
 package com.topcoder.web.reg.validation;
 
-import junit.framework.TestCase;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.dao.UserDAO;
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.TestUtils;
+import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.reg.model.User;
+import junit.framework.TestCase;
 
 /**
  * @author dok
@@ -18,7 +17,7 @@ public class UserNameValidatorTestCase extends TestCase {
 
     User existingUser;
     public void setUp() {
-        existingUser = new UserDAO(HibernateUtils.getLocalSession()).find("dok");
+        existingUser = Util.getFactory().getUserDAO().find("dok");
     }
 
 
@@ -58,7 +57,7 @@ public class UserNameValidatorTestCase extends TestCase {
     }
 
     public void testJohnDethridgeHandle() {
-        User dethridge = new UserDAO(HibernateUtils.getLocalSession()).find("John Dethridge");
+        User dethridge = Util.getFactory().getUserDAO().find("John Dethridge");
         assertFalse("validation didn't allow us to grandfather dethridge in",
                 new UserNameValidator(dethridge).validate(new StringInput(dethridge.getHandle())).isValid());
     }
