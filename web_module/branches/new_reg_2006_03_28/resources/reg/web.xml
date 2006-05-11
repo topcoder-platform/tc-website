@@ -44,7 +44,7 @@
 
     <filter-mapping>
         <filter-name>SessionClosing</filter-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>regservlet</servlet-name>
     </filter-mapping>
 
     <filter>
@@ -54,7 +54,7 @@
 
     <filter-mapping>
         <filter-name>GZIPResponse</filter-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>regservlet</servlet-name>
     </filter-mapping>
 
     <servlet-mapping>
