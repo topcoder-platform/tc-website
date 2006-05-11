@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /><br>05.11.06<br>5:30 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Java Posse - Live at the TopCoder Open</A> [PODCAST]
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="88" height="40" alt="Java Posse" News border="0" /></div>
+       Play by play coverage of the algorithm competition finals, as well as some fun moments and surprise guests. This recording was made live at the TopCoder Open event held in Las Vegas, and you'll be hearing it less-than-live about a week later.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">listen</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506012" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -168,21 +183,6 @@
    </tr>
    <tr><td class="newsLinksCell">
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis">details</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.05.06<br>9:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">Congratulations to Pops, TCO06 Design Champion</A>
-      </span><br><br>
-      <tc-webtag:handle coderId="119676" context="design"/> is the new Design Champion and the winner of $20,000.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary">details</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505977" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>

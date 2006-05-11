@@ -209,6 +209,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
+            Java Posse - Live at the TopCoder Open [PODCAST] <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 11]<br><br>
+            
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/moscowTimes_logo.gif" width="88" height="10" alt="The Moscow Times" border="0" /></div>
             Russian Talents Shine in IT Contests <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">...more</A><br>[May 11]<br><br>
 
@@ -222,9 +225,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
             TopCoder College Tour: Report from University of Georgia <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">...more</A><br>[April 5]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
-            Students compete in online competition <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">...more</A><br>[March 30]<br><br>
 
             </td>
          </tr>

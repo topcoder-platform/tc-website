@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Java Posse --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Live at the TopCoder Open</A> [PODCAST] </strong></font><br />
+                        Play by play coverage of the algorithm competition finals, as well as some fun moments and surprise guests. This recording was made live at the TopCoder Open event held in Las Vegas, and you'll be hearing it less-than-live about a week later.<span class="prHead"> [May 11]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Moscow Times --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

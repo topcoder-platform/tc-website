@@ -37,9 +37,10 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Java Posse - Live at the TopCoder Open</A> [PODCAST] [May 11 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">Russian Talents Shine in IT Contests</A> [May  11 - The Moscow Times]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A> [May  10 - Computerworld]<br/></td></tr>
-<tr><td class="newsText"><A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview from the TCO06</A> [PODCAST] [May  4 - Java Posse]<br/></td></tr>
+<tr><td class="newsText"><A href="http://media41b.libsyn.com/mHdxeJp1cXvHfZd5anptq26sZXGb/podcasts/dickwall/JavaPosse052.mp3" target="_blank">Java Posse - Jack Hughes interview from the TCO06</A> [PODCAST] [May 4 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">Coding for fame, and dollars</A> [May 2 - CNET]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">TopCoder College Tour: Report from University of Georgia</A> [April 5 - UGA - ACM]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">Students compete in online competition</A> [March 30 - The Whitworthian]<br/></td></tr>
@@ -50,7 +51,7 @@
 <tr><td class="newsText"><A href="http://thepost.baker.ohiou.edu/show_news.php?article=N3&date=030806" target="_blank">Gurus compete in coding competition</a> [March 8 - The Post Online]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.thespartandaily.com/media/paper852/news/2006/02/16/News/Sjsu-Codes.A.Win-1616451.shtml?norewrite&sourcedomain=www.thespartandaily.com" target="_blank">SJSU codes a win</a> [February 16 - Spartan Daily]<br/></td></tr>
 <tr><td class="newsText"><A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank">Programming Contest Pits World's Top Geeks In Battles Over Coding</a> [February 8 - Wall Street Journal]<br/></td></tr>
-<tr><td class="newsText"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview [PODCAST]</A> [January 20 - Java Posse]<br/></td></tr>
+<tr><td class="newsText"><A href="http://www.javaposse.com/media/dickwall/JavaPosse026.mp3" target="_blank">Java Posse - Bill Goggin interview</A> [PODCAST] [January 20 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.businessweek.com/magazine/content/06_04/b3968007.htm" target="_blank">The NSA: Security in Numbers</A> [January 13 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://dnaindia.com/report.asp?NewsID=1007225&CatID=2" target="_blank">Contest a coded message for job seekers</A> [January 12 - DNA India]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.inc.com/magazine/20060101/handson-global.html" target="_blank">Put a hacker to work</A> [January 2006 - Inc. Magazine]<br/></td></tr>
