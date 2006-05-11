@@ -289,7 +289,7 @@ z-index: 1;
                                                                ifNull="unknown*"/>
                     <% if (resultRow.getItem("final_points").getResultData() != null && 
                         resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
-                    *
+                    **
                     <% } %>                
                 </b></TD>
                 <% if(reviewers.isEmpty()) { %>
