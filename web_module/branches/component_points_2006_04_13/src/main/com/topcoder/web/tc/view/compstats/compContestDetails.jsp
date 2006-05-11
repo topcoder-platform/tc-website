@@ -15,11 +15,52 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUp(event,objectID){
+   objPopTrig = document.getElementById(event);
+   objPopUp = document.getElementById(objectID);
+   xPos = objPopTrig.offsetLeft+10;
+   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+   objPopUp.style.left = xPos + 'px';
+   objPopUp.style.top = yPos + 'px';
+   objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+
+// -->
+</script>
+<STYLE TYPE="text/css">
+.popUp
+{
+width: 140px;
+font-size: 10px;
+text-align: center;
+background-color: #FFFFCC;
+visibility: hidden;
+margin: 10px;
+padding: 3px;
+position: absolute;
+white-space: nowrap;
+border: solid 1px black;
+z-index: 1;
+}
+#container
+{
+position: relative;
+}
+</STYLE>
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -182,7 +223,13 @@
             <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center"><img src="/i/interface/emblem/digital_run.gif" alt="Digital Run" border="0" /><br>Points</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">
+               <div id="container">
+                  <img src="/i/interface/emblem/digital_run.gif" alt="Digital Run" border="0" id="popperEmblem0" onmouseover="popUp(this.id,'popUp" onmouseout="popHide()"/>
+                  <div id="poppedEmblem0" class="popUp">The Digital Run</div>
+               </div>
+               Points
+            </TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
         </tr>
         <tr>
