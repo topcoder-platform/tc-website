@@ -4,10 +4,6 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.reg.HibernateUtils;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 
 /**
  * @author dok
@@ -19,16 +15,6 @@ public class RegServlet extends BaseServlet {
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
-    }
-
-    /**
-     * Initializes the servlet.  For this servlet, that means
-     * initializing the hibernate session factory.
-     * @throws javax.servlet.ServletException
-     */
-    public synchronized void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        HibernateUtils.initFactory();
     }
 
 }
