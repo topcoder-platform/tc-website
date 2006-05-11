@@ -37,6 +37,8 @@ function popHide(){
 // -->
 </script>
 <STYLE TYPE="text/css">
+.popper{display:block; margin: 0px auto 0px auto;}
+#container{text-align:center;position:relative;margin:0px;padding:0px;}
 .popUp
 {
 font-size: 10px;
@@ -49,10 +51,6 @@ position: absolute;
 white-space: nowrap;
 border: solid 1px black;
 z-index: 1;
-}
-#container
-{
-position: relative;
 }
 </STYLE>
 </head>
@@ -224,8 +222,8 @@ position: relative;
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">
                <div id="container">
-                  <img src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
-                  <div id="pop0" class="popUp">The Digital Run</div>
+                  <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                  <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
                </div>
                Points
             </TD>
