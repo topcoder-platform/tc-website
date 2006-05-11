@@ -1144,6 +1144,12 @@
             <fileset dir="${java}/com/topcoder/web/reg/view">
                 <include name="**/*.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="date_time.jsp"/>
+                <include name="script.jsp"/>
+                <include name="menu.jsp"/>
+            </fileset>
             <webinf dir="${resources}/reg">
                 <include name="jboss-web.xml"/>
             </webinf>
