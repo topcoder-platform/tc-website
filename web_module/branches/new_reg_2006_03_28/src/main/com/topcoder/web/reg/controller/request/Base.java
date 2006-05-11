@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
@@ -28,9 +29,12 @@ abstract class Base extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         try {
             registrationProcessing();
-        } catch (Exception e) {
+        } catch (TCWebException e) {
             HibernateUtils.rollback();
             throw e;
+        } catch (Throwable e) {
+            HibernateUtils.rollback();
+            throw new Exception(e);
         }
     }
 

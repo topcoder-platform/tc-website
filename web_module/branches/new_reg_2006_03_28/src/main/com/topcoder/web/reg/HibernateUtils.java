@@ -189,10 +189,14 @@ public class HibernateUtils {
     }*/
 
     public static void rollback() {
-        Transaction t = getFactory().getCurrentSession().getTransaction();
-        if (t != null && t.isActive()) {
-            t.rollback();
-            closeSession();
+        try {
+            Transaction t = getFactory().getCurrentSession().getTransaction();
+            if (t != null && t.isActive()) {
+                t.rollback();
+                closeSession();
+            }
+        } catch (HibernateException e) {
+            log.error("Failed to rollback transaction");
         }
     }
 

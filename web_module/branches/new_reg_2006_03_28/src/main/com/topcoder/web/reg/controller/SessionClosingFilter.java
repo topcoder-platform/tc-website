@@ -99,11 +99,11 @@ public class SessionClosingFilter implements Filter {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Throwable ex) {
-            // Rollback only
+            //application exceptions should never get this far, they should be handled by the servlet
             try {
                 if (HibernateUtils.getSession().getTransaction().isActive()) {
                     log.debug("Trying to rollback database transaction after exception");
-                    HibernateUtils.getSession().getTransaction().rollback();
+                    HibernateUtils.rollback();
                 }
             } catch (Throwable rbEx) {
                 log.error("Could not rollback transaction after exception!", rbEx);
@@ -112,7 +112,7 @@ public class SessionClosingFilter implements Filter {
 
                 // Cleanup
                 log.debug("Closing and unbinding Session from thread");
-                HibernateUtils.getSession().close(); // Unbind is automatic here
+                HibernateUtils.closeSession(); // Unbind is automatic here
 
                 log.debug("Removing Session from HttpSession");
                 httpSession.setAttribute(HIBERNATE_SESSION_KEY, null);
