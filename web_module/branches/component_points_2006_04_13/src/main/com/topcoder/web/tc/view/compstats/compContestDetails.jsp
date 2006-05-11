@@ -182,7 +182,7 @@
             <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">DR Points</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center"><img src="/i/interface/emblem/digital_run.gif" alt="Digital Run" border="0" /><br>Points</TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
         </tr>
         <tr>
