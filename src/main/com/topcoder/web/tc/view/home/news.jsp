@@ -13,7 +13,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       Intel&#174; Multi-Threading Competition 5 delayed
       </span><br><br>
-      Intel&#174; Multi-Threading Competition 5 will start at <strong>2:00 PM</strong> rather than <strong>12:00 NOON</strong>.  The end of the competition will also be delayed by 2 hours.
+      Intel&#174; Multi-Threading Competition 5 will start at <strong>2:00 PM</strong> on 5/17 rather than <strong>12:00 NOON</strong> on 5/17.  The end of the competition will also be delayed by 2 hours.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
