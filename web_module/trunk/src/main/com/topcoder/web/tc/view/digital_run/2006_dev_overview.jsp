@@ -69,42 +69,42 @@ Each component posted for a development competition will carry a point value of 
    <tr>
       <td class="sidebarText" align="center">1st</td>
       <td class="sidebarText" align="right">500</td>
-      <td class="sidebarText" align="right">300</td>
-      <td class="sidebarText" align="right">200</td>
-      <td class="sidebarText" align="right">170</td>
-      <td class="sidebarText" align="right">140</td>
-      <td class="sidebarText" align="right">120</td>
-      <td class="sidebarText" align="right">110</td>
+      <td class="sidebarText" align="right">325</td>
+      <td class="sidebarText" align="right">270</td>
+      <td class="sidebarText" align="right">250</td>
+      <td class="sidebarText" align="right">245</td>
+      <td class="sidebarText" align="right">240</td>
+      <td class="sidebarText" align="right">235</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">2nd</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">200</td>
       <td class="sidebarText" align="right">175</td>
-      <td class="sidebarText" align="right">140</td>
-      <td class="sidebarText" align="right">120</td>
-      <td class="sidebarText" align="right">100</td>
-      <td class="sidebarText" align="right">90</td>
+      <td class="sidebarText" align="right">150</td>
+      <td class="sidebarText" align="right">145</td>
+      <td class="sidebarText" align="right">135</td>
+      <td class="sidebarText" align="right">130</td>
+      <td class="sidebarText" align="right">130</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">3rd</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">125</td>
-      <td class="sidebarText" align="right">100</td>
-      <td class="sidebarText" align="right">90</td>
-      <td class="sidebarText" align="right">85</td>
       <td class="sidebarText" align="right">80</td>
+      <td class="sidebarText" align="right">75</td>
+      <td class="sidebarText" align="right">75</td>
+      <td class="sidebarText" align="right">75</td>
+      <td class="sidebarText" align="right">75</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">4th</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">90</td>
-      <td class="sidebarText" align="right">80</td>
-      <td class="sidebarText" align="right">75</td>
-      <td class="sidebarText" align="right">70</td>
+      <td class="sidebarText" align="right">30</td>
+      <td class="sidebarText" align="right">30</td>
+      <td class="sidebarText" align="right">30</td>
+      <td class="sidebarText" align="right">30</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">5th</td>
@@ -112,9 +112,9 @@ Each component posted for a development competition will carry a point value of 
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">70</td>
-      <td class="sidebarText" align="right">65</td>
-      <td class="sidebarText" align="right">60</td>
+      <td class="sidebarText" align="right">15</td>
+      <td class="sidebarText" align="right">15</td>
+      <td class="sidebarText" align="right">15</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">6th</td>
@@ -123,8 +123,8 @@ Each component posted for a development competition will carry a point value of 
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">55</td>
-      <td class="sidebarText" align="right">50</td>
+      <td class="sidebarText" align="right">10</td>
+      <td class="sidebarText" align="right">10</td>
    </tr>
    <tr>
       <td class="sidebarText" align="center">7th</td>
@@ -134,7 +134,7 @@ Each component posted for a development competition will carry a point value of 
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
       <td class="sidebarText" align="right">&#160;</td>
-      <td class="sidebarText" align="right">40</td>
+      <td class="sidebarText" align="right">5</td>
    </tr>
 </table>
 <br><br>
