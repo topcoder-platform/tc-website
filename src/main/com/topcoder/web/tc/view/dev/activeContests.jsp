@@ -91,7 +91,13 @@ position: relative;
 </jsp:include>
 
 <% if (design) { %>
-<div align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+   <tr>
+      <td><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0" /></A></td>
+      <td align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></td>
+   </tr>
+</table>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="9">Active Component Design Contests</td>
@@ -165,7 +171,13 @@ position: relative;
 </table>
 <br/>
 <%  } else {   // Development %>
-<div align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+   <tr>
+      <td><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0" /></A></td>
+      <td align="right"><A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></td>
+   </tr>
+</table>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="9">Active Component Development Contests</td>
