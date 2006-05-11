@@ -175,21 +175,17 @@ public class HibernateUtils {
         closeFactory();
     }
 
-/*    private static void begin(Session session) {
-        Transaction transaction = (Transaction) tTransaction.get();
-        if (transaction == null || !transaction.isActive()) {
-            transaction = session.beginTransaction();
-        }
-        tTransaction.set(transaction);
+    public static void begin() {
+        getSession().beginTransaction();
+
     }
 
-    private static void commit() {
-        Transaction transaction = (Transaction) tTransaction.get();
-        if (transaction != null && transaction.isActive()) {
-            transaction.commit();
-            tTransaction.set(null);
+    public static void commit() {
+        Transaction t = getSession().getTransaction();
+        if (t.isActive()) {
+            t.commit();
         }
-    }*/
+    }
 
     public static void rollback() {
         try {

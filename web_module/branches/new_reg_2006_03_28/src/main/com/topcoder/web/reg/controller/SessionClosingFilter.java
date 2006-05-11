@@ -2,8 +2,12 @@ package com.topcoder.web.reg.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;
+import org.hibernate.Session;
+import org.hibernate.StaleObjectStateException;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -28,12 +32,12 @@ public class SessionClosingFilter implements Filter {
             throws IOException, ServletException {
 
         //log.debug("oh yeah, filtering!!!");
-        try {
+/*        try {
             chain.doFilter(request, response);
         } finally {
             HibernateUtils.closeSession();
-        }
-/*
+        }*/
+
         HttpSession httpSession =
                 ((HttpServletRequest) request).getSession();
         Session hibernateSession =
@@ -49,7 +53,7 @@ public class SessionClosingFilter implements Filter {
             }
 
             log.debug("Starting a database transaction");
-            HibernateUtils.getSession().beginTransaction();
+            HibernateUtils.begin();
 
             // Do the work...
             chain.doFilter(request, response);
@@ -61,7 +65,7 @@ public class SessionClosingFilter implements Filter {
                 HibernateUtils.getSession().flush();
 
                 log.debug("Committing the database transaction");
-                HibernateUtils.getSession().getTransaction().commit();
+                HibernateUtils.commit();
 
                 log.debug("Closing and unbinding Session from thread");
                 HibernateUtils.getSession().close(); // Unbind is automatic here
@@ -74,7 +78,7 @@ public class SessionClosingFilter implements Filter {
             } else {
 
                 log.debug("Committing database transaction");
-                HibernateUtils.getSession().getTransaction().commit();
+                HibernateUtils.commit();
 
                 log.debug("Unbinding Session from thread");
                 hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
@@ -117,7 +121,6 @@ public class SessionClosingFilter implements Filter {
             // Let others handle it... maybe another interceptor for exceptions?
             throw new ServletException(ex);
         }
-*/
 
 
     }
