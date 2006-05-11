@@ -22,9 +22,11 @@
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
+        <property name="current_session_context_class">com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext</property>
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
