@@ -5,6 +5,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.model.Address;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.Company;
@@ -39,6 +40,8 @@ public class Secondary extends Base {
 
                 User u = getRegUser();
                 Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
+
+                HibernateUtils.getSession().update(u);
 
                 Address a = u.getHomeAddress();
                 //we'll consider address1 to be the indicator as to whether or not we're getting an address
