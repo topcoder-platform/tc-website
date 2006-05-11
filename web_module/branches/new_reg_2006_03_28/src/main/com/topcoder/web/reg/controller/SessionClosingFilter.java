@@ -2,12 +2,8 @@ package com.topcoder.web.reg.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.HibernateUtils;
-import org.hibernate.Session;
-import org.hibernate.StaleObjectStateException;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -32,13 +28,12 @@ public class SessionClosingFilter implements Filter {
             throws IOException, ServletException {
 
         //log.debug("oh yeah, filtering!!!");
-/*
         try {
             chain.doFilter(request, response);
         } finally {
             HibernateUtils.closeSession();
         }
-*/
+/*
         HttpSession httpSession =
                 ((HttpServletRequest) request).getSession();
         Session hibernateSession =
@@ -122,6 +117,7 @@ public class SessionClosingFilter implements Filter {
             // Let others handle it... maybe another interceptor for exceptions?
             throw new ServletException(ex);
         }
+*/
 
 
     }
