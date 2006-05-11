@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.11.06<br>11:45 AM</td>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.11.06<br>12:00 Noon</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">Russian Talents Shine in IT Contests</A>
       </span><br><br>
