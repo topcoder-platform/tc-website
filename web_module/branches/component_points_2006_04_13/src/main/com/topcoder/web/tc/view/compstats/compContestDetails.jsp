@@ -172,7 +172,7 @@
 </td>
 <td width="75%" valign="top">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="12">
+        <tr><td class="tableTitle" colspan="11">
             Competitors
         </td></tr>
         <tr>
@@ -182,8 +182,7 @@
             <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Initial Points</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Final Points</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">DR Points</TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
         </tr>
         <tr>
@@ -242,10 +241,13 @@
                                                             ifNull="unknown*"/></TD>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
                                                                ifNull="unknown*"/></b></TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_points" 
-                                                            ifNull="unknown*"/></TD>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points" 
-                                                               ifNull="unknown*"/></b></TD>
+                                                               ifNull="unknown*"/>
+                    <% if (resultRow.getItem("final_points").getResultData() != null && 
+                        resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
+                    *
+                    <% } %>                
+                </b></TD>
                 <% if(reviewers.isEmpty()) { %>
                     <TD class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
