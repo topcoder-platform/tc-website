@@ -9,6 +9,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.11.06<br>11:45 AM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">Russian Talents Shine in IT Contests</A>
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/moscowTimes_logo.gif" width="88" height="10" alt="The Moscow Times" News border="0" /></div>
+       Moscow State University student Pyotr Mitrichev, 21, took the gold this month at a major programming competition in the United States. His prize was the latest in a string of victories by Russian programmers.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506011" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.11.06<br>10:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Intel&#174; Multi-Threading Competition 5 delayed
