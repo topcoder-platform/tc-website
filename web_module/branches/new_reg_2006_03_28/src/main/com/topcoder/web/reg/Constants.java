@@ -77,11 +77,13 @@ public class Constants implements WebConstants {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
+                            log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
+                            log.debug("set " + f[i] + " to " + bundle.getProperty(f[i].getName().toLowerCase()));
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
