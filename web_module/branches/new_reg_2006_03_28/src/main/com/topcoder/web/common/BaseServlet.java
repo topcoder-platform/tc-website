@@ -186,7 +186,7 @@ public abstract class BaseServlet extends HttpServlet {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
                 //todo perhaps catch Throwable here instead
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
@@ -264,7 +264,7 @@ public abstract class BaseServlet extends HttpServlet {
         return true;
     }
 
-    protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
             throws Exception {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {

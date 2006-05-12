@@ -545,7 +545,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             } else {
                 doSearch(request, response);
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             handleException(request, response, e);
         }
     }
@@ -999,7 +999,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             handleException(request, response, e);
         }
 
@@ -1230,7 +1230,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             handleException(request, response, e);
         }
     }
@@ -2611,7 +2611,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         try {
             super.handleException(request, response, e);
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             log.fatal("forwarding to error page failed", ex);
             ex.printStackTrace();
 
@@ -2669,7 +2669,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         }
         try {
             d = dfmt.parse(birthday);
-        } catch (Exception e3) {
+        } catch (Throwable e3) {
             handleException(request, response, e3);
             return;
         }

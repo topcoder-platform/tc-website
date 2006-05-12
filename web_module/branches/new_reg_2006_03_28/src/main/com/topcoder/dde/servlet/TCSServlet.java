@@ -98,7 +98,7 @@ public class TCSServlet extends BaseServlet {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                     return;
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
