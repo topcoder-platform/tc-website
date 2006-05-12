@@ -47,7 +47,7 @@ public abstract class BaseBoard extends BaseProcessor {
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer currentPeriod = (ResultSetContainer)m.get(Constants.CURRENT_PERIOD_QUERY);
-        return (currentPeriod.getLongItem(0, period_id));
+        return (String.valueOf(currentPeriod.getLongItem(0, period_id)));
     }
      
     /**
