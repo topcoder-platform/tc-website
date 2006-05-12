@@ -179,13 +179,13 @@ z-index: 1;
                             <rsc:item name="component_name" row="<%=resultRow%>"/>
                         </A>
                     </TD>
-                    <TD class="valueC"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
+                    <TD class="valueR"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
                     <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
                     <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
                     <TD class="valueC"><rsc:item name="final_points" row="<%=resultRow%>"/></TD>
-                    <TD class="valueC" align="right">$&nbsp;<rsc:item name="earning" row="<%=resultRow%>" format="0.00"/></TD>
-                    <TD class="valueC"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
-                    <TD class="value">
+                    <TD class="valueR">$&nbsp;<rsc:item name="earning" row="<%=resultRow%>" format="0.00"/></TD>
+                    <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
+                    <TD class="valueR">
                         <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                             Contest Details
                         </A>
