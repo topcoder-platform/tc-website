@@ -78,12 +78,12 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 <% if(srb.getProperty(Constants.PHASE_ID).equals("113")){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Development Rating History"/>
+    <jsp:param name="title" value="Component Development Competition History"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Design Rating History"/>
+    <jsp:param name="title" value="Component Design Competition History"/>
     </jsp:include>
 <% } %>
 
@@ -224,7 +224,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
       </TABLE>
 
 <% } else { %>
-   This member has no rating history.
+   This member has no competition history.
 <% } %>
 
 <% if (!bEmpty) { %>
