@@ -112,7 +112,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp;
         WebAuthentication authentication;
         SessionInfo info;
