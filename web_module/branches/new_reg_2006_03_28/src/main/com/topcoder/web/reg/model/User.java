@@ -119,18 +119,18 @@ public class User extends Base {
     }
 
     /**
-     * Get the user's primary email address.
-     * @return the user's primary email address or null if they don't have one.
+     * Get the user's primary phone number.
+     * @return the user's primary phone number or null if they don't have one.
      */
-    public Email getPrimaryEmailAddress() {
-        Email e=null;
+    public Phone getPrimaryPhoneNumber() {
+        Phone p=null;
         boolean found = false;
-        for (Iterator it = getEmailAddresses().iterator(); it.hasNext()&&!found;) {
-            e = (Email)it.next();
-            found = e.isPrimary();
+        for (Iterator it = getPhoneNumbers().iterator(); it.hasNext()&&!found;) {
+            p = (Phone)it.next();
+            found = p.isPrimary();
         }
         if (found) {
-            return e;
+            return p;
         } else {
             return null;
         }
@@ -151,6 +151,25 @@ public class User extends Base {
     public Set getPhoneNumbers() {
         return Collections.unmodifiableSet(phoneNumbers);
     }
+
+    /**
+     * Get the user's primary email address.
+     * @return the user's primary email address or null if they don't have one.
+     */
+    public Email getPrimaryEmailAddress() {
+        Email e=null;
+        boolean found = false;
+        for (Iterator it = getEmailAddresses().iterator(); it.hasNext()&&!found;) {
+            e = (Email)it.next();
+            found = e.isPrimary();
+        }
+        if (found) {
+            return e;
+        } else {
+            return null;
+        }
+    }
+
 
     public void setPhoneNumbers(Set phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
