@@ -33,7 +33,6 @@ public class RegServlet extends BaseServlet {
 
         try {
             try {
-if (1==1) throw new Exception("making an attempt");
             request.setCharacterEncoding("utf-8");
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
@@ -57,6 +56,7 @@ if (1==1) throw new Exception("making an attempt");
             loginfo.append(info.getRequestString());
             loginfo.append(" *]");
             log.info(loginfo);
+                if (1==1) throw new Exception("making an attempt");
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
