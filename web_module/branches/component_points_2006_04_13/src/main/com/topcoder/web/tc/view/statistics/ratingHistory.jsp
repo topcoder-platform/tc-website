@@ -121,7 +121,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <tr>
       <td>               
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="6">Algorithm Competition History</td></tr>
+         <tr><td class="tableTitle" colspan="7">Algorithm Competition History</td></tr>
          <tr>
             <td CLASS="tableHeader" width="0%"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
             <td CLASS="tableHeader" width="50%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
@@ -129,6 +129,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
             <td CLASS="tableHeader" width="0%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rating</a></TD>
             <td CLASS="tableHeader" width="0%"><a href="<%=sSortUrl%>&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Volatility</a></TD>
             <td CLASS="tableHeader" width="0%" align="right"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rank</a></TD>
+            <td CLASS="tableHeader" width="0%" align="right"><a href="">Earnings</a></TD>
          </tr>
       <%boolean even = true;%>
       <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
@@ -139,6 +140,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
             <td class="<%=even?"statLt":"statDk"%>"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new rating */ + "]" %>'/></td>
             <td class="<%=even?"statLt":"statDk"%>"><bean:write name="resultRow2" property='<%= "item[" + 7 /* volatility */ + "]" %>'/></td>
             <td class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 8 /* new ranking */ + "]" %>'/></td>
+            <td class="<%=even?"statLt":"statDk"%>" align="right">$$$$.$$</td>
          </tr>
       <%even=!even;%>
       </logic:iterate>
