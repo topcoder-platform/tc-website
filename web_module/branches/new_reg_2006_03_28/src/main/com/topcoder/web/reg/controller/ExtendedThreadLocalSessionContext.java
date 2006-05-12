@@ -47,16 +47,18 @@ public class ExtendedThreadLocalSessionContext extends ThreadLocalSessionContext
         super(factory);
     }
 
+    ThreadLocal session = new ThreadLocal();
+
     // No automatic flushing of the Session at transaction commit, client calls flush()
     protected boolean isAutoFlushEnabled() { return false; }
     protected Session buildOrObtainSession() {
-        log.debug("Opening a new Session");
-        Thread.dumpStack();
-        Session s = super.buildOrObtainSession();
-
-        log.debug("Disabling automatic flushing of the Session");
-        s.setFlushMode(FlushMode.NEVER);
-
+        Session s = (Session)session.get();
+        if (s==null) {
+            log.debug("Opening a new Session");
+            s = super.buildOrObtainSession();
+            log.debug("Disabling automatic flushing of the Session");
+            s.setFlushMode(FlushMode.NEVER);
+        }
         return s;
     }
 
