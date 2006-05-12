@@ -177,7 +177,7 @@ margin:0px auto;
 --%>
 <%-- WSJ
 --%>
-            <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/home/wsj_020806_sm.gif" alt="The Wall Street Journal" border="0" /></A>
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" /></A>
 <%-- Intel MTCS
             <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
 --%>
@@ -209,6 +209,9 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="The Wall Street Journal" border="0" /></div>
+            Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 10]<br><br>
+            
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
             Java Posse - Live at the TopCoder Open [PODCAST] <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 11]<br><br>
             
@@ -222,9 +225,6 @@ margin:0px auto;
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News" border="0" /></div>
             Coding for fame, and dollars <A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">...more</A><br>[May 2]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
-            TopCoder College Tour: Report from University of Georgia <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">...more</A><br>[April 5]<br><br>
 
             </td>
          </tr>
