@@ -1,20 +1,23 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.RegFieldHelper;
+import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.validation.*;
+import org.hibernate.Session;
+import org.hibernate.StaleObjectStateException;
 
-import java.util.Set;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -23,19 +26,95 @@ import java.util.HashMap;
  */
 abstract class Base extends BaseProcessor {
 
-
+    public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
+    public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
     private User user = null;
 
     protected void businessProcessing() throws Exception {
+
+                HttpSession httpSession =
+                getRequest().getSession();
+        Session hibernateSession =
+                (Session) httpSession.getAttribute(HIBERNATE_SESSION_KEY);
+
         try {
+
+            if (hibernateSession != null) {
+                log.debug("< Continuing conversation");
+                ExtendedThreadLocalSessionContext.bind(hibernateSession);
+            } else {
+                log.debug(">>> New conversation");
+            }
+
+            log.debug("Starting a database transaction");
+            HibernateUtils.begin();
+
+            // Do the work...
             registrationProcessing();
-        } catch (TCWebException e) {
-            HibernateUtils.rollback();
-            throw e;
-        } catch (Throwable e) {
-            HibernateUtils.rollback();
-            throw new Exception(e);
+
+
+            // End or continue the long-running conversation?
+            if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
+
+                log.debug("Flushing Session");
+                HibernateUtils.getSession().flush();
+
+                log.debug("Committing the database transaction");
+                HibernateUtils.commit();
+
+                log.debug("Closing and unbinding Session from thread");
+                HibernateUtils.getSession().close(); // Unbind is automatic here
+
+                log.debug("Removing Session from HttpSession");
+                httpSession.setAttribute(HIBERNATE_SESSION_KEY, null);
+
+                log.debug("<<< End of conversation");
+
+            } else {
+
+                log.debug("Committing database transaction");
+                HibernateUtils.commit();
+
+                log.debug("Unbinding Session from thread");
+                hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
+
+                log.debug("Storing Session in the HttpSession");
+                httpSession.setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
+
+                log.debug("> Returning to user in conversation");
+            }
+
+        } catch (StaleObjectStateException staleEx) {
+            log.error("This interceptor does not implement optimistic concurrency control!");
+            log.error("Your application will not work until you add compensation actions!");
+            // Rollback, close everything, possibly compensate for any permanent changes
+            // during the conversation, and finally restart business conversation. Maybe
+            // give the user of the application a chance to merge some of his work with
+            // fresh data... what you do here depends on your applications design.
+            throw staleEx;
+        } catch (Throwable ex) {
+            //application exceptions should never get this far, they should be handled by the servlet
+            try {
+                if (HibernateUtils.getSession().getTransaction().isActive()) {
+                    log.debug("Trying to rollback database transaction after exception");
+                    HibernateUtils.rollback();
+                }
+            } catch (Throwable rbEx) {
+                log.error("Could not rollback transaction after exception!", rbEx);
+            } finally {
+                log.error("Cleanup after exception!");
+
+                // Cleanup
+                log.debug("Closing and unbinding Session from thread");
+                HibernateUtils.closeSession(); // Unbind is automatic here
+
+                log.debug("Removing Session from HttpSession");
+                httpSession.setAttribute(HIBERNATE_SESSION_KEY, null);
+
+            }
+
         }
+
     }
 
     /**
@@ -54,7 +133,7 @@ abstract class Base extends BaseProcessor {
                     if (user != null) {
                         getRequest().getSession().setAttribute(Constants.USER, user);
                         log.debug("get user from the dao");
-                    } 
+                    }
                 } else {
                     log.debug("got user from session");
                 }
