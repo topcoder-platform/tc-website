@@ -64,7 +64,7 @@ The Problems
 </p> 
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6375 rd=9823" name="6375">NounReform</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6375&rd=9823" name="6375">NounReform</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6375)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505868" CLASS="statText"><img
@@ -142,7 +142,7 @@ public class NounReform {
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6387 rd=9823" name="6387">XBallGame</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6387&rd=9823" name="6387">XBallGame</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6387)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505868" CLASS="statText"><img
@@ -221,7 +221,7 @@ Here is the sample solution:
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6186 rd=9823" name="6186">DivisorInc</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6186&rd=9823" name="6186">DivisorInc</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6186)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505868" CLASS="statText"><img
@@ -331,7 +331,7 @@ sqrt(K) has one correpsonding divisor K/p less than sqrt(K)).
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6184 rd=9823" name="6184">IntegerPalindrome</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6184&rd=9823" name="6184">IntegerPalindrome</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6184)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505868" CLASS="statText"><img
@@ -449,7 +449,7 @@ public class IntegerPalindrome {
 </p>
 
 <font size="+2"> 
-<b><a href="/stat?c=problem_statement pm=6215 rd=9823" name="6215">JoinedString</a></b> 
+<b><a href="/stat?c=problem_statement&pm=6215&rd=9823" name="6215">JoinedString</a></b> 
 </font> 
 <A href="Javascript:openProblemRating(6215)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 <A HREF="http://forums.topcoder.com/?module=ThreadList forumID=505868" CLASS="statText"><img
