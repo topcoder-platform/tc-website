@@ -53,89 +53,117 @@
         </script>
     </head>
 <body>
-     <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
-       <tr>
-         <td valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><BR>
-        <form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
-           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
-           <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-           <!--tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/-->
-           <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-           <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-           <br><br>
-           <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-            <tr>
-                <td>
-                    <B>Please select a season</B><BR/>
-                    <SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="document.rookieBoardForm.submit()">
-                         <rsc:iterator list="<%=seasons%>" id="resultRow">
-                            <% if (String.valueOf(resultRow.getLongItem("season_id")).equals(request.getParameter(Constants.SEASON_ID))) { %>
-                              <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>" selected><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
-                            <% } else { %>
-                              <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
-                            <% } %>
-                        </rsc:iterator>
-                    </SELECT>
-               </td>
-             </tr>
-             <tr>
-                <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
-                    <%=(rookieBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(rookieBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-               </td>
-             </tr>
-             <tr>
-               <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Rank</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Handle</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>" class="statText">Points</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-             </tr>
+   <jsp:include page="/top.jsp" />
+   <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+     <TR valign="top">
+        <TD WIDTH="180">
+<!-- Left nav begins -->
+         <jsp:include page="/includes/global_left.jsp">
+            <jsp:param name="node" value="m_competitor_stats"/>
+         </jsp:include>
+<!-- Left nav ends -->
+        </TD>
 
-             <rsc:iterator list="<%=rookieBoard%>" id="resultRow">
-                 <tr>
-                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                   <td class="statText" height="13">
-                        <rsc:item name="rank" row="<%=resultRow%>"/>
-                   </td>
-                   <td class="statText" valign="middle" align="left">
-                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' darkBG="true" />
-                    <%if (resultRow.getLongItem("confirmed_ind")== 0) {%>*<%}%>
-                   </td>
-                   <td class="statText" valign="middle" align="right"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
-                   <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                 </tr>
-             </rsc:iterator>
-             <tr>
-                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-             </tr>
-             <tr>
-                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                   <td class="statText" height="13" colspan="4">
-                    * Not confirmed.
-                   </td>
-             </tr>
-             
-             <tr>
-               <td colspan="5" align="center" class="statText">
-                   View &#160;
-                   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                   &#160;at a time starting with &#160;
-                   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                   <a href="javascript:document.rookieBoardForm.submit();" class="statText">&#160;[ submit ]</a>
-               </td>
-             </tr>
-           </table>
-        </form>
-         </td>
-       </tr>
-     </table>
-</body>
-</html>
+<!-- Center Column Begins -->
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
+   <div align="center">
+
+<% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
+    <jsp:include page="/page_title.jsp" >
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Development Cup Series ROTY Leaderboard"/>
+    </jsp:include>
+<% } else { %>
+    <jsp:include page="/page_title.jsp" >
+    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="title" value="Design Cup Series ROTY Leaderboard"/>
+    </jsp:include>
+<% } %>
+
+
+<form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
+<tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
+<!--tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/-->
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+
+Please select a <strong>season</strong><br>
+<SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="document.rookieBoardForm.submit()">
+<rsc:iterator list="<%=seasons%>" id="resultRow">
+ <% if (String.valueOf(resultRow.getLongItem("season_id")).equals(request.getParameter(Constants.SEASON_ID))) { %>
+   <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>" selected><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
+ <% } else { %>
+   <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
+ <% } %>
+</rsc:iterator>
+</SELECT>
+
+<div class="pagingBox">
+<%=(rookieBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+| <%=(rookieBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+</div>
+
+<table class="stat" cellpadding="0" cellspacing="0" width="500">
+   <tr>
+      <td class="title" colspan="3">
+<% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
+Development Cup Series Rookie of the Year Leaderboard
+<% } else { %>
+Design Cup Series Rookie of the Year Leaderboard
+<% } %>
+      </td>
+   </tr>
+   <tr>
+      <td class="headerC">
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rank</a>
+      </td>
+      <td class="header" width="100%">
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
+      </td>
+      <td class="headerR">
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
+      </td>
+   </tr>
+   <%boolean even = false;%>
+   <rsc:iterator list="<%=rookieBoard%>" id="resultRow">
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+      <td class="value" width="100%">
+         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' />
+         <%if (resultRow.getLongItem("confirmed_ind")== 0) {%>*<%}%></td>
+      <td class="valueR"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
+   </tr>
+   <%even=!even;%>
+   </rsc:iterator>
+</table>
+
+<div class="pagingBox">
+View &#160;
+<tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+&#160;at a time starting with &#160;
+<tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+<a href="javascript:document.rookieBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
+</div>
+
+
+
+   </div>
+</div>
+       </TD>
+       <td WIDTH="180" VALIGN="top">
+         <jsp:include page="/public_right.jsp" >
+             <jsp:param name="level1" value="profile"/>
+         </jsp:include>
+       </TD>
+    <!-- Gutter -->
+    <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
+    <!-- Gutter Ends -->
+     </tr>
+   </TABLE>
+   <jsp:include page="../foot.jsp" />
+ </BODY>
+</HTML>

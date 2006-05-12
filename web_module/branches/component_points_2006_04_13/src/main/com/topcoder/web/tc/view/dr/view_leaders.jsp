@@ -90,7 +90,7 @@ function submitEnter(e) {
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
-           <B>Please select a stage</B><BR/>
+           Please select a <strong>season</strong> and <strong>stage</strong><br>
            <SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="document.leaderBoardForm.submit()">
                 <rsc:iterator list="<%=stages%>" id="resultRow">
                    <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
@@ -146,66 +146,6 @@ View &#160;
 <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
 </div>
 
-<%--
-           <br><br>
-           <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-            <tr>
-                <td>
-                    <B>Please select a stage</B><BR/>
-                    <SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="document.leaderBoardForm.submit()">
-                         <rsc:iterator list="<%=stages%>" id="resultRow">
-                            <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
-                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected><rsc:item name="season_name" row="<%=resultRow%>"/> &gt; <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-                            <% } else { %>
-                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>"><rsc:item name="season_name" row="<%=resultRow%>"/> &gt; <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-                            <% } %>
-                        </rsc:iterator>
-                    </SELECT>
-               </td>
-             </tr>
-             <tr>
-                <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
-               </td>
-             </tr>
-             <tr>
-               <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" class="statText">Rank</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Handle</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>" class="statText">Points</a>
-               </td>
-               <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-             </tr>
-
-             <rsc:iterator list="<%=leaderBoard%>" id="resultRow">
-                 <tr>
-                   <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                   <td class="statText" height="13"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-                   <td class="statText" valign="middle" align="left">
-                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' darkBG="true" />
-                   </td>
-                   <td class="statText" valign="middle" align="right"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
-                   <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                 </tr>
-             </rsc:iterator>
-             
-             <tr>
-               <td colspan="5" align="center" class="statText">
-                   View &#160;
-                   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                   &#160;at a time starting with &#160;
-                   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-                   <a href="javascript:document.leaderBoardForm.submit();" class="statText">&#160;[ submit ]</a>
-               </td>
-             </tr>
-           </table>
-        </form>
-
---%>
 
    </div>
 </div>
