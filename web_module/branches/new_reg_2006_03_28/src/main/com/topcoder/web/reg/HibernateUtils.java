@@ -176,11 +176,13 @@ public class HibernateUtils {
     }
 
     public static void begin() {
+        log.debug("begin transaction");
         getSession().beginTransaction();
 
     }
 
     public static void commit() {
+        log.debug("commit transaction");
         Transaction t = getSession().getTransaction();
         if (t.isActive()) {
             t.commit();
@@ -188,6 +190,7 @@ public class HibernateUtils {
     }
 
     public static void rollback() {
+        log.debug("rollback transaction");
         try {
             Transaction t = getFactory().getCurrentSession().getTransaction();
             if (t != null && t.isActive()) {
