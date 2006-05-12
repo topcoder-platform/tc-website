@@ -92,11 +92,9 @@ abstract class Base extends BaseProcessor {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Exception e) {
-            e.printStackTrace();
             handleException(e);
             throw e;
         } catch (Throwable ex) {
-            ex.printStackTrace();
             handleException(ex);
             throw new Exception(ex);
         }

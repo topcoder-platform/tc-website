@@ -37,7 +37,6 @@ public class IdGenerator implements IdentifierGenerator, Configurable {
             //log.debug("returning " + id);
             return new Long(id);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new HibernateException(e);
         }
 

@@ -30,7 +30,7 @@ public class J2EETransaction implements Transaction {
         } catch (NotSupportedException e) {
             throw new TransactionException(e);
         } catch (SystemException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            throw new TransactionException(e);
         }
     }
 
