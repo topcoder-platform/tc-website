@@ -88,7 +88,7 @@
              <tr>
                <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
-                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" class="statText">Rank</a>
+                   <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>" class="statText">Rank</a>
                </td>
                <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>" class="statText">Handle</a>
