@@ -92,30 +92,39 @@ abstract class Base extends BaseProcessor {
             // give the user of the application a chance to merge some of his work with
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
+        } catch (Exception e) {
+            handleException(e);
+            throw e;
         } catch (Throwable ex) {
-            //application exceptions should never get this far, they should be handled by the servlet
-            try {
-                if (HibernateUtils.getSession().getTransaction().isActive()) {
-                    log.debug("Trying to rollback database transaction after exception");
-                    HibernateUtils.rollback();
-                }
-            } catch (Throwable rbEx) {
-                log.error("Could not rollback transaction after exception!", rbEx);
-            } finally {
-                log.error("Cleanup after exception!");
+            handleException(ex);
+            throw new Exception(ex);
+        }
 
-                // Cleanup
-                log.debug("Closing and unbinding Session from thread");
-                HibernateUtils.closeSession(); // Unbind is automatic here
+    }
 
-                log.debug("Removing Session from HttpSession");
-                httpSession.setAttribute(HIBERNATE_SESSION_KEY, null);
-
+    private void handleException(Throwable e) {
+        try {
+            if (HibernateUtils.getSession().getTransaction().isActive()) {
+                log.debug("Trying to rollback database transaction after exception");
+                HibernateUtils.rollback();
             }
+        } catch (Throwable rbEx) {
+            log.error("Could not rollback transaction after exception!", rbEx);
+        } finally {
+            log.error("Cleanup after exception!");
+
+            // Cleanup
+            log.debug("Closing and unbinding Session from thread");
+            HibernateUtils.closeSession(); // Unbind is automatic here
+
+            log.debug("Removing Session from HttpSession");
+            getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
 
         }
 
     }
+
+
 
     /**
      * Retrieve the user that is involved in the current registration process.
