@@ -41,7 +41,7 @@ public abstract class BaseBoard extends BaseProcessor {
     /**
      * private method to retrieve from DB current periods ids.
      */
-    private String getCurrentPeriod(String period_id) {
+    private String getCurrentPeriod(String period_id) throws Exception {
         Request r = new Request();
         r.setContentHandle(Constants.CURRENT_PERIOD_COMMAND);
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
