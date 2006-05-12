@@ -42,9 +42,12 @@ public class Phone extends Base {
         this.user = user;
     }
 
-
     public Boolean getPrimary() {
         return primary;
+    }
+
+    public boolean isPrimary() {
+        return primary.booleanValue();
     }
 
     public void setPrimary(Boolean primary) {
