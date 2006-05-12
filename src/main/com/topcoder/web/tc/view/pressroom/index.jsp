@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- WSJ --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/pressroom/wsjreprint_logo.gif" alt="Wall Street Journal" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">Cause for Concern? Americans Are Scarce In Top Tech Contest</A></strong></font><br />
+"Of the 48 best computer programmers in the world, only four of them are Americans. But what that bit of data says about the state of the U.S. education system is open to debate."<span class="prHead"> [May 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Java Posse --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
