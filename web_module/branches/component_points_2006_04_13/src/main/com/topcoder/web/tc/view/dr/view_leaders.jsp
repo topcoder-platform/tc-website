@@ -66,7 +66,10 @@ function submitEnter(e) {
         </TD>
 
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top" align="center">
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
+   <div align="center">
 
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
     <jsp:include page="/page_title.jsp" >
@@ -103,9 +106,15 @@ function submitEnter(e) {
 | <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="400">
+<table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
-      <td class="title" colspan="3"></td>
+      <td class="title" colspan="3">
+<% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
+Development Cup Series Leaderboard
+<% } else { %>
+Design Cup Series Leaderboard
+<% } %>
+      </td>
    </tr>
    <tr>
       <td class="headerC">
@@ -198,6 +207,8 @@ View &#160;
 
 --%>
 
+   </div>
+</div>
        </TD>
        <td WIDTH="180" VALIGN="top">
          <jsp:include page="/public_right.jsp" >
