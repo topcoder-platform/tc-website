@@ -79,7 +79,7 @@ public class Constants implements WebConstants {
         Field[] f = Constants.class.getFields();
         //log.debug(f.length + " fields found");
         for (int i = 0; i < f.length; i++) {
-            log.debug(f[i].getName());
+            //log.debug(f[i].getName());
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
