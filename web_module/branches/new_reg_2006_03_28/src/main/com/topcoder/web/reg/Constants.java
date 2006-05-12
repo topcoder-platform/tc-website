@@ -69,13 +69,15 @@ public class Constants implements WebConstants {
 
     }
 
-        public static void initialize() {
+    public static void initialize() {
+        log.debug("XXXXX initialize called");
 
         Field[] f = Constants.class.getFields();
+        log.debug(f.length + " fields found");
         for (int i = 0; i < f.length; i++) {
+            log.debug(f[i].getName());
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
-                    log.debug(f[i].getName());
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
