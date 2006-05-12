@@ -92,12 +92,10 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 <span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-&#160;|&#160;Rating History
+&#160;|&#160;Competition History
 <%--
-&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')" class="bcLink">Rating History Graph</A>
-&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
---%>
 &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+--%>
 </span>
 
 <% if (!bEmpty) { %>
@@ -123,7 +121,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <tr>
       <td>               
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="6">Algorithm Rating History</td></tr>
+         <tr><td class="tableTitle" colspan="6">Algorithm Competition History</td></tr>
          <tr>
             <td CLASS="tableHeader" width="0%"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
             <td CLASS="tableHeader" width="50%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
