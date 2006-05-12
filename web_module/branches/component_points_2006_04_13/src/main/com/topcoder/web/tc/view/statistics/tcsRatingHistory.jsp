@@ -94,9 +94,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
     <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-    &#160;|&#160;Rating History
-    &#160;|&#160;<A HREF="/stat?<%=Constants.PHASE_ID%>=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
-    &#160;|&#160;<A HREF='/tc?module=PointsHistory&amp;<%=Constants.PHASE_ID%>=113&amp;cr=<%=pageContext.getAttribute("coder_id")%>' class="bcLink">Points History</A>
+    &#160;|&#160;Competition History
     </span>
 
 <% } else { %>
@@ -106,9 +104,7 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
     <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
-    &#160;|&#160;Rating History
-    &#160;|&#160;<A HREF="/stat?<%=Constants.PHASE_ID%>=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
-    &#160;|&#160;<A HREF='/tc?module=PointsHistory&amp;<%=Constants.PHASE_ID%>=112&amp;cr=<%=pageContext.getAttribute("coder_id")%>' class="bcLink">Points History</A>
+    &#160;|&#160;Competition History
     </span>
 
 <% } %>
@@ -183,7 +179,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          <% } else { %>
          Design
          <% } %>
-         Rating History
+         Competition History
          </td></tr>
          <TR>
             <TD CLASS="header"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
