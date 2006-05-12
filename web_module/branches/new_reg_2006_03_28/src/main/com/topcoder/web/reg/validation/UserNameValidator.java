@@ -33,7 +33,7 @@ public class UserNameValidator implements Validator {
                 if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
                     ret = new BasicResult(new UserDAOHibernate().find(handle)!=null, "Please choose another handle.");
                 }
-                if (StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
+                if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
                     ret = new BasicResult(false, "Your user name may contain only letters, numbers and " +  Constants.PUNCTUATION);
                 } else if (StringUtils.containsOnly(handle, Constants.PUNCTUATION, false)) {
                     ret = new BasicResult(false, "Your user name may not contain only punctuation.");
