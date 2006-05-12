@@ -132,7 +132,7 @@ public class ForumsServlet extends BaseServlet {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                     return;
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
@@ -141,7 +141,7 @@ public class ForumsServlet extends BaseServlet {
                 * and the forward to error page failed.  in any event, make
                 * one last attempt to get an error message to the browser
                 */
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
             response.setContentType("text/html");

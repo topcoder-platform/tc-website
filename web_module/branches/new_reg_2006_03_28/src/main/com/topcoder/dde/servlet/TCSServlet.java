@@ -107,7 +107,7 @@ public class TCSServlet extends BaseServlet {
              * and the forward to error page failed.  in any event, make
              * one last attempt to get an error message to the browser
              */
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
             response.setContentType("text/html");
