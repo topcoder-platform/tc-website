@@ -69,24 +69,28 @@ public class Constants implements WebConstants {
 
     }
 
+    static {
+        initialize();
+    }
+
     public static void initialize() {
-        log.debug("XXXXX initialize called");
+        //log.debug("XXXXX initialize called");
 
         Field[] f = Constants.class.getFields();
-        log.debug(f.length + " fields found");
+        //log.debug(f.length + " fields found");
         for (int i = 0; i < f.length; i++) {
             log.debug(f[i].getName());
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
-                            log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
+                            //log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
-                            log.debug("set " + f[i] + " to " + bundle.getProperty(f[i].getName().toLowerCase()));
+                            //log.debug("set " + f[i] + " to " + bundle.getProperty(f[i].getName().toLowerCase()));
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
