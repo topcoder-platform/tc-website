@@ -32,7 +32,7 @@ abstract class Base extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
-                HttpSession httpSession =
+        HttpSession httpSession =
                 getRequest().getSession();
         Session hibernateSession =
                 (Session) httpSession.getAttribute(HIBERNATE_SESSION_KEY);
@@ -51,7 +51,6 @@ abstract class Base extends BaseProcessor {
 
             // Do the work...
             registrationProcessing();
-
 
             // End or continue the long-running conversation?
             if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
@@ -93,9 +92,11 @@ abstract class Base extends BaseProcessor {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Exception e) {
+            e.printStackTrace();
             handleException(e);
             throw e;
         } catch (Throwable ex) {
+            ex.printStackTrace();
             handleException(ex);
             throw new Exception(ex);
         }
@@ -125,13 +126,13 @@ abstract class Base extends BaseProcessor {
     }
 
 
-
     /**
      * Retrieve the user that is involved in the current registration process.
      * First see if it's cached in this request processor, then try the session
      * and finally load it from the db.
+     *
      * @return the user, we'll return null if the user does not currently have an
-     * account or if <code>setRegUser</code> has not yet been called.
+     *         account or if <code>setRegUser</code> has not yet been called.
      */
     protected User getRegUser() {
         if (user == null) {
@@ -157,6 +158,7 @@ abstract class Base extends BaseProcessor {
      * Set the reg user in the current request processor.  This is generally
      * only necessary if it's a new user registering.  Existing users can be loaded
      * by <code>getRegUser</code>
+     *
      * @param u
      */
     protected void setRegUser(User u) {
@@ -167,6 +169,7 @@ abstract class Base extends BaseProcessor {
     /**
      * Get the registrationTypes the current user is attempting to register for.
      * <code>setRequestedTypes</code> must have been called prior to calls to this method.
+     *
      * @return the types
      */
     protected Set getRequestedTypes() {
@@ -176,6 +179,7 @@ abstract class Base extends BaseProcessor {
     /**
      * Set the registration types that the current user is attempting to register for
      * so that they can be retrieved by <code>getRequestedTypes</code>
+     *
      * @param requestedTypes
      */
     protected void setRequestedTypes(Set requestedTypes) {
@@ -185,6 +189,7 @@ abstract class Base extends BaseProcessor {
     /**
      * Get all the data from the request relevent to the main page of registration
      * and load it into a map.
+     *
      * @return all the user input
      */
     protected Map getMainUserInput() {
@@ -216,6 +221,7 @@ abstract class Base extends BaseProcessor {
      * Validate all the user input for the main page of registration.  When there is a problem
      * a error will be added to the request via the normal RequestProcessor error reporting
      * mechanism.
+     *
      * @param params
      */
     protected void checkMainFields(Map params) {
@@ -239,8 +245,8 @@ abstract class Base extends BaseProcessor {
 
         if (fields.contains(Constants.EMAIL_CONFIRM)) {
             ValidationResult emailConfirmResult = new EmailConfirmValidator(
-                    new StringInput((String)params.get(Constants.EMAIL))).validate(
-                    new StringInput((String)params.get(Constants.EMAIL_CONFIRM)));
+                    new StringInput((String) params.get(Constants.EMAIL))).validate(
+                    new StringInput((String) params.get(Constants.EMAIL_CONFIRM)));
             if (!emailConfirmResult.isValid()) {
                 addError(Constants.EMAIL_CONFIRM, emailConfirmResult.getMessage());
             }
@@ -248,8 +254,8 @@ abstract class Base extends BaseProcessor {
 
         if (fields.contains(Constants.PASSWORD_CONFIRM)) {
             ValidationResult passwordConfirmResult = new PasswordConfirmValidator(
-                    new StringInput((String)params.get(Constants.PASSWORD))).validate(
-                    new StringInput((String)params.get(Constants.PASSWORD_CONFIRM)));
+                    new StringInput((String) params.get(Constants.PASSWORD))).validate(
+                    new StringInput((String) params.get(Constants.PASSWORD_CONFIRM)));
             if (!passwordConfirmResult.isValid()) {
                 addError(Constants.PASSWORD_CONFIRM, passwordConfirmResult.getMessage());
             }
@@ -257,7 +263,7 @@ abstract class Base extends BaseProcessor {
 
         if (fields.contains(Constants.HANDLE)) {
             ValidationResult userNameResult = new UserNameValidator(getRegUser()).validate(
-                    new StringInput((String)params.get(Constants.HANDLE)));
+                    new StringInput((String) params.get(Constants.HANDLE)));
             if (!userNameResult.isValid()) {
                 addError(Constants.HANDLE, userNameResult.getMessage());
             }
@@ -265,11 +271,10 @@ abstract class Base extends BaseProcessor {
     }
 
     /**
-     *
      * @param validationClass
-     * @param params a map containing the what the user entered
-     * @param fields the fields relevant to the current registration process
-     * @param field the field we're currently attempting to validate
+     * @param params          a map containing the what the user entered
+     * @param fields          the fields relevant to the current registration process
+     * @param field           the field we're currently attempting to validate
      * @throws RuntimeException if there is a problem attempting to instantiate the validation class
      */
     private void simpleValidation(Class validationClass, Set fields, Map params, String field) throws RuntimeException {
@@ -277,7 +282,7 @@ abstract class Base extends BaseProcessor {
         if (fields.contains(field)) {
             Validator v = null;
             try {
-                v = (Validator)Class.forName(validationClass.getName()).newInstance();
+                v = (Validator) Class.forName(validationClass.getName()).newInstance();
             } catch (InstantiationException e) {
                 throw new RuntimeException(e);
             } catch (IllegalAccessException e) {
@@ -285,7 +290,7 @@ abstract class Base extends BaseProcessor {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-            ValidationResult result = v.validate(new StringInput((String)params.get(field)));
+            ValidationResult result = v.validate(new StringInput((String) params.get(field)));
             if (!result.isValid()) {
                 addError(field, result.getMessage());
             }
@@ -294,6 +299,7 @@ abstract class Base extends BaseProcessor {
 
     /**
      * Should be implemented by child classes to handle all the actual processing
+     *
      * @throws Exception
      */
     abstract protected void registrationProcessing() throws Exception;
