@@ -29,4 +29,9 @@ public class CountryDAOHibernate extends Base implements CountryDAO {
         return (Country) find(Country.class, code);
     }
 
+    public Country getUS() {
+        return find(Country.US_CODE);
+    }
+
+
 }

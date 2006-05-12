@@ -14,5 +14,7 @@ public interface CountryDAO {
     List getCountries();
 
     Country find(String code);
+
+    Country getUS();
     
 }
