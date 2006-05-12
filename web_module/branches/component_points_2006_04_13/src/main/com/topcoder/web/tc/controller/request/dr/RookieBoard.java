@@ -34,12 +34,12 @@ public class RookieBoard extends BaseBoard {
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
         Request r = new Request();
-        r.setContentHandle(DR_SEASON_COMMAND);
+        r.setContentHandle(Constants.DR_SEASON_COMMAND);
 
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer seasons = (ResultSetContainer)m.get(DR_SEASON_QUERY);
+        ResultSetContainer seasons = (ResultSetContainer)m.get(Constants.DR_SEASON_QUERY);
         log.debug("Got " +  seasons.size() + " rows for seasons");
         getRequest().setAttribute(Constants.SEASON_LIST_KEY, seasons);
 

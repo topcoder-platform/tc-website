@@ -15,7 +15,7 @@
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   ResultSetContainer leaderBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
-  ResultSetContainer stages = (ResultSetContainer) request.getAttribute("stages");
+  ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
 %>
 
 <html>
@@ -71,9 +71,9 @@
                     <SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="document.leaderBoardForm.submit()">
                          <rsc:iterator list="<%=stages%>" id="resultRow">
                             <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
-                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected><rsc:item name="se.name" row="<%=resultRow%>"/> - <rsc:item name="st.name" row="<%=resultRow%>"/></OPTION>
+                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected><rsc:item name="season_name" row="<%=resultRow%>"/> &gt; <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
                             <% } else { %>
-                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>"><rsc:item name="se.name" row="<%=resultRow%>"/> - <rsc:item name="st.name" row="<%=resultRow%>"/></OPTION>
+                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>"><rsc:item name="season_name" row="<%=resultRow%>"/> &gt; <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
                             <% } %>
                         </rsc:iterator>
                     </SELECT>
