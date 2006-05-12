@@ -32,7 +32,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="Algorithm Rating History"/>
+<jsp:param name="title" value="Algorithm Competition History"/>
 </jsp:include>
 
  
@@ -150,7 +150,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    </tr>
 </TABLE>
 <% } else { %>
-   This member has no rating history.
+   This member has no competition history.
 <% } %>
 
 <% if (!bEmpty) { %>
