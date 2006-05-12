@@ -27,6 +27,8 @@ public class Constants implements WebConstants {
     public static String CODER_LIST_KEY;
     public static String POINTS_HISTORY_COMMAND;
     public static String POINTS_HISTORY_QUERY;
+    public static String CURRENT_PERIOD_COMMAND;
+    public static String CURRENT_PERIOD_QUERY;
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;

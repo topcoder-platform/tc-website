@@ -39,16 +39,24 @@ public abstract class BaseBoard extends BaseProcessor {
      }
 
     /**
+     * private method to retrieve from DB current periods ids.
+     */
+    private String getCurrentPeriod(String period_id) {
+        Request r = new Request();
+        r.setContentHandle(Constants.CURRENT_PERIOD_COMMAND);
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = dai.getData(r);
+        ResultSetContainer currentPeriod = (ResultSetContainer)m.get(Constants.CURRENT_PERIOD_QUERY);
+        return (currentPeriod.getLongItem(0, period_id));
+    }
+     
+    /**
      * Process the dr coders board request.
      * Retrieves coders list for development or design for a particular period.
      */
     protected void businessProcessing(String period_id, String command, String query, String nextpage) throws Exception {
-        // Phase ID and Period ID are required.
+        // Phase ID is required.
         if (!hasParameter(Constants.PHASE_ID)) {
-            throw new TCWebException("parameter " + period_id + " expected.");
-        }
-        
-        if (!hasParameter(period_id)) {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
 
@@ -57,8 +65,16 @@ public abstract class BaseBoard extends BaseProcessor {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
-        setDefault(period_id, getRequest().getParameter(period_id));   
+        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        
+        // if period is not available, get current one from DB.
+        String period = null;
+        if (!hasParameter(period_id)) {
+            period = getCurrentPeriod(period_id);
+        } else {
+            period = getRequest().getParameter(period_id);
+        }
+        setDefault(period_id, period);   
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -89,7 +105,7 @@ public abstract class BaseBoard extends BaseProcessor {
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol);   
         }
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        r.setProperty(period_id, getRequest().getParameter(period_id));
+        r.setProperty(period_id, period);
         r.setContentHandle(command);
 
         // retrieves data from DB
