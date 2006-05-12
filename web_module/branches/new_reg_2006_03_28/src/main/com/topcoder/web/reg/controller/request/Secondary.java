@@ -33,6 +33,9 @@ public class Secondary extends Base {
                     me = (Map.Entry)it.next();
                     setDefault((String)me.getKey(), me.getValue());
                 }
+                getRequest().setAttribute(Constants.FIELDS,
+                        RegFieldHelper.getMainFieldSet(getRequestedTypes(), getRegUser()));
+
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             } else {
