@@ -8,6 +8,9 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Mar 31, 2006
  */
 public class Country extends Base {
+
+    public static final String US_CODE = "840";
+    
     private String code;
     private String name;
 

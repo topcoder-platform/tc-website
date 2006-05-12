@@ -9,8 +9,6 @@ import com.topcoder.web.common.model.Base;
  */
 public class Company extends Base {
 
-    public static final String US_CODE = "840";
-    
     private Long id;
     private String name;
     private Contact primaryContact;
