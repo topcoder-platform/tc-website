@@ -14,6 +14,7 @@
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
+  ResultSetContainer seasons = (ResultSetContainer) request.getAttribute("seasons");
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
 
@@ -58,12 +59,26 @@
         <form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-           <tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/>
+           <!--tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/-->
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
            <br><br>
            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <tr>
+                <td>
+                    <B>Please select a season</B><BR/>
+                    <SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="document.rookieBoardForm.submit()">
+                         <rsc:iterator list="<%=seasons%>" id="resultRow">
+                            <% if (String.valueOf(resultRow.getLongItem("season_id")).equals(request.getParameter(Constants.SEASON_ID))) { %>
+                              <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>" selected><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
+                            <% } else { %>
+                              <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></OPTION>
+                            <% } %>
+                        </rsc:iterator>
+                    </SELECT>
+               </td>
+             </tr>
              <tr>
                 <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
                     <%=(rookieBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>

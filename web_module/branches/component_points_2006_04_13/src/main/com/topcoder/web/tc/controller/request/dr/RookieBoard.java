@@ -26,6 +26,17 @@ public class RookieBoard extends BaseBoard {
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
+        // Prepare request for data retrieval
+        Request r = new Request();
+        r.setContentHandle("dr_seasons");
+
+        // retrieves data from DB
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = dai.getData(r);
+        ResultSetContainer seasons = (ResultSetContainer)m.get("dr_seasons");
+        log.debug("Got " +  seasons.size() + " rows for seasons");
+        getRequest().setAttribute("seasons", seasons);
+
         log.debug("Getting rookie board coders...");
         businessProcessing(Constants.SEASON_ID, Constants.ROOKIE_BOARD_COMMAND, Constants.ROOKIE_BOARD_QUERY,
             Constants.VIEW_ROOKIE_BOARD_PAGE);
