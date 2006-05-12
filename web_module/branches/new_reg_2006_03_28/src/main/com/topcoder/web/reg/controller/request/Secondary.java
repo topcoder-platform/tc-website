@@ -3,13 +3,12 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.Address;
-import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.Company;
 import com.topcoder.web.reg.model.Email;
+import com.topcoder.web.reg.model.User;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -23,9 +22,12 @@ import java.util.Set;
 public class Secondary extends Base {
 
     protected void registrationProcessing() throws Exception {
-        if (getRegUser() == null || getRegUser().isNew() || userLoggedIn()) {
+        User u = getRegUser();
+        if (getRegUser() == null || u.isNew() || userLoggedIn()) {
             Map params = getMainUserInput();
             checkMainFields(params);
+
+            Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
 
             if (hasErrors()) {
                 Map.Entry me;
@@ -33,18 +35,12 @@ public class Secondary extends Base {
                     me = (Map.Entry)it.next();
                     setDefault((String)me.getKey(), me.getValue());
                 }
-                getRequest().setAttribute(Constants.FIELDS,
-                        RegFieldHelper.getMainFieldSet(getRequestedTypes(), getRegUser()));
+                getRequest().setAttribute(Constants.FIELDS, fields);
 
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             } else {
                 //set the fields in the user object
-
-                User u = getRegUser();
-                Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
-
-                HibernateUtils.getSession().update(u);
 
                 Address a = u.getHomeAddress();
                 //we'll consider address1 to be the indicator as to whether or not we're getting an address
