@@ -1,11 +1,11 @@
 package com.topcoder.web.reg.controller;
 
-import com.topcoder.shared.util.logging.Logger;
-import org.hibernate.FlushMode;
-import org.hibernate.SessionFactory;
-import org.hibernate.classic.Session;
-import org.hibernate.context.ThreadLocalSessionContext;
 import org.hibernate.engine.SessionFactoryImplementor;
+import org.hibernate.context.ThreadLocalSessionContext;
+import org.hibernate.SessionFactory;
+import org.hibernate.FlushMode;
+import org.hibernate.classic.Session;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Trivial implementation of a session-per-conversation context.
@@ -46,6 +46,7 @@ public class ExtendedThreadLocalSessionContext extends ThreadLocalSessionContext
         super(factory);
     }
 
+    ThreadLocal session = new ThreadLocal();
 
     // No automatic flushing of the Session at transaction commit, client calls flush()
     protected boolean isAutoFlushEnabled() {
@@ -53,11 +54,14 @@ public class ExtendedThreadLocalSessionContext extends ThreadLocalSessionContext
     }
 
     protected Session buildOrObtainSession() {
-        log.debug("Opening a new Session");
-        Thread.dumpStack();
-        Session s = super.buildOrObtainSession();
-        log.debug("Disabling automatic flushing of the Session");
-        s.setFlushMode(FlushMode.NEVER);
+        Session s = (Session) session.get();
+        if (s == null) {
+            log.debug("Opening a new Session");
+            Thread.dumpStack();
+            s = super.buildOrObtainSession();
+            log.debug("Disabling automatic flushing of the Session");
+            s.setFlushMode(FlushMode.NEVER);
+        }
         return s;
     }
 
