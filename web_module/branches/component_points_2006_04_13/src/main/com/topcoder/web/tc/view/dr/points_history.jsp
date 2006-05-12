@@ -145,7 +145,7 @@ z-index: 1;
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
            <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
               <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                 <tr><td class="title" colspan="6">
+                 <tr><td class="title" colspan="9">
                  <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
                     Development
                  <% } else { %>
@@ -183,7 +183,7 @@ z-index: 1;
                     <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
                     <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
                     <TD class="valueC"><rsc:item name="final_points" row="<%=resultRow%>"/></TD>
-                    <TD class="valueC"><rsc:item name="earning" row="<%=resultRow%>" format="0.00"/></TD>
+                    <TD class="valueC" align="right">$&nbsp;<rsc:item name="earning" row="<%=resultRow%>" format="0.00"/></TD>
                     <TD class="valueC"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                     <TD class="value">
                         <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
