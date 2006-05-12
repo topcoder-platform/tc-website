@@ -121,9 +121,7 @@ z-index: 1;
     <% } %>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-    &#160;|&#160;<A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=<%=phaseId%>&cr=<%=coderId%>" CLASS="bcLink">Rating History</A>
-    &#160;|&#160;<A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Earnings History</A>
-    &#160;|&#160;Points History
+    &#160;|&#160;Competition History
 </span>
 
 
@@ -151,7 +149,7 @@ z-index: 1;
                  <% } else { %>
                     Design
                  <% } %>
-                 Points History
+                 Competition History
                  </td></tr>
                  <tr>
                     <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
