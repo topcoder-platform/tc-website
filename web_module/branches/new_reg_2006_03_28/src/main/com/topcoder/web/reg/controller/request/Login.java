@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 27, 2006
  */
-public class Login extends BaseProcessor {
+public class Login extends Base {
 
 
     public static final String USER_ID = "userid";
@@ -28,7 +28,7 @@ public class Login extends BaseProcessor {
 
     public static final String STATUS_START = "start";
 
-    protected void businessProcessing() throws TCWebException {
+    protected void registrationProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);

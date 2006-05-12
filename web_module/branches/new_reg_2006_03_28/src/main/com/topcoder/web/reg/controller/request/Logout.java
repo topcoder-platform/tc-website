@@ -1,7 +1,6 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCWebException;
 
@@ -10,11 +9,11 @@ import com.topcoder.web.common.TCWebException;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 27, 2006
  */
-public class Logout extends BaseProcessor {
+public class Logout extends Base {
 
     protected static final Logger log = Logger.getLogger(Logout.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void registrationProcessing() throws TCWebException {
 
         // Logs the user out
         getAuthentication().logout();
