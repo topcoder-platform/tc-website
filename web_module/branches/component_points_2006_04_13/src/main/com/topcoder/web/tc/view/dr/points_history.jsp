@@ -156,34 +156,40 @@ z-index: 1;
                  <tr>
                     <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
                     <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a></TD>
+                    <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a></TD>
                     <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
                     <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Placed</a></TD>
                     <TD CLASS="headerC">
-                     <div id="container">
-                        <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
-                        <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
-                     </div>
-                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
+                         <div id="container">
+                            <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                            <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
+                         </div>
+                         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
                      </TD>
+                    <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="9" includeParams="true"/>">Earnings</a></TD>
+                    <TD CLASS="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a></TD>
                     <TD CLASS="header" WIDTH="15%" align="right">&#160;</TD>
                  </tr>
                  <%boolean even = false;%>
                  <rsc:iterator list="<%=rsc2%>" id="resultRow">
                  <tr class="<%=even?"dark":"light"%>">
-                    <td class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-                    <td class="value">
+                    <TD class="value"><rsc:item name="rating_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value">
                         <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
                             <rsc:item name="component_name" row="<%=resultRow%>"/>
                         </A>
                     </TD>
-                    <td class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
-                    <td class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
-                    <td class="valueC"><rsc:item name="final_points" row="<%=resultRow%>"/></TD>
-                    <td class="value">
+                    <TD class="valueC"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
+                    <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
+                    <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
+                    <TD class="valueC"><rsc:item name="final_points" row="<%=resultRow%>"/></TD>
+                    <TD class="valueC"><rsc:item name="earning" row="<%=resultRow%>" format="0.00"/></TD>
+                    <TD class="valueC"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
+                    <TD class="value">
                         <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                             Contest Details
                         </A>
-                    </td>
+                    </TD>
                  </tr>
                  <%even=!even;%>
                  </rsc:iterator>
