@@ -75,6 +75,7 @@ public class Constants implements WebConstants {
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
+                    log.debug(f[i].getName());
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
