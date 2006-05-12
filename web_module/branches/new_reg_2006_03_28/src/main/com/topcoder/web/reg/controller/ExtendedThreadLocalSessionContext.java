@@ -54,14 +54,18 @@ public class ExtendedThreadLocalSessionContext extends ThreadLocalSessionContext
     }
 
     protected Session buildOrObtainSession() {
+/*
         Session s = (Session) session.get();
         if (s == null) {
+*/
             log.debug("Opening a new Session");
             Thread.dumpStack();
-            s = super.buildOrObtainSession();
+           Session s = super.buildOrObtainSession();
             log.debug("Disabling automatic flushing of the Session");
             s.setFlushMode(FlushMode.NEVER);
+/*
         }
+*/
         return s;
     }
 
