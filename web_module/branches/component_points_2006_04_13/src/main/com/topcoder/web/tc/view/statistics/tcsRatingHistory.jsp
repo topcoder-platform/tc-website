@@ -19,6 +19,41 @@
 </jsp:include>
 <jsp:include page="baseHRef.jsp" />
 <jsp:include page="../script.jsp" />
+<script type="text/javascript">
+var objPopUp = null;
+function popUp(event,objectID){
+objPopTrig = document.getElementById(event);
+objPopUp = document.getElementById(objectID);
+xPos = objPopTrig.offsetLeft+15;
+yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+objPopUp.style.left = xPos + 'px';
+objPopUp.style.top = yPos + 'px';
+objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+objPopUp.style.visibility = 'hidden';
+objPopUp = null;
+}
+</script>
+<STYLE TYPE="text/css">
+.popper{display:block; margin: 0px auto 0px auto;}
+#container{text-align: center;position: relative;margin: 0px;padding: 0px;}
+.popUp
+{
+font-size: 10px;
+text-align: center;
+background-color: #FFFFCC;
+visibility: hidden;
+margin: 10px;
+padding: 3px;
+position: absolute;
+white-space: nowrap;
+border: solid 1px black;
+z-index: 1;
+}
+</STYLE>
 </HEAD>
 <BODY>
    <jsp:include page="../top.jsp" />
@@ -141,11 +176,8 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
       <div class="pagingBox">&#160;</div>
    <% } %>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
-   <tr>
-      <td>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="6">
+     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+         <tr><td class="title" colspan="8">
          <% if(srb.getProperty(Constants.PHASE_ID).equals("113")){%>
          Development
          <% } else { %>
@@ -154,18 +186,26 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          Rating History
          </td></tr>
          <TR>
-            <TD CLASS="tableHeader"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
-            <TD CLASS="tableHeader" WIDTH="40%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
-            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Place</a></TD>
-            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Score</a></TD>
-            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rating</a></TD>
-            <TD CLASS="tableHeader" WIDTH="15%" align="right">&#160;</TD>
+            <TD CLASS="header"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
+            <TD CLASS="header" WIDTH="30%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
+            <TD CLASS="headerR" WIDTH="10%"><a href="<%=sSortUrl%>&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Score</a></TD>
+            <TD CLASS="headerC" WIDTH="10%"><a href="">Submissions</a></TD>
+            <TD CLASS="headerC" WIDTH="10%"><a href="<%=sSortUrl%>&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Place</a></TD>
+            <TD CLASS="headerC" WIDTH="10%">
+               <div id="container">
+                  <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                  <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
+               </div>
+            <a href="">Points</a>
+            </TD>
+            <TD CLASS="headerR" WIDTH="10%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rating</a></TD>
+            <TD CLASS="headerR" WIDTH="10%">&#160;</TD>
          </TR>
-         <%boolean even = true;%>
+         <%boolean even = false;%>
          <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
-         <TR>
-            <TD class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>">
+         <tr class="<%=even?"dark":"light"%>">
+            <TD class="value"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
+            <TD class="value">
                 <% if (resultRow2.getIntItem("viewable_category_ind") ==1) { %>
                 <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME %>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* component id */ + "]" %>'/>" class="statLink">
                     <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
@@ -174,17 +214,16 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
                 <bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/>
                 <% } %>
             </TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
-            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">Contest Details</A></TD>
+            <TD class="valueR"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
+            <TD class="valueC">submissions</TD>
+            <TD class="valueC"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
+            <TD class="valueC">points</TD>
+            <TD class="valueR"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
+            <TD class="valueR" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow2%>"/>" class="statLink">Contest Details</A></TD>
          </TR>
          <%even=!even;%>
          </logic:iterate>
       </TABLE>
-      </TD>
-   </TR>
-</table>
 
 <% } else { %>
    This member has no rating history.
