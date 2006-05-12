@@ -68,7 +68,7 @@ function submitEnter(e) {
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top" align="center">
 
-<% if(.equals("113")){ %>
+<% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
     <jsp:include page="/page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
     <jsp:param name="title" value="Development Cup Series Leaderboard"/>
