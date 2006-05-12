@@ -18,10 +18,13 @@ import java.io.IOException;
 public class SessionClosingFilter implements Filter {
     protected static final Logger log = Logger.getLogger(SessionClosingFilter.class);
 
-    public static final String HIBERNATE_SESSION_KEY    = "hibernate_session";
+    public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
     public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
 
+    private FilterConfig config;
+
     public void init(FilterConfig filterConfig) {
+        this.config = filterConfig;
     }
 
     public void destroy() {
@@ -45,7 +48,7 @@ public class SessionClosingFilter implements Filter {
 
         try {
 
-            if (hibernateSession != null) {
+/*            if (hibernateSession != null) {
                 log.debug("< Continuing conversation");
                 ExtendedThreadLocalSessionContext.bind(hibernateSession);
             } else {
@@ -87,7 +90,7 @@ public class SessionClosingFilter implements Filter {
                 httpSession.setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
 
                 log.debug("> Returning to user in conversation");
-            }
+            }*/
 
         } catch (StaleObjectStateException staleEx) {
             log.error("This interceptor does not implement optimistic concurrency control!");
@@ -98,6 +101,7 @@ public class SessionClosingFilter implements Filter {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Throwable ex) {
+            log.debug("XXXXX got exception in filter");
             //application exceptions should never get this far, they should be handled by the servlet
             try {
                 if (HibernateUtils.getSession().getTransaction().isActive()) {
@@ -121,7 +125,45 @@ public class SessionClosingFilter implements Filter {
             // Let others handle it... maybe another interceptor for exceptions?
             throw new ServletException(ex);
         }
-
-
     }
+
+/*
+
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
+            throws Exception {
+        log.error("caught exception, forwarding to error page", e);
+        if (e instanceof PermissionException) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
+        } else if (e instanceof NavigationException) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
+            if (((NavigationException) e).hasUrl())
+                request.setAttribute(BaseServlet.URL_KEY, ((NavigationException) e).getUrl());
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            request.setAttribute(BaseServlet.MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+        }
+        request.setAttribute("exception", e);
+        //todo don't hardcode errorPage.jsp
+        fetchRegularPage(request, response, "/errorPage.jsp", true);
+    }
+
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                          boolean forward) throws Exception {
+
+        if (forward) {
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            config.getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
+        }
+    }
+*/
+
+
 }
