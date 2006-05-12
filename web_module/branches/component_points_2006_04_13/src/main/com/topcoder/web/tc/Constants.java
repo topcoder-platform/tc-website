@@ -29,12 +29,20 @@ public class Constants implements WebConstants {
     public static String POINTS_HISTORY_QUERY;
     public static String CURRENT_PERIOD_COMMAND;
     public static String CURRENT_PERIOD_QUERY;
+    public static String DR_SEASON_COMMAND;
+    public static String DR_SEASON_QUERY;
+    public static String DR_STAGE_COMMAND;
+    public static String DR_STAGE_QUERY;
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;
     public static int MAX_HISTORY;
     public static int DEFAULT_HISTORY;
     public static String TYPE_KEY;
+
+    public static String STAGE_LIST_KEY;
+    public static String SEASON_LIST_KEY;
+    
         
     /* request parameters */
     public static String PROBLEM_ID;

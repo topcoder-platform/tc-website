@@ -34,14 +34,14 @@ public class LeaderBoard extends BaseBoard {
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
         Request r = new Request();
-        r.setContentHandle("dr_stages");
+        r.setContentHandle(DR_STAGE_COMMAND);
 
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer stages = (ResultSetContainer)m.get("dr_stages");
+        ResultSetContainer stages = (ResultSetContainer)m.get(DR_STAGE_QUERY);
         log.debug("Got " +  stages.size() + " rows for stages");
-        getRequest().setAttribute("stages", stages);
+        getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
 
         log.debug("Getting Leader board coders...");
         businessProcessing(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY,

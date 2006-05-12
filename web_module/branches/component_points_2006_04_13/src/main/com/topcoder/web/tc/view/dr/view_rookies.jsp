@@ -14,7 +14,7 @@
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
-  ResultSetContainer seasons = (ResultSetContainer) request.getAttribute("seasons");
+  ResultSetContainer seasons = (ResultSetContainer) request.getAttribute(Constants.SEASON_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
 
