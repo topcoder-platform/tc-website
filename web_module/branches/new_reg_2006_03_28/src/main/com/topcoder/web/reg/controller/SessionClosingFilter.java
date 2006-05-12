@@ -59,8 +59,9 @@ public class SessionClosingFilter implements Filter {
             HibernateUtils.begin();
 
             // Do the work...
+            */
             chain.doFilter(request, response);
-
+/*
             // End or continue the long-running conversation?
             if (request.getAttribute(END_OF_CONVERSATION_FLAG) != null) {
 
