@@ -6,6 +6,12 @@ package com.topcoder.web.tc.controller.request.dr;
 
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccess;
+import java.util.Map;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * <strong>Purpose</strong>:
@@ -26,6 +32,17 @@ public class LeaderBoard extends BaseBoard {
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
+        // Prepare request for data retrieval
+        Request r = new Request();
+        r.setContentHandle("dr_stages");
+
+        // retrieves data from DB
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = dai.getData(r);
+        ResultSetContainer stages = (ResultSetContainer)m.get("dr_stages");
+        log.debug("Got " +  stages.size() + " rows for stages");
+        getRequest().setAttribute("stages", stages);
+
         log.debug("Getting Leader board coders...");
         businessProcessing(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY,
             Constants.VIEW_LEADER_BOARD_PAGE);

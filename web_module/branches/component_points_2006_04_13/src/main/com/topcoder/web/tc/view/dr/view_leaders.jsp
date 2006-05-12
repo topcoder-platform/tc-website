@@ -15,6 +15,7 @@
   if(nextpage==null) nextpage = "http://"+request.getServerName();
   ResultSetContainer leaderBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
+  ResultSetContainer stages = (ResultSetContainer) request.getAttribute("stages");
 %>
 
 <html>
@@ -58,12 +59,26 @@
         <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-           <tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/>
+           <!--tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/-->
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
            <br><br>
            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+            <tr>
+                <td>
+                    <B>Please select a stage</B><BR/>
+                    <SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="document.leaderBoardForm.submit()">
+                         <rsc:iterator list="<%=stages%>" id="resultRow">
+                            <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
+                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected><rsc:item name="se.name" row="<%=resultRow%>"/> - <rsc:item name="st.name" row="<%=resultRow%>"/></OPTION>
+                            <% } else { %>
+                              <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>"><rsc:item name="se.name" row="<%=resultRow%>"/> - <rsc:item name="st.name" row="<%=resultRow%>"/></OPTION>
+                            <% } %>
+                        </rsc:iterator>
+                    </SELECT>
+               </td>
+             </tr>
              <tr>
                 <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
                     <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
