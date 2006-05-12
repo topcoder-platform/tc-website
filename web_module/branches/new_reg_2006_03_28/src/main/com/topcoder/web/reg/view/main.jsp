@@ -25,7 +25,7 @@
     </p>
 
     <p>
-        Given Name: <tc-webtag:textInput name="gn" size="15" maxlength="15" editable="true"/>
+        Given Name: <tc-webtag:textInput name="gn" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
     </p>
 </c:if>
 
