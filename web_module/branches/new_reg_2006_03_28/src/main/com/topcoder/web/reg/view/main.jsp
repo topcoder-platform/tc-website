@@ -249,23 +249,44 @@
 
 <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
 <c:if test="${cf:contains(fields, countryCode)}">
+    <p>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+    </p>
+    <p>
     Country: <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+        </p>
 </c:if>
 
 
 <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
 <c:if test="${cf:contains(fields, compCountryCode)}">
+    <p>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+    </p>
+    <p>
     Country to represent: <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
+        </p>
 </c:if>
 
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
+    <p>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.TIMEZONE%>"><%=err%><br/></tc-webtag:errorIterator>
+    </p>
+
+    <p>
     Timezone: <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
+        </p>
 </c:if>
 
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
+    <p>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
+        </p>
+        <p>
     Coder Type: <tc-webtag:objectSelect name="${timeZone}" list="${coderTypes}" valueField="id" textField="description"/>
+        </p>
 </c:if>
 
 
