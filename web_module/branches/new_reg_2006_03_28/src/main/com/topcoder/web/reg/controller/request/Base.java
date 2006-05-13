@@ -322,6 +322,59 @@ abstract class Base extends BaseProcessor {
         }
     }
 
+
+    protected void setMainDefaults(User u) {
+        if (u.getHomeAddress()!=null) {
+            setDefault(Constants.ADDRESS1, u.getHomeAddress().getAddress1());
+            setDefault(Constants.ADDRESS2, u.getHomeAddress().getAddress2());
+            setDefault(Constants.ADDRESS3, u.getHomeAddress().getAddress3());
+            setDefault(Constants.CITY, u.getHomeAddress().getCity());
+            if (u.getHomeAddress().getCountry()!=null) {
+                setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
+            }
+            if (u.getHomeAddress().getState()!=null) {
+                setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
+            }
+            setDefault(Constants.POSTAL_CODE, u.getHomeAddress().getPostalCode());
+            setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
+        }
+        if (u.getPrimaryEmailAddress()!=null) {
+            setDefault(Constants.EMAIL, u.getPrimaryEmailAddress().getAddress());
+            setDefault(Constants.EMAIL_CONFIRM, u.getPrimaryEmailAddress().getAddress());
+        }
+        setDefault(Constants.MIDDLE_NAME, u.getMiddleName());
+        setDefault(Constants.SURNAME, u.getLastName());
+        setDefault(Constants.GIVEN_NAME, u.getFirstName());
+        setDefault(Constants.PASSWORD, u.getPassword());
+        setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
+        setDefault(Constants.HANDLE, u.getHandle());
+        if (u.getContact()!=null) {
+            if (u.getContact().getCompany()!=null) {
+                setDefault(Constants.COMPANY_NAME, u.getContact().getCompany().getName());
+            }
+            setDefault(Constants.TITLE, u.getContact().getTitle());
+        }
+        setDefault(Constants.QUOTE, u.getCoder().getQuote());
+        if (u.getPrimaryPhoneNumber()!=null) {
+            setDefault(Constants.PHONE_NUMBER, u.getPrimaryPhoneNumber().getNumber());
+        }
+        if (u.getCoder()!=null) {
+            setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountryCode());
+            if (u.getCoder().getCoderType()!=null) {
+                setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
+            }
+        }
+        if (u.getTimeZone()!=null) {
+            setDefault(Constants.TIMEZONE, u.getTimeZone().getId());
+        }
+        for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
+            setDefault(Constants.NOTIFICATION+((Notification)it.next()).getId(), String.valueOf(true));
+        }
+
+    }
+
+
+
     /**
      * @param validationClass
      * @param params          a map containing the what the user entered

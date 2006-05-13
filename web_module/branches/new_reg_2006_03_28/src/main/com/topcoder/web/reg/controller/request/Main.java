@@ -52,6 +52,9 @@ public class Main extends Base {
                     c.setUser(u);
                 }
                 setRegUser(u);
+            } else {
+                //load up all their data so that we can display it
+                setMainDefaults(u);
             }
 
 

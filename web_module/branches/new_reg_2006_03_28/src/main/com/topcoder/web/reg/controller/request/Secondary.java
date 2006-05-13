@@ -5,7 +5,6 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.*;
 
 import java.util.*;
@@ -34,7 +33,7 @@ public class Secondary extends Base {
                 getRequest().setAttribute(Constants.FIELDS, fields);
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
-
+                getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             } else {
