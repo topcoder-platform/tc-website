@@ -1,18 +1,17 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.Contact;
-import com.topcoder.web.reg.model.Coder;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.reg.model.Coder;
+import com.topcoder.web.reg.model.Contact;
+import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.User;
 
-import java.util.List;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -65,12 +64,13 @@ public class Main extends Base {
                 //todo if they are attempting to register for high school, and they are not eligible,
                   //todo give them a message saying they are not eligible to register for highschool
 
-                List nots = Util.getFactory().getNotificationDAO().getNotifications(requestedTypes);
+                List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
                 if (nots!=null) {
                     getRequest().setAttribute("notifications", nots);
                 }
-                getRequest().setAttribute("countries", Util.getFactory().getCountryDAO().getCountries());
-                getRequest().setAttribute("coderTypes", Util.getFactory().getCoderTypeDAO().getCoderTypes());
+                getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
+                getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
+                getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
                 setNextPage("/main.jsp");

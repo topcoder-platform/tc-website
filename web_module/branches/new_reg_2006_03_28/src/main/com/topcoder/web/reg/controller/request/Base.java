@@ -1,18 +1,18 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
+import com.topcoder.web.reg.dao.DAOFactory;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.Notification;
+import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.validation.*;
 import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
@@ -30,6 +30,7 @@ abstract class Base extends BaseProcessor {
     public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
     public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
     private User user = null;
+    private DAOFactory factory = null;
 
     protected void businessProcessing() throws Exception {
 
@@ -100,6 +101,13 @@ abstract class Base extends BaseProcessor {
             throw new Exception(ex);
         }
 
+    }
+
+    protected DAOFactory getFactory() {
+        if (factory == null) {
+            factory = getFactory();
+        }
+        return factory;
     }
 
     private void handleException(Throwable e) {
@@ -220,7 +228,7 @@ abstract class Base extends BaseProcessor {
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
-        List notifications = Util.getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
+        List notifications = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
         int size = notifications.size();
         ArrayList nSelections = new ArrayList(size);
         Notification n;
@@ -294,7 +302,7 @@ abstract class Base extends BaseProcessor {
         }
         if (!hasError(Constants.COUNTRY_CODE)) {
             if (fields.contains(Constants.STATE_CODE)) {
-                ValidationResult stateResult = new StateValidator(Util.getFactory().getCountryDAO().find(
+                ValidationResult stateResult = new StateValidator(getFactory().getCountryDAO().find(
                         (String) params.get(Constants.COUNTRY_CODE))).validate(
                         new StringInput((String) params.get(Constants.STATE_CODE)));
                 if (!stateResult.isValid()) {

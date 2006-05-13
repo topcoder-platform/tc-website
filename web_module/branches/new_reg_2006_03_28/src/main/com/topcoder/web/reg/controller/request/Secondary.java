@@ -32,8 +32,8 @@ public class Secondary extends Base {
                     setDefault((String)me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
-                getRequest().setAttribute("countries", Util.getFactory().getCountryDAO().getCountries());
-                getRequest().setAttribute("coderTypes", Util.getFactory().getCoderTypeDAO().getCoderTypes());
+                getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
+                getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
 
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
@@ -65,12 +65,12 @@ public class Secondary extends Base {
                 }
 
                 if (fields.contains(Constants.COUNTRY_CODE)) {
-                    a.setCountry(Util.getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
+                    a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
                 }
 
-                if (Util.getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
+                if (getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
                     if (fields.contains(Constants.STATE_CODE)) {
-                        a.setState(Util.getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
+                        a.setState(getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
                     }
                 }
 
@@ -160,7 +160,7 @@ public class Secondary extends Base {
 
                 if (fields.contains(Constants.CODER_TYPE)) {
                     CoderType ct =
-                            Util.getFactory().getCoderTypeDAO().find(new Integer((String)params.get(Constants.CODER_TYPE)));
+                            getFactory().getCoderTypeDAO().find(new Integer((String)params.get(Constants.CODER_TYPE)));
                     u.getCoder().setCoderType(ct);
                 }
 
