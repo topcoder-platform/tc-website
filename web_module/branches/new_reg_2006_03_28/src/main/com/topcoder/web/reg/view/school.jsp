@@ -33,10 +33,10 @@
       <div align="center">
          <input type="radio" name="schooltype" value="highschool" >High School
          <input type="radio" name="schooltype" value="college" >College
+         <br><br>
+         <A href="">Search</A>
       </div>
 
-      <br><br>
-      <A href="">Search</A>
 
    </div>
 </div>
