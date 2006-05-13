@@ -285,7 +285,7 @@
             <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
-    Coder Type: <tc-webtag:objectSelect name="${timeZone}" list="${coderTypes}" valueField="id" textField="description"/>
+    Coder Type: <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>
         </p>
 </c:if>
 
