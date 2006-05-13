@@ -15,29 +15,29 @@ public interface WebConstants {
     public static final String COMPANY_ID = "cm";
     public static final String MODULE_KEY = "module";
 
-    public static String PASSWORD="pa";
-    public static String PASSWORD_CONFIRM="pac";
-    public static String EMAIL="em";
-    public static String EMAIL_CONFIRM="emc";
-    public static String GIVEN_NAME ="fn";
-    public static String MIDDLE_NAME="mn";
-    public static String SURNAME ="ln";
-    public static String ADDRESS1="a1";
-    public static String ADDRESS2="a2";
-    public static String ADDRESS3="a3";
-    public static String COUNTRY_CODE="cc";
-    public static String STATE_CODE="sc";
-    public static String PROVINCE="prov";
-    public static String CITY="city";
-    public static String POSTAL_CODE ="zip";
-    public static String PHONE_NUMBER="ph";
+    public static final String PASSWORD="pa";
+    public static final String PASSWORD_CONFIRM="pac";
+    public static final String EMAIL="em";
+    public static final String EMAIL_CONFIRM="emc";
+    public static final String GIVEN_NAME ="fn";
+    public static final String MIDDLE_NAME="mn";
+    public static final String SURNAME ="ln";
+    public static final String ADDRESS1="a1";
+    public static final String ADDRESS2="a2";
+    public static final String ADDRESS3="a3";
+    public static final String COUNTRY_CODE="cc";
+    public static final String STATE_CODE="sc";
+    public static final String PROVINCE="prov";
+    public static final String CITY="city";
+    public static final String POSTAL_CODE ="zip";
+    public static final String PHONE_NUMBER="ph";
 
     //secondary reg parameters
-    public static String CODER_TYPE="ct";
-    public static String DEMOG_PREFIX="demog_";
+    public static final String CODER_TYPE="ct";
+    public static final String DEMOG_PREFIX="demog_";
 
     //resume parameters
-    public static String RESUME="resume";
+    public static final String RESUME="resume";
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
     public static final int PREFERENCE_MULTIPLE_ANSWER = 2;
