@@ -27,9 +27,7 @@ public class StateValidator implements Validator {
      * @return whether or not the input is valid
      */
     public ValidationResult validate(ValidationInput input) {
-        log.debug("ours: " + c.getCode() + " in: " + input);
         if (c.equals(Util.getFactory().getCountryDAO().getUS())) {
-            log.debug("XXXX it's the us");
             ValidationResult ret = new NonEmptyValidator("Please enter your state.").validate(input);
             if (ret.isValid()) {
                 State s = Util.getFactory().getStateDAO().find((String) input.getInput());
@@ -42,7 +40,6 @@ public class StateValidator implements Validator {
                 return ret;
             }
         } else {
-            log.debug("XXXX it's not the us");
             //if they're not from the US, we dont' really care.
             return ValidationResult.SUCCESS;
         }
