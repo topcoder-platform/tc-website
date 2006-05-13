@@ -20,7 +20,7 @@
     <jsp:include page="../script.jsp" />
 <script type="text/javascript">
  function next() {
-   var myForm = document.pointsHistoryForm;
+   var myForm = document.competitionHistoryForm;
    var oldStartRank = myForm.<%=DataAccessConstants.START_RANK%>.value;
    myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value) + 1;
    myForm.<%=DataAccessConstants.END_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.END_RANK%>.value)-parseInt(oldStartRank)+1;
@@ -29,7 +29,7 @@
    myForm.submit();
  }
  function previous() {
-   var myForm = document.pointsHistoryForm;
+   var myForm = document.competitionHistoryForm;
    var oldEndRank = myForm.<%=DataAccessConstants.END_RANK%>.value;
    myForm.<%=DataAccessConstants.END_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) - 1;
    myForm.<%=DataAccessConstants.START_RANK%>.value=2*parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(oldEndRank) - 1;
@@ -134,8 +134,8 @@ z-index: 1;
         <% } %>
 </div>
 
-        <form name="pointsHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
-           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="PointsHistory"/>
+        <form name="competitionHistoryForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+           <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="CompetitionHistory"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>

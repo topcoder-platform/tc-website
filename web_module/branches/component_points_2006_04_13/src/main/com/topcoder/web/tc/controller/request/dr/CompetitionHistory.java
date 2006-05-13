@@ -23,20 +23,20 @@ import com.topcoder.web.tc.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve dr points history.
+ * A processor to retrieve competition history.
  * 
  * @author pulky
  * @version 1.0
  */
-public class PointsHistory extends BaseProcessor {
+public class CompetitionHistory extends BaseProcessor {
     /**
      * The logger to log to.
      */
-    private static final Logger log = Logger.getLogger(PointsHistory.class);
+    private static final Logger log = Logger.getLogger(CompetitionHistory.class);
 
     /**
-     * Process the dr points history request.
-     * Retrieves the points history list for development or design for a particular coder.
+     * Process the competition history request.
+     * Retrieves the competition history list for development or design for a particular coder.
      */
      protected void businessProcessing() throws Exception  {
         // user should be authenticated.
@@ -87,17 +87,17 @@ public class PointsHistory extends BaseProcessor {
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.POINTS_HISTORY_QUERY);            
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.COMPETITION_HISTORY_QUERY);            
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));        
-        r.setContentHandle(Constants.POINTS_HISTORY_COMMAND);
+        r.setContentHandle(Constants.COMPETITION_HISTORY_COMMAND);
 
         // retrieves data from DB
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
-        ResultSetContainer history = (ResultSetContainer)m.get(Constants.POINTS_HISTORY_QUERY);
-        log.debug("Got " +  history.size() + " rows for points history");
+        ResultSetContainer history = (ResultSetContainer)m.get(Constants.COMPETITION_HISTORY_QUERY);
+        log.debug("Got " +  history.size() + " rows for competition history");
         
         // crops data
         ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
@@ -109,7 +109,7 @@ public class PointsHistory extends BaseProcessor {
             (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
         
-        setNextPage(Constants.VIEW_POINTS_HISTORY_PAGE);
+        setNextPage(Constants.VIEW_COMPETITION_HISTORY_PAGE);
         setIsNextPageInContext(true);
     }
 }
