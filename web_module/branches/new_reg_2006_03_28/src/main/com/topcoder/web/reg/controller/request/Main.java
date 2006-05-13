@@ -57,6 +57,7 @@ public class Main extends Base {
 
             if (requestedTypes.isEmpty()) {
                 //error message, back to selection page
+                getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);

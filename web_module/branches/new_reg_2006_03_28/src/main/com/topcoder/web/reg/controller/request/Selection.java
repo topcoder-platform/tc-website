@@ -21,13 +21,13 @@ public class Selection extends Base {
 
         log.debug("new reg " + newReg);
         if (newReg) {
-            getRequest().setAttribute("registrationTypeList", new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate().getRegistrationTypes());
+            getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
             setNextPage("/selection.jsp");
             setIsNextPageInContext(true);
         } else {
             if (userLoggedIn()) {
                 //they're updating their info, and they're logged in, so here we go
-                getRequest().setAttribute("registrationTypeList", new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate().getRegistrationTypes());
+                getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 RegistrationType rt;
                 for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
                     rt = (RegistrationType) it.next();

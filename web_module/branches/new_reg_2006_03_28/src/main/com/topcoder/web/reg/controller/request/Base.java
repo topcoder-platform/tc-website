@@ -10,6 +10,7 @@ import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.DAOFactory;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.Notification;
 import com.topcoder.web.reg.model.User;
@@ -94,6 +95,8 @@ abstract class Base extends BaseProcessor {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Exception e) {
+            log.debug("printing the stack from base");
+            e.printStackTrace();
             handleException(e);
             throw e;
         } catch (Throwable ex) {
@@ -105,7 +108,7 @@ abstract class Base extends BaseProcessor {
 
     protected DAOFactory getFactory() {
         if (factory == null) {
-            factory = getFactory();
+            factory = Util.getFactory();
         }
         return factory;
     }

@@ -1,10 +1,5 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.Address;
-import com.topcoder.web.reg.model.User;
-import org.hibernate.LazyInitializationException;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -13,37 +8,16 @@ import org.hibernate.LazyInitializationException;
 public class DetachedTestCase extends TCHibernateTestCase {
 
 
-    
-    public void testDetachedUserAddress() {
-/*
-        HibernateUtils.getLocalSession();
-        User u = new User();
-        HibernateUtils.closeLocal();
-        boolean found = false;
-        try {
-            HibernateUtils.getLocalSession();
-            u.getHomeAddress();
-        } catch (LazyInitializationException e) {
-            found = true;
-        } finally {
-            HibernateUtils.closeLocal();
-        }
 
-        assertFalse("got an exception attempting to check on the home address", found);
-*/
+
+
+    public void testRollback() {
+        HibernateUtils.begin();
+        HibernateUtils.rollback();
+        assertTrue("got here without exception", true);
     }
-    public void testDetachedExistingUserAddress() {
-        User u = Util.getFactory().getUserDAO().find(new Long(132456));
-        HibernateUtils.getSession().disconnect();
-        boolean found = false;
-        try {
-            HibernateUtils.getSession().update(u);
 
-            Address a = u.getHomeAddress();
-        } catch (LazyInitializationException e) {
-            found = true;
-        }
 
-        assertFalse("got an exception attempting to check on the home address", found);
-    }
+
+
 }
