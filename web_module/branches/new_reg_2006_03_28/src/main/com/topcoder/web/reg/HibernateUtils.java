@@ -178,6 +178,7 @@ public class HibernateUtils {
     public static void begin() {
         log.debug("begin transaction");
         getSession().beginTransaction();
+        log.debug("transasction started");
 
     }
 
