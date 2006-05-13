@@ -2,26 +2,28 @@ package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.User;
-import junit.framework.TestCase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 9, 2006
  */
-public class UserNameValidatorTestCase extends TestCase {
+public class UserNameValidatorTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserNameValidatorTestCase.class);
 
     User existingUser;
     public void setUp() {
+        super.setUp();
         existingUser = Util.getFactory().getUserDAO().find("dok");
     }
 
 
-    public void testUserNameNull() {
+/*    public void testUserNameNull() {
         boolean gotException = false;
         try {
             new UserNameValidator(existingUser).validate(new StringInput(null)).isValid();
@@ -33,7 +35,7 @@ public class UserNameValidatorTestCase extends TestCase {
 
     public void testNewUserExistingHandle() {
         assertFalse("validation didn't detect duplicate handle",
-                new UserNameValidator(TestUtils.makeUser("dok")).validate(new StringInput("dOk")).isValid());
+                new UserNameValidator(TestUtils.makeUser("dOk")).validate(new StringInput("dOk")).isValid());
     }
 
     public void testNewUserPunctuationHandle() {
@@ -65,8 +67,13 @@ public class UserNameValidatorTestCase extends TestCase {
     public void testNewUserWithSpacesHandle() {
         assertFalse("validation didn't detect spaces",
                 new UserNameValidator(TestUtils.makeUser("d d")).validate(new StringInput("d d")).isValid());
-    }
+    }*/
 
+    public void testNewUserMixedHandle() {
+        UserNameValidator v =new UserNameValidator(TestUtils.makeUser("d-d3(3"));
+        ValidationResult r = v.validate(new StringInput("d-d3(3"));
+        assertTrue("validation didn't accept a valid mixed char username",r.isValid());
+    }
 
 
 }

@@ -1,18 +1,14 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.model.Company;
-import com.topcoder.web.reg.HibernateUtils;
-import junit.framework.TestCase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 10, 2006
  */
-public class CompanyDAOTestCase extends TestCase {
-    public void tearDown() {
-        HibernateUtils.close();
-    }
+public class CompanyDAOTestCase extends TCHibernateTestCase {
 
     public void testFind() {
 

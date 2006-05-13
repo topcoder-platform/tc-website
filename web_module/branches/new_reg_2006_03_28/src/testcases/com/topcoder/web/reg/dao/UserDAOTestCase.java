@@ -1,13 +1,12 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.Contact;
 import com.topcoder.web.reg.model.User;
-import junit.framework.TestCase;
 
 import java.sql.Timestamp;
 
@@ -16,12 +15,8 @@ import java.sql.Timestamp;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 25, 2006
  */
-public class UserDAOTestCase extends TestCase {
+public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
-
-    public void tearDown() {
-        HibernateUtils.close();
-    }
 
     public void testFind() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));

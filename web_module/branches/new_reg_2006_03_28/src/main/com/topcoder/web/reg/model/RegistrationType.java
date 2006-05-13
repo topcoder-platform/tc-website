@@ -2,17 +2,21 @@ package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
 
+import java.util.Set;
+import java.util.Collections;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 10, 2006
  */
 public class RegistrationType extends Base {
-    
+
     private Integer id;
     private String description;
     private Boolean active;
     private SecurityGroup securityGroup;
+    private Set notifications;
 
     public static final Integer COMPETITION_ID = new Integer(1);
     public static final Integer CORPORATE_ID = new Integer(2);
@@ -39,6 +43,10 @@ public class RegistrationType extends Base {
 
     public SecurityGroup getSecurityGroup() {
         return securityGroup;
+    }
+
+    public Set getNotifications() {
+        return Collections.unmodifiableSet(notifications);
     }
 
 }

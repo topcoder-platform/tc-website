@@ -113,7 +113,18 @@
     </p>
 </c:if>
 
-<%--todo state goes in here--%>
+<c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
+<c:if test="${cf:contains(fields, stateCode)}">
+    <p>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+    </p>
+
+    <p>
+        State:
+        <tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/>
+    </p>
+</c:if>
+
 <c:set value="<%=Constants.POSTAL_CODE%>" var="postalCode"/>
 <c:if test="${cf:contains(fields, postalCode)}">
     <p>
@@ -230,7 +241,7 @@
 
 <%--todo put in the coder type choice here --%>
 
-<%-- todo put in the timezone drop down here --%>
+<%--todo put in the timezone drop down here --%>
 
 
 <a href="Javascript:document.mainForm.submit();">Submit</a>

@@ -3,6 +3,7 @@ package com.topcoder.web.reg.dao;
 import com.topcoder.web.reg.model.Notification;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -12,6 +13,8 @@ import java.util.List;
 public interface NotificationDAO {
     List getNotifications();
 
-    Notification find(Long id);
-    
+    Notification find(Integer id);
+
+    List getNotifications(Set regTypes);
+
 }

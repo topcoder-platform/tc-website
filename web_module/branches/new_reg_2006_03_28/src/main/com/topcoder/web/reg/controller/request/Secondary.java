@@ -5,14 +5,10 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.Address;
-import com.topcoder.web.reg.model.Company;
-import com.topcoder.web.reg.model.Email;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.reg.model.*;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -36,6 +32,8 @@ public class Secondary extends Base {
                     setDefault((String)me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
+                getRequest().setAttribute("countries", Util.getFactory().getCountryDAO().getCountries());
+                getRequest().setAttribute("coderTypes", Util.getFactory().getCoderTypeDAO().getCoderTypes());
 
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
@@ -65,6 +63,17 @@ public class Secondary extends Base {
                 if (fields.contains(Constants.PROVINCE)) {
                     a.setProvince((String)params.get(Constants.PROVINCE));
                 }
+
+                if (fields.contains(Constants.COUNTRY_CODE)) {
+                    a.setCountry(Util.getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
+                }
+
+                if (Util.getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
+                    if (fields.contains(Constants.STATE_CODE)) {
+                        a.setState(Util.getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
+                    }
+                }
+
                 if (fields.contains(Constants.GIVEN_NAME)) {
                     u.setFirstName((String)params.get(Constants.GIVEN_NAME));
                 }
@@ -116,20 +125,62 @@ public class Secondary extends Base {
                     Email e = u.getPrimaryEmailAddress();
                     if (e==null) {
                         e = new Email();
-                        e.setAddress((String)params.get(Constants.EMAIL));
                         e.setPrimary(Boolean.TRUE);
                         e.setEmailTypeId(Email.TYPE_ID_PRIMARY);
                         e.setStatusId(Email.STATUS_ID_UNACTIVE);
                         e.setUser(u);
-                    } else {
-                        e.setAddress((String)params.get(Constants.EMAIL));
                     }
+                    e.setAddress((String)params.get(Constants.EMAIL));
                 }
 
                 if (fields.contains(Constants.HANDLE)) {
                     //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
                     u.setHandle((String)params.get(Constants.HANDLE));
                 }
+
+                if (fields.contains(Constants.PHONE_NUMBER)) {
+                    //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
+                    Phone p = u.getPrimaryPhoneNumber();
+                    if (p==null) {
+                        p = new Phone();
+                        p.setPhoneTypeId(Phone.PHONE_TYPE_HOME);
+                        p.setPrimary(Boolean.TRUE);
+                        p.setUser(u);
+                    }
+                    p.setNumber((String)params.get(Constants.PHONE_NUMBER));
+                }
+
+                if (fields.contains(Constants.NOTIFICATION)) {
+                    u.setNotifications(new HashSet((List)params.get(Constants.NOTIFICATION)));
+                }
+
+                if (fields.contains(Constants.COMP_COUNTRY_CODE)) {
+                    u.getCoder().setCompCountryCode((String)params.get(Constants.COMP_COUNTRY_CODE));
+                }
+
+                if (fields.contains(Constants.CODER_TYPE)) {
+                    CoderType ct =
+                            Util.getFactory().getCoderTypeDAO().find(new Integer((String)params.get(Constants.CODER_TYPE)));
+                    u.getCoder().setCoderType(ct);
+                }
+
+
+/*
+        mainCompFields.add(Constants.CODER_TYPE);
+        mainCompFields.add(Constants.TIMEZONE);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);

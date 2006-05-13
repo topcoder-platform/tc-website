@@ -1,8 +1,7 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.model.TimeZone;
-import com.topcoder.web.reg.HibernateUtils;
-import junit.framework.TestCase;
 
 import java.util.List;
 
@@ -11,13 +10,9 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 25, 2006
  */
-public class TimeZoneDAOTestCase extends TestCase {
+public class TimeZoneDAOTestCase extends TCHibernateTestCase {
 
 
-    public void tearDown() {
-        HibernateUtils.close();
-    }
-    
     public void testGetTimeZones() {
         List zones = Util.getFactory().getTimeZoneDAO().getTimeZones();
         assertTrue("could not find any time zones in the db", !zones.isEmpty());

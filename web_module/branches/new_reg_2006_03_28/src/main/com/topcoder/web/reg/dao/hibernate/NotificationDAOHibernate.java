@@ -1,10 +1,15 @@
 package com.topcoder.web.reg.dao.hibernate;
 
-import com.topcoder.web.reg.model.Notification;
 import com.topcoder.web.reg.dao.NotificationDAO;
+import com.topcoder.web.reg.model.Notification;
+import com.topcoder.web.reg.model.RegistrationType;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -25,27 +30,29 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
         return findAll(Notification.class, "status", "A");
     }
 
-    public Notification find(Long id) {
+    public Notification find(Integer id) {
         return (Notification) find(Notification.class, id);
     }
 
-    /**
-     * Get the nto
-     * @param s
-     * @return
-     */
-/*
-    public List getNotifications(final Set s) {
-        List ret = getNotifications();
-        Notification n;
-        for(Iterator it=ret.iterator(); it.hasNext();) {
-            n = (Notification)it.next();
-            if (!s.contains(n.)) {
-                it.remove();
+    public List getNotifications(Set regTypes) {
+        List ret;
+        if (regTypes.isEmpty()) {
+            ret = Collections.EMPTY_LIST;
+        } else {
+            StringBuffer query = new StringBuffer(100);
+            query.append("from Notification n WHERE n.status = 'A' AND n.registrationTypes.id in (");
+            for (Iterator it = regTypes.iterator(); it.hasNext();) {
+                query.append(((RegistrationType)it.next()).getId()).append(",");
             }
+            query.delete(query.length()-1, query.length());
+            query.append(")");
+            query.append(" order by n.sort");
+            Query q = session.createQuery(query.toString());
+            ret = q.list();
         }
         return ret;
+
     }
-*/
+
 
 }

@@ -6,6 +6,7 @@ import com.topcoder.web.reg.model.Contact;
 import com.topcoder.web.reg.model.Coder;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 
@@ -63,6 +64,13 @@ public class Main extends Base {
             } else {
                 //todo if they are attempting to register for high school, and they are not eligible,
                   //todo give them a message saying they are not eligible to register for highschool
+
+                List nots = Util.getFactory().getNotificationDAO().getNotifications(requestedTypes);
+                if (nots!=null) {
+                    getRequest().setAttribute("notifications", nots);
+                }
+                getRequest().setAttribute("countries", Util.getFactory().getCountryDAO().getCountries());
+                getRequest().setAttribute("coderTypes", Util.getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
                 setNextPage("/main.jsp");

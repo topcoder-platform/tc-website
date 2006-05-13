@@ -1,9 +1,8 @@
 package com.topcoder.web.reg;
 
-import junit.framework.TestCase;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.Address;
 import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.reg.model.Address;
+import com.topcoder.web.reg.model.User;
 import org.hibernate.LazyInitializationException;
 
 /**
@@ -11,11 +10,8 @@ import org.hibernate.LazyInitializationException;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 11, 2006
  */
-public class DetachedTestCase extends TestCase {
+public class DetachedTestCase extends TCHibernateTestCase {
 
-    public void tearDown() {
-        HibernateUtils.close();
-    }
 
     
     public void testDetachedUserAddress() {

@@ -10,9 +10,6 @@ import com.topcoder.web.common.validation.*;
 public class PasswordConfirmValidator implements Validator {
 
     private ValidationInput password;
-    private PasswordConfirmValidator() {
-
-    }
 
     public PasswordConfirmValidator(ValidationInput password) {
         this.password = password;

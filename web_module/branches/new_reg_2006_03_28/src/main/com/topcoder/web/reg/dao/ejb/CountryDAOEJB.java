@@ -18,4 +18,9 @@ public class CountryDAOEJB implements CountryDAO {
     public Country find(String code) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    public Country getUS() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 }

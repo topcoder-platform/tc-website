@@ -1,8 +1,7 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.model.State;
-import com.topcoder.web.reg.HibernateUtils;
-import junit.framework.TestCase;
 
 import java.util.List;
 
@@ -11,10 +10,7 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 25, 2006
  */
-public class StateDAOTestCase extends TestCase {
-    public void tearDown() {
-        HibernateUtils.close();
-    }
+public class StateDAOTestCase extends TCHibernateTestCase {
     
     public void testGetStates() {
         List states = Util.getFactory().getStateDAO().findAll();

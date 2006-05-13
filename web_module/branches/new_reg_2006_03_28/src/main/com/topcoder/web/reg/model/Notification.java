@@ -17,7 +17,7 @@ public class Notification extends Base implements Comparable {
     private Set registrationTypes;
     private Set users;
 
-    protected Notification() {
+    public Notification() {
         this.registrationTypes = new HashSet();
         this.users = new HashSet();
     }
@@ -49,6 +49,27 @@ public class Notification extends Base implements Comparable {
     public void setUsers(Set users) {
         this.users = users;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    public void setRegistrationTypes(Set registrationTypes) {
+        this.registrationTypes = registrationTypes;
+    }
+
 
     public Object clone() throws CloneNotSupportedException {
             Notification ret = (Notification)super.clone();

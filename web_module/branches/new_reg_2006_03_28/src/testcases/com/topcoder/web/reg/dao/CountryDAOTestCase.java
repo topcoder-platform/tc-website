@@ -1,8 +1,7 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.model.Country;
-import com.topcoder.web.reg.HibernateUtils;
-import junit.framework.TestCase;
 
 import java.util.List;
 
@@ -11,10 +10,7 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 25, 2006
  */
-public class CountryDAOTestCase extends TestCase {
-    public void tearDown() {
-        HibernateUtils.close();
-    }
+public class CountryDAOTestCase extends TCHibernateTestCase {
 
     public void testGetCountries() {
         List countries = Util.getFactory().getCountryDAO().getCountries();

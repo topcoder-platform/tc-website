@@ -25,5 +25,4 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getSoftwareType();
 
-
 }

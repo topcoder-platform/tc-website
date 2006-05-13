@@ -9,9 +9,7 @@ import com.topcoder.web.common.validation.*;
  */
 public class EmailConfirmValidator implements Validator {
     private ValidationInput email;
-    private EmailConfirmValidator() {
 
-    }
 
     public EmailConfirmValidator(ValidationInput email) {
         this.email = email;

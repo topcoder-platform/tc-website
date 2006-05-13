@@ -4,20 +4,21 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.Notification;
 import com.topcoder.web.reg.validation.*;
 import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -198,6 +199,7 @@ abstract class Base extends BaseProcessor {
         ret.put(Constants.ADDRESS3, getTrimmedParameter(Constants.ADDRESS3));
         ret.put(Constants.CITY, getTrimmedParameter(Constants.CITY));
         ret.put(Constants.COUNTRY_CODE, getTrimmedParameter(Constants.COUNTRY_CODE));
+        ret.put(Constants.STATE_CODE, getTrimmedParameter(Constants.STATE_CODE));
         ret.put(Constants.POSTAL_CODE, getTrimmedParameter(Constants.POSTAL_CODE));
         ret.put(Constants.PROVINCE, getTrimmedParameter(Constants.PROVINCE));
         ret.put(Constants.EMAIL, getTrimmedParameter(Constants.EMAIL));
@@ -211,6 +213,26 @@ abstract class Base extends BaseProcessor {
         ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
         ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
+        ret.put(Constants.PHONE_NUMBER, getTrimmedParameter(Constants.PHONE_NUMBER));
+        ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
+        ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
+        ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
+
+        //iterate through the notifications, we're essentially validating here
+        //since we're only looking for valid notifications.
+        List notifications = Util.getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
+        int size = notifications.size();
+        ArrayList nSelections = new ArrayList(size);
+        Notification n;
+        for (int i = 0; i<size; i++) {
+            n = (Notification)notifications.get(i);
+            String val = getTrimmedParameter(Constants.NOTIFICATION+n.getId());
+            if (val!=null && !"".equals(val)) {
+                nSelections.add(n);
+            }
+        }
+        ret.put(Constants.NOTIFICATION, nSelections);
+
         return ret;
 
     }
@@ -240,6 +262,10 @@ abstract class Base extends BaseProcessor {
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
         simpleValidation(SurnameValidator.class, fields, params, Constants.SURNAME);
         simpleValidation(TitleValidator.class, fields, params, Constants.TITLE);
+        simpleValidation(CountryValidator.class, fields, params, Constants.COUNTRY_CODE);
+        simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
+        simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
+        simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
 
         if (fields.contains(Constants.EMAIL_CONFIRM)) {
             ValidationResult emailConfirmResult = new EmailConfirmValidator(
@@ -266,6 +292,23 @@ abstract class Base extends BaseProcessor {
                 addError(Constants.HANDLE, userNameResult.getMessage());
             }
         }
+        if (!hasError(Constants.COUNTRY_CODE)) {
+            if (fields.contains(Constants.STATE_CODE)) {
+                ValidationResult stateResult = new StateValidator(Util.getFactory().getCountryDAO().find(
+                        (String) params.get(Constants.COUNTRY_CODE))).validate(
+                        new StringInput((String) params.get(Constants.STATE_CODE)));
+                if (!stateResult.isValid()) {
+                    addError(Constants.STATE_CODE, stateResult.getMessage());
+                }
+            }
+        }
+        if (fields.contains(Constants.NOTIFICATION)) {
+            ValidationResult notificationResult =
+                    new NotificationValidator().validate(new ListInput((List)params.get(Constants.NOTIFICATION)));
+            if (!notificationResult.isValid()) {
+                addError(Constants.NOTIFICATION, notificationResult.getMessage());
+            }
+        }
     }
 
     /**
@@ -278,7 +321,7 @@ abstract class Base extends BaseProcessor {
     private void simpleValidation(Class validationClass, Set fields, Map params, String field) throws RuntimeException {
 
         if (fields.contains(field)) {
-            Validator v = null;
+            Validator v;
             try {
                 v = (Validator) Class.forName(validationClass.getName()).newInstance();
             } catch (InstantiationException e) {

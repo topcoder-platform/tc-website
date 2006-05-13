@@ -2,14 +2,14 @@ package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.validation.StringInput;
-import junit.framework.TestCase;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 9, 2006
  */
-public class PasswordValidatorTestCase extends TestCase {
+public class PasswordValidatorTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(PasswordValidatorTestCase.class);
 
     public void testPasswordNull() {

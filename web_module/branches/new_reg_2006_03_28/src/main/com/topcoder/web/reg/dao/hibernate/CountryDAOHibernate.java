@@ -1,7 +1,8 @@
 package com.topcoder.web.reg.dao.hibernate;
 
-import com.topcoder.web.reg.model.Country;
 import com.topcoder.web.reg.dao.CountryDAO;
+import com.topcoder.web.reg.model.Country;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -22,7 +23,13 @@ public class CountryDAOHibernate extends Base implements CountryDAO {
     }
 
     public List getCountries() {
-        return findAll(Country.class);
+        StringBuffer query = new StringBuffer(100);
+        query.append("from Country n ");
+        query.append(" order by lower(country_name)");
+        Query q = session.createQuery(query.toString());
+
+        return q.list();
+
     }
 
     public Country find(String code) {

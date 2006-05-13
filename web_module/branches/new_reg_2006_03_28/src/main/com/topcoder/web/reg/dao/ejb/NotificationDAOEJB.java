@@ -4,6 +4,7 @@ import com.topcoder.web.reg.dao.NotificationDAO;
 import com.topcoder.web.reg.model.Notification;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -15,7 +16,12 @@ public class NotificationDAOEJB implements NotificationDAO {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public Notification find(Long id) {
+    public Notification find(Integer id) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    public List getNotifications(Set regTypes) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 }
