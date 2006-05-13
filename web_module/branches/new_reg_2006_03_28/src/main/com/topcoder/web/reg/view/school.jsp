@@ -4,7 +4,6 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
-<jsp:include page="/script.jsp" />
 </head>
 <body>
 <div align="center">
