@@ -240,40 +240,32 @@
     <p>
         <tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
-
-    <p>
-
-        <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="15" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
-    </p>
+    <c:forEach items="${notifications}" var="notif">
+        <p><tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" /></p>
+    </c:forEach>
 
 </c:if>
 
-
-<c:if test="${cf:contains(fields, notification)}">
-<c:forEach items="${notifications}" var="notif">
-    <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" /> <br />
-</c:forEach>
-</c:if>
 
 <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
 <c:if test="${cf:contains(fields, countryCode)}">
-    <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+    Country: <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
 </c:if>
 
 
 <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
 <c:if test="${cf:contains(fields, compCountryCode)}">
-    <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
+    Country to represent: <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
 </c:if>
 
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
-    <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
+    Timezone: <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
 </c:if>
 
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
-    <tc-webtag:objectSelect name="${timeZone}" list="${coderTypes}" valueField="id" textField="description"/>
+    Coder Type: <tc-webtag:objectSelect name="${timeZone}" list="${coderTypes}" valueField="id" textField="description"/>
 </c:if>
 
 
