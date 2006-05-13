@@ -1,7 +1,7 @@
 <html>
 <title>hello world</title>
 <head>
-<jsp:include page="/style.jsp">
+<jsp:include page="style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 </head>
