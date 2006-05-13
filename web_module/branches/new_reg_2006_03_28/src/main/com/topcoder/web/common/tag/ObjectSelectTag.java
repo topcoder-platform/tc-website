@@ -55,7 +55,7 @@ public class ObjectSelectTag extends SelectTag {
         try {
             Method method = o.getClass().getMethod(methodName, NO_PARAMS);
             Object out = method.invoke(o, NO_ARGS);
-            return (String)out;
+            return out.toString();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
