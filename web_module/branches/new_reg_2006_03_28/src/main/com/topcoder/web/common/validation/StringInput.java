@@ -16,4 +16,8 @@ public class StringInput implements ValidationInput {
         return input;
     }
 
+    public String toString() {
+        return input;
+    }
+
 }
