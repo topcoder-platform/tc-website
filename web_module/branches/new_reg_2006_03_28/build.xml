@@ -1149,6 +1149,7 @@
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
                 <include name="menu.jsp"/>
+                <include name="page_title.jsp"/>
             </fileset>
             <webinf dir="${resources}/reg">
                 <include name="jboss-web.xml"/>
