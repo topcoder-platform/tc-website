@@ -230,7 +230,7 @@
 
     <p>
         Quote:
-        <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="15" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
+        <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="70" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
     </p>
 
 </c:if>
