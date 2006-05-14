@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
-    protected static Logger log = Logger.getLogger(BaseProcessor.class);
+    protected static final Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
     private TCRequest request;
     private TCResponse response;
