@@ -60,6 +60,7 @@ public class Constants implements WebConstants {
     public static int MAX_EMAIL_LENGTH;
     public static int MAX_PHONE_LENGTH;
     public static int MAX_QUOTE_LENGTH;
+    public static int MAX_GPA_LENGTH;
 
 
 

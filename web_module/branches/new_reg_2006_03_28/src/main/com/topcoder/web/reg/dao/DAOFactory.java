@@ -13,6 +13,7 @@ public interface DAOFactory {
     CountryDAO getCountryDAO();
     DemographicAnswerDAO getDemographicAnswerDAO();
     DemographicQuestionDAO getDemographicQuestionDAO();
+    DemographicAssignmentDAO getDemographicAssignmentDAO();
     NotificationDAO getNotificationDAO();
     RegistrationTypeDAO getRegistrationTypeDAO();
     SchoolDAO getSchoolDAO();

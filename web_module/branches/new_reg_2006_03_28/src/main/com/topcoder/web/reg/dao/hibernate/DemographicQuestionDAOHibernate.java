@@ -8,5 +8,6 @@ import com.topcoder.web.reg.dao.DemographicQuestionDAO;
  *          Create Date: Apr 10, 2006
  */
 public class DemographicQuestionDAOHibernate extends Base implements DemographicQuestionDAO {
+    
 
 }

@@ -25,7 +25,7 @@
         <property name="current_session_context_class">com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext</property>
 
 
-<!--
+<!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
         <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
 -->
@@ -45,6 +45,7 @@
         <mapping resource="com/topcoder/web/reg/model/Country.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CurrentSchool.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicAnswer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/DemographicAssignment.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>

@@ -2,6 +2,9 @@ package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
 
+import java.util.List;
+import java.util.Collections;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -10,13 +13,18 @@ import com.topcoder.web.common.model.Base;
 public class DemographicQuestion extends Base {
     private Long id;
     private String text;
-    private String selectable;
+    private Character selectable;
     private String description;
+    private List answers;
+
+    public static final Character MULTIPLE_SELECT = new Character('M');
+    public static final Character SINGLE_SELECT = new Character('Y');
+    public static final Character FREE_FORM = new Character('N');
 
     protected DemographicQuestion() {
 
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -25,7 +33,7 @@ public class DemographicQuestion extends Base {
         return text;
     }
 
-    public String getSelectable() {
+    public Character getSelectable() {
         return selectable;
     }
 
@@ -36,5 +44,22 @@ public class DemographicQuestion extends Base {
     public int hashCode() {
         return id.hashCode();
     }
+
+    public List getAnswers() {
+        return Collections.unmodifiableList(answers);
+    }
+
+    public boolean isMultipleSelect() {
+        return MULTIPLE_SELECT.equals(selectable);
+    }
+
+    public boolean isSingleSelect() {
+        return SINGLE_SELECT.equals(selectable);
+    }
+
+    public boolean isFreeForm() {
+        return FREE_FORM.equals(selectable);
+    }
+
 
 }

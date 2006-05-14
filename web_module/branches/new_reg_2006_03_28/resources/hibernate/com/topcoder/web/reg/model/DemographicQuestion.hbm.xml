@@ -10,6 +10,11 @@
         <property name="text" access="field"/>
         <property name="selectable" access="field"/>
         <property name="description" access="field"/>
+        <set name="answers" table="demographic_answer" order-by="sort" access="field">
+            <key column="demographic_question_id"/>
+            <one-to-many class="DemographicAnswer"/>
+        </set>
+
     </class>
 
 </hibernate-mapping>

@@ -42,14 +42,10 @@
             <key column="user_id" not-null="true"/>
             <many-to-many column="notify_id" class="Notification"/>
         </set>
-        <!--
-                <set name="demographicResponses" cascade="save-update">
-                    <key column="user_id"/>
-                    <one-to-many class="DemographicResponse"/>
-                </set>
-        -->
-
-
+        <set name="demographicResponses" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="DemographicResponse"/>
+        </set>
     </class>
 
 

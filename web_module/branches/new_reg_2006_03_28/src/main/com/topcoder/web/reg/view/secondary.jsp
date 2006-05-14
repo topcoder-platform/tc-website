@@ -1,21 +1,96 @@
+<%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
+<%@ taglib uri="reg-tags" prefix="rt" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
-</jsp:include>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="http://www.topcoder.com/css/tcStyles.css"/>
-<script>
-function openWin(url, name, w, h) {
-   win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width=" + w + ",height=" + h);
-   win.location.href = url;
-   win.focus();
-}
-</script>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Registration</title>
+    <jsp:include page="script.jsp"/>
+    <jsp:include page="style.jsp">
+      <jsp:param name="key" value="tc_main"/>
+    </jsp:include>
 </head>
 
 <body>
-secondary
-<br><br>
-<a href="Javascript:openWin('school.jsp','school',350,450);">school</a>
+
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
+
+
+    <%--Demographics--%>
+    <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
+    <rt:questionIterator id="question" list="${demographicQuestions}">
+        <tr>
+            <td colspan="2" class="errorText" align="center">
+                <tc-webtag:errorIterator id="err" name="${demogPrefix+question.id}">${err}<br/></tc-webtag:errorIterator>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <c:if test="${question.required}">
+                    <span class="errorText">*</span>
+                </c:if>
+                    ${question.text}
+            </td>
+            <td align="left">
+                <rt:demographicInput question="<%=question%>"/>
+            </td>
+        </tr>
+    </rt:questionIterator>
+
+
+    <%--School widget--%>
+    <p><a href="Javascript:openWin('school.jsp','school',350,450);">school</a></p>
+
+    <%--Resume--%>
+
+
+    <c:set value="<%=Constants.GPA%>" var="gpa"/>
+    <c:if test="${cf:contains(fields, gpa)}">
+        <p>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA%>"><%=err%><br/></tc-webtag:errorIterator>
+        </p>
+
+        <p>
+            GPA:
+            <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
+        </p>
+    </c:if>
+
+    <c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
+    <c:if test="${cf:contains(fields, gpaScale)}">
+        <p>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br/></tc-webtag:errorIterator>
+        </p>
+
+        <c:set value="<%=Constants.USER%>" var="user"/>
+        <p>
+            GPA Scale:
+            <SELECT NAME="<%=Constants.GPA_SCALE%>">
+                <OPTION value=""></OPTION>
+                <c:choose>
+                    <c:when test="${user.coder.gpaScale==4}"><OPTION value="4.00" selected="true"/></c:when>
+                    <c:otherwise><OPTION value="4.00"/></c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${user.coder.gpaScale==5}"><OPTION value="5.00" selected="true"/></c:when>
+                    <c:otherwise><OPTION value="5.00"/> </c:otherwise>
+                </c:choose>
+            </SELECT>
+        </p>
+    </c:if>
+
+
+    <a href="Javascript:document.secondaryForm.submit();">Submit</a>
+
+</form>
+
 </body>
 </html>
+
