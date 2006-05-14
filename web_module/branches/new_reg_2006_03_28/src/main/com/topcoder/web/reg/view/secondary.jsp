@@ -13,7 +13,7 @@
     <title>Registration</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="style.jsp">
-      <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_main"/>
     </jsp:include>
 </head>
 
@@ -26,22 +26,20 @@
     <%--Demographics--%>
     <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
     <rt:questionIterator id="assignment" list="${demographicAssignments}">
-        <tr>
-            <td colspan="2" class="errorText" align="center">
-                <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}<br/></tc-webtag:errorIterator>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <c:if test="${assignment.required}">
-                    *
-                </c:if>
-                    ${assignment.question.text}
-            </td>
-            <td align="left">
-                <rt:demographicInput question="${assignment.question}"/>
-            </td>
-        </tr>
+        <p>
+            <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
+                <br/></tc-webtag:errorIterator>
+        </p>
+
+        <p>
+            <c:if test="${assignment.required}">
+                *
+            </c:if>
+                ${assignment.question.text}
+            :
+            <rt:demographicInput question="${assignment.question}"/>
+
+        </p>
     </rt:questionIterator>
 
 
@@ -80,7 +78,7 @@
                 </c:choose>
                 <c:choose>
                     <c:when test="${user.coder.gpaScale==5}"><OPTION value="5.00" selected="true"/></c:when>
-                    <c:otherwise><OPTION value="5.00"/> </c:otherwise>
+                    <c:otherwise><OPTION value="5.00"/></c:otherwise>
                 </c:choose>
             </SELECT>
         </p>

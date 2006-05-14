@@ -44,9 +44,10 @@ public class Secondary extends Base {
                 //load up data for the secondary reg page
 
                 //load up demographic questions
+
                 //if they dont' have a coder type, we'll just make them be pros.  the assignments have to be
                 //made to both a coder type as well as a reg type
-                if (u.getCoder()==null || u.getCoder().getCoderType()==null) {
+                if (u.getCoder() == null || u.getCoder().getCoderType() == null) {
                     getRequest().setAttribute("demographicAssignments",
                             getFactory().getDemographicAssignmentDAO().getAssignments(
                                     getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL), getRequestedTypes()));
@@ -56,19 +57,42 @@ public class Secondary extends Base {
                                     u.getCoder().getCoderType(), getRequestedTypes()));
                 }
                 if (!u.isNew()) {
-                    Set responses = u.getDemographicResponses();
+                    setDemographicDefaults(u);
+
+                    getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+
+                    setNextPage("/secondary.jsp");
+                    setIsNextPageInContext(true);
                 }
-
-                getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
-
-                setNextPage("/secondary.jsp");
-                setIsNextPageInContext(true);
             }
-
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
+    }
 
+    private void setDemographicDefaults(User u) {
+        Set responses = u.getDemographicResponses();
+        DemographicResponse r;
+        HashMap multiAnswerMap = new HashMap();
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (DemographicResponse) it.next();
+            if (r.getQuestion().isSingleSelect()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
+            } else if (r.getQuestion().isFreeForm()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
+            } else if (r.getQuestion().isMultipleSelect()) {
+                ArrayList al = new ArrayList();
+                if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
+                    al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
+                }
+                al.add(String.valueOf(r.getAnswer().getId()));
+                multiAnswerMap.put(r.getQuestion().getId(), al);
+            }
+        }
+        for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            Long questionId = (Long)it.next();
+            setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
+        }
     }
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
