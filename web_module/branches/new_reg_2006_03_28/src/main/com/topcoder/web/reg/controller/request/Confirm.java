@@ -1,12 +1,11 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.DemographicAssignment;
 import com.topcoder.web.reg.model.DemographicResponse;
+import com.topcoder.web.reg.model.User;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -55,7 +54,7 @@ public class Confirm extends Base {
     }
 
 
-    private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
+    private void loadFieldsIntoUserObject(Set fields, Map params) {
         User u = getRegUser();
 
         if (fields.contains(Constants.DEMOG_PREFIX)) {
@@ -84,6 +83,7 @@ public class Confirm extends Base {
                     dr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                     dr.setQuestion(da.getQuestion());
                     dr.setUser(u);
+                    dr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                     responses.add(dr);
                 } else if (da.getQuestion().isSingleSelect()) {

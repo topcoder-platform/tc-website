@@ -5,6 +5,8 @@ import com.topcoder.web.reg.model.*;
 
 import java.sql.Timestamp;
 import java.util.Iterator;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * @author dok
@@ -14,7 +16,7 @@ import java.util.Iterator;
 public class TestUtils {
     public static Coder makeCoder() {
         Coder ret = null;
-        
+
         ret = new Coder();
         ret.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
@@ -78,6 +80,41 @@ public class TestUtils {
         }
 
         ret.setTimeZone(Util.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
+
+        HashSet responses = new HashSet();
+        HashSet regTypes = new HashSet();
+        regTypes.add(Util.getFactory().getRegistrationTypeDAO().find(new Integer(1)));
+        List assignments = Util.getFactory().getDemographicAssignmentDAO().getAssignments(
+                Util.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
+        DemographicAssignment da;
+        DemographicResponse dr;
+        for (Iterator it = assignments.iterator(); it.hasNext();) {
+            da = (DemographicAssignment)it.next();
+            if (da.getQuestion().isMultipleSelect()) {
+                for (Iterator it1 = da.getQuestion().getAnswers().iterator(); it1.hasNext();) {
+                    dr = new DemographicResponse();
+                    dr.setUser(ret);
+                    dr.setQuestion(da.getQuestion());
+                    dr.setAnswer((DemographicAnswer)it1.next());
+                    dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                }
+            } else if (da.getQuestion().isSingleSelect()) {
+                dr = new DemographicResponse();
+                dr.setUser(ret);
+                dr.setQuestion(da.getQuestion());
+                Iterator it1 = da.getQuestion().getAnswers().iterator();
+                dr.setAnswer((DemographicAnswer)it1.next());
+                dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+            } else if (da.getQuestion().isFreeForm()) {
+                dr = new DemographicResponse();
+                dr.setUser(ret);
+                dr.setQuestion(da.getQuestion());
+                dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
+                dr.setResponse("hell");
+                dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+            }
+        }
+        ret.setDemographicResponses(responses);
 
         return ret;
     }

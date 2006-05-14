@@ -1,6 +1,6 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.validation.DemogFreeFormValidatorTestCase;
+import com.topcoder.web.reg.dao.UserDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -27,10 +27,13 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
+        */
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+        /*
         suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicQuestionDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAnswerDAOTestCase.class));
+
         suite.addTest(new TestSuite(Address1ValidatorTestCase.class));
         suite.addTest(new TestSuite(Address2ValidatorTestCase.class));
         suite.addTest(new TestSuite(Address3ValidatorTestCase.class));
@@ -55,9 +58,7 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CountryValidatorTestCase.class));
         suite.addTest(new TestSuite(DemogMultiSelectValidatorTestCase.class));
         suite.addTest(new TestSuite(DemogSingleSelectValidatorTestCase.class));
-*/
         suite.addTest(new TestSuite(DemogFreeFormValidatorTestCase.class));
-/*
 
 
         suite.addTest(new TestSuite(DetachedTestCase.class));
