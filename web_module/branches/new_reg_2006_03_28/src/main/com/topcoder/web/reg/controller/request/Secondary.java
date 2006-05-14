@@ -59,6 +59,7 @@ public class Secondary extends Base {
                     Set responses = u.getDemographicResponses();
                 }
 
+                getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
 
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
