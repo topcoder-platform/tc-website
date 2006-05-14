@@ -7,7 +7,7 @@
 
     <class name="DemographicAnswer" table="demographic_answer" mutable="false">
         <id name="id" column="demographic_answer_id" access="field"/>
-        <property name="questionId" column="demographic_question_id" access="field"/>
+        <property name="questionId" column="demographic_question_id" access="field" insert="false" update="false"/>
         <property name="text" column="demographic_answer_text" access="field"/>
         <property name="sort" access="field"/>
         <property name="status" access="field"/>

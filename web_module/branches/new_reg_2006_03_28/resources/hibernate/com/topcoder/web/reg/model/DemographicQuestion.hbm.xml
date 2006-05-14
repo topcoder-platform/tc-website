@@ -10,11 +10,10 @@
         <property name="text" column="demographic_question_text" access="field"/>
         <property name="selectable" access="field"/>
         <property name="description" column="demographic_question_desc" access="field"/>
-        <list name="answers" table="demographic_answer" access="field">
-            <key column="demographic_question_id"/>
-            <index column="sort"/>
+        <set name="answers" cascade="none" order-by="sort">
+            <key column="demographic_question_id" not-null="true"/>
             <one-to-many class="DemographicAnswer"/>
-        </list>
+        </set>
 
     </class>
 
