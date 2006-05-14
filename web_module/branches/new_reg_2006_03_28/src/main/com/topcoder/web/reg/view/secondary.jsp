@@ -25,21 +25,21 @@
 
     <%--Demographics--%>
     <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
-    <rt:questionIterator id="question" list="${demographicQuestions}">
+    <rt:questionIterator id="assignment" list="${demographicAssignments}">
         <tr>
             <td colspan="2" class="errorText" align="center">
-                <tc-webtag:errorIterator id="err" name="${demogPrefix}${question.id}">${err}<br/></tc-webtag:errorIterator>
+                <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}<br/></tc-webtag:errorIterator>
             </td>
         </tr>
         <tr>
             <td align="right">
-                <c:if test="${question.required}">
+                <c:if test="${assignment.required}">
                     <span class="errorText">*</span>
                 </c:if>
-                    ${question.text}
+                    ${assignment.question.text}
             </td>
             <td align="left">
-                <rt:demographicInput question="<%=question%>"/>
+                <rt:demographicInput question="${assignment.question}"/>
             </td>
         </tr>
     </rt:questionIterator>

@@ -3,13 +3,11 @@ package com.topcoder.web.reg.dao.hibernate;
 import com.topcoder.web.reg.dao.DemographicAssignmentDAO;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.DemographicAssignment;
 import org.hibernate.Query;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.ArrayList;
 
 /**
  * @author dok
@@ -17,7 +15,7 @@ import java.util.ArrayList;
  *          Create Date: May 13, 2006
  */
 public class DemographicAssignmentDAOHibernate extends Base implements DemographicAssignmentDAO {
-    public List getQuestions(CoderType ct, Set regTypes) {
+    public List getAssignments(CoderType ct, Set regTypes) {
         StringBuffer query = new StringBuffer(100);
         query.append("from DemographicAssignment dass WHERE dass.status = 'A' AND dass.coderType.id = ");
         query.append(ct.getId());
@@ -29,11 +27,6 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
         query.append(")");
         query.append(" order by dass.sort");
         Query q = session.createQuery(query.toString());
-        List ass = q.list();
-        ArrayList ret =new ArrayList(ass.size());
-        for (Iterator it = ass.iterator(); it.hasNext();) {
-            ret.add(((DemographicAssignment)it.next()).getQuestion());
-        }
-        return ret;
+        return q.list();
     }
 }

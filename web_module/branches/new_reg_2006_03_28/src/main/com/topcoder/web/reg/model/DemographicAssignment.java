@@ -16,6 +16,7 @@ public class DemographicAssignment extends Base {
     private Integer sort;
     private String status;
     private Identifier id = new Identifier();
+    private Boolean required;
 
     protected DemographicAssignment() {
 
@@ -48,6 +49,14 @@ public class DemographicAssignment extends Base {
 
     public String getStatus() {
         return status;
+    }
+
+    public Boolean getRequired() {
+        return required;
+    }
+
+    public boolean isRequired() {
+        return required.booleanValue();
     }
 
     public static class Identifier implements Serializable {

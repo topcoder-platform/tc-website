@@ -12,6 +12,6 @@ import java.util.Set;
  */
 public interface DemographicAssignmentDAO {
 
-    List getQuestions(CoderType ct, Set regTypes);
+    List getAssignments(CoderType ct, Set regTypes);
 
 }

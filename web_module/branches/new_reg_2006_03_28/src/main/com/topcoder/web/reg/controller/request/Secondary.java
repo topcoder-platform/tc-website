@@ -47,12 +47,12 @@ public class Secondary extends Base {
                 //if they dont' have a coder type, we'll just make them be pros.  the assignments have to be
                 //made to both a coder type as well as a reg type
                 if (u.getCoder()==null || u.getCoder().getCoderType()==null) {
-                    getRequest().setAttribute("demographicQuestions",
-                            getFactory().getDemographicAssignmentDAO().getQuestions(
+                    getRequest().setAttribute("demographicAssignments",
+                            getFactory().getDemographicAssignmentDAO().getAssignments(
                                     getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL), getRequestedTypes()));
                 } else {
-                    getRequest().setAttribute("demographicQuestions",
-                            getFactory().getDemographicAssignmentDAO().getQuestions(
+                    getRequest().setAttribute("demographicAssignments",
+                            getFactory().getDemographicAssignmentDAO().getAssignments(
                                     u.getCoder().getCoderType(), getRequestedTypes()));
                 }
                 if (!u.isNew()) {

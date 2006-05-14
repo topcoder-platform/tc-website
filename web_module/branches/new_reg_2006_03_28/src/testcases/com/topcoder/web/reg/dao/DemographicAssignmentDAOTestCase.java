@@ -20,7 +20,7 @@ public class DemographicAssignmentDAOTestCase extends TCHibernateTestCase {
         RegistrationType rt = Util.getFactory().getRegistrationTypeDAO().find(new Integer(1));
         HashSet h = new HashSet();
         h.add(rt);
-        List l = Util.getFactory().getDemographicAssignmentDAO().getQuestions(ct, h);
+        List l = Util.getFactory().getDemographicAssignmentDAO().getAssignments(ct, h);
         assertTrue("no assignments found", l!=null && !l.isEmpty());
     }
 }
