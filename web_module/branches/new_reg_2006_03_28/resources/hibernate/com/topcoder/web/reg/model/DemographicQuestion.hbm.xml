@@ -10,7 +10,7 @@
         <property name="text" column="demographic_question_text" access="field"/>
         <property name="selectable" access="field"/>
         <property name="description" column="demographic_question_desc" access="field"/>
-        <set name="answers" cascade="none" order-by="sort">
+        <set name="answers" cascade="none" inverse="true" order-by="sort">
             <key column="demographic_question_id" not-null="true"/>
             <one-to-many class="DemographicAnswer"/>
         </set>
