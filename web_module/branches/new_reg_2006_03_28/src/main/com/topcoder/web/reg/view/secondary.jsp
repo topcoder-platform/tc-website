@@ -28,7 +28,7 @@
     <rt:questionIterator id="question" list="${demographicQuestions}">
         <tr>
             <td colspan="2" class="errorText" align="center">
-                <tc-webtag:errorIterator id="err" name="${demogPrefix+question.id}">${err}<br/></tc-webtag:errorIterator>
+                <tc-webtag:errorIterator id="err" name="${demogPrefix}${question.id}">${err}<br/></tc-webtag:errorIterator>
             </td>
         </tr>
         <tr>
