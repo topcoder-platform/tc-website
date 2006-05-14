@@ -4,11 +4,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.Coder;
-import com.topcoder.web.reg.model.CoderType;
-import com.topcoder.web.reg.model.Contact;
-
-import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -18,7 +13,7 @@ import java.sql.Timestamp;
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
-
+/*
     public void testFind() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
@@ -30,7 +25,18 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         User u1 = Util.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
 
+    }*/
+
+    public void testSaveOrUpdateResponses() {
+        User u = TestUtils.makeUser();
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        assertFalse("new responses do not exist", u1.getDemographicResponses().isEmpty());
+
     }
+
+/*
 
     public void testSecurityGroupsLoaded() {
         User dok = Util.getFactory().getUserDAO().find(new Long(132456));
@@ -103,11 +109,23 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         assertTrue("couldn't find dok's contact information", dok.getContact() != null);
         assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
     }
+*/
 
-    public void testFindWithDemographicInfo() {
+/*    public void testFindWithDemographicInfo() {
         User dok = Util.getFactory().getUserDAO().find("dok");
+        Set s = dok.getDemographicResponses();
+        DemographicResponse dr;
         assertFalse("couldn't find demographic responses", dok.getDemographicResponses().isEmpty());
-    }
+        for(Iterator it = s.iterator(); it.hasNext();) {
+            dr = (DemographicResponse)it.next();
+            assertFalse("found a null question", dr.getQuestion()==null);
+            assertFalse("found a null answer", dr.getAnswer()==null);
+            if (dr.getQuestion().isFreeForm()) {
+                assertFalse("found a null free form response", dr.getResponse()==null);
+            }
+
+        }
+    }*/
 
 
 }

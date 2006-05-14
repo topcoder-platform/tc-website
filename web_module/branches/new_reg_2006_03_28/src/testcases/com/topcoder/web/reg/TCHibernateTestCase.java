@@ -11,6 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 public class TCHibernateTestCase extends TestCase {
     protected static final Logger log = Logger.getLogger(TCHibernateTestCase.class);
     public void tearDown() {
+        HibernateUtils.getSession().flush();
         HibernateUtils.commit();
         HibernateUtils.close();
     }

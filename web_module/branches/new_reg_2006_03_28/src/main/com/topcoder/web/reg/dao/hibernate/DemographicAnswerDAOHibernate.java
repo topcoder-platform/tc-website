@@ -18,7 +18,7 @@ public class DemographicAnswerDAOHibernate extends Base implements DemographicAn
 
     public DemographicAnswer findDecline(DemographicQuestion dq) {
         StringBuffer query = new StringBuffer(100);
-        query.append("from DemographicAnswer da WHERE da.text = ? AND da.questionId = ?");
+        query.append("from DemographicAnswer da WHERE da.text = ? AND da.question.id = ?");
         Query q = session.createQuery(query.toString());
         q.setString(0, DemographicAnswer.DECLINE);
         q.setLong(1, dq.getId().longValue());
@@ -29,7 +29,7 @@ public class DemographicAnswerDAOHibernate extends Base implements DemographicAn
 
     public DemographicAnswer findFreeForm(DemographicQuestion dq) {
         StringBuffer query = new StringBuffer(100);
-        query.append("from DemographicAnswer da WHERE da.text = ? AND da.questionId = ?");
+        query.append("from DemographicAnswer da WHERE da.text = ? AND da.question.id = ?");
         Query q = session.createQuery(query.toString());
         q.setString(0, DemographicAnswer.FREE_FORM);
         q.setLong(1, dq.getId().longValue());

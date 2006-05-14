@@ -81,7 +81,7 @@ public class TestUtils {
 
         ret.setTimeZone(Util.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
 
-        HashSet responses = new HashSet();
+
         HashSet regTypes = new HashSet();
         regTypes.add(Util.getFactory().getRegistrationTypeDAO().find(new Integer(1)));
         List assignments = Util.getFactory().getDemographicAssignmentDAO().getAssignments(
@@ -96,7 +96,8 @@ public class TestUtils {
                     dr.setUser(ret);
                     dr.setQuestion(da.getQuestion());
                     dr.setAnswer((DemographicAnswer)it1.next());
-                    dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                    //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                    ret.addDemographicResponse(dr);
                 }
             } else if (da.getQuestion().isSingleSelect()) {
                 dr = new DemographicResponse();
@@ -104,17 +105,18 @@ public class TestUtils {
                 dr.setQuestion(da.getQuestion());
                 Iterator it1 = da.getQuestion().getAnswers().iterator();
                 dr.setAnswer((DemographicAnswer)it1.next());
-                dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                ret.addDemographicResponse(dr);
             } else if (da.getQuestion().isFreeForm()) {
                 dr = new DemographicResponse();
                 dr.setUser(ret);
                 dr.setQuestion(da.getQuestion());
                 dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                 dr.setResponse("hell");
-                dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                ret.addDemographicResponse(dr);
             }
         }
-        ret.setDemographicResponses(responses);
 
         return ret;
     }

@@ -1,8 +1,11 @@
 package com.topcoder.web.reg.dao.hibernate;
 
-import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.model.DemographicResponse;
+import com.topcoder.web.reg.model.User;
 import org.hibernate.Session;
+
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -28,8 +31,17 @@ public class UserDAOHibernate extends Base implements  UserDAO {
     }
 
     public void saveOrUpdate(User u) {
+        boolean addResponses = u.getId() == null;
         super.saveOrUpdate(u);
+        //can't figure out how to get hibernate to handle this, so
+        //i'm doing it here.
+        if (addResponses) {
+            DemographicResponse dr;
+            for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
+                dr = (DemographicResponse)it.next();
+                dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                session.save(dr);
+            }
+        }
     }
-
-
 }

@@ -261,6 +261,9 @@ public class User extends Base {
         this.contact = contact;
     }
 
+    public void clearDemographicResponses() {
+        demographicResponses.clear();
+    }
 
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();

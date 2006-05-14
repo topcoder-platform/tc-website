@@ -49,4 +49,42 @@ public class TCInterceptor extends EmptyInterceptor {
         return false;
     }
 
+
+
+/*
+    public Boolean isTransient(Object entity) {
+        if (entity instanceof AlgoRating) {
+            return Boolean.valueOf(((AlgoRating) entity).isNew());
+        } else {
+            return null;
+        }
+    }
+
+    public boolean onLoad(Object entity,
+                          Serializable id,
+                          Object[] state,
+                          String[] propertyNames,
+                          Type[] types) {
+
+        if (entity instanceof AlgoRating) {
+            ((AlgoRating) entity).setNew(false);
+        }
+        return false;
+    }
+
+    public boolean onSave(Object entity,
+                          Serializable id,
+                          Object[] state,
+                          String[] propertyNames,
+                          Type[] types) {
+        if (entity instanceof AlgoRating) {
+            ((AlgoRating) entity).setNew(false);
+        }
+        return false;
+    }
+*/
+
+
+
+
 }

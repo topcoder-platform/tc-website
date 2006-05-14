@@ -11,11 +11,11 @@ public class DemographicAnswer extends Base implements Comparable {
     public static final String DECLINE = "Decline to Answer";
     public static final String FREE_FORM = "Free Form";
     private Long id;
-    private Long questionId;
-
 /*
-    private DemographicQuestion question;
+    private Long questionId;
 */
+
+    private DemographicQuestion question;
     private String text;
     private Integer sort;
     private String status;
@@ -28,15 +28,19 @@ public class DemographicAnswer extends Base implements Comparable {
         return id;
     }
 
+/*
     public Long getQuestionId() {
         return questionId;
     }
 
-/*
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
+    }
+*/
+
     public DemographicQuestion getQuestion() {
         return question;
     }
-*/
 
     public String getText() {
         return text;
@@ -55,11 +59,9 @@ public class DemographicAnswer extends Base implements Comparable {
         this.id = id;
     }
 
-/*
     public void setQuestion(DemographicQuestion question) {
         this.question = question;
     }
-*/
 
     public void setText(String text) {
         this.text = text;
