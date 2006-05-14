@@ -2,13 +2,7 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.TestUtils;
-import com.topcoder.web.reg.model.Coder;
-import com.topcoder.web.reg.model.CoderType;
-import com.topcoder.web.reg.model.Contact;
 import com.topcoder.web.reg.model.User;
-
-import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -18,6 +12,7 @@ import java.sql.Timestamp;
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
+/*
     public void testFind() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
@@ -101,6 +96,12 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         User dok = Util.getFactory().getUserDAO().find("dok");
         assertTrue("couldn't find dok's contact information", dok.getContact() != null);
         assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
+    }
+*/
+
+    public void testFindWithDemographicInfo() {
+        User dok = Util.getFactory().getUserDAO().find("dok");
+        assertFalse("couldn't find demographic responses", dok.getDemographicResponses().isEmpty());
     }
 
 }

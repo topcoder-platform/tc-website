@@ -7,13 +7,14 @@
 
     <class name="DemographicQuestion" table="demographic_question" mutable="false">
         <id name="id" column="demographic_question_id" access="field"/>
-        <property name="text" access="field"/>
+        <property name="text" column="demographic_question_text" access="field"/>
         <property name="selectable" access="field"/>
-        <property name="description" access="field"/>
-        <set name="answers" table="demographic_answer" order-by="sort" access="field">
+        <property name="description" column="demographic_question_desc" access="field"/>
+        <list name="answers" table="demographic_answer" access="field">
             <key column="demographic_question_id"/>
+            <index column="sort"/>
             <one-to-many class="DemographicAnswer"/>
-        </set>
+        </list>
 
     </class>
 

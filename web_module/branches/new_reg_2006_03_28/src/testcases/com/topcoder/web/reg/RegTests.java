@@ -1,5 +1,7 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.web.reg.dao.DemographicQuestionDAOTestCase;
+import com.topcoder.web.reg.dao.DemographicAnswerDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -23,11 +25,15 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
-        suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
-
+        suite.addTest(new TestSuite(UserDAOTestCase.class));
+        suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
+        */
+        suite.addTest(new TestSuite(DemographicQuestionDAOTestCase.class));
+        suite.addTest(new TestSuite(DemographicAnswerDAOTestCase.class));
+/*
         suite.addTest(new TestSuite(Address1ValidatorTestCase.class));
         suite.addTest(new TestSuite(Address2ValidatorTestCase.class));
         suite.addTest(new TestSuite(Address3ValidatorTestCase.class));
@@ -51,10 +57,10 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(StateValidatorTestCase.class));
         suite.addTest(new TestSuite(CountryValidatorTestCase.class));
 
-*/
 
 
         suite.addTest(new TestSuite(DetachedTestCase.class));
+*/
 
         return suite;
     }

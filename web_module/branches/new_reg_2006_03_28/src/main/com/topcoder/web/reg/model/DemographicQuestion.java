@@ -4,6 +4,7 @@ import com.topcoder.web.common.model.Base;
 
 import java.util.List;
 import java.util.Collections;
+import java.util.ArrayList;
 
 /**
  * @author dok
@@ -15,7 +16,7 @@ public class DemographicQuestion extends Base {
     private String text;
     private Character selectable;
     private String description;
-    private List answers;
+    private List answers = new ArrayList();
 
     public static final Character MULTIPLE_SELECT = new Character('M');
     public static final Character SINGLE_SELECT = new Character('Y');

@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.DemographicQuestionDAO;
+import com.topcoder.web.reg.model.DemographicQuestion;
 
 /**
  * @author dok
@@ -8,6 +9,9 @@ import com.topcoder.web.reg.dao.DemographicQuestionDAO;
  *          Create Date: Apr 10, 2006
  */
 public class DemographicQuestionDAOHibernate extends Base implements DemographicQuestionDAO {
-    
 
+
+    public DemographicQuestion find(Long id) {
+        return (DemographicQuestion)find(DemographicQuestion.class, id);
+    }
 }
