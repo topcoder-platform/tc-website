@@ -34,7 +34,7 @@
         <tr>
             <td align="right">
                 <c:if test="${assignment.required}">
-                    <span class="errorText">*</span>
+                    *
                 </c:if>
                     ${assignment.question.text}
             </td>

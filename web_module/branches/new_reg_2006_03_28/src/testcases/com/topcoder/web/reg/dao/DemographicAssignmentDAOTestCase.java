@@ -3,9 +3,11 @@ package com.topcoder.web.reg.dao;
 import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.DemographicAssignment;
 
 import java.util.List;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -23,4 +25,24 @@ public class DemographicAssignmentDAOTestCase extends TCHibernateTestCase {
         List l = Util.getFactory().getDemographicAssignmentDAO().getAssignments(ct, h);
         assertTrue("no assignments found", l!=null && !l.isEmpty());
     }
+
+
+    public void testRequired() {
+        CoderType ct = Util.getFactory().getCoderTypeDAO().find(new Integer(1));
+        RegistrationType rt = Util.getFactory().getRegistrationTypeDAO().find(new Integer(1));
+        HashSet h = new HashSet();
+        h.add(rt);
+        List l = Util.getFactory().getDemographicAssignmentDAO().getAssignments(ct, h);
+        boolean error = false;
+        for (Iterator it = l.iterator(); it.hasNext();) {
+            try {
+                ((DemographicAssignment)it.next()).isRequired();
+            } catch (Throwable e) {
+                error = true;
+            }
+
+        }
+        assertTrue("problem getting is required field", !error);
+    }
+
 }
