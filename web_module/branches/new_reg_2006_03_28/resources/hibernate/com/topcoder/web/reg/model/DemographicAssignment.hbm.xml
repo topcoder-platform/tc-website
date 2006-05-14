@@ -17,6 +17,7 @@
         <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field" cascade="none" insert="false" update="false"/>
         <property name="sort" access="field"/>
         <property name="status" access="field"/>
+        <property name="required" column="is_required" access="field"/>
     </class>
 
 </hibernate-mapping>
