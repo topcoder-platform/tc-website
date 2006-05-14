@@ -1,15 +1,14 @@
 package com.topcoder.web.reg.view.tag;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.tag.BaseTag;
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.model.DemographicAnswer;
 import com.topcoder.web.reg.model.DemographicQuestion;
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.common.tag.BaseTag;
 
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
 
 public class DemographicInput extends BaseTag {
@@ -116,13 +115,12 @@ public class DemographicInput extends BaseTag {
             s.append(" size=\"4\" multiple");
         }
         s.append(">\n");
-        List answers = question.getAnswers();
-        if (answers != null) {
+        if (question.getAnswers() != null) {
             if (!multiple) {
                 s.append("<option value=\"\"></option>");
             }
             DemographicAnswer answer;
-            for (Iterator it = answers.iterator(); it.hasNext();) {
+            for (Iterator it = question.getAnswers().iterator(); it.hasNext();) {
                 answer = (DemographicAnswer) it.next();
                 s.append("<option value=\"");
                 s.append(answer.getId());
