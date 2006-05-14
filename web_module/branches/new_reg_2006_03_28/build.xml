@@ -1148,6 +1148,7 @@
                 <include name="errorPage.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
+                <include name="style.jsp"/>
                 <include name="menu.jsp"/>
                 <include name="page_title.jsp"/>
             </fileset>
