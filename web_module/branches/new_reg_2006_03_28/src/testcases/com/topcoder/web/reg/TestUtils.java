@@ -16,7 +16,7 @@ public class TestUtils {
         Coder ret = null;
         
         ret = new Coder();
-        ret.setCompCountryCode("840");
+        ret.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
         ret.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 

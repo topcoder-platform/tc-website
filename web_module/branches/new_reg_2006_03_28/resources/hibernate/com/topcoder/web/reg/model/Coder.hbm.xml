@@ -15,7 +15,7 @@
         <property name="memberSince" type="timestamp" column="member_since" access="field"/>
         <property name="quote" access="field"/>
         <many-to-one name="coderType" column="coder_type_id" class="CoderType" access="field" cascade="none"/>
-        <property name="compCountryCode" column="comp_country_code" access="field"/>
+        <many-to-one name="compCountry" column="comp_country_code" class="Country" access="field"/>
         <one-to-one name="currentSchool" class="CurrentSchool" cascade="save-update" access="field" fetch="select"/>
     </class>
 </hibernate-mapping>

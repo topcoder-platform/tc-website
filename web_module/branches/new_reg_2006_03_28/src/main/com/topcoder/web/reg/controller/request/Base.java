@@ -12,8 +12,7 @@ import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.DAOFactory;
 import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.Notification;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.*;
 import com.topcoder.web.reg.validation.*;
 import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
@@ -235,10 +234,10 @@ abstract class Base extends BaseProcessor {
         int size = notifications.size();
         ArrayList nSelections = new ArrayList(size);
         Notification n;
-        for (int i = 0; i<size; i++) {
-            n = (Notification)notifications.get(i);
-            String val = getTrimmedParameter(Constants.NOTIFICATION+n.getId());
-            if (val!=null && !"".equals(val)) {
+        for (int i = 0; i < size; i++) {
+            n = (Notification) notifications.get(i);
+            String val = getTrimmedParameter(Constants.NOTIFICATION + n.getId());
+            if (val != null && !"".equals(val)) {
                 nSelections.add(n);
             }
         }
@@ -247,6 +246,7 @@ abstract class Base extends BaseProcessor {
         return ret;
 
     }
+
 
     /**
      * Validate all the user input for the main page of registration.  When there is a problem
@@ -315,7 +315,7 @@ abstract class Base extends BaseProcessor {
         }
         if (fields.contains(Constants.NOTIFICATION)) {
             ValidationResult notificationResult =
-                    new NotificationValidator().validate(new ListInput((List)params.get(Constants.NOTIFICATION)));
+                    new NotificationValidator().validate(new ListInput((List) params.get(Constants.NOTIFICATION)));
             if (!notificationResult.isValid()) {
                 addError(Constants.NOTIFICATION, notificationResult.getMessage());
             }
@@ -324,21 +324,21 @@ abstract class Base extends BaseProcessor {
 
 
     protected void setMainDefaults(User u) {
-        if (u.getHomeAddress()!=null) {
+        if (u.getHomeAddress() != null) {
             setDefault(Constants.ADDRESS1, u.getHomeAddress().getAddress1());
             setDefault(Constants.ADDRESS2, u.getHomeAddress().getAddress2());
             setDefault(Constants.ADDRESS3, u.getHomeAddress().getAddress3());
             setDefault(Constants.CITY, u.getHomeAddress().getCity());
-            if (u.getHomeAddress().getCountry()!=null) {
+            if (u.getHomeAddress().getCountry() != null) {
                 setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
             }
-            if (u.getHomeAddress().getState()!=null) {
+            if (u.getHomeAddress().getState() != null) {
                 setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
             }
             setDefault(Constants.POSTAL_CODE, u.getHomeAddress().getPostalCode());
             setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
         }
-        if (u.getPrimaryEmailAddress()!=null) {
+        if (u.getPrimaryEmailAddress() != null) {
             setDefault(Constants.EMAIL, u.getPrimaryEmailAddress().getAddress());
             setDefault(Constants.EMAIL_CONFIRM, u.getPrimaryEmailAddress().getAddress());
         }
@@ -348,31 +348,89 @@ abstract class Base extends BaseProcessor {
         setDefault(Constants.PASSWORD, u.getPassword());
         setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
         setDefault(Constants.HANDLE, u.getHandle());
-        if (u.getContact()!=null) {
-            if (u.getContact().getCompany()!=null) {
+        if (u.getContact() != null) {
+            if (u.getContact().getCompany() != null) {
                 setDefault(Constants.COMPANY_NAME, u.getContact().getCompany().getName());
             }
             setDefault(Constants.TITLE, u.getContact().getTitle());
         }
         setDefault(Constants.QUOTE, u.getCoder().getQuote());
-        if (u.getPrimaryPhoneNumber()!=null) {
+        if (u.getPrimaryPhoneNumber() != null) {
             setDefault(Constants.PHONE_NUMBER, u.getPrimaryPhoneNumber().getNumber());
         }
-        if (u.getCoder()!=null) {
-            setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountryCode());
-            if (u.getCoder().getCoderType()!=null) {
+        if (u.getCoder() != null) {
+            setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountry().getCode());
+            if (u.getCoder().getCoderType() != null) {
                 setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
             }
         }
-        if (u.getTimeZone()!=null) {
+        if (u.getTimeZone() != null) {
             setDefault(Constants.TIMEZONE, u.getTimeZone().getId());
         }
         for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
-            setDefault(Constants.NOTIFICATION+((Notification)it.next()).getId(), String.valueOf(true));
+            setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
 
     }
 
+    protected Map getSeconaryUserInput() {
+        HashMap ret = new HashMap();
+
+        DemographicQuestion dq;
+        String key;
+        for (Iterator it = getFactory().getDemographicQuestionDAO().getQuestions().iterator(); it.hasNext();) {
+            dq = (DemographicQuestion) it.next();
+            key = Constants.DEMOG_PREFIX + dq.getId();
+            if (dq.isMultipleSelect()) {
+                ret.put(key, getRequest().getParameterValues(key));
+            } else {
+                ret.put(key, getTrimmedParameter(key));
+            }
+        }
+        //todo school,gpa, gpascale etc.
+
+        return ret;
+
+    }
+
+    protected void checkSecondaryFields(Map params) {
+
+        Set fields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), getRegUser());
+
+        if (fields.contains(Constants.DEMOG_PREFIX)) {
+            DemographicAssignment da;
+            String key;
+            String[] vals;
+            for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
+                da = (DemographicAssignment) it.next();
+                key = Constants.DEMOG_PREFIX + da.getId();
+                //validate the response we got
+                if (da.getQuestion().isFreeForm()) {
+                    //validate free form
+                    ValidationResult freeResult = new DemogFreeFormValidator(getRegUser()).validate(
+                            new StringInput((String)params.get(key)));
+                    if (!freeResult.isValid()) {
+                        addError(key, freeResult.getMessage());
+                    }
+                } else if (da.getQuestion().isMultipleSelect()) {
+                    vals = (String[]) params.get(key);
+                    //validate answers
+                    ValidationResult multiResult = new DemogMultiSelectValidator(da.getQuestion()).validate(
+                            new ListInput(Arrays.asList(vals)));
+                    if (!multiResult.isValid()) {
+                        addError(key, multiResult.getMessage());
+                    }
+                } else if (da.getQuestion().isSingleSelect()) {
+                    ValidationResult singleResult = new DemogSingleSelectValidator(da.getQuestion()).validate(
+                            new StringInput((String)params.get(key)));
+                    if (!singleResult.isValid()) {
+                        addError(key, singleResult.getMessage());
+                    }
+                }
+            }
+        }
+        //todo school,gpa, gpascale etc.
+    }
 
 
     /**
@@ -401,6 +459,53 @@ abstract class Base extends BaseProcessor {
             }
         }
     }
+
+
+    protected void setDemographicDefaults(User u) {
+        Set responses = u.getDemographicResponses();
+        DemographicResponse r;
+        HashMap multiAnswerMap = new HashMap();
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (DemographicResponse) it.next();
+            if (r.getQuestion().isSingleSelect()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
+            } else if (r.getQuestion().isFreeForm()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
+            } else if (r.getQuestion().isMultipleSelect()) {
+                ArrayList al = new ArrayList();
+                if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
+                    al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
+                }
+                al.add(String.valueOf(r.getAnswer().getId()));
+                multiAnswerMap.put(r.getQuestion().getId(), al);
+            }
+        }
+        for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            Long questionId = (Long) it.next();
+            setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
+        }
+    }
+
+    protected List getAssignments(User u) {
+        //if they dont' have a coder type, we'll just make them be pros.  the assignments have to be
+        //made to both a coder type as well as a reg type
+
+        State s = null;
+        if (u.getHomeAddress() != null) {
+            s = u.getHomeAddress().getState();
+        }
+
+        if (u.getCoder() == null || u.getCoder().getCoderType() == null) {
+            return
+                    getFactory().getDemographicAssignmentDAO().getAssignments(
+                            getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL), s, getRequestedTypes());
+        } else {
+            return
+                    getFactory().getDemographicAssignmentDAO().getAssignments(
+                            u.getCoder().getCoderType(), s, getRequestedTypes());
+        }
+    }
+
 
     /**
      * Should be implemented by child classes to handle all the actual processing

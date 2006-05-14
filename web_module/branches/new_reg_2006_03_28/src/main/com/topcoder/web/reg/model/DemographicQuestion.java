@@ -90,5 +90,21 @@ public class DemographicQuestion extends Base {
         this.answers = answers;
     }
 
+    public void addAnswer(DemographicAnswer a) {
+        this.answers.add(a);
+    }
+
+
+    public DemographicAnswer getAnswer(Long id) {
+        boolean found = false;
+        DemographicAnswer da = null;
+        for (Iterator it = answers.iterator(); it.hasNext()&&!found;) {
+            da = (DemographicAnswer)it.next();
+            found = da.getId().equals(id);
+        }
+        return da;
+    }
+
+
 
 }

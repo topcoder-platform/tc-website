@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.DemographicAssignmentDAO;
-import com.topcoder.web.reg.model.CoderType;
-import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.reg.model.*;
 import org.hibernate.Query;
 
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import java.util.Set;
  *          Create Date: May 13, 2006
  */
 public class DemographicAssignmentDAOHibernate extends Base implements DemographicAssignmentDAO {
-    public List getAssignments(CoderType ct, Set regTypes) {
+    public List getAssignments(CoderType ct, State s, Set regTypes) {
         StringBuffer query = new StringBuffer(100);
         query.append("from DemographicAssignment dass WHERE dass.status = 'A' AND dass.coderType.id = ");
         query.append(ct.getId());
@@ -27,6 +27,28 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
         query.append(")");
         query.append(" order by dass.sort");
         Query q = session.createQuery(query.toString());
-        return q.list();
+        List ret = q.list();
+
+        if (s!=null&&s.isOptionalDemographics()) {
+            DemographicAssignment da;
+            for (Iterator it = ret.iterator(); it.hasNext();) {
+                da = (DemographicAssignment)it.next();
+                if (!containsDecline(da.getQuestion())) {
+                    da.getQuestion().addAnswer(Util.getFactory().getDemographicAnswerDAO().findDecline(da.getQuestion()));
+                }
+            }
+        }
+
+        return ret;
     }
+
+    private boolean containsDecline(DemographicQuestion q) {
+        boolean found = false;
+        for (Iterator it = q.getAnswers().iterator(); it.hasNext()&&!found;) {
+            found = DemographicAnswer.DECLINE.equals(((DemographicAnswer)it.next()).getText());
+        }
+        return found;
+    }
+
+
 }

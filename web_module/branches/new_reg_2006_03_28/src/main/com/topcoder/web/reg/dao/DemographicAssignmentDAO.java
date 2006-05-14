@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.CoderType;
+import com.topcoder.web.reg.model.State;
 
 import java.util.List;
 import java.util.Set;
@@ -12,6 +13,6 @@ import java.util.Set;
  */
 public interface DemographicAssignmentDAO {
 
-    List getAssignments(CoderType ct, Set regTypes);
+    List getAssignments(CoderType ct, State s, Set regTypes);
 
 }

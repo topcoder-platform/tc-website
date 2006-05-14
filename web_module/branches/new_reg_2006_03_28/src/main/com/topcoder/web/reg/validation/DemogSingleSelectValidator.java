@@ -1,0 +1,48 @@
+package com.topcoder.web.reg.validation;
+
+import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.BasicResult;
+import com.topcoder.web.reg.model.DemographicQuestion;
+import com.topcoder.web.reg.model.DemographicAnswer;
+
+import java.util.Iterator;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: May 14, 2006
+ */
+public class DemogSingleSelectValidator implements Validator  {
+
+    private DemographicQuestion q;
+    public DemogSingleSelectValidator(DemographicQuestion q) {
+        this.q = q;
+    }
+
+    public ValidationResult validate(ValidationInput input) {
+
+        Long answerId;
+        try {
+                answerId = new Long((String)input.getInput());
+        } catch (NumberFormatException e) {
+            return new BasicResult(false, "Please choose a valid answer.");
+        }
+
+
+        boolean found = false;
+        for (Iterator it = q.getAnswers().iterator(); it.hasNext()&!found;) {
+            if (((DemographicAnswer)it.next()).getId().equals(answerId)) {
+                found = true;
+            }
+        }
+        if (!found) {
+            return new BasicResult(false, "Please choose a valid answer.");
+        } else {
+            return ValidationResult.SUCCESS;
+        }
+
+
+    }
+}

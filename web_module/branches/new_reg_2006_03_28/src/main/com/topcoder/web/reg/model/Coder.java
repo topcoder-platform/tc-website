@@ -16,7 +16,7 @@ public class Coder extends Base {
     private Timestamp memberSince;
     private String quote;
     private CoderType coderType;
-    private String compCountryCode;
+    private Country compCountry;
 /*
     private HSAlgoRating hsRating;
     private TCAlgoRating tcRating;
@@ -50,12 +50,13 @@ public class Coder extends Base {
         this.quote = quote;
     }
 
-    public String getCompCountryCode() {
-        return compCountryCode;
+
+    public Country getCompCountry() {
+        return compCountry;
     }
 
-    public void setCompCountryCode(String compCountryCode) {
-        this.compCountryCode = compCountryCode;
+    public void setCompCountry(Country compCountry) {
+        this.compCountry = compCountry;
     }
 
 /*

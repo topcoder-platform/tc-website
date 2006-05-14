@@ -10,6 +10,7 @@ import com.topcoder.web.common.model.Base;
 public class State extends Base {
     private String code;
     private String name;
+    private Boolean optionalDemographics;
 
     protected State() {
 
@@ -21,6 +22,14 @@ public class State extends Base {
 
     public String getName() {
         return name;
+    }
+
+    public Boolean getOptionalDemographics() {
+        return optionalDemographics;
+    }
+
+    public boolean isOptionalDemographics() {
+        return optionalDemographics.booleanValue();
     }
 
 }

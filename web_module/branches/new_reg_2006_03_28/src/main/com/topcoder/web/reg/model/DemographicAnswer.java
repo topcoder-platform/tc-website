@@ -7,9 +7,12 @@ import com.topcoder.web.common.model.Base;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 7, 2006
  */
-public class DemographicAnswer extends Base {
+public class DemographicAnswer extends Base implements Comparable {
+    public static final String DECLINE = "Decline to Answer";
+    public static final String FREE_FORM = "Free Form";
     private Long id;
     private Long questionId;
+
 /*
     private DemographicQuestion question;
 */
@@ -20,7 +23,7 @@ public class DemographicAnswer extends Base {
     protected DemographicAnswer() {
 
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -71,4 +74,8 @@ public class DemographicAnswer extends Base {
     }
 
 
+    public int compareTo(Object o) {
+        DemographicAnswer other = (DemographicAnswer)o;
+        return sort.compareTo(other.getSort());
+    }
 }

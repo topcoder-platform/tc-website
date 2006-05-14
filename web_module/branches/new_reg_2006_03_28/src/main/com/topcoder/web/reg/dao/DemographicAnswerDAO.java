@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.DemographicAnswer;
+import com.topcoder.web.reg.model.DemographicQuestion;
 
 /**
  * @author dok
@@ -9,4 +10,6 @@ import com.topcoder.web.reg.model.DemographicAnswer;
  */
 public interface DemographicAnswerDAO {
     DemographicAnswer find(Long id);
+    DemographicAnswer findDecline(DemographicQuestion dq);
+    DemographicAnswer findFreeForm(DemographicQuestion dq);
 }
