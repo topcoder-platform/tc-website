@@ -17,4 +17,8 @@ public class DemographicAnswerDAOEJB implements DemographicAnswerDAO {
     public DemographicAnswer findDecline(DemographicQuestion da) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    public DemographicAnswer findFreeForm(DemographicQuestion dq) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
