@@ -10,6 +10,7 @@ import javax.servlet.jsp.JspException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 public class DemographicInput extends BaseTag {
     protected static Logger log = Logger.getLogger(DemographicInput.class);
@@ -117,14 +118,16 @@ public class DemographicInput extends BaseTag {
         s.append(">\n");
         List answers = question.getAnswers();
         if (answers != null) {
-            if (!multiple) s.append("<option value=\"\"></option>");
+            if (!multiple) {
+                s.append("<option value=\"\"></option>");
+            }
             DemographicAnswer answer;
-            for (int i = 0; i < answers.size(); i++) {
-                answer = (DemographicAnswer) answers.get(i);
+            for (Iterator it = answers.iterator(); it.hasNext();) {
+                answer = (DemographicAnswer) it.next();
                 s.append("<option value=\"");
                 s.append(answer.getId());
                 s.append("\"");
-                if (!(question.isMultipleSelect())) {
+                if (!question.isMultipleSelect()) {
                     if (getDefaultValue() != null && getDefaultValue().equals(String.valueOf(answer.getId()))) {
                         s.append(" selected");
                     }
