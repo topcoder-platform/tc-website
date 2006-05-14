@@ -1139,6 +1139,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
+                <include name="reg-tags.tld"/>
                 <include name="common-functions.tld"/>
             </webinf>
             <fileset dir="${java}/com/topcoder/web/reg/view">
