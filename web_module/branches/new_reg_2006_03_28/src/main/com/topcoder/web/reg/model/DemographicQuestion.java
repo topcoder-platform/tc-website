@@ -47,6 +47,12 @@ public class DemographicQuestion extends Base {
         return id.hashCode();
     }
 
+    /**
+     * The we're be returning the answers in the correct order.  Really
+     * this should be returning a <code>SortedSet</code> but I couldn't
+     * get hibernate to work right.
+     * @return the potential answers to this question
+     */
     public Set getAnswers() {
         return Collections.unmodifiableSet(answers);
     }
