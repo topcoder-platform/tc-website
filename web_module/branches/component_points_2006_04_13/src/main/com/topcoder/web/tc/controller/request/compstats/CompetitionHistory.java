@@ -2,7 +2,7 @@
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
-package com.topcoder.web.tc.controller.request.dr;
+package com.topcoder.web.tc.controller.request.compstats;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
