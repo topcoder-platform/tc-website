@@ -11,23 +11,23 @@
 <style><!--
 .whiteBkgnd 
 {
-	font-size: 12px;
-	font-weight: bold;
-	font-style: normal;
-	color: #000;
-	font-variant: normal;
-	background-color: #FFF;
-	padding: 5px;
+ font-size: 12px;
+ font-weight: bold;
+ font-style: normal;
+ color: #000;
+ font-variant: normal;
+ background-color: #FFF;
+ padding: 5px;
 }
 .blackBkgnd
 {
-	font-size: 12px;
-	font-weight: bold;
-	font-style: normal;
-	color: #FFF;
-	font-variant: normal;
-	background-color: #000;
-	padding: 5px;
+ font-size: 12px;
+ font-weight: bold;
+ font-style: normal;
+ color: #FFF;
+ font-variant: normal;
+ background-color: #000;
+ padding: 5px;
 }
 //-->
 </style>
@@ -230,7 +230,7 @@ does not alter the customer&#8217;s experience with the component.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -317,7 +317,7 @@ reading.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -396,7 +396,7 @@ reading.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -490,7 +490,7 @@ parameters or return values to exist in the diagram.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -498,9 +498,9 @@ parameters or return values to exist in the diagram.
                                     </tr>
                                 
                             
-                            	
+                             
                         </tbody></table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->          
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -614,7 +614,7 @@ the design, appropriately, does not need any patterns/methodologies.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -690,7 +690,7 @@ component with multiple simple changes. </p><p class="scorecardQuestion">Rating 
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -776,7 +776,7 @@ appropriately not used.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -855,7 +855,7 @@ API.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -939,7 +939,7 @@ what could be done to make the component thread safe. </p><p class="scorecardQue
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1019,7 +1019,7 @@ makes the refactored solution preferable to the designer&#8217;s solution.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1027,9 +1027,9 @@ makes the refactored solution preferable to the designer&#8217;s solution.
                                     </tr>
                                 
                             
-                            	
+                             
                         </tbody></table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->          
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -1138,7 +1138,7 @@ sub-packages.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1227,7 +1227,7 @@ the API are declared private. </p><p class="scorecardQuestion">Rating 2 &#8211; 
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1309,7 +1309,7 @@ alone. Custom exceptions were not appropriate for this design.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1386,7 +1386,7 @@ are used when justified).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1476,7 +1476,7 @@ are correct.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1557,7 +1557,7 @@ for this rating. </p><p class="scorecardQuestion">
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1624,7 +1624,7 @@ appropriately? </p><p class="scorecardQuestion">
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1632,9 +1632,9 @@ appropriately? </p><p class="scorecardQuestion">
                                     </tr>
                                 
                             
-                            	
+                             
                         </tbody></table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->          
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -1740,7 +1740,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1804,7 +1804,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1894,7 +1894,7 @@ not require any additional information from the designer).
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -1963,7 +1963,7 @@ visually in the diagram.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2034,7 +2034,7 @@ b) Date todayPlusOne = todays date plus 1 day
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2122,7 +2122,7 @@ implement the component.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2201,7 +2201,7 @@ for this rating.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2209,9 +2209,9 @@ for this rating.
                                     </tr>
                                 
                             
-                            	
+                             
                         </tbody></table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->          
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -2299,7 +2299,7 @@ reasoning for assigning anything but a perfect score in this category.
                                                         
                                                             
                                                             <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                        				        		        
+                                                                              
                                                     </td>
                                                 </tr>
                                             </tbody></table>
@@ -2307,9 +2307,9 @@ reasoning for assigning anything but a perfect score in this category.
                                     </tr>
                                 
                             
-                            	
+                             
                         </tbody></table>
-                        <!-- spacer  -->										
+                        <!-- spacer  -->          
                         <table border="0" cellpadding="2" cellspacing="0" width="100%">
                             <tbody><tr>
                                 <td class="normal">
@@ -2322,7 +2322,7 @@ reasoning for assigning anything but a perfect score in this category.
             </td>
         </tr>
 
-        <!-- Bottom Buttons -->	
+        <!-- Bottom Buttons --> 
         <tr>
             <td class="lightBkgnd" align="center">
                 <table border="0" cellpadding="0" cellspacing="4">
@@ -2338,15 +2338,15 @@ reasoning for assigning anything but a perfect score in this category.
         </tr>
     
 </tbody></table>
-<!-- spacer  -->										
-		    <table border="0" cellpadding="2" cellspacing="0" width="100%">
-		    	<tbody><tr>
-		    		<td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
-		    	</tr>
-		    </tbody></table>
-	</td></tr>
+<!-- spacer  -->          
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
+       </tr>
+      </tbody></table>
+ </td></tr>
 </tbody></table>
-				
+    
 
 <!-- Content ends-->
         
