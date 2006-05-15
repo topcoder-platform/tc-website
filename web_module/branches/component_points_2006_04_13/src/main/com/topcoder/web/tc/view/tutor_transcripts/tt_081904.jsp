@@ -217,7 +217,7 @@
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>http://www.topcoder.com/rtables/viewThread.jsp?forum=7166&thread=340694&mc=3</td></tr>
 <tr><td class=tutorEven><b>nicka81</b></td><td class=tutorEven>radeye: what will I do without ri,rj,fe,bz e.t.c. ?</td></tr>
 <tr><td class=tutorOdd><b>vorthys</b></td><td class=tutorOdd>lars2520: the only systems I've been able to come up with involve competitors rating some sampling of other people's code, but that's obviously open to abuse if points are involved</td></tr>
-<tr><td class=tutorEven><b>Cosmin.ro</b></td><td class=tutorEven>the us would have a more or less constant rating history graph</td></tr>
+<tr><td class=tutorEven><b>Cosmin.ro</b></td><td class=tutorEven>the us would have a more or less constant competition history graph</td></tr>
 <tr><td class=tutorOdd><b>Cosmin.ro</b></td><td class=tutorOdd>US</td></tr>
 <tr><td class=tutorEven><b>Nagi</b></td><td class=tutorEven>Nahas   marian: I am thinking along the lines of getting an explicit correspodence between each relaxation in the modified algo and BF</td></tr>
 <tr><td class=tutorOdd><b>marian</b></td><td class=tutorOdd>Cosmin.ro: my country is not even on list :)</td></tr>

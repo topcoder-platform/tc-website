@@ -88,14 +88,14 @@ function submitEnter(e) {
 <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
 </div>
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Leaderboard</a><br>
-Development Leaderboard</a><br>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+Development Cup Series Leaderboard</a><br>
 <% } else { %>
-Design Leaderboard<br>
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Leaderboard</a><br>
+Design Cup Series Leaderboard<br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
 <% } %>
-<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design ROTY Leaderboard</a><br>
-<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development ROTY Leaderboard</a>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
 
 <br><br>
 

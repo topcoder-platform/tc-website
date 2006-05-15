@@ -87,14 +87,14 @@
 <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
 <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
 </div>
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Leaderboard</a><br>
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Leaderboard</a><br>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
-<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design ROTY Leaderboard</a><br>
-Development ROTY Leaderboard
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+Development Cup Series ROTY Leaderboard
 <% } else { %>
-Design ROTY Leaderboard<br>
-<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development ROTY Leaderboard</a>
+Design Cup Series ROTY Leaderboard<br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
 <% } %>
 
 <br><br>
