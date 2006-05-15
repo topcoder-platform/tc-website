@@ -30,6 +30,7 @@ public class Confirm extends Base {
             checkSecondaryFields(params);
 
             Set fields = new HashSet(RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+            log.debug(fields.size() + " fields found");
 
             if (hasErrors()) {
                 Map.Entry me;
@@ -38,7 +39,9 @@ public class Confirm extends Base {
                     setDefault((String) me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
-                setDemographicDefaults(u);
+
+                getRequest().setAttribute("demographicAssignments",getAssignments(u));
+
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             } else {
