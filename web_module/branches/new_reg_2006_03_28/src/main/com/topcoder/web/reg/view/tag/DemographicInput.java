@@ -8,8 +8,8 @@ import com.topcoder.web.reg.model.DemographicQuestion;
 
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class DemographicInput extends BaseTag {
     protected static Logger log = Logger.getLogger(DemographicInput.class);
@@ -130,7 +130,7 @@ public class DemographicInput extends BaseTag {
                         s.append(" selected");
                     }
                 } else {
-                    if (getDefaultValue() != null && ((ArrayList) getDefaultValue()).contains(String.valueOf(answer.getId()))) {
+                    if (getDefaultValue() != null && ((List) getDefaultValue()).contains(String.valueOf(answer.getId()))) {
                         s.append(" selected");
                     }
                 }
