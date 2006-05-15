@@ -8,7 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
@@ -94,7 +94,7 @@ public class CompetitionHistory extends BaseProcessor {
         r.setContentHandle(Constants.COMPETITION_HISTORY_COMMAND);
 
         // retrieves data from DB
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer history = (ResultSetContainer)m.get(Constants.COMPETITION_HISTORY_QUERY);
         log.debug("Got " +  history.size() + " rows for competition history");

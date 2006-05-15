@@ -8,7 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
@@ -44,7 +44,7 @@ public abstract class BaseBoard extends BaseProcessor {
     private String getCurrentPeriod(String period_id) throws Exception {
         Request r = new Request();
         r.setContentHandle(Constants.CURRENT_PERIOD_COMMAND);
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer currentPeriod = (ResultSetContainer)m.get(Constants.CURRENT_PERIOD_QUERY);
         return (String.valueOf(currentPeriod.getLongItem(0, period_id)));
@@ -109,7 +109,7 @@ public abstract class BaseBoard extends BaseProcessor {
         r.setContentHandle(command);
 
         // retrieves data from DB
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer board = (ResultSetContainer)m.get(query);
         log.debug("Got " +  board.size() + " rows for board");
