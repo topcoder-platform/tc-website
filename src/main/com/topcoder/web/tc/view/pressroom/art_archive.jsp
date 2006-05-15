@@ -37,6 +37,9 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2006  -->
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="newsText"><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A> [May 15 - IT Week]<br/></td></tr>
+<tr><td class="newsText"><A href="/movies/press/cnbc_051506.mov" target="_blank">CNBC's Jane's Addiction and Squawk Box at the TCO06</A> [MOVIE] [May 15 - CNBC TV]<br/></td></tr>
+<tr><td class="newsText"><A href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Java Posse - Listener Feedback and TopCoder Interviews</A> [PODCAST] [May 15 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">Cause for Concern? Americans Are Scarce In Top Tech Contest</A> [May 10 - Wall Street Journal]<br/></td></tr>
 <tr><td class="newsText"><A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Java Posse - Live at the TopCoder Open</A> [PODCAST] [May 11 - Java Posse]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">Russian Talents Shine in IT Contests</A> [May  11 - The Moscow Times]<br/></td></tr>
