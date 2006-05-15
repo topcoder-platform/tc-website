@@ -2,6 +2,7 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -11,9 +12,14 @@ import com.topcoder.web.common.PermissionException;
 public class Submit extends Base {
 
     protected void registrationProcessing() throws Exception {
-        if (userLoggedIn()) {
-                setNextPage("/success.jsp");
-                setIsNextPageInContext(true);
+        User u = getRegUser();
+        if ((getRegUser() != null && u.isNew()) || userLoggedIn()) {
+            //todo check if the handle is taken again
+
+            getFactory().getUserDAO().saveOrUpdate(u);
+
+            setNextPage("/success.jsp");
+            setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
