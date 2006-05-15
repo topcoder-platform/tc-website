@@ -16,7 +16,11 @@ public class Submit extends Base {
         if ((getRegUser() != null && u.isNew()) || userLoggedIn()) {
             //todo check if the handle is taken again
 
+            getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
+
             getFactory().getUserDAO().saveOrUpdate(u);
+
+            
 
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);

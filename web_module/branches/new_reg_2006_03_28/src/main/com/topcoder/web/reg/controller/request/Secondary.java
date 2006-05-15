@@ -19,7 +19,7 @@ public class Secondary extends Base {
 
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
-        if (getRegUser() == null || u.isNew() || userLoggedIn()) {
+        if ((getRegUser() != null && u.isNew()) || userLoggedIn()) {
             Map params = getMainUserInput();
             checkMainFields(params);
 

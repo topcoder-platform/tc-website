@@ -163,6 +163,9 @@ abstract class Base extends BaseProcessor {
         return user;
     }
 
+    protected void clearSession() {
+        getRequest().getSession().invalidate();
+    }
     /**
      * Set the reg user in the current request processor.  This is generally
      * only necessary if it's a new user registering.  Existing users can be loaded
