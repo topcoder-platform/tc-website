@@ -373,7 +373,7 @@ abstract class Base extends BaseProcessor {
 
     }
 
-    protected Map getSeconaryUserInput() {
+    protected Map getSecondaryUserInput() {
         HashMap ret = new HashMap();
 
         DemographicQuestion dq;
