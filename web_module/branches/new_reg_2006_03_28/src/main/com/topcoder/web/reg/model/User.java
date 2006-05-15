@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.reg.Constants;
 
 import java.util.*;
 
@@ -30,6 +31,7 @@ public class User extends Base {
     private Contact contact;
 
     public User() {
+        status = new Character(Constants.UNACTIVE_STATI[1]);
         addresses = new HashSet();
         emailAddresses = new HashSet();
         phoneNumbers = new HashSet();
