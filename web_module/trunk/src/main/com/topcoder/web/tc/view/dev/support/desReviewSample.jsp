@@ -11,23 +11,23 @@
 <style><!--
 .whiteBkgnd 
 {
- font-size: 12px;
- font-weight: bold;
- font-style: normal;
- color: #000;
- font-variant: normal;
- background-color: #FFF;
- padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #000;
+	font-variant: normal;
+	background-color: #FFF;
+	padding: 5px;
 }
 .blackBkgnd
 {
- font-size: 12px;
- font-weight: bold;
- font-style: normal;
- color: #FFF;
- font-variant: normal;
- background-color: #000;
- padding: 5px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: #FFF;
+	font-variant: normal;
+	background-color: #000;
+	padding: 5px;
 }
 //-->
 </style>
@@ -36,220 +36,195 @@
 <body class="body" marginheight="0" marginwidth="0">
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tbody><tr valign="middle">
+ <tbody><tr valign="middle">
 
 <!-- Gutter 1 begins -->
-    <TD width=15><IMG height=10 alt="" src="/i/clear.gif" 
-      width=15 border=0> </TD>
+ <TD width=15><IMG height=10 alt="" src="/i/clear.gif" 
+   width=15 border=0> </TD>
 <!-- Gutter 1 ends -->
 <!-- Middle Column begins -->
-        <td width="100%">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody><tr valign="top">
-                    <td class="normal"><img src="/i/clear.gif" alt="" border="0" height="15" width="100"></td>
-                </tr>
-            </tbody></table>
-            
+  <td width="100%">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr valign="top">
+     <td class="normal"><img src="/i/clear.gif" alt="" border="0" height="15" width="100"></td>
+    </tr>
+   </tbody></table>
+   
 <!-- Content begins -->
 <script>
-    function set(form, what, qIdx, rIdx) {
-        form.action.value = what;
-        form.questionIndex.value = qIdx;
-        form.responseIndex.value = rIdx;
-    }
+ function set(form, what, qIdx, rIdx) {
+  form.action.value = what;
+  form.questionIndex.value = qIdx;
+  form.responseIndex.value = rIdx;
+ }
 </script>
 
 <!-- Start Title -->
 <input name="id" value="15150166" type="hidden">
-        <input value="156859" name="rid" type="hidden">
-        <input value="305384" name="sid" type="hidden">
-        <input value="admin" name="action" type="hidden">
-        <input value="-1" name="questionIndex" type="hidden">
-        <input value="-1" name="responseIndex" type="hidden">
+  <input value="156859" name="rid" type="hidden">
+  <input value="305384" name="sid" type="hidden">
+  <input value="admin" name="action" type="hidden">
+  <input value="-1" name="questionIndex" type="hidden">
+  <input value="-1" name="responseIndex" type="hidden">
 
-        
+  
 
-        <table class="forumBkgd" border="0" cellpadding="0" cellspacing="1" width="100%">
-    <form name="reviewScorecardForm" method="post" action="/review/saveReviewScorecard.do"></form>
-        <tbody><tr>
-            <td class="whiteBkgnd">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tbody><tr>
-                        <td align="left" width="5%">
-                            
-                                <img src="http://software.topcoder.com/images/icon_design.gif" alt="" height="62" width="66">
-                            
-                            
-                        </td>
-                        <td width="5%">
-                        </td>
-                        <td class="tableHeader" nowrap="nowrap" width="40%">
-                            <strong>
-                                Component Name
-                            </strong>
-                            version
-                            1.0
-                        </td>
-                        <td class="breadcrumb" align="right" valign="bottom" width="50%">
-                            
-                            <a href="" class="breadcrumbLinks">Download Submission</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="whiteBkgnd" colspan="4">
-                            <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1">
-                        </td>
-                    </tr>
-                </tbody></table>
+  <table class="forumBkgd" border="0" cellpadding="0" cellspacing="1" width="100%">
+ <form name="reviewScorecardForm" method="post" action="/review/saveReviewScorecard.do"></form>
+  <tbody><tr>
+   <td class="whiteBkgnd">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+     <tbody><tr>
+      <td align="left" width="5%">
+       
+        <img src="http://software.topcoder.com/images/icon_design.gif" alt="" height="62" width="66">
+       
+       
+      </td>
+      <td width="5%">
+      </td>
+      <td class="tableHeader" nowrap="nowrap" width="40%">
+       <strong>
+        Component Name
+       </strong>
+       version
+       1.0
+      </td>
+      <td class="breadcrumb" align="right" valign="bottom" width="50%">
+       
+       <a href="" class="breadcrumbLinks">Download Submission</a>
+      </td>
+     </tr>
+     <tr>
+      <td class="whiteBkgnd" colspan="4">
+       <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="1" width="1">
+      </td>
+     </tr>
+    </tbody></table>
 
-                <table class="forumBkgd" border="0" cellpadding="0" cellspacing="1" width="100%">
-                    <tbody><tr>
-                        <td class="blackBkgnd" colspan="2">
-                            Design
-                            Review Scorecard -
-                            Submission
-                            00000000
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="forumTextOdd">
-                            For the Design
-                            Checklist, mark each deliverable as Yes, it exists; No, it does not exist; N/A,
-                            this deliverable was not required. For the
-                            Design
-                            Review, provide a score for each statement according to the dropdown answers.
-                        </td>
-                    </tr>
-                </tbody></table>
+    <table class="forumBkgd" border="0" cellpadding="0" cellspacing="1" width="100%">
+     <tbody><tr>
+      <td class="blackBkgnd" colspan="2">
+       Design
+       Review Scorecard -
+       Submission
+       00000000
+      </td>
+     </tr>
+     <tr>
+      <td colspan="2" class="forumTextOdd">
+       For the Design
+       Checklist, mark each deliverable as Yes, it exists; No, it does not exist; N/A,
+       this deliverable was not required. For the
+       Design
+       Review, provide a score for each statement according to the dropdown answers.
+      </td>
+     </tr>
+    </tbody></table>
 
-                <!-- Start Text -->
-                
-                <!--
-                    
-                  -->
+    <!-- Start Text -->
+    
+    <!--
+     
+      -->
 
-                    
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="whiteBkgnd">
-                                    Requirements Section
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                    
-                        <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
-                            <tbody><tr>
-                                <td class="forumTitle" width="80%">
-                                    <strong>
+     
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="whiteBkgnd">
+         Requirements Section
+        </td>
+       </tr>
+      </tbody></table>
+     
+     
+      <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+       <tbody><tr>
+        <td class="forumTitle" width="80%">
+         <strong>
 The answers to the questions should be limited to how the design meets
 the requirements (both business and technical) as described in the
 requirements document AND the forums for the component. </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Weight: 300
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Response
-                                    </strong>
-                                </td>
-                            </tr>
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
-design addresses all the requirements as specified in the requirements
-documents and the forum. The reviewer should be able to take each point
-in the requirements document and find the associated implementation in
-the design. The reviewer should ignore the quality aspects of the
-implementation at this point, and only verify whether a requirement is
-addressed or not. Other questions of the scorecard give you an
-opportunity to express your concerns about the quality of the design.
-The reviewer should read the component forum prior to doing this to
-ensure that any modifications or additions to the requirements are
-taken into account. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">&#8216;Core&#8217; requirements will be defined as
-those requirements that are essential to component&#8217;s intent (i.e. the
-component either cannot fulfill its goal or cannot provide value added
-service to the customer without those requirements). </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; The design is missing any
-of the &#8216;core&#8217; requirements. The missing requirement(s) prevent the
-design from fulfilling the goal of the requirements.
-</p><p class="scorecardQuestion">Rating 2 &#8211; The design has all of the
-&#8216;core&#8217; requirements but does not address any of the &#8216;non-core&#8217;
-requirements. The design addresses all requirements to solve the
-problem for which the component was requested, but is missing major
-usability features from the requirements document.
-</p><p class="scorecardQuestion">Rating 3 &#8211; The design addresses all
-of the &#8216;core&#8217; requirements and a majority of the &#8216;non-core&#8217;
-requirements and, potentially, includes minor additional functionality.
-The design solves the problem for which the component was requested,
-provides all the usability features, but either does not provide
-enhancements on top of the requirements, or the added functionality
-does not alter the customer&#8217;s experience with the component.
-</p><p class="scorecardQuestion">Rating 4 &#8211; The design addresses all requirements and provides new and substantially useful to the customer functionality.
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Weight: 300
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Response
+         </strong>
+        </td>
+       </tr>
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The design addresses all the requirements as specified in the requirements documents and the forum. The reviewer should be able to take each point in the requirements document and find the associated implementation in the design. The reviewer should ignore the quality aspects of the implementation at this point, and only verify whether a requirement is addressed or not. Other questions of the scorecard give you an opportunity to express your concerns about the quality of the design.
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Rating 1 &#8211; Missing requirement(s) prevent the design from fulfilling the goal of the requirements. 
+</p><p class="scorecardQuestion">Rating 2 &#8211; The design addresses all requirements to solve the problem for which the component was requested, but is missing major features from the requirements document.
+</p><p class="scorecardQuestion">Rating 3 &#8211; The design addresses all of the  requirements and potentially includes minor additional functionality. The design solves the problem for which the component was requested but either does not provide enhancements on top of the requirements, or the added functionality does not alter the customer's experience with the component.
+</p><p class="scorecardQuestion">Rating 4 &#8211; The design addresses all requirements and provides new and substantially useful and pertinent functionality.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 50
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[0].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[0].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[0].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 50
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[0].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[0].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[0].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The component specification includes a clear and easily grasped explanation of algorithms used in the design. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The component specification includes a clear and easily grasped explanation of algorithms used in the design. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should judge whether the
 algorithm descriptions are complete, accurate and contain enough
@@ -263,79 +238,70 @@ point of the algorithm. </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; The component specification
 is missing a description for any of the algorithms defined in the
 requirements, or external research is required to understand how to
-implement any of the algorithms. </p><p class="scorecardQuestion">Rating 2 &#8211; The component
-specification includes all the algorithms defined in the requirements.
-However, the description contains logical errors or misunderstandings,
-or is generally written in a style that is hard to understand &#8211;
-generally requiring many readings to fully grasp the algorithm. The
-developer may need external research to fully understand the algorithm.
+implement any of the algorithms. </p><p class="scorecardQuestion">Rating 2 &#8211; The component specification includes all the algorithms defined in the requirements. However, the description contains logical errors or easily leads to misinterpretations or is generally written in a style that is hard to understand - generally requiring many readings to fully grasp the algorithm. The developer may need external research to fully understand the algorithm.
 </p><p class="scorecardQuestion">Rating 3 &#8211; The component
 specification includes all the algorithms defined in the requirements
 and optionally any &#8216;complicated&#8217; sections of the design. The
 description is fairly clear with, at most, minor errors and includes
 everything needed by the developer to implement without any external
-research. </p><p class="scorecardQuestion">Rating 4 &#8211; The component
-specification includes all the algorithms defined in the requirements
-and any &#8216;complicated&#8217; sections of the design. The description is clear,
-contains no logical errors, and can be understood from a single
-reading.
+research. </p><p class="scorecardQuestion">Rating 4 &#8211; The component specification includes all the algorithms defined in the requirements and any 'complicated' sections of the design. The description is clear, contains no logical errors, and can be understood from a single reading.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 20
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[1].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[1].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[1].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 20
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[1].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[1].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[1].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The use cases cover all the business requirements as stated in the requirements document.</p>
 
 <p class="scorecardQuestion">The reviewer should be able to take each requirement and find a use case covering it (a single use case may cover multiple requirements). Use cases must not be too high-level or too low-level. Additional functionality beyond the requirements must be covered by use cases as well.</p>
@@ -359,63 +325,63 @@ reading.
 <p class="scorecardQuestion">Rating 2 - A majority (> 49%) of the requirements are covered but at least one requirement is missing and/or the use cases are too high (or low) level in detail as explained above.</p>
 <p class="scorecardQuestion">Rating 3 - All the requirements are covered at a proper level of detail as explained above. </p>
 <p class="scorecardQuestion">Rating 4 - All the requirements are covered at a proper level of detail as explained above, and the designer made proper use of inherited/associations/extend/include semantics.</p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[2].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[2].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[2].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[2].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[2].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[2].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The
 sequence diagrams cover complicated use cases or other complicated
 sequences where the interactions of the objects are not obvious.
 </p><p class="scorecardQuestion">
@@ -453,105 +419,103 @@ and none of the diagrams are incorrect or misleading. This rating
 permits minor issues such as mislabeled methods or mismatched
 parameters or return values to exist in the diagram.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[3].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[3].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[3].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                             
-                        </tbody></table>
-                        <!-- spacer  -->          
-                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[3].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[3].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[3].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       	
+      </tbody></table>
+      <!-- spacer  -->										
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="normal">
+         <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+        </td>
+       </tr>
+      </tbody></table>
+     
+    
+    <!--
+     
+      -->
 
-                    
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="whiteBkgnd">
-                                    Approach Section
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                    
-                        <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
-                            <tbody><tr>
-                                <td class="forumTitle" width="80%">
-                                    <strong>
+     
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="whiteBkgnd">
+         Approach Section
+        </td>
+       </tr>
+      </tbody></table>
+     
+     
+      <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+       <tbody><tr>
+        <td class="forumTitle" width="80%">
+         <strong>
 The answers to the questions should be limited to how good the
 designer&#8217;s approach to designing the component was (in knowing design
 standards, creating an easy to use component that is flexible and
 extendable). </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Weight: 200
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Response
-                                    </strong>
-                                </td>
-                            </tr>
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
-design incorporates standard design patterns and methodologies where
-applicable (e.g. Model-View-Controller, Factory Pattern, Object
-Oriented design principles, follows J2EE specs). </p><p class="scorecardQuestion">
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Weight: 200
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Response
+         </strong>
+        </td>
+       </tr>
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The design incorporates standard design patterns and methodologies where applicable (e.g. Model-View-Controller, Factory Pattern, Object Oriented design principles, follows J2EE specs or Microsoft Design Guidelines for Class Library Developers).
+</p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should determine a few
 things: Are the patterns/methodologies used 'forced' (i.e. is there
 good justification for using the pattern or did the designer force the
@@ -577,63 +541,63 @@ and/or methodologies were used and were identified correctly in the
 component specification. The reviewer should also assign this rating if
 the design, appropriately, does not need any patterns/methodologies.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[4].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[4].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[4].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[4].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[4].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[4].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The design accounts for incorporating future enhancements and/or features beyond the requirements. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The design accounts for incorporating future enhancements and/or features beyond the requirements. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should consider what
 enhancement/features the next version of the component will likely be
@@ -653,63 +617,63 @@ design. </p><p class="scorecardQuestion">Rating 3 &#8211; The design could
 accommodate reasonable enhancements within the general scope of this
 component with multiple simple changes. </p><p class="scorecardQuestion">Rating 4 &#8211; The design could easily accommodate reasonable enhancements to the component.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[5].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[5].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[5].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[5].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[5].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[5].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The component makes effective use of the TopCoder component catalog. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The component makes effective use of the TopCoder component catalog. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should review the
 components recommended in the requirements documentation. The designer
@@ -739,63 +703,67 @@ recommended and likely components that fit the designer&#8217;s approach
 correctly. Likewise, assign this rating if components were
 appropriately not used.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 30
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[6].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[6].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 20
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[6].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[6].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[6].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The component presents an easy-to-use API for the application to use. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The component presents an easy-to-use API for the application to use.
+Class structure and method names make usage of the API apparent to a new
+user. Each method has a singular purpose and causes minimal
+side-effects. Convenience methods should be carefully chosen to simplify
+the overall API. Excessive use of convenience methods should be avoided. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should look at the demo
 section of the component specification to see the designer's vision of
@@ -818,63 +786,63 @@ driven by a single concept, making the API easy to learn. The common
 tasks (as defined by the requirements) are easy to perform using the
 API.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 30
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[7].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[7].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[7].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 30
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[7].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[7].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[7].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The design addresses whether the component is thread safe or not. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The design addresses whether the component is thread safe or not. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should review the
 component specification to see if the designer addresses the thread
@@ -902,66 +870,66 @@ what could be done to make the component thread safe. </p><p class="scorecardQue
 </p><p class="scorecardQuestion">Rating 3 &#8211; The designer mentions thread safety but is incorrect in the reasoning 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The designer mentions thread safety and provides correct arguments to back it up.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[8].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[8].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[8].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[8].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[8].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[8].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The classes are well scoped. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The classes are well scoped. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The reviewer should determine whether
-the classes in the design attempt has too large of a scope (it tries to
+the classes in the design attempt have too large of a scope (it tries to
 do too many tasks) or has too small of a scope (the task was broken
 down into too many classes). A good clue to a violation of this is
 whether the name of the class adequately encompasses the API of the
@@ -982,109 +950,103 @@ Describe in your comments the proposed refactoring, and explain what
 makes the refactored solution preferable to the designer&#8217;s solution.
 </p><p class="scorecardQuestion">Rating 4 &#8211; All classes are scoped well.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[9].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[9].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[9].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                             
-                        </tbody></table>
-                        <!-- spacer  -->          
-                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[9].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[9].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[9].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       	
+      </tbody></table>
+      <!-- spacer  -->										
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="normal">
+         <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+        </td>
+       </tr>
+      </tbody></table>
+     
+    
+    <!--
+     
+      -->
 
-                    
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="whiteBkgnd">
-                                    Design Section
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                    
-                        <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
-                            <tbody><tr>
-                                <td class="forumTitle" width="80%">
-                                    <strong>
+     
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="whiteBkgnd">
+         Design Section
+        </td>
+       </tr>
+      </tbody></table>
+     
+     
+      <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+       <tbody><tr>
+        <td class="forumTitle" width="80%">
+         <strong>
 The answers to the questions should be limited to design fundamentals
 (how well the design was executed). </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Weight: 100
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Response
-                                    </strong>
-                                </td>
-                            </tr>
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">Sub-packages have been defined to separate functionality into maintainable units. 
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Weight: 100
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Response
+         </strong>
+        </td>
+       </tr>
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">Sub-packages have been defined to separate functionality into maintainable units. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">The reviewer should make a
-determination whether classes in the design could be grouped into
-separate packages. This category generally applies to complex
-components or components that allow for functionality to be plugged in
-(where the functionality should justifiably exist in a separate
-package). Note: for pluggable components, the interface,
-implementations and any related abstract bases should be grouped within
-the package. </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should make a determination whether classes in the design could be grouped into separate packages. This category generally applies to complex components or components that allow for functionality to be plugged in (where the functionality should justifiably exist in a separate package).
+</p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; The component is
 sufficiently complex or uses pluggable classes that can justifiably be
 separated into sub-packages and was not. </p><p class="scorecardQuestion">Rating 2 &#8211; The designer separated
@@ -1101,311 +1063,259 @@ when suggesting a sub package be eliminated or added.
 designer appropriately used sub-packages or the design did not need any
 sub-packages.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[10].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[10].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[10].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[10].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[10].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[10].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">Modifiers
-(final, abstract, synchronized, property, virtual, overrides, etc.) and
-scope (private, package, public, etc.) been appropriately used in the
-design in the classes/methods/variables. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Have internally used classes (to the
-component) been defined incorrectly as public? Has a public class
-improperly exposed protected or private members? Are abstract classes
-abstract? It is strongly advised that variables have a private scope
-(not even protected) and only be accessible via getter/setter methods
-(exception would be C#'s property variables). C# reviewers should note
-that Poseidon does not have the proper choices to fully represent the
-C# modifiers and therefore should not be marked down if the designer
-either uses the closest java modifier OR specifies it in the
-documentation tab. Additionally, the effect of the final, virtual and
-other similar modifiers on class extendibility should be considered in
-this question (rather than the future enhancements question).
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">Modifiers (final, abstract, synchronized, property, virtual, overrides, etc.) and scope (private, package, public, etc.) are appropriately used in the design in the classes/methods/variables. Attributes are appropriately used for .Net classes/methods/variables.
+<br><br>
+Have internally used classes been defined incorrectly as public? Has a public class improperly exposed protected or private members? Are classes that are intended to be abstract defined as such in the class diagram? Is the Serializable attribute used in lieu of implementing the ISerializable interface for standard serialization of .Net classes? It is strongly advised that variables have a private scope and only be accessible via get/set methods or C#'s property variables. C# reviewers should note that Poseidon does not have the proper choices to fully represent the C# modifiers and therefore should not be marked down if the designer either uses the closest java modifier OR specifies it in the documentation tab. Additionally, the effect of the final, virtual and other similar modifiers on class extendibility should be considered in this question. Each class and method should be designed for extension or marked as final.  This question addresses the logical aspect of providing the modifiers, not the presentation. When there are multiple ways to convey a modifier, not using all of them is considered a presentation issue. An abstract class must have an abstract checkbox on the attributes page, an abstract stereotype and a color of the abstract class. Any of the three methods is sufficient to convey that the class is abstract.
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">This question addresses the logical
-aspect of providing the modifiers, not the presentation of it. When
-there are multiple ways to convey a modifier, not using all of them is
-considered a presentation issue. For example, an abstract class must
-have an abstract checkbox on the attributes page, an abstract
-stereotype, and a color of the abstract class. Any of the three methods
-is sufficient to convey that the class is abstract for the purposes of
-this question.
-</p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; The designer demonstrates
-obvious lack of understanding or ignores modifiers fully. For example,
-variables with accessor methods are declared public, or key methods of
-the API are declared private. </p><p class="scorecardQuestion">Rating 2 &#8211; The design misidentifies a majority (&gt;49%) of the modifiers or scope. 
-</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (&lt;49%) of modifiers or scope. 
+</p><p class="scorecardQuestion">Rating 1 &#8211; The design demonstrates obvious lack of understanding or ignores modifiers fully. For example, variables with accessor methods are declared public or key methods of the API are declared private.
+</p><p class="scorecardQuestion">Rating 2 &#8211; The design misidentifies a majority (>49%) of the modifiers or scope. 
+</p><p class="scorecardQuestion">Rating 3 &#8211; The designer misidentifies a minority (<49%) of modifiers or scope. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The designer identifies the modifiers/scope appropriately.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[11].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[11].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[11].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[11].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[11].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[11].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">Custom exceptions been appropriately defined and do not cover multiple, unrelated reasons. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">Custom exceptions been appropriately defined and do not cover multiple, unrelated reasons. 
+</p><p class="scorecardQuestion">Custom exceptions are appropriately defined and do not cover multiple, unrelated reasons. .Net Custom exceptions follow the Microsoft Design Guidelines on defining custom exceptions and have the appropriate constructors and are marked as Serializable.
+</p><p class="scorecardQuestion">Has the designer appropriately reused existing system exceptions and appropriately defined custom exceptions for the rest? The reviewer should also imagine they were using this component in an application. If a custom exception is thrown, does it give enough information to the application to react appropriately? Example: an inappropriate custom exception would be some high level exception that is thrown for multiple, unrelated, reasons.
+</p><p class="scorecardQuestion">Please note that TopCoder Software has decided that java components should not throw NullPointerException.  When null is illegally passed to a method which doesn't accept it, Java components should throw IllegalArgumentException and C# components should throw ArgumentNullException.
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Has the designer appropriately reused
-existing system exceptions and appropriately defined custom exceptions
-for the rest? The reviewer should also imagine they were using this
-component in an application. If a custom exception is thrown, does it
-give enough information to the application to react appropriately?
-Example: an inappropriate custom exception would be some high level
-exception that is thrown for multiple, unrelated, reasons. Please note
-that TopCoder Software has decided that null arguments are represented
-by the null specific exception (NullPointerException and
-ArgumentNullException) and not the more generic
-IllegalArgumentException. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; Appropriate custom
-exceptions were not defined or a single generic exception is used
-throughout the component for every custom reason. </p><p class="scorecardQuestion">Rating 2 &#8211; Appropriate custom
-exceptions were defined but for multiple, unrelated reasons or system
-exceptions were reused inappropriately (this does not include the above
-null argument exception note). </p><p class="scorecardQuestion">Rating 3 &#8211; Custom exceptions were
-used appropriately for multiple, related reasons but do not give
-specific reason details beyond the included text or the design
-inappropriately identified a null argument exception. </p><p class="scorecardQuestion">Rating 4 &#8211; Custom exceptions were
-used appropriately and give reason details beyond simple text. Custom
-exceptions were used appropriately and for a single specific reason
-alone. Custom exceptions were not appropriate for this design.
+</p><p class="scorecardQuestion">Rating 1 &#8211; System exceptions were re-used where a specific custom exception should have been defined. Appropriate custom exceptions were not defined or a single generic exception is used throughout the component for every custom reason.
+</p><p class="scorecardQuestion">Rating 2 &#8211; Appropriate custom exceptions were defined but for multiple, unrelated reasons or system exceptions were reused inappropriately.
+</p><p class="scorecardQuestion">Rating 3 &#8211; Custom exceptions were used appropriately for multiple, related reasons but do not give specific reason details beyond the included text or the design inappropriately identified a null argument exception.
+</p><p class="scorecardQuestion">Rating 4 &#8211; System exceptions were reused appropriately. Custom exceptions were used appropriately and give reason details beyond simple text. Custom exceptions were used appropriately and for a single specific reason alone. Custom exceptions were not appropriate for this design.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[12].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[12].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[12].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[12].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[12].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[12].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">Type assignments have been used appropriately for method arguments, variables and return types. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">Type assignments have been used appropriately for method arguments, variables and return types. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Are the type assignments correct and
-what you'd expect? Are the Collection interfaces used appropriately? If
-an actual array is used, is there justification why a Collection
-interface is not used? An issue to check for: if the return type is a
-Collection &#8211; make sure it's a clone (or similar) of the internal
-Collection to avoid exposing an internally protected field. Please note
-that TopCoder Software has made determination to prefer collection
-interfaces to arrays in all instances except where justified
-(presumably because of performance or overhead reasons and where either
-standard implementations or custom implementations would not provide
-the characteristics needed). </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; A majority (&gt;49%) of
-types are used incorrectly (not including array to collection stuff).
-That is, a string used where an integer should be etc. </p><p class="scorecardQuestion">Rating 2 &#8211; At least one type is used incorrectly (same limitation as Rating 1). 
+Are the type assignments correct and what you'd expect?  Are the method signatures as descriptive as possible?  Are method parameters and return value object types statically identified, or is the user expected to cast to the appropriate type?  Please note that TopCoder Software has made determination to prefer statically defined parameter and return values rather than to require the component user to cast objects to the appropriate type.  When Collections are used, are they used appropriately?  Was the best (in terms of performance and overhead) Collection implementation used for the component's internal representation?
+</p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Rating 1 &#8211; A majority (>49%) of types are used incorrectly (not including array to collection stuff). That is, a string used where an integer should be etc.
+</p><p class="scorecardQuestion">Rating 2 &#8211; At least one type is used incorrectly (same limitation as Rating 1). 
 </p><p class="scorecardQuestion">Rating 3 &#8211; The types are appropriate and arrays are used where collections should have been. 
-</p><p class="scorecardQuestion">Rating 4 &#8211; The types are appropriate
-and the collection interfaces are used where appropriate (i.e. arrays
-are used when justified).
+</p><p class="scorecardQuestion">Rating 4 &#8211; The types are appropriate and the collection interfaces are used where appropriate (i.e. arrays are used when justified). Method parameters and return types are statically identified.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[13].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[13].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[13].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[13].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[13].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[13].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The
 relationships between classes within the component and between the
 component and external entities (other components, system classes) have
 been appropriately defined. </p><p class="scorecardQuestion">
@@ -1416,7 +1326,7 @@ doing associations are appropriate: </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">a) Define a variable for the association, draw the association and label it with the variable. 
 </p><p class="scorecardQuestion">b) Define the association and label it with a variable name &#8211; no variable needs to be shown for the relationship in the class. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Please note that extends/implement
+</p><p class="scorecardQuestion">Please note that extends/implements
 associations do not need the realization/generalization stereotypes
 assigned to them since the type of relationship inherently defines
 that.
@@ -1439,63 +1349,63 @@ relationships between internal classes and external entities (both
 TopCoder components and system classes) and all association attributes
 are correct.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 25
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[14].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[14].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[14].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 25
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[14].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[14].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[14].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The classes, methods and variables are named appropriately. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The classes, methods and variables are named appropriately. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Does the name provide a hint as to
 what the function of the entity is? Does the name follow system
@@ -1520,148 +1430,146 @@ for this rating. </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">- Public variables or protected variables on public or protected classes 
 </p><p class="scorecardQuestion">- Public methods or protected methods on public or protected classes
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[15].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[15].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[15].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[15].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[15].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[15].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The design made proper use of the language&#8217;s features. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The design made proper use of the language&#8217;s features. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Does the designer duplicate
-functionality that is already provided by the language? Are properties,
-delegates, interfaces, inheritance, networking, etc. used
-appropriately? </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">Does the designer duplicate functionality that is already provided by the language? Are properties, delegates, interfaces, inheritance, networking, etc. used appropriately? Does the design pay attention to releasing the non-used resources, for example by using the .Net Dispose pattern?
+</p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; Language features are consistently ignored. 
 </p><p class="scorecardQuestion">Rating 2 &#8211; Language features are inconsistently ignored or consistently misused. 
 </p><p class="scorecardQuestion">Rating 3 &#8211; Language features are incorporated consistently and occasionally misused or abused. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; Language features are used correctly.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[16].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[16].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                             
-                        </tbody></table>
-                        <!-- spacer  -->          
-                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[16].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[16].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[16].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       	
+      </tbody></table>
+      <!-- spacer  -->										
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="normal">
+         <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+        </td>
+       </tr>
+      </tbody></table>
+     
+    
+    <!--
+     
+      -->
 
-                    
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="whiteBkgnd">
-                                    Documentation Section
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                    
-                        <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
-                            <tbody><tr>
-                                <td class="forumTitle" width="80%">
-                                    <strong>
+     
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="whiteBkgnd">
+         Documentation Section
+        </td>
+       </tr>
+      </tbody></table>
+     
+     
+      <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+       <tbody><tr>
+        <td class="forumTitle" width="80%">
+         <strong>
 The answers to the questions should be limited to how well the design
 was documented. This largely means how easy will it be to take the
 design and develop it. Please note that the reviewer should assign a 4
@@ -1670,31 +1578,28 @@ disregard whether the designer used HTML tags, properly line wrapped or
 even if the document is not well formed (ie HTML errors) in the
 documentation tab(s). The documentation is for the developer only and
 will not be used for presentation purposes. </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Weight: 250
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Response
-                                    </strong>
-                                </td>
-                            </tr>
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Weight: 250
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Response
+         </strong>
+        </td>
+       </tr>
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The
 class documentation in the 'Documentation' tab of Poseidon provides a
 high-level description of the class, its role in the overall design and
 all relevant information to the developer. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">The reviewer should look at this from
-a component developer standpoint and not an application developer
-standpoint. This is not javadoc on how to use the class. This should
-contain helpful information to the developer on how to develop the
-class and if the class is mutable or not. </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should look at this from a component developer standpoint and not an application developer standpoint. This is not API documentation (e.g. javadoc) on how to use the class. This should contain helpful information to the developer on how to develop the class and if the class is mutable or not.
+</p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; Documentation is consistently missing or consistently unhelpful. 
 </p><p class="scorecardQuestion">Rating 2 &#8211; Documentation is missing in at least one class or consistently provides little help to the developer. 
 </p><p class="scorecardQuestion">Rating 3 &#8211; Documentation is complete
@@ -1703,141 +1608,135 @@ answer additional questions by the developer. </p><p class="scorecardQuestion">R
 and provides full details to the developer (the developer will likely
 not require any additional information from the designer).
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[17].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[17].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[17].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[17].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-<p class="scorecardQuestion">The method documentation in the 'Documentation' tab of Poseidon provides detailed description of the method's scope, parameters (including what is considered valid or not), return type (range, nulls, etc.) and any exceptions that may be thrown. Properties, delegates, indexers and events of C# are considered methods for the purpose of this question.</p>
-<p class="scorecardQuestion">This documentation is for the component developer, not the component users. It is not javadoc on how to use the method. It should contain helpful information to the developer on how to write the method and what are its constraints. Examples of argument values are not required. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not required (nor even recommended). Algorithms and complex validation (such as with a regex pattern) should be explained only in the free form text. The reviewer should assume that any variable (null, empty string, int range, etc) is valid/invalid if not specifically denoted as an invalid/valid by the exceptions text or other free form information. Also note that specifying 'raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.</p>
-<p class="scorecardQuestion">For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.</p>
-<p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful. </p>
-<p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method documentation or consistently provides little help to the developer. </p>
-<p class="scorecardQuestion">Rating 3 - Documentation is complete and adequate to develop the component but requires the designer to answer additional questions by the developer. </p>
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+<p class="scorecardQuestion">The 'Documentation' tab of Poseidon provides detailed description of each method's scope and parameters including what is considered valid, return type (range, nulls, etc.) and any exceptions that may be thrown. C# Properties, delegates, indexers and events are considered methods for this question.
+<br><br>
+This documentation is for the component developer, not the component users. It should contain information which is helpful to the developer on how to write the method and its constraints. The designer does not have to explicitly say what is considered valid if this information is already contained elsewhere (in the tags or in the free-form text). Duplicating the valid/invalid information and exception information in both the documentation tags and free form text is not recommended. Algorithms and complex validation should be explained only in the free form text. The reviewer should assume that any value is valid/invalid if not specifically denoted as such by the exceptions text or free form information. Also note that specifying 'raised signals’ in Poseidon is not required if the exception has been clearly denoted in the documentation tags or free form text.
+<br><br>
+Algorithms and complex validation should be explained only in the free form text. Note that specifying ‘raised signals’ in Poseidon is not required if the exception has been identified in the documentation tags or free form text. For C# designs, the reviewer should verify that property setters handle argument validation and throw appropriate exceptions.
+</p>
+<p class="scorecardQuestion">Rating 1 - Documentation is consistently missing or unhelpful.</p>
+<p class="scorecardQuestion">Rating 2 - Documentation is missing in at least one method's documentation or consistently provides little help to the developer.</p>
+<p class="scorecardQuestion">Rating 3 - Documentation is complete and adequate to develop the component but requires the designer to answer additional questions by the developer.</p>
 <p class="scorecardQuestion">Rating 4 - Documentation is complete and provides full details to the developer (the developer will likely not require any additional information from the designer).</p>
 </td>
 
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 25
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[18].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[18].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[18].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 25
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[18].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[18].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[18].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The
 variable documentation in the 'Documentation' tab of Poseidon provides
 a detailed description of the variable's scope, intended usage and
 potential range of values. </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">The reviewer should look at this from
-a component developer standpoint and not an application developer
-standpoint. This is not javadoc on how to use the variable. This should
-contain helpful information to the developer on how to use the variable
-and what constraints (null, range, etc.) the variable will have. The
-designer should mention if the value is mutable, is set in the
-constructor and potentially where it will be modified and/or used. An
-initial value is not required unless appropriate for the variable
-(where it&#8217;s a constant or needs to be initially set to a certain value
-to ensure properly operation of the class [with proper documentation to
-denote why]). </p><p class="scorecardQuestion">
+</p><p class="scorecardQuestion">The reviewer should look at this from a component developer standpoint and not an application developer standpoint. This should contain helpful information to the developer on how to use the variable and what constraints (null, range, etc.) the variable will have. The designer should mention if the value is mutable, is set in the constructor and potentially where it will be modified and/or used. An initial value is not required unless appropriate for the variable (where it's a constant or needs to be initially set to a certain value to ensure properly operation of the class [with proper documentation to denote why]).
+</p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The variable constraints only need to
 be included where they may differ from those defined by any associated
 getters/setters (whether they be method or property based).
@@ -1850,138 +1749,136 @@ elements are allowed).
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Rating 1 &#8211; Documentation is consistently missing or unhelpful. 
 </p><p class="scorecardQuestion">Rating 2 &#8211; Documentation is missing in
-at least one variable documentation or consistently provides little
+at least one variable's documentation or consistently provides little
 help to the developer. </p><p class="scorecardQuestion">Rating 3 &#8211; Documentation is complete
 and adequate to develop the component but requires the designer to
 answer additional questions by the developer. </p><p class="scorecardQuestion">Rating 4 &#8211; Documentation is complete
 and provides full details to the developer (the developer will likely
 not require any additional information from the designer).
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[19].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[19].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[19].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[19].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[19].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[19].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The sequence diagrams provide sufficient detail for the developer to understand the interactions between classes. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The sequence diagrams provide sufficient detail for the developer to understand the interactions between classes. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The sequence diagrams should demonstrate to an adequate degree what interactions occur as a result of a method call. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; Sequence diagrams do not
-show sufficient details useful to a developer (e.g. they show the API
-call from the application but nothing beyond that). </p><p class="scorecardQuestion">Rating 2 &#8211; The sequence diagrams show some interaction but not enough to be able to develop from. 
+</p><p class="scorecardQuestion">Rating 1 &#8211; Demo section is missing or the existing demo section contains non-compilable errors (don't actually try to compile it - just view it to make sure it looks correct).</p><p class="scorecardQuestion">Rating 2 &#8211; The sequence diagrams show some interaction but not enough to be able to develop from. 
 </p><p class="scorecardQuestion">Rating 3 &#8211; The sequence diagrams show enough detail to give the developer an idea of what occurs on the method call. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The sequence diagrams
 clearly show the detail of what occurs on the method call and
 potentially provides helpful notes on things that cannot be displayed
 visually in the diagram.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[20].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[20].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[20].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 10
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[20].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[20].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[20].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
 <p class="scorecardQuestion">The component specification contains a comprehensive demo section.</p>
 <p class="scorecardQuestion">Is the demo section complete? Was it written to promote the component to potential users?</p>
 <p class="scorecardQuestion">The demo section is not a reference implementation or a set of unit tests. It should give the reader a quick, concise demonstration of the major functionality of the component. "Major functionality" is defined as the requirements specified in the requirements documentation.</p>
@@ -1997,63 +1894,63 @@ b) Date todayPlusOne = todays date plus 1 day
 <p class="scorecardQuestion">Rating 2 - The demo section demonstrates some but not all of the requirements or the demo section demonstrates class/methods/variables that don't exist in the design (probably were never updated).</p>
 <p class="scorecardQuestion">Rating 3 - The demo section demonstrates each of the requirements correctly.</p>
 <p class="scorecardQuestion">Rating 4 - The demo section demonstrates each of the requirements correctly in a clear fashion using a likely customer scenario (i.e. sets up a scenario that is similar to what a user of the component would see) or demonstrates extra functionality or flexibility.</p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 20
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[21].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[21].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[21].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 20
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[21].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[21].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[21].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The component specification contains no grammatical or spelling errors. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The component specification contains no grammatical or spelling errors. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Was it written in a way that is easily
 understandable and doesn't require multiple readings to understand?
@@ -2085,63 +1982,63 @@ occasional unconventional wording or a few grammar mistakes, the
 document provides significant help to anyone trying to understand or
 implement the component.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 5
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[22].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[22].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[22].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                            
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 5
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[22].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[22].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[22].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       
+    
+    <!--
+     
+      -->
 
-                    
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">The presentation of the diagrams and specification was professional. 
+     
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">The presentation of the diagrams and specification was professional. 
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">Did the designer make use of fonts and
 colors to appropriately denote elements in the diagrams? Was the
@@ -2164,203 +2061,203 @@ professional, and polished, and contributes to understanding the
 design. Minor errors (such as coloring, font size, etc.) are acceptable
 for this rating.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 15
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[23].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[23].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[23].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                             
-                        </tbody></table>
-                        <!-- spacer  -->          
-                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                
-                <!--
-                    
-                  -->
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 15
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[23].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[23].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[23].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       	
+      </tbody></table>
+      <!-- spacer  -->										
+      <table border="0" cellpadding="2" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="normal">
+         <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+        </td>
+       </tr>
+      </tbody></table>
+     
+    
+    <!--
+     
+      -->
 
-                    
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="whiteBkgnd">
-                                    Overall Comments
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                    
-                        <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
-                            <tbody><tr>
-                                <td class="forumTitle" width="80%">
-                                    <strong>
-                                        Overall Comments
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Weight: 150
-                                    </strong>
-                                </td>
-                                <td class="forumTitleCenter" width="10%">
-                                    <strong>
-                                        Response
-                                    </strong>
-                                </td>
-                            </tr>
-                    
-                            
-                            <tr>
-                                <td class="forumTextOdd" width="80%">
-                                    <p class="scorecardQuestion">Overall, this is a quality design that meets all requirements. 
+     
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+       <tbody><tr>
+        <td class="whiteBkgnd">
+         Overall Comments
+        </td>
+       </tr>
+      </tbody></table>
+     
+     
+      <table class="forumBkgd" align="center" border="0" cellpadding="0" cellspacing="1" width="100%">
+       <tbody><tr>
+        <td class="forumTitle" width="80%">
+         <strong>
+          Overall Comments
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Weight: 150
+         </strong>
+        </td>
+        <td class="forumTitleCenter" width="10%">
+         <strong>
+          Response
+         </strong>
+        </td>
+       </tr>
+     
+       
+       <tr>
+        <td class="forumTextOdd" width="80%">
+         <p class="scorecardQuestion">Overall, this is a quality design that meets all requirements. 
 </p><p class="scorecardQuestion">Please detail any additional comments
 regarding the component design. The reviewer must include their
 reasoning for assigning anything but a perfect score in this category.
 </p><p class="scorecardQuestion"></p>
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 100
-                                </td>
-                                <td class="forumTextOdd" valign="top" width="10%">
-                                    
-                                    
-                                        <select name="questions[24].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
-                                    
-                                </td>
-                            </tr>
-                            
-                                
-                                    <tr>
-                                        <td colspan="2">
-                                            <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                
-                                                <tbody><tr>
-                                                    <td class="forumTextOdd" nowrap="nowrap" width="15%">
-                                                        <strong>
-                                                            Response 1:
-                                                        </strong>
-                                                    </td>
-                                                    <td class="forumTextOdd" width="60%">
-                                                        <textarea name="questions[24].responses[0].responseText" cols="65" rows="2"></textarea>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
-                                                        <select name="questions[24].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                        <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
-                                                    </td>
-                                                    <td class="forumTextOdd" valign="middle" width="5%">
-                                                        
-                                                            
-                                                            <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
-                                                                              
-                                                    </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </td>
-                                    </tr>
-                                
-                            
-                             
-                        </tbody></table>
-                        <!-- spacer  -->          
-                        <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                            <tbody><tr>
-                                <td class="normal">
-                                    <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    
-                
-            </td>
-        </tr>
-
-        <!-- Bottom Buttons --> 
-        <tr>
-            <td class="lightBkgnd" align="center">
-                <table border="0" cellpadding="0" cellspacing="4">
-                    <tbody><tr>
-                        
-
-                        <td>
-                            <input name="submit" value="Save and Mark as Complete" onclick="" class="submitButton" type="submit">
-                        </td>
-                    </tr>
-                </tbody></table>
-            </td>
-        </tr>
-    
-</tbody></table>
-<!-- spacer  -->          
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         Weight: 100
+        </td>
+        <td class="forumTextOdd" valign="top" width="10%">
+         
+         
+          <select name="questions[24].evaluation" class="searchForm"><option value="Answer">Answer</option><option value="1 - Strongly Disagree">1 - Strongly Disagree</option><option value="2 - Somewhat Agree">2 - Somewhat Agree</option><option value="3 - Agree">3 - Agree</option><option value="4 - Strongly Agree">4 - Strongly Agree</option></select>
+         
+        </td>
+       </tr>
+       
+        
+         <tr>
+          <td colspan="2">
+           <table class="whiteBkgnd" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+            
+            <tbody><tr>
+             <td class="forumTextOdd" nowrap="nowrap" width="15%">
+              <strong>
+               Response 1:
+              </strong>
+             </td>
+             <td class="forumTextOdd" width="60%">
+              <textarea name="questions[24].responses[0].responseText" cols="65" rows="2"></textarea>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="15%">&nbsp;
+              <select name="questions[24].responses[0].responseType"><option value="Recommended">Recommended</option><option value="Required">Required</option><option value="Comment">Comment</option></select>
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+              <input name="submit" value="Delete" onclick="" class="submitButton" type="submit">
+             </td>
+             <td class="forumTextOdd" valign="middle" width="5%">
+              
+               
+               <input name="submit" value="Add" onclick="" class="submitButton" type="submit">
+              				  		  
+             </td>
+            </tr>
+           </tbody></table>
+          </td>
+         </tr>
+        
+       
+       	
+      </tbody></table>
+      <!-- spacer  -->										
       <table border="0" cellpadding="2" cellspacing="0" width="100%">
        <tbody><tr>
-        <td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
+        <td class="normal">
+         <img src="http://software.topcoder.com/images/clear.gif" alt="" border="0" height="5" width="1">
+        </td>
        </tr>
       </tbody></table>
- </td></tr>
-</tbody></table>
+     
     
+   </td>
+  </tr>
+
+  <!-- Bottom Buttons -->	
+  <tr>
+   <td class="lightBkgnd" align="center">
+    <table border="0" cellpadding="0" cellspacing="4">
+     <tbody><tr>
+      
+
+      <td>
+       <input name="submit" value="Save and Mark as Complete" onclick="" class="submitButton" type="submit">
+      </td>
+     </tr>
+    </tbody></table>
+   </td>
+  </tr>
+ 
+</tbody></table>
+<!-- spacer  -->										
+		 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+		 	<tbody><tr>
+		 		<td class="normal"><img src="/i/clear.gif" alt="" border="0" height="5" width="1"></td>
+		 	</tr>
+		 </tbody></table>
+	</td></tr>
+</tbody></table>
+				
 
 <!-- Content ends-->
-        
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody><tr><td height="15"><img src="/i/clear.gif" alt="" border="0" height="15" width="10"></td></tr>
-            </tbody></table>
-        </td>
+  
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr><td height="15"><img src="/i/clear.gif" alt="" border="0" height="15" width="10"></td></tr>
+   </tbody></table>
+  </td>
 <!--Middle Column ends -->
 
 <!-- Gutter 2 begins -->
-        <td width="15"><img src="/i/clear.gif" alt="" border="0" height="10" width="15"></td>
+  <td width="15"><img src="/i/clear.gif" alt="" border="0" height="10" width="15"></td>
 <!-- Gutter 2 ends -->
 
-    </tr>
+ </tr>
 </tbody></table>
 
 </body></html>
