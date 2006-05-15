@@ -25,22 +25,24 @@
 
     <%--Demographics--%>
     <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
-    <rt:questionIterator id="assignment" list="${demographicAssignments}">
-        <p>
-            <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
-                <br/></tc-webtag:errorIterator>
-        </p>
+    <c:if test="${cf:contains(fields, demogPrefix)}">
+        <rt:questionIterator id="assignment" list="${demographicAssignments}">
+            <p>
+                <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
+                    <br/></tc-webtag:errorIterator>
+            </p>
 
-        <p>
-            <c:if test="${assignment.required}">
-                *
-            </c:if>
-                ${assignment.question.text}
-            :
-            <rt:demographicInput question="${assignment.question}"/>
+            <p>
+                <c:if test="${assignment.required}">
+                    *
+                </c:if>
+                    ${assignment.question.text}
+                :
+                <rt:demographicInput question="${assignment.question}"/>
 
-        </p>
-    </rt:questionIterator>
+            </p>
+        </rt:questionIterator>
+    </c:if>
 
 
     <%--School widget--%>
