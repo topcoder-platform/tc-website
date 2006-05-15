@@ -75,11 +75,11 @@
             <SELECT NAME="<%=Constants.GPA_SCALE%>">
                 <OPTION value=""></OPTION>
                 <c:choose>
-                    <c:when test="${user.coder.gpaScale==4}"><OPTION value="4.00" selected="true"/></c:when>
+                    <c:when test="${regUser.coder.gpaScale==4}"><OPTION value="4.00" selected="true"/></c:when>
                     <c:otherwise><OPTION value="4.00"/></c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test="${user.coder.gpaScale==5}"><OPTION value="5.00" selected="true"/></c:when>
+                    <c:when test="${regUser.coder.gpaScale==5}"><OPTION value="5.00" selected="true"/></c:when>
                     <c:otherwise><OPTION value="5.00"/></c:otherwise>
                 </c:choose>
             </SELECT>
