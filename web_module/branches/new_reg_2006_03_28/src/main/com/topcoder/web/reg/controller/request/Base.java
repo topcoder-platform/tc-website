@@ -70,6 +70,8 @@ abstract class Base extends BaseProcessor {
                 HttpSession s =getRequest().getSession(true);
                 if (!s.isNew()) {
                     s.setAttribute(HIBERNATE_SESSION_KEY, null);
+                } else {
+                    log.debug("XXXXX we got a new session");
                 }
 
                 log.debug("<<< End of conversation");
@@ -182,7 +184,12 @@ abstract class Base extends BaseProcessor {
      * @param u
      */
     protected void setRegUser(User u) {
-        log.debug("setting user");
+        if (u==null) {
+            log.debug("setting user to null");
+        } else {
+            log.debug("setting user to something other than null");
+        }
+
         this.user = u;
         getRequest().getSession().setAttribute(Constants.USER, user);
     }
