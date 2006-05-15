@@ -31,7 +31,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/movies/press/cnbc_051506.mov">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies">TCO06 movies</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506016" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
          
    </td></tr>

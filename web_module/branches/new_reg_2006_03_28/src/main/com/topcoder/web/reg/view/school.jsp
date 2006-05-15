@@ -33,7 +33,7 @@
          <input type="radio" name="schooltype" value="highschool" >High School
          <input type="radio" name="schooltype" value="college" >College
          <br><br>
-         <A href="">Search</A>
+         <A href="schoolResults.jsp">Search</A>
       </div>
 
 
