@@ -27,8 +27,10 @@ Please select your school from list below and click Submit:
       <div align="center">
          <A href="">Submit</A>
       </div>
-
-
+<br><br>
+<strong>OR</strong>
+<br><br>
+If your school is not in the list above, click <A href="">here</A>.
    </div>
 </div>
 </body>
