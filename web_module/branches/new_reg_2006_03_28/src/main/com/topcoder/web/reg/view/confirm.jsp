@@ -178,14 +178,9 @@
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
     <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
-        <tr>
-            <td align="right">
-                <rt:demographicQuestionText response="${resp}"/>
-            </td>
-            <td align="left">
-                <rt:demographicAnswerText response="${resp}"/>
-            </td>
-        </tr>
+        <p><rt:demographicQuestionText response="${resp}"/> :
+            <rt:demographicAnswerText response="${resp}"/>
+        </p>
     </rt:responseIterator>
 
 </c:if>
