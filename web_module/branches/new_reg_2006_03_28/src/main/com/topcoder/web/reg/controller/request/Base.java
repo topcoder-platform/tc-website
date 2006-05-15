@@ -178,6 +178,7 @@ abstract class Base extends BaseProcessor {
      * @param u
      */
     protected void setRegUser(User u) {
+        log.debug("setting user");
         this.user = u;
         getRequest().getSession().setAttribute(Constants.USER, user);
     }
