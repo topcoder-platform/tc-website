@@ -22,7 +22,7 @@ public class DemogFreeFormValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         Address a = u.getHomeAddress();
         if (a == null || a.getState() == null || !a.getState().isOptionalDemographics()) {
-            ValidationResult eret = new NonEmptyValidator("Please response to this question.").validate(input);
+            ValidationResult eret = new NonEmptyValidator("Please respond to this question.").validate(input);
             if (eret.isValid()) {
                 return new SizeValidator(1, Constants.MAX_DEMOG_RESPONSE_LENGTH, "response").validate(input);
             } else {
