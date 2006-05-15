@@ -69,20 +69,37 @@ function submitEnter(e) {
 <td width="100%" align="center" class="bodyColumn">
 
 <div class="fixedWidthBody">
-   <div align="center">
 
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
     <jsp:include page="/page_title.jsp" >
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="digital_run"/>
     <jsp:param name="title" value="Development Cup Series Leaderboard"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="/page_title.jsp" >
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="digital_run"/>
     <jsp:param name="title" value="Design Cup Series Leaderboard"/>
     </jsp:include>
 <% } %>
 
+
+<div style="float:right; text-align:left; whitespace: no-wrap;">
+<A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
+<A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+</div>
+<% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Leaderboard</a><br>
+Development Leaderboard</a><br>
+<% } else { %>
+Design Leaderboard<br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Leaderboard</a><br>
+<% } %>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design ROTY Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development ROTY Leaderboard</a>
+
+<br><br>
+
+<div align="center">
         <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
            <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
@@ -101,10 +118,11 @@ function submitEnter(e) {
                </rsc:iterator>
            </SELECT>
 
-<div class="pagingBox">
+<div class="pagingBox" style="width:300px;">
 <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
 | <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
 </div>
+
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
@@ -138,14 +156,12 @@ Design Cup Series Leaderboard
    </rsc:iterator>
 </table>
 
-<div class="pagingBox">
-View &#160;
-<tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-&#160;at a time starting with &#160;
+<div class="pagingBox" style="width:300px;">
+View <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+at a time starting with 
 <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-<a href="javascript:document.leaderBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
+<a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
-
 
    </div>
 </div>
