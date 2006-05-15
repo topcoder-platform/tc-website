@@ -2,6 +2,7 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.reg.model.User;
 
 /**
@@ -13,7 +14,9 @@ public class Submit extends Base {
 
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
-        if ((getRegUser() != null && u.isNew()) || userLoggedIn()) {
+        if (getRegUser() == null) {
+            throw new NavigationException("Sorry, your session has timed out.");
+        } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
 
             getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));

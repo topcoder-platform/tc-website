@@ -22,6 +22,7 @@ public class Confirm extends Base {
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has timed out.");
         } else if (u.isNew() || userLoggedIn()) {
+            
             Map params = getSecondaryUserInput();
 
             checkSecondaryFields(params);
