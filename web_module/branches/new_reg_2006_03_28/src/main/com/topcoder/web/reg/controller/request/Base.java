@@ -164,7 +164,8 @@ abstract class Base extends BaseProcessor {
     }
 
     protected void clearSession() {
-        getRequest().getSession().invalidate();
+        getRequest().getSession().setAttribute(Constants.USER, null);
+        getRequest().getSession().setAttribute(Constants.REG_TYPES, null);
     }
     /**
      * Set the reg user in the current request processor.  This is generally
