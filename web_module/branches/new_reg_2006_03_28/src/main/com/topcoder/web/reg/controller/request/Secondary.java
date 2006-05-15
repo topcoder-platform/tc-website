@@ -43,20 +43,13 @@ public class Secondary extends Base {
             } else {
                 //set the fields in the user object
                 loadFieldsIntoUserObject(fields, params);
-
-                //load up data for the secondary reg page
-
-                //load up demographic questions
-
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
                 if (!u.isNew()) {
                     setDemographicDefaults(u);
-
-                    getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
-
-                    setNextPage("/secondary.jsp");
-                    setIsNextPageInContext(true);
                 }
+                getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+                setNextPage("/secondary.jsp");
+                setIsNextPageInContext(true);
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
