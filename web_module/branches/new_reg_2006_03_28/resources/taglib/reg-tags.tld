@@ -51,7 +51,7 @@
 
     <tag>
         <name>responseIterator</name>
-        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tag-class>com.topcoder.web.common.tag.IteratorTag</tag-class>
         <tei-class>com.topcoder.web.reg.view.tag.DemographicResponseIteratorTagInfo</tei-class>
         <body-content>JSP</body-content>
         <attribute>
@@ -60,7 +60,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>list</name>
+            <name>collection</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

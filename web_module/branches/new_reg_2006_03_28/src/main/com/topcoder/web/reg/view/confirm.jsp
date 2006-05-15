@@ -177,7 +177,7 @@
 <%--Demographics--%>
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
-    <rt:responseIterator id="resp" list="${regUser.demographicResponses}">
+    <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
         <tr>
             <td align="right">
                 <rt:demographicQuestionText response="${resp}"/>
