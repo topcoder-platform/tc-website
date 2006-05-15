@@ -16,9 +16,16 @@
 
       <span class="subtitle">Results</span>
       <br><br>
+Please select your school from list below and click Submit:
+<select name="schoolSelection" size="4" multiple="multiple">
+<option value="001">University of Connecticut</option>
+<option value="002">University of Rhode Island</option>
+<option value="003">Massachusetts Institute of Technology</option>
+<option value="004">Electronic Engineering Polytechnic Insitute of Surabaya - Institute Technology of Sepuluh Nopember</option>
+</select>
 
       <div align="center">
-         <A href="">Search</A>
+         <A href="">Submit</A>
       </div>
 
 
