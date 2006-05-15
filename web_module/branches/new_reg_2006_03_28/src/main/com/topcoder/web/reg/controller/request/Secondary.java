@@ -20,7 +20,7 @@ public class Secondary extends Base {
 
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
-        if (getRegUser() == null) {
+        if (u == null) {
             throw new NavigationException("Sorry, your session has timed out.");
         } else if (u.isNew() || userLoggedIn()) {
             Map params = getMainUserInput();

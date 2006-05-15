@@ -151,14 +151,18 @@ abstract class Base extends BaseProcessor {
             if (userLoggedIn()) {
                 user = (User) getRequest().getSession().getAttribute(Constants.USER);
                 if (user == null) {
+                    log.debug("get user from the dao");
                     user = new UserDAOHibernate().find(new Long(getUser().getId()));
                     if (user != null) {
-                        getRequest().getSession().setAttribute(Constants.USER, user);
-                        log.debug("get user from the dao");
+                        setRegUser(user);
+                    } else {
+                        throw new RuntimeException("Couldn't find user " + getUser().getId() + " in the database");
                     }
                 } else {
                     log.debug("got user from session");
                 }
+            } else {
+                log.debug("not logged in and user is null");
             }
         } else {
             log.debug("got user from processor");
