@@ -186,9 +186,6 @@
 </c:if>
 
 
-<%--School widget--%>
-<p><a href="Javascript:openWin('school.jsp','school',350,450);">school</a></p>
-
 <%--Resume--%>
 
 <%-- gpa stuff --%>
