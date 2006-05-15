@@ -21,90 +21,89 @@
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-<c:set value="<%=Constants.USER%>" var="user"/>
 
 
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
     <p>
-        Given Name: ${user.firstName}
+        Given Name: ${regUser.firstName}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.SURNAME%>" var="surname"/>
 <c:if test="${cf:contains(fields, surname)}">
     <p>
-        Surname: ${user.lastName}
+        Surname: ${regUser.lastName}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.TITLE%>" var="title"/>
 <c:if test="${cf:contains(fields, title)}">
     <p>
-        Title: ${user.contact.title}
+        Title: ${regUser.contact.title}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
 <c:if test="${cf:contains(fields, companyName)}">
     <p>
-        Company:${user.contact.company.name}
+        Company:${regUser.contact.company.name}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
 <c:if test="${cf:contains(fields, address1)}">
     <p>
-        Address1: ${user.homeAddress.address1}
+        Address1: ${regUser.homeAddress.address1}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.ADDRESS2%>" var="address2"/>
 <c:if test="${cf:contains(fields, address2)}">
     <p>
-        Address2: ${user.homeAddress.address2}
+        Address2: ${regUser.homeAddress.address2}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.ADDRESS3%>" var="address3"/>
 <c:if test="${cf:contains(fields, address3)}">
     <p>
-        Address3: ${user.homeAddress.address3}
+        Address3: ${regUser.homeAddress.address3}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.CITY%>" var="city"/>
 <c:if test="${cf:contains(fields, city)}">
     <p>
-        City: ${user.homeAddress.city}
+        City: ${regUser.homeAddress.city}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
 <c:if test="${cf:contains(fields, stateCode)}">
     <p>
-        State: ${user.homeAddress.state.name}
+        State: ${regUser.homeAddress.state.name}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.POSTAL_CODE%>" var="postalCode"/>
 <c:if test="${cf:contains(fields, postalCode)}">
     <p>
-        Postal Code: ${user.homeAddress.postalCode}
+        Postal Code: ${regUser.homeAddress.postalCode}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.PROVINCE%>" var="province"/>
 <c:if test="${cf:contains(fields, province)}">
     <p>
-        Province: ${user.homeAddress.province}
+        Province: ${regUser.homeAddress.province}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
 <c:if test="${cf:contains(fields, countryCode)}">
     <p>
-        Country: ${user.homeAddress.country.name}
+        Country: ${regUser.homeAddress.country.name}
     </p>
 </c:if>
 
@@ -112,7 +111,7 @@
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
     <p>
-        Handle: ${user.handle}
+        Handle: ${regUser.handle}
     </p>
 </c:if>
 
@@ -126,21 +125,21 @@
 <c:set value="<%=Constants.EMAIL%>" var="email"/>
 <c:if test="${cf:contains(fields, email)}">
     <p>
-        Email Address: ${user.primaryEmailAddress.address}
+        Email Address: ${regUser.primaryEmailAddress.address}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
 <c:if test="${cf:contains(fields, phoneNumber)}">
     <p>
-        Phone Number: ${user.primaryPhoneNumber.number}
+        Phone Number: ${regUser.primaryPhoneNumber.number}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.QUOTE%>" var="quote"/>
 <c:if test="${cf:contains(fields, quote)}">
     <p>
-        Quote: ${user.coder.quote}
+        Quote: ${regUser.coder.quote}
     </p>
 
 </c:if>
@@ -157,28 +156,28 @@
 <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
 <c:if test="${cf:contains(fields, compCountryCode)}">
     <p>
-        Country to represent: ${user.coder.compCountry.name}
+        Country to represent: ${regUser.coder.compCountry.name}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
     <p>
-        Timezone: ${user.timeZone.description}
+        Timezone: ${regUser.timeZone.description}
     </p>
 </c:if>
 
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
     <p>
-        Coder Type: ${user.coder.coderType.description}
+        Coder Type: ${regUser.coder.coderType.description}
     </p>
 </c:if>
 
 <%--Demographics--%>
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
-    <rt:responseIterator id="resp" list="${user.demographicResponses}">
+    <rt:responseIterator id="resp" list="${regUser.demographicResponses}">
         <tr>
             <td align="right">
                 <rt:demographicQuestionText response="${resp}"/>
