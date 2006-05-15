@@ -209,22 +209,23 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" border="0" /></div>
+            Idol or idle: which one are you? <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">...more</A><br>[May 15]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnbc_logo.gif" width="68" height="35" alt="CNBC TV" border="0" /></div>
+            CNBC's Jane's Addiction and Squawk Box [MOVIE] <A href="/movies/press/cnbc_051506.mov" target="_blank">...more</A><br>[May 15]<br><br>
+
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
+            Java Posse - Listener Feedback and TopCoder Interviews [PODCAST] <A href="http://media41b.libsyn.com/andueJx1nXycfJd1Z3lvpGqtZXqZ/podcasts/dickwall/JavaPosse053.mp3" target="_blank">...more</A><br>[May 15]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="The Wall Street Journal" border="0" /></div>
-            Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 10]<br><br>
+            Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">...more</A><br>[May 12]<br><br>
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
             Java Posse - Live at the TopCoder Open [PODCAST] <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 11]<br><br>
             
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/moscowTimes_logo.gif" width="88" height="10" alt="The Moscow Times" border="0" /></div>
             Russian Talents Shine in IT Contests <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">...more</A><br>[May 11]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="67" height="18" alt="Computerworld" border="0" /></div>
-            Programming contest garners enterprise interest <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">...more</A><br>[May 10]<br><br>
-
-            Russian, US and Indonesian Programmers Win $150,000 TopCoder Open Sponsored By AMD in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_050806">...more</A><br>[May 8]<br><br>
-
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnetNews_logo.gif" width="67" height="20" alt="CNET News" border="0" /></div>
-            Coding for fame, and dollars <A href="http://news.com.com/Coding+for+fame%2C+and+dollars/2100-1007_3-6067549.html?tag=nefd.lede" target="_blank">...more</A><br>[May 2]<br><br>
 
             </td>
          </tr>

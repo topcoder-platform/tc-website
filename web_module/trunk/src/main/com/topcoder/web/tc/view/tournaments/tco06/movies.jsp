@@ -59,6 +59,9 @@
          <tr>
             <td class="bodyText" align=center valign=top><A href="/movies/tournament/tco06/development.mov"><img src="/i/tournament/tco06/onsite_movies/development.jpg" border=0/></A>
             <br><A href="/movies/tournament/tco06/development.mov">sindu wins the Development Finals<br>(1.0 MB)</A><br></td>
+            <td class="bodyText" align=center valign=top><A href="/movies/press/cnbc_051506.mov"><img src="/i/tournament/tco06/onsite_movies/cnbc.jpg" border=0/></A>
+            <br><A href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box<br>(1.7 MB)</A><br></td>
+            <td>&#160;</td>
          </tr>
       </table>
         </div>

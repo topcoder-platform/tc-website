@@ -8,6 +8,52 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.15.06<br>2:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A>
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" News border="0" /></div>
+       "Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506015" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>05.15.05<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06</A> [MOVIE]</span><br><br>
+      Featuring members antimatter, John Dethridge, tomek and Ken Vogel.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/movies/press/cnbc_051506.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies">TCO06 movies</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+         
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /><br>05.15.06<br>2:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://media38b.libsyn.com/ZndueJp1bXzHfGd1mHpup2qmZnKX/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Java Posse - Listener Feedback and TopCoder Interviews</A> [PODCAST]
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="88" height="40" alt="Java Posse" News border="0" /></div>
+       Another installment from the TopCoder Open 06. Check out the interviews conducted during the competition, with antimatter and Pops.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://media38b.libsyn.com/ZndueJp1bXzHfGd1mHpup2qmZnKX/podcasts/dickwall/JavaPosse053.mp3" target="_blank">listen</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506014" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.12.06<br>12:20 PM</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">Cause for Concern? Americans Are Scarce In Top Tech Contest</A>
@@ -147,47 +193,6 @@
       <A href="tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">results</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="505851" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.08.06<br>6:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for June-December</A>
-      </span><br><br>
-      The months June through December have been added to the Events Calendar.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=calendar&d2=jun_06">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="505980" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.08.06<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Poseidon 4.1 now the official standard
-      </span><br><br>
-      Gentleware's Poseidon for UML 4.1 Community Edition is now the official standard for TopCoder Component Competitions.  You can get Poseidon <A target="_blank" href="/?t=sponsor&c=link&link=http://gentleware.com/download.0.html">here</A>.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505979" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.08.06<br>2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=9974">Intel Multi-Threading Competition 4 Results</A>
-      </span><br><br>
-      The results are in.  Congratulations to the winners.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <tc-webtag:forumLink forumID="505967" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
 

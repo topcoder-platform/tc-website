@@ -49,6 +49,51 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- IT Week --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank"><img src="/i/pressroom/itWeek_logo.gif" alt="IT Week border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A></strong></font><br />
+"Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."<span class="prHead"> [May 15]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<%-- CNBC --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/movies/press/cnbc_051506.mov" target="_blank"><img src="/i/pressroom/cnbc_logo.gif" alt="CNBC TV" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/movies/press/cnbc_051506.mov" target="_blank">CNBC's Jane's Addiction and Squawk Box at the TCO06</A> [MOVIE]</strong></font><br />
+                        Featuring members antimatter, John Dethridge, tomek and Ken Vogel.<span class="prHead"> [May 15]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<%-- Java Posse --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3" target="_blank"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://media31b.libsyn.com/bXdveMh1nHzGfGd1mHluo2%2BlkXWb/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Listener Feedback and TopCoder Interviews</A> [PODCAST] </strong></font><br />
+                        Another installment from the TopCoder Open 06. Check out the interviews conducted during the competition, with antimatter and Pops.<span class="prHead"> [May 15]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- WSJ --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
