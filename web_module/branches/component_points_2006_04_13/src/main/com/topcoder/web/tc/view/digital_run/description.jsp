@@ -50,8 +50,13 @@ New competitors can also make a run for the Rookie of the Year title, given to t
 <span class="subtitle">Details</span><br>
 Learn more about the prizes, schedules, and rules for each field of competition in the Digital Run:
 <br><br>
-<span class="subtitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Design Cup Series</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">Development Cup Series</A></span>
+<span class="subtitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Design Cup Series</A></span><br>
+<span class="outline1"><A href="/tc?&ph=112&module=LeaderBoard">Current leaderboard</A></span><br>
+<span class="outline1"><A href="/tc?module=RookieBoard&ph=112">Current Rookie of the Year leaderboard</A>
+<br><br>
+<span class="subtitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">Development Cup Series</A></span><br>
+<span class="outline1"><A href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A></span><br>
+<span class="outline1"><A href="/tc?module=RookieBoard&ph=113">Current Rookie of the Year leaderboard</A></span>
 <br><br>
 
 </div>
