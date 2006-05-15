@@ -404,6 +404,7 @@ abstract class Base extends BaseProcessor {
             for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
                 da = (DemographicAssignment) it.next();
                 key = Constants.DEMOG_PREFIX + da.getQuestion().getId();
+                log.debug(params.get(key));
                 //validate the response we got
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
@@ -416,7 +417,7 @@ abstract class Base extends BaseProcessor {
                     vals = (String[]) params.get(key);
                     //validate answers
                     ValidationResult multiResult = new DemogMultiSelectValidator(da.getQuestion()).validate(
-                            new ListInput(Arrays.asList(vals)));
+                            new ListInput(vals==null?Collections.EMPTY_LIST:Arrays.asList(vals)));
                     if (!multiResult.isValid()) {
                         addError(key, multiResult.getMessage());
                     }
