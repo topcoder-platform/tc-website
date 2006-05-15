@@ -67,7 +67,7 @@ abstract class Base extends BaseProcessor {
                 log.debug("Removing Session from HttpSession");
                 //we're creating a new session to handle the case that the request processing invalidated the session
                 //there's no way to check, so this is what we're doing.
-                HttpSession s =getRequest().getSession(true);
+                HttpSession s = getRequest().getSession(true);
                 if (!s.isNew()) {
                     s.setAttribute(HIBERNATE_SESSION_KEY, null);
                 } else {
@@ -150,9 +150,9 @@ abstract class Base extends BaseProcessor {
      */
     protected User getRegUser() {
         if (user == null) {
-            if (userLoggedIn()) {
-                user = (User) getRequest().getSession().getAttribute(Constants.USER);
-                if (user == null) {
+            user = (User) getRequest().getSession().getAttribute(Constants.USER);
+            if (user == null) {
+                if (userLoggedIn()) {
                     log.debug("get user from the dao");
                     user = new UserDAOHibernate().find(new Long(getUser().getId()));
                     if (user != null) {
@@ -161,10 +161,10 @@ abstract class Base extends BaseProcessor {
                         throw new RuntimeException("Couldn't find user " + getUser().getId() + " in the database");
                     }
                 } else {
-                    log.debug("got user from session");
+                    log.debug("not logged in and user is null");
                 }
             } else {
-                log.debug("not logged in and user is null");
+                log.debug("got user from session");
             }
         } else {
             log.debug("got user from processor");
@@ -176,6 +176,7 @@ abstract class Base extends BaseProcessor {
         getRequest().getSession().setAttribute(Constants.USER, null);
         getRequest().getSession().setAttribute(Constants.REG_TYPES, null);
     }
+
     /**
      * Set the reg user in the current request processor.  This is generally
      * only necessary if it's a new user registering.  Existing users can be loaded
@@ -184,12 +185,6 @@ abstract class Base extends BaseProcessor {
      * @param u
      */
     protected void setRegUser(User u) {
-        if (u==null) {
-            log.debug("setting user to null");
-        } else {
-            log.debug("setting user to something other than null");
-        }
-
         this.user = u;
         getRequest().getSession().setAttribute(Constants.USER, user);
     }
@@ -402,8 +397,8 @@ abstract class Base extends BaseProcessor {
             key = Constants.DEMOG_PREFIX + dq.getId();
             log.debug("in get we got : " + getTrimmedParameter(key));
             if (dq.isMultipleSelect()) {
-                List a = getRequest().getParameterValues(key)==null?
-                        Collections.EMPTY_LIST:Arrays.asList(getRequest().getParameterValues(key));
+                List a = getRequest().getParameterValues(key) == null ?
+                        Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(key));
                 ret.put(key, a);
             } else {
                 ret.put(key, getTrimmedParameter(key));
@@ -430,7 +425,7 @@ abstract class Base extends BaseProcessor {
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
                     ValidationResult freeResult = new DemogFreeFormValidator(getRegUser()).validate(
-                            new StringInput((String)params.get(key)));
+                            new StringInput((String) params.get(key)));
                     if (!freeResult.isValid()) {
                         addError(key, freeResult.getMessage());
                     }
@@ -443,7 +438,7 @@ abstract class Base extends BaseProcessor {
                     }
                 } else if (da.getQuestion().isSingleSelect()) {
                     ValidationResult singleResult = new DemogSingleSelectValidator(da.getQuestion()).validate(
-                            new StringInput((String)params.get(key)));
+                            new StringInput((String) params.get(key)));
                     if (!singleResult.isValid()) {
                         addError(key, singleResult.getMessage());
                     }
