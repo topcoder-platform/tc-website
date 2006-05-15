@@ -403,7 +403,7 @@ abstract class Base extends BaseProcessor {
             String[] vals;
             for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
                 da = (DemographicAssignment) it.next();
-                key = Constants.DEMOG_PREFIX + da.getId();
+                key = Constants.DEMOG_PREFIX + da.getQuestion().getId();
                 //validate the response we got
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
