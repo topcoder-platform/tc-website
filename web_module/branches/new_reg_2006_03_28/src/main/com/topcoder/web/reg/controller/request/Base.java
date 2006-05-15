@@ -383,7 +383,9 @@ abstract class Base extends BaseProcessor {
             key = Constants.DEMOG_PREFIX + dq.getId();
             log.debug("in get we got : " + getTrimmedParameter(key));
             if (dq.isMultipleSelect()) {
-                ret.put(key, getRequest().getParameterValues(key));
+                List a = getRequest().getParameterValues(key)==null?
+                        Collections.EMPTY_LIST:Arrays.asList(getRequest().getParameterValues(key));
+                ret.put(key, a);
             } else {
                 ret.put(key, getTrimmedParameter(key));
             }
@@ -401,7 +403,6 @@ abstract class Base extends BaseProcessor {
         if (fields.contains(Constants.DEMOG_PREFIX)) {
             DemographicAssignment da;
             String key;
-            String[] vals;
             for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
                 da = (DemographicAssignment) it.next();
                 key = Constants.DEMOG_PREFIX + da.getQuestion().getId();
@@ -415,10 +416,9 @@ abstract class Base extends BaseProcessor {
                         addError(key, freeResult.getMessage());
                     }
                 } else if (da.getQuestion().isMultipleSelect()) {
-                    vals = (String[]) params.get(key);
                     //validate answers
                     ValidationResult multiResult = new DemogMultiSelectValidator(da.getQuestion()).validate(
-                            new ListInput(vals==null?Collections.EMPTY_LIST:Arrays.asList(vals)));
+                            new ListInput((List) params.get(key)));
                     if (!multiResult.isValid()) {
                         addError(key, multiResult.getMessage());
                     }
