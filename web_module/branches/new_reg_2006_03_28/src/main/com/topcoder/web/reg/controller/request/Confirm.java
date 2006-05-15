@@ -7,10 +7,7 @@ import com.topcoder.web.reg.model.DemographicAssignment;
 import com.topcoder.web.reg.model.DemographicResponse;
 import com.topcoder.web.reg.model.User;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -65,17 +62,17 @@ public class Confirm extends Base {
             //set the responses on the user object
             DemographicAssignment da;
             Long answerId;
-            String[] answers;
+            List answers;
             Set responses = new HashSet();
             DemographicResponse dr;
             for (Iterator it = getAssignments(u).iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {
-                    answers = (String[])params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
-                    for (int i=0; i<answers.length; i++) {
+                    answers = (List)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
+                    for (int i=0; i<answers.size(); i++) {
                         dr = new DemographicResponse();
                         dr.setQuestion(da.getQuestion());
-                        dr.setAnswer(da.getQuestion().getAnswer(new Long(answers[i])));
+                        dr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
                         dr.setUser(u);
                         dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                         responses.add(dr);
