@@ -20,7 +20,7 @@ public class Submit extends Base {
 
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            
+            clearSession();
 
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);
