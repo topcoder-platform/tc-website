@@ -381,6 +381,7 @@ abstract class Base extends BaseProcessor {
         for (Iterator it = getFactory().getDemographicQuestionDAO().getQuestions().iterator(); it.hasNext();) {
             dq = (DemographicQuestion) it.next();
             key = Constants.DEMOG_PREFIX + dq.getId();
+            log.debug("in get we got : " + getTrimmedParameter(key));
             if (dq.isMultipleSelect()) {
                 ret.put(key, getRequest().getParameterValues(key));
             } else {
@@ -404,7 +405,7 @@ abstract class Base extends BaseProcessor {
             for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
                 da = (DemographicAssignment) it.next();
                 key = Constants.DEMOG_PREFIX + da.getQuestion().getId();
-                log.debug(params.get(key));
+                log.debug("in check we got : " + params.get(key));
                 //validate the response we got
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
