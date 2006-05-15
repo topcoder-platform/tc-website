@@ -34,10 +34,8 @@ abstract class Base extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
-        HttpSession httpSession =
-                getRequest().getSession();
         Session hibernateSession =
-                (Session) httpSession.getAttribute(HIBERNATE_SESSION_KEY);
+                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
 
         try {
 
@@ -67,7 +65,12 @@ abstract class Base extends BaseProcessor {
                 HibernateUtils.getSession().close(); // Unbind is automatic here
 
                 log.debug("Removing Session from HttpSession");
-                httpSession.setAttribute(HIBERNATE_SESSION_KEY, null);
+                //we're creating a new session to handle the case that the request processing invalidated the session
+                //there's no way to check, so this is what we're doing.
+                HttpSession s =getRequest().getSession(true);
+                if (!s.isNew()) {
+                    s.setAttribute(HIBERNATE_SESSION_KEY, null);
+                }
 
                 log.debug("<<< End of conversation");
 
@@ -80,7 +83,7 @@ abstract class Base extends BaseProcessor {
                 hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
 
                 log.debug("Storing Session in the HttpSession");
-                httpSession.setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
+                getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
 
                 log.debug("> Returning to user in conversation");
             }
