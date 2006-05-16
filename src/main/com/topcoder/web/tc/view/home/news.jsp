@@ -8,6 +8,22 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.16.06<br>5:35 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">Gartner cites TopCoder as model for "Web 2.0" community</A>
+      </span><br><br>
+       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="88" height="20" alt="Gartner" News border="0" /></div>
+       A press release from the Gartner Symposium/ITxpo cited TopCoder as a model for a "Web Community," one of the "three key focal points" for understanding Web 2.0.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506017" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.15.06<br>2:00 PM</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A>
@@ -179,22 +195,6 @@
        <tc-webtag:forumLink forumID="506008" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.09.06<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">TCO06 CCIP results</A>
-      </span><br><br>
-      Here are the results for TCO06 Complete Coder Incentive Program.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_results">results</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="505851" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>

@@ -49,15 +49,30 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Gartner Press Release --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank"><img src="/i/pressroom/gartner_logo.gif" alt="Gartner" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">Gartner cites TopCoder as model for "Web 2.0" community</A></strong></font><br />
+                        A press release from the Gartner Symposium/ITxpo cited TopCoder as a model for a "Web Community," one of the "three key focal points" for understanding Web 2.0.<span class="prHead"> [May 16]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- IT Week --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank"><img src="/i/pressroom/itWeek_logo.gif" alt="IT Week border="0" /></A></td>
+                    <td width="274"><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank"><img src="/i/pressroom/itWeek_logo.gif" alt="IT Week" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A></strong></font><br />
-"Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."<span class="prHead"> [May 15]</span></p>
+                        "Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."<span class="prHead"> [May 15]</span></p>
                     </td>
                 </tr>
             </table>
