@@ -100,6 +100,7 @@ public class Confirm extends Base {
             u.setDemographicResponses(responses);
 
         }
+        setRegUser(u);
     }
 
 }

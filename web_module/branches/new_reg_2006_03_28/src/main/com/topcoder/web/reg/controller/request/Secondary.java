@@ -188,5 +188,6 @@ public class Secondary extends Base {
                     getFactory().getTimeZoneDAO().find(new Integer((String) params.get(Constants.TIMEZONE)));
             u.setTimeZone(tz);
         }
+        setRegUser(u);
     }
 }
