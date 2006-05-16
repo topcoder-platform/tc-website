@@ -42,8 +42,8 @@ public class Secondary extends Base {
                 setIsNextPageInContext(true);
             } else {
                 //set the fields in the user object
-                Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 loadFieldsIntoUserObject(fields, params);
+                Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
                 setSecondaryDefaults(u, secondaryFields);
                 getRequest().setAttribute(Constants.FIELDS, secondaryFields);
