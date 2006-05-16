@@ -17,6 +17,7 @@ import com.topcoder.web.privatelabel.controller.request.RegistrationBase;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
@@ -52,7 +53,7 @@ public class MainServlet extends BaseServlet {
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp;
         WebAuthentication authentication;
         SessionInfo info;

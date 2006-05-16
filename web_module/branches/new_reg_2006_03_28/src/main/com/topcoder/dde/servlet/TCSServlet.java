@@ -13,6 +13,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
@@ -29,7 +30,7 @@ public class TCSServlet extends BaseServlet {
     private static final User GUEST = SimpleUser.createGuest();
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;

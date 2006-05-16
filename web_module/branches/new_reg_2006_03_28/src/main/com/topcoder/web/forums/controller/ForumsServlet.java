@@ -32,6 +32,7 @@ import com.topcoder.web.tc.controller.request.authentication.Login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -49,7 +50,7 @@ public class ForumsServlet extends BaseServlet {
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
 
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
