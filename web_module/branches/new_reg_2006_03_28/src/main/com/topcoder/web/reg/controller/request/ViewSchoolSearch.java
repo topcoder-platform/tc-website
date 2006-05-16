@@ -25,6 +25,9 @@ public class ViewSchoolSearch extends Base  {
                 if (u.getHomeAddress().getProvince()!=null) {
                     setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
                 }
+                if (u.getHomeAddress().getCity()!=null) {
+                    setDefault(Constants.CITY, u.getHomeAddress().getCity());
+                }
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
                     setDefault(Constants.SCHOOL_TYPE, SchoolType.HIGH_SCHOOL.toString());
                 }
