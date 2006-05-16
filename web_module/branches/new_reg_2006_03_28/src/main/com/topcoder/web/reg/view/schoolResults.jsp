@@ -28,7 +28,7 @@
 
             <select name="schoolSelection" size="4" multiple="multiple">
         <c:forEach items="${results}" var="result">
-            <option value="${result[0].id}">${result[0].name} ${result[1]}</option>
+            <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
         </c:forEach>
             </select>
 
