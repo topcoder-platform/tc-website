@@ -17,11 +17,13 @@ public class ViewCreateAffidavitTemplate extends BaseProcessor implements PactsC
     protected void businessProcessing() throws TCWebException {
 
         try {
+        	log.info("START: ViewCreateAffidavitPayments");
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getAffidavitTypes();
             getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
             setNextPage(INTERNAL_CREATE_AFFIDAVIT);
             setIsNextPageInContext(true);
+            log.info("END: ViewCreateAffidavitPayments");
         } catch (Exception e) {
             throw new TCWebException(e);
         }

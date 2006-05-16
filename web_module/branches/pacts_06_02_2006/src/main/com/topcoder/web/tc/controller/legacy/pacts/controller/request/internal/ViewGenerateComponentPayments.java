@@ -16,11 +16,13 @@ public class ViewGenerateComponentPayments extends BaseProcessor implements Pact
     protected void businessProcessing() throws TCWebException {
 
         try {
+        	log.info("START: ViewGenerateComponentPayments");
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
+            log.info("END: ViewGenerateComponentPayments");
         } catch (Exception e) {
             throw new TCWebException(e);
         }
