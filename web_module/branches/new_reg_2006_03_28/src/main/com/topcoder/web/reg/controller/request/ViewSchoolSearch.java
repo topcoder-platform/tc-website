@@ -15,17 +15,23 @@ public class ViewSchoolSearch extends Base  {
         User u = getRegUser();
 
         if (u!=null) {
+            log.debug("user not null");
             if (u.getHomeAddress()!=null) {
+                log.debug("address not null");
                 if (u.getHomeAddress().getCountry()!=null) {
+                    log.debug("country not null");
                     setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
                 }
                 if (u.getHomeAddress().getState()!=null) {
+                    log.debug("state not null");
                     setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
                 }
                 if (u.getHomeAddress().getProvince()!=null) {
+                    log.debug("province not null");
                     setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
                 }
                 if (u.getHomeAddress().getCity()!=null) {
+                    log.debug("city not null");
                     setDefault(Constants.CITY, u.getHomeAddress().getCity());
                 }
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
