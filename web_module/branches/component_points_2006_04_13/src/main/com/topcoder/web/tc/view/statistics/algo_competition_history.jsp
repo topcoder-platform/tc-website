@@ -131,7 +131,7 @@ z-index: 1;
        <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
           <table class="stat" cellpadding="0" cellspacing="0" width="100%">
              <tr><td class="title" colspan="9">
-             Competition History
+             Algorithm Competition History
              </td></tr>
              <tr>
                 <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Date</a></TD>
