@@ -4,10 +4,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.Coder;
-import com.topcoder.web.reg.model.Contact;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.*;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -47,16 +44,20 @@ public class Main extends Base {
                     u.setContact(c);
                     c.setUser(u);
                 }
-                if (requestedTypes.contains(regTypeDAO.getCompetitionType()) || requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                if (requestedTypes.contains(regTypeDAO.getCompetitionType())) {
                     Coder c= new Coder();
                     u.setCoder(c);
                     c.setUser(u);
                 }
+                if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                    Coder c= new Coder();
+                    u.setCoder(c);
+                    c.setUser(u);
+                    c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+                }
                 setRegUser(u);
-            } else {
-                //load up all their data so that we can display it
-                setMainDefaults(u);
             }
+            setMainDefaults(u);
 
 
             if (requestedTypes.isEmpty()) {

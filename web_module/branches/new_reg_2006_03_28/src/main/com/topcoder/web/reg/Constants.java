@@ -34,6 +34,12 @@ public class Constants implements WebConstants {
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
 
+    public static final String SCHOOL_CITY = "schc";
+    public static final String SCHOOL_STATE = "schs";
+    public static final String SCHOOL_COUNTRY = "schco";
+    public static final String SCHOOL_PROVINCE = "schp";
+
+
     public static final String FIELDS = "fields";
 
     public static final String NEW_REG = "nrg";

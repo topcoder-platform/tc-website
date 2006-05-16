@@ -22,6 +22,23 @@
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
+    <c:set value="<%=Constants.SCHOOL_CITY%>" var="schoolCity"/>
+    <c:if test="${cf:contains(fields, schoolCity)}">
+        <tc-webtag:hiddenInput name="${schoolCity}"/>
+    </c:if>
+    <c:set value="<%=Constants.SCHOOL_PROVINCE%>" var="schoolProvince"/>
+    <c:if test="${cf:contains(fields, schoolProvince)}">
+        <tc-webtag:hiddenInput name="${schoolProvince}"/>
+    </c:if>
+    <c:set value="<%=Constants.SCHOOL_COUNTRY%>" var="schoolCountry"/>
+    <c:if test="${cf:contains(fields, schoolCountry)}">
+        <tc-webtag:hiddenInput name="${schoolCountry}"/>
+    </c:if>
+    <c:set value="<%=Constants.SCHOOL_STATE%>" var="schoolState"/>
+    <c:if test="${cf:contains(fields, schoolState)}">
+        <tc-webtag:hiddenInput name="${schoolState}"/>
+    </c:if>
+
 
     <%--Demographics--%>
     <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
@@ -45,6 +62,10 @@
     </c:if>
 
 
+    <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+    <c:if test="${cf:contains(fields, schoolName)}">
+        <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
+    </c:if>
     <%--School widget--%>
     <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
 
@@ -69,7 +90,6 @@
             <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
 
-        <c:set value="<%=Constants.USER%>" var="user"/>
         <p>
             GPA Scale:
             <SELECT NAME="<%=Constants.GPA_SCALE%>">
@@ -83,6 +103,19 @@
                     <c:otherwise><OPTION value="5.00">5.00</OPTION></c:otherwise>
                 </c:choose>
             </SELECT>
+        </p>
+    </c:if>
+
+    <c:set value="<%=Constants.RESUME%>" var="resume"/>
+    <c:if test="${cf:contains(fields, resume)}">
+        <p>
+            <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br/></tc-webtag:errorIterator>
+        </p>
+
+        <p>
+            Resume: <tc-webtag:textInput name="<%=Constants.RESUME%>" editable="false"/> 
+            <input type="file" name="${resume}">
+
         </p>
     </c:if>
 

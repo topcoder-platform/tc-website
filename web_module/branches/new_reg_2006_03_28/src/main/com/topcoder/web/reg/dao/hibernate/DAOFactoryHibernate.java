@@ -40,6 +40,10 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new DemographicAssignmentDAOHibernate();
     }
 
+    public FileTypeDAO getFileTypeDAO() {
+        return new FileTypeDAOHibernate();
+    }
+
     public NotificationDAO getNotificationDAO() {
         return new NotificationDAOHibernate();
     }

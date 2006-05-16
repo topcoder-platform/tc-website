@@ -14,6 +14,7 @@ public interface DAOFactory {
     DemographicAnswerDAO getDemographicAnswerDAO();
     DemographicQuestionDAO getDemographicQuestionDAO();
     DemographicAssignmentDAO getDemographicAssignmentDAO();
+    FileTypeDAO getFileTypeDAO();
     NotificationDAO getNotificationDAO();
     RegistrationTypeDAO getRegistrationTypeDAO();
     SchoolDAO getSchoolDAO();

@@ -42,12 +42,11 @@ public class Secondary extends Base {
                 setIsNextPageInContext(true);
             } else {
                 //set the fields in the user object
+                Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 loadFieldsIntoUserObject(fields, params);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                if (!u.isNew()) {
-                    setDemographicDefaults(u);
-                }
-                getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+                setSecondaryDefaults(u, secondaryFields);
+                getRequest().setAttribute(Constants.FIELDS, secondaryFields);
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             }

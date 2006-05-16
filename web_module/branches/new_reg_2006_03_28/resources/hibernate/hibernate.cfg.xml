@@ -49,9 +49,11 @@
         <mapping resource="com/topcoder/web/reg/model/DemographicQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/RegistrationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/Resume.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/School.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/SchoolType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/SecurityGroup.hbm.xml"/>

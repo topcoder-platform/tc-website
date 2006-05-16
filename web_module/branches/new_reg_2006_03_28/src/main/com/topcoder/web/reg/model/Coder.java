@@ -3,6 +3,8 @@ package com.topcoder.web.reg.model;
 import com.topcoder.web.common.model.Base;
 
 import java.sql.Timestamp;
+import java.util.Set;
+import java.util.Iterator;
 
 /**
  * A class to hold coder data.
@@ -22,6 +24,7 @@ public class Coder extends Base {
     private TCAlgoRating tcRating;
 */
     private CurrentSchool currentSchool;
+    private Set resumes;
     private User user;
 
 
@@ -101,6 +104,15 @@ public class Coder extends Base {
         this.user = user;
     }
 
+    public Set getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(Set resumes) {
+        this.resumes = resumes;
+    }
+
+
     public Object clone() throws CloneNotSupportedException {
         Coder ret = (Coder) super.clone();
 /*
@@ -108,7 +120,15 @@ public class Coder extends Base {
         ret.setTCRating((TCAlgoRating) tcRating.clone());
 */
         ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
+        ret.setCompCountry((Country) compCountry.clone());
+        ret.setCoderType((CoderType) coderType.clone());
         ret.setUser((User) user.clone());
+
+        for(Iterator it =resumes.iterator(); it.hasNext();) {
+            ret.resumes.add(((Resume)it.next()).clone());
+        }
+
+
         return ret;
     }
 

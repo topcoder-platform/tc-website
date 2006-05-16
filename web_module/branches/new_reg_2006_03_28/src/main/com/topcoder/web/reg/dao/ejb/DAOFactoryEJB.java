@@ -40,6 +40,10 @@ public class DAOFactoryEJB implements DAOFactory {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    public FileTypeDAO getFileTypeDAO() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     public NotificationDAO getNotificationDAO() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

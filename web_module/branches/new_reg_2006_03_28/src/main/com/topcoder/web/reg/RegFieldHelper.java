@@ -3,6 +3,8 @@ package com.topcoder.web.reg;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.dao.RegistrationTypeDAO;
+import com.topcoder.web.reg.dao.Util;
 
 import java.util.*;
 
@@ -54,6 +56,12 @@ public class RegFieldHelper {
         secondaryCompStudentFields.add(Constants.GPA);
         secondaryCompStudentFields.add(Constants.GPA_SCALE);
         secondaryCompStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryCompStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryCompStudentFields.add(Constants.SCHOOL_ID);
+        secondaryCompStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryCompStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryCompStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryCompStudentFields.add(Constants.SCHOOL_TYPE);
 
         secondaryCompProFields.add(Constants.DEMOG_PREFIX);
         secondaryCompProFields.add(Constants.RESUME);
@@ -77,6 +85,16 @@ public class RegFieldHelper {
     }
 
     static {
+        secondaryHSFields.add(Constants.DEMOG_PREFIX);
+        secondaryCompStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryCompStudentFields.add(Constants.SCHOOL_ID);
+        secondaryCompStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryCompStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryCompStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryCompStudentFields.add(Constants.SCHOOL_TYPE);
+    }
+
+    static {
         mainCorpFields.add(Constants.GIVEN_NAME);
         mainCorpFields.add(Constants.SURNAME);
         mainCorpFields.add(Constants.ADDRESS1);
@@ -97,6 +115,7 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.TITLE);
         mainCorpFields.add(Constants.COMPANY_NAME);
 
+        secondaryCorpFields.add(Constants.DEMOG_PREFIX);
     }
 
     static {
@@ -153,7 +172,7 @@ public class RegFieldHelper {
             currentTypes =user.getRegistrationTypes();
         }
 
-        com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate dao = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
+        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;
@@ -189,6 +208,10 @@ public class RegFieldHelper {
                 }
             }
         }
+        RegistrationType hs = dao.getHighSchoolType();
+        if (currentTypes.contains(hs)||regTypes.contains(hs)) {
+            ret.remove(Constants.CODER_TYPE);
+        }
         return ret;
     }
 
@@ -196,7 +219,7 @@ public class RegFieldHelper {
         Set ret = new HashSet();
         Set currentTypes = user.getRegistrationTypes();
 
-        com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate dao = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
+        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;

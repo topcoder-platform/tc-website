@@ -5,15 +5,13 @@ import com.topcoder.web.common.model.Base;
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Apr 28, 2006
+ *          Create Date: May 16, 2006
  */
-public class CoderType extends Base {
+public class FileType extends Base  {
     private Integer id;
     private String description;
-    private String status;
-
-    public static final Integer STUDENT = new Integer(1);
-    public static final Integer PROFESSIONAL = new Integer(2);
+    private String mimeType;
+    private Integer sort;
 
     public Integer getId() {
         return id;
@@ -31,12 +29,19 @@ public class CoderType extends Base {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public String getMimeType() {
+        return mimeType;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 }

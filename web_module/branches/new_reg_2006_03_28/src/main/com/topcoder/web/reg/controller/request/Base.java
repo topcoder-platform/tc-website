@@ -478,29 +478,76 @@ abstract class Base extends BaseProcessor {
     }
 
 
-    protected void setDemographicDefaults(User u) {
-        Set responses = u.getDemographicResponses();
-        DemographicResponse r;
-        HashMap multiAnswerMap = new HashMap();
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            r = (DemographicResponse) it.next();
-            if (r.getQuestion().isSingleSelect()) {
-                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
-            } else if (r.getQuestion().isFreeForm()) {
-                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
-            } else if (r.getQuestion().isMultipleSelect()) {
-                ArrayList al = new ArrayList();
-                if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
-                    al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
+    protected void setSecondaryDefaults(User u, Set secondaryFields) {
+        if (secondaryFields.contains(Constants.DEMOG_PREFIX)) {
+            Set responses = u.getDemographicResponses();
+            DemographicResponse r;
+            HashMap multiAnswerMap = new HashMap();
+            for (Iterator it = responses.iterator(); it.hasNext();) {
+                r = (DemographicResponse) it.next();
+                if (r.getQuestion().isSingleSelect()) {
+                    setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
+                } else if (r.getQuestion().isFreeForm()) {
+                    setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
+                } else if (r.getQuestion().isMultipleSelect()) {
+                    ArrayList al = new ArrayList();
+                    if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
+                        al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
+                    }
+                    al.add(String.valueOf(r.getAnswer().getId()));
+                    multiAnswerMap.put(r.getQuestion().getId(), al);
                 }
-                al.add(String.valueOf(r.getAnswer().getId()));
-                multiAnswerMap.put(r.getQuestion().getId(), al);
+            }
+            for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+                Long questionId = (Long) it.next();
+                setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
             }
         }
-        for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
-            Long questionId = (Long) it.next();
-            setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
+        School s = null;
+        if (u.getCoder()!=null &&
+                u.getCoder().getCurrentSchool()!=null &&
+                u.getCoder().getCurrentSchool().getSchool()!=null) {
+            s = u.getCoder().getCurrentSchool().getSchool();
         }
+
+        if (s!=null) {
+            if (secondaryFields.contains(Constants.SCHOOL_ID)) {
+                if (s.getId()!=null) {
+                    setDefault(Constants.SCHOOL_ID, s.getId().toString());
+                }
+            }
+            if (secondaryFields.contains(Constants.SCHOOL_NAME)) {
+                setDefault(Constants.SCHOOL_NAME, s.getName());
+            }
+            Address a =s.getAddress();
+            if (a!=null) {
+                if (secondaryFields.contains(Constants.SCHOOL_CITY)) {
+                    setDefault(Constants.SCHOOL_NAME, a.getCity());
+                }
+                if (secondaryFields.contains(Constants.SCHOOL_STATE)) {
+                    State state = a.getState();
+                    if (state!=null) {
+                        setDefault(Constants.SCHOOL_NAME, state.getCode());
+                    }
+                }
+                if (secondaryFields.contains(Constants.SCHOOL_PROVINCE)) {
+                    setDefault(Constants.SCHOOL_NAME, a.getProvince());
+                }
+                if (secondaryFields.contains(Constants.SCHOOL_COUNTRY)) {
+                    setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
+                }
+            }
+        }
+
+        if (secondaryFields.contains(Constants.RESUME)) {
+            if (u.getCoder()!=null&&!u.getCoder().getResumes().isEmpty()) {
+                Iterator it = u.getCoder().getResumes().iterator();
+                setDefault(Constants.RESUME, ((Resume)it.next()).getFileName());
+            }
+        }
+
+
+
     }
 
     protected List getAssignments(User u) {
