@@ -373,7 +373,7 @@ abstract class Base extends BaseProcessor {
         if (u.getPrimaryPhoneNumber() != null) {
             setDefault(Constants.PHONE_NUMBER, u.getPrimaryPhoneNumber().getNumber());
         }
-        if (u.getCoder() != null) {
+        if (u.getCoder() != null && u.getCoder().getCompCountry()!=null) {
             setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountry().getCode());
             if (u.getCoder().getCoderType() != null) {
                 setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
