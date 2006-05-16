@@ -33,6 +33,7 @@ abstract class Base extends BaseProcessor {
     private DAOFactory factory = null;
 
     protected void businessProcessing() throws Exception {
+        log.debug("sessionid: " + getRequest().getSession().getId());
 
         Session hibernateSession =
                 (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);

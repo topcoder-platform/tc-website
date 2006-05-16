@@ -15,7 +15,7 @@ public class ViewSchoolSearch extends Base  {
         User u = getRegUser();
 
         if (u!=null) {
-            log.debug("user not null: " + u.toString());
+            log.debug("user not null: " + u.getHandle() + " " + u.getLastName());
             if (u.getHomeAddress()!=null) {
                 log.debug("address not null");
                 if (u.getHomeAddress().getCountry()!=null) {
