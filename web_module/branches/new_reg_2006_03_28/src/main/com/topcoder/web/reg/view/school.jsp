@@ -55,45 +55,9 @@
         <br><br>
         <strong>OR</strong>
         <br><br>
-        If your school is not in the list above, click <A href="">here</A> to add your school, and click <A
-            href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch">here</A> to go
-        back and search again.
+        If your school is not in the list above, you may search again, or click <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add your school.
 
 
-
-
-
-
-<%--
-            <strong>Country:</strong><br>
-            <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
-            <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
-            <br><br>
-            <strong>State Code:</strong><br>
-            <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
-            <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
-            <br><br>
-            <strong>Province:</strong><br>
-            <c:set value="<%=Constants.PROVINCE%>" var="province"/>
-            <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
-            <br><br>
-            <strong>City:</strong><br>
-            <c:set value="<%=Constants.CITY%>" var="city"/>
-            <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
-            <br><br>
-
-            <div align="center">
-                <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
-                School Type:
-                <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
-                <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
-                <br><br>
-            </div>
---%>
             <a href="Javascript:document.schoolSearchForm.submit();">Submit</a>
         </form>
 
