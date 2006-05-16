@@ -12,7 +12,7 @@
 
 <HTML>
 <HEAD>
-    <TITLE>TopCoder Statistics</TITLE>/
+    <TITLE>TopCoder Statistics</TITLE>
     <jsp:include page="/style.jsp">
     <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
@@ -148,8 +148,16 @@ z-index: 1;
              <rsc:iterator list="<%=rsc2%>" id="resultRow">
              <tr class="<%=even?"dark":"light"%>">
                 <TD class="value"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-                <TD class="value"><rsc:item name="contest_name" row="<%=resultRow%>"/></TD>
-                <TD class="value"><rsc:item name="round_name" row="<%=resultRow%>"/></TD>
+                <TD class="value">
+                    <A HREF="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&rm=<rsc:item name="room_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                        <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                    </A>
+                </TD>
+                <TD class="value">
+                    <A HREF="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&rm=<rsc:item name="room_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                        <rsc:item name="round_name" row="<%=resultRow%>"/>
+                    </A>
+                </TD>
                 <TD class="valueC"><rsc:item name="room_placed" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
