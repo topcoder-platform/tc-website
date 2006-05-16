@@ -19,7 +19,7 @@
 
 <body>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" enctype="multipart/form-data">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
     <c:set value="<%=Constants.SCHOOL_CITY%>" var="schoolCity"/>
