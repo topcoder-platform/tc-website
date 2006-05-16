@@ -23,11 +23,11 @@
                     if (window.opener.document.secondaryForm.<%=Constants.SCHOOL_NAME%>) {
                         putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection);
                     } else {
-                        updateDivOrSpan("window.opener.document", "<%=Constants.SCHOOL_NAME%>", selection);
+                        updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection);
                     }
                     window.close();
                 } else {
-                    updateDivOrSpan("document", "submitMessage", "Please make a selection before submitting.");
+                    alert("Please make a selection before submitting.");
                 }
             }
         -->
@@ -43,7 +43,7 @@
             <jsp:param name="title" value="School Selection"/>
         </jsp:include>
 
-        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm">
+        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm" >
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
 
             <span class="subtitle">Search Criteria</span>
