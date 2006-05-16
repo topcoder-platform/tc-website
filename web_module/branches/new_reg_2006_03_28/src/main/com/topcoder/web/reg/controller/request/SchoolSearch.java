@@ -14,19 +14,16 @@ public class SchoolSearch extends Base {
         String schoolName = getTrimmedParameter(Constants.SCHOOL_NAME);
         if (schoolName == null) {
             addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
-            setNextPage("/school.jsp");
-            setIsNextPageInContext(true);
         } else if (StringUtils.containsOnly(schoolName, "*", true)) {
             addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
-            setNextPage("/school.jsp");
-            setIsNextPageInContext(true);
         } else {
             String s = StringUtils.replace(schoolName, "*", "%");
             getRequest().setAttribute("results",
                     getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
-            setNextPage("/schoolResults.jsp");
-            setIsNextPageInContext(true);
+            setDefault(Constants.SCHOOL_NAME, schoolName);
         }
+        setNextPage("/schoolResults.jsp");
+        setIsNextPageInContext(true);
 
     }
 }

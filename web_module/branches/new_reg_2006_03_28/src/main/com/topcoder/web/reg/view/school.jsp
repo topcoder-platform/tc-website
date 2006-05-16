@@ -33,6 +33,37 @@
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
+
+
+                    <span class="subtitle">Results</span>
+        <br><br>
+        Please select your school from list below and click Submit: <br/> Lists includes only the
+        first <%=Constants.MAX_SCHOOL_RESULTS%> schools. If you see a duplicate, please choose the school with more
+        associated students.
+        <form name="resultForm">
+            <select name="schoolSelection" size="4" multiple="multiple">
+                <c:forEach items="${results}" var="result">
+                    <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
+                </c:forEach>
+            </select>
+
+            <div align="center">
+                <A href="">Submit</A>
+            </div>
+        </form>
+
+        <br><br>
+        <strong>OR</strong>
+        <br><br>
+        If your school is not in the list above, click <A href="">here</A> to add your school, and click <A
+            href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch">here</A> to go
+        back and search again.
+
+
+
+
+
+
 <%--
             <strong>Country:</strong><br>
             <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
