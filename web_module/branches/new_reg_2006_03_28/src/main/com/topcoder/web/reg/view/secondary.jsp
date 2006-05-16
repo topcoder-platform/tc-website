@@ -38,6 +38,10 @@
     <c:if test="${cf:contains(fields, schoolState)}">
         <tc-webtag:hiddenInput name="${schoolState}"/>
     </c:if>
+    <c:set value="<%=Constants.SCHOOL_ID%>" var="schoolId"/>
+    <c:if test="${cf:contains(fields, schoolId)}">
+        <tc-webtag:hiddenInput name="${schoolId}"/>
+    </c:if>
 
 
     <%--Demographics--%>
@@ -113,7 +117,7 @@
         </p>
 
         <p>
-            Resume: <tc-webtag:textInput name="<%=Constants.RESUME%>" editable="false"/> 
+            Resume: <tc-webtag:textInput name="<%=Constants.RESUME%>" editable="false"/>
             <input type="file" name="${resume}">
 
         </p>
