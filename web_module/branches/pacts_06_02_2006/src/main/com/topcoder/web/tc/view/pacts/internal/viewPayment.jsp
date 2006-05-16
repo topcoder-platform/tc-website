@@ -67,6 +67,9 @@
 <%			out.print(payment.getHeader().getMethod());
 %>
 		</td></tr>
+	
+		<%	if (!payment.getHeader().getType().equals("Component Payment") &&
+				!payment.getHeader().getType().equals("Review Board Payment")) { %>
 		<tr>
 		<td><b>Gross Amount:</b></td>
 <%			out.print("<td>"+df.format(payment.getGrossAmount())+"</td>\n");
@@ -77,6 +80,8 @@
 <%			out.print("<td>"+df.format(payment.getGrossAmount()-payment.getNetAmount())+"</td>\n");
 %>
 		</tr>
+		<%	} %>
+		
 		<tr>
 		<td><b>Net Amount:</b></td>
 <%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");

@@ -48,6 +48,10 @@ public interface PactsConstants {
     public static final int CONTRACT_PAYMENT = 2;
     public static final int PROBLEM_PAYMENT = 3;
     public static final int CODER_REFERRAL_PAYMENT = 4;
+    public static final int CHARITY_PAYMENT = 5;
+    public static final int COMPONENT_PAYMENT = 6;
+    public static final int REVIEW_BOARD_PAYMENT = 7;
+    public static final int ONE_OFF_PAYMENT = 8;
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -153,6 +157,7 @@ public interface PactsConstants {
     public static final String PAYMENT_METHOD_LIST = "payment_method_list";
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
+    public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
@@ -278,6 +283,7 @@ public interface PactsConstants {
     public static final String IS_AFFIRMED = "is_affirmed";
     public static final String IS_NOTARIZED = "is_notarized";
     public static final String ROUND_ID = "round_id";
+    public static final String PROJECT_ID = "project_id";
 
     // Contract searches
     public static final String EARLIEST_START_DATE = "earliest_start_date";
@@ -327,6 +333,7 @@ public interface PactsConstants {
     public static final String MODULE_KEY = "module";
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
+    public static final String PROJECT_TERMINATION_STATUS = "projts";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
@@ -350,7 +357,7 @@ public interface PactsConstants {
     public static final String UPDATE_USER_PROFILE_CMD = "update_profile";
 
     // payment member jsps
-    // NOTE: affidavidt and contracts have specialized payments
+    // NOTE: affidavits and contracts have specialized payments
     public static final String PAYMENT_TASK = "payments";
     public static final String PAYMENT_HISTORY_CMD = "payment_history";
     public static final String PAYMENT_DETAILS_CMD = "payment_details";
@@ -460,6 +467,7 @@ public interface PactsConstants {
     public static final String INTERNAL_AFFIRM_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/affirmAffidavit.jsp";
     public static final String INTERNAL_ERROR_JSP = INTERNAL_JSP_DIR + "/error.jsp";
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
+    public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
 
     /*
