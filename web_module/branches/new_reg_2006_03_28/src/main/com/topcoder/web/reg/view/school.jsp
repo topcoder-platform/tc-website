@@ -12,6 +12,20 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <script language="javascript" type="text/javascript">
+        <!--
+            function submit() {
+            //set the school name and id
+                var selection = getValue("document.resultForm", "schoolSelection");
+                if (selection) {
+                    putValue("window.opener.document.forms[0]", "<%=Constants.SCHOOL_ID%>", selection);
+                } else {
+                    updateDivOrSpan("document", "submitMessage", "Please make a selection before submitting.");
+                }
+            }
+        -->
+    </script>
 </head>
 
 <body>
@@ -27,40 +41,39 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
 
             <span class="subtitle">Search Criteria</span>
-            <br><br>
+            <br/><br/>
             <strong>School Name:</strong><br>
             <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
-            <br><br>
+            <br/><br/>
 
 
-                    <span class="subtitle">Results</span>
-        <br><br>
-        Please select your school from list below and click Submit: <br/> Lists includes only the
-        first <%=Constants.MAX_SCHOOL_RESULTS%> schools. If you see a duplicate, please choose the school with more
-        associated students.
-        <form name="resultForm">
-            <select name="schoolSelection" size="4" multiple="multiple">
+            <span class="subtitle">Results</span>
+            <br/><br/>
+            Please select your school from list below and click Submit: <br/> Lists includes only the
+            first <%=Constants.MAX_SCHOOL_RESULTS%> schools. If you see a duplicate, please choose the school with more
+            associated students.
+            <span id="submitMessage"></span>
+        </form>
+        <form action="" name="resultForm">
+            <select name="schoolSelection" size="4">
                 <c:forEach items="${results}" var="result">
                     <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
                 </c:forEach>
             </select>
 
             <div align="center">
-                <A href="">Submit</A>
+                <a href="Javascript:submit();">Submit</a>
             </div>
         </form>
 
-        <br><br>
+        <br/><br/>
         <strong>OR</strong>
-        <br><br>
-        If your school is not in the list above, you may search again, or click <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add your school.
-
-
-            <a href="Javascript:document.schoolSearchForm.submit();">Submit</a>
-        </form>
-
+        <br/><br/>
+        If your school is not in the list above, you may search again, or click
+        <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
+        your school.
 
     </div>
 </div>
