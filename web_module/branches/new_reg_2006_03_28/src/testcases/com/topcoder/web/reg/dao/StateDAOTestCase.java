@@ -17,12 +17,12 @@ public class StateDAOTestCase extends TCHibernateTestCase {
         assertTrue("could not find any states in the db", !states.isEmpty());
     }
 
-    public void testFind(Long id) {
+    public void testFind() {
         State c = Util.getFactory().getStateDAO().find("CO");
         assertTrue("could not find colorado", c.getName().equals("Colorado"));
     }
 
-    public void testFindWronCase(Long id) {
+    public void testFindWrongCase() {
         State c = Util.getFactory().getStateDAO().find("Co");
         assertTrue("could not find colorado", c.getName().equals("Colorado"));
     }
