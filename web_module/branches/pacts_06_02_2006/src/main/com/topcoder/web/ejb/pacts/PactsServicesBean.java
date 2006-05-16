@@ -8,10 +8,13 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.apps.review.projecttracker.ProjectStatus;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
 import javax.naming.NamingException;
+
+import java.rmi.RemoteException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
@@ -1109,6 +1112,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
         hm.put(MODIFICATION_RATIONALE_LIST, rsc);
+        return hm;
+    }
+    
+    /**
+     * Returns the list of all project termination status types.
+     *
+     * @return  The list of project termination status types
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getProjectTerminationStatusTypes() throws SQLException {
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT project_stat_id, project_stat_name FROM project_status ORDER BY 2");
+
+        Connection c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
+        HashMap hm = new HashMap();
+        hm.put(PROJECT_TERMINATION_STATUS_LIST, rsc);
         return hm;
     }
 
@@ -4386,6 +4406,182 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges);
     }
 
+    /**
+     * Generates all the payments for the people who won money for the given project (designers, developers,
+     * and review board members). Returns the number of payments generated.
+     *
+     * @param projectId The ID of the project
+     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param makeChanges If true, updates the database; if false, logs
+     * the changes that would have been made had this parameter been true.
+     * @return The number of component payments generated, followed by the number of review board payments generated.
+     * @throws IllegalUpdateException If the affidavit/payment information
+     * has already been generated for this round.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
+			throws IllegalUpdateException, RemoteException, SQLException {
+    	log.debug("generateComponentPayments called...");
+        int i;
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+            if (makeChanges) {
+                c.setAutoCommit(false);
+            }
+            setLockTimeout(c);
+            
+            if (makeChanges) {
+                c.commit();
+                c.setAutoCommit(true);
+            }
+            c.close();
+            c = null;
+            
+            // Get list of users with taxforms
+            StringBuffer getUsers = new StringBuffer(300);
+            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
+                    .append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
+                    .append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
+            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
+            HashSet userTaxFormSet = new HashSet();
+            for (i = 0; i < rscUser.getRowCount(); i++) {
+                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
+            }
+
+            // Make sure we haven't done this before for this project.
+            StringBuffer checkNew = new StringBuffer(300);
+            checkNew.append("SELECT COUNT(*) FROM payment p, payment_type_lu pt WHERE p.project_id = " + projectId)
+            		.append(" AND p.payment_type_id = pt.payment_type_id ")
+            		.append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
+            ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
+            int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
+            if (existingAffidavits > 0) {
+                throw new IllegalUpdateException("Data already generated for project " + projectId + "!");
+            }
+            
+            // Make sure the project exists; in the process, get the name and due date.
+            StringBuffer checkExists = new StringBuffer(300);
+            checkExists.append("SELECT cc.component_name, p.complete_date " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
+            checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+            checkExists.append("AND cv.component_id = cc.component_id ");
+            checkExists.append("AND p.project_id = " + projectId + " ");
+            checkExists.append("AND p.cur_version = 1");
+            rsc = runSelectQuery(c, checkExists.toString(), false);
+            if (rsc.getRowCount() != 1) {
+                throw new IllegalUpdateException("Project " + projectId + " does not exist or is not unique");
+            }
+            String componentName = rsc.getItem(0, 0).toString();
+            String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
+            
+            int[] numWinners = new int[2];
+            ResultSetContainer[] winners = new ResultSetContainer[2];
+            
+            // Get winning designers/developers to be paid
+            if (status == ProjectStatus.ID_COMPLETED) {
+                StringBuffer getWinners = new StringBuffer(300);        
+                getWinners.append("select pr.placed, pr.user_id, payment * (1 + tcs_catalog:proc_reliability_bonus(pr.old_reliability)) as paid, pt.project_type_name ");
+                getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
+                getWinners.append("where pr.project_id = " + projectId + " ");
+                getWinners.append("and pr.project_id = p.project_id ");
+                getWinners.append("and p.project_type_id = pt.project_type_id ");
+                getWinners.append("and p.cur_version = 1 ");
+                getWinners.append("and pr.placed IN (1,2) ");
+                getWinners.append("and pr.payment > 0 ");
+                getWinners.append("order by pr.placed");
+                winners[0] = runSelectQuery(c, getWinners.toString(), false);
+                numWinners[0] = winners[0].getRowCount();
+            }
+            
+            // Get review board members to be paid
+            StringBuffer getReviewers = new StringBuffer(300);
+            getReviewers.append("select ur.login_id as user_id, pi.payment as paid ");
+            getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, tcs_catalog:review_role rr ");
+            getReviewers.append("where ur.project_id = " + projectId + " ");
+            getReviewers.append("and pi.payment_info_id = ur.payment_info_id ");
+            getReviewers.append("and ur.r_role_id = rr.review_role_id ");
+            getReviewers.append("and rr.review_role_id IN (2,3,4,5) ");
+            getReviewers.append("and pi.payment_stat_id = ps.payment_stat_id ");
+            getReviewers.append("and ps.payment_stat_id = 2 ");
+            getReviewers.append("and pi.cur_version = 1 ");
+            getReviewers.append("and ur.cur_version = 1 ");
+            getReviewers.append("order by pi.payment_info_id");
+            winners[1] = runSelectQuery(c, getReviewers.toString(), false);
+            numWinners[1] = winners[1].getRowCount();
+            
+            for (int j = 0; j < numWinners.length; j++) {
+	            for (i = 0; i < numWinners[j]; i++) {
+	                long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
+	
+	                Payment p = new Payment();
+	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
+	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+	                if (j == 0) {
+	                	String projectType = rsc.getItem(i, 3).toString();
+	                	String placed = rsc.getItem(i, 0).toString();
+	                	if (placed.equals("1")) {
+	                		placed = "1st place";
+	                	} else if (placed.equals("")) {
+	                		placed = "2nd place";
+	                	}
+	                	String description = componentName + " winnings - " + projectType + ", " + placed;
+	                	p.getHeader().setDescription(description);
+	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
+	                } else if (j == 1) {
+	                	p.getHeader().setDescription(componentName + " review board");
+	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
+	                }
+	                p.setDueDate(dueDate);
+	                p.getHeader().getUser().setId(userId);
+	
+	                if (makeChanges) {
+	                    makeNewPayment(c, p, false);
+	                } else {
+	                    StringBuffer paymentAdd = new StringBuffer(300);
+	                    paymentAdd.append("Payment gross amount: " + p.getGrossAmount() + "\n");
+	                    paymentAdd.append("Payment status ID: " + p.getStatusId() + "\n");
+	                    paymentAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
+	                    paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
+	                    paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
+	                    paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
+	                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
+	                    paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
+	                    paymentAdd.append("----------------------------------");
+	                    log.info(paymentAdd.toString());
+	                }
+	            }
+            }
+            
+            return numWinners;
+
+        } catch (Exception e) {
+            printException(e);
+            if (makeChanges) {
+                try {
+                    c.rollback();
+                } catch (Exception e1) {
+                    printException(e1);
+                }
+                try {
+                    c.setAutoCommit(true);
+                } catch (Exception e1) {
+                    printException(e1);
+                }
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            if (e instanceof IllegalUpdateException)
+                throw (IllegalUpdateException) e;
+            throw new SQLException(e.getMessage());
+        }
+    }
+    
 
     /**
      * Sets the status on all affidavits older than a specified time
