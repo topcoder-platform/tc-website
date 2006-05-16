@@ -14,6 +14,7 @@ public class RegistrationType extends Base {
 
     private Integer id;
     private String description;
+    private String name;
     private Boolean active;
     private SecurityGroup securityGroup;
     private Set notifications;
@@ -47,6 +48,10 @@ public class RegistrationType extends Base {
 
     public Set getNotifications() {
         return Collections.unmodifiableSet(notifications);
+    }
+
+    public String getName() {
+        return name;
     }
 
 }
