@@ -29,9 +29,10 @@ public class SchoolDAOHibernate extends Base implements SchoolDAO {
     public List searchByName(String name, int maxResults) {
         StringBuffer query = new StringBuffer(100);
 
-        query.append("SELECT s, (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id) ");
+        query.append("SELECT (SELECT count(*) from CurrentSchool cs WHERE cs.school.id = s.id), s ");
         query.append("FROM School s ");
         query.append("WHERE LOWER(s.name) like LOWER(?) ");
+        query.append("ORDER BY 1 DESC ");
 
         Query q = session.createQuery(query.toString());
         q.setString(0, name);
