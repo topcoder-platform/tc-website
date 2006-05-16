@@ -69,11 +69,10 @@
     <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
     <c:if test="${cf:contains(fields, schoolName)}">
         <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
+        <%--School widget--%>
+        <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
     </c:if>
-    <%--School widget--%>
-    <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
 
-    <%--Resume--%>
 
 
     <c:set value="<%=Constants.GPA%>" var="gpa"/>
@@ -110,6 +109,7 @@
         </p>
     </c:if>
 
+    <%--Resume--%>
     <c:set value="<%=Constants.RESUME%>" var="resume"/>
     <c:if test="${cf:contains(fields, resume)}">
         <p>
