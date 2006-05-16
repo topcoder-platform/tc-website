@@ -1816,7 +1816,7 @@ not require any additional information from the designer).
 </p><p class="scorecardQuestion">
 </p><p class="scorecardQuestion">The sequence diagrams should demonstrate to an adequate degree what interactions occur as a result of a method call. 
 </p><p class="scorecardQuestion">
-</p><p class="scorecardQuestion">Rating 1 &#8211; Demo section is missing or the existing demo section contains non-compilable errors (don't actually try to compile it - just view it to make sure it looks correct).</p><p class="scorecardQuestion">Rating 2 &#8211; The sequence diagrams show some interaction but not enough to be able to develop from. 
+</p><p class="scorecardQuestion">Rating 1 &#8211; Sequence diagrams do not show sufficient details useful to a developer (e.g. they show the API call from the application but nothing beyond that).
 </p><p class="scorecardQuestion">Rating 3 &#8211; The sequence diagrams show enough detail to give the developer an idea of what occurs on the method call. 
 </p><p class="scorecardQuestion">Rating 4 &#8211; The sequence diagrams
 clearly show the detail of what occurs on the method call and
