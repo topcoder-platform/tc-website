@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.FileTypeDAO;
+import com.topcoder.web.reg.model.FileType;
 import org.hibernate.Query;
 
 import java.util.List;
@@ -19,5 +20,18 @@ public class FileTypeDAOHibernate extends Base implements FileTypeDAO {
         Query q = session.createQuery(query.toString());
         ret = q.list();
         return ret;
+    }
+
+    public FileType find(Integer id) {
+        return (FileType)find(FileType.class, id);
+    }
+
+    public FileType find(String mimeType) {
+        StringBuffer query = new StringBuffer(100);
+        query.append("from FileType");
+        query.append(" where LOWER(mimeType) = LOWER(?)");
+        Query q = session.createQuery(query.toString());
+        q.setString(0, mimeType);
+        return (FileType)q.uniqueResult();
     }
 }

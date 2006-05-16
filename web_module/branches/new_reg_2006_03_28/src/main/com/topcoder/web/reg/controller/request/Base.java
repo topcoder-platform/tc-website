@@ -1,6 +1,8 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -18,6 +20,7 @@ import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -405,7 +408,33 @@ abstract class Base extends BaseProcessor {
                 ret.put(key, getTrimmedParameter(key));
             }
         }
-        //todo school,gpa, gpascale etc.
+
+        ret.put(Constants.SCHOOL_ID, getTrimmedParameter(Constants.SCHOOL_ID));
+        ret.put(Constants.SCHOOL_CITY, getTrimmedParameter(Constants.SCHOOL_CITY));
+        ret.put(Constants.SCHOOL_STATE, getTrimmedParameter(Constants.SCHOOL_STATE));
+        ret.put(Constants.SCHOOL_COUNTRY, getTrimmedParameter(Constants.SCHOOL_COUNTRY));
+        ret.put(Constants.SCHOOL_PROVINCE, getTrimmedParameter(Constants.SCHOOL_PROVINCE));
+        ret.put(Constants.SCHOOL_NAME, getTrimmedParameter(Constants.SCHOOL_NAME));
+        ret.put(Constants.GPA_SCALE, getTrimmedParameter(Constants.GPA_SCALE));
+        ret.put(Constants.GPA, getTrimmedParameter(Constants.GPA));
+
+        MultipartRequest req = (MultipartRequest) getRequest();
+        UploadedFile file = req.getUploadedFile(Constants.RESUME);
+
+        if (file != null && file.getContentType() != null) {
+            log.debug("FOUND RESUME");
+            byte[] fileBytes = new byte[(int) file.getSize()];
+            try {
+                file.getInputStream().read(fileBytes);
+            } catch (IOException e) {
+                throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
+            }
+
+            ret.put(Constants.FILE, fileBytes);
+            ret.put(Constants.FILE_TYPE, file.getContentType());
+            ret.put(Constants.FILE_NAME, file.getRemoteFileName());
+
+        }
 
         return ret;
 
@@ -446,7 +475,59 @@ abstract class Base extends BaseProcessor {
                 }
             }
         }
-        //todo school,gpa, gpascale etc.
+
+
+        //we'll use school id as an indicator for all of school
+        if (fields.contains(Constants.SCHOOL_ID)) {
+            if (params.containsKey(Constants.SCHOOL_ID)) {
+                //if it's an existing school
+                simpleValidation(SchoolIdValidator.class, fields, params, Constants.SCHOOL_ID);
+            } else {
+                //if they're adding a school
+                simpleValidation(CityValidator.class, fields, params, Constants.SCHOOL_CITY);
+                simpleValidation(ProvinceValidator.class, fields, params, Constants.SCHOOL_PROVINCE);
+                simpleValidation(CountryValidator.class, fields, params, Constants.SCHOOL_COUNTRY);
+
+                if (!hasError(Constants.SCHOOL_COUNTRY)) {
+                    if (fields.contains(Constants.SCHOOL_STATE)) {
+                        ValidationResult stateResult = new StateValidator(getFactory().getCountryDAO().find(
+                                (String) params.get(Constants.SCHOOL_COUNTRY))).validate(
+                                new StringInput((String) params.get(Constants.SCHOOL_STATE)));
+                        if (!stateResult.isValid()) {
+                            addError(Constants.SCHOOL_STATE, stateResult.getMessage());
+                        }
+                    }
+                }
+                if (fields.contains(Constants.SCHOOL_NAME)) {
+                    simpleValidation(SchoolNameValidator.class, fields, params, Constants.SCHOOL_NAME);
+                }
+            }
+        }
+
+        if (fields.contains(Constants.GPA_SCALE)) {
+            simpleValidation(GPAScaleValidator.class, fields, params, Constants.GPA_SCALE);
+        }
+        if (!hasError(Constants.GPA_SCALE)) {
+            if (fields.contains(Constants.GPA)) {
+                ValidationResult gpaResult = new GPAValidator((String)params.get(Constants.GPA_SCALE)).validate(
+                        new StringInput((String)params.get(Constants.GPA)));
+                if (!gpaResult.isValid()) {
+                    addError(Constants.GPA, gpaResult.getMessage());
+                }
+            }
+        }
+
+        if (fields.contains(Constants.RESUME)) {
+            ArrayList l = new ArrayList(3);
+            l.add(params.get(Constants.FILE));
+            l.add(params.get(Constants.FILE_TYPE));
+            l.add(params.get(Constants.FILE_NAME));
+            ValidationResult resumeResult = new ResumeValidator().validate(new ListInput(l));
+            if (!resumeResult.isValid()) {
+                addError(Constants.RESUME, resumeResult.getMessage());
+            }
+        }
+
     }
 
 

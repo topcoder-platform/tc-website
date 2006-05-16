@@ -1,12 +1,14 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.List;
 import java.util.MissingResourceException;
 
 /**
@@ -39,6 +41,11 @@ public class Constants implements WebConstants {
     public static final String SCHOOL_COUNTRY = "schco";
     public static final String SCHOOL_PROVINCE = "schp";
 
+    public static final String FILE_NAME = "filn";
+    public static final String FILE_TYPE = "filt";
+    public static final String FILE = "fil";
+
+    public static final List GPA_SCALES = Arrays.asList(new String[]{"4.00", "5.00"});
 
     public static final String FIELDS = "fields";
 
@@ -74,6 +81,7 @@ public class Constants implements WebConstants {
     public static int MAX_SCHOOL_NAME_LENGTH;
 
     public static int MAX_SCHOOL_RESULTS;
+    public static int MAX_FILE_NAME_LENGTH;
 
 
 

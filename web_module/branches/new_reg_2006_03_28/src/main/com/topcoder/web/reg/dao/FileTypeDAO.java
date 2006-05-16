@@ -1,5 +1,7 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.model.FileType;
+
 import java.util.List;
 
 /**
@@ -9,4 +11,6 @@ import java.util.List;
  */
 public interface FileTypeDAO {
     List getFileTypes();
+    FileType find(Integer id);
+    FileType find(String mimeType);
 }

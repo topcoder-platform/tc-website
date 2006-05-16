@@ -1,6 +1,7 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.web.reg.dao.FileTypeDAOTestCase;
+import com.topcoder.web.reg.validation.ResumeValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -61,7 +62,13 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(DemogMultiSelectValidatorTestCase.class));
         suite.addTest(new TestSuite(DemogSingleSelectValidatorTestCase.class));
         suite.addTest(new TestSuite(DemogFreeFormValidatorTestCase.class));
-
+        suite.addTest(new TestSuite(GPAValidatorTestCase.class));
+        suite.addTest(new TestSuite(GPAScaleValidatorTestCase.class));
+        */
+        suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
+/*
+        suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
+        suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
 
         suite.addTest(new TestSuite(DetachedTestCase.class));
 */
