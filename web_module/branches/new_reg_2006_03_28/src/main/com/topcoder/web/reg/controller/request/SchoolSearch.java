@@ -12,6 +12,8 @@ public class SchoolSearch extends Base {
         //if valid
           //search, build results, go to results page
         //else  go back to input page with error message
-        
+        setNextPage("/schoolResults.jsp");
+        setIsNextPageInContext(true);
+
     }
 }
