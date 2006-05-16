@@ -67,6 +67,7 @@ public class Constants implements WebConstants {
     public static int MAX_DEMOG_RESPONSE_LENGTH;
     public static int MAX_SCHOOL_NAME_LENGTH;
 
+    public static int MAX_SCHOOL_RESULTS;
 
 
 

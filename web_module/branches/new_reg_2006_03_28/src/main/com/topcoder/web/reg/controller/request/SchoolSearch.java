@@ -1,5 +1,8 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.web.reg.Constants;
+import com.topcoder.web.common.StringUtils;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -7,13 +10,23 @@ package com.topcoder.web.reg.controller.request;
  */
 public class SchoolSearch extends Base {
     protected void registrationProcessing() throws Exception {
-        //take input
-        //validate input
-        //if valid
-          //search, build results, go to results page
-        //else  go back to input page with error message
-        setNextPage("/schoolResults.jsp");
-        setIsNextPageInContext(true);
+
+        String schoolName = getTrimmedParameter(Constants.SCHOOL_NAME);
+        if (schoolName == null) {
+            addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
+            setNextPage("/school.jsp");
+            setIsNextPageInContext(true);
+        } else if (StringUtils.containsOnly(schoolName, "*", true)) {
+            addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
+            setNextPage("/school.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            String s = StringUtils.replace(schoolName, "*", "%");
+            getRequest().setAttribute("results",
+                    getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
+            setNextPage("/schoolResults.jsp");
+            setIsNextPageInContext(true);
+        }
 
     }
 }
