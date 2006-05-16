@@ -2,7 +2,7 @@
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
-package com.topcoder.web.tc.controller.request.compstats;
+package com.topcoder.web.tc.controller.request.statistics;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
@@ -23,20 +23,20 @@ import com.topcoder.web.tc.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve competition history.
+ * A processor to retrieve algorithm competition history.
  * 
  * @author pulky
  * @version 1.0
  */
-public class CompetitionHistory extends BaseProcessor {
+public class AlgoCompetitionHistory extends Base {
     /**
      * The logger to log to.
      */
-    private static final Logger log = Logger.getLogger(CompetitionHistory.class);
+    private static final Logger log = Logger.getLogger(AlgoCompetitionHistory.class);
 
     /**
      * Process the competition history request.
-     * Retrieves the competition history list for development or design for a particular coder.
+     * Retrieves the algorithm competition history for a particular coder.
      */
      protected void businessProcessing() throws Exception  {
         // user should be authenticated.
@@ -44,20 +44,11 @@ public class CompetitionHistory extends BaseProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        // Phase ID and coder ID are required.
-        if (!hasParameter(Constants.PHASE_ID)) {
-            throw new TCWebException("parameter " + Constants.PHASE_ID + " expected.");
-        }
-
+        // Coder ID is required.
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
         
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) && 
-            !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
-        }
-        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));   
         setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));   
 
         // Gets the rest of the optional parameters.
@@ -87,17 +78,16 @@ public class CompetitionHistory extends BaseProcessor {
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.COMPETITION_HISTORY_QUERY);            
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ALGO_COMPETITION_HISTORY_QUERY);            
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-        r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));        
-        r.setContentHandle(Constants.COMPETITION_HISTORY_COMMAND);
+        r.setContentHandle(Constants.ALGO_COMPETITION_HISTORY_COMMAND);
 
         // retrieves data from DB
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = getDataAccess(true);
         Map m = dai.getData(r);
-        ResultSetContainer history = (ResultSetContainer)m.get(Constants.COMPETITION_HISTORY_QUERY);
-        log.debug("Got " +  history.size() + " rows for competition history");
+        ResultSetContainer history = (ResultSetContainer)m.get(Constants.ALGO_COMPETITION_HISTORY_QUERY);
+        log.debug("Got " +  history.size() + " rows for algorithm competition history");
         
         // crops data
         ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
@@ -105,11 +95,8 @@ public class CompetitionHistory extends BaseProcessor {
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, rsc);
-        getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
-                HandleTag.DEVELOPMENT : HandleTag.DESIGN));
-        
-        setNextPage(Constants.VIEW_COMPETITION_HISTORY_PAGE);
+
+        setNextPage(Constants.VIEW_ALGO_COMPETITION_HISTORY_PAGE);
         setIsNextPageInContext(true);
     }
 }

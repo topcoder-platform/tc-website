@@ -94,7 +94,7 @@ z-index: 1;
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
+  ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
   String phaseId = (String)request.getParameter(Constants.PHASE_ID);
   String coderId = (String)request.getParameter(Constants.CODER_ID);

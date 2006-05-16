@@ -19,14 +19,18 @@ public class Constants implements WebConstants {
     public static String VIEW_LEADER_BOARD_PAGE;
     public static String VIEW_ROOKIE_BOARD_PAGE;
     public static String VIEW_COMPETITION_HISTORY_PAGE;
+    public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
     
     public static String LEADER_BOARD_COMMAND;
     public static String LEADER_BOARD_QUERY;
     public static String ROOKIE_BOARD_COMMAND;
     public static String ROOKIE_BOARD_QUERY;
     public static String CODER_LIST_KEY;
+    public static String HISTORY_LIST_KEY;
     public static String COMPETITION_HISTORY_COMMAND;
     public static String COMPETITION_HISTORY_QUERY;
+    public static String ALGO_COMPETITION_HISTORY_COMMAND;
+    public static String ALGO_COMPETITION_HISTORY_QUERY;
     public static String CURRENT_PERIOD_COMMAND;
     public static String CURRENT_PERIOD_QUERY;
     public static String DR_SEASON_COMMAND;
