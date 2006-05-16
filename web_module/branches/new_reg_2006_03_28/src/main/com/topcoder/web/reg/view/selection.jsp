@@ -75,8 +75,10 @@ position: relative;
         <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regTypeKey"/>
         <c:forEach items="${registrationTypeList}" var="type">
             <tc-webtag:chkBox name="${regTypeKey}${type.id}"/> <c:out value="${type.description}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" />tell me more...</A><br />
+
       <div id="container">
          <div id="popUp0" class="popUp">
+<%---------start of db data---------%>
          <span class="bodySubtitle">TopCoder Competitions</span><br>
          How do you stand up among your peers?
          <ul>
@@ -85,8 +87,10 @@ position: relative;
          <li><strong>Component Development Competitions:</strong> You are tasked to convert a component design, prepared by the designer and reviewed by the Design Review Board, into a functional component.</li>
          <li><strong>Marathon Matches:</strong> TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.</li>
          </ul>
+<%---------end of db data---------%>
          </div>
       </div>
+
       <br><br>
         </c:forEach>
 
