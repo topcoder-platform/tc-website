@@ -36,6 +36,8 @@ public interface WebConstants {
     public static final String CODER_TYPE="ct";
     public static final String DEMOG_PREFIX="demog_";
 
+    public static String SCHOOL_ID="scid";
+
     //resume parameters
     public static final String RESUME="resume";
 
