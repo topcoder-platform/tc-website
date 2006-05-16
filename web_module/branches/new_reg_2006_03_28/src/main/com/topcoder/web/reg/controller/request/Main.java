@@ -39,8 +39,9 @@ public class Main extends Base {
             //set up the user object we're gonna use
             User u = getRegUser();
             if (u==null) {
-                log.debug("user doesn't exist, must be a new registration, setting it up");
                 u = new User();
+            }
+            if (u.isNew()) {
                 if (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())) {
                     Contact c = new Contact();
                     u.setContact(c);
