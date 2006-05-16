@@ -50,7 +50,7 @@ Searches<br>
 %>
 <br><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Algorithm Affidavits/Payments</a><br>
-<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generateComponentPayments">Generate Component Affidavits/Payments</a><br>
+<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateComponentPayments">Generate Component Affidavits/Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAffidavitTemplate">Create an Affidavit Template</a><br>
 
 
