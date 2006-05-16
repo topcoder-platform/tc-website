@@ -38,7 +38,7 @@
         <br><br>
         <strong>OR</strong>
         <br><br>
-        If your school is not in the list above, click <A href="">here</A>.
+        If your school is not in the list above, click <A href="">here</A> to add your school, and click <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch">here</A> to go back and search again.
     </div>
 </div>
 </body>
