@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -49,6 +50,13 @@
             <c:set value="<%=Constants.CITY%>" var="city"/>
             <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
+            <br><br>
+
+
+<c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
+<c:if test="${cf:contains(fields, visibleSchool)}">
+    <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school. 
+</c:if>
             <br><br>
 
             <div align="center">
