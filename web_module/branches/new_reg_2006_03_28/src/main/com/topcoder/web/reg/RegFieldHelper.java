@@ -56,6 +56,7 @@ public class RegFieldHelper {
         secondaryCompStudentFields.add(Constants.GPA);
         secondaryCompStudentFields.add(Constants.GPA_SCALE);
         secondaryCompStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryCompStudentFields.add(Constants.SCHOOL_NAME);
         secondaryCompStudentFields.add(Constants.SCHOOL_CITY);
         secondaryCompStudentFields.add(Constants.SCHOOL_ID);
         secondaryCompStudentFields.add(Constants.SCHOOL_PROVINCE);
@@ -86,6 +87,7 @@ public class RegFieldHelper {
 
     static {
         secondaryHSFields.add(Constants.DEMOG_PREFIX);
+        secondaryCompStudentFields.add(Constants.SCHOOL_NAME);
         secondaryCompStudentFields.add(Constants.SCHOOL_CITY);
         secondaryCompStudentFields.add(Constants.SCHOOL_ID);
         secondaryCompStudentFields.add(Constants.SCHOOL_PROVINCE);
