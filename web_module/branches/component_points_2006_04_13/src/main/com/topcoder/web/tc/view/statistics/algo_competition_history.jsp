@@ -104,7 +104,7 @@ z-index: 1;
 <jsp:param name="title" value="Algorithm Competition History"/>
 </jsp:include>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='algorithm'/></span>
     <br>
     <span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
     <span class="bc">
