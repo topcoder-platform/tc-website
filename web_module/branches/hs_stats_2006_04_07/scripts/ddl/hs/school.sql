@@ -56,6 +56,8 @@ alter table school_type_lu add constraint primary key
 	(school_type_id)
 	constraint schooltypelu_pk;
 
+insert into school_type_lu values (1, 'University');
+insert into school_type_lu values (2, 'High School');
 
 alter table school add school_type_id decimal(3,0);
 
@@ -66,5 +68,6 @@ alter table school add constraint foreign key
 	constraint school_schooltype_fk;
 
 alter table school add address_id decimal(10,0);  
+
 
 --drop all the adress like columns at some point
