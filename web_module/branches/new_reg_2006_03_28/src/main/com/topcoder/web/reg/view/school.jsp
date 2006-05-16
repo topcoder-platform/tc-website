@@ -35,8 +35,8 @@
             <br><br>
             <strong>Country:</strong><br>
             <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
-            <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
             Country:
+            <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
             <br><br>
             <strong>State Code:</strong><br>
@@ -57,8 +57,8 @@
 
             <div align="center">
                 <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
+                School Type:
                 <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
-                Country:
                 <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
                 <br><br>
             </div>
