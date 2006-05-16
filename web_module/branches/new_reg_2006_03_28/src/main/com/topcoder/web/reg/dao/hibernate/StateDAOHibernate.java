@@ -25,7 +25,7 @@ public class StateDAOHibernate extends Base implements  StateDAO {
     }
 
     public State find(String code) {
-        return (State) find(State.class, code);
+        return (State) find(State.class, code.toUpperCase());
     }
 
 }
