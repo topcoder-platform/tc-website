@@ -5,6 +5,7 @@ import com.topcoder.web.common.model.Base;
 import java.sql.Timestamp;
 import java.util.Set;
 import java.util.Iterator;
+import java.util.HashSet;
 
 /**
  * A class to hold coder data.
@@ -26,6 +27,10 @@ public class Coder extends Base {
     private CurrentSchool currentSchool;
     private Set resumes;
     private User user;
+
+    public Coder() {
+        this.resumes = new HashSet();
+    }
 
 
     public Long getId() {
