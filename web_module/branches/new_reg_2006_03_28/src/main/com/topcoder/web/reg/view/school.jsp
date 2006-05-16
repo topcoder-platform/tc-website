@@ -1,43 +1,72 @@
+<%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<title>hello world</title>
+
 <head>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
-</jsp:include>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Registration</title>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_main"/>
+    </jsp:include>
 </head>
+
 <body>
 <div align="center">
-   <div style="width:250px;padding:15px;text-align:left;">
+    <div style="width:250px;padding:15px;text-align:left;">
 
-<jsp:include page="/page_title.jsp" >
-<jsp:param name="image" value="registration_w"/>
-<jsp:param name="title" value="School Selection"/>
-</jsp:include>
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="registration_w"/>
+            <jsp:param name="title" value="School Selection"/>
+        </jsp:include>
 
-      <span class="subtitle">Search Criteria</span>
-      <br><br>
-      <strong>School Name:</strong><br>
-      <input type="text" name="" value="" maxlength="50" size="36">
-      <br><br>
-      <strong>Country:</strong><br>
-      <input type="text" name="" value="" maxlength="50" size="36">
-      <br><br>
-      <strong>State / Province:</strong><br>
-      <input type="text" name="" value="" maxlength="50" size="36">
-      <br><br>
-      <strong>City:</strong><br>
-      <input type="text" name="" value="" maxlength="50" size="36">
-      <br><br>
+        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
 
-      <div align="center">
-         <input type="radio" name="schooltype" value="highschool" >High School
-         <input type="radio" name="schooltype" value="college" >College
-         <br><br>
-         <A href="schoolResults.jsp">Search</A>
-      </div>
+            <span class="subtitle">Search Criteria</span>
+            <br><br>
+            <strong>School Name:</strong><br>
+            <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+            <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
+            <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
+            <br><br>
+            <strong>Country:</strong><br>
+            <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
+            <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
+            Country:
+            <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+            <br><br>
+            <strong>State Code:</strong><br>
+            <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
+            <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br/></tc-webtag:errorIterator>
+            <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
+            <br><br>
+            <strong>Province:</strong><br>
+            <c:set value="<%=Constants.PROVINCE%>" var="province"/>
+            <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br/></tc-webtag:errorIterator>
+            <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
+            <br><br>
+            <strong>City:</strong><br>
+            <c:set value="<%=Constants.CITY%>" var="city"/>
+            <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
+            <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
+            <br><br>
+
+            <div align="center">
+                <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
+                <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
+                Country:
+                <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
+                <br><br>
+            </div>
+            <a href="Javascript:document.schoolSearchForm.submit();">Submit</a>
+        </form>
 
 
-   </div>
+    </div>
 </div>
 </body>
 </html>

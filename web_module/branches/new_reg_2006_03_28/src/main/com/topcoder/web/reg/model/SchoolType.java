@@ -11,6 +11,9 @@ public class SchoolType extends Base {
     private Integer id;
     private String description;
 
+    public static final Integer HIGH_SCHOOL = new Integer(2);
+    public static final Integer COLLEGE = new Integer(1);  
+
     protected SchoolType() {
 
     }

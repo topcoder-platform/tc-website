@@ -31,6 +31,8 @@ public class Constants implements WebConstants {
     public static final String VISIBLE_SCHOOL = "vschl";
     public static final String USER = "regUser";
     public static final String REG_TYPES = "regTypes";
+    public static final String SCHOOL_TYPE = "scht";
+    public static final String SCHOOL_NAME = "schn";
 
     public static final String FIELDS = "fields";
 
@@ -63,6 +65,7 @@ public class Constants implements WebConstants {
     public static int MAX_GPA_LENGTH;
 
     public static int MAX_DEMOG_RESPONSE_LENGTH;
+    public static int MAX_SCHOOL_NAME_LENGTH;
 
 
 

@@ -52,6 +52,10 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new SchoolDAOHibernate();
     }
 
+    public SchoolTypeDAO getSchoolTypeDAO() {
+        return new SchoolTypeDAOHibernate();
+    }
+
     public StateDAO getStateDAO() {
         return new StateDAOHibernate();
     }

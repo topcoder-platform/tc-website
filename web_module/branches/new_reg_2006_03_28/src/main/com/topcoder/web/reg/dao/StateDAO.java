@@ -13,5 +13,4 @@ public interface StateDAO {
 
     List getStates();
     State find(String code);
-    List findAll();
 }

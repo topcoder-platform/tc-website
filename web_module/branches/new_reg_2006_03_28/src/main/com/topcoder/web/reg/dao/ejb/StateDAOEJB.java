@@ -19,7 +19,4 @@ public class StateDAOEJB implements StateDAO {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public List findAll() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
-    }
 }

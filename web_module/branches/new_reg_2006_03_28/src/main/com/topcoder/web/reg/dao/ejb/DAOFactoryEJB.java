@@ -52,6 +52,10 @@ public class DAOFactoryEJB implements DAOFactory {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    public SchoolTypeDAO getSchoolTypeDAO() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     public StateDAO getStateDAO() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
