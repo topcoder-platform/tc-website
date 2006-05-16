@@ -21,4 +21,9 @@ public class StateDAOTestCase extends TCHibernateTestCase {
         State c = Util.getFactory().getStateDAO().find("CO");
         assertTrue("could not find colorado", c.getName().equals("Colorado"));
     }
+
+    public void testFindWronCase(Long id) {
+        State c = Util.getFactory().getStateDAO().find("Co");
+        assertTrue("could not find colorado", c.getName().equals("Colorado"));
+    }
 }
