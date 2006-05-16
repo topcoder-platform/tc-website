@@ -22,7 +22,7 @@ public class SchoolSearch extends Base {
                     getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
             setDefault(Constants.SCHOOL_NAME, schoolName);
         }
-        setNextPage("/schoolResults.jsp");
+        setNextPage("/school.jsp");
         setIsNextPageInContext(true);
 
     }
