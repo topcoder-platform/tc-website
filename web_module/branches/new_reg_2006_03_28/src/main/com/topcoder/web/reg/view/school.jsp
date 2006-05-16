@@ -19,7 +19,8 @@
             //set the school name and id
                 var selection = getValue("document.resultForm", "schoolSelection");
                 if (selection) {
-                    putValue("window.opener.document.forms[0]", "<%=Constants.SCHOOL_ID%>", selection);
+                    putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection);
+                    updateDivOrSpan("window.opener.document.secondaryForm.<%=Constants.SCHOOL_NAME%>", "<%=Constants.SCHOOL_NAME%>", selection);
                 } else {
                     updateDivOrSpan("document", "submitMessage", "Please make a selection before submitting.");
                 }
