@@ -9,6 +9,34 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Registration</title>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_main"/>
+    </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUpUnder(event,objectID){
+   objPopTrig = document.getElementById(event);
+   alert(objPopTrig);
+   objPopUp = document.getElementById(objectID);
+   xPos = objPopTrig.offsetLeft;
+   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+   objPopUp.style.left = xPos + 'px';
+   objPopUp.style.display = 'block';
+}
+function popUp(objectID){
+   objPopUp = document.getElementById(objectID);
+   objPopUp.style.visibility = 'visible';
+//   objPopUp.style.display = 'block';
+}
+function popHide(){
+   objPopUp.style.visibility = 'hidden';
+//   objPopUp.style.display = 'none';
+   objPopUp = null;
+}
+
+// -->
+</script>
 <STYLE TYPE="text/css">
 /*div{ border: solid 1px black; }*/
 div.popUp
