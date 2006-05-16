@@ -13,7 +13,7 @@ import java.util.List;
 public class StateDAOTestCase extends TCHibernateTestCase {
     
     public void testGetStates() {
-        List states = Util.getFactory().getStateDAO().findAll();
+        List states = Util.getFactory().getStateDAO().getStates();
         assertTrue("could not find any states in the db", !states.isEmpty());
     }
 
