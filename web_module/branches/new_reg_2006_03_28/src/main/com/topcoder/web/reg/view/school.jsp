@@ -18,6 +18,7 @@
             function submit() {
             //set the school name and id
                 var selection = getValue("document.resultForm", "schoolSelection");
+                if (selection)
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection);
                     if (window.opener.document.secondaryForm.<%=Constants.SCHOOL_NAME%>) {
                         putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection);
