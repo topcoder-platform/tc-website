@@ -21,6 +21,7 @@
                 if (selection) {
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection);
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection);
+                    updateDivOrSpan("window.opener.document", "<%=Constants.SCHOOL_NAME%>", selection);
                     window.close();
                 } else {
                     updateDivOrSpan("document", "submitMessage", "Please make a selection before submitting.");
