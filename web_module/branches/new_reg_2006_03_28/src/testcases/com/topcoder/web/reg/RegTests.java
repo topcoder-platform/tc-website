@@ -1,8 +1,9 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.SchoolTypeDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import com.topcoder.web.reg.dao.*;
+import com.topcoder.web.reg.validation.*;
 
 /**
  * @author dok
@@ -15,10 +16,8 @@ public class RegTests extends TCHibernateTestCase {
 
 
 
-/*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
-        suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(NotificationDAOTestCase.class));
         suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
@@ -27,9 +26,8 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
-        */
+        suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeDAOTestCase.class));
-        /*
         suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicQuestionDAOTestCase.class));
@@ -63,7 +61,6 @@ public class RegTests extends TCHibernateTestCase {
 
 
         suite.addTest(new TestSuite(DetachedTestCase.class));
-*/
 
         return suite;
     }
