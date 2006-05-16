@@ -46,7 +46,7 @@
 
 
     <%--School widget--%>
-    <p><a href="Javascript:openWin('/?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
+    <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
 
     <%--Resume--%>
 
