@@ -1,9 +1,5 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.SchoolType;
-import com.topcoder.web.reg.Constants;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -12,7 +8,7 @@ import com.topcoder.web.reg.Constants;
 public class ViewSchoolSearch extends Base  {
     protected void registrationProcessing() throws Exception {
 
-        User u = getRegUser();
+/*        User u = getRegUser();
 
         if (u!=null) {
             log.debug("user not null: " + u.getHandle() + " " + u.getLastName() + " " + u.getAddresses().size());
@@ -41,7 +37,7 @@ public class ViewSchoolSearch extends Base  {
         }
 
         getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
-        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
+        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());*/
         setNextPage("/school.jsp");
         setIsNextPageInContext(true);
     }

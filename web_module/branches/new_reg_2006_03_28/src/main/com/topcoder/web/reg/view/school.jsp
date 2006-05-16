@@ -33,6 +33,7 @@
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
+<%--
             <strong>Country:</strong><br>
             <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
             <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
@@ -61,6 +62,7 @@
                 <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
                 <br><br>
             </div>
+--%>
             <a href="Javascript:document.schoolSearchForm.submit();">Submit</a>
         </form>
 
