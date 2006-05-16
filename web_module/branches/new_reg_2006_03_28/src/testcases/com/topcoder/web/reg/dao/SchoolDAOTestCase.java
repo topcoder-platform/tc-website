@@ -25,8 +25,8 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         boolean ok = true;
         for (Iterator it = l.iterator(); it.hasNext();) {
             o = (Object[])it.next();
-            s = (School)o[0];
-            Integer count = (Integer)o[1];
+            s = (School)o[1];
+            Integer count = (Integer)o[0];
             if (!s.getName().toLowerCase().startsWith("mass")) {
                 ok = false;
             }

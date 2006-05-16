@@ -24,7 +24,7 @@
 
         <span class="subtitle">Results</span>
         <br><br>
-        Please select your school from list below and click Submit: <br />  Lists includes only the first <%=Constants.MAX_SCHOOL_RESULTS%> schools.
+        Please select your school from list below and click Submit: <br />  Lists includes only the first <%=Constants.MAX_SCHOOL_RESULTS%> schools.  If you see a duplicate, please choose the school with more associated students.
 
             <select name="schoolSelection" size="4" multiple="multiple">
         <c:forEach items="${results}" var="result">
