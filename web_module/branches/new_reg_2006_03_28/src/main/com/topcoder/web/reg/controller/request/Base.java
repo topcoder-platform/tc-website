@@ -224,7 +224,8 @@ abstract class Base extends BaseProcessor {
         ret.put(Constants.ADDRESS3, getTrimmedParameter(Constants.ADDRESS3));
         ret.put(Constants.CITY, getTrimmedParameter(Constants.CITY));
         ret.put(Constants.COUNTRY_CODE, getTrimmedParameter(Constants.COUNTRY_CODE));
-        ret.put(Constants.STATE_CODE, getTrimmedParameter(Constants.STATE_CODE));
+        String stateCode = getTrimmedParameter(Constants.STATE_CODE);
+        ret.put(Constants.STATE_CODE, stateCode==null?null:stateCode.toUpperCase());
         ret.put(Constants.POSTAL_CODE, getTrimmedParameter(Constants.POSTAL_CODE));
         ret.put(Constants.PROVINCE, getTrimmedParameter(Constants.PROVINCE));
         ret.put(Constants.EMAIL, getTrimmedParameter(Constants.EMAIL));
