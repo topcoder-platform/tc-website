@@ -35,7 +35,7 @@ public class ViewSchoolAdd extends Base {
         }
 
         getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
-        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());*/
+        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
         setNextPage("/schoolEntry.jsp");
         setIsNextPageInContext(true);
     }
