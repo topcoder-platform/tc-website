@@ -64,6 +64,7 @@ public class Secondary extends Base {
         if (fields.contains(Constants.ADDRESS1)) {
             if (a == null) {
                 a = new Address();
+                u.addAddress(a);
             }
             a.setAddress1((String) params.get(Constants.ADDRESS1));
         }
@@ -148,6 +149,7 @@ public class Secondary extends Base {
                 e.setEmailTypeId(Email.TYPE_ID_PRIMARY);
                 e.setStatusId(Email.STATUS_ID_UNACTIVE);
                 e.setUser(u);
+                u.addEmailAddress(e);
             }
             e.setAddress((String) params.get(Constants.EMAIL));
         }
@@ -165,6 +167,7 @@ public class Secondary extends Base {
                 p.setPhoneTypeId(Phone.PHONE_TYPE_HOME);
                 p.setPrimary(Boolean.TRUE);
                 p.setUser(u);
+                u.addPhoneNumber(p);
             }
             p.setNumber((String) params.get(Constants.PHONE_NUMBER));
         }
