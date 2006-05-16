@@ -14,18 +14,20 @@ public class ViewSchoolSearch extends Base  {
 
         User u = getRegUser();
 
-        if (u.getHomeAddress()!=null) {
-            if (u.getHomeAddress().getCountry()!=null) {
-                setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
-            }
-            if (u.getHomeAddress().getState()!=null) {
-                setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
-            }
-            if (u.getHomeAddress().getProvince()!=null) {
-                setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
-            }
-            if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-                setDefault(Constants.SCHOOL_TYPE, SchoolType.HIGH_SCHOOL.toString());
+        if (u!=null) {
+            if (u.getHomeAddress()!=null) {
+                if (u.getHomeAddress().getCountry()!=null) {
+                    setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
+                }
+                if (u.getHomeAddress().getState()!=null) {
+                    setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
+                }
+                if (u.getHomeAddress().getProvince()!=null) {
+                    setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
+                }
+                if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                    setDefault(Constants.SCHOOL_TYPE, SchoolType.HIGH_SCHOOL.toString());
+                }
             }
         }
 
