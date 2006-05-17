@@ -667,12 +667,7 @@ abstract class Base extends BaseProcessor {
     }
 
     protected boolean hasParameter(Map params, String key) {
-        Object val = params.get(key);
-        if (val==null) {
-            return false;
-        } else {
-           return true;
-        }
+        return params.get(key)!=null;
     }
 
     /**
