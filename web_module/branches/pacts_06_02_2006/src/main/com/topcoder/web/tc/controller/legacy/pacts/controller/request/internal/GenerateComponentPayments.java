@@ -43,7 +43,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             		addError(PROJECT_ID, "Missing project id");
             	}
             	if (projectTermStatus.equals("")) {
-            		addError(PROJECT_TERMINATION_STATUS, "Missing project termination status");
+            		addError(PROJECT_ID, "Missing project termination status");
             	}
             }
             log.info("END: GenerateComponentPayments");
