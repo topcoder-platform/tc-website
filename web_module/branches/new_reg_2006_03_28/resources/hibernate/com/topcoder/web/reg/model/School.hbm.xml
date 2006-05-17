@@ -11,7 +11,7 @@
                 <param name="sequence_name">SCHOOL_SEQ</param>
             </generator>
         </id>
-        <many-to-one name="address" column="address_id" class="Address" access="field"/>
+        <many-to-one name="address" column="address_id" class="Address" cascade="save-update" access="field"/>
         <many-to-one name="coder" class="Coder" column="user_id" access="field"/>
         <property name="name" access="field"/>
         <property name="shortName" column="short_name" access="field"/>
