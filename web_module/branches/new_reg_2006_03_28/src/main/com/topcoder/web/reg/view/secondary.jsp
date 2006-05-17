@@ -42,6 +42,10 @@
     <c:if test="${cf:contains(fields, schoolId)}">
         <tc-webtag:hiddenInput name="${schoolId}"/>
     </c:if>
+    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="schoolVisible"/>
+    <c:if test="${cf:contains(fields, schoolVisible)}">
+        <tc-webtag:hiddenInput name="${schoolVisible}"/>
+    </c:if>
 
 
     <%--Demographics--%>
@@ -68,6 +72,13 @@
 
     <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
     <c:if test="${cf:contains(fields, schoolName)}">
+        <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br/></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br/></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br/></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br/></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br/></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br/></tc-webtag:errorIterator>
+
         <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
         <%--School widget--%>
         <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
@@ -96,15 +107,11 @@
         <p>
             GPA Scale:
             <SELECT NAME="<%=Constants.GPA_SCALE%>">
+                <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
                 <OPTION value=""></OPTION>
-                <c:choose>
-                    <c:when test="${regUser.coder.currentSchool.gpaScale==4}"><OPTION value="4.00" selected="true">4.00</OPTION></c:when>
-                    <c:otherwise><OPTION value="4.00">4.00</OPTION></c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test="${regUser.coder.currentSchool.gpaScale==5}"><OPTION value="5.00" selected="true">5.00</OPTION></c:when>
-                    <c:otherwise><OPTION value="5.00">5.00</OPTION></c:otherwise>
-                </c:choose>
+                <c:forEach items="${scales}" var="scale">
+                    <OPTION value="${scale}" <c:if test="${regUser.coder.currentSchool.gpaScale==scale}">selected="true"</c:if>>${scale}</OPTION>
+                </c:forEach>
             </SELECT>
         </p>
     </c:if>
