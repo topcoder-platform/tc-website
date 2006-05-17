@@ -79,9 +79,9 @@
         <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br/></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br/></tc-webtag:errorIterator>
 
-        <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
+        School: <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
         <%--School widget--%>
-        <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">school</a></p>
+        <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">Choose School</a></p>
     </c:if>
 
 
