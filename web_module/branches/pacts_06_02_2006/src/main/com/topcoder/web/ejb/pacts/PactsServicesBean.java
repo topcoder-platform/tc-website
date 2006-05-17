@@ -4526,8 +4526,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
 	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
 	                if (j == 0) {
-	                	String projectType = rsc.getItem(i, 3).toString();
-	                	String placed = rsc.getItem(i, 0).toString();
+	                	String projectType = winners[j].getItem(i, 3).toString();
+	                	String placed = winners[j].getItem(i, 0).toString();
 	                	if (placed.equals("1")) {
 	                		placed = "1st place";
 	                	} else if (placed.equals("2")) {
