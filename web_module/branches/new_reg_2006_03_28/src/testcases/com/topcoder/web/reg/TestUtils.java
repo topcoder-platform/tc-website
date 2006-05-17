@@ -30,6 +30,16 @@ public class TestUtils {
         s.setName("some school");
         s.setShortName("ss");
         s.setType(Util.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
+
+
+        //todo add address
+        Address a = new Address();
+        a.setCity("mycity");
+        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
+        a.setState(Util.getFactory().getStateDAO().find("CO"));
+        a.setProvince("myprovince");
+        s.setAddress(a);
+
         ret.addCreatedSchool(s);
 
         CurrentSchool cs = new CurrentSchool();

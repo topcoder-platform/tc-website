@@ -132,7 +132,7 @@
         </p>
 
         <p>
-            Resume: <tc-webtag:textInput name="<%=Constants.RESUME%>" editable="false"/>
+            Resume: <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
             <input type="file" name="${resume}">
 
         </p>

@@ -1,25 +1,17 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
-import com.topcoder.web.reg.dao.DAOFactory;
-import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.*;
 import com.topcoder.web.reg.validation.*;
-import org.hibernate.Session;
-import org.hibernate.StaleObjectStateException;
 
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
@@ -28,118 +20,12 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends BaseProcessor {
+abstract class Base extends HibernateProcessor {
 
-    public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
-    public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
     private User user = null;
-    private DAOFactory factory = null;
 
-    protected void businessProcessing() throws Exception {
-        log.debug("sessionid: " + getRequest().getSession().getId());
-
-        Session hibernateSession =
-                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
-
-        try {
-
-            if (hibernateSession != null) {
-                log.debug("< Continuing conversation");
-                ExtendedThreadLocalSessionContext.bind(hibernateSession);
-            } else {
-                log.debug(">>> New conversation");
-            }
-
-            log.debug("Starting a database transaction");
-            HibernateUtils.begin();
-
-            // Do the work...
+    protected void dbProcessing() throws Exception {
             registrationProcessing();
-
-            // End or continue the long-running conversation?
-            if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
-
-                log.debug("Flushing Session");
-                HibernateUtils.getSession().flush();
-
-                log.debug("Committing the database transaction");
-                HibernateUtils.commit();
-
-                log.debug("Closing and unbinding Session from thread");
-                HibernateUtils.getSession().close(); // Unbind is automatic here
-
-                log.debug("Removing Session from HttpSession");
-                //we're creating a new session to handle the case that the request processing invalidated the session
-                //there's no way to check, so this is what we're doing.
-                HttpSession s = getRequest().getSession(true);
-                if (!s.isNew()) {
-                    s.setAttribute(HIBERNATE_SESSION_KEY, null);
-                } else {
-                    log.debug("XXXXX we got a new session");
-                }
-
-                log.debug("<<< End of conversation");
-
-            } else {
-                log.debug("Committing database transaction");
-                 HibernateUtils.commit();
-
-                 log.debug("Unbinding Session from thread");
-                 hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-
-                 log.debug("Storing Session in the HttpSession");
-                 getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
-
-                 log.debug("> Returning to user in conversation");
-            }
-
-        } catch (StaleObjectStateException staleEx) {
-            log.error("This interceptor does not implement optimistic concurrency control!");
-            log.error("Your application will not work until you add compensation actions!");
-            // Rollback, close everything, possibly compensate for any permanent changes
-            // during the conversation, and finally restart business conversation. Maybe
-            // give the user of the application a chance to merge some of his work with
-            // fresh data... what you do here depends on your applications design.
-            throw staleEx;
-        } catch (Exception e) {
-            log.debug("printing the stack from base");
-            //e.printStackTrace();
-            handleException(e);
-            throw e;
-        } catch (Throwable ex) {
-            handleException(ex);
-            throw new Exception(ex);
-        }
-
-    }
-
-    protected DAOFactory getFactory() {
-        if (factory == null) {
-            factory = Util.getFactory();
-        }
-        return factory;
-    }
-
-    private void handleException(Throwable e) {
-        try {
-            if (HibernateUtils.getSession().getTransaction().isActive()) {
-                log.debug("Trying to rollback database transaction after exception");
-                HibernateUtils.rollback();
-            }
-        } catch (Throwable rbEx) {
-            log.error("Could not rollback transaction after exception! " + rbEx.getMessage());
-        } finally {
-            log.error("Cleanup after exception!");
-
-            // Cleanup
-            log.debug("Closing and unbinding Session from thread");
-            HibernateUtils.getSession().close(); // Unbind is automatic here
-
-            log.debug("Removing Session from HttpSession");
-            getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
-
-        }
-
     }
 
 
@@ -638,7 +524,7 @@ abstract class Base extends BaseProcessor {
         if (secondaryFields.contains(Constants.RESUME)) {
             if (u.getCoder()!=null&&!u.getCoder().getResumes().isEmpty()) {
                 Iterator it = u.getCoder().getResumes().iterator();
-                setDefault(Constants.RESUME, ((Resume)it.next()).getFileName());
+                setDefault(Constants.FILE_NAME, ((Resume)it.next()).getFileName());
             }
         }
 
