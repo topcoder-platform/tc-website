@@ -68,6 +68,7 @@ alter table school add constraint foreign key
 	constraint school_schooltype_fk;
 
 alter table school add address_id decimal(10,0);  
+alter table school modify sort_letter CHAR(1) ;
 
 
 --drop all the adress like columns at some point
