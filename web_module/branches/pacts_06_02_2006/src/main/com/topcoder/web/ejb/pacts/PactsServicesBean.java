@@ -4459,7 +4459,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
-            checkNew.append("SELECT COUNT(*) FROM payment p, payment_type_lu pt WHERE p.project_id = " + projectId)
+            checkNew.append("SELECT COUNT(*) FROM payment_detail p, payment_type_lu pt WHERE p.project_id = " + projectId)
             		.append(" AND p.payment_type_id = pt.payment_type_id ")
             		.append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
