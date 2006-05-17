@@ -166,8 +166,12 @@ lock mode row;
 alter table 'informix'.algo_rating_type_lu add constraint primary key 
     (algo_rating_type_id)
     constraint algo_rating_type_lu_pk;
-    
 
+-- insert the values now so we can create fks    
+insert into algo_rating_type_lu(algo_rating_type_id, algo_rating_type_desc) values (1, 'TopCoder Rating');
+insert into algo_rating_type_lu(algo_rating_type_id, algo_rating_type_desc) values (2, 'TopCoder High School Rating');
+    
+    
 create table algo_rating (
   coder_id DECIMAL(10,0),
   rating DECIMAL(5,0) default 0,
@@ -205,3 +209,6 @@ alter table 'informix'.algo_rating add constraint foreign key
     (round_id) 
     constraint algorating_secondround_fk;
 
+alter table algo_rating add constraint foreign key (algo_rating_type_id) 
+        references algo_rating_type_lu (algo_rating_type_id)
+        constraint algo_rating_algo_rating_type_fk;
