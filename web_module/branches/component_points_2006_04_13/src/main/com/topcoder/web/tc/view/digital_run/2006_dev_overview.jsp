@@ -8,7 +8,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 </head>
@@ -37,18 +37,20 @@
 <jsp:param name="title" value="Development Cup Series"/>
 </jsp:include>
 
-<div style="float:right;">
+<div style="float:right; text-align:right;">
 Overview
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_schedule">Schedule</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_prizes">Prizes</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_roty">Rookie of the Year</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_rules">Rules</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_dev_schedule">Schedule</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_dev_prizes">Prizes</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_dev_roty">Rookie of the Year</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_dev_rules">Rules</A><br>
+<A class="bcLink" href="/tc?&ph=112&module=LeaderBoard">Current leaderboard</A> | 
+<A class="bcLink" href="/tc?module=RookieBoard&ph=112">Current ROTY leaderboard</A>
 </div>
 <span class="title">Overview</span>
 <br><br>
 Each component posted for a development competition will carry a point value of 500 placement points.  Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br><br>
-<A name="point_table"></A>
+<A class="bcLink" name="point_table"></A>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle">&#160;</td>
