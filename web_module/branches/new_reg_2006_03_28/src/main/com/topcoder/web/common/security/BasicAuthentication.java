@@ -120,8 +120,10 @@ public class BasicAuthentication implements WebAuthentication {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub;
             if (dataSource==null) {
+                log.debug("data source was null");
                 sub = login.login(u.getUserName(), u.getPassword());
             } else {
+                log.debug("datasource was not null");
                 sub = login.login(u.getUserName(), u.getPassword(), dataSource);
             }
             long uid = sub.getUserId();
