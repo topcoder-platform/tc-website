@@ -80,6 +80,9 @@
                                 <td class="tableHeader" width="20%" align="right">
                                     Type
                                 </td>
+                                <td class="tableHeader" width="20%" align="right">
+                                    Tests Remaining
+                                </td>
                             </tr>
                             <% if (queue.isEmpty()) { %>
                             <tr><td colspan="5" class="statDk">There are currently no submissions in the queue.</td></tr>
@@ -102,6 +105,9 @@
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="submission_type" row="<%=resultRow%>"/>
                                     </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
+                                        <rsc:item name="tests" row="<%=resultRow%>"/>
+                                    </td>                                    
                                 </tr>
                                 <%even = !even;%>
                             </rsc:iterator>
