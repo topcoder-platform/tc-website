@@ -84,7 +84,7 @@ if (srb.getProperty("sq")!=null){
   sortString+="&sc=" + srb.getProperty("sc");
   sortString+="&sd=" + srb.getProperty("sd", "desc");  
 }
-String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
+String sSortUrl = "/tc?module=AlgoCompetitionHistory&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
 %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
@@ -102,13 +102,13 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-         <a href="/stat?c=ratings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
+         <a href="/tc?module=AlgoCompetitionHistory&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
          &lt;&lt; previous
       <% } %>
          &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-         <a href="/stat?c=ratings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
+         <a href="/tc?module=AlgoCompetitionHistory&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
       next &gt;&gt;
       <% } %>
@@ -156,13 +156,13 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
-         <a href="/stat?c=ratings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
+         <a href="/tc?module=AlgoCompetitionHistory&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">&lt;&lt; previous</a>
       <% } else { %>
          &lt;&lt; previous
       <% } %>
          &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-         <a href="/stat?c=ratings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
+         <a href="/tc?module=AlgoCompetitionHistory&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="bcLink">next &gt;&gt;</a>
       <% } else { %>
       next &gt;&gt;
       <% } %>
