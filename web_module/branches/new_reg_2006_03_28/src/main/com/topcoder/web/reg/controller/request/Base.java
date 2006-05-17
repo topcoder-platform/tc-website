@@ -478,7 +478,9 @@ abstract class Base extends BaseProcessor {
 
         //we'll use school id as an indicator for all of school
         if (fields.contains(Constants.SCHOOL_ID)) {
-            if (params.get(Constants.SCHOOL_ID)!=null) {
+            String id =(String)params.get(Constants.SCHOOL_ID);
+            log.debug("id was: " + id);
+            if (id!=null&&!"".equals(id)) {
                 //if it's an existing school
                 simpleValidation(SchoolIdValidator.class, fields, params, Constants.SCHOOL_ID);
             } else {
