@@ -408,6 +408,14 @@ abstract class Base extends BaseProcessor {
                 ret.put(key, getTrimmedParameter(key));
             }
         }
+        log.debug("got: " + Constants.SCHOOL_ID + " " +  getTrimmedParameter(Constants.SCHOOL_ID));
+        log.debug("got: " + Constants.SCHOOL_CITY + " " +  getTrimmedParameter(Constants.SCHOOL_CITY));
+        log.debug("got: " + Constants.SCHOOL_STATE + " " +  getTrimmedParameter(Constants.SCHOOL_STATE));
+        log.debug("got: " + Constants.SCHOOL_COUNTRY + " " +  getTrimmedParameter(Constants.SCHOOL_COUNTRY));
+        log.debug("got: " + Constants.SCHOOL_PROVINCE + " " +  getTrimmedParameter(Constants.SCHOOL_PROVINCE));
+        log.debug("got: " + Constants.SCHOOL_NAME + " " +  getTrimmedParameter(Constants.SCHOOL_NAME));
+        log.debug("got: " + Constants.GPA_SCALE + " " +  getTrimmedParameter(Constants.GPA_SCALE));
+        log.debug("got: " + Constants.GPA + " " +  getTrimmedParameter(Constants.GPA));
 
         ret.put(Constants.SCHOOL_ID, getTrimmedParameter(Constants.SCHOOL_ID));
         ret.put(Constants.SCHOOL_CITY, getTrimmedParameter(Constants.SCHOOL_CITY));
@@ -450,7 +458,6 @@ abstract class Base extends BaseProcessor {
             for (Iterator it = getAssignments(getRegUser()).iterator(); it.hasNext();) {
                 da = (DemographicAssignment) it.next();
                 key = Constants.DEMOG_PREFIX + da.getQuestion().getId();
-                log.debug("in check we got : " + params.get(key));
                 //validate the response we got
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
@@ -480,7 +487,6 @@ abstract class Base extends BaseProcessor {
         //we'll use school id as an indicator for all of school
         if (fields.contains(Constants.SCHOOL_ID)) {
             String id =(String)params.get(Constants.SCHOOL_ID);
-            log.debug("id was: " + id);
             if (id!=null&&!"".equals(id)) {
                 //if it's an existing school
                 simpleValidation(SchoolIdValidator.class, fields, params, Constants.SCHOOL_ID);
