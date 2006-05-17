@@ -116,7 +116,7 @@
 <xs:element name="sup" type="inline"/>
 
 <xs:element name="a">
-    <xs:complexType>
+    <xs:complexType  mixed="true">
         <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:group ref="inline"/>
         </xs:choice>
@@ -247,6 +247,7 @@
                         <xs:element name="annotation" type="flow" minOccurs="0" maxOccurs="1"/>
                     </xs:sequence>
                     <xs:attribute name="example" type="xs:boolean"/>
+                    <xs:attribute name="systemTest" type="xs:boolean"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
