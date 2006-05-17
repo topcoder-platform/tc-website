@@ -4446,13 +4446,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
             
-            if (makeChanges) {
-                c.commit();
-                c.setAutoCommit(true);
-            }
-            c.close();
-            c = null;
-            
             // Get list of users with taxforms
             StringBuffer getUsers = new StringBuffer(300);
             getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
@@ -4567,6 +4560,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                }
 	            }
             }
+            
+            if (makeChanges) {
+                c.commit();
+                c.setAutoCommit(true);
+            }
+            c.close();
+            c = null;
             
             return numWinners;
 
