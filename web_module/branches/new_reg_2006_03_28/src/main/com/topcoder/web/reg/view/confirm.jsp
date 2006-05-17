@@ -186,10 +186,23 @@
 </c:if>
 
 
-<%--Resume--%>
+<c:set value="<%=Constants.RESUME%>" var="resume"/>
+<c:if test="${cf:contains(fields, resume)}">
+    <p>
+        Resume:
+        <c:forEach items="${regUser.coder.resumes}" var="resume">
+            ${resume.fileName}
+        </c:forEach>
+    </p>
+</c:if>
 
-<%-- gpa stuff --%>
-
+<c:set value="<%=Constants.GPA%>" var="gpa"/>
+<c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
+<c:if test="${cf:contains(fields, gpa)&&cf:contains(fields, gpaScale)}">
+    <p>
+        GPA: ${regUser.coder.currentSchool.gpa}/${regUser.coder.currentSchool.gpaScale}
+    </p>
+</c:if>
 
 <a href="Javascript:document.confirmForm.submit();">Submit</a>
 

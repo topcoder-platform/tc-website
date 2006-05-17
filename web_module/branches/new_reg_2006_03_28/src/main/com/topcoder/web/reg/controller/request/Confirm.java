@@ -128,6 +128,26 @@ public class Confirm extends Base {
                 cs.setSchool(s);
             }
         }
+        if (fields.contains(Constants.RESUME)&&params.containsKey(Constants.FILE)) {
+            Resume r = null;
+            if (u.getCoder().getResumes().isEmpty()) {
+                r = new Resume();
+                r.setCoder(u.getCoder());
+                u.getCoder().addResume(r);
+            } else {
+                r = (Resume)u.getCoder().getResumes().iterator().next();
+            }
+            r.setFile((byte[])params.get(Constants.FILE));
+            r.setFileName((String)params.get(Constants.FILE_NAME));
+            r.setFileType(getFactory().getFileTypeDAO().find((String)params.get(Constants.FILE_TYPE)));
+        }
+        if (fields.contains(Constants.GPA) &&
+                fields.contains(Constants.GPA_SCALE) &&
+                params.containsKey(Constants.GPA) &&
+                params.containsKey(Constants.GPA_SCALE)) {
+            u.getCoder().getCurrentSchool().setGPA(new Float((String)params.get(Constants.GPA)));
+            u.getCoder().getCurrentSchool().setGPAScale(new Float((String)params.get(Constants.GPA_SCALE)));
+        }
         setRegUser(u);
     }
 

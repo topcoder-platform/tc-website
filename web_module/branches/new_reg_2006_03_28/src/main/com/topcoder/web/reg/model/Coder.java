@@ -119,6 +119,10 @@ public class Coder extends Base {
         this.resumes = resumes;
     }
 
+    public void addResume(Resume resume) {
+        this.resumes.add(resume);
+    }
+
     public Set getCreatedSchools() {
         return Collections.unmodifiableSet(createdSchools);
     }
