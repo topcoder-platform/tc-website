@@ -25,19 +25,13 @@ public class Confirm extends Base {
 
             checkSecondaryFields(params);
 
-            Set fields = new HashSet(RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+            Set fields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
             log.debug(fields.size() + " fields found");
 
             if (hasErrors()) {
-                Map.Entry me;
-                for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                    me = (Map.Entry) it.next();
-                    setDefault((String) me.getKey(), me.getValue());
-                }
+                setSecondaryDefaults(u, fields);
                 getRequest().setAttribute(Constants.FIELDS, fields);
-
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
-
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             } else {
