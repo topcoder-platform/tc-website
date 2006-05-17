@@ -4504,9 +4504,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
-            getReviewers.append("select ur.login_id as user_id, pi.payment as paid ");
-            getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, tcs_catalog:review_role rr ");
+            getReviewers.append("select ur.login_id as user_id, pi.payment as paid, pt.project_type_name ");
+            getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, ");
+            getReviewers.append("tcs_catalog:project p, tcs_catalog:project_type pt, tcs_catalog:review_role rr ");
             getReviewers.append("where ur.project_id = " + projectId + " ");
+            getReviewers.append("and ur.project_id = p.project_id ");
+            getReviewers.append("and p.project_type_id = pt.project_type_id ");
+            getReviewers.append("and p.cur_version = 1 ");
             getReviewers.append("and pi.payment_info_id = ur.payment_info_id ");
             getReviewers.append("and ur.r_role_id = rr.review_role_id ");
             getReviewers.append("and rr.review_role_id IN (2,3,4,5) ");
@@ -4537,7 +4541,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                	p.getHeader().setDescription(description);
 	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
 	                } else if (j == 1) {
-	                	p.getHeader().setDescription(componentName + " review board");
+	                	String projectType = winners[j].getItem(i, 2).toString();
+	                	p.getHeader().setDescription(componentName + " - " + projectType + " review board");
 	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
 	                }
 	                p.setDueDate(dueDate);
