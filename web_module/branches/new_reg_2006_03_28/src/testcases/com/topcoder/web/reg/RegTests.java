@@ -1,8 +1,8 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.UserDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import com.topcoder.web.reg.dao.RegistrationTypeDAOTestCase;
 
 /**
  * @author dok
@@ -18,13 +18,13 @@ public class RegTests extends TCHibernateTestCase {
 /*
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(NotificationDAOTestCase.class));
-        suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
-*/
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+*/
+        suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
 /*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));

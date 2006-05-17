@@ -3,6 +3,7 @@ package com.topcoder.web.reg.dao.hibernate;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import org.hibernate.Session;
+import org.hibernate.Query;
 
 import java.util.List;
 
@@ -22,7 +23,12 @@ public class RegistrationTypeDAOHibernate extends Base implements  RegistrationT
     }
 
     public List getRegistrationTypes() {
-        return findAll(RegistrationType.class, "active", new Integer(1));
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from RegistrationType t ");
+        query.append(" where t.active = 1");
+        query.append(" order by t.sort");
+        Query q = session.createQuery(query.toString());
+        return q.list();
     }
 
     public RegistrationType find(Integer id) {

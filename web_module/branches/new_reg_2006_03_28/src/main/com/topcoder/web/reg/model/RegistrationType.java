@@ -18,6 +18,7 @@ public class RegistrationType extends Base {
     private Boolean active;
     private SecurityGroup securityGroup;
     private Set notifications;
+    private Integer sort;
 
     public static final Integer COMPETITION_ID = new Integer(1);
     public static final Integer CORPORATE_ID = new Integer(2);
@@ -53,5 +54,10 @@ public class RegistrationType extends Base {
     public String getName() {
         return name;
     }
+
+    public Integer getSort() {
+        return sort;
+    }
+
 
 }
