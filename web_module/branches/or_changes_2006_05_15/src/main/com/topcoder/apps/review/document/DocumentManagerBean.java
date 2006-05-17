@@ -3453,6 +3453,8 @@ public class DocumentManagerBean implements SessionBean {
             }
 
             if (finalReview.getDirty() == true) {
+                // plk - sacar
+                log.debug("finalReview.getId()" + finalReview.getId());
                 if (finalReview.getId() != -1) {
                     // This is an existing FinalReview
 
