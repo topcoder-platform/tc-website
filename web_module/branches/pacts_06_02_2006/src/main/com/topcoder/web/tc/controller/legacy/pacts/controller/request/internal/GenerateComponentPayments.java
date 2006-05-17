@@ -5,6 +5,7 @@ import java.util.Map;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -25,8 +26,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
-            if (getRequest().getParameter(PROJECT_ID) != null && 
-            		getRequest().getParameter(PROJECT_TERMINATION_STATUS) != null) {
+            
+            String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID));
+            String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
+            if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -36,10 +39,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 log.info("GenerateComponentPayments ----> after EJB call");
                 addError(PROJECT_ID, "Success, " + counts[0] + " design/dev payments generated, " + counts[1] + " review board payments generated");
             } else {
-            	if (getRequest().getParameter(PROJECT_ID) == null) {
+            	if (projectID.equals("")) {
             		addError(PROJECT_ID, "Missing project id");
             	}
-            	if (getRequest().getParameter(PROJECT_TERMINATION_STATUS) == null) {
+            	if (projectTermStatus.equals("")) {
             		addError(PROJECT_TERMINATION_STATUS, "Missing project termination status");
             	}
             }

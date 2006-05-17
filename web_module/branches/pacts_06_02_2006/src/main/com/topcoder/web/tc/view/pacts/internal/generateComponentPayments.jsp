@@ -18,7 +18,6 @@
         <center>
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
-                <input type="hidden" name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>"/>
                 <table border="1" cellpadding="5" cellspacing="0">
                     <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_ID%>"><%=err%></tc-webtag:errorIterator></td></tr>
                     <tr>
