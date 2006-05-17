@@ -99,18 +99,33 @@ public class Confirm extends Base {
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
+            //we'll assume that the coder object exists since we're setting a school
+            CurrentSchool cs = u.getCoder().getCurrentSchool();
+            if (cs == null) {
+                cs = new CurrentSchool();
+                cs.setCoder(u.getCoder());
+                u.getCoder().setCurrentSchool(cs);
+            }
             if (params.containsKey(Constants.SCHOOL_ID)) {
                 //find existing
-                //we'll assume that the coder object exists since we're setting a school
-                CurrentSchool cs = u.getCoder().getCurrentSchool();
-                if (cs == null) {
-                    cs = new CurrentSchool();
-                    cs.setCoder(u.getCoder());
-                }
                 cs.setSchool(getFactory().getSchoolDAO().find(new Long((String)params.get(Constants.SCHOOL_ID))));
             } else {
                 School s = new School();
-                //create a new school
+                s.setCoder(u.getCoder());
+                u.getCoder().addCreatedSchool(s);
+                s.setName((String)params.get(Constants.SCHOOL_NAME));
+                s.setType(getFactory().getSchoolTypeDAO().find(new Integer((String)params.get(Constants.SCHOOL_TYPE))));
+                Address a = new Address();
+                a.setCity((String)params.get(Constants.SCHOOL_CITY));
+                a.setProvince((String)params.get(Constants.SCHOOL_PROVINCE));
+                if (params.containsKey(Constants.STATE_CODE)) {
+                    a.setState(getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
+                }
+                if (params.containsKey(Constants.COUNTRY_CODE)) {
+                    a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
+                }
+                s.setAddress(a);
+                cs.setSchool(s);
             }
         }
         setRegUser(u);
