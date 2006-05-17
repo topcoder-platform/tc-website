@@ -155,6 +155,8 @@ create view active_hs_members (coder_id) as
 
 alter table room_result add team_points decimal(5,0)
 
+grant select on active_members to coder;
+grant select on active_hs_members to coder;
 
 create table 'informix'.algo_rating_type_lu (
     algo_rating_type_id DECIMAL(3,0),

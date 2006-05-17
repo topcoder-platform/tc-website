@@ -80,7 +80,7 @@ alter table season_rank_history add constraint foreign key
 create table country_rank (
   country_code VARCHAR(3),
   member_count DECIMAL(7,0), 
-  rating DECIMAL(5,0),
+  rating DECIMAL(9,4),
   rank DECIMAL(7,0),
   percentile DECIMAL(7,4),
   algo_rating_type_id DECIMAL(3,0),
@@ -106,7 +106,7 @@ create table country_rank_history (
   round_id decimal(10,0),
   algo_rating_type_id DECIMAL(3,0),
   member_count DECIMAL(7,0), 
-  rating DECIMAL(5,0), 
+  rating DECIMAL(9,4), 
   rank DECIMAL(7,0),
   percentile DECIMAL(7,4)
 )

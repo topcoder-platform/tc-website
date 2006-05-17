@@ -28,3 +28,7 @@ group by team_id, round_id
 grant select on view_team_points to coder;
 
 
+-- alter those columns to remove NOT NULL constraint
+alter table school modify sort_letter CHAR(1) ;
+alter table school modify city VARCHAR(50); 
+alter table school modify country_code VARCHAR(3);
