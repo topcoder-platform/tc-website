@@ -118,6 +118,8 @@ Design Cup Series Leaderboard<br>
                </rsc:iterator>
            </SELECT>
 
+<% if(!leaderBoard.isEmpty()) { %>
+
 <div class="pagingBox" style="width:300px;">
 <%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
 | <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
@@ -162,6 +164,10 @@ at a time starting with
 <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
 <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
+
+<% } else { %>
+The selected stage is underway and results will start coming in soon.
+<% } %>
 
    </div>
 </div>
