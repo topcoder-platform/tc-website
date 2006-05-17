@@ -56,10 +56,10 @@
             </div>
 
             <br><br>
-            <span class="bodySubtitle">Design the 2006 TopCoder&#174; Collegiate Challenge Logo!</span><br>
-            The 2006 TopCoder&#174; Collegiate Challenge Logo Design Contest has arrived!  We are looking for all designers, from professionals to amateurs, to take their best shot at crafting the logo for the TCCC06.  We're giving out $5,000 in cash prizes!
+            <span class="bodySubtitle">Design the 2006 TopCoder Collegiate Challenge Logo</span><br>
+            The 2006 TopCoder Collegiate Challenge Logo Design Contest has arrived!  We are looking for all designers, from professionals to amateurs, to take their best shot at crafting the logo for the TCCC06.  We're giving out $5,000 in cash prizes!
             <br><br>
-            To put your creativity to the test, just send us a logo design that we can use to brand this year's TCCC &mdash; including our website, t-shirts, the stage at the onsite finals, and anywhere else the TCCC name might appear. All TopCoder members are welcome to submit, and all members will have the chance to vote on the finalists selected by TopCoder staff. For more details and submission guidelines, review the Official Contest Rules.
+            To put your creativity to the test, just send us a logo design that we can use to brand this year's TCCC &mdash; including our website, t-shirts, the stage at the onsite finals, and anywhere else the TCCC name might appear. All TopCoder members are welcome to submit, and all members will have the chance to vote on the finalists selected by TopCoder staff. For more details and submission guidelines, review the <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Official Contest Rules</A>.
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
             <A href="/Registration">Register here</A>
