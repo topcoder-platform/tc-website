@@ -22,7 +22,16 @@ public class TestUtils {
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
         ret.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
+/*
         School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
+*/
+        School s = new School();
+        s.setCoder(ret);
+        s.setName("some school");
+        s.setShortName("ss");
+        s.setType(Util.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
+        ret.addCreatedSchool(s);
+
         CurrentSchool cs = new CurrentSchool();
         cs.setCoder(ret);
         cs.setGPA(new Float(3));
@@ -48,7 +57,10 @@ public class TestUtils {
         ret.setHandle(handle);
         ret.setMiddleName("middle name");
         ret.setPassword("password");
-        ret.setStatus(new Character('A'));
+
+        Coder c = makeCoder();
+        c.setUser(ret);
+        ret.setCoder(c);
 
         Address a = new Address();
         a.setAddress1("address1");

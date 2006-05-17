@@ -3,11 +3,7 @@ package com.topcoder.web.reg.dao;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
-import com.topcoder.web.reg.model.*;
-
-import java.util.Iterator;
-import java.util.Set;
-import java.sql.Timestamp;
+import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -18,10 +14,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
 
-    public void testFind() {
-        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
-        assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
-    }
 
     public void testSaveOrUpdate() {
         User u = TestUtils.makeUser();
@@ -31,6 +23,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
     }
 
+/*
     public void testSaveOrUpdateResponses() {
         User u = TestUtils.makeUser();
         Util.getFactory().getUserDAO().saveOrUpdate(u);
@@ -41,6 +34,10 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 
 
+    public void testFind() {
+        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+        assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
+    }
 
     public void testSecurityGroupsLoaded() {
         User dok = Util.getFactory().getUserDAO().find(new Long(132456));
@@ -130,6 +127,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
         }
     }
+*/
 
 
 }

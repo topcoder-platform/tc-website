@@ -10,17 +10,17 @@ import com.topcoder.web.common.model.Base;
 public class School extends Base {
     private Long id;
     private Address address;
-    private Long userId;
+    private Coder coder;
     private String name;
     private String shortName;
     private SchoolType type;
 
-    protected School() {
-
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Address getAddress() {
@@ -31,12 +31,12 @@ public class School extends Base {
         this.address = address;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Coder getCoder() {
+        return coder;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setCoder(Coder coder) {
+        this.coder = coder;
     }
 
     public String getName() {
@@ -68,6 +68,7 @@ public class School extends Base {
         School ret = (School) super.clone();
         ret.setAddress((Address) address.clone());
         ret.setType((SchoolType) type.clone());
+        ret.setCoder((Coder) coder.clone());
         return ret;
     }
 

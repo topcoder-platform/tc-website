@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Set;
 import java.util.Iterator;
 import java.util.HashSet;
+import java.util.Collections;
 
 /**
  * A class to hold coder data.
@@ -27,6 +28,7 @@ public class Coder extends Base {
     private CurrentSchool currentSchool;
     private Set resumes;
     private User user;
+    private Set createdSchools = new HashSet();
 
     public Coder() {
         this.resumes = new HashSet();
@@ -110,13 +112,24 @@ public class Coder extends Base {
     }
 
     public Set getResumes() {
-        return resumes;
+        return Collections.unmodifiableSet(resumes);
     }
 
     public void setResumes(Set resumes) {
         this.resumes = resumes;
     }
 
+    public Set getCreatedSchools() {
+        return Collections.unmodifiableSet(createdSchools);
+    }
+
+    public void setCreatedSchools(Set createdSchools) {
+        this.createdSchools = createdSchools;
+    }
+
+    public void addCreatedSchool(School s) {
+        this.createdSchools.add(s);
+    }
 
     public Object clone() throws CloneNotSupportedException {
         Coder ret = (Coder) super.clone();
@@ -131,6 +144,9 @@ public class Coder extends Base {
 
         for(Iterator it =resumes.iterator(); it.hasNext();) {
             ret.resumes.add(((Resume)it.next()).clone());
+        }
+        for(Iterator it =createdSchools.iterator(); it.hasNext();) {
+            ret.createdSchools.add(((School)it.next()).clone());
         }
 
 

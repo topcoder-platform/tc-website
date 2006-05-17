@@ -3,9 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.DemographicAssignment;
-import com.topcoder.web.reg.model.DemographicResponse;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.*;
 
 import java.util.*;
 
@@ -99,6 +97,21 @@ public class Confirm extends Base {
             }
             u.setDemographicResponses(responses);
 
+        }
+        if (fields.contains(Constants.SCHOOL_ID)) {
+            if (params.containsKey(Constants.SCHOOL_ID)) {
+                //find existing
+                //we'll assume that the coder object exists since we're setting a school
+                CurrentSchool cs = u.getCoder().getCurrentSchool();
+                if (cs == null) {
+                    cs = new CurrentSchool();
+                    cs.setCoder(u.getCoder());
+                }
+                cs.setSchool(getFactory().getSchoolDAO().find(new Long((String)params.get(Constants.SCHOOL_ID))));
+            } else {
+                School s = new School();
+                //create a new school
+            }
         }
         setRegUser(u);
     }

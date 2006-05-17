@@ -33,4 +33,11 @@ public class SchoolDAOTestCase extends TCHibernateTestCase {
         }
         assertTrue("could not find any schools like mass%", true);
     }
+
+    public void testCreateCoderLoaded() {
+        School mit = Util.getFactory().getSchoolDAO().find(new Long(1719));
+        assertFalse("coder not loaded", mit.getCoder()==null);
+    }
+
+
 }

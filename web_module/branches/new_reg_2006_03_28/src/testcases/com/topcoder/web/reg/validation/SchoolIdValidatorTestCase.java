@@ -16,4 +16,5 @@ public class SchoolIdValidatorTestCase extends TCHibernateTestCase {
     public void testValidId() {
         assertTrue("did not validate mit", new SchoolIdValidator().validate(new StringInput("755")).isValid());
     }
+
 }
