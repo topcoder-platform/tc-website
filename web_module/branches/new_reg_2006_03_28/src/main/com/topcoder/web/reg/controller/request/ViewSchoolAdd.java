@@ -1,8 +1,9 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.SchoolType;
+import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -34,6 +35,7 @@ public class ViewSchoolAdd extends Base {
             }
         }
 
+        getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
         getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
         setNextPage("/schoolEntry.jsp");
