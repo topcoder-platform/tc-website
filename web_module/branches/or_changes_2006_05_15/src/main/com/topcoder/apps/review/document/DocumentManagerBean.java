@@ -3627,24 +3627,25 @@ public class DocumentManagerBean implements SessionBean {
                         }
 
                         // If the final fix status is null, we don't need to save it yet.
-                        //if (fixItemArr[i].getFinalFixStatus() != null) {
-                        psIns.setLong(1, fixItemArr[i].getId());
-                        psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
-                        psIns.setLong(3, fixItemArr[i].getAggregationResponse().getId());
-                        psIns.setLong(4, finalReview.getId());
-                        psIns.setLong(5, requestorId);
-
-                        int nr = psIns.executeUpdate();
-
-                        if (nr != 1) {
-                            String errorMsg =
-                                    "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: "
-                                    + fixItemArr[i].getId();
-                            log.error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                        // plk
+                        if (fixItemArr[i].getFinalFixStatus() != null) {
+                            psIns.setLong(1, fixItemArr[i].getId());
+                            psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
+                            psIns.setLong(3, fixItemArr[i].getAggregationResponse().getId());
+                            psIns.setLong(4, finalReview.getId());
+                            psIns.setLong(5, requestorId);
+    
+                            int nr = psIns.executeUpdate();
+    
+                            if (nr != 1) {
+                                String errorMsg =
+                                        "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: "
+                                        + fixItemArr[i].getId();
+                                log.error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new InvalidEditException(errorMsg);
+                            }
                         }
-                        //}
                     }
                 }
             } finally {
