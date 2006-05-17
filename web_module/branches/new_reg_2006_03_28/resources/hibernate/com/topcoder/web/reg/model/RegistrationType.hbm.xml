@@ -9,6 +9,7 @@
         <id name="id" column="registration_type_id" access="field"/>
         <property name="description" column="registration_type_desc" access="field"/>
         <property name="name" column="registration_type_name" access="field"/>
+        <property name="sort" access="field"/>
         <property name="active" column="active_ind" type="boolean" access="field"/>
         <many-to-one name="securityGroup" column="security_group_id" class="SecurityGroup" access="field"/>
         <set name="notifications" table="registration_type_notify_xref" cascade="none" access="field">

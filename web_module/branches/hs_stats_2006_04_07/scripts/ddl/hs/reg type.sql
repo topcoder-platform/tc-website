@@ -31,3 +31,11 @@ insert into registration_type_lu values (5, 'TopCoder Software Registration', 'S
 insert into security_groups values (10, 'Competition User', 132456);
 insert into security_groups values (11, 'Minimal User', 132456);
 insert into security_groups values (12, 'HS Competition User', 132456);
+
+alter table registration_type_lu add sort decimal(3,0); 
+
+update registration_type_lu set sort = 10 where registration_type_id = 1;
+update registration_type_lu set sort = 20 where registration_type_id = 3;
+update registration_type_lu set sort = 30 where registration_type_id = 2;
+update registration_type_lu set sort = 40 where registration_type_id = 5;
+update registration_type_lu set sort = 50 where registration_type_id = 4;
