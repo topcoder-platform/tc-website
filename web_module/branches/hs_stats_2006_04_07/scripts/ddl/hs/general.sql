@@ -14,3 +14,8 @@ for common_oltp:phone
 
 
 
+
+alter table resume modify timestamp DATETIME YEAR TO FRACTION default current;
+create trigger "informix".trig_resume_modified update of coder_id, file_name, file_type_id, file on "informix".resume referencing old as old    for each row
+        (
+        execute function "informix".get_current() into "informix".resume.timestamp);
