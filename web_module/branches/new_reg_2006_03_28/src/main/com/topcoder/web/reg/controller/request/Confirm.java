@@ -1,7 +1,6 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.*;
@@ -107,7 +106,7 @@ public class Confirm extends Base {
                 cs.setCoder(u.getCoder());
                 u.getCoder().setCurrentSchool(cs);
             }
-            if (!"".equals(StringUtils.checkNull((String)params.get(Constants.SCHOOL_ID)))) {
+            if (hasParameter(params, Constants.SCHOOL_ID)) {
                 //find existing
                 cs.setSchool(getFactory().getSchoolDAO().find(new Long((String)params.get(Constants.SCHOOL_ID))));
             } else {
@@ -119,17 +118,17 @@ public class Confirm extends Base {
                 Address a = new Address();
                 a.setCity((String)params.get(Constants.SCHOOL_CITY));
                 a.setProvince((String)params.get(Constants.SCHOOL_PROVINCE));
-                if (!"".equals(StringUtils.checkNull((String)params.get(Constants.STATE_CODE)))) {
+                if (hasParameter(params, Constants.STATE_CODE)) {
                     a.setState(getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
                 }
-                if (!"".equals(StringUtils.checkNull((String)params.get(Constants.COUNTRY_CODE)))) {
+                if (hasParameter(params, Constants.COUNTRY_CODE)) {
                     a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
                 }
                 s.setAddress(a);
                 cs.setSchool(s);
             }
         }
-        if (fields.contains(Constants.RESUME)&&!"".equals(StringUtils.checkNull((String)params.get(Constants.FILE)))) {
+        if (fields.contains(Constants.RESUME)&&hasParameter(params, Constants.FILE)) {
             Resume r = null;
             if (u.getCoder().getResumes().isEmpty()) {
                 r = new Resume();
@@ -144,8 +143,8 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.GPA) &&
                 fields.contains(Constants.GPA_SCALE) &&
-                !"".equals(StringUtils.checkNull((String)params.get(Constants.GPA))) &&
-                !"".equals(StringUtils.checkNull((String)params.get(Constants.GPA_SCALE)))) {
+                hasParameter(params, Constants.GPA) &&
+                hasParameter(params, Constants.GPA_SCALE)) {
             u.getCoder().getCurrentSchool().setGPA(new Float((String)params.get(Constants.GPA)));
             u.getCoder().getCurrentSchool().setGPAScale(new Float((String)params.get(Constants.GPA_SCALE)));
         }
