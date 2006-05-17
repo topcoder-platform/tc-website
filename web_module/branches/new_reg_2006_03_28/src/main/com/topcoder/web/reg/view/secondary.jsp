@@ -22,6 +22,10 @@
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" enctype="multipart/form-data">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
+    <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+    <c:if test="${cf:contains(fields, schoolName)}">
+        <tc-webtag:hiddenInput name="${schoolName}"/>
+    </c:if>
     <c:set value="<%=Constants.SCHOOL_CITY%>" var="schoolCity"/>
     <c:if test="${cf:contains(fields, schoolCity)}">
         <tc-webtag:hiddenInput name="${schoolCity}"/>
@@ -70,7 +74,6 @@
     </c:if>
 
 
-    <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
     <c:if test="${cf:contains(fields, schoolName)}">
         <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br/></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br/></tc-webtag:errorIterator>
