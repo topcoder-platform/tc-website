@@ -40,10 +40,10 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 addError(PROJECT_ID, "Success, " + counts[0] + " design/dev payments generated, " + counts[1] + " review board payments generated");
             } else {
             	if (projectID.equals("")) {
-            		addError(PROJECT_ID, "Missing project id");
+            		addError(PROJECT_ID, "Error: Missing project id");
             	}
             	if (projectTermStatus.equals("")) {
-            		addError(PROJECT_ID, "Missing project termination status");
+            		addError(PROJECT_TERMINATION_STATUS, "Error: Missing project termination status");
             	}
             }
             log.info("END: GenerateComponentPayments");
