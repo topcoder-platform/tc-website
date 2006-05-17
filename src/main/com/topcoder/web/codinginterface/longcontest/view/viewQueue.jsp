@@ -68,16 +68,16 @@
                                 <td class="tableHeader" width="20%">
                                     Handle
                                 </td>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Contest
                                 </td>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Language
                                 </td>
-                                <td class="tableHeader" width="20%" align="center">
+                                <td class="tableHeader" width="15%" align="center">
                                     Entered Queue
                                 </td>
-                                <td class="tableHeader" width="20%" align="right">
+                                <td class="tableHeader" width="15%" align="right">
                                     Type
                                 </td>
                                 <td class="tableHeader" width="20%" align="right">
