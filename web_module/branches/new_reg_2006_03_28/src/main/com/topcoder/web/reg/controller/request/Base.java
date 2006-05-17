@@ -3,6 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -652,6 +653,9 @@ abstract class Base extends BaseProcessor {
         }
     }
 
+    protected boolean hasParameter(Map params, String key) {
+        return !"".equals(StringUtils.checkNull((String)params.get(key)));
+    }
 
     /**
      * Should be implemented by child classes to handle all the actual processing
