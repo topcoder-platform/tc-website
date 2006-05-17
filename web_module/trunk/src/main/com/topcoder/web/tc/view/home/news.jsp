@@ -12,7 +12,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">Intel Multi-Threading Competition 4 - Analysis</A></span><br><br>
- Thirty-nine coders tied for first place in the Intel&$174; Software Network
+ Thirty-nine coders tied for first place in the Intel&#174; Software Network
  Multi-Threading Competition Series Marathon Match #4 with perfect
  scores.      </td>
       <td class="newsPhoto"><img src="/i/m/Rustyoldman_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="282718" context="algorithm"/></td></tr></table>
