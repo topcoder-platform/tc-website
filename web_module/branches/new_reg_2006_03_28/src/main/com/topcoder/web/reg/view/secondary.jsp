@@ -117,7 +117,7 @@
                 <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
                 <OPTION value=""></OPTION>
                 <c:forEach items="${scales}" var="scale">
-                    <OPTION value="${scale}" <c:if test="${regUser.coder.currentSchool.gpaScale==scale}">selected="true"</c:if>>${scale}</OPTION>
+                    <OPTION value="${scale}" <c:if test="${regUser.coder.currentSchool.GPAScale==scale}">selected="true"</c:if>>${scale}</OPTION>
                 </c:forEach>
             </SELECT>
         </p>
