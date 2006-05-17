@@ -24,7 +24,11 @@
                     		<%	int errorCount = 0; %>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_ID%>">
                     			<% if (errorCount > 0) { %><br><% } %>
-                    			<font color="red"><%=err%></font>
+                    			<% if (error.indexOf("Error:") != -1) { %>
+                    				<font color="red"><%=err%></font>
+                    			<% } else if (error.indexOf("Success:") != -1) { %>
+                    				<font color="green"><%=err%></font>
+                    			<% } %>
                     			<% if (err!=null && !err.equals("")) errorCount++; %>
                     		</tc-webtag:errorIterator>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>">

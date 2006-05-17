@@ -4530,7 +4530,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                	String placed = rsc.getItem(i, 0).toString();
 	                	if (placed.equals("1")) {
 	                		placed = "1st place";
-	                	} else if (placed.equals("")) {
+	                	} else if (placed.equals("2")) {
 	                		placed = "2nd place";
 	                	}
 	                	String description = componentName + " winnings - " + projectType + ", " + placed;
