@@ -156,7 +156,17 @@ create view active_hs_members (coder_id) as
 alter table room_result add team_points decimal(5,0)
 
 
+create table 'informix'.algo_rating_type_lu (
+    algo_rating_type_id DECIMAL(3,0),
+    algo_rating_type_desc VARCHAR(100)
+)
+extent size 64 next size 64
+lock mode row;
 
+alter table 'informix'.algo_rating_type_lu add constraint primary key 
+    (algo_rating_type_id)
+    constraint algo_rating_type_lu_pk;
+    
 
 create table algo_rating (
   coder_id DECIMAL(10,0),
@@ -164,7 +174,6 @@ create table algo_rating (
   vol DECIMAL(5,0) default 0,
   num_ratings DECIMAL(6,0),
   algo_rating_type_id DECIMAL(3,0),
-  algo_rating_type_desc varchar(100),
   highest_rating DECIMAL(5,0),
   lowest_rating DECIMAL(5,0),
   first_rated_round_id DECIMAL(10,0),
