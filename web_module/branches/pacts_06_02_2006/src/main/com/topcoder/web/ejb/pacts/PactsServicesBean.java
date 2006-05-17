@@ -1125,11 +1125,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT project_stat_id, project_stat_name FROM project_status ORDER BY 2");
 
-        Connection c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
-        HashMap hm = new HashMap();
-        hm.put(PROJECT_TERMINATION_STATUS_LIST, rsc);
-        return hm;
+        Connection c = null;
+        
+        try {
+            c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
+            HashMap hm = new HashMap();
+            hm.put(PROJECT_TERMINATION_STATUS_LIST, rsc);
+            c.close();
+            c = null;
+            return hm;
+        } catch (Exception e) {
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw new SQLException(e.getMessage());
+        }
     }
 
     /**

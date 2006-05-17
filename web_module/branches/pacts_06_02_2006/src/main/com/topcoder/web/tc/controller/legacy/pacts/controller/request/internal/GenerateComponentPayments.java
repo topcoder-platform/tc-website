@@ -25,7 +25,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
-            if (getRequest().getParameter(PROJECT_ID) != null) {
+            if (getRequest().getParameter(PROJECT_ID) != null && 
+            		getRequest().getParameter(PROJECT_TERMINATION_STATUS) != null) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -35,7 +36,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 log.info("GenerateComponentPayments ----> after EJB call");
                 addError(PROJECT_ID, "Success, " + counts[0] + " design/dev payments generated, " + counts[1] + " review board payments generated");
             } else {
-                addError(PROJECT_ID, "Missing project id");
+            	if (getRequest().getParameter(PROJECT_ID) == null) {
+            		addError(PROJECT_ID, "Missing project id");
+            	}
+            	if (getRequest().getParameter(PROJECT_TERMINATION_STATUS) == null) {
+            		addError(PROJECT_TERMINATION_STATUS, "Missing project termination status");
+            	}
             }
             log.info("END: GenerateComponentPayments");
         } catch (NumberFormatException e) {
