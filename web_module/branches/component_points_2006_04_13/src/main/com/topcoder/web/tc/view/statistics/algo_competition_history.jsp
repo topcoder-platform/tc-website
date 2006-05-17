@@ -162,7 +162,13 @@ z-index: 1;
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                <TD class="valueR">$&nbsp;<rsc:item name="paid" row="<%=resultRow%>" format="0.00"/></TD>
+                <TD class="valueR">
+                    <% if (resultRow.getItem("paid").getResultData() != null && resultRow.getDoubleItem("paid").getResultData() > 0) { %>
+                        $&nbsp;<rsc:item name="paid" row="<%=resultRow%>" format="0.00"/>
+                    <% } else { %>
+                        &nbsp;
+                    <% } %>                    
+                </TD>
                 <TD class="valueC"  nowrap="nowrap"><rsc:item name="payment_type_desc" row="<%=resultRow%>"/></TD>
              </tr>
              <%even=!even;%>
