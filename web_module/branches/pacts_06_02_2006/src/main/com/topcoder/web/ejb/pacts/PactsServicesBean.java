@@ -4470,7 +4470,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Make sure the project exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT cc.component_name, p.complete_date " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("SELECT cc.component_name, p.complete_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
             checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
             checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
             checkExists.append("AND cv.component_id = cc.component_id ");
