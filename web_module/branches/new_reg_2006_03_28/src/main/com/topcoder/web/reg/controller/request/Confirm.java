@@ -106,7 +106,7 @@ public class Confirm extends Base {
                 cs.setCoder(u.getCoder());
                 u.getCoder().setCurrentSchool(cs);
             }
-            if (params.containsKey(Constants.SCHOOL_ID)) {
+            if (params.get(Constants.SCHOOL_ID)!=null) {
                 //find existing
                 cs.setSchool(getFactory().getSchoolDAO().find(new Long((String)params.get(Constants.SCHOOL_ID))));
             } else {
@@ -118,17 +118,17 @@ public class Confirm extends Base {
                 Address a = new Address();
                 a.setCity((String)params.get(Constants.SCHOOL_CITY));
                 a.setProvince((String)params.get(Constants.SCHOOL_PROVINCE));
-                if (params.containsKey(Constants.STATE_CODE)) {
+                if (params.get(Constants.STATE_CODE)!=null) {
                     a.setState(getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
                 }
-                if (params.containsKey(Constants.COUNTRY_CODE)) {
+                if (params.get(Constants.COUNTRY_CODE)!=null) {
                     a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
                 }
                 s.setAddress(a);
                 cs.setSchool(s);
             }
         }
-        if (fields.contains(Constants.RESUME)&&params.containsKey(Constants.FILE)) {
+        if (fields.contains(Constants.RESUME)&&params.get(Constants.FILE)!=null) {
             Resume r = null;
             if (u.getCoder().getResumes().isEmpty()) {
                 r = new Resume();
@@ -143,8 +143,8 @@ public class Confirm extends Base {
         }
         if (fields.contains(Constants.GPA) &&
                 fields.contains(Constants.GPA_SCALE) &&
-                params.containsKey(Constants.GPA) &&
-                params.containsKey(Constants.GPA_SCALE)) {
+                params.get(Constants.GPA)!=null &&
+                params.get(Constants.GPA_SCALE)!=null) {
             u.getCoder().getCurrentSchool().setGPA(new Float((String)params.get(Constants.GPA)));
             u.getCoder().getCurrentSchool().setGPAScale(new Float((String)params.get(Constants.GPA_SCALE)));
         }
