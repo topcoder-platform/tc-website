@@ -51,7 +51,7 @@ By&#160;<tc-webtag:handle coderId="282718" /><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
- Thirty-nine coders tied for first place in the Intel&$174; Software Network
+ Thirty-nine coders tied for first place in the Intel&#174; Software Network
  Multi-Threading Competition Series Marathon Match #4 with perfect
  scores. Each receives $130.00 which is a little more than 1/39th of the total
  $5000.00
@@ -162,7 +162,7 @@ success, then this was easily the most successful marathon contest yet.
 </td><tr></table>
 </div>
 <br><br>
-The runtime number for <tc-webtag:handle coderId="20789611" />'s C# code is misleading because,
+The runtime number for <tc-webtag:handle coderId="20789611" />'s C# code is misleading,
 because an alarm clock thread was used which slept for the entire 15 seconds
 on each problem. So this is not indicative of the runtime performance
 possible using C# on this problem.
