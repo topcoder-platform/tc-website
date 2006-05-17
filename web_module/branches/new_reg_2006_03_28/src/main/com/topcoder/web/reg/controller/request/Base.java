@@ -414,6 +414,8 @@ abstract class Base extends BaseProcessor {
         log.debug("got: " + Constants.SCHOOL_COUNTRY + " " +  getTrimmedParameter(Constants.SCHOOL_COUNTRY));
         log.debug("got: " + Constants.SCHOOL_PROVINCE + " " +  getTrimmedParameter(Constants.SCHOOL_PROVINCE));
         log.debug("got: " + Constants.SCHOOL_NAME + " " +  getTrimmedParameter(Constants.SCHOOL_NAME));
+        log.debug("got: " + Constants.SCHOOL_TYPE + " " +  getTrimmedParameter(Constants.SCHOOL_TYPE));
+        log.debug("got: " + Constants.VISIBLE_SCHOOL + " " +  getTrimmedParameter(Constants.VISIBLE_SCHOOL));
         log.debug("got: " + Constants.GPA_SCALE + " " +  getTrimmedParameter(Constants.GPA_SCALE));
         log.debug("got: " + Constants.GPA + " " +  getTrimmedParameter(Constants.GPA));
 
@@ -423,6 +425,8 @@ abstract class Base extends BaseProcessor {
         ret.put(Constants.SCHOOL_COUNTRY, getTrimmedParameter(Constants.SCHOOL_COUNTRY));
         ret.put(Constants.SCHOOL_PROVINCE, getTrimmedParameter(Constants.SCHOOL_PROVINCE));
         ret.put(Constants.SCHOOL_NAME, getTrimmedParameter(Constants.SCHOOL_NAME));
+        ret.put(Constants.SCHOOL_TYPE, getTrimmedParameter(Constants.SCHOOL_TYPE));
+        ret.put(Constants.VISIBLE_SCHOOL, getTrimmedParameter(Constants.VISIBLE_SCHOOL));
         ret.put(Constants.GPA_SCALE, getTrimmedParameter(Constants.GPA_SCALE));
         ret.put(Constants.GPA, getTrimmedParameter(Constants.GPA));
 
@@ -495,6 +499,7 @@ abstract class Base extends BaseProcessor {
                 simpleValidation(CityValidator.class, fields, params, Constants.SCHOOL_CITY);
                 simpleValidation(ProvinceValidator.class, fields, params, Constants.SCHOOL_PROVINCE);
                 simpleValidation(CountryValidator.class, fields, params, Constants.SCHOOL_COUNTRY);
+                simpleValidation(SchoolTypeValidator.class, fields, params, Constants.SCHOOL_TYPE);
 
                 if (!hasError(Constants.SCHOOL_COUNTRY)) {
                     if (fields.contains(Constants.SCHOOL_STATE)) {
@@ -512,17 +517,21 @@ abstract class Base extends BaseProcessor {
             }
         }
 
-        if (fields.contains(Constants.GPA_SCALE)) {
+        if (fields.contains(Constants.GPA) &&
+                fields.contains(Constants.GPA_SCALE) &&
+                hasParameter(params, Constants.GPA) &&
+                hasParameter(params, Constants.GPA_SCALE)) {
             simpleValidation(GPAScaleValidator.class, fields, params, Constants.GPA_SCALE);
-        }
-        if (!hasError(Constants.GPA_SCALE)) {
-            if (fields.contains(Constants.GPA)) {
-                ValidationResult gpaResult = new GPAValidator((String)params.get(Constants.GPA_SCALE)).validate(
-                        new StringInput((String)params.get(Constants.GPA)));
-                if (!gpaResult.isValid()) {
-                    addError(Constants.GPA, gpaResult.getMessage());
+            if (!hasError(Constants.GPA_SCALE)) {
+                if (fields.contains(Constants.GPA)) {
+                    ValidationResult gpaResult = new GPAValidator((String)params.get(Constants.GPA_SCALE)).validate(
+                            new StringInput((String)params.get(Constants.GPA)));
+                    if (!gpaResult.isValid()) {
+                        addError(Constants.GPA, gpaResult.getMessage());
+                    }
                 }
             }
+
         }
 
         if (fields.contains(Constants.RESUME)) {

@@ -1,8 +1,8 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.web.reg.validation.SchoolTypeValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import com.topcoder.web.reg.dao.RegistrationTypeDAOTestCase;
 
 /**
  * @author dok
@@ -23,8 +23,8 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(UserDAOTestCase.class));
-*/
         suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
+*/
 /*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
@@ -65,6 +65,7 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(GPAScaleValidatorTestCase.class));
         suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
         */
+        suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
 /*
         suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
