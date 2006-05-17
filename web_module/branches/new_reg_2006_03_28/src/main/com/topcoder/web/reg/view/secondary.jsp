@@ -46,6 +46,10 @@
     <c:if test="${cf:contains(fields, schoolId)}">
         <tc-webtag:hiddenInput name="${schoolId}"/>
     </c:if>
+    <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
+    <c:if test="${cf:contains(fields, schoolType)}">
+        <tc-webtag:hiddenInput name="${schoolType}"/>
+    </c:if>
     <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="schoolVisible"/>
     <c:if test="${cf:contains(fields, schoolVisible)}">
         <tc-webtag:hiddenInput name="${schoolVisible}"/>
