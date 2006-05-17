@@ -163,7 +163,7 @@ z-index: 1;
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
                 <TD class="valueR">
-                    <% if (resultRow.getItem("paid").getResultData() != null && resultRow.getDoubleItem("paid").getResultData() > 0) { %>
+                    <% if (resultRow.getItem("paid").getResultData() != null && resultRow.getDoubleItem("paid") > 0) { %>
                         $&nbsp;<rsc:item name="paid" row="<%=resultRow%>" format="0.00"/>
                     <% } else { %>
                         &nbsp;
