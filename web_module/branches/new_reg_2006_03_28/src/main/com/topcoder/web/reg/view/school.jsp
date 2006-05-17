@@ -20,11 +20,7 @@
                 var selection = getSelectedOption("document.resultForm", "schoolSelection");
                 if (selection) {
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection.value);
-                    if (window.opener.document.secondaryForm.<%=Constants.SCHOOL_NAME%>) {
-                        putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection.text);
-                    } else {
-                        updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection.text);
-                    }
+                    updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection.text);
                     window.close();
                 } else {
                     alert("Please make a selection before submitting.");
