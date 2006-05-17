@@ -43,7 +43,7 @@
 <tc-webtag:forumLink forumID="505967" message="Discuss this match" />
 </div>
 
-<span class="bodySubtitle">Intel Multi-Threading Competition 4</span><br>04.19.2006 - 05.03.2006
+<span class="bodySubtitle">Intel&#174; Multi-Threading Competition 4</span><br>04.19.2006 - 05.03.2006
 <br><br>
 
 <img src="/i/m/Rustyoldman_big2.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
