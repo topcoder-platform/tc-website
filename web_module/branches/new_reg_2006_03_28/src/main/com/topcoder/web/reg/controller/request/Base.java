@@ -3,6 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
@@ -55,7 +56,12 @@ abstract class Base extends BaseProcessor {
             HibernateUtils.begin();
 
             // Do the work...
-            registrationProcessing();
+            try {
+                registrationProcessing();
+            } catch (PermissionException e) {
+                finishUp(hibernateSession);
+                throw e;
+            }
 
             // End or continue the long-running conversation?
             if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
@@ -82,17 +88,7 @@ abstract class Base extends BaseProcessor {
                 log.debug("<<< End of conversation");
 
             } else {
-
-                log.debug("Committing database transaction");
-                HibernateUtils.commit();
-
-                log.debug("Unbinding Session from thread");
-                hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-
-                log.debug("Storing Session in the HttpSession");
-                getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
-
-                log.debug("> Returning to user in conversation");
+                finishUp(hibernateSession);
             }
 
         } catch (StaleObjectStateException staleEx) {
@@ -103,6 +99,8 @@ abstract class Base extends BaseProcessor {
             // give the user of the application a chance to merge some of his work with
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
+        } catch (PermissionException e) {
+            throw e;
         } catch (Exception e) {
             log.debug("printing the stack from base");
             e.printStackTrace();
@@ -112,6 +110,20 @@ abstract class Base extends BaseProcessor {
             handleException(ex);
             throw new Exception(ex);
         }
+
+    }
+
+    protected void finishUp(Session hibernateSession) {
+        log.debug("Committing database transaction");
+        HibernateUtils.commit();
+
+        log.debug("Unbinding Session from thread");
+        hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
+
+        log.debug("Storing Session in the HttpSession");
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
+
+        log.debug("> Returning to user in conversation");
 
     }
 
