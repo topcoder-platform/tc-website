@@ -13,6 +13,31 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+
+    <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+    <c:set value="<%=Constants.SCHOOL_COUNTRY%>" var="countryCode"/>
+    <c:set value="<%=Constants.SCHOOL_STATE%>" var="stateCode"/>
+    <c:set value="<%=Constants.SCHOOL_PROVINCE%>" var="province"/>
+    <c:set value="<%=Constants.SCHOOL_CITY%>" var="city"/>
+    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
+    <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
+
+    <script language="javascript" type="text/javascript">
+        <!--
+            function submit() {
+            //set the school name and id
+                putValue("window.opener.document.secondaryForm", "${schoolName}", getValue("document.schoolAddForm", "${schoolName}"));
+                putValue("window.opener.document.secondaryForm", "${countryCode}", getValue("document.schoolAddForm", "${countryCode}"));
+                putValue("window.opener.document.secondaryForm", "${stateCode}", getValue("document.schoolAddForm", "${stateCode}"));
+                putValue("window.opener.document.secondaryForm", "${province}", getValue("document.schoolAddForm", "${province}"));
+                putValue("window.opener.document.secondaryForm", "${city}", getValue("document.schoolAddForm", "${city}"));
+                putValue("window.opener.document.secondaryForm", "${visibleSchool}", getValue("document.schoolAddForm", "${visibleSchool}"));
+                putValue("window.opener.document.secondaryForm", "${schoolType}", getValue("document.schoolAddForm", "${schoolType}"));
+                window.close();
+            }
+        -->
+     </script>
 </head>
 
 <body>
@@ -27,40 +52,33 @@
         <form action="" method="POST" name="schoolAddForm">
             <br><br>
             <strong>School Name:</strong><br>
-            <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
             <strong>Country:</strong><br>
-            <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
             <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
             <br><br>
             <strong>State Code:</strong><br>
-            <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
             <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
             <br><br>
             <strong>Province:</strong><br>
-            <c:set value="<%=Constants.PROVINCE%>" var="province"/>
             <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
             <br><br>
             <strong>City:</strong><br>
-            <c:set value="<%=Constants.CITY%>" var="city"/>
             <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
             <br><br>
 
 
-<c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
 <c:if test="${cf:contains(fields, visibleSchool)}">
     <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school. 
 </c:if>
             <br><br>
 
             <div align="center">
-                <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
                 School Type:
                 <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
                 <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
@@ -69,7 +87,7 @@
 
 
 
-            <a href="Javascript:document.schoolAddForm.submit();">Submit</a>
+            <a href="Javascript:submit();">Submit</a>
         </form>
 
 
