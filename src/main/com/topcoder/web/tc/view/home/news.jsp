@@ -8,6 +8,24 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.17.06<br>10:50 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">Intel Multi-Threading Competition 4 - Analysis</A></span><br><br>
+ Thirty-nine coders tied for first place in the Intel&$174; Software Network
+ Multi-Threading Competition Series Marathon Match #4 with perfect
+ scores.      </td>
+      <td class="newsPhoto"><img src="/i/m/Rustyoldman_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="282718" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505967" message="discuss this" />&#160;|&#160;
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
        <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.16.06<br>5:35 PM</td>
        <td class="newsTextCell"><span class="newsTitle">
       <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">Gartner cites TopCoder as model for "Web 2.0" community</A>
@@ -178,22 +196,6 @@
       <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">development</A>&#160;|&#160;
       <tc-webtag:forumLink forumID="506009" message="discuss this" />&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.10.06<br>12:15 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">Programming contest garners enterprise interest</A>
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="88" height="23" alt="Computerworld" News border="0" /></div>
-       <i>Users tap TopCoder's "virtual sourcing" model</i> - More than 64 computer programmers from 19 countries gathered in Las Vegas last week for the 2006 TopCoder Open, a competition where developers go head-to-head to solve a complex algorithmic problem, design an application or develop a software component for $150,000 in cash prizes.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9000323" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506008" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 </table>
