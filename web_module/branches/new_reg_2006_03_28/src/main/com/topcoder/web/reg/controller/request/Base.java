@@ -399,7 +399,6 @@ abstract class Base extends BaseProcessor {
         for (Iterator it = getFactory().getDemographicQuestionDAO().getQuestions().iterator(); it.hasNext();) {
             dq = (DemographicQuestion) it.next();
             key = Constants.DEMOG_PREFIX + dq.getId();
-            log.debug("in get we got : " + getTrimmedParameter(key));
             if (dq.isMultipleSelect()) {
                 List a = getRequest().getParameterValues(key) == null ?
                         Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(key));
@@ -479,7 +478,7 @@ abstract class Base extends BaseProcessor {
 
         //we'll use school id as an indicator for all of school
         if (fields.contains(Constants.SCHOOL_ID)) {
-            if (params.containsKey(Constants.SCHOOL_ID)) {
+            if (params.get(Constants.SCHOOL_ID)!=null) {
                 //if it's an existing school
                 simpleValidation(SchoolIdValidator.class, fields, params, Constants.SCHOOL_ID);
             } else {
