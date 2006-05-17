@@ -60,7 +60,7 @@
             </div>
 
             <br><br>
-<span class="bodySubtitle">Official Contest Rules - 2006 TopCoder&#174; Collegiate Challenge Logo Design Contest</span>
+<span class="bodySubtitle">Official Contest Rules - 2006 TopCoder Collegiate Challenge <br>Logo Design Contest</span>
 <br><br>
 <b>NO PURCHASE NECESSARY TO ENTER OR WIN. VOID WHERE PROHIBITED.</b>
 <br><br>
@@ -83,7 +83,7 @@ If not already a member, <A href="/Registration">register</A> electronically for
 <br><br>
 The logo must adhere to the following strict guidelines*. Any deviation from these guidelines will result in disqualification of a design. That design WILL count as one of your three submissions. 
 <br><br>
-*If you have not yet submitted 3 designs and one of your submissions is disqualified, you may use one of your remaining submissions to send a valid version of that disqualified submission. If you have already submitted 3 designs, you will not be allowed to submit a replacement for any submission that was disqualified. 
+* If you have not yet submitted 3 designs and one of your submissions is disqualified, you may use one of your remaining submissions to send a valid version of that disqualified submission. If you have already submitted 3 designs, you will not be allowed to submit a replacement for any submission that was disqualified. 
 <br><br>
 <b>Content:</b>
 <br>
@@ -112,11 +112,11 @@ The logo must adhere to the following strict guidelines*. Any deviation from the
 <b>SELECTION OF WINNER</b><br>
 Up to ten (10) designs will be chosen by TopCoder and presented to the TopCoder community for a vote. The voting will begin at 10:00 AM EDT (GMT -4) on Wednesday, June 28, 2006 and will end at 5:00 PM EDT (GMT -4) on Wednesday, July 5, 2006. TopCoder will use the Schulze Method to determine the winner based on the voting by the TopCoder community. 
 <br><br>
-The TopCoder community will be asked to rank the ten (10) logos from 1 to 10 (one being the most favorite and 10 being the least favorite).  
+The TopCoder community will be asked to rank the ten (10) logos from 1 to 10 (1 being the most favorite and 10 being the least favorite).  
 <br><br>
 For an explanation of the Schulze method, see <A href="http://en.wikipedia.org/wiki/Schulze_method">http://en.wikipedia.org/wiki/Schulze_method</A>. In the event of a tie when voting is complete, TopCoder will choose between the tied submissions and the prize money will be distributed equally among the tied competitors. 
 <br><br>
-<b>PRIZE</b><br>
+<b>PRIZES</b><br>
 The contest will award cash prizes totaling $5,000 to up to 5 competitors. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:
 <br><br>
 
