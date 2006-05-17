@@ -66,7 +66,6 @@
 </p>
 -->
 <table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>0011<br><img src="/i/tournament/tco06/logo_submissions/0011.jpg" alt="" border="0" /></td></tr>   <%--19736765--%>
 <tr><td>0010<br><img src="/i/tournament/tco06/logo_submissions/0010.jpg" alt="" border="0" /></td></tr>   <%--15795717--%>
 <tr><td>0009<br><img src="/i/tournament/tco06/logo_submissions/0009.png" alt="" border="0" /></td></tr>   <%--15498334--%>
 <tr><td>0008<br><img src="/i/tournament/tco06/logo_submissions/0008.png" alt="" border="0" /></td></tr>   <%--15498334--%>

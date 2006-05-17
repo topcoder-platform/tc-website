@@ -297,7 +297,7 @@
    <tr><td class="bodyText">04.15.04</td><td class="bodyText" nowrap="0">TCCC04 - Semi Room 3 - <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room3_analysis">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">04.15.04</td><td class="bodyText" nowrap="0">TCCC04 - Semi Room 2 - <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room2_analysis">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">04.15.04</td><td class="bodyText" nowrap="0">TCCC04 - Semi Room 1 - <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room1_analysis">Problem Set & Analysis</a></td></tr>
-   <tr><td class="bodyText">04.06.04</td><td class="bodyText" nowrap="0">SRM 190 - <a href="/tc?module=Static&d1=match_editorials&d2=srm191">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">04.06.04</td><td class="bodyText" nowrap="0">SRM 190 - <a href="/tc?module=Static&d1=match_editorials&d2=srm190">Problem Set & Analysis</a></td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>March</strong></td></tr>
