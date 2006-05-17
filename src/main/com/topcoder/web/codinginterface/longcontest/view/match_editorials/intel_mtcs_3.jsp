@@ -43,7 +43,7 @@
 <tc-webtag:forumLink forumID="505951" message="Discuss this match" />
 </div>
 
-<span class="bodySubtitle">Intel Multi-Threading Competition 3</span><br>03.22.2006 - 04.06.2006
+<span class="bodySubtitle">Intel&#174; Multi-Threading Competition 3</span><br>03.22.2006 - 04.06.2006
 <br><br>
 
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
