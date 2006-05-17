@@ -65,7 +65,7 @@
                                 <td class="tableTitle" colspan="6">Queue Status</td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Handle
                                 </td>
                                 <td class="tableHeader" width="15%">
@@ -74,7 +74,7 @@
                                 <td class="tableHeader" width="15%">
                                     Language
                                 </td>
-                                <td class="tableHeader" width="15%" align="center">
+                                <td class="tableHeader" width="20%" align="center">
                                     Entered Queue
                                 </td>
                                 <td class="tableHeader" width="15%" align="right">
