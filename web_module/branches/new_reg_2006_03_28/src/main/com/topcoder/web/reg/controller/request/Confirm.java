@@ -147,6 +147,7 @@ public class Confirm extends Base {
                 hasParameter(params, Constants.GPA_SCALE)) {
             u.getCoder().getCurrentSchool().setGPA(new Float((String)params.get(Constants.GPA)));
             u.getCoder().getCurrentSchool().setGPAScale(new Float((String)params.get(Constants.GPA_SCALE)));
+            u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("on".equals(params.get(Constants.VISIBLE_SCHOOL))));
         }
         setRegUser(u);
     }
