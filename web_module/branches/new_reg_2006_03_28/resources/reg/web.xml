@@ -38,16 +38,6 @@
 
 
     <filter>
-        <filter-name>SessionClosing</filter-name>
-        <filter-class>com.topcoder.web.reg.controller.SessionClosingFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>SessionClosing</filter-name>
-        <servlet-name>regservlet</servlet-name>
-    </filter-mapping>
-
-    <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
     </filter>
