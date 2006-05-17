@@ -118,6 +118,8 @@ Please select a <strong>season</strong><br>
 </rsc:iterator>
 </SELECT>
 
+<% if(!rookieBoard.isEmpty()) { %>
+
 <div class="pagingBox">
 <%=(rookieBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
 | <%=(rookieBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
@@ -165,7 +167,10 @@ View &#160;
 <a href="javascript:document.rookieBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
 </div>
 
-
+<% } else { %>
+<br><br>
+The selected season is underway and results will start coming in soon.
+<% } %>
 
    </div>
 </div>

@@ -166,6 +166,7 @@ at a time starting with
 </div>
 
 <% } else { %>
+<br><br>
 The selected stage is underway and results will start coming in soon.
 <% } %>
 
