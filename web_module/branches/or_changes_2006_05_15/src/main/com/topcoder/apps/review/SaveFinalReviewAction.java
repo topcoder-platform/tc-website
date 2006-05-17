@@ -66,22 +66,24 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
-                // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
-                if (data.getFinalReview().isApproved()) {
-                    AutoPilot.finalReviewEmail(data);
-                //} else if (data.getFinalReview().isCompleted()) {
-                } else {
-                    // Count how many not fixed items are
-                    FixItem[] items = data.getFinalReview().getFixCheckList();
-
-                    int notFixedItems = 0;
-
-                    for (int i = 0; i < items.length; i++)
-                        if (items[i].getFinalFixStatus().getId() == 1) { // fix constant!
-                            notFixedItems++;
-                        }
-
-                    AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
+                // plk
+                if (data.getFinalReview().isCompleted()) {
+                    // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
+                    if (data.getFinalReview().isApproved()) {
+                        AutoPilot.finalReviewEmail(data);
+                    } else {
+                        // Count how many not fixed items are
+                        FixItem[] items = data.getFinalReview().getFixCheckList();
+    
+                        int notFixedItems = 0;
+    
+                        for (int i = 0; i < items.length; i++)
+                            if (items[i].getFinalFixStatus().getId() == 1) { // fix constant!
+                                notFixedItems++;
+                            }
+    
+                        AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
+                    }
                 }
             }
             
