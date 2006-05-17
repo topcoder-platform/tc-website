@@ -17,13 +17,13 @@
         <!--
             function submit() {
             //set the school name and id
-                var selection = getValue("document.resultForm", "schoolSelection");
+                var selection = getSelectedOption("document.resultForm", "schoolSelection");
                 if (selection) {
-                    putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection);
+                    putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection.value);
                     if (window.opener.document.secondaryForm.<%=Constants.SCHOOL_NAME%>) {
-                        putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection);
+                        putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_NAME%>", selection.text);
                     } else {
-                        updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection);
+                        updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection.text);
                     }
                     window.close();
                 } else {
