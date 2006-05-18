@@ -81,7 +81,7 @@ public class FinalReview implements Model {
                     finalReview = documentManager.getFinalReview(project, false, user.getTCSubject());
 
                 // plk - sacar
-                log.debug("finalReview.getId(): " + finalReview.getId():);
+                log.debug("finalReview.getId(): " + finalReview.getId());
 
                 if (finalReview != null) {
                     return new FinalReviewRetrieval(finalReview);
