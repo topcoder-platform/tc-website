@@ -3100,12 +3100,13 @@ public class DocumentManagerBean implements SessionBean {
                                 // Only include accepted aggregation responses
                                 
                                 if (fixItemList.size() > 0) {
-                                    // Get FixItem if it exists                                
-                                    for (int i = 0; i < fixItemList.size() && aggRespArr[i].getId() != 
-                                        ((FixItem)fixItemList.get(i)).getAggregationResponse().getId(); i++);
+                                    // Get FixItem if it exists
+                                    int j = 0;
+                                    for (; j < fixItemList.size() && aggRespArr[j].getId() != 
+                                        ((FixItem)fixItemList.get(j)).getAggregationResponse().getId(); j++);
 
-                                    if (i < fixItemList.size()) {
-                                        fixItemList.add((FixItem)fixItemList.get(i));    
+                                    if (j < fixItemList.size()) {
+                                        fixItemList.add((FixItem)fixItemList.get(j));    
                                     } else {
                                         fixItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
                                     }
