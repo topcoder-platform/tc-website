@@ -113,8 +113,8 @@
 </table>
 
 <br><br>
-<%------------------ MINIMAL - BUT SHOW THIS WITH ALL REGSITRATIONS, SO I GUESS JUST LEAVE IT ON BOTTOM WITH NO LOGIC ------------------%>
-<div style="clear:both;"><span class="subtitle">As a TopCoder Member</span></div>
+<%------------------ MINIMAL - BUT SHOW THIS WITH ALL REGISTRATIONS, SO I GUESS JUST LEAVE IT ON BOTTOM WITH NO LOGIC ------------------%>
+<div style="clear:both;"><span class="subtitle">As a Registered TopCoder Member</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
       <td class="image"><A href="/"><img src="/i/registration/minimal.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
