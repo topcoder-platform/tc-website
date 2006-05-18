@@ -494,10 +494,18 @@ abstract class Base extends HibernateProcessor {
                 setDefault(Constants.SCHOOL_ID, s.getId().toString());
             }
             setDefault(Constants.SCHOOL_NAME, s.getName());
-            setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
-            setDefault(Constants.SCHOOL_TYPE, u.getCoder().getCurrentSchool().getViewable().toString());
-            setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
-            setDefault(Constants.GPA_SCALE, u.getCoder().getCurrentSchool().getGPAScale().toString());
+            if (s.getType()!=null) {
+                setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
+            }
+            if (u.getCoder().getCurrentSchool().getViewable()!=null) {
+                setDefault(Constants.SCHOOL_TYPE, u.getCoder().getCurrentSchool().getViewable().toString());
+            }
+            if (u.getCoder().getCurrentSchool().getGPA()!=null) {
+                setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
+            }
+            if (u.getCoder().getCurrentSchool().getGPAScale()!=null) {
+                setDefault(Constants.GPA_SCALE, u.getCoder().getCurrentSchool().getGPAScale().toString());
+            }
 
             Address a = s.getAddress();
             if (a != null) {
@@ -507,7 +515,9 @@ abstract class Base extends HibernateProcessor {
                     setDefault(Constants.SCHOOL_NAME, state.getCode());
                 }
                 setDefault(Constants.SCHOOL_NAME, a.getProvince());
-                setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
+                if (a.getCountry()!=null) {
+                    setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
+                }
             }
         }
 
