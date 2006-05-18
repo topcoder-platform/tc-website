@@ -94,7 +94,7 @@ public class TeamResults extends Base {
         r.setProperty("tmid", tmid + "");
 
         Map result = getDataAccess(true).getData(r);
-
+ 
         ResultSetContainer rsc = (ResultSetContainer) result.get("seasons_for_team");
         
         if (rsc.getRowCount() == 0) {

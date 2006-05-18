@@ -21,7 +21,7 @@ public class RoundStatsTeam extends Base {
     private static String columnNames[] = {"name", "team_points", "submission_points",
                 "total_challenge_points", "system_test_points", "final_points" };
 
-
+    
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());

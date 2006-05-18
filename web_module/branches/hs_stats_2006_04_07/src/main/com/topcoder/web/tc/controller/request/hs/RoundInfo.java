@@ -31,7 +31,7 @@ public class RoundInfo {
      */
     public int getRoundId() {
         return roundId;
-    }
+    } 
 
     /**
      * @param roundId The roundId to set.

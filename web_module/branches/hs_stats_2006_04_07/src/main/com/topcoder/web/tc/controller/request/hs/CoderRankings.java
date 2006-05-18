@@ -29,7 +29,7 @@ public class CoderRankings extends Base {
             
             if (hasParameter("snid")) {
                 round.setSeasonId(Integer.parseInt((String) getRequest().getParameter("snid")));
-                
+                 
             } else {
                 // to do retrieve most recent season
             }

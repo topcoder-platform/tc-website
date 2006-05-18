@@ -61,7 +61,7 @@ public class ListInfo {
      */
     public String getSortDirection() {
         return sortDirection;
-    }
+    }  
 
     /**
      * @return Returns the startRow.
