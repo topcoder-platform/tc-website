@@ -29,6 +29,7 @@ public class Activate extends Base  {
                 if (Arrays.binarySearch(Constants.UNACTIVE_STATI, status) >= 0) {
                     u.getPrimaryEmailAddress().setStatusId(Email.STATUS_ID_ACTIVE);
                     u.setStatus(new Character(Constants.ACTIVE_STATI[1]));
+                    markForCommit();
                     setNextPage("/activated.jsp");
                     setIsNextPageInContext(true);
                 } else if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {

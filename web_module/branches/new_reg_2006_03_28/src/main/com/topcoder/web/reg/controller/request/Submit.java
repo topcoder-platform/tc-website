@@ -26,11 +26,10 @@ public class Submit extends Base {
             throw new NavigationException("Sorry, your session has timed out.");
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
-
-            getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
+            
+            markForCommit();
 
             boolean newUser = u.isNew();
-            getFactory().getUserDAO().saveOrUpdate(u);
             if (newUser) {
                 Long newUserId = u.getId();
                 closeConversation();
@@ -38,14 +37,14 @@ public class Submit extends Base {
                 //sending email to be in the transaction
                 beginCommunication();
                 User newUserObj = getFactory().getUserDAO().find(newUserId);
+
                 String activationCode = StringUtils.getActivationCode(newUserId.longValue());
                 newUserObj.setActivationCode(activationCode);
-                getFactory().getUserDAO().saveOrUpdate(newUserObj);
-                getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
+
+                markForCommit();
                 String email = newUserObj.getPrimaryEmailAddress().getAddress();
 
                 RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
-
                 RegistrationType comp  =dao.getCompetitionType();
                 RegistrationType tcs = dao.getSoftwareType();
                 RegistrationType hs = dao.getHighSchoolType();
@@ -56,7 +55,7 @@ public class Submit extends Base {
                 try {
                     sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
                 } catch (Exception e) {
-                    //we don't want whatever happened to affect the registration.  
+                    //we don't want whatever happened to affect the registration.
                     e.printStackTrace();
                 }
             }

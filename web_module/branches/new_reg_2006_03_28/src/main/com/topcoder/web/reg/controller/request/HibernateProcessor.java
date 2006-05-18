@@ -53,6 +53,10 @@ public abstract class HibernateProcessor extends BaseProcessor {
         }
     }
 
+    protected void markForCommit() {
+        getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
+    }
+
     /**
      * End a single exchange in a long running conversation of exchanges
      */
