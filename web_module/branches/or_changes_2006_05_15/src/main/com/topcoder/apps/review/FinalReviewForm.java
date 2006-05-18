@@ -295,6 +295,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         isApproved = finalReview.isApproved();
         // plk
         isCompleted = Constants.ACTION_FINISH.equals(action);
+        System.out.println("isCompleted: " + isCompleted);
+        System.out.println("action: " + action);
     }
 
     /**
