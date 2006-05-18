@@ -83,20 +83,25 @@
     <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
     <c:if test="${cf:contains(fields, demogPrefix)}">
         <rt:questionIterator id="assignment" list="${demographicAssignments}">
-            <p>
+   <tr>
+      <td colspan="2"><span class="bigRed">
                 <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
                     <br></tc-webtag:errorIterator>
-            </p>
-
-            <p>
+      </td>
+   </tr>
+   <tr>         
+      <td class="name">
                 <c:if test="${assignment.required}">
                     *
                 </c:if>
                     ${assignment.question.text}
                 :
+      </td>
+      <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
 
-            </p>
+      </td>
+   </tr>
         </rt:questionIterator>
     </c:if>
 
@@ -176,15 +181,20 @@
     <%--Resume--%>
     <c:set value="<%=Constants.RESUME%>" var="resume"/>
     <c:if test="${cf:contains(fields, resume)}">
-        <p>
+   <tr>
+      <td colspan="2"><span class="bigRed">
             <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br></tc-webtag:errorIterator>
-        </p>
-
+      </td>
+   </tr>
+   <tr>         
       <td class="name">
-            Resume: <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
+            Resume: 
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
             <input type="file" name="${resume}">
-
-        </p>
+      </td>
+   </tr>
     </c:if>
 </table>
 
