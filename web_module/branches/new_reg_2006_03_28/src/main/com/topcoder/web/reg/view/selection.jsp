@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Registration</title>
     <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
 <script language="javascript" type="text/javascript">
 <!--
@@ -37,36 +37,31 @@ function popHide(){
 
 // -->
 </script>
-<STYLE TYPE="text/css">
-/*div{ border: solid 1px black; }*/
-div.popUp
-{
-float: left;
-clear: both;
-width: 450px;
-font-size: 11px;
-background-color: #FFFFCC;
-visibility: hidden;
-position: absolute;
-top: 0px;
-left: 0px;
-padding: 5px;
-border: solid 1px black;
-}
-#container
-{
-clear: both;
-display: block;
-position: relative;
-}
-</STYLE>
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<img src="http://www.topcoder.com/i/registration/tc_logo.gif" alt="TopCoder" />
+</div>
 <div align="center">
-   <div style="padding: 10px; width: 500px; text-align: left;">
-   <span class="bigTitle">Registration</span>
-   <br><br>
+   <div style="padding: 0px 0px 10px 0px; width: 600px; text-align: left;">
+   <table class="pageTitleTable" cellpadding="0" cellspacing="0">
+       <tr>
+           <td class="pageTitle" width="100%"><img src="http://www.topcoder.com/i/header_registration_w.gif" alt="registration_w" border="0"></td>
+           <td class="pageSubtitle" align="right">&nbsp;</td>
+       </tr>
+   </table>
+
+   <div class="regBc">
+      <div class="title">Step 1 of 6</div>
+      <div class="on">Select Your Registration</div>
+      <div class="off">General</div>
+      <div class="off">Demographics</div>
+      <div class="off">Confirm</div>
+      <div class="off">Success</div>
+      <div class="off">Activation</div>
+   </div>
+
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
    <br><br>
 
@@ -88,6 +83,8 @@ position: relative;
 
     </form>
    <br>
+   All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of the site that require login, such as detailed competition statistics.
+   <br><br>
    You can always add to your registered capabilities later by clicking "Update My Profile".
    </div>
 </div>
