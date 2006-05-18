@@ -41,7 +41,7 @@ function popHide(){
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-<img src="http://www.topcoder.com/i/registration/tc_logo.gif" alt="TopCoder" />
+<A href="/"><img src="http://www.topcoder.com/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
 </div>
 <div align="center">
    <div style="padding: 0px 0px 10px 0px; width: 600px; text-align: left;">
