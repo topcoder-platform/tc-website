@@ -85,7 +85,9 @@ function popHide(){
       <br /><br />
         </c:forEach>
 
+      <div align="center">
         <a href="Javascript:document.selectionForm.submit();">Submit</a>
+      </div>
 
     </form>
    <br>
