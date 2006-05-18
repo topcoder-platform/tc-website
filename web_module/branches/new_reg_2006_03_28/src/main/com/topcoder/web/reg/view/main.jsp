@@ -445,8 +445,9 @@
 </table>
 
 
-
+<div align="center">
 <a href="Javascript:document.mainForm.submit();">Submit</a>
+</div>
 
 </form>
 
