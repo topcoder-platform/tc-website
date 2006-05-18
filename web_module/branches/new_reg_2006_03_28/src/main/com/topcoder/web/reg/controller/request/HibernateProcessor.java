@@ -29,13 +29,13 @@ public abstract class HibernateProcessor extends BaseProcessor  {
         try {
 
             if (hibernateSession != null) {
-                log.debug("< Continuing conversation");
+                //log.debug("< Continuing conversation");
                 ExtendedThreadLocalSessionContext.bind(hibernateSession);
             } else {
-                log.debug(">>> New conversation");
+                //log.debug(">>> New conversation");
             }
 
-            log.debug("Starting a database transaction");
+            //log.debug("Starting a database transaction");
             HibernateUtils.begin();
 
             // Do the work...
@@ -44,38 +44,38 @@ public abstract class HibernateProcessor extends BaseProcessor  {
             // End or continue the long-running conversation?
             if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
 
-                log.debug("Flushing Session");
+//                log.debug("Flushing Session");
                 HibernateUtils.getSession().flush();
 
-                log.debug("Committing the database transaction");
+//                log.debug("Committing the database transaction");
                 HibernateUtils.commit();
 
-                log.debug("Closing and unbinding Session from thread");
+//                log.debug("Closing and unbinding Session from thread");
                 HibernateUtils.getSession().close(); // Unbind is automatic here
 
-                log.debug("Removing Session from HttpSession");
+//                log.debug("Removing Session from HttpSession");
                 //we're creating a new session to handle the case that the request processing invalidated the session
                 //there's no way to check, so this is what we're doing.
                 HttpSession s = getRequest().getSession(true);
                 if (!s.isNew()) {
                     s.setAttribute(HIBERNATE_SESSION_KEY, null);
                 } else {
-                    log.debug("XXXXX we got a new session");
+//                    log.debug("XXXXX we got a new session");
                 }
 
-                log.debug("<<< End of conversation");
+//                log.debug("<<< End of conversation");
 
             } else {
-                log.debug("Committing database transaction");
+//                log.debug("Committing database transaction");
                  HibernateUtils.commit();
 
-                 log.debug("Unbinding Session from thread");
+//                 log.debug("Unbinding Session from thread");
                  hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
 
-                 log.debug("Storing Session in the HttpSession");
+//                 log.debug("Storing Session in the HttpSession");
                  getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
 
-                 log.debug("> Returning to user in conversation");
+//                 log.debug("> Returning to user in conversation");
             }
 
         } catch (StaleObjectStateException staleEx) {
@@ -87,7 +87,7 @@ public abstract class HibernateProcessor extends BaseProcessor  {
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
         } catch (Exception e) {
-            log.debug("printing the stack from base");
+//            log.debug("printing the stack from base");
             //e.printStackTrace();
             handleException(e);
             throw e;
@@ -99,19 +99,19 @@ public abstract class HibernateProcessor extends BaseProcessor  {
     private void handleException(Throwable e) {
         try {
             if (HibernateUtils.getSession().getTransaction().isActive()) {
-                log.debug("Trying to rollback database transaction after exception");
+//                log.debug("Trying to rollback database transaction after exception");
                 HibernateUtils.rollback();
             }
         } catch (Throwable rbEx) {
-            log.error("Could not rollback transaction after exception! " + rbEx.getMessage());
+//            log.error("Could not rollback transaction after exception! " + rbEx.getMessage());
         } finally {
-            log.error("Cleanup after exception!");
+//            log.error("Cleanup after exception!");
 
             // Cleanup
-            log.debug("Closing and unbinding Session from thread");
+//            log.debug("Closing and unbinding Session from thread");
             HibernateUtils.getSession().close(); // Unbind is automatic here
 
-            log.debug("Removing Session from HttpSession");
+//            log.debug("Removing Session from HttpSession");
             getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
 
         }
