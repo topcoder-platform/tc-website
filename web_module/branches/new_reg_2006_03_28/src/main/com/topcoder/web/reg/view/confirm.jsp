@@ -204,6 +204,14 @@
     </p>
 </c:if>
 
+<c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+<c:if test="${cf:contains(fields, schoolName)}">
+    <p>
+        School: ${regUser.coder.currentSchool.school.name}
+    </p>
+</c:if>
+
+
 <a href="Javascript:document.confirmForm.submit();">Submit</a>
 
 </form>
