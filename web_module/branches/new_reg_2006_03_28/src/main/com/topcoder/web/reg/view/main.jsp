@@ -294,7 +294,7 @@
    </tr>
    <tr>
       <td class="name">
-        Handle:
+        User Name:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
