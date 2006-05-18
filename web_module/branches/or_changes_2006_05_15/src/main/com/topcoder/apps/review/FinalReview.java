@@ -44,6 +44,8 @@ public class FinalReview implements Model {
         }
 
         FinalReviewData finalReviewData = (FinalReviewData) data;
+        // plk - sacar
+        log.debug("finalReviewData.getFinalReview().getId()" + finalReviewData.getFinalReview().getId());
 
         SecurityEnabledUser user = finalReviewData.getUser();
         if (user == null) {
@@ -68,6 +70,9 @@ public class FinalReview implements Model {
             Project project = projectTracker.getProject(userProjectInfo, user.getTCSubject());
 
             if (finalReviewData.getFinalReview() == null) {
+                // plk - sacar
+                log.debug("finalReviewData.getFinalReview() = null, retrieveFull" + finalReviewData.getRetrieveFull());
+                
                 // get the FinalReview for the front-end
                 com.topcoder.apps.review.document.FinalReview finalReview = null;
                 if (finalReviewData.getRetrieveFull())
@@ -75,6 +80,8 @@ public class FinalReview implements Model {
                 else
                     finalReview = documentManager.getFinalReview(project, false, user.getTCSubject());
 
+                // plk - sacar
+                log.debug("finalReview.getId(): " + finalReview.getId():);
 
                 if (finalReview != null) {
                     return new FinalReviewRetrieval(finalReview);
@@ -91,6 +98,9 @@ public class FinalReview implements Model {
                 if (!PhaseHelper.canFinalReview(project)) {
                     return new FailureResult("You can perform final review only during the final review phase");
                 }
+
+                // plk - sacar
+                log.debug("saving");
 
                 // save the FinalReview
                 documentManager.saveFinalReview(finalReviewData.getFinalReview(), user.getTCSubject());
