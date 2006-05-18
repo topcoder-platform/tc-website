@@ -544,7 +544,7 @@ abstract class Base extends HibernateProcessor {
                     getFactory().getDemographicAssignmentDAO().getAssignments(
                             getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL), s, getRequestedTypes());
         } else {
-            log.debug("loading up " + u.getCoder().getCoderType() + " assignments for " + s);
+            log.debug("loading up " + u.getCoder().getCoderType().getDescription() + " assignments for " + (s==null?"nostate":s.getCode()));
             return
                     getFactory().getDemographicAssignmentDAO().getAssignments(
                             u.getCoder().getCoderType(), s, getRequestedTypes());
