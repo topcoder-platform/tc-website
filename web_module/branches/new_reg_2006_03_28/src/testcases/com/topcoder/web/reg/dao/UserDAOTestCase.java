@@ -2,8 +2,8 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.DemographicResponse;
+import com.topcoder.web.reg.model.User;
 
 import java.util.HashSet;
 
@@ -25,10 +25,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         HashSet s = new HashSet();
         s.add(r);
         u.setDemographicResponses(s);
-/*
-        u.clearDemographicResponses();
-        u.addDemographicResponse(r);
-*/
         Util.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);
 
