@@ -3064,12 +3064,18 @@ public class DocumentManagerBean implements SessionBean {
 
                     FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
                     fixItemList.add(fixItem);
+                                    log.debug("4) fixItemList.size(): " + fixItemList.size());
+
                 }
+                log.debug("2) fixItemList.size(): " + fixItemList.size());
+
 /*                if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
                 } else {*/
+                                log.debug("5) fixItemList.size(): " + fixItemList.size());
+
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
                         // Create new FinalReview
@@ -3089,16 +3095,19 @@ public class DocumentManagerBean implements SessionBean {
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
                                 isCompleted, requestor.getUserId(), -1, isApproved, comments); */
+                log.debug("6) fixItemList.size(): " + fixItemList.size());
                                 
                        // plk, todo agregado
                         // Retrieve aggregation responses.
                         aggWorksheet = getAggregation(project, requestor, true);
                         AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
+                log.debug("7) fixItemList.size(): " + fixItemList.size());
 
                         for (int i = 0; i < aggRespArr.length; i++) {
                             if (aggRespArr[i].getAggregationResponseStatus().getId() ==
                                     AggregationResponseStatus.ID_ACCEPTED) {
                                 // Only include accepted aggregation responses
+                log.debug("8) fixItemList.size(): " + fixItemList.size());
                                 
                                 if (fixItemList.size() > 0) {
                                     log.debug("fixItemList.size(): " + fixItemList.size());
