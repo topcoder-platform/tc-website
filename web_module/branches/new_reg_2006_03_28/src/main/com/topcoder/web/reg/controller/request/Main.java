@@ -32,7 +32,10 @@ public class Main extends Base {
                 }
             }
 
-            setRequestedTypes(requestedTypes);
+            HashSet s = new HashSet();
+            s.addAll(requestedTypes);
+            s.addAll(getRegUser().getRegistrationTypes());
+            setRequestedTypes(s);
 
             //set up the user object we're gonna use
             User u = getRegUser();
