@@ -60,6 +60,8 @@
             Please select your school from list below and click <strong>Submit</strong>:
             <span id="submitMessage"></span>
         </form>
+
+<%-- old form
         <form action="" name="resultForm">
          <select name="schoolSelection" size="4">
              <c:forEach items="${results}" var="result">
@@ -68,7 +70,19 @@
          </select><br>
          <a href="Javascript:submit();">Submit</a>
         </form>
+--%>
+        <br><br>
+         <span class="small">
 
+<%---------REPEAT THIS--------%>
+         School Name<br>
+         City, State, Postal Code, Province, Country<br>
+         Registrants: 100<br>
+         <A class="small" href="">Select</A>
+         <br><br>
+<%-----------------------------%>
+
+         </span>
         <br><br>
         <strong>OR</strong><br>
         If your school is not in the list above, click
