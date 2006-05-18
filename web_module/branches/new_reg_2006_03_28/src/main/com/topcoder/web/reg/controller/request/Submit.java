@@ -7,7 +7,9 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.RegistrationType;
 
 import java.util.Set;
 
@@ -41,8 +43,17 @@ public class Submit extends Base {
                 getFactory().getUserDAO().saveOrUpdate(newUserObj);
                 getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
                 String email = newUserObj.getPrimaryEmailAddress().getAddress();
+
+                RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
+
+                RegistrationType comp  =dao.getCompetitionType();
+                RegistrationType tcs = dao.getSoftwareType();
+                RegistrationType hs = dao.getHighSchoolType();
+                RegistrationType corp = dao.getCorporateType();
+                RegistrationType min = dao.getMinimalType();
+
                 closeConversation();
-                sendEmail(activationCode, email, getRequestedTypes());
+                sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
             }
 
             clearSession();
@@ -57,7 +68,9 @@ public class Submit extends Base {
     }
 
 
-    private void sendEmail(String activationCode, String email, Set regTypes) throws Exception {
+    private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
+                           RegistrationType tcs, RegistrationType hs, RegistrationType corp,
+                           RegistrationType min) throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("TopCoder Activation");
         StringBuffer msgText = new StringBuffer(3000);
@@ -80,7 +93,7 @@ public class Submit extends Base {
         msgText.append("please make sure you copy and paste both sections without any spaces ");
         msgText.append("between them.\n\n");
 
-        if (regTypes.contains(getFactory().getRegistrationTypeDAO().getCompetitionType())) {
+        if (regTypes.contains(comp)) {
             msgText.append("You may utilize your activated TopCoder handle and password in order to ");
             msgText.append("access your member home page on TopCoder's web site.  Your handle and ");
             msgText.append("password will also provide you with access to the TopCoder Competition ");
@@ -131,13 +144,13 @@ public class Submit extends Base {
 
             msgText.append("If you have any questions about how to participate, please email them to ");
             msgText.append("service@topcoder.com\n\n");
-        } else if (regTypes.contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+        } else if (regTypes.contains(hs)) {
             msgText.append("\n\n\nHIGH SCHOOL REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(getFactory().getRegistrationTypeDAO().getSoftwareType())) {
-            msgText.append("\n\n\nSOFTWAREL REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(getFactory().getRegistrationTypeDAO().getCorporateType())) {
+        } else if (regTypes.contains(tcs)) {
+            msgText.append("\n\n\nSOFTWARE REG TEXT GOES HERE\n\n\n");
+        } else if (regTypes.contains(corp)) {
             msgText.append("\n\n\nCORPORATE REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(getFactory().getRegistrationTypeDAO().getMinimalType())) {
+        } else if (regTypes.contains(min)) {
             msgText.append("\n\n\nMINIMAL REG TEXT GOES HERE\n\n\n");
         }
 
