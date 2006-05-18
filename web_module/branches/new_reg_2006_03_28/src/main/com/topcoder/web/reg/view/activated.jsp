@@ -25,7 +25,7 @@
      </jsp:include>
 
    <div>
-   <strong>Your account has been successfully activated. Thank You!</strong>
+   <strong>Your have successfully activated your account. Thank You!</strong>
    </div>
 </div>
 
