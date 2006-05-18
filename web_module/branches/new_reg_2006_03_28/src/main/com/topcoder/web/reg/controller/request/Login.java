@@ -78,6 +78,8 @@ public class Login extends Base {
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
                                 getAuthentication().login(new SimpleUser(0, username, password), false);
+                                //clear the session for the case that they've been messing around as someone else or as no one
+                                clearSession();
                                 return;
                             }
                         } else {
