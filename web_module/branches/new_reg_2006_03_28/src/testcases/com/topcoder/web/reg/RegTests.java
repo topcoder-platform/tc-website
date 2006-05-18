@@ -30,6 +30,7 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
+        suite.addTest(new TestSuite(CompanyDAOTestCase.class));
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
@@ -65,13 +66,11 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(GPAScaleValidatorTestCase.class));
         suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
-        */
-/*
         suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
-
-        suite.addTest(new TestSuite(DetachedTestCase.class));
 */
+
+//        suite.addTest(new TestSuite(DetachedTestCase.class));
 
         return suite;
     }

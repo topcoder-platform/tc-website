@@ -2,8 +2,10 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.DemographicResponse;
+
+import java.util.HashSet;
 
 /**
  * @author dok
@@ -14,7 +16,25 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
 
+    public void testDemogUpdate() {
+        User u = Util.getFactory().getUserDAO().find("dok");
+        DemographicResponse r = new DemographicResponse();
+        r.setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
+        r.setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
+        r.setUser(u);
+        HashSet s = new HashSet();
+        s.add(r);
+        u.setDemographicResponses(s);
+/*
+        u.clearDemographicResponses();
+        u.addDemographicResponse(r);
+*/
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        assertTrue("couldn't make demographic change", true);
 
+    }
+
+/*
     public void testSaveOrUpdate() {
         User u = TestUtils.makeUser();
         Util.getFactory().getUserDAO().saveOrUpdate(u);
@@ -23,7 +43,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
     }
 
-/*
+
     public void testSaveOrUpdateResponses() {
         User u = TestUtils.makeUser();
         Util.getFactory().getUserDAO().saveOrUpdate(u);
@@ -78,12 +98,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         assertTrue("new coder does not exist", u1 != null);
     }
 
-    public void testSaveUpdateWithOutCoder() {
-        User u = TestUtils.makeUser();
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
-        User u1 = Util.getFactory().getUserDAO().find(u.getId());
-        assertTrue("coder exists and should not", u1.getCoder() == null);
-    }
 
     public void testSaveUpdateWithOutContact() {
         User u = TestUtils.makeUser();
@@ -127,7 +141,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
         }
     }
-*/
 
+*/
 
 }

@@ -33,6 +33,7 @@ public class DemographicResponse extends Base {
     }
 
     public void setUser(User user) {
+        id.setUserId(user.getId());
         this.user = user;
     }
 
@@ -45,6 +46,7 @@ public class DemographicResponse extends Base {
     }
 
     public void setQuestion(DemographicQuestion question) {
+        id.setDemographicQuestionId(question.getId());
         this.question = question;
     }
 
@@ -53,6 +55,7 @@ public class DemographicResponse extends Base {
     }
 
     public void setAnswer(DemographicAnswer answer) {
+        id.setDemographicAnswerId(answer.getId());
         this.answer = answer;
     }
 

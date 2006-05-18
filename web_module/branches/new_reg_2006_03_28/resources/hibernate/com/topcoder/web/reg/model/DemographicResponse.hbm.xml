@@ -11,8 +11,10 @@
             <key-property name="demographicQuestionId" type="long" column="demographic_question_id" access="field"/>
             <key-property name="demographicAnswerId" type="long" column="demographic_answer_id" access="field"/>
         </composite-id>
+
         <property name="response" column="demographic_response" access="field"/>
-        <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field" cascade="none" insert="false" update="false"/>
+
+        <many-to-one name="question" column="demographic_question_id" class="DemographicQuestion" access="field" cascade="none" insert="false" update="false" />
         <many-to-one name="answer" column="demographic_answer_id" class="DemographicAnswer" access="field" cascade="none" insert="false" update="false"/>
         <many-to-one name="user" column="user_id" class="User" access="field" cascade="none" insert="false" update="false"/>
 
