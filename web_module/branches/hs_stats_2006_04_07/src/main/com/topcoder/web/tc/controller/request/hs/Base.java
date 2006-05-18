@@ -149,7 +149,26 @@ abstract public class Base extends BaseProcessor {
 
         return round;        
     }
-    
+
+    /**
+     * Retrieves the season ids.
+     * If possible, it gets it from the request parameters, if not the most recent is looked up.
+     * 
+     * @param req Request where snid may be present
+     * @return a RoundInfo with season id filled and emtpy name.
+     */
+    protected RoundInfo getSeasonId(TCRequest req) throws Exception {
+        RoundInfo round = new RoundInfo();
+        
+        if(hasParameter("snid")) {
+            round.setSeasonId(Integer.parseInt(req.getParameter("snid")));
+        } else {
+            getMostRecent(round);
+        }
+
+        return round;        
+    }
+
 
     /**
      * Fills the RoundInfo object with the season and round names and the forum_id

@@ -1,12 +1,10 @@
 package com.topcoder.web.tc.controller.request.hs;
 
-import java.util.Iterator;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.util.ResultSetContainer.ResultSetRow;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 

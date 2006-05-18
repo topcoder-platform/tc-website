@@ -21,26 +21,18 @@ public class CoderRankings extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {            
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC", columnNames);
-            RoundInfo round = new RoundInfo();
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "DESC", columnNames);
+            RoundInfo round = getSeasonId(getRequest());
             
             Request r = new Request();
             r.setContentHandle("hs_coder_rank");
             
-            if (hasParameter("snid")) {
-                round.setSeasonId(Integer.parseInt((String) getRequest().getParameter("snid")));
-                 
-            } else {
-                // to do retrieve most recent season
-            }
-
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
-            //
             // just fill season, but not round
             fillRoundAndSeasonNames (round, result, "seasons", null);
 
