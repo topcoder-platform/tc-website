@@ -140,7 +140,7 @@ Coders |
    <tr>
       <td class="header">&#160;</td>
       <td class="header" width="30%">Coder</td>
-      <td class="header" width="70%">School</td>
+      <td class="header" width="70%">Team</td>
       <td class="headerR">Rating</td>
    </tr>
    <% boolean even = false; %>
@@ -151,7 +151,12 @@ Coders |
 	      <td class="value">
 	                       <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
 	      </td>
-	      <td class="value"><rsc:item name="school" row="<%=resultRow%>"/></td>
+	      <td class="value">
+	                   <A href='/tc?module=HSTeamRank&tmid=<%= resultRow.getItem("team_id") %>' >
+	                   <rsc:item name="name" row="<%=resultRow%>"/></td>
+	                   </A>
+	      
+	      </td>
 	      <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 	   </tr>
    </rsc:iterator>
