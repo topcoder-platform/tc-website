@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -45,6 +46,7 @@
    </div>
 
 <br><br>
+<%------------------ COMPETITOR------------------%>
 <div style="clear:both;"><span class="subtitle">As a Registered Competitor</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
@@ -65,6 +67,7 @@
 </table>
 
 <br><br>
+<%------------------ HIGH SCHOOL------------------%>
 <div style="clear:both;"><span class="subtitle">As a Registered High School Competitor</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
@@ -82,6 +85,7 @@
 </table>
 
 <br><br>
+<%------------------ TCS------------------%>
 <div style="clear:both;"><span class="subtitle">As a Registered TopCoder Software Customer</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
@@ -95,6 +99,21 @@
 </table>
 
 <br><br>
+<%------------------ CORP ------------------%>
+<div style="clear:both;"><span class="subtitle">As a Registered Corporate Services Member</span></div>
+<table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+   <tr>
+      <td class="image"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="text" width="100%">
+         <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Sponsor an event</A><br>
+         <A href="/pl/">Host your own event, Powered by TopCoder</A><br>
+         <A href="/corp/?module=Static&d1=corp&d2=tces_home">Hire talented programmers</A>
+      </td>
+   </tr>
+</table>
+
+<br><br>
+<%------------------ MINIMAL - OBVIOUSLY ONLY SHOW THIS IF THEY JUST DID MINIMAL ------------------%>
 <div style="clear:both;"><span class="subtitle">As a Registered Corporate Services Member</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
