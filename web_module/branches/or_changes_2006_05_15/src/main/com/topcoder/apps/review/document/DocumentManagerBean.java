@@ -3044,7 +3044,7 @@ public class DocumentManagerBean implements SessionBean {
                 String comments = null;
 
                 while (rs.next()) {
-                    //info("Found fixItem");
+                    log.debug("Found fixItem");
                     finalReviewId = rs.getLong(1);
                     long fixItemId = rs.getLong(2);
                     long finalFixStatusId = rs.getLong(3);
@@ -3100,17 +3100,21 @@ public class DocumentManagerBean implements SessionBean {
                                 // Only include accepted aggregation responses
                                 
                                 if (fixItemList.size() > 0) {
+                                    
                                     // Get FixItem if it exists
                                     int j = 0;
                                     for (; j < fixItemList.size() && aggRespArr[j].getId() != 
                                         ((FixItem)fixItemList.get(j)).getAggregationResponse().getId(); j++);
 
                                     if (j < fixItemList.size()) {
+                                        log.debug("fixItem inserted");
                                         fixItemList.add((FixItem)fixItemList.get(j));    
                                     } else {
+                                        log.debug("fixItem not found");
                                         fixItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
                                     }
                                 } else {
+                                    log.debug("agg response");
                                     FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
                                     fixItemList.add(fixItem);
                                 }
