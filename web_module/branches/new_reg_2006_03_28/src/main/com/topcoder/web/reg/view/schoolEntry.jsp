@@ -78,17 +78,16 @@
     <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school. 
 </c:if>
             <br><br>
+             School Type:
+             <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
+             <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
 
+
+            <br><br>
             <div align="center">
-                School Type:
-                <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
-                <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
-                <br><br>
+            <a href="Javascript:submit();">Submit</a>
             </div>
 
-
-
-            <a href="Javascript:submit();">Submit</a>
         </form>
 
 

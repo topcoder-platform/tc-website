@@ -47,7 +47,7 @@
             <strong>School Name:</strong><br>
             <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
+            <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br/><br/>
 
 
@@ -65,6 +65,7 @@
                 </c:forEach>
             </select>
 
+            <br><br>
             <div align="center">
                 <a href="Javascript:submit();">Submit</a>
             </div>
@@ -73,7 +74,7 @@
         <br/><br/>
         <strong>OR</strong>
         <br/><br/>
-        If your school is not in the list above, you may search again, or click
+        If your school is not in the list above, click
         <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
         your school.
 
