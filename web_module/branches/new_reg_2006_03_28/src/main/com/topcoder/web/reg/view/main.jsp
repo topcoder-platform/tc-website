@@ -234,7 +234,41 @@
    </tr>
 </c:if>
 
-<%--todo put country here --%>
+<c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
+<c:if test="${cf:contains(fields, countryCode)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Country: 
+      </td>
+      <td class="value">
+         <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+      </td>
+   </tr>
+</c:if>
+
+
+<c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
+<c:if test="${cf:contains(fields, compCountryCode)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Country to represent:
+      </td>
+      <td class="value">
+         <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
+      </td>
+   </tr>
+</c:if>
+
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
    <tr>
@@ -286,40 +320,6 @@
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.EMAIL%>" var="email"/>
-<c:if test="${cf:contains(fields, email)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        Email Address:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
-<c:set value="<%=Constants.EMAIL_CONFIRM%>" var="emailConfirm"/>
-<c:if test="${cf:contains(fields, emailConfirm)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        Confirm Email Address:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
 <c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
 <c:if test="${cf:contains(fields, phoneNumber)}">
    <tr>
@@ -354,6 +354,40 @@
    </tr>
 </c:if>
 
+<c:set value="<%=Constants.EMAIL%>" var="email"/>
+<c:if test="${cf:contains(fields, email)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        Email Address:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+      </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.EMAIL_CONFIRM%>" var="emailConfirm"/>
+<c:if test="${cf:contains(fields, emailConfirm)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        Confirm Email Address:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
+      </td>
+   </tr>
+</c:if>
+
 <c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
 <c:if test="${cf:contains(fields, notification)}">
    <tr>
@@ -373,41 +407,6 @@
    </tr>
 </c:if>
 
-
-<c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
-<c:if test="${cf:contains(fields, countryCode)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-         Country: 
-      </td>
-      <td class="value">
-         <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
-      </td>
-   </tr>
-</c:if>
-
-
-<c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
-<c:if test="${cf:contains(fields, compCountryCode)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-         Country to represent:
-      </td>
-      <td class="value">
-         <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
-      </td>
-   </tr>
-</c:if>
 
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
