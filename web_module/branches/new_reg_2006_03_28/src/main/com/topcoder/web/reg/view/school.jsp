@@ -54,18 +54,17 @@
             <strong>Results</strong><br>
             Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a duplicate, please choose the school with more
             associated students.
+            <br><br>
+            Please select your school from list below and click <strong>Submit</strong>:
             <span id="submitMessage"></span>
         </form>
         <form action="" name="resultForm">
-            <div align="center">
-            <select name="schoolSelection" size="4">
-                <c:forEach items="${results}" var="result">
-                    <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
-                </c:forEach>
-            </select><br>
-            Please select your school from list below and click <strong>Submit</strong>:<br>
-            <a href="Javascript:submit();">Submit</a>
-            </div>
+         <select name="schoolSelection" size="4">
+             <c:forEach items="${results}" var="result">
+                 <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
+             </c:forEach>
+         </select><br>
+         <a href="Javascript:submit();">Submit</a>
         </form>
 
         <br><br>
