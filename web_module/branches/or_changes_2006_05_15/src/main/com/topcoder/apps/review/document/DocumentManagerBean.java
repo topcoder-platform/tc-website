@@ -3036,6 +3036,7 @@ public class DocumentManagerBean implements SessionBean {
                 rs = ps.executeQuery();
 
                 List fixItemList = new LinkedList();
+                log.debug("1) fixItemList.size(): " + fixItemList.size());
 
                 long finalReviewId = 0;
                 long reviewVersionId = 0;
