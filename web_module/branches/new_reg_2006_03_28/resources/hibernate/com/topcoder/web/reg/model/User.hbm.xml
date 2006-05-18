@@ -42,7 +42,8 @@
             <key column="user_id" not-null="true"/>
             <many-to-many column="notify_id" class="Notification"/>
         </set>
-        <set name="demographicResponses" cascade="save-update" inverse="true" access="field">
+        <!--couldn't figure out how to get hibernate to cascade this to the identifier, so i'm doing it in the dao-->
+        <set name="demographicResponses" cascade="none" inverse="true" access="field">
             <key column="user_id" not-null="true"/>
             <one-to-many class="DemographicResponse"/>
         </set>
