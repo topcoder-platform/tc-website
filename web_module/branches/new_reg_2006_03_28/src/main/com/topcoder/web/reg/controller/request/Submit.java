@@ -18,6 +18,7 @@ public class Submit extends Base {
             throw new NavigationException("Sorry, your session has timed out.");
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
+            //todo send activation email
 
             getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
 
