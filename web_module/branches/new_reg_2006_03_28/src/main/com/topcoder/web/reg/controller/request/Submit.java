@@ -26,7 +26,8 @@ public class Submit extends Base {
             throw new NavigationException("Sorry, your session has timed out.");
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
-            
+
+            getFactory().getUserDAO().saveOrUpdate(u);
             markForCommit();
 
             boolean newUser = u.isNew();
@@ -40,7 +41,7 @@ public class Submit extends Base {
 
                 String activationCode = StringUtils.getActivationCode(newUserId.longValue());
                 newUserObj.setActivationCode(activationCode);
-
+                getFactory().getUserDAO().saveOrUpdate(newUserObj);
                 markForCommit();
                 String email = newUserObj.getPrimaryEmailAddress().getAddress();
 
