@@ -29,18 +29,20 @@ public class Submit extends Base {
 
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
-
             if (newUser) {
+                Long newUserId = u.getId();
                 closeConversation();
                 //have to wrap up the last stuff, and get into new stuff.  we don't want
                 //sending email to be in the transaction
                 beginCommunication();
-                String activationCode = StringUtils.getActivationCode(u.getId().longValue());
-                u.setActivationCode(activationCode);
-                getFactory().getUserDAO().saveOrUpdate(u);
+                User newUserObj = getFactory().getUserDAO().find(newUserId);
+                String activationCode = StringUtils.getActivationCode(newUserId.longValue());
+                newUserObj.setActivationCode(activationCode);
+                getFactory().getUserDAO().saveOrUpdate(newUserObj);
                 getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
+                String email = newUserObj.getPrimaryEmailAddress().getAddress();
                 closeConversation();
-                sendEmail(activationCode, u.getPrimaryEmailAddress().getAddress(), getRequestedTypes());
+                sendEmail(activationCode, email, getRequestedTypes());
             }
 
             clearSession();
