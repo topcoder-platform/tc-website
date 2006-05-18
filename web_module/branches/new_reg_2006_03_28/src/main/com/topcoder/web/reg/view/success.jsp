@@ -113,15 +113,13 @@
 </table>
 
 <br><br>
-<%------------------ MINIMAL - OBVIOUSLY ONLY SHOW THIS IF THEY JUST DID MINIMAL ------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered Corporate Services Member</span></div>
+<%------------------ MINIMAL - BUT SHOW THIS WITH ALL REGSITRATIONS, SO I GUESS JUST LEAVE IT ON BOTTOM WITH NO LOGIC ------------------%>
+<div style="clear:both;"><span class="subtitle">As a TopCoder Member</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/"><img src="/i/registration/minimal.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
-         <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Sponsor an event</A><br>
-         <A href="/pl/">Host your own event, Powered by TopCoder</A><br>
-         <A href="/corp/?module=Static&d1=corp&d2=tces_home">Hire talented programmers</A>
+      As a TopCoder member you now have access to all <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">TopCoder Forums</A> and the ability to view all statistical content on the website.  Enjoy.
       </td>
    </tr>
 </table>
