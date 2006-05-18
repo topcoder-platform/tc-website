@@ -66,6 +66,7 @@ public class Confirm extends Base {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {
                     answers = (List)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
+                    //todo if they answer the multiple choice with a real answer, remove the decline to answer 
                     for (int i=0; i<answers.size(); i++) {
                         dr = new DemographicResponse();
                         dr.setQuestion(da.getQuestion());
@@ -73,9 +74,7 @@ public class Confirm extends Base {
                         dr.setUser(u);
                         dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                         responses.add(dr);
-
                     }
-
                 } else if (da.getQuestion().isFreeForm()) {
                     dr = new DemographicResponse();
                     dr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
