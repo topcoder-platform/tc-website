@@ -13,7 +13,7 @@ import org.hibernate.StaleObjectStateException;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 17, 2006
  */
-public abstract class HibernateProcessor extends BaseProcessor  {
+public abstract class HibernateProcessor extends BaseProcessor {
     public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
     public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
     private DAOFactory factory = null;
@@ -26,53 +26,15 @@ public abstract class HibernateProcessor extends BaseProcessor  {
 
         try {
 
-            if (hibernateSession != null) {
-                //log.debug("< Continuing conversation");
-                ExtendedThreadLocalSessionContext.bind(hibernateSession);
-            } else {
-                //log.debug(">>> New conversation");
-            }
-
-            //log.debug("Starting a database transaction");
-            HibernateUtils.begin();
-
+            beginCommunication();
             // Do the work...
             dbProcessing();
 
             // End or continue the long-running conversation?
             if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
-
-//                log.debug("Flushing Session");
-                HibernateUtils.getSession().flush();
-
-//                log.debug("Committing the database transaction");
-                HibernateUtils.commit();
-
-//                log.debug("Closing and unbinding Session from thread");
-                HibernateUtils.getSession().close(); // Unbind is automatic here
-
-//                log.debug("Removing Session from HttpSession");
-                //we're creating a new session to handle the case that the request processing invalidated the session
-                //there's no way to check, so this is what we're doing.
-                try {
-                    getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
-                } catch (Exception e) {
-                    //don't care..most likely the session was invalidated prior to this call, so who cares.
-                }
-
-//                log.debug("<<< End of conversation");
-
+                closeConversation();
             } else {
-//                log.debug("Committing database transaction");
-                 HibernateUtils.commit();
-
-//                 log.debug("Unbinding Session from thread");
-                 hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
-
-//                 log.debug("Storing Session in the HttpSession");
-                 getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
-
-//                 log.debug("> Returning to user in conversation");
+                endCommunication();
             }
 
         } catch (StaleObjectStateException staleEx) {
@@ -93,6 +55,61 @@ public abstract class HibernateProcessor extends BaseProcessor  {
             throw new Exception(ex);
         }
     }
+
+    protected void endCommunication() {
+        Session hibernateSession =
+                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
+//                log.debug("Committing database transaction");
+        HibernateUtils.commit();
+
+//                 log.debug("Unbinding Session from thread");
+        hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
+
+//                 log.debug("Storing Session in the HttpSession");
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
+
+//                 log.debug("> Returning to user in conversation");
+
+    }
+
+    protected void beginCommunication() {
+        Session hibernateSession =
+                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
+        if (hibernateSession != null) {
+            //log.debug("< Continuing conversation");
+            ExtendedThreadLocalSessionContext.bind(hibernateSession);
+        } else {
+            //log.debug(">>> New conversation");
+        }
+
+        //log.debug("Starting a database transaction");
+        HibernateUtils.begin();
+
+    }
+
+    protected void closeConversation() {
+//                log.debug("Flushing Session");
+        HibernateUtils.getSession().flush();
+
+//                log.debug("Committing the database transaction");
+        HibernateUtils.commit();
+
+//                log.debug("Closing and unbinding Session from thread");
+        HibernateUtils.getSession().close(); // Unbind is automatic here
+
+//                log.debug("Removing Session from HttpSession");
+        //we're creating a new session to handle the case that the request processing invalidated the session
+        //there's no way to check, so this is what we're doing.
+        try {
+            getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
+        } catch (Exception e) {
+            //don't care..most likely the session was invalidated prior to this call, so who cares.
+        }
+
+//                log.debug("<<< End of conversation");
+    }
+
+
     private void handleException(Throwable e) {
         try {
             if (HibernateUtils.getSession().getTransaction().isActive()) {
@@ -124,7 +141,6 @@ public abstract class HibernateProcessor extends BaseProcessor  {
 
 
     protected abstract void dbProcessing() throws Exception;
-
 
 
 }
