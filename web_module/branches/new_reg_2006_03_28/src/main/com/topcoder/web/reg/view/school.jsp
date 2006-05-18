@@ -61,7 +61,6 @@
             <span id="submitMessage"></span>
         </form>
 
-<%-- old form
         <form action="" name="resultForm">
          <select name="schoolSelection" size="4">
              <c:forEach items="${results}" var="result">
@@ -70,7 +69,7 @@
          </select><br>
          <a href="Javascript:submit();">Submit</a>
         </form>
---%>
+
         <br><br>
          <span class="small">
 
