@@ -159,3 +159,22 @@ update round_type_lu set algo_rating_type_id = 2 where round_type_id in (17,18);
 alter table round_type_lu add constraint foreign key (algo_rating_type_id) 
         references algo_rating_type_lu (algo_rating_type_id)
         constraint round_type_lu_algo_rating_type_fk;
+
+
+--- *** team_coder_xref is loaded, so it needs a create_date field to do incremental loading.
+alter table team_coder_xref add create_date DATETIME YEAR TO FRACTION default current;
+
+
+--- *** add a reference to the school for the teams and a modify_date to do incremental loading with its trigger
+alter table team add school_id decimal(10,0);
+alter table team add modify_date DATETIME YEAR TO FRACTION default current;
+
+create trigger trig_team_modified update of team_name, team_type, school_id on team referencing old as old for each row
+(
+     update team set team.modify_date = CURRENT year to fraction(3) 
+     where team_id = old.team_id
+);
+
+
+--- *** New team type for High School
+insert into team_type_lu (team_type_id, team_type_desc) values (4, 'High School Team');

@@ -32,3 +32,28 @@ grant select on view_team_points to coder;
 alter table school modify sort_letter CHAR(1) ;
 alter table school modify city VARCHAR(50); 
 alter table school modify country_code VARCHAR(3);
+
+
+-- *** Create team_coder_xref table and its constraints
+
+create table team_coder_xref (
+    team_id DECIMAL(10,0) not null,
+    coder_id DECIMAL(10,0) not null
+)
+extent size 64 next size 64;
+
+alter table team_coder_xref add constraint primary key 
+    (team_id, coder_id)
+    constraint team_coder_xref_pkey;
+
+alter table team_coder_xref add constraint foreign key 
+    (team_id)
+    references team
+    (team_id) 
+    constraint team_coder_xref_team_fk;
+
+alter table team_coder_xref add constraint foreign key 
+    (coder_id)
+    references coder
+    (coder_id) 
+    constraint team_coder_xref_coder_fk;
