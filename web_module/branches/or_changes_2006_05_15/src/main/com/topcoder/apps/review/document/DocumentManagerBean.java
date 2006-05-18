@@ -3116,11 +3116,11 @@ public class DocumentManagerBean implements SessionBean {
         
                         if (rs2.next()) {
                             //info("Found fixItem");
-                            long finalReviewId = rs2.getLong(1);
-                            boolean isCompleted = rs2.getBoolean(2);
-                            long reviewVersionId = rs2.getLong(3);
-                            boolean isApproved = rs2.getBoolean(4);
-                            String comments = rs2.getString(5);
+                            finalReviewId = rs2.getLong(1);
+                            isCompleted = rs2.getBoolean(2);
+                            reviewVersionId = rs2.getLong(3);
+                            isApproved = rs2.getBoolean(4);
+                            comments = rs2.getString(5);
         
                             finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
                                     reviewVersionId, isApproved, comments);
