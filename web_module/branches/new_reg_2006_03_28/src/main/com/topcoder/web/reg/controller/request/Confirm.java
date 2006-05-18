@@ -61,7 +61,7 @@ public class Confirm extends Base {
             Long answerId;
             List answers;
             DemographicResponse dr;
-            u.clearDemographicResponses();
+            HashSet responses = new HashSet();
             for (Iterator it = getAssignments(u).iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {
@@ -72,7 +72,7 @@ public class Confirm extends Base {
                         dr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
                         dr.setUser(u);
                         dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                        u.addDemographicResponse(dr);
+                        responses.add(dr);
 
                     }
 
@@ -83,7 +83,7 @@ public class Confirm extends Base {
                     dr.setUser(u);
                     dr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    u.addDemographicResponse(dr);
+                    responses.add(dr);
                 } else if (da.getQuestion().isSingleSelect()) {
                     answerId = new Long((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     dr = new DemographicResponse();
@@ -91,9 +91,10 @@ public class Confirm extends Base {
                     dr.setAnswer(da.getQuestion().getAnswer(answerId));
                     dr.setUser(u);
                     dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    u.addDemographicResponse(dr);
+                    responses.add(dr);
                 }
             }
+            u.setDemographicResponses(responses);
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
