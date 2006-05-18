@@ -74,6 +74,9 @@ public interface PactsConstants {
 
     // How long before a contest payment comes due, in days
     public static final int DUE_DATE_INTERVAL = 28;
+    
+//  How long before a component payment comes due, in days
+    public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
 
     // Status of active coder in the user table
     public static final String ACTIVE_CODER_STATUS = "A";
@@ -488,7 +491,7 @@ public interface PactsConstants {
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
     public static final String DEFAULT_PAYMENT_TYPE = "Problem Payment";
-    public static final String DEFAULT_PAYMENT_METHOD = "";
+    public static final String DEFAULT_PAYMENT_METHOD = "Check";
     //public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Inactive";
     //public static final String DEFAULT_PAYMENT_STATUS = "Inactive";
     public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Pending";

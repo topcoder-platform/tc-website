@@ -18,11 +18,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 	
     protected void businessProcessing() throws TCWebException {
         try {
-        	log.info("START: GenerateComponentPayments");
         	DataInterfaceBean dib = new DataInterfaceBean();
-        	log.info("GenerateComponentPayments ----> before DIB call");
             Map map = dib.getProjectTerminationStatusTypes();
-            log.info("GenerateComponentPayments ----> after DIB call");
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
@@ -33,10 +30,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
-                log.info("GenerateComponentPayments ----> before EJB call");
                 counts = bean.generateComponentPayments(Long.parseLong(getRequest().getParameter(PROJECT_ID)),
                 		Integer.parseInt(getRequest().getParameter(PROJECT_TERMINATION_STATUS)), true);
-                log.info("GenerateComponentPayments ----> after EJB call");
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " + counts[1] + " review board payments generated");
             } else {
             	if (projectID.equals("")) {
@@ -46,7 +41,6 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             		addError(PROJECT_TERMINATION_STATUS, "Error: Missing project termination status");
             	}
             }
-            log.info("END: GenerateComponentPayments");
         } catch (NumberFormatException e) {
             addError(PROJECT_ID, "Error: Please enter a value for project id");
         } catch (IllegalUpdateException e) {

@@ -2312,8 +2312,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, date_printed, ");
             insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due) ");
-            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?)");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, project_id) ");
+            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?," + addrStr + ",?,?,?,?,?,?,?)");
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
@@ -2325,6 +2325,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(8, p.getHeader().getMethodId());
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
             ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
+            if (p.getHeader().getProjectId() != 0) {
+            	ps.setLong(11, p.getHeader().getProjectId());
+            } else {
+            	ps.setNull(11, Types.DECIMAL);
+            }
             ps.executeUpdate();
             ps.close();
             ps = null;
@@ -4470,7 +4475,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Make sure the project exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
-            checkExists.append("SELECT cc.component_name, p.complete_date + " + DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
+            checkExists.append("SELECT cc.component_name, p.complete_date + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
             checkExists.append("FROM tcs_catalog:project p, tcs_catalog:comp_versions cv, tcs_catalog:comp_catalog cc ");
             checkExists.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
             checkExists.append("AND cv.component_id = cc.component_id ");
@@ -4547,6 +4552,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                }
 	                p.setDueDate(dueDate);
 	                p.getHeader().getUser().setId(userId);
+	                p.getHeader().setProjectId(projectId);
 	
 	                if (makeChanges) {
 	                    makeNewPayment(c, p, false);

@@ -32,6 +32,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -2682,13 +2683,18 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         Date d = null;
         if (birthday.trim().length()!=DATE_FORMAT_STRING.length()) {
-            throw new NavigationException("Invalid Date Format.");
+            throw new NavigationException("Invalid date format.");
         }
         try {
             d = dfmt.parse(birthday);
         } catch (Exception e3) {
             handleException(request, response, e3);
             return;
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(d);
+        if (c.get(Calendar.YEAR) < 1900 || c.get(Calendar.YEAR) > 2099) {
+        	throw new NavigationException("Birth date must be between 1900-2099."); 
         }
 
         // if it is for india, replace the form text with what they enterd
