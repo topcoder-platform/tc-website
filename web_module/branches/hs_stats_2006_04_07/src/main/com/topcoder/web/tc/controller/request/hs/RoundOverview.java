@@ -27,6 +27,7 @@ public class RoundOverview extends Base {
             r.setProperty("rd", round.getRoundId() + "");
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
+            log.info("running with sntid=" + HS_SNTID);
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);

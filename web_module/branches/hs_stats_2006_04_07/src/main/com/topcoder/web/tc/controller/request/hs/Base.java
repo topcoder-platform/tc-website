@@ -172,9 +172,11 @@ abstract public class Base extends BaseProcessor {
      */
     protected void fillRoundAndSeasonNames(RoundInfo round, Map result, String seasonQueryName, String roundQueryName) {
         // Look up Season Name
+        log.info("fillRoundAndSeasonNames, season_id = " + round.getSeasonId());
         String seasonName = null;
         for (Iterator it = ((ResultSetContainer) result.get(seasonQueryName)).iterator(); it.hasNext();) {
             ResultSetRow rsr = (ResultSetRow) it.next();
+            log.info("looking season_id = " + rsr.getIntItem("season_id"));
             if (round.getSeasonId() == rsr.getIntItem("season_id")) {
                 seasonName = rsr.getStringItem("name");
                 break;
