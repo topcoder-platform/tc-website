@@ -13,7 +13,7 @@
     <title>TopCoder Registration</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
 </head>
 
