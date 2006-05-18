@@ -3069,11 +3069,11 @@ public class DocumentManagerBean implements SessionBean {
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
                 } else {*/
-
+                        /*
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
                         // Create new FinalReview
-                        /*
+
                         // Retrieve aggregation responses.
                         aggWorksheet = getAggregation(project, requestor, true);
                         AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
@@ -3148,7 +3148,7 @@ public class DocumentManagerBean implements SessionBean {
                             finalReview = new FinalReview(-1, null, aggWorksheet,
                                     false, requestor.getUserId(), -1, false, null);
                         }                                
-                    }
+                   // }
                 //}
             }
         } catch (SQLException e) {
