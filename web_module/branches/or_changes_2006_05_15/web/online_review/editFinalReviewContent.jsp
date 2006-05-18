@@ -198,7 +198,6 @@
                             <bean:message key="button.save" />
                         </html:submit>
                     </td>
-                    <!-- plk -->
                     <td>
                         <html:submit styleClass="submitButton" onclick="set(this.form, 'finish')">
                             <bean:message key="button.finish" />
