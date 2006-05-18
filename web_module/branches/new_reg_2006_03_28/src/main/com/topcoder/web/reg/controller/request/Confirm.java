@@ -60,8 +60,8 @@ public class Confirm extends Base {
             DemographicAssignment da;
             Long answerId;
             List answers;
-            Set responses = new HashSet();
             DemographicResponse dr;
+            u.clearDemographicResponses();
             for (Iterator it = getAssignments(u).iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {
@@ -72,7 +72,8 @@ public class Confirm extends Base {
                         dr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
                         dr.setUser(u);
                         dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                        responses.add(dr);
+                        u.addDemographicResponse(dr);
+
                     }
 
                 } else if (da.getQuestion().isFreeForm()) {
@@ -82,7 +83,7 @@ public class Confirm extends Base {
                     dr.setUser(u);
                     dr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    responses.add(dr);
+                    u.addDemographicResponse(dr);
                 } else if (da.getQuestion().isSingleSelect()) {
                     answerId = new Long((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     dr = new DemographicResponse();
@@ -90,10 +91,9 @@ public class Confirm extends Base {
                     dr.setAnswer(da.getQuestion().getAnswer(answerId));
                     dr.setUser(u);
                     dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    responses.add(dr);
+                    u.addDemographicResponse(dr);
                 }
             }
-            u.setDemographicResponses(responses);
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {
