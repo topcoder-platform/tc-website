@@ -51,7 +51,6 @@
         </jsp:include>
 
         <form action="" method="POST" name="schoolAddForm">
-            <br><br>
             <strong>School Name:</strong><br>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>

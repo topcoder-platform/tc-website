@@ -36,11 +36,14 @@
 
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="registration_w"/>
-            <jsp:param name="title" value="School Selection"/>
+            <jsp:param name="title" value="School Search"/>
         </jsp:include>
 
         <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm" >
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
+
+            <span class="subtitle">School Search</span>
+            <br><br>
 
             <strong>School Name:</strong><br>
             <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
@@ -48,10 +51,8 @@
             <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
 
-
             <strong>Results</strong><br>
-             <br> Lists includes only the
-            first <%=Constants.MAX_SCHOOL_RESULTS%> schools. If you see a duplicate, please choose the school with more
+            Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a duplicate, please choose the school with more
             associated students.
             <span id="submitMessage"></span>
         </form>
@@ -61,7 +62,7 @@
                 <c:forEach items="${results}" var="result">
                     <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
                 </c:forEach>
-            </select>
+            </select><br>
             Please select your school from list below and click <strong>Submit</strong>:<br>
             <a href="Javascript:submit();">Submit</a>
             </div>
