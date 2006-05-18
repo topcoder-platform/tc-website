@@ -222,9 +222,11 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         // plk
         // If the final review isn't marked completed, we don't need to
         // validate yet.
-        System.out.println("getCompleted(): " + Constants.ACTION_FINISH.equals(action));
+        setCompleted(Constants.ACTION_FINISH.equals(action));
 
-        if (! Constants.ACTION_FINISH.equals(action)) {
+        System.out.println("getCompleted(): " + getCompleted());
+
+        if (!getCompleted()) {
             return errors;
         }
         
