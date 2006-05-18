@@ -9,18 +9,41 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Registration</title>
+    <title>TopCoder Registration</title>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_reg"/>
+    </jsp:include>
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<img src="http://www.topcoder.com/i/registration/tc_logo.gif" alt="TopCoder" />
+</div>
+<div align="center">
+   <div style="padding: 0px 0px 10px 0px; width: 600px; text-align: left;">
+   <table class="pageTitleTable" cellpadding="0" cellspacing="0">
+       <tr>
+           <td class="pageTitle" width="100%"><img src="http://www.topcoder.com/i/header_registration_w.gif" alt="registration_w" border="0"></td>
+           <td class="pageSubtitle" align="right">&nbsp;</td>
+       </tr>
+   </table>
 
+   <div class="regBc">
+      <div class="title">Step 1 of 6</div>
+      <div class="on">Select Your Registration</div>
+      <div class="off">General</div>
+      <div class="off">Demographics</div>
+      <div class="off">Confirm</div>
+      <div class="off">Success</div>
+      <div class="off">Activation</div>
+   </div>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
 
 
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -31,7 +54,7 @@
 
 <c:set value="<%=Constants.SURNAME%>" var="surname"/>
 <c:if test="${cf:contains(fields, surname)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -43,7 +66,7 @@
 
 <c:set value="<%=Constants.TITLE%>" var="title"/>
 <c:if test="${cf:contains(fields, title)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -55,7 +78,7 @@
 
 <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
 <c:if test="${cf:contains(fields, companyName)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -67,7 +90,7 @@
 
 <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
 <c:if test="${cf:contains(fields, address1)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -79,7 +102,7 @@
 
 <c:set value="<%=Constants.ADDRESS2%>" var="address2"/>
 <c:if test="${cf:contains(fields, address2)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -91,7 +114,7 @@
 
 <c:set value="<%=Constants.ADDRESS3%>" var="address3"/>
 <c:if test="${cf:contains(fields, address3)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -103,11 +126,11 @@
 
 <c:set value="<%=Constants.CITY%>" var="city"/>
 <c:if test="${cf:contains(fields, city)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
-    <p>
+    <p class="bigRed">
         City:
         <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
     </p>
@@ -115,7 +138,7 @@
 
 <c:set value="<%=Constants.STATE_CODE%>" var="stateCode"/>
 <c:if test="${cf:contains(fields, stateCode)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -127,7 +150,7 @@
 
 <c:set value="<%=Constants.POSTAL_CODE%>" var="postalCode"/>
 <c:if test="${cf:contains(fields, postalCode)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -139,7 +162,7 @@
 
 <c:set value="<%=Constants.PROVINCE%>" var="province"/>
 <c:if test="${cf:contains(fields, province)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -152,7 +175,7 @@
 <%--todo put country here --%>
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -164,7 +187,7 @@
 
 <c:set value="<%=Constants.PASSWORD%>" var="password"/>
 <c:if test="${cf:contains(fields, password)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -176,7 +199,7 @@
 
 <c:set value="<%=Constants.PASSWORD_CONFIRM%>" var="passwordConfirm"/>
 <c:if test="${cf:contains(fields, passwordConfirm)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -188,7 +211,7 @@
 
 <c:set value="<%=Constants.EMAIL%>" var="email"/>
 <c:if test="${cf:contains(fields, email)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -200,7 +223,7 @@
 
 <c:set value="<%=Constants.EMAIL_CONFIRM%>" var="emailConfirm"/>
 <c:if test="${cf:contains(fields, emailConfirm)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -212,7 +235,7 @@
 
 <c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
 <c:if test="${cf:contains(fields, phoneNumber)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -224,7 +247,7 @@
 
 <c:set value="<%=Constants.QUOTE%>" var="quote"/>
 <c:if test="${cf:contains(fields, quote)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -237,7 +260,7 @@
 
 <c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
 <c:if test="${cf:contains(fields, notification)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
     <c:forEach items="${notifications}" var="notif">
@@ -249,7 +272,7 @@
 
 <c:set value="<%=Constants.COUNTRY_CODE%>" var="countryCode"/>
 <c:if test="${cf:contains(fields, countryCode)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
     <p>
@@ -260,7 +283,7 @@
 
 <c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
 <c:if test="${cf:contains(fields, compCountryCode)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
     <p>
@@ -270,7 +293,7 @@
 
 <c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
 <c:if test="${cf:contains(fields, timeZone)}">
-    <p>
+    <p class="bigRed">
         <tc-webtag:errorIterator id="err" name="<%=Constants.TIMEZONE%>"><%=err%><br/></tc-webtag:errorIterator>
     </p>
 
@@ -281,7 +304,7 @@
 
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
-    <p>
+    <p class="bigRed">
             <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
         </p>
         <p>
