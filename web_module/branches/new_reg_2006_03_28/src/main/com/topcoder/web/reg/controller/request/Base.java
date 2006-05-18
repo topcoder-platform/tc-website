@@ -542,10 +542,12 @@ abstract class Base extends HibernateProcessor {
         }
 
         if (u.getCoder() == null || u.getCoder().getCoderType() == null) {
+            log.debug("loading up professional assignments for " + s);
             return
                     getFactory().getDemographicAssignmentDAO().getAssignments(
                             getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL), s, getRequestedTypes());
         } else {
+            log.debug("loading up " + u.getCoder().getCoderType() + " assignments for " + s);
             return
                     getFactory().getDemographicAssignmentDAO().getAssignments(
                             u.getCoder().getCoderType(), s, getRequestedTypes());
