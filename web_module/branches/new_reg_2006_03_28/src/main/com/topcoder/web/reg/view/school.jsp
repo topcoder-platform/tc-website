@@ -57,7 +57,7 @@
             Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a duplicate, please choose the school with more
             associated students.
             <br><br>
-            Please select your school from list below and click <strong>Submit</strong>:
+            Please <strong>select</strong> your school from list below.
             <span id="submitMessage"></span>
         </form>
 
