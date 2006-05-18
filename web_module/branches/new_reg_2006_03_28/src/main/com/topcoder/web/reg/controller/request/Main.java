@@ -32,14 +32,16 @@ public class Main extends Base {
                 }
             }
 
-            requestedTypes.addAll(getRegUser().getRegistrationTypes());
-            setRequestedTypes(requestedTypes);
 
             //set up the user object we're gonna use
             User u = getRegUser();
             if (u==null) {
                 u = new User();
             }
+
+            requestedTypes.addAll(u.getRegistrationTypes());
+            setRequestedTypes(requestedTypes);
+
             if (u.isNew()) {
                 if (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())) {
                     Contact c = new Contact();
@@ -59,6 +61,7 @@ public class Main extends Base {
                 }
                 setRegUser(u);
             }
+
 
 
             if (requestedTypes.isEmpty()) {
