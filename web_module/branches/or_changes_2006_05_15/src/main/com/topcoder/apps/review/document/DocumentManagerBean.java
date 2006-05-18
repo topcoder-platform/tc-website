@@ -3064,11 +3064,11 @@ public class DocumentManagerBean implements SessionBean {
                     FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
                     fixItemList.add(fixItem);
                 }
-                if (fixItemList.size() > 0) {
+/*                if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
-                } else {
+                } else {*/
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
                         // Create new FinalReview
@@ -3098,8 +3098,21 @@ public class DocumentManagerBean implements SessionBean {
                             if (aggRespArr[i].getAggregationResponseStatus().getId() ==
                                     AggregationResponseStatus.ID_ACCEPTED) {
                                 // Only include accepted aggregation responses
-                                FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
-                                fixItemList.add(fixItem);
+                                
+                                if (fixItemList.size() > 0) {
+                                    // Get FixItem if it exists                                
+                                    for (int i = 0; i < fixItemList.size() && aggRespArr[i].getId() != 
+                                        ((FixItem)fixItemList.get(i)).getAggregationResponse().getId(); i++);
+
+                                    if (i < fixItemList.size()) {
+                                        fixItemList.add((FixItem)fixItemList.get(i));    
+                                    } else {
+                                        fixItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
+                                    }
+                                } else {
+                                    FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
+                                    fixItemList.add(fixItem);
+                                }
                             }
                         }
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
@@ -3129,7 +3142,7 @@ public class DocumentManagerBean implements SessionBean {
                                     false, requestor.getUserId(), -1, false, null);
                         }                                
                     }
-                }
+                //}
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
