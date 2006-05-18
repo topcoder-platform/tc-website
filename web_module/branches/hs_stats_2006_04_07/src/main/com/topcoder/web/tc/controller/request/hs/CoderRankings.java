@@ -29,14 +29,18 @@ public class CoderRankings extends Base {
             
             if (hasParameter("snid")) {
                 round.setSeasonId(Integer.parseInt((String) getRequest().getParameter("snid")));
-                r.setProperty("snid", round.getSeasonId() + "");
+                
+            } else {
+                // to do retrieve most recent season
             }
 
+            r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
+            //
             // just fill season, but not round
             fillRoundAndSeasonNames (round, result, "seasons", null);
 

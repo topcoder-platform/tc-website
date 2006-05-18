@@ -18,7 +18,7 @@ abstract public class Base extends BaseProcessor {
     /**
      * Season type id for high school.
      */
-    public static final int HS_SNTID = 1;
+    public static final int HS_SNTID = 2;
 
   
     
