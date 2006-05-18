@@ -130,7 +130,7 @@
       &#160;
       </td>
       <td class="value">
-        <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,600);">Choose School</a></p>
+        <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose School</a></p>
       </td>
    </tr>
     </c:if>
