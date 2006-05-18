@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -34,7 +35,7 @@
       </div>
    </div>
 
-   <div style="width:400px;"
+   <div style="width:400px;">
    <strong>Registration successful!</strong>
    <br><br>
    <span class="bigRed">Please check your email. You <u>MUST</u> activate your account to complete registration.</span>
@@ -84,11 +85,11 @@
 <div style="clear:both;"><span class="subtitle">As a Registered TopCoder Software Customer</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="http://software.topcoder.com/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
-         <A href="http://software.topcoder.com/about/explanationMovie.jsp">How it works</A><br>
-         <A href="http://software.topcoder.com/customers/index.jsp">Who it's working for</A><br>
-         <A href="http://software.topcoder.com/catalog/index.jsp">Get started</A>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about/explanationMovie.jsp">How it works</A><br>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp">Who it's working for</A><br>
+         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Get started</A>
       </td>
    </tr>
 </table>
