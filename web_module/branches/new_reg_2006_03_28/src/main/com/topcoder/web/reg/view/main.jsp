@@ -30,8 +30,8 @@
 
    <div class="regBc">
       <div class="title">Step 1 of 6</div>
-      <div class="on">Select Your Registration</div>
-      <div class="off">General</div>
+      <div class="off">Select Your Registration</div>
+      <div class="on">General</div>
       <div class="off">Demographics</div>
       <div class="off">Confirm</div>
       <div class="off">Success</div>
