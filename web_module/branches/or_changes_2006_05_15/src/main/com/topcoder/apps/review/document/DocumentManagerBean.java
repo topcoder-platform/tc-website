@@ -3100,7 +3100,7 @@ public class DocumentManagerBean implements SessionBean {
                                 // Only include accepted aggregation responses
                                 
                                 if (fixItemList.size() > 0) {
-                                    
+                                    log.debug("fixItemList.size(): " + fixItemList.size());
                                     // Get FixItem if it exists
                                     int j = 0;
                                     for (; j < fixItemList.size() && aggRespArr[j].getId() != 
