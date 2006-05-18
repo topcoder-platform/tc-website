@@ -149,13 +149,17 @@ public class Submit extends Base {
 
             msgText.append("If you have any questions about how to participate, please email them to ");
             msgText.append("service@topcoder.com\n\n");
-        } else if (regTypes.contains(hs)) {
+        }
+        if (regTypes.contains(hs)) {
             msgText.append("\n\n\nHIGH SCHOOL REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(tcs)) {
+        }
+        if (regTypes.contains(tcs)) {
             msgText.append("\n\n\nSOFTWARE REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(corp)) {
+        }
+        if (regTypes.contains(corp)) {
             msgText.append("\n\n\nCORPORATE REG TEXT GOES HERE\n\n\n");
-        } else if (regTypes.contains(min)) {
+        }
+        if (regTypes.contains(min)) {
             msgText.append("\n\n\nMINIMAL REG TEXT GOES HERE\n\n\n");
         }
 
