@@ -39,7 +39,7 @@
    </div>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
 
-<table cellpadding="0" cellspacing="0" border="0" class="bodyText">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
 
 
@@ -51,10 +51,10 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Given Name:
       </td>
-      <td align="right" nowrap="nowrap">
+      <td>
          <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -68,7 +68,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
          Surname:
       </td>
       <td>
@@ -85,7 +85,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Title:
       </td>
       <td>
@@ -102,7 +102,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Company:
       </td>
       <td>
@@ -119,7 +119,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Address1:
       </td>
       <td>
@@ -136,7 +136,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Address2:
       </td>
       <td>
@@ -153,7 +153,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Address3:
       </td>
       <td>
@@ -171,7 +171,7 @@
    </tr>
    <tr>
 
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         City:
       </td>
       <td>
@@ -188,7 +188,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         State:
       </td>
       <td>
@@ -205,7 +205,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Postal Code:
       </td>
       <td>
@@ -222,7 +222,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Province:
       </td>
       <td>
@@ -240,7 +240,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Handle:
       </td>
       <td>
@@ -257,7 +257,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Password:
       </td>
       <td>
@@ -274,7 +274,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Confirm Password:
       </td>
       <td>
@@ -291,7 +291,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Email Address:
       </td>
       <td>
@@ -308,7 +308,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Confirm Email Address:
       </td>
       <td>
@@ -325,7 +325,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Phone Number:
       </td>
       <td>
@@ -342,7 +342,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
         Quote:
       </td>
       <td>
@@ -360,7 +360,10 @@
    </tr>
     <c:forEach items="${notifications}" var="notif">
    <tr>
-      <td colspan="2">
+      <td>
+         &#160;
+      </td>
+      <td>
         <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" />  
       </td>
    </tr>
@@ -376,7 +379,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
          Country: 
       </td>
       <td>
@@ -394,7 +397,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
          Country to represent:
       </td>
       <td>
@@ -411,7 +414,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
          Timezone:
       </td>
       <td>
@@ -428,7 +431,7 @@
       </td>
    </tr>
    <tr>
-      <td align="right" nowrap="nowrap">
+      <td class="name">
          Coder Type:
       </td>
       <td>
