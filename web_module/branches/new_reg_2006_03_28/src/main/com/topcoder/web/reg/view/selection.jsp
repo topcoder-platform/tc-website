@@ -70,13 +70,14 @@ function popHide(){
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
 
-        <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regTypeKey"/>
-            <tc-webtag:errorIterator id="err" name="${regTypeKey}">${err}<br/></tc-webtag:errorIterator>
+        <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
+            <tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator>
 
         <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
         <c:forEach items="${registrationTypeList}" var="type">
+            <c:set value="${regType}${type.id}" var="regTypeKey"/>
             <c:choose>
-                <c:when test="${requestScope[defaults][regTypeKey+type.id]==null}"><tc-webtag:chkBox name="${regTypeKey}${type.id}"/></c:when>
+                <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name=""/></c:when>
                 <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:otherwise>
             </c:choose>
             <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
