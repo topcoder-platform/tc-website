@@ -12,7 +12,7 @@ import java.util.Iterator;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 7, 2006
  */
-public class UserDAOHibernate extends Base implements  UserDAO {
+public class UserDAOHibernate extends Base implements UserDAO {
 
     public UserDAOHibernate() {
         super();
@@ -31,17 +31,14 @@ public class UserDAOHibernate extends Base implements  UserDAO {
     }
 
     public void saveOrUpdate(User u) {
-        boolean addResponses = u.getId() == null;
         super.saveOrUpdate(u);
         //can't figure out how to get hibernate to handle this, so
         //i'm doing it here.
-        if (addResponses) {
-            DemographicResponse dr;
-            for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
-                dr = (DemographicResponse)it.next();
-                dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                session.save(dr);
-            }
+        DemographicResponse dr;
+        for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
+            dr = (DemographicResponse) it.next();
+            dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+            session.saveOrUpdate(dr);
         }
     }
 }
