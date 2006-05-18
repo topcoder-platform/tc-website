@@ -285,57 +285,6 @@
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.HANDLE%>" var="handle"/>
-<c:if test="${cf:contains(fields, handle)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        User Name:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
-<c:set value="<%=Constants.PASSWORD%>" var="password"/>
-<c:if test="${cf:contains(fields, password)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        Password:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
-<c:set value="<%=Constants.PASSWORD_CONFIRM%>" var="passwordConfirm"/>
-<c:if test="${cf:contains(fields, passwordConfirm)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        Confirm Password:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
 <c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
 <c:if test="${cf:contains(fields, phoneNumber)}">
    <tr>
@@ -349,23 +298,6 @@
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="15" maxlength="<%=Constants.MAX_PHONE_LENGTH%>" editable="true"/>
-      </td>
-   </tr>
-</c:if>
-
-<c:set value="<%=Constants.QUOTE%>" var="quote"/>
-<c:if test="${cf:contains(fields, quote)}">
-   <tr>
-    <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
-      <td class="name">
-        Quote:
-      </td>
-      <td class="value">
-        <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="50" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
       </td>
    </tr>
 </c:if>
@@ -419,6 +351,74 @@
     <c:forEach items="${notifications}" var="notif">
         <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" /><br>
     </c:forEach>
+      </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.HANDLE%>" var="handle"/>
+<c:if test="${cf:contains(fields, handle)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        User Name:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+      </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.PASSWORD%>" var="password"/>
+<c:if test="${cf:contains(fields, password)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        Password:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+      </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.PASSWORD_CONFIRM%>" var="passwordConfirm"/>
+<c:if test="${cf:contains(fields, passwordConfirm)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        Confirm Password:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
+      </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.QUOTE%>" var="quote"/>
+<c:if test="${cf:contains(fields, quote)}">
+   <tr>
+    <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+        Quote:
+      </td>
+      <td class="value">
+        <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="50" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
       </td>
    </tr>
 </c:if>

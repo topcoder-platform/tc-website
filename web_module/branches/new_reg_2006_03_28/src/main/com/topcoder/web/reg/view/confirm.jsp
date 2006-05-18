@@ -54,6 +54,15 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 
 
+   <tr>
+      <td class="name">
+        <strong>General:</strong>
+      </td>
+      <td class="value">
+         <strong><a href="">edit</A></strong>
+      </td>
+   </tr>
+
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
    <tr>
@@ -199,26 +208,38 @@
 </c:if>
 
 
-<c:set value="<%=Constants.HANDLE%>" var="handle"/>
-<c:if test="${cf:contains(fields, handle)}">
+<c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
+<c:if test="${cf:contains(fields, compCountryCode)}">
    <tr>
     <td class="name">
-        Handle:
+        Country to represent:
       </td>
       <td class="value">
-         ${regUser.handle}
+         ${regUser.coder.compCountry.name}
     </td>
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.PASSWORD%>" var="password"/>
-<c:if test="${cf:contains(fields, password)}">
+<c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
+<c:if test="${cf:contains(fields, timeZone)}">
    <tr>
     <td class="name">
-        Password:
+        Timezone:
       </td>
       <td class="value">
-         ********
+         ${regUser.timeZone.description}
+    </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
+<c:if test="${cf:contains(fields, phoneNumber)}">
+   <tr>
+    <td class="name">
+        Phone Number:
+      </td>
+      <td class="value">
+         ${regUser.primaryPhoneNumber.number}
     </td>
    </tr>
 </c:if>
@@ -235,14 +256,26 @@
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.PHONE_NUMBER%>" var="phoneNumber"/>
-<c:if test="${cf:contains(fields, phoneNumber)}">
+<c:set value="<%=Constants.HANDLE%>" var="handle"/>
+<c:if test="${cf:contains(fields, handle)}">
    <tr>
     <td class="name">
-        Phone Number:
+        User Name:
       </td>
       <td class="value">
-         ${regUser.primaryPhoneNumber.number}
+         ${regUser.handle}
+    </td>
+   </tr>
+</c:if>
+
+<c:set value="<%=Constants.PASSWORD%>" var="password"/>
+<c:if test="${cf:contains(fields, password)}">
+   <tr>
+    <td class="name">
+        Password:
+      </td>
+      <td class="value">
+         ********
     </td>
    </tr>
 </c:if>
@@ -273,30 +306,6 @@
 </c:if>
 
 
-<c:set value="<%=Constants.COMP_COUNTRY_CODE%>" var="compCountryCode"/>
-<c:if test="${cf:contains(fields, compCountryCode)}">
-   <tr>
-    <td class="name">
-        Country to represent:
-      </td>
-      <td class="value">
-         ${regUser.coder.compCountry.name}
-    </td>
-   </tr>
-</c:if>
-
-<c:set value="<%=Constants.TIMEZONE%>" var="timeZone"/>
-<c:if test="${cf:contains(fields, timeZone)}">
-   <tr>
-    <td class="name">
-        Timezone:
-      </td>
-      <td class="value">
-         ${regUser.timeZone.description}
-    </td>
-   </tr>
-</c:if>
-
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">
    <tr>
@@ -310,6 +319,15 @@
 </c:if>
 
 <%--Demographics--%>
+   <tr>
+      <td class="name">
+        <strong>Demographics:</strong>
+      </td>
+      <td class="value">
+         <strong><a href="">edit</A></strong>
+      </td>
+   </tr>
+
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
     <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
@@ -362,6 +380,7 @@
     </td>
    </tr>
 </c:if>
+
 </table>
 
 <br><br>
