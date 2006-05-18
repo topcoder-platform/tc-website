@@ -53,6 +53,9 @@ public abstract class HibernateProcessor extends BaseProcessor {
         }
     }
 
+    /**
+     * End a single exchange in a long running conversation of exchanges
+     */
     protected void endCommunication() {
 //                log.debug("Committing database transaction");
         HibernateUtils.commit();
@@ -67,6 +70,9 @@ public abstract class HibernateProcessor extends BaseProcessor {
 
     }
 
+    /**
+     * Either begin a conversation, or resume an existing one.
+     */
     protected void beginCommunication() {
         Session hibernateSession =
                 (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
@@ -82,6 +88,9 @@ public abstract class HibernateProcessor extends BaseProcessor {
 
     }
 
+    /**
+     * End a conversation.  This will persist changes to the db, and wrap things up.
+     */
     protected void closeConversation() {
 //                log.debug("Flushing Session");
         HibernateUtils.getSession().flush();
