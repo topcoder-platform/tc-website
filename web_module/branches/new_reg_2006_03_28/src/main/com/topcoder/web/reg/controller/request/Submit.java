@@ -53,7 +53,12 @@ public class Submit extends Base {
                 RegistrationType min = dao.getMinimalType();
 
                 closeConversation();
-                sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
+                try {
+                    sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
+                } catch (Exception e) {
+                    //we don't want whatever happened to affect the registration.  
+                    e.printStackTrace();
+                }
             }
 
             clearSession();
