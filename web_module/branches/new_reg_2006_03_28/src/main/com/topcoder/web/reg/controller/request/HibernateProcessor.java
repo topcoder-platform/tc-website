@@ -21,9 +21,6 @@ public abstract class HibernateProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         log.debug("sessionid: " + getRequest().getSession().getId());
 
-        Session hibernateSession =
-                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
-
         try {
 
             beginCommunication();
@@ -57,13 +54,11 @@ public abstract class HibernateProcessor extends BaseProcessor {
     }
 
     protected void endCommunication() {
-        Session hibernateSession =
-                (Session) getRequest().getSession().getAttribute(HIBERNATE_SESSION_KEY);
 //                log.debug("Committing database transaction");
         HibernateUtils.commit();
 
 //                 log.debug("Unbinding Session from thread");
-        hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
+        Session hibernateSession = ExtendedThreadLocalSessionContext.unbind(HibernateUtils.getFactory());
 
 //                 log.debug("Storing Session in the HttpSession");
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
