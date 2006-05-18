@@ -36,6 +36,6 @@ alter table registration_type_lu add sort decimal(3,0);
 
 update registration_type_lu set sort = 10 where registration_type_id = 1;
 update registration_type_lu set sort = 20 where registration_type_id = 3;
-update registration_type_lu set sort = 30 where registration_type_id = 2;
-update registration_type_lu set sort = 40 where registration_type_id = 5;
+update registration_type_lu set sort = 40 where registration_type_id = 2;
+update registration_type_lu set sort = 30 where registration_type_id = 5;
 update registration_type_lu set sort = 50 where registration_type_id = 4;
