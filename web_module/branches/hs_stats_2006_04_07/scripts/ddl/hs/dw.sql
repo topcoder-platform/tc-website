@@ -29,8 +29,8 @@ alter table season add constraint foreign key
 create table team (
   team_id decimal(10,0),
   name varchar(254),
-  school_id decimal(10,0),
-  create_date datetime year to fraction default current 
+  team_type DECIMAL(3,0),
+  school_id decimal(10,0)
 )
 extent size 64 next size 64
 lock mode page;
