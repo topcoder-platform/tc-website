@@ -60,8 +60,6 @@ public final class SaveFinalReviewAction extends ReviewAction {
         } else {
             // Call the business layer
             FinalReviewData data = frForm.toReviewData(orpd);
-            // plk - sacar
-            log(Level.DEBUG, "data.getFinalReview().getId()" + data.getFinalReview().getId());
             ResultData result = new BusinessDelegate().finalReview(data);
 
             if (result instanceof SuccessResult)  {
@@ -70,9 +68,6 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
-                // plk
-            // plk - sacar
-            log(Level.DEBUG, "data.getFinalReview().isCompleted()" + data.getFinalReview().isCompleted());
                 if (data.getFinalReview().isCompleted()) {
                     // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
                     if (data.getFinalReview().isApproved()) {

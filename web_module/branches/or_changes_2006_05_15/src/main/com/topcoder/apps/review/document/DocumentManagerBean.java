@@ -2982,8 +2982,6 @@ public class DocumentManagerBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        PreparedStatement ps2 = null;
-        ResultSet rs2 = null;
 
         userMap = new HashMap();
 
@@ -2993,169 +2991,101 @@ public class DocumentManagerBean implements SessionBean {
             // Do not retrieve aggregation responses.
             AggregationWorksheet aggWorksheet = getAggregation(project, requestor, false);
 
-            if (!retrieveFull) {
-                ps = conn.prepareStatement(
-                        "SELECT fr.final_review_id, " +
-                        "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
-                        "FROM final_review fr, agg_worksheet aw " +
-                        "WHERE fr.cur_version = 1 AND " +
-                        "aw.cur_version = 1 AND " +
-                        "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
-                        "aw.project_id = ?");
-                ps.setLong(1, project.getId());
-                rs = ps.executeQuery();
+            ps = conn.prepareStatement(
+                    "SELECT fr.final_review_id, " +
+                    "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
+                    "FROM final_review fr, agg_worksheet aw " +
+                    "WHERE fr.cur_version = 1 AND " +
+                    "aw.cur_version = 1 AND " +
+                    "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
+                    "aw.project_id = ?");
+            ps.setLong(1, project.getId());
+            rs = ps.executeQuery();
 
-                if (rs.next()) {
-                    //info("Found fixItem");
-                    long finalReviewId = rs.getLong(1);
-                    boolean isCompleted = rs.getBoolean(2);
-                    long reviewVersionId = rs.getLong(3);
-                    boolean isApproved = rs.getBoolean(4);
-                    String comments = rs.getString(5);
-
+            if (rs.next()) {
+                long finalReviewId = rs.getLong(1);
+                boolean isCompleted = rs.getBoolean(2);
+                long reviewVersionId = rs.getLong(3);
+                boolean isApproved = rs.getBoolean(4);
+                String comments = rs.getString(5);
+                
+                if (!retrieveFull) {
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
                 } else {
-                    finalReview = new FinalReview(-1, null, aggWorksheet,
-                            false, requestor.getUserId(), -1, false, null);
-                }
-            } else {
-                ps = conn.prepareStatement(
-                        "SELECT fr.final_review_id, fi.fix_item_id, " +
-                        "fi.final_fix_s_id, fi.agg_response_id, " +
-                        "fr.is_completed, fr.final_review_v_id, " +
-                        "fi.fix_item_v_id, fr.is_approved, fr.comments " +
-                        "FROM final_review fr, agg_worksheet aw, fix_item fi " +
-                        "WHERE fr.cur_version = 1 AND " +
-                        "aw.cur_version = 1 AND " +
-                        "fi.cur_version = 1 AND " +
-                        "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
-                        "fr.final_review_id = fi.final_review_id AND " +
-                        "aw.project_id = ?");
-                ps.setLong(1, project.getId());
-                rs = ps.executeQuery();
-
-                List fixItemList = new LinkedList();
-
-                long finalReviewId = 0;
-                long reviewVersionId = 0;
-                boolean isCompleted = false;
-                boolean isApproved = false;
-                String comments = null;
-
-                while (rs.next()) {
-                    log.debug("Found fixItem");
-                    finalReviewId = rs.getLong(1);
-                    long fixItemId = rs.getLong(2);
-                    long finalFixStatusId = rs.getLong(3);
-                    long aggResponseId = rs.getLong(4);
-                    isCompleted = rs.getBoolean(5);
-                    reviewVersionId = rs.getLong(6);
-                    long fixItemVid = rs.getLong(7);
-                    isApproved = rs.getBoolean(8);
-                    comments = rs.getString(9);
-
-                    FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
-                            "FinalFixStatusManager");
-                    FinalFixStatus finalFixStatus = finalFixStatusManager.getFinalFixStatus(finalFixStatusId);
-
-                    AggregationResponse aggResp = getAggregationResponse(aggResponseId);
-
-                    FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
-                    fixItemList.add(fixItem);
-                }
-/*                if (fixItemList.size() > 0) {
-                    FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
+                    ps = conn.prepareStatement(
+                            "SELECT fr.final_review_id, fi.fix_item_id, " +
+                            "fi.final_fix_s_id, fi.agg_response_id, " +
+                            "fr.is_completed, fr.final_review_v_id, " +
+                            "fi.fix_item_v_id, fr.is_approved, fr.comments " +
+                            "FROM final_review fr, agg_worksheet aw, fix_item fi " +
+                            "WHERE fr.cur_version = 1 AND " +
+                            "aw.cur_version = 1 AND " +
+                            "fi.cur_version = 1 AND " +
+                            "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
+                            "fr.final_review_id = fi.final_review_id AND " +
+                            "aw.project_id = ?");
+                    ps.setLong(1, project.getId());
+                    rs = ps.executeQuery();
+    
+                    List fixItemList = new LinkedList();
+    
+                    while (rs.next()) {
+                        long fixItemId = rs.getLong(2);
+                        long finalFixStatusId = rs.getLong(3);
+                        long aggResponseId = rs.getLong(4);
+                        long fixItemVid = rs.getLong(7);
+    
+                        FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
+                                "FinalFixStatusManager");
+                        FinalFixStatus finalFixStatus = finalFixStatusManager.getFinalFixStatus(finalFixStatusId);
+    
+                        AggregationResponse aggResp = getAggregationResponse(aggResponseId);
+    
+                        FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
+                        fixItemList.add(fixItem);
+                    }
+                    
+                    // Retrieve aggregation responses.
+                    aggWorksheet = getAggregation(project, requestor, true);
+                    AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
+                    List aggItemList = new LinkedList();
+    
+                    for (int i = 0; i < aggRespArr.length; i++) {
+                        if (aggRespArr[i].getAggregationResponseStatus().getId() ==
+                                AggregationResponseStatus.ID_ACCEPTED) {
+                            // Only include accepted aggregation responses
+                            if (fixItemList.size() > 0) {
+                                // Get FixItem if it exists
+                                int j = 0;
+                                for (; j < fixItemList.size() && aggRespArr[i].getId() != 
+                                    ((FixItem)fixItemList.get(j)).getAggregationResponse().getId(); j++);
+    
+                                if (j < fixItemList.size()) {
+                                    // adds the FixItem
+                                    aggItemList.add((FixItem)fixItemList.get(j));    
+                                } else {
+                                    // adds the aggregation item
+                                    aggItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
+                                }
+                            } else {
+                                FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
+                                aggItemList.add(fixItem);
+                            }
+                        }
+                    }
+                    FixItem[] fixItemArr = (FixItem[]) aggItemList.toArray(new FixItem[aggItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
-                } else {*/
-                        /*
-                    if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
-                            project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
-                        // Create new FinalReview
-
-                        // Retrieve aggregation responses.
-                        aggWorksheet = getAggregation(project, requestor, true);
-                        AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
-
-                        for (int i = 0; i < aggRespArr.length; i++) {
-                            if (aggRespArr[i].getAggregationResponseStatus().getId() ==
-                                    AggregationResponseStatus.ID_ACCEPTED) {
-                                // Only include accepted aggregation responses
-                                FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
-                                fixItemList.add(fixItem);
-                            }
-                        }
-                        FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
-                        finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1, isApproved, comments); */
-                                
-                       // plk, todo agregado
-                        // Retrieve aggregation responses.
-                        aggWorksheet = getAggregation(project, requestor, true);
-                        AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
-                        List fixItemList2 = new LinkedList();
-
-                        for (int i = 0; i < aggRespArr.length; i++) {
-                            if (aggRespArr[i].getAggregationResponseStatus().getId() ==
-                                    AggregationResponseStatus.ID_ACCEPTED) {
-                                // Only include accepted aggregation responses
-                               log.debug(" aggRespArr[i].getId() : " + aggRespArr[i].getId());
-                                if (fixItemList.size() > 0) {
-                                    log.debug("fixItemList.size(): " + fixItemList.size());
-                                    // Get FixItem if it exists
-                                    int j = 0;
-                                    for (; j < fixItemList.size() && aggRespArr[i].getId() != 
-                                        ((FixItem)fixItemList.get(j)).getAggregationResponse().getId(); j++);
-
-                                    if (j < fixItemList.size()) {
-                                        log.debug("fixItem inserted");
-                                        fixItemList2.add((FixItem)fixItemList.get(j));    
-                                    } else {
-                                        log.debug("fixItem not found");
-                                        fixItemList2.add(new FixItem(-1, null, aggRespArr[i], -1));
-                                    }
-                                } else {
-                                    log.debug("agg response");
-                                    FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
-                                    fixItemList2.add(fixItem);
-                                }
-                            }
-                        }
-                        FixItem[] fixItemArr = (FixItem[]) fixItemList2.toArray(new FixItem[fixItemList2.size()]);
-                        ps2 = conn.prepareStatement(
-                                "SELECT fr.final_review_id, " +
-                                "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
-                                "FROM final_review fr, agg_worksheet aw " +
-                                "WHERE fr.cur_version = 1 AND " +
-                                "aw.cur_version = 1 AND " +
-                                "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
-                                "aw.project_id = ?");
-                        ps2.setLong(1, project.getId());
-                        rs2 = ps2.executeQuery();
-        
-                        if (rs2.next()) {
-                            //info("Found fixItem");
-                            finalReviewId = rs2.getLong(1);
-                            isCompleted = rs2.getBoolean(2);
-                            reviewVersionId = rs2.getLong(3);
-                            isApproved = rs2.getBoolean(4);
-                            comments = rs2.getString(5);
-        
-                            finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
-                                    reviewVersionId, isApproved, comments);
-                        } else {
-                            finalReview = new FinalReview(-1, null, aggWorksheet,
-                                    false, requestor.getUserId(), -1, false, null);
-                        }                                
-                   // }
-                //}
+                }
+            } else {
+                finalReview = new FinalReview(-1, null, aggWorksheet,
+                        false, requestor.getUserId(), -1, false, null);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             Common.close(conn, ps, rs);
-            Common.close(conn, ps2, rs2);
         }
 
         return finalReview;
@@ -3516,8 +3446,6 @@ public class DocumentManagerBean implements SessionBean {
             }
 
             if (finalReview.getDirty() == true) {
-                // plk - sacar
-                log.debug("finalReview.getId()" + finalReview.getId());
                 if (finalReview.getId() != -1) {
                     // This is an existing FinalReview
 
@@ -3692,7 +3620,6 @@ public class DocumentManagerBean implements SessionBean {
                         }
 
                         // If the final fix status is null, we don't need to save it yet.
-                        // plk
                         if (fixItemArr[i].getFinalFixStatus() != null) {
                             psIns.setLong(1, fixItemArr[i].getId());
                             psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
