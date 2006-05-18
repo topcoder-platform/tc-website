@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.reg.Constants"%>
+<%@ page import="com.topcoder.web.common.BaseProcessor"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
@@ -69,19 +70,23 @@ function popHide(){
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
 
-<c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
-            <tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator>
-
         <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regTypeKey"/>
+            <tc-webtag:errorIterator id="err" name="${regTypeKey}">${err}<br/></tc-webtag:errorIterator>
+
+        <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
         <c:forEach items="${registrationTypeList}" var="type">
-            <tc-webtag:chkBox name="${regTypeKey}${type.id}"/> <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
+            <c:choose>
+                <c:when test="${requestScope[defaults][regTypeKey+type.id]==null}"><tc-webtag:chkBox name="${regTypeKey}${type.id}"/></c:when>
+                <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:otherwise>
+            </c:choose>
+            <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
 
-      <div id="container">
-         <div id="popUp0" class="popUp">${type.description}
-         </div>
-      </div>
+              <div id="container">
+                 <div id="popUp0" class="popUp">${type.description}
+                 </div>
+              </div>
 
-      <br /><br />
+              <br /><br />
         </c:forEach>
 
       <div align="center">
