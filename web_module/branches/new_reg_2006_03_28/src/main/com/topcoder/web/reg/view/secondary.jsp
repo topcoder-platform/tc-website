@@ -99,7 +99,6 @@
       </td>
       <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
-
       </td>
    </tr>
         </rt:questionIterator>
