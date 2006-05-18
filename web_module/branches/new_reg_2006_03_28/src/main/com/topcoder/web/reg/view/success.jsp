@@ -1,7 +1,4 @@
-<%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -87,11 +84,11 @@
 <div style="clear:both;"><span class="subtitle">As a Registered TopCoder Software Customer</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="http://software.topcoder.com/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
-         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about/explanationMovie.jsp">How it works</A><br>
-         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp">Who it's working for</A><br>
-         <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Get started</A>
+         <A href="http://software.topcoder.com/about/explanationMovie.jsp">How it works</A><br>
+         <A href="http://software.topcoder.com/customers/index.jsp">Who it's working for</A><br>
+         <A href="http://software.topcoder.com/catalog/index.jsp">Get started</A>
       </td>
    </tr>
 </table>
@@ -100,7 +97,7 @@
 <div style="clear:both;"><span class="subtitle">As a Registered Corporate Services Member</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/corporate.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
          <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Sponsor an event</A><br>
          <A href="/pl/">Host your own event, Powered by TopCoder</A><br>
