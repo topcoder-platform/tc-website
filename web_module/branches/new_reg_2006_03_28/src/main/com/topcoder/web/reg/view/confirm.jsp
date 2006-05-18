@@ -200,7 +200,7 @@
 <c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
 <c:if test="${cf:contains(fields, gpa)&&cf:contains(fields, gpaScale)}">
     <p>
-        GPA: ${regUser.coder.currentSchool.gpa}/${regUser.coder.currentSchool.gpaScale}
+        GPA: ${regUser.coder.currentSchool.GPA}/${regUser.coder.currentSchool.GPAScale}
     </p>
 </c:if>
 
