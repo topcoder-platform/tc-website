@@ -54,7 +54,7 @@ function popHide(){
 
    <div id="regBcContainer">
       <div class="regBc">
-         <div class="title">Step 1 of 6</div>
+         <div class="title">Step <strong>1</strong> of <strong>6</strong></div>
          <div class="on">Select Your Registration</div>
          <div class="off">General</div>
          <div class="off">Demographics</div>

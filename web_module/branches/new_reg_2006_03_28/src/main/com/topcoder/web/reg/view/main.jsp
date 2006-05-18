@@ -29,7 +29,7 @@
 
    <div id="regBcContainer">
       <div class="regBc">
-         <div class="title">Step 2 of 6</div>
+         <div class="title">Step <strong>2</strong> of <strong>6</strong></div>
          <div class="off">Select Your Registration</div>
          <div class="on">General</div>
          <div class="off">Demographics</div>
