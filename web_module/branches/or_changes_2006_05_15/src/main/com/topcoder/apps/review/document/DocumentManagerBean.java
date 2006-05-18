@@ -3036,7 +3036,6 @@ public class DocumentManagerBean implements SessionBean {
                 rs = ps.executeQuery();
 
                 List fixItemList = new LinkedList();
-                log.debug("1) fixItemList.size(): " + fixItemList.size());
 
                 long finalReviewId = 0;
                 long reviewVersionId = 0;
@@ -3064,17 +3063,12 @@ public class DocumentManagerBean implements SessionBean {
 
                     FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
                     fixItemList.add(fixItem);
-                                    log.debug("4) fixItemList.size(): " + fixItemList.size());
-
                 }
-                log.debug("2) fixItemList.size(): " + fixItemList.size());
-
 /*                if (fixItemList.size() > 0) {
                     FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                     finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
                 } else {*/
-                                log.debug("5) fixItemList.size(): " + fixItemList.size());
 
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
@@ -3095,20 +3089,18 @@ public class DocumentManagerBean implements SessionBean {
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
                                 isCompleted, requestor.getUserId(), -1, isApproved, comments); */
-                log.debug("6) fixItemList.size(): " + fixItemList.size());
                                 
                        // plk, todo agregado
                         // Retrieve aggregation responses.
                         aggWorksheet = getAggregation(project, requestor, true);
                         AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
-                log.debug("7) fixItemList.size(): " + fixItemList.size());
+                        List fixItemList2 = new LinkedList();
 
                         for (int i = 0; i < aggRespArr.length; i++) {
                             if (aggRespArr[i].getAggregationResponseStatus().getId() ==
                                     AggregationResponseStatus.ID_ACCEPTED) {
                                 // Only include accepted aggregation responses
-                log.debug("8) fixItemList.size(): " + fixItemList.size());
-                                
+                               
                                 if (fixItemList.size() > 0) {
                                     log.debug("fixItemList.size(): " + fixItemList.size());
                                     // Get FixItem if it exists
@@ -3118,19 +3110,19 @@ public class DocumentManagerBean implements SessionBean {
 
                                     if (j < fixItemList.size()) {
                                         log.debug("fixItem inserted");
-                                        fixItemList.add((FixItem)fixItemList.get(j));    
+                                        fixItemList2.add((FixItem)fixItemList.get(j));    
                                     } else {
                                         log.debug("fixItem not found");
-                                        fixItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
+                                        fixItemList2.add(new FixItem(-1, null, aggRespArr[i], -1));
                                     }
                                 } else {
                                     log.debug("agg response");
                                     FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
-                                    fixItemList.add(fixItem);
+                                    fixItemList2.add(fixItem);
                                 }
                             }
                         }
-                        FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
+                        FixItem[] fixItemArr = (FixItem[]) fixItemList2.toArray(new FixItem[fixItemList2.size()]);
                         ps2 = conn.prepareStatement(
                                 "SELECT fr.final_review_id, " +
                                 "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
