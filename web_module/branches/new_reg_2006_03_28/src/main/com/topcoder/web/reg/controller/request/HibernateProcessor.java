@@ -1,14 +1,12 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.HibernateUtils;
+import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.DAOFactory;
 import com.topcoder.web.reg.dao.Util;
 import org.hibernate.Session;
 import org.hibernate.StaleObjectStateException;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @author dok
@@ -56,11 +54,10 @@ public abstract class HibernateProcessor extends BaseProcessor  {
 //                log.debug("Removing Session from HttpSession");
                 //we're creating a new session to handle the case that the request processing invalidated the session
                 //there's no way to check, so this is what we're doing.
-                HttpSession s = getRequest().getSession(true);
-                if (!s.isNew()) {
-                    s.setAttribute(HIBERNATE_SESSION_KEY, null);
-                } else {
-//                    log.debug("XXXXX we got a new session");
+                try {
+                    getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
+                } catch (Exception e) {
+                    //don't care..most likely the session was invalidated prior to this call, so who cares.
                 }
 
 //                log.debug("<<< End of conversation");
