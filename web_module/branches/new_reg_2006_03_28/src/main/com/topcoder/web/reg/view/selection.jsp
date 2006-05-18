@@ -3,7 +3,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
-<%@ taglib uri="common-functions" prefix="cf" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -76,9 +75,10 @@ function popHide(){
 
         <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
         <c:forEach items="${registrationTypeList}" var="type">
+            <c:set value="${regType}${type.id}" var="regTypeKey"/>
             <c:choose>
-                <c:when test="${cf:contains(regUser.registrationTypes, type)}"><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:when>
-                <c:otherwise><tc-webtag:chkBox name="${regType}${type.id}"/></c:otherwise>
+                <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/></c:when>
+                <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:otherwise>
             </c:choose>
             <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
 
