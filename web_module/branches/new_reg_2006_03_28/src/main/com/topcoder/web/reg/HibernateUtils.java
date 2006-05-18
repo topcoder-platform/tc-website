@@ -38,6 +38,7 @@ public class HibernateUtils {
             if (configuration.getProperty(Environment.SESSION_FACTORY_NAME) != null) {
                 // Let Hibernate bind the factory to JNDI
                 configuration.buildSessionFactory();
+                sessionFactory = getFactory();
             } else {
                 // or use static variable handling
                 sessionFactory = configuration.buildSessionFactory();
@@ -121,17 +122,17 @@ public class HibernateUtils {
      * @return the session factory
      */
     public static SessionFactory getFactory() {
-        SessionFactory ret;
+        SessionFactory ret=null;
         String sfName = configuration.getProperty(Environment.SESSION_FACTORY_NAME);
-        if (sfName != null) {
-            log.debug("Looking up SessionFactory in JNDI.");
-            try {
-                ret = (SessionFactory) new InitialContext().lookup(sfName);
-            } catch (NamingException ex) {
-                throw new RuntimeException(ex);
-            }
-        } else {
+        if (sessionFactory!=null) {
             ret = sessionFactory;
+        } else if (sfName != null) {
+                log.debug("Looking up SessionFactory in JNDI.");
+                try {
+                    ret = (SessionFactory) new InitialContext().lookup(sfName);
+                } catch (NamingException ex) {
+                    throw new RuntimeException(ex);
+                }
         }
         if (ret == null)
             throw new IllegalStateException("SessionFactory not available.");
