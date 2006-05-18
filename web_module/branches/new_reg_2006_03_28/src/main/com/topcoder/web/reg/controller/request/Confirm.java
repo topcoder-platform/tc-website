@@ -60,7 +60,7 @@ public class Confirm extends Base {
             DemographicAssignment da;
             Long answerId;
             List answers;
-            DemographicResponse dr;
+            TransientResponse tr;
             HashSet responses = new HashSet();
             for (Iterator it = getAssignments(u).iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
@@ -68,32 +68,26 @@ public class Confirm extends Base {
                     answers = (List)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
                     //todo if they answer the multiple choice with a real answer, remove the decline to answer 
                     for (int i=0; i<answers.size(); i++) {
-                        dr = new DemographicResponse();
-                        dr.setQuestion(da.getQuestion());
-                        dr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
-                        dr.setUser(u);
-                        dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                        responses.add(dr);
+                        tr = new TransientResponse();
+                        tr.setQuestion(da.getQuestion());
+                        tr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
+                        responses.add(tr);
                     }
                 } else if (da.getQuestion().isFreeForm()) {
-                    dr = new DemographicResponse();
-                    dr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
-                    dr.setQuestion(da.getQuestion());
-                    dr.setUser(u);
-                    dr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
-                    dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    responses.add(dr);
+                    tr = new TransientResponse();
+                    tr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
+                    tr.setQuestion(da.getQuestion());
+                    tr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
+                    responses.add(tr);
                 } else if (da.getQuestion().isSingleSelect()) {
                     answerId = new Long((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
-                    dr = new DemographicResponse();
-                    dr.setQuestion(da.getQuestion());
-                    dr.setAnswer(da.getQuestion().getAnswer(answerId));
-                    dr.setUser(u);
-                    dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    responses.add(dr);
+                    tr = new TransientResponse();
+                    tr.setQuestion(da.getQuestion());
+                    tr.setAnswer(da.getQuestion().getAnswer(answerId));
+                    responses.add(tr);
                 }
             }
-            u.setDemographicResponses(responses);
+            u.setTransientResponses(responses);
 
         }
         if (fields.contains(Constants.SCHOOL_ID)) {

@@ -49,8 +49,12 @@ public class Company extends Base {
 
     public Object clone() throws CloneNotSupportedException {
         Company ret = (Company) super.clone();
-        ret.setPrimaryContact((Contact) primaryContact.clone());
-        ret.setTimeZone((TimeZone) timeZone.clone());
+        if (primaryContact!=null) {
+            ret.setPrimaryContact((Contact) primaryContact.clone());
+        }
+        if (timeZone!=null) {
+            ret.setTimeZone((TimeZone) timeZone.clone());
+        }
         return ret;
     }
 

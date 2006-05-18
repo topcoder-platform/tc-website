@@ -72,16 +72,19 @@ public class Notification extends Base implements Comparable {
 
 
     public Object clone() throws CloneNotSupportedException {
-            Notification ret = (Notification)super.clone();
-            for(Iterator it = registrationTypes.iterator(); it.hasNext();) {
-                ret.registrationTypes.add(((RegistrationType)it.next()).clone());
-            }
-            return ret;
+        Notification ret = (Notification) super.clone();
+        for (Iterator it = registrationTypes.iterator(); it.hasNext();) {
+            ret.registrationTypes.add(((RegistrationType) it.next()).clone());
         }
+        for (Iterator it = users.iterator(); it.hasNext();) {
+            ret.users.add(((User) it.next()).clone());
+        }
+        return ret;
+    }
 
 
     public int compareTo(Object o) {
-        Notification other = (Notification)o;
+        Notification other = (Notification) o;
         return getSort().compareTo(other.getSort());
     }
 }

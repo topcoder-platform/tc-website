@@ -25,10 +25,17 @@ public class User extends Base {
     private Set emailAddresses;
     private Set phoneNumbers;
     private Set notifications;
+    /**
+     * hoke: used getting information
+     */
     private Set demographicResponses;
     private Set securityGroups;
     private Coder coder;
     private Contact contact;
+    /**
+     * hoke: used for making changes
+     */
+    private Set transientResponses;
 
     public User() {
         status = new Character(Constants.UNACTIVE_STATI[1]);
@@ -38,6 +45,7 @@ public class User extends Base {
         demographicResponses = new HashSet();
         notifications = new TreeSet();
         securityGroups = new HashSet();
+        transientResponses = new HashSet();
     }
 
     public Long getId() {
@@ -206,7 +214,9 @@ public class User extends Base {
     }
 
     public void addDemographicResponse(DemographicResponse response) {
-        this.demographicResponses.add(response);
+        if (!this.demographicResponses.contains(response)) {
+            this.demographicResponses.add(response);    
+        }
     }
 
     public Set getNotifications() {
@@ -267,11 +277,27 @@ public class User extends Base {
         demographicResponses.clear();
     }
 
+    public Set getTransientResponses() {
+        return transientResponses;
+    }
+
+    public void setTransientResponses(Set transientResponses) {
+        this.transientResponses = transientResponses;
+    }
+
+
+
     public Object clone() throws CloneNotSupportedException {
         User ret = (User)super.clone();
-        ret.setTimeZone((TimeZone)timeZone.clone());
-        ret.setCoder((Coder)coder.clone());
-        ret.setContact((Contact)contact.clone());
+        if (timeZone!=null) {
+            ret.setTimeZone((TimeZone)timeZone.clone());
+        }
+        if (coder!=null) {
+            ret.setCoder((Coder)coder.clone());
+        }
+        if (contact!=null) {
+            ret.setContact((Contact)contact.clone());
+        }
         for(Iterator it = addresses.iterator(); it.hasNext();) {
             ret.addAddress((Address)((Address)it.next()).clone());
         }

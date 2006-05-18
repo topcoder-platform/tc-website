@@ -25,28 +25,18 @@ public class DemographicResponse extends Base {
     }
 
     public User getUser() {
-        try {
-            return (User)user.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("something wrong, User is not cloneable");
-        }
+        return user;
     }
 
     public void setUser(User user) {
-        id.setUserId(user.getId());
         this.user = user;
     }
 
     public DemographicQuestion getQuestion() {
-        try {
-            return (DemographicQuestion)question.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new RuntimeException("something wrong, DemographicQuestion is not cloneable");
-        }
+        return question;
     }
 
     public void setQuestion(DemographicQuestion question) {
-        id.setDemographicQuestionId(question.getId());
         this.question = question;
     }
 
@@ -55,7 +45,6 @@ public class DemographicResponse extends Base {
     }
 
     public void setAnswer(DemographicAnswer answer) {
-        id.setDemographicAnswerId(answer.getId());
         this.answer = answer;
     }
 
@@ -67,8 +56,47 @@ public class DemographicResponse extends Base {
         this.response = response;
     }
 
+    public Object clone() throws CloneNotSupportedException {
+        DemographicResponse ret = (DemographicResponse) super.clone();
+/*
+        if (user!=null) {
+            ret.user= (User)user.clone();
+        }
+*/
+        if (question != null) {
+            ret.question = (DemographicQuestion) question.clone();
+        }
+        if (answer != null) {
+            ret.answer = (DemographicAnswer) answer.clone();
+        }
+        ret.id = (Identifier) id.clone();
+        return ret;
+    }
 
-    public static class Identifier implements Serializable {
+
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                DemographicResponse oa = (DemographicResponse) o;
+                boolean sameUser = (oa.user.getId()==null&&user.getId()==null) ||
+                        (oa.user.getId()!=null&&user.getId()!=null&&oa.user.getId().equals(user.getId()));
+                boolean sameQuestion = (oa.question.getId()==null&&question.getId()==null) ||
+                        (oa.question.getId()!=null&&question.getId()!=null&&oa.question.getId().equals(question.getId()));
+                boolean sameAnswer = (oa.answer.getId()==null&&answer.getId()==null) ||
+                        (oa.answer.getId()!=null&&answer.getId()!=null&&oa.answer.getId().equals(answer.getId()));
+                boolean sameResponse = (oa.response==null&&response==null) ||
+                        (oa.response.equals(response));
+                return sameUser&&sameQuestion&&sameAnswer&&sameResponse;
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
+/*
+    public static class Identifier implements Serializable, Cloneable {
         private Long userId;
         private Long demographicQuestionId;
         private Long demographicAnswerId;
@@ -124,15 +152,91 @@ public class DemographicResponse extends Base {
 
         public int hashCode() {
             StringBuffer buf = new StringBuffer(100);
-            buf.append(userId);
-            buf.append(" ");
-            buf.append(demographicQuestionId);
-            buf.append(" ");
-            buf.append(demographicAnswerId);
+                buf.append(userId);
+                buf.append(" ");
+                buf.append(demographicQuestionId);
+                buf.append(" ");
+                buf.append(demographicAnswerId);
             return buf.toString().hashCode();
         }
-    }
+        public Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
 
+    }
+*/
+
+
+    public static class Identifier implements Serializable, Cloneable {
+
+        private User user;
+        private DemographicQuestion question;
+        private DemographicAnswer answer;
+
+        public Identifier() {
+
+        }
+
+        public Identifier(User user, DemographicQuestion question, DemographicAnswer answer) {
+            this.user = user;
+            this.question = question;
+            this.answer = answer;
+        }
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+
+        public DemographicQuestion getQuestion() {
+            return question;
+        }
+
+        public void setQuestion(DemographicQuestion question) {
+            this.question = question;
+        }
+
+        public DemographicAnswer getAnswer() {
+            return answer;
+        }
+
+        public void setAnswer(DemographicAnswer answer) {
+            this.answer = answer;
+        }
+
+        public boolean equals(Object o) {
+            if (o == null) {
+                return false;
+            } else {
+                try {
+                    DemographicResponse.Identifier oa = (DemographicResponse.Identifier) o;
+                    return (oa.user.getId().equals(user.getId()) &&
+                            oa.question.getId().equals(question.getId()) &&
+                            oa.answer.getId().equals(answer.getId()));
+                } catch (ClassCastException e) {
+                    return false;
+                }
+            }
+        }
+
+        public int hashCode() {
+            StringBuffer buf = new StringBuffer(100);
+            buf.append(user.getId());
+            buf.append(" ");
+            buf.append(question.getId());
+            buf.append(" ");
+            buf.append(answer.getId());
+            return buf.toString().hashCode();
+        }
+
+        public Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+
+    }
 
 
 }

@@ -67,8 +67,12 @@ public class CurrentSchool extends Base {
 
     public Object clone() throws CloneNotSupportedException {
         CurrentSchool ret = (CurrentSchool) super.clone();
-        ret.coder = (Coder)coder.clone();
-        ret.school = (School)school.clone();
+        if (coder!=null) {
+            ret.coder = (Coder)coder.clone();
+        }
+        if (school!=null) {
+            ret.school = (School)school.clone();
+        }
         return ret;
     }
 

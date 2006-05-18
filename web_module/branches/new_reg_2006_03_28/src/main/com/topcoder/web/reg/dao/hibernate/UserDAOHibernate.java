@@ -2,6 +2,7 @@ package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.UserDAO;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.TransientResponse;
 import com.topcoder.web.reg.model.DemographicResponse;
 import org.hibernate.Session;
 import org.hibernate.Query;
@@ -32,20 +33,30 @@ public class UserDAOHibernate extends Base implements UserDAO {
     }
 
     public void saveOrUpdate(User u) {
+        boolean isNew = u.isNew();
         super.saveOrUpdate(u);
-        //can't figure out how to get hibernate to handle this, so
-        //i'm doing it here.
-        StringBuffer query = new StringBuffer(100);
-        query.append(" DELETE DemographicResponse WHERE user_id = ?");
-        Query q = session.createQuery(query.toString());
-        q.setLong(0, u.getId().longValue());
-        q.executeUpdate();
 
-        DemographicResponse dr;
-        for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
-            dr = (DemographicResponse) it.next();
-            dr.setId(new DemographicResponse.Identifier(u.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-            session.saveOrUpdate(dr);
+        if (!isNew) {
+            StringBuffer query = new StringBuffer(100);
+            query.append(" DELETE DemographicResponse WHERE user_id = ?");
+            Query q;
+            q = session.createQuery(query.toString());
+            q.setLong(0, u.getId().longValue());
+            q.executeUpdate();
         }
+        TransientResponse tr;
+        DemographicResponse dr;
+        for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
+            tr = (TransientResponse) it.next();
+            dr = new DemographicResponse();
+            dr.setAnswer(tr.getAnswer());
+            dr.setQuestion(tr.getQuestion());
+            dr.setUser(u);
+            dr.getId().setAnswer(tr.getAnswer());
+            dr.getId().setQuestion(tr.getQuestion());
+            dr.getId().setUser(tr.getUser());
+            super.saveOrUpdate(dr);
+        }
+
     }
 }

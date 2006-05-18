@@ -10,7 +10,7 @@ import com.topcoder.web.common.model.Base;
  */
 public class Phone extends Base {
     public static final Integer PHONE_TYPE_OFFICE = new Integer(1);
-    public static final Integer PHONE_TYPE_HOME = new Integer(2); 
+    public static final Integer PHONE_TYPE_HOME = new Integer(2);
 
     private Long id;
     private Integer phoneTypeId;
@@ -60,6 +60,15 @@ public class Phone extends Base {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+
+    public Object clone() throws CloneNotSupportedException {
+        Phone ret = (Phone) super.clone();
+        if (user!=null) {
+            ret.user = (User)user.clone();
+        }
+        return ret;
     }
 
 

@@ -141,10 +141,18 @@ public class Coder extends Base {
         ret.setHSRating((HSAlgoRating) hsRating.clone());
         ret.setTCRating((TCAlgoRating) tcRating.clone());
 */
-        ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
-        ret.setCompCountry((Country) compCountry.clone());
-        ret.setCoderType((CoderType) coderType.clone());
-        ret.setUser((User) user.clone());
+        if (currentSchool!=null) {
+            ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
+        }
+        if (compCountry!=null) {
+            ret.setCompCountry((Country) compCountry.clone());
+        }
+        if (coderType!=null) {
+            ret.setCoderType((CoderType) coderType.clone());
+        }
+        if (user!=null) {
+            ret.setUser((User) user.clone());
+        }
 
         for(Iterator it =resumes.iterator(); it.hasNext();) {
             ret.resumes.add(((Resume)it.next()).clone());
