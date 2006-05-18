@@ -2982,6 +2982,8 @@ public class DocumentManagerBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        PreparedStatement ps2 = null;
+        ResultSet rs2 = null;
 
         userMap = new HashMap();
 
@@ -3070,7 +3072,7 @@ public class DocumentManagerBean implements SessionBean {
                     if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
                             project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
                         // Create new FinalReview
-
+                        /*
                         // Retrieve aggregation responses.
                         aggWorksheet = getAggregation(project, requestor, true);
                         AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
@@ -3085,7 +3087,47 @@ public class DocumentManagerBean implements SessionBean {
                         }
                         FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
                         finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1, isApproved, comments);
+                                isCompleted, requestor.getUserId(), -1, isApproved, comments); */
+                                
+                       // plk, todo agregado
+                        // Retrieve aggregation responses.
+                        aggWorksheet = getAggregation(project, requestor, true);
+                        AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
+
+                        for (int i = 0; i < aggRespArr.length; i++) {
+                            if (aggRespArr[i].getAggregationResponseStatus().getId() ==
+                                    AggregationResponseStatus.ID_ACCEPTED) {
+                                // Only include accepted aggregation responses
+                                FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
+                                fixItemList.add(fixItem);
+                            }
+                        }
+                        FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
+                        ps2 = conn.prepareStatement(
+                                "SELECT fr.final_review_id, " +
+                                "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
+                                "FROM final_review fr, agg_worksheet aw " +
+                                "WHERE fr.cur_version = 1 AND " +
+                                "aw.cur_version = 1 AND " +
+                                "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
+                                "aw.project_id = ?");
+                        ps2.setLong(1, project.getId());
+                        rs2 = ps2.executeQuery();
+        
+                        if (rs2.next()) {
+                            //info("Found fixItem");
+                            long finalReviewId = rs2.getLong(1);
+                            boolean isCompleted = rs2.getBoolean(2);
+                            long reviewVersionId = rs2.getLong(3);
+                            boolean isApproved = rs2.getBoolean(4);
+                            String comments = rs2.getString(5);
+        
+                            finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
+                                    reviewVersionId, isApproved, comments);
+                        } else {
+                            finalReview = new FinalReview(-1, null, aggWorksheet,
+                                    false, requestor.getUserId(), -1, false, null);
+                        }                                
                     }
                 }
             }
@@ -3093,6 +3135,7 @@ public class DocumentManagerBean implements SessionBean {
             throw new RuntimeException(e);
         } finally {
             Common.close(conn, ps, rs);
+            Common.close(conn, ps2, rs2);
         }
 
         return finalReview;
