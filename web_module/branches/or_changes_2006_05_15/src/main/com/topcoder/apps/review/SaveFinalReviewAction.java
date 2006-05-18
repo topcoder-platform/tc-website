@@ -61,7 +61,7 @@ public final class SaveFinalReviewAction extends ReviewAction {
             // Call the business layer
             FinalReviewData data = frForm.toReviewData(orpd);
             // plk - sacar
-            log.debug("data.getFinalReview().getId()" + data.getFinalReview().getId());
+            log(Level.DEBUG, "data.getFinalReview().getId()" + data.getFinalReview().getId());
             ResultData result = new BusinessDelegate().finalReview(data);
 
             if (result instanceof SuccessResult)  {

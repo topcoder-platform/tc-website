@@ -45,7 +45,8 @@ public class FinalReview implements Model {
 
         FinalReviewData finalReviewData = (FinalReviewData) data;
         // plk - sacar
-        log.debug("finalReviewData.getFinalReview().getId()" + finalReviewData.getFinalReview().getId());
+        if (finalReviewData.getFinalReview() != null) 
+            log.debug("finalReviewData.getFinalReview().getId()" + finalReviewData.getFinalReview().getId());
 
         SecurityEnabledUser user = finalReviewData.getUser();
         if (user == null) {
