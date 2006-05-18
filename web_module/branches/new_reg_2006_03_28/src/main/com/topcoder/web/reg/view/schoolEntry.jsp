@@ -43,7 +43,7 @@
 
 <body>
 <div align="center">
-    <div style="width:250px;padding:15px;text-align:left;">
+    <div style="width:500px;padding:15px;text-align:left;">
 
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="registration_w"/>
