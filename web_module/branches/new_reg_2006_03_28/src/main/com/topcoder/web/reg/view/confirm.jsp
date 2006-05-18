@@ -44,7 +44,7 @@
    <div style="width:400px;">
    <strong>Is this information correct?</strong>
    <br><br>
-   <span class="bigRed">NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete the update.</span>
+   <span class="bigRed">NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete registration.</span>
    <br><br>
    </div>
 
