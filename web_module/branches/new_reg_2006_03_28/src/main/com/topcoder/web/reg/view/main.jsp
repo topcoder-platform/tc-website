@@ -57,7 +57,7 @@
       <td class="name">
         Given Name:
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -74,7 +74,7 @@
       <td class="name">
          Surname:
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -91,7 +91,7 @@
       <td class="name">
         Title:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -108,7 +108,7 @@
       <td class="name">
         Company:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -125,7 +125,7 @@
       <td class="name">
         Address1:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -142,7 +142,7 @@
       <td class="name">
         Address2:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -159,7 +159,7 @@
       <td class="name">
         Address3:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -177,7 +177,7 @@
       <td class="name">
         City:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -194,7 +194,7 @@
       <td class="name">
         State:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/>
       </td>
    </tr>
@@ -211,7 +211,7 @@
       <td class="name">
         Postal Code:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -228,7 +228,7 @@
       <td class="name">
         Province:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -246,7 +246,7 @@
       <td class="name">
         Handle:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -263,7 +263,7 @@
       <td class="name">
         Password:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.PASSWORD%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -280,7 +280,7 @@
       <td class="name">
         Confirm Password:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -297,7 +297,7 @@
       <td class="name">
         Email Address:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -314,7 +314,7 @@
       <td class="name">
         Confirm Email Address:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -331,7 +331,7 @@
       <td class="name">
         Phone Number:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>" size="15" maxlength="<%=Constants.MAX_PHONE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -348,7 +348,7 @@
       <td class="name">
         Quote:
       </td>
-      <td>
+      <td class="value">
         <tc-webtag:textInput name="<%=Constants.QUOTE%>" size="50" maxlength="<%=Constants.MAX_QUOTE_LENGTH%>" editable="true"/>
       </td>
    </tr>
@@ -365,7 +365,7 @@
       <td class="name">
          Email Notifications:
       </td>
-      <td>
+      <td class="value">
     <c:forEach items="${notifications}" var="notif">
         <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" /><br>
     </c:forEach>
@@ -385,7 +385,7 @@
       <td class="name">
          Country: 
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
       </td>
    </tr>
@@ -403,7 +403,7 @@
       <td class="name">
          Country to represent:
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
       </td>
    </tr>
@@ -420,7 +420,7 @@
       <td class="name">
          Timezone:
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
       </td>
    </tr>
@@ -437,7 +437,7 @@
       <td class="name">
          Coder Type:
       </td>
-      <td>
+      <td class="value">
          <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>
       </td>
    </tr>
