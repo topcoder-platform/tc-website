@@ -69,8 +69,7 @@
         </form>
 
         <br><br>
-        <strong>OR</strong>
-        <br><br>
+        <strong>OR</strong><br>
         If your school is not in the list above, click
         <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
         your school.
