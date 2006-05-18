@@ -3122,7 +3122,7 @@ public class DocumentManagerBean implements SessionBean {
                             isApproved = rs2.getBoolean(4);
                             comments = rs2.getString(5);
         
-                            finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
+                            finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
                                     reviewVersionId, isApproved, comments);
                         } else {
                             finalReview = new FinalReview(-1, null, aggWorksheet,
