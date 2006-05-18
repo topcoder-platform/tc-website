@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
     <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_main"/>
+        <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
 
@@ -53,7 +53,7 @@
         <form action="" method="POST" name="schoolAddForm">
             <strong>School Name:</strong><br>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
-            <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
+            <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
             <strong>Country:</strong><br>
             <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
