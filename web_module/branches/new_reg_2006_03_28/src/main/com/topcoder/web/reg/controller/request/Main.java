@@ -4,6 +4,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
+import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.*;
 
 import java.util.HashSet;
@@ -19,7 +20,7 @@ public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
         if (getRegUser()==null||getRegUser().isNew() || userLoggedIn()) {
-            com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate regTypeDAO = new com.topcoder.web.reg.dao.hibernate.RegistrationTypeDAOHibernate();
+            RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             List types = regTypeDAO.getRegistrationTypes();
 
             RegistrationType rt;
@@ -57,7 +58,6 @@ public class Main extends Base {
                 }
                 setRegUser(u);
             }
-            setMainDefaults(u);
 
 
             if (requestedTypes.isEmpty()) {
@@ -69,6 +69,7 @@ public class Main extends Base {
             } else {
                 //todo if they are attempting to register for high school, and they are not eligible,
                   //todo give them a message saying they are not eligible to register for highschool
+                setMainDefaults(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
                 if (nots!=null) {

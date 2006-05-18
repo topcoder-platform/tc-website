@@ -29,7 +29,11 @@ public class Confirm extends Base {
             log.debug(fields.size() + " fields found");
 
             if (hasErrors()) {
-                setSecondaryDefaults(u, fields);
+                Map.Entry me;
+                for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
+                    me = (Map.Entry) it.next();
+                    setDefault((String) me.getKey(), me.getValue());
+                }
                 getRequest().setAttribute(Constants.FIELDS, fields);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
                 setNextPage("/secondary.jsp");

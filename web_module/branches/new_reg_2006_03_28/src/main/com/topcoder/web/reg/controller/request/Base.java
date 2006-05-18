@@ -25,7 +25,7 @@ abstract class Base extends HibernateProcessor {
     private User user = null;
 
     protected void dbProcessing() throws Exception {
-            registrationProcessing();
+        registrationProcessing();
     }
 
 
@@ -261,7 +261,7 @@ abstract class Base extends HibernateProcessor {
         if (u.getPrimaryPhoneNumber() != null) {
             setDefault(Constants.PHONE_NUMBER, u.getPrimaryPhoneNumber().getNumber());
         }
-        if (u.getCoder() != null && u.getCoder().getCompCountry()!=null) {
+        if (u.getCoder() != null && u.getCoder().getCompCountry() != null) {
             setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountry().getCode());
             if (u.getCoder().getCoderType() != null) {
                 setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
@@ -292,16 +292,16 @@ abstract class Base extends HibernateProcessor {
                 ret.put(key, getTrimmedParameter(key));
             }
         }
-        log.debug("got: " + Constants.SCHOOL_ID + " " +  getTrimmedParameter(Constants.SCHOOL_ID));
-        log.debug("got: " + Constants.SCHOOL_CITY + " " +  getTrimmedParameter(Constants.SCHOOL_CITY));
-        log.debug("got: " + Constants.SCHOOL_STATE + " " +  getTrimmedParameter(Constants.SCHOOL_STATE));
-        log.debug("got: " + Constants.SCHOOL_COUNTRY + " " +  getTrimmedParameter(Constants.SCHOOL_COUNTRY));
-        log.debug("got: " + Constants.SCHOOL_PROVINCE + " " +  getTrimmedParameter(Constants.SCHOOL_PROVINCE));
-        log.debug("got: " + Constants.SCHOOL_NAME + " " +  getTrimmedParameter(Constants.SCHOOL_NAME));
-        log.debug("got: " + Constants.SCHOOL_TYPE + " " +  getTrimmedParameter(Constants.SCHOOL_TYPE));
-        log.debug("got: " + Constants.VISIBLE_SCHOOL + " " +  getTrimmedParameter(Constants.VISIBLE_SCHOOL));
-        log.debug("got: " + Constants.GPA_SCALE + " " +  getTrimmedParameter(Constants.GPA_SCALE));
-        log.debug("got: " + Constants.GPA + " " +  getTrimmedParameter(Constants.GPA));
+        log.debug("got: " + Constants.SCHOOL_ID + " " + getTrimmedParameter(Constants.SCHOOL_ID));
+        log.debug("got: " + Constants.SCHOOL_CITY + " " + getTrimmedParameter(Constants.SCHOOL_CITY));
+        log.debug("got: " + Constants.SCHOOL_STATE + " " + getTrimmedParameter(Constants.SCHOOL_STATE));
+        log.debug("got: " + Constants.SCHOOL_COUNTRY + " " + getTrimmedParameter(Constants.SCHOOL_COUNTRY));
+        log.debug("got: " + Constants.SCHOOL_PROVINCE + " " + getTrimmedParameter(Constants.SCHOOL_PROVINCE));
+        log.debug("got: " + Constants.SCHOOL_NAME + " " + getTrimmedParameter(Constants.SCHOOL_NAME));
+        log.debug("got: " + Constants.SCHOOL_TYPE + " " + getTrimmedParameter(Constants.SCHOOL_TYPE));
+        log.debug("got: " + Constants.VISIBLE_SCHOOL + " " + getTrimmedParameter(Constants.VISIBLE_SCHOOL));
+        log.debug("got: " + Constants.GPA_SCALE + " " + getTrimmedParameter(Constants.GPA_SCALE));
+        log.debug("got: " + Constants.GPA + " " + getTrimmedParameter(Constants.GPA));
 
         ret.put(Constants.SCHOOL_ID, getTrimmedParameter(Constants.SCHOOL_ID));
         ret.put(Constants.SCHOOL_CITY, getTrimmedParameter(Constants.SCHOOL_CITY));
@@ -371,11 +371,10 @@ abstract class Base extends HibernateProcessor {
             }
         }
 
-
         //we'll use school id as an indicator for all of school
         if (fields.contains(Constants.SCHOOL_ID)) {
-            String id =(String)params.get(Constants.SCHOOL_ID);
-            if (id!=null&&!"".equals(id)) {
+            String id = (String) params.get(Constants.SCHOOL_ID);
+            if (id != null && !"".equals(id)) {
                 //if it's an existing school
                 simpleValidation(SchoolIdValidator.class, fields, params, Constants.SCHOOL_ID);
             } else {
@@ -408,8 +407,8 @@ abstract class Base extends HibernateProcessor {
             simpleValidation(GPAScaleValidator.class, fields, params, Constants.GPA_SCALE);
             if (!hasError(Constants.GPA_SCALE)) {
                 if (fields.contains(Constants.GPA)) {
-                    ValidationResult gpaResult = new GPAValidator((String)params.get(Constants.GPA_SCALE)).validate(
-                            new StringInput((String)params.get(Constants.GPA)));
+                    ValidationResult gpaResult = new GPAValidator((String) params.get(Constants.GPA_SCALE)).validate(
+                            new StringInput((String) params.get(Constants.GPA)));
                     if (!gpaResult.isValid()) {
                         addError(Constants.GPA, gpaResult.getMessage());
                     }
@@ -460,74 +459,62 @@ abstract class Base extends HibernateProcessor {
     }
 
 
-    protected void setSecondaryDefaults(User u, Set secondaryFields) {
-        if (secondaryFields.contains(Constants.DEMOG_PREFIX)) {
-            Set responses = u.getDemographicResponses();
-            DemographicResponse r;
-            HashMap multiAnswerMap = new HashMap();
-            for (Iterator it = responses.iterator(); it.hasNext();) {
-                r = (DemographicResponse) it.next();
-                if (r.getQuestion().isSingleSelect()) {
-                    setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
-                } else if (r.getQuestion().isFreeForm()) {
-                    setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
-                } else if (r.getQuestion().isMultipleSelect()) {
-                    ArrayList al = new ArrayList();
-                    if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
-                        al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
-                    }
-                    al.add(String.valueOf(r.getAnswer().getId()));
-                    multiAnswerMap.put(r.getQuestion().getId(), al);
+    protected void setSecondaryDefaults(User u) {
+        Set responses = u.getDemographicResponses();
+        DemographicResponse r;
+        HashMap multiAnswerMap = new HashMap();
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            r = (DemographicResponse) it.next();
+            if (r.getQuestion().isSingleSelect()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), String.valueOf(r.getAnswer().getId()));
+            } else if (r.getQuestion().isFreeForm()) {
+                setDefault(Constants.DEMOG_PREFIX + r.getQuestion().getId(), r.getResponse());
+            } else if (r.getQuestion().isMultipleSelect()) {
+                ArrayList al = new ArrayList();
+                if (multiAnswerMap.containsKey(r.getQuestion().getId())) {
+                    al = (ArrayList) multiAnswerMap.get(r.getQuestion().getId());
                 }
-            }
-            for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
-                Long questionId = (Long) it.next();
-                setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
+                al.add(String.valueOf(r.getAnswer().getId()));
+                multiAnswerMap.put(r.getQuestion().getId(), al);
             }
         }
+        for (Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            Long questionId = (Long) it.next();
+            setDefault(Constants.DEMOG_PREFIX + questionId, multiAnswerMap.get(questionId));
+        }
         School s = null;
-        if (u.getCoder()!=null &&
-                u.getCoder().getCurrentSchool()!=null &&
-                u.getCoder().getCurrentSchool().getSchool()!=null) {
+        if (u.getCoder() != null &&
+                u.getCoder().getCurrentSchool() != null &&
+                u.getCoder().getCurrentSchool().getSchool() != null) {
             s = u.getCoder().getCurrentSchool().getSchool();
         }
 
-        if (s!=null) {
-            if (secondaryFields.contains(Constants.SCHOOL_ID)) {
-                if (s.getId()!=null) {
-                    setDefault(Constants.SCHOOL_ID, s.getId().toString());
-                }
+        if (s != null) {
+            if (s.getId() != null) {
+                setDefault(Constants.SCHOOL_ID, s.getId().toString());
             }
-            if (secondaryFields.contains(Constants.SCHOOL_NAME)) {
-                setDefault(Constants.SCHOOL_NAME, s.getName());
-            }
-            Address a =s.getAddress();
-            if (a!=null) {
-                if (secondaryFields.contains(Constants.SCHOOL_CITY)) {
-                    setDefault(Constants.SCHOOL_NAME, a.getCity());
+            setDefault(Constants.SCHOOL_NAME, s.getName());
+            setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
+            setDefault(Constants.SCHOOL_TYPE, u.getCoder().getCurrentSchool().getViewable().toString());
+            setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
+            setDefault(Constants.GPA_SCALE, u.getCoder().getCurrentSchool().getGPAScale().toString());
+
+            Address a = s.getAddress();
+            if (a != null) {
+                setDefault(Constants.SCHOOL_NAME, a.getCity());
+                State state = a.getState();
+                if (state != null) {
+                    setDefault(Constants.SCHOOL_NAME, state.getCode());
                 }
-                if (secondaryFields.contains(Constants.SCHOOL_STATE)) {
-                    State state = a.getState();
-                    if (state!=null) {
-                        setDefault(Constants.SCHOOL_NAME, state.getCode());
-                    }
-                }
-                if (secondaryFields.contains(Constants.SCHOOL_PROVINCE)) {
-                    setDefault(Constants.SCHOOL_NAME, a.getProvince());
-                }
-                if (secondaryFields.contains(Constants.SCHOOL_COUNTRY)) {
-                    setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
-                }
+                setDefault(Constants.SCHOOL_NAME, a.getProvince());
+                setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
             }
         }
 
-        if (secondaryFields.contains(Constants.RESUME)) {
-            if (u.getCoder()!=null&&!u.getCoder().getResumes().isEmpty()) {
-                Iterator it = u.getCoder().getResumes().iterator();
-                setDefault(Constants.FILE_NAME, ((Resume)it.next()).getFileName());
-            }
+        if (u.getCoder() != null && !u.getCoder().getResumes().isEmpty()) {
+            Iterator it = u.getCoder().getResumes().iterator();
+            setDefault(Constants.FILE_NAME, ((Resume) it.next()).getFileName());
         }
-
 
 
     }
@@ -555,7 +542,7 @@ abstract class Base extends HibernateProcessor {
     }
 
     protected boolean hasParameter(Map params, String key) {
-        return params.get(key)!=null;
+        return params.get(key) != null;
     }
 
     /**
