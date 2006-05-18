@@ -69,6 +69,10 @@ function popHide(){
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
+
+<c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
+            <tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator>
+
         <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regTypeKey"/>
         <c:forEach items="${registrationTypeList}" var="type">
             <tc-webtag:chkBox name="${regTypeKey}${type.id}"/> <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
