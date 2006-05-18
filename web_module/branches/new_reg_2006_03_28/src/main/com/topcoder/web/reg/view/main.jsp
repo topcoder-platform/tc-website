@@ -49,7 +49,7 @@
 <c:if test="${cf:contains(fields, givenName)}">
    <tr>
       <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -66,7 +66,7 @@
 <c:if test="${cf:contains(fields, surname)}">
    <tr>
       <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -83,7 +83,7 @@
 <c:if test="${cf:contains(fields, title)}">
    <tr>
       <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -100,7 +100,7 @@
 <c:if test="${cf:contains(fields, companyName)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -117,7 +117,7 @@
 <c:if test="${cf:contains(fields, address1)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -134,7 +134,7 @@
 <c:if test="${cf:contains(fields, address2)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -151,7 +151,7 @@
 <c:if test="${cf:contains(fields, address3)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -168,7 +168,7 @@
 <c:if test="${cf:contains(fields, city)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -186,7 +186,7 @@
 <c:if test="${cf:contains(fields, stateCode)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -203,7 +203,7 @@
 <c:if test="${cf:contains(fields, postalCode)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -220,7 +220,7 @@
 <c:if test="${cf:contains(fields, province)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -237,7 +237,7 @@
 <c:if test="${cf:contains(fields, countryCode)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -255,7 +255,7 @@
 <c:if test="${cf:contains(fields, compCountryCode)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMP_COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -272,7 +272,7 @@
 <c:if test="${cf:contains(fields, timeZone)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.TIMEZONE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.TIMEZONE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -289,7 +289,7 @@
 <c:if test="${cf:contains(fields, handle)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -306,7 +306,7 @@
 <c:if test="${cf:contains(fields, password)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -323,7 +323,7 @@
 <c:if test="${cf:contains(fields, passwordConfirm)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -340,7 +340,7 @@
 <c:if test="${cf:contains(fields, phoneNumber)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -357,7 +357,7 @@
 <c:if test="${cf:contains(fields, quote)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.QUOTE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -374,7 +374,7 @@
 <c:if test="${cf:contains(fields, email)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -391,7 +391,7 @@
 <c:if test="${cf:contains(fields, emailConfirm)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -408,7 +408,7 @@
 <c:if test="${cf:contains(fields, notification)}">
    <tr>
     <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"><%=err%><br/></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>
@@ -428,7 +428,7 @@
 <c:if test="${cf:contains(fields, coderType)}">
    <tr>
       <td colspan="2"><span class="bigRed">
-            <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator></span>
+            <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br></tc-webtag:errorIterator></span>
       </td>
    </tr>
    <tr>

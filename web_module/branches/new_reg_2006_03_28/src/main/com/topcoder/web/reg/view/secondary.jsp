@@ -18,8 +18,31 @@
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 0px 10px 0px; width: 600px; text-align: left;">
+
+     <jsp:include page="/page_title.jsp">
+         <jsp:param name="image" value="registration_w"/>
+         <jsp:param name="title" value="&#160;"/>
+     </jsp:include>
+
+   <div id="regBcContainer">
+      <div class="regBc">
+         <div class="title">Step 3 of 6</div>
+         <div class="off">Select Your Registration</div>
+         <div class="off">General</div>
+         <div class="on">Demographics</div>
+         <div class="off">Confirm</div>
+         <div class="off">Success</div>
+         <div class="off">Activation</div>
+      </div>
+   </div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" enctype="multipart/form-data">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
     <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
@@ -62,7 +85,7 @@
         <rt:questionIterator id="assignment" list="${demographicAssignments}">
             <p>
                 <tc-webtag:errorIterator id="err" name="${demogPrefix}${assignment.question.id}">${err}
-                    <br/></tc-webtag:errorIterator>
+                    <br></tc-webtag:errorIterator>
             </p>
 
             <p>
@@ -79,40 +102,65 @@
 
 
     <c:if test="${cf:contains(fields, schoolName)}">
-        <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br/></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br/></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br/></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br/></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br/></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br/></tc-webtag:errorIterator>
-
-        School: <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="${schoolCity}">${err}<br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolProvince}">${err}<br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>         
+      <td class="name">
+        School: 
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
         <%--School widget--%>
-        <p><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">Choose School</a></p>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      &#160;
+      </td>
+      <td class="value">
+        <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',350,450);">Choose School</a></p>
+      </td>
+   </tr>
     </c:if>
 
 
 
     <c:set value="<%=Constants.GPA%>" var="gpa"/>
     <c:if test="${cf:contains(fields, gpa)}">
-        <p>
-            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA%>"><%=err%><br/></tc-webtag:errorIterator>
-        </p>
-
-        <p>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA%>"><%=err%><br></tc-webtag:errorIterator>
+      </td>
+   </tr>
+   <tr>         
+      <td class="name">
             GPA:
+      </td>
+      <td class="value">
             <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
-        </p>
+      </td>
     </c:if>
 
     <c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
     <c:if test="${cf:contains(fields, gpaScale)}">
-        <p>
-            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br/></tc-webtag:errorIterator>
-        </p>
-
-        <p>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.GPA_SCALE%>"><%=err%><br></tc-webtag:errorIterator>
+      </td>
+   </tr>
+   <tr>         
+      <td class="name">
             GPA Scale:
+      </td>
+      <td class="value">
             <SELECT NAME="${gpaScale}">
                 <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
                 <OPTION value=""></OPTION>
@@ -121,27 +169,35 @@
                     <OPTION value="${scale}" <c:if test="${requestScoep[gpaScale]==scale}">selected="true"</c:if>>${scale}</OPTION>
                 </c:forEach>
             </SELECT>
-        </p>
+      </td>
+   </tr>
     </c:if>
 
     <%--Resume--%>
     <c:set value="<%=Constants.RESUME%>" var="resume"/>
     <c:if test="${cf:contains(fields, resume)}">
         <p>
-            <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br/></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="${resume}"><%=err%><br></tc-webtag:errorIterator>
         </p>
 
-        <p>
+      <td class="name">
             Resume: <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
             <input type="file" name="${resume}">
 
         </p>
     </c:if>
+</table>
 
+<br><br>
 
-    <a href="Javascript:document.secondaryForm.submit();">Submit</a>
+<div align="center">
+<a href="Javascript:document.secondaryForm.submit();">Submit</a>
+</div>
 
 </form>
+
+   </div>
+</div>
 
 </body>
 </html>
