@@ -28,15 +28,18 @@
        </tr>
    </table>
 
-   <div class="regBc">
-      <div class="title">Step 1 of 6</div>
-      <div class="off">Select Your Registration</div>
-      <div class="on">General</div>
-      <div class="off">Demographics</div>
-      <div class="off">Confirm</div>
-      <div class="off">Success</div>
-      <div class="off">Activation</div>
+   <div id="regBcContainer">
+      <div class="regBc">
+         <div class="title">Step 1 of 6</div>
+         <div class="off">Select Your Registration</div>
+         <div class="on">General</div>
+         <div class="off">Demographics</div>
+         <div class="off">Confirm</div>
+         <div class="off">Success</div>
+         <div class="off">Activation</div>
+      </div>
    </div>
+
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
 
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
