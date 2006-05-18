@@ -30,7 +30,7 @@
 
    <div id="regBcContainer">
       <div class="regBc">
-         <div class="title">Step 1 of 6</div>
+         <div class="title">Step 2 of 6</div>
          <div class="off">Select Your Registration</div>
          <div class="on">General</div>
          <div class="off">Demographics</div>
@@ -361,16 +361,16 @@
         <tc-webtag:errorIterator id="err" name="<%=Constants.NOTIFICATION%>"><%=err%><br/></tc-webtag:errorIterator></span>
       </td>
    </tr>
-    <c:forEach items="${notifications}" var="notif">
    <tr>
-      <td>
-         &#160;
+      <td class="name">
+         Email Notifications:
       </td>
       <td>
-        <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" />  
+    <c:forEach items="${notifications}" var="notif">
+        <tc-webtag:chkBox name="${notification}${notif.id}"/> <c:out value="${notif.name}" /><br>
+    </c:forEach>
       </td>
    </tr>
-    </c:forEach>
 </c:if>
 
 
@@ -444,6 +444,7 @@
 </c:if>
 </table>
 
+<br><br>
 
 <div align="center">
 <a href="Javascript:document.mainForm.submit();">Submit</a>
