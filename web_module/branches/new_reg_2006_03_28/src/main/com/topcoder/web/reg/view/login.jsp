@@ -10,6 +10,9 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_reg"/>
+    </jsp:include>
 
     <script type="text/javascript">
         function submitEnter(e) {
@@ -34,62 +37,69 @@
 
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td class="bodyText" width="100%">
-                        <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
+     <jsp:include page="/page_title.jsp">
+         <jsp:param name="image" value="registration_w"/>
+         <jsp:param name="title" value="&#160;"/>
+     </jsp:include>
 
-                        <p><b>Forgot your password?</b><br/>
-                            If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click
-                            here</A>
-                            and we can send it to you via email.</p>
-                    </td>
-                </tr>
-                <tr valign="middle">
-                    <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                        <input type="hidden" name="module" value="Login">
-                        <td class="bodyText" align="center">
-                            <table border="0" cellpadding="3" cellspacing="0">
-                                <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                                </td></tr>
-                                <tr valign="top">
-                                    <td class="errorText" colspan="3">
-                                        <p><%= message %></p>
-                                    </td>
-                                </tr>
+   <strong>Forgot your password?</strong>
+   <br><br>
+   If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click
+   here</A>
+   and we can send it to you via email.</p>
+  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+      <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+      <input type="hidden" name="module" value="Login">
+      
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tr>
+      <td colspan="2"><span class="bigRed">
+         <%= message %>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Handle:
+      </td>
+      <td class="value">
+      <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Password:
+      </td>
+      <td class="value">
+         <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      &#160;
+      </td>
+      <td class="value">
+         <a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
+      </td>
+   </tr>
+</table>
 
-                                <tr valign="middle">
-                                    <td nowrap class="bodyText" align="right">Handle:</td>
-                                    <td colspan="2" align="left">
-                                        <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                    </td>
-                                </tr>
+          <p><br/></p>
 
-                                <tr valign="middle">
-                                    <td nowrap class="bodyText" align="right">Password:</td>
-                                    <td align="left">
-                                        <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                    </td>
-                                    <td nowrap class="bodyText">
-                                        &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
-                                    </td>
-                                </tr>
+          <script type="text/javascript">
+              document.frmLogin.<%=Login.USER_NAME%>.focus();
+          </script>
 
+  </form>
 
-                                <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                                </td></tr>
-                            </table>
-                            <p><br/></p>
+   </div>
+</div>
 
-                            <script type="text/javascript">
-                                document.frmLogin.<%=Login.USER_NAME%>.focus();
-                            </script>
-
-                        </td>
-                    </form>
-                </tr>
-            </table>
 </body>
 </html>
