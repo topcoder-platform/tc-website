@@ -105,7 +105,7 @@
                 :
             </td>
             <td class="value">
-                <rt:demographicInput question="${assignment.question}"/><br />
+                <rt:demographicInput question="${assignment.question}"/><c:if test="${assignment.question.description!=null}">${assignment.question.description}<br /></c:if>
                ${assignment.question.description}
             </td>
         </tr>
