@@ -149,12 +149,12 @@ Teams |
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="4">Top Ranked > High School Coders</td></tr>
+   <tr><td class="title" colspan="4">Top Ranked > High School Teams</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="30%"><A href="javascript:clickColumn(0)">Team</A></td>
-      <td class="header" width="70%"><A href="javascript:clickColumn(1)">Member Count</A></td>
-      <td class="header"><A href="javascript:clickColumn(2)">Rating</A></td>
+      <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
+      <td class="header"><A href="javascript:clickColumn(1)">Member Count</A></td>
+      <td class="header"><A href="javascript:clickColumn(2)">Team Points</A></td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= result%>" id="resultRow">
@@ -163,7 +163,7 @@ Teams |
 	      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
 	      <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
 	      <td class="value"><rsc:item name="member_count" row="<%=resultRow%>"/></td>
-	      <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+	      <td class="valueR"><rsc:item name="team_points" row="<%=resultRow%>"/></td>
 	   </tr>
    </rsc:iterator>
 </table>

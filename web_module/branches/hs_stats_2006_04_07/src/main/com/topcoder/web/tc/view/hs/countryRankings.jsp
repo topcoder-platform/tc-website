@@ -112,8 +112,8 @@ Countries
    <tr><td class="title" colspan="4">Top Ranked > High School Countries</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="30%"><A href="javascript:clickColumn(0)">Country</A></td>
-      <td class="header" width="70%"><A href="javascript:clickColumn(1)">Member Count</A></td>
+      <td class="header"><A href="javascript:clickColumn(0)">Country</A></td>
+      <td class="header"><A href="javascript:clickColumn(1)">Member Count</A></td>
       <td class="header"><A href="javascript:clickColumn(2)">Rating</A></td>
    </tr>
    <% boolean even = false; %>
