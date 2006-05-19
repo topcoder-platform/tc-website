@@ -99,6 +99,7 @@ function submitEnter(e) {
    </tr>
 </table>
 </form>
+</div>
 
    </div>
 </div>
