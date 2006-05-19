@@ -59,12 +59,8 @@
       <input type="hidden" name="module" value="Login">
       
 <div align="center">
+<%= message %>
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-   <tr>
-      <td colspan="2"><span class="bigRed">
-         <%= message %>
-      </td>
-   </tr>
    <tr>
       <td class="name">
       Handle:
