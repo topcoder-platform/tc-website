@@ -140,8 +140,8 @@ function clickColumn(n)
 
 <span class="bc">
 Coders | 
-<a href="" class="bcLink">Teams</a> | 
-<a href="" class="bcLink">Countries</a>
+<a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> | 
+<a href="/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>" class="bcLink">Countries</a>
 </span>
 <div class="pagingBox">
 <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
@@ -152,8 +152,8 @@ Coders |
    <tr><td class="title" colspan="4">Top Ranked > High School Coders</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="30%"><A href="javascript:clickColumn(0)">Team</A></td>
-      <td class="header" width="70%"><A href="javascript:clickColumn(1)">Coder</A></td>
+      <td class="header" width="30%"><A href="javascript:clickColumn(0)">Coder</A></td>
+      <td class="header" width="70%"><A href="javascript:clickColumn(1)">Team</A></td>
       <td class="header"><A href="javascript:clickColumn(2)">Rating</A></td>
    </tr>
    <% boolean even = false; %>
@@ -164,12 +164,7 @@ Coders |
 	      <td class="value">
 	                       <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
 	      </td>
-	      <td class="value">
-	                   <A href='/tc?module=HSTeamRank&tmid=<%= resultRow.getItem("team_id") %>' >
-	                   <rsc:item name="name" row="<%=resultRow%>"/></td>
-	                   </A>
-	      
-	      </td>
+	      <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
 	      <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 	   </tr>
    </rsc:iterator>
