@@ -105,6 +105,14 @@ left: 0px;
 </div>
 <%---------------------------------%>
 
+<%--
+<div id="register_now_container" style="position:absolute; left:100%; top:0px;">
+   <div style="position:absolute; left:-127px; top:31px;">
+   <A href="/reg/"><img src="/i/interface/register_now.gif" alt="" /></A>
+   </div>
+</div>
+--%>
+
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
       <div id="innerLogo">
