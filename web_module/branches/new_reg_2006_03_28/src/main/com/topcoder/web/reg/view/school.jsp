@@ -53,7 +53,7 @@
         <c:if test="${results!=null}">
             <c:choose>
                 <c:when test="${fn:length(results)==0}">
-                    <span class="bigReg">Your search returned no records.</span><br /><br />
+                    <span class="bigRed">Your search returned no records.</span><br /><br />
                     You may search again or click
                         <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
                         your school.
