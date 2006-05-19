@@ -339,7 +339,7 @@
 <c:if test="${cf:contains(fields, demogPrefix)}">
 
 
-    <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
+    <rt:responseIterator id="resp" collection="${regUser.transientResponses}">
    <tr>
      <td class="name"><rt:demographicQuestionText response="${resp}"/>:
       </td>
