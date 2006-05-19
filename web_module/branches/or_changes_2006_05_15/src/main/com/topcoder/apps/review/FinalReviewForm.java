@@ -278,12 +278,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * form bean.
      */
     protected void fromReview(FinalReview finalReview) {
-        AggregationResponse[] responses = null;
-        if (finalReview.getFixCheckList() != null) {
-            responses = new AggregationResponse[finalReview.getFixCheckList().length];
-        } else {
-            responses = new AggregationResponse[0];
-        }
+        AggregationResponse[] responses = new AggregationResponse[finalReview.getFixCheckList().length];
                     
         BusinessDelegate businessDelegate = new BusinessDelegate();
 
