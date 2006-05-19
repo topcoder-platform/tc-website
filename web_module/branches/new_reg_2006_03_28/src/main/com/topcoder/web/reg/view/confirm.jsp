@@ -294,7 +294,7 @@
 
 <c:set value="<%=Constants.NOTIFICATION%>" var="notification"/>
 <c:if test="${cf:contains(fields, notification)}">
-    <c:forEach items="${notifications}" var="notif">
+    <c:forEach items="${regUser.notifications}" var="notif">
    <tr>
         <td class="name">&#160;
       </td>
