@@ -18,12 +18,14 @@ public class HandleTag extends TagSupport {
     private String cssclass = "";
     private boolean darkBG = false;
     private boolean algorithm = false;
+    private boolean hsAlgorithm = false;
     private boolean design = false;
     private boolean development = false;
     private boolean component = false;
 
     public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&cr=";
     public final static String ALGORITHM = "algorithm";
+    public final static String HS_ALGORITHM = "hs_algorithm";
     public final static String DESIGN = "design";
     public final static String DEVELOPMENT = "development";
     public final static String COMPONENT = "component";
@@ -66,6 +68,7 @@ public class HandleTag extends TagSupport {
 
     public void setContext(String s) {
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
+        if (s.toLowerCase().trim().equals(HS_ALGORITHM)) hsAlgorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
         if (s.toLowerCase().trim().equals(DEVELOPMENT)) development = true;
         if (s.toLowerCase().trim().equals(COMPONENT)) component = true;
@@ -101,6 +104,8 @@ public class HandleTag extends TagSupport {
             output.append(link);
             if (algorithm && rsc.getIntItem(0, "algorithm_rating")>0) {
                 output.append("&tab=alg");
+            } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating")>0) {
+                output.append("&tab=hsa");
             } else if (design && rsc.getIntItem(0, "design_rating")>0) {
                 output.append("&tab=des");
             } else if (development && rsc.getIntItem(0, "development_rating")>0) {
@@ -124,6 +129,8 @@ public class HandleTag extends TagSupport {
                 int rating = 0;
                 if (algorithm) {
                     rating = rsc.getIntItem(0, "algorithm_rating");
+                } else if (hsAlgorithm) {
+                    rating = rsc.getIntItem(0, "hs_algorithm_rating");
                 } else if (design) {
                     rating = rsc.getIntItem(0, "design_rating");
                 } else if (development) {
