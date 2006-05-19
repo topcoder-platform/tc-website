@@ -24,7 +24,8 @@
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Your account is not active.</strong><br>
+   <strong>Your account is not active.</strong>
+   <br><br>
    Please review the activation email that was sent to you after registration.
    <br><br>
 

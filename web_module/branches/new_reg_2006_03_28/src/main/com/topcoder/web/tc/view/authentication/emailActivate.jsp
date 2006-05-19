@@ -41,7 +41,8 @@ function submitEnter(e) {
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Invalid email addresss.</strong><br>
+   <strong>Invalid email addresss.</strong>
+   <br><br>
    We have determined that there is a problem with the email address currently associated with your account.
    In order to participate in TopCoder, you will have to maintain a valid email address.  Please enter your
    handle, password and valid email address below.  Your account will be updated and an email sent to the

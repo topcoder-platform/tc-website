@@ -23,7 +23,8 @@
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Email sent.</strong><br>
+   <strong>Email sent.</strong>
+   <br><br>
    An email has been sent to your updated email address.  Please use it to reactivate your account.
    <br><br>
 

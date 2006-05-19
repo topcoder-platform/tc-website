@@ -27,9 +27,10 @@
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Your account has been successfully activated. Thank You!</strong><br>
+   <strong>Your account has been successfully activated. Thank You!</strong>
+   <br><br>
    <A HREF="/tc?&module=Login&<%=BaseServlet.NEXT_PAGE_KEY%>=/" class="bodyText">Click here</A> to login to your account.
-   <br>
+   <br><br>
          
    </div>
 </div>
