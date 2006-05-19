@@ -47,10 +47,10 @@
 
 <br><br>
 <%------------------ COMPETITOR------------------%>
-<div style="clear:both;color:#FFFFFF;background: #FFFFFF url(/i/registration/head_bg.jpg center left repeat-y;"><span class="subtitle">As a Registered Competitor</span></div>
+<div class="regHead">As a Registered Competitor</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="/tc"><img src="/i/registration/competitor_howto.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/tc"><img src="/i/registration/competitor_howto.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%"><strong>Learn how to compete</strong><br>
          <A href="/tc?module=Static&d1=help&d2=index">Algorithm</A><br>
          <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Software Design</A><br>
@@ -59,7 +59,7 @@
       </td>
    </tr>
    <tr>
-      <td class="image"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/registration/the_digital_run.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/registration/the_digital_run.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%"><strong>The Digital Run</strong><br>
          Rewarding the top software designers and developers. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple. 
       </td>
@@ -68,16 +68,16 @@
 
 <br><br>
 <%------------------ HIGH SCHOOL------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered High School Competitor</span></div>
+<div class="regHead">As a Registered High School Competitor</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="/tc?module=Static&d1=hs&d2=support&d3=index"><img src="/i/registration/hs_howto.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/tc?module=Static&d1=hs&d2=support&d3=index"><img src="/i/registration/hs_howto.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%"><strong>How to compete</strong><br>
          Take a look at our <A href="/tc?module=Static&d1=hs&d2=support&d3=index">How to Compete</A> guide.
       </td>
    </tr>
    <tr>
-      <td class="image"><A href="/tc?module=Static&d1=tutorials&d2=alg_index"><img src="/i/registration/hs_education.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/tc?module=Static&d1=tutorials&d2=alg_index"><img src="/i/registration/hs_education.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%"><strong>Learn more</strong><br>
          Our <A href="/tc?module=Static&d1=tutorials&d2=alg_index">Educational Content</A> has volumes of helpful information on how to be a better programmer, as well as how to be a better TopCoder competitor.
       </td>
@@ -86,10 +86,10 @@
 
 <br><br>
 <%------------------ TCS------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered TopCoder Software Customer</span></div>
+<div class="regHead">As a Registered TopCoder Software Customer</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
          <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about/explanationMovie.jsp">How it works</A><br>
          <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp">Who it's working for</A><br>
@@ -100,10 +100,10 @@
 
 <br><br>
 <%------------------ CORP ------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered Corporate Services Member</span></div>
+<div class="regHead">As a Registered Corporate Services Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
          <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=market_tourny">Sponsor an event</A><br>
          <A href="/pl/">Host your own event, Powered by TopCoder</A><br>
@@ -114,10 +114,10 @@
 
 <br><br>
 <%------------------ MINIMAL - BUT SHOW THIS WITH ALL REGISTRATIONS, SO I GUESS JUST LEAVE IT ON BOTTOM WITH NO LOGIC ------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered TopCoder Member</span></div>
+<div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
-      <td class="image"><A href="/"><img src="/i/registration/minimal.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
+      <td class="image"><A href="/"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>
       <td class="text" width="100%">
       As a TopCoder member you now have access to all <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">TopCoder Forums</A> and the ability to view all statistical content on the website.  Enjoy.
       </td>
