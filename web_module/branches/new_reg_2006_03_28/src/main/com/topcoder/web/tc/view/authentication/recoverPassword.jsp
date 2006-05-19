@@ -11,7 +11,7 @@
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
+<jsp:param name="key" value="tc_reg"/>
 </jsp:include>
 
 <SCRIPT type="text/javascript">
@@ -57,7 +57,7 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td class="name">
-         First Name
+         First Name:
       </td>
       <td class="value">
          <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
@@ -70,7 +70,7 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td class="name">
-         Last Name
+         Last Name:
       </td>
       <td class="value">
          <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
@@ -83,7 +83,7 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td class="name">
-         Email Address
+         Email Address:
       </td>
       <td class="value">
          <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
