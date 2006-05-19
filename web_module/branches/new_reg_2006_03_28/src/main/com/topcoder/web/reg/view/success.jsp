@@ -47,7 +47,7 @@
 
 <br><br>
 <%------------------ COMPETITOR------------------%>
-<div style="clear:both;"><span class="subtitle">As a Registered Competitor</span></div>
+<div style="clear:both;color:#FFFFFF;background: #FFFFFF url(/i/registration/head_bg.jpg center left repeat-y;"><span class="subtitle">As a Registered Competitor</span></div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
    <tr>
       <td class="image"><A href="/tc"><img src="/i/registration/competitor_howto.jpg" alt="" border="0" width="100" height="100" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;" /></A></td>

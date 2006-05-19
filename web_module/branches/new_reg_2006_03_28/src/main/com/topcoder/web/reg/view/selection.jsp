@@ -50,18 +50,6 @@ function popHide(){
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <div id="regBcContainer">
-      <div class="regBc">
-         <div class="title">Step <strong>1</strong> of <strong>6</strong></div>
-         <div class="on">Select Your Registration</div>
-         <div class="off">General</div>
-         <div class="off">Demographics</div>
-         <div class="off">Confirm</div>
-         <div class="off">Success</div>
-         <div class="off">Activation</div>
-      </div>
-   </div>
-
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
    <br><br>
 
