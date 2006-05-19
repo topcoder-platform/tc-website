@@ -107,7 +107,7 @@ function clickColumn(n)
 <a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> | 
 Countries
 </span>
-
+<br><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="4">Top Ranked > High School Countries</td></tr>
    <tr>
