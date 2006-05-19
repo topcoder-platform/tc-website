@@ -179,3 +179,6 @@ insert into demographic_assignment values (1, 1, 3, 100, 'A', 1);
 insert into demographic_assignment values (18, 1, 3, 200, 'A', 1);
 insert into demographic_assignment values (23, 1, 3, 300, 'A', 1);
 insert into demographic_assignment values (26, 1, 3, 400, 'A', 1);
+
+--helper for mulitselect question
+update demographic_question set demographic_question_desc = 'Choose all that apply' where demographic_question_id = 19
