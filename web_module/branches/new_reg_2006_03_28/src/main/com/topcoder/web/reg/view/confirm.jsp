@@ -318,9 +318,13 @@
    </tr>
 </c:if>
 
-
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
-<c:if test="${cf:contains(fields, demogPrefix)}">
+<c:set value="<%=Constants.RESUME%>" var="resume"/>
+<c:set value="<%=Constants.GPA%>" var="gpa"/>
+<c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
+<c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+
+<c:if test="${cf:contains(fields, demogPrefix)||cf:contains(fields, resume)||(cf:contains(fields, gpa)&&cf:contains(fields, gpaScale))||cf:contains(fields, schoolName)}">
     <%--Demographics--%>
     <tr>
        <td class="name">
@@ -330,6 +334,10 @@
           <strong><a href="">edit</A></strong>
        </td>
     </tr>
+</c:if>
+
+<c:if test="${cf:contains(fields, demogPrefix)}">
+
 
     <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
    <tr>
@@ -343,7 +351,6 @@
 </c:if>
 
 
-<c:set value="<%=Constants.RESUME%>" var="resume"/>
 <c:if test="${cf:contains(fields, resume)}">
    <tr>
     <td class="name">
@@ -357,8 +364,6 @@
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.GPA%>" var="gpa"/>
-<c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
 <c:if test="${cf:contains(fields, gpa)&&cf:contains(fields, gpaScale)}">
    <tr>
     <td class="name">
@@ -370,7 +375,6 @@
    </tr>
 </c:if>
 
-<c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
 <c:if test="${cf:contains(fields, schoolName)}">
    <tr>
     <td class="name">
@@ -388,6 +392,8 @@
 <div align="center">
 <a href="Javascript:document.confirmForm.submit();">Submit</a>
 </div>
+
+   </div>
 </form>
 <br><br>
 
