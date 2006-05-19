@@ -78,7 +78,7 @@ function popHide(){
                 <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/></c:when>
                 <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:otherwise>
             </c:choose>
-            <c:out value="${type.name}" /> <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
+            ${type.name} <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
 
               <div id="container">
                  <div id="popUp0" class="popUp">${type.description}
