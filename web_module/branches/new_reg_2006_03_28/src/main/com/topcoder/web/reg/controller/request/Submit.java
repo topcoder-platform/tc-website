@@ -126,7 +126,7 @@ public class Submit extends Base {
         pmr.addUserToGroup(anonGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
         pmr.addUserToGroup(userGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
         //refresh the cached object
-        SecurityHelper.getUserSubject(u.getId().longValue(), true);
+        SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
     }
 
