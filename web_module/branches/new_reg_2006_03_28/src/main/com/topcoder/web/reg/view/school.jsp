@@ -15,12 +15,12 @@
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
-            function submit() {
+            function submit(name,id) {
             //set the school name and id
                 var selection = getSelectedOption("document.resultForm", "schoolSelection");
                 if (selection) {
-                    putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", selection.value);
-                    updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", selection.text);
+                    putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", id);
+                    updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", name);
                     window.close();
                 } else {
                     alert("Please make a selection before submitting.");
@@ -39,7 +39,7 @@
             <jsp:param name="title" value="School Search"/>
         </jsp:include>
 
-        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm" >
+        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="schoolSearchForm">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SchoolSearch"/>
 
             <span class="subtitle">School Search</span>
@@ -52,41 +52,31 @@
             <br>
             Use * for a wildcard character
             <br><br>
+        </form>
 
+        <c:if test="${results!=null&&!results.isEmpty}">
             <strong>Results</strong><br>
-            Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a duplicate, please choose the school with more
+            Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
+            duplicate, please choose the school with more
             associated students.
             <br><br>
             Please <strong>select</strong> your school from list below.
             <span id="submitMessage"></span>
-        </form>
-
-        <form action="" name="resultForm">
-         <select name="schoolSelection" size="4">
-             <c:forEach items="${results}" var="result">
-                 <option value="${result[1].id}">${result[1].name} ${result[0]}</option>
-             </c:forEach>
-         </select><br>
-         <a href="Javascript:submit();">Submit</a>
-        </form>
-
-        <br><br>
-         <span class="small">
-
-<%---------REPEAT THIS--------%>
-         School Name<br>
-         City, State, Postal Code, Province, Country<br>
-         Registrants: 100<br>
-         <A class="small" href="">Select</A>
-         <br><br>
-<%-----------------------------%>
-
-         </span>
-        <br><br>
-        <strong>OR</strong><br>
-        If your school is not in the list above, click
-        <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
-        your school.
+            <span class="small">
+                <c:forEach items="${results}" var="result">
+                         ${result[1].name}<br />
+                         ${result[1].address.city}, <c:if test="${result[1].address.state!=null}">${result[1].address.state.code},</c:if> <c:if test="${result[1].address.postalCode!=null}">${result[1].address.postalCode},</c:if> <c:if test="${result[1].address.province!=null}">${result[1].address.province},</c:if> ${results[1].address.country.name}<br />
+                         Registrants: ${result[0]}<br />
+                         <A class="small" href="#" onclick="Javascript:submit(${results[1].name},${results[1].id});">Select</A>
+                         <br /><br />
+                </c:forEach>
+            </span>
+            <br><br>
+            <strong>OR</strong><br>
+            If your school is not in the list above, click
+            <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
+            your school.
+        </c:if>
 
     </div>
 </div>
