@@ -99,13 +99,35 @@ public class DemographicResponse extends Base {
 
     public int hashCode() {
         StringBuffer buf = new StringBuffer(30);
-        buf.append(user.getId());
+        if (user==null) {
+            buf.append("");
+        } else if(user.getId()==null) {
+            buf.append(user.hashCode());
+        } else {
+            buf.append(user.getId());
+        }
         buf.append(" ");
-        buf.append(answer.getId());
+        if (answer==null) {
+            buf.append("");
+        } else if(answer.getId()==null) {
+            buf.append(answer.hashCode());
+        } else {
+            buf.append(answer.getId());
+        }
         buf.append(" ");
-        buf.append(question.getId());
+        if (question==null) {
+            buf.append("");
+        } else if(question.getId()==null) {
+            buf.append(question.hashCode());
+        } else {
+            buf.append(question.getId());
+        }
         buf.append(" ");
-        buf.append(response);
+        if (response==null) {
+            buf.append("");
+        } else {
+            buf.append(response.hashCode());
+        }
         return buf.toString().hashCode();
     }
 
