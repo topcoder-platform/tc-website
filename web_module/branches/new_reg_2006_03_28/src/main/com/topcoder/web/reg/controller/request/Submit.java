@@ -105,7 +105,7 @@ public class Submit extends Base {
 
         List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
         for (Iterator it = types.iterator(); it.hasNext();) {
-            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup)it.next()).getGroupId().longValue()),
+            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup)it.next()).getGroupId().longValue(),DBMS.JTS_OLTP_DATASOURCE_NAME),
                     myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
         }
 
