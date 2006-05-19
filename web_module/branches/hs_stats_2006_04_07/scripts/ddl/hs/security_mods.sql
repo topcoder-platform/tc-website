@@ -50,3 +50,19 @@ for hs_common_oltp:user_group_xref
 
 create synonym security_groups
 for hs_common_oltp:security_groups
+
+create synonym security_roles
+for hs_common_oltp:security_roles;
+
+create synonym security_perms
+for hs_common_oltp:security_perms;
+
+create synonym user_role_xref
+for hs_common_oltp:user_role_xref;
+
+create synonym group_role_xref
+for hs_common_oltp:group_role_xref;
+
+
+
+
