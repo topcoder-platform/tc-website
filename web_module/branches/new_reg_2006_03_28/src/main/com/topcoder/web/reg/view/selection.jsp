@@ -60,20 +60,22 @@ function popHide(){
             <span class="bigRed"><tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator></span>
 
         <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+        <% int i=0;%>
         <c:forEach items="${registrationTypeList}" var="type">
             <c:set value="${regType}${type.id}" var="regTypeKey"/>
             <c:choose>
                 <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/></c:when>
                 <c:otherwise><img src="/i/interface/cbox_grayedout.gif" alt=""/></c:otherwise>
             </c:choose>
-            ${type.name} <A href="javascript:void(0)" onmouseover="popUp('popUp0')" onmouseout="popHide()" >tell me more...</A><br />
+            ${type.name} <A href="javascript:void(0)" onmouseover="popUp('popUp${i}')" onmouseout="popHide()" >tell me more...</A><br />
 
               <div id="container">
-                 <div id="popUp0" class="popUp">${type.description}
+                 <div id="popUp${i}" class="popUp">${type.description}
                  </div>
               </div>
 
               <br /><br />
+            <%i++;%>
         </c:forEach>
 
       <div align="center">
