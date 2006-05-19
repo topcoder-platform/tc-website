@@ -47,6 +47,19 @@ public class DemographicQuestion extends Base {
         return id.hashCode();
     }
 
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                DemographicQuestion oa = (DemographicQuestion) o;
+                return oa.getId().equals(getId());
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
     /**
      * The we're be returning the answers in the correct order.  Really
      * this should be returning a <code>SortedSet</code> but I couldn't

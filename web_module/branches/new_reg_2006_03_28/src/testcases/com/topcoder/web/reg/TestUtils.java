@@ -110,6 +110,7 @@ public class TestUtils {
                 Util.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
         DemographicAssignment da;
         DemographicResponse dr;
+        HashSet responses = new HashSet();
         for (Iterator it = assignments.iterator(); it.hasNext();) {
             da = (DemographicAssignment)it.next();
             if (da.getQuestion().isMultipleSelect()) {
@@ -119,7 +120,7 @@ public class TestUtils {
                     dr.setQuestion(da.getQuestion());
                     dr.setAnswer((DemographicAnswer)it1.next());
                     //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                    ret.addDemographicResponse(dr);
+                    responses.add(dr);
                 }
             } else if (da.getQuestion().isSingleSelect()) {
                 dr = new DemographicResponse();
@@ -128,7 +129,7 @@ public class TestUtils {
                 Iterator it1 = da.getQuestion().getAnswers().iterator();
                 dr.setAnswer((DemographicAnswer)it1.next());
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                ret.addDemographicResponse(dr);
+                responses.add(dr);
             } else if (da.getQuestion().isFreeForm()) {
                 dr = new DemographicResponse();
                 dr.setUser(ret);
@@ -136,9 +137,10 @@ public class TestUtils {
                 dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                 dr.setResponse("hell");
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
-                ret.addDemographicResponse(dr);
+                responses.add(dr);
             }
         }
+        ret.setTransientResponses(responses);
 
         return ret;
     }

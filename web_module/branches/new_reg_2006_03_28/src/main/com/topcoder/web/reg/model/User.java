@@ -206,7 +206,7 @@ public class User extends Base {
     }
 
     public Set getDemographicResponses() {
-        return Collections.unmodifiableSet(demographicResponses);
+        return demographicResponses;
     }
 
     public void setDemographicResponses(Set demographicResponses) {
@@ -216,6 +216,7 @@ public class User extends Base {
     public void addDemographicResponse(DemographicResponse response) {
         this.demographicResponses.add(response);
     }
+
 
     public void removeDemographicResponse(DemographicResponse response) {
         this.demographicResponses.remove(response);

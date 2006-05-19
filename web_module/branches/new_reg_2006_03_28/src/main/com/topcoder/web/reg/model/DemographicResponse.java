@@ -99,6 +99,7 @@ public class DemographicResponse extends Base {
 
     public int hashCode() {
         StringBuffer buf = new StringBuffer(30);
+
         if (user==null) {
             buf.append("");
         } else if(user.getId()==null) {
@@ -128,6 +129,7 @@ public class DemographicResponse extends Base {
         } else {
             buf.append(response.hashCode());
         }
+        //log.debug(buf.toString());
         return buf.toString().hashCode();
     }
 

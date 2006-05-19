@@ -78,22 +78,35 @@ public class UserDAOHibernate extends Base implements UserDAO {
             DemographicResponse goodResponse;
             for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
                 dr = (DemographicResponse) it.next();
-                log.debug("process " + dr.toString());
-                if (dr.getQuestion().isFreeForm() || dr.getQuestion().isSingleSelect()) {
-                    log.debug("free form or single");
-                    if (!u.getDemographicResponses().contains(dr)) {
-                        badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
-                        if (badResponse!=null) {
-                            log.debug("remove " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId());
-                            u.removeDemographicResponse(badResponse);
-                            badResponse.setUser(null);
-                        }
+                log.debug("process:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                if (dr.getQuestion().isSingleSelect()) {
+                    log.debug("single: " + dr.getQuestion().getId());
+                    badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
+                    if (badResponse != null) {
+                        log.debug("remove " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " size:" + u.getDemographicResponses().size());
+                        u.removeDemographicResponse(badResponse);
+                        log.debug("size after remove " + u.getDemographicResponses().size());
+                        badResponse.setUser(null);
+                    }
+                    dr.setUser(u);
+                    dr.getId().setUser(u);
+                    dr.getId().setQuestion(dr.getQuestion());
+                    dr.getId().setAnswer(dr.getAnswer());
+                    log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                    u.addDemographicResponse(dr);
+                } else if (dr.getQuestion().isFreeForm()) {
+                    log.debug("free form: " + dr.getQuestion().getId());
+                    badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
+                    if (badResponse == null) {
+                        log.debug("add " + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                         dr.setUser(u);
                         dr.getId().setUser(u);
                         dr.getId().setQuestion(dr.getQuestion());
                         dr.getId().setAnswer(dr.getAnswer());
-                        log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                         u.addDemographicResponse(dr);
+                    } else {
+                        log.debug("set " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId() + " to " + dr.getResponse());
+                        badResponse.setResponse(dr.getResponse());
                     }
                 } else if (!processedQuestions.contains(dr.getQuestion())) {
                     log.debug("multiple");
@@ -101,13 +114,11 @@ public class UserDAOHibernate extends Base implements UserDAO {
                     Set newResponses = findResponses(u.getTransientResponses(), dr.getQuestion());
                     for (Iterator itr = currResponses.iterator(); itr.hasNext();) {
                         badResponse = (DemographicResponse) itr.next();
-                        if (!newResponses.contains(badResponse)) {
-                            u.removeDemographicResponse(badResponse);
-                            badResponse.setUser(null);
-                        }
+                        u.removeDemographicResponse(badResponse);
+                        badResponse.setUser(null);
                     }
                     for (Iterator itr = newResponses.iterator(); itr.hasNext();) {
-                        goodResponse = (DemographicResponse)itr.next();
+                        goodResponse = (DemographicResponse) itr.next();
                         goodResponse.setUser(u);
                         goodResponse.getId().setUser(u);
                         goodResponse.getId().setQuestion(goodResponse.getQuestion());
@@ -119,7 +130,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
             }
             super.saveOrUpdate(u);
         }
-   }
+    }
 
     private DemographicResponse findResponse(Set responses, DemographicQuestion q) {
         boolean found = false;
@@ -128,8 +139,11 @@ public class UserDAOHibernate extends Base implements UserDAO {
             ret = (DemographicResponse) it.next();
             found = ret.getQuestion().equals(q);
         }
-        log.debug((found?"found":"didn't find") + q.toString());
-        return ret;
+        if (found) {
+            return ret;
+        } else {
+            return null;
+        }
     }
 
     private Set findResponses(Set responses, DemographicQuestion q) {
@@ -141,7 +155,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
                 ret.add(response);
             }
         }
-        log.debug("found " + ret.size() + " responses for " + q.toString());
+        log.debug("found " + ret.size() + " responses for " + q.getId());
         return ret;
     }
 }
