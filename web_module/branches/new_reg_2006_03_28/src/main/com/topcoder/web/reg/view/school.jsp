@@ -52,9 +52,13 @@
 
         <c:if test="${results!=null}">
             <c:choose>
-                <c:when test="${fn:length(results)==0}">Your search returned no records.  You may search again or click
-            <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
-            your school.</c:when>
+                <c:when test="${fn:length(results)==0}">
+                    <span class="bigReg">Your search returned no records.</span><br /><br />
+                    You may search again or click
+                        <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
+                        your school.
+
+                 </c:when>
                 <c:otherwise>
                     <strong>Results</strong><br>
                     Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
