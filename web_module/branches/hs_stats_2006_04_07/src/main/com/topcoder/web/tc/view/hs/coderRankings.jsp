@@ -85,6 +85,19 @@ function submitEnter(e)
         showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false);
     } else return true;
  }
+ 
+ 
+function clickColumn(n)
+{
+	var sd = "asc";
+    if ((n == <%= li.getSortColumn() %>) && ("asc" == "<%= li.getSortDirection() %>")) {
+            sd = "desc";
+    }
+    window.location = "/tc?module=HSRank&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
+                   "&sc=" + n + "&sd=" + sd;
+
+}
+ 
 // -->
 </script>
 </head>
@@ -139,9 +152,9 @@ Coders |
    <tr><td class="title" colspan="4">Top Ranked > High School Coders</td></tr>
    <tr>
       <td class="header">&#160;</td>
-      <td class="header" width="30%">Coder</td>
-      <td class="header" width="70%">Team</td>
-      <td class="headerR">Rating</td>
+      <td class="header" width="30%"><A href="javascript:clickColumn(0)">Team</A></td>
+      <td class="header" width="70%"><A href="javascript:clickColumn(1)">Coder</A></td>
+      <td class="header"><A href="javascript:clickColumn(2)">Rating</A></td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= result%>" id="resultRow">
