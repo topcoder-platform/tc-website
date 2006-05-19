@@ -48,11 +48,12 @@
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <strong>Forgot your password?</strong>
+   <strong>Forgot your password?</strong><br>
+   If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click here</A> and we can send it to you via email.
    <br><br>
-   If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click
-   here</A>
-   and we can send it to you via email.</p>
+   <strong>New to TopCoder?</strong><br>
+   Register now.  After you complete the registration process, we will send your account activation code via email.
+   <br><br>
   <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
       <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
       <input type="hidden" name="module" value="Login">
@@ -85,7 +86,7 @@
       &#160;
       </td>
       <td class="value">
-         <a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
+         <a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login</a>
       </td>
    </tr>
 </table>
