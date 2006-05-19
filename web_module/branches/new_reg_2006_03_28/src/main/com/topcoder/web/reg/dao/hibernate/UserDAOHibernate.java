@@ -48,9 +48,11 @@ public class UserDAOHibernate extends Base implements UserDAO {
         DemographicResponse dr;
         for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
             tr = (TransientResponse) it.next();
+            log.debug("adding response:" + tr.getQuestion().getId() + " " + tr.getAnswer().getId() + " " + tr.getResponse());
             dr = new DemographicResponse();
             dr.setAnswer(tr.getAnswer());
             dr.setQuestion(tr.getQuestion());
+            dr.setResponse(tr.getResponse());
             dr.setUser(u);
             dr.getId().setAnswer(tr.getAnswer());
             dr.getId().setQuestion(tr.getQuestion());
