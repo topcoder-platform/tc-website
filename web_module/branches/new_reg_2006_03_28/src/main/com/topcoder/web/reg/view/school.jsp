@@ -16,15 +16,9 @@
     <script language="javascript" type="text/javascript">
         <!--
             function submit(name,id) {
-            //set the school name and id
-                var selection = getSelectedOption("document.resultForm", "schoolSelection");
-                if (selection) {
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", id);
                     updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", name);
                     window.close();
-                } else {
-                    alert("Please make a selection before submitting.");
-                }
             }
         -->
     </script>
