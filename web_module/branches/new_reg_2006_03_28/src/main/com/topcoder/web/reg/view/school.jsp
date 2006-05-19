@@ -54,7 +54,7 @@
             <br><br>
         </form>
 
-        <c:if test="${results!=null&&!results.isEmpty}">
+        <c:if test="${results!=null}">
             <strong>Results</strong><br>
             Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
             duplicate, please choose the school with more
