@@ -22,15 +22,15 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
 <jsp:include page="../includes/global_left.jsp">
 <jsp:param name="node" value="competition_calendar"/>
 </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
+<%-- Center Column Begins --%>
 <td class="statTableSpacer" width="100%" valign="top">
 <div class="bodyText">
 <jsp:include page="../page_title.jsp" >
@@ -93,13 +93,13 @@
     <tr> 
         <td id="calendar">15</td>
         <td id="calendar">16</td>
-     <!--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">16</span><br />
             <strong>Match 16</strong><br />
             Register: 3:00&#160;AM<br />
             Compete: 6:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>-->
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
         <td id="calendar">17</td>
         <td id="calendarLong">
             <span id="calendarLongDate">18</span><br />
@@ -121,13 +121,13 @@
     <tr> 
         <td id="calendar">22</td>
         <td id="calendar">23</td>
-     <!--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">23</span><br />
             <strong>Match 17</strong><br />
             Register: 4:00&#160;PM<br />
             Compete: 7:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>-->
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
         <td id="calendar">24</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">25</span><br />
@@ -150,13 +150,13 @@
             &#160;<br />
             &#160;</td>
         <td id="calendar">30</td>
-     <!--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">30</span><br />
             <strong>Match 18</strong><br />
             Register: 11:00&#160;AM<br />
             Compete: 2:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>-->           
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>           
         <td id="calendar">31</td>
         <td id="calendarBlank"></td>
         <td id="calendarBlank"></td>
@@ -167,11 +167,11 @@
 
 </div>
 </td>
-<!-- Center Column Ends -->
+<%-- Center Column Ends --%>
 
-<!-- Gutter -->
+<%-- Gutter --%>
          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+<%-- Gutter Ends --%>
     </tr>
 </table>
 
