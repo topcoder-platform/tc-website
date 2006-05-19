@@ -16,6 +16,7 @@ import org.hibernate.StaleObjectStateException;
 public abstract class HibernateProcessor extends BaseProcessor {
     public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
     public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
+    public static final String ACTIVE_CONVERSATION_FLAG = "active_conversation";
     private DAOFactory factory = null;
 
     protected void businessProcessing() throws Exception {
@@ -30,7 +31,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
             // End or continue the long-running conversation?
             if (getRequest().getAttribute(END_OF_CONVERSATION_FLAG) != null) {
                 closeConversation();
-            } else {
+            } else if (getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG)!=null) {
                 endCommunication();
             }
 
@@ -90,6 +91,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
 
         //log.debug("Starting a database transaction");
         HibernateUtils.begin();
+        getRequest().setAttribute(ACTIVE_CONVERSATION_FLAG, String.valueOf(true));
 
     }
 
@@ -110,6 +112,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
         //we're creating a new session to handle the case that the request processing invalidated the session
         //there's no way to check, so this is what we're doing.
         getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
+        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
         try {
             getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
         } catch (Exception e) {
