@@ -105,6 +105,7 @@
                 :
             </td>
             <td class="value">
+                ${assignment.question.description}<br />
                 <rt:demographicInput question="${assignment.question}"/>
             </td>
         </tr>
