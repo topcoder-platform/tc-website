@@ -17,7 +17,7 @@ import java.util.Set;
 public class DemographicAssignmentDAOHibernate extends Base implements DemographicAssignmentDAO {
     public List getAssignments(CoderType ct, State s, Set regTypes) {
         StringBuffer query = new StringBuffer(100);
-        query.append("from DemographicAssignment dass WHERE dass.status = 'A' AND dass.coderType.id = ");
+        query.append("FROM DemographicAssignment dass WHERE dass.status = 'A' AND dass.coderType.id = ");
         query.append(ct.getId());
         query.append(" AND dass.regType.id in (");
         for (Iterator it = regTypes.iterator(); it.hasNext();) {
@@ -35,6 +35,16 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
                 da = (DemographicAssignment)it.next();
                 if (!containsDecline(da.getQuestion())) {
                     da.getQuestion().addAnswer(Util.getFactory().getDemographicAnswerDAO().findDecline(da.getQuestion()));
+                }
+            }
+        }
+
+        DemographicAssignment da;
+        for (int i=0; i<ret.size(); i++) {
+            da = (DemographicAssignment)ret.get(i);
+            for (int j=i+1; j<ret.size(); j++) {
+                if (ret.get(j).equals(da)) {
+                    ret.remove(j);
                 }
             }
         }

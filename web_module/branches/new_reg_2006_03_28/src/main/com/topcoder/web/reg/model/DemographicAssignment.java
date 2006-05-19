@@ -59,6 +59,19 @@ public class DemographicAssignment extends Base {
         return required.booleanValue();
     }
 
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                DemographicAssignment oa = (DemographicAssignment) o;
+                return oa.getQuestion().equals(question)&&oa.getRegType().equals(regType)&&oa.getCoderType().equals(coderType);
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
     public static class Identifier implements Serializable {
         private Long demographicQuestionId;
         private Integer coderTypeId;
