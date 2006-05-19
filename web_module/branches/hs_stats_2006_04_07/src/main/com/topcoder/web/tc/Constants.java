@@ -247,6 +247,7 @@ public class Constants implements WebConstants {
     public static String HS_TEAM_RESULTS;
     public static String HS_RANK;
     public static String HS_TEAM_RANK;
+    public static String HS_COUNTRY_RANK;
     public static String HS_PROBLEM_STATEMENT;
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
