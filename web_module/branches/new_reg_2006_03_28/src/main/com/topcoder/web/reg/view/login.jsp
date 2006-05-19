@@ -52,7 +52,7 @@
    If you cannot remember your password <A href="/tc?module=PasswordEmail" class="bodyText">click here</A> and we can send it to you via email.
    <br><br>
    <strong>New to TopCoder?</strong><br>
-   <A href="/">Register now</A>.  After you complete the registration process, we will send your account activation code via email.
+   <A href="${sessionInfo.secureAbsoluteServletPath}">Register now</A>.  After you complete the registration process, we will send your account activation code via email.
    <br><br>
   <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
       <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
