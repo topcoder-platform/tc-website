@@ -73,4 +73,26 @@ public class RegistrationType extends Base {
         return ret;
     }
 
+    /**
+     * Implementatin of equals.  We're going based on the id
+     * because it should be safe since we don't create new
+     * registration types.
+     * @param obj
+     * @return true if this is equals obj, false otherwise
+     */
+    public boolean equals(Object obj) {
+        boolean ret = false;
+        try {
+            RegistrationType other = (RegistrationType) obj;
+            ret = other.getId().equals(getId());
+        } catch (ClassCastException e) {
+            ret = false;
+        }
+        return ret;
+    }
+
+    public int hashCode() {
+        return id.hashCode();
+    }
+
 }
