@@ -109,10 +109,11 @@ public abstract class HibernateProcessor extends BaseProcessor {
 //                log.debug("Removing Session from HttpSession");
         //we're creating a new session to handle the case that the request processing invalidated the session
         //there's no way to check, so this is what we're doing.
+        getRequest().removeAttribute(END_OF_CONVERSATION_FLAG);
         try {
             getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
         } catch (Exception e) {
-            //don't care..most likely the session was invalidated prior to this call, so who cares.
+            log.error("problem nulling out the hibernate session key: " + e.getMessage());
         }
 
 //                log.debug("<<< End of conversation");
