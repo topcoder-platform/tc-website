@@ -93,9 +93,9 @@
     <tr> 
         <td id="calendar">15</td>
         <td id="calendar">16</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">16</span><br />
-            <strong>Match 16</strong><br />
+            <strong>HS Match 16</strong><br />
             Register: 3:00&#160;AM<br />
             Compete: 6:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -121,9 +121,9 @@
     <tr> 
         <td id="calendar">22</td>
         <td id="calendar">23</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">23</span><br />
-            <strong>Match 17</strong><br />
+            <strong>HS Match 17</strong><br />
             Register: 4:00&#160;PM<br />
             Compete: 7:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -150,9 +150,9 @@
             &#160;<br />
             &#160;</td>
         <td id="calendar">30</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">30</span><br />
-            <strong>Match 18</strong><br />
+            <strong>HS Match 18</strong><br />
             Register: 11:00&#160;AM<br />
             Compete: 2:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />

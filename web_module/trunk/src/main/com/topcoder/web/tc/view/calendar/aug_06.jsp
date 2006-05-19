@@ -72,9 +72,9 @@
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
            <A href="/tc?module=MatchDetails&rd=9994">Details</A><br/><br/></td>
            
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">3</span><br />
-            <strong>Match 10</strong><br />
+            <strong>HS Match 10</strong><br />
             Register: 11:00&#160;AM<br />
             Compete: 2:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -101,9 +101,9 @@
     <tr> 
         <td id="calendar">13</td>
         <td id="calendar">14</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">14</span><br />
-            <strong>Match 11</strong><br />
+            <strong>HS Match 11</strong><br />
             Register: 7:00&#160;AM<br />
             Compete: 10:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -129,9 +129,9 @@
     <tr> 
         <td id="calendar">20</td>
         <td id="calendar">21</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">21</span><br />
-            <strong>Match 12</strong><br />
+            <strong>HS Match 12</strong><br />
             Register: 3:00&#160;AM<br />
             Compete: 6:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -152,9 +152,9 @@
     <tr> 
         <td id="calendar">27</td>
         <td id="calendar">28</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">28</span><br />
-            <strong>Match 13</strong><br />
+            <strong>HS Match 13</strong><br />
             Register: 4:00&#160;PM<br />
             Compete: 7:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />

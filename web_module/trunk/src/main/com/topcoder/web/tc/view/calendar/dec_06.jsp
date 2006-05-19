@@ -77,9 +77,9 @@
             &#160;<br />
             &#160;</td>
         <td id="calendar">4</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">4</span><br />
-            <strong>Match 22</strong><br />
+            <strong>HS Match 22</strong><br />
             Register: 11:00&#160;AM<br />
             Compete: 2:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -100,9 +100,9 @@
     <tr> 
         <td id="calendar" rowspan="2">10</td>
         <td id="calendar" rowspan="2">11</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">11</span><br />
-            <strong>Match 23</strong><br />
+            <strong>HS Match 23</strong><br />
             Register: 7:00&#160;AM<br />
             Compete: 10:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -129,9 +129,9 @@
     <tr> 
         <td id="calendar">17</td>
         <td id="calendar">18</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">18</span><br />
-            <strong>Match 24</strong><br />
+            <strong>HS Match 24</strong><br />
             Register: 3:00&#160;AM<br />
             Compete: 6:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -154,9 +154,9 @@
         <td id="calendar">25</td>
         <td id="calendar">26</td>
         <td id="calendar">27</td>
-     <%--   <td id="calendarTCHS"> ****need to design style****
+     <%--   <td id="calendarTCHS">
             <span id="calendarTCHSDate">27</span><br />
-            <strong>Match 25</strong><br />
+            <strong>HS Match 25</strong><br />
             Register: 4:00&#160;PM<br />
             Compete: 7:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
