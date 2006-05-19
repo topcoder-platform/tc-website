@@ -1,12 +1,14 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.UserDAO;
+import com.topcoder.web.reg.model.DemographicQuestion;
 import com.topcoder.web.reg.model.DemographicResponse;
 import com.topcoder.web.reg.model.User;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -32,32 +34,114 @@ public class UserDAOHibernate extends Base implements UserDAO {
     }
 
     public void saveOrUpdate(User u) {
-        boolean isNew = u.isNew();
-        super.saveOrUpdate(u);
+//        boolean isNew = u.isNew();
 
-        if (!isNew) {
-            StringBuffer query = new StringBuffer(100);
-            query.append(" DELETE DemographicResponse WHERE user_id = ?");
-            Query q;
-            q = session.createQuery(query.toString());
-            q.setLong(0, u.getId().longValue());
-            q.executeUpdate();
-        }
-        DemographicResponse tr;
-        DemographicResponse dr;
+/*
+        DemographicResponse temp;
         for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
-            tr = (DemographicResponse) it.next();
-            log.debug("adding response:" + tr.getQuestion().getId() + " " + tr.getAnswer().getId() + " " + tr.getResponse());
-            dr = new DemographicResponse();
-            dr.setAnswer(tr.getAnswer());
-            dr.setQuestion(tr.getQuestion());
-            dr.setResponse(tr.getResponse());
-            dr.setUser(u);
-            dr.getId().setAnswer(tr.getAnswer());
-            dr.getId().setQuestion(tr.getQuestion());
-            dr.getId().setUser(u);
-            super.saveOrUpdate(dr);
+            temp = ((DemographicResponse) it.next());
+            temp.setUser(u);
         }
+*/
 
+        if (u.isNew()) {
+            log.debug("newbie");
+            DemographicResponse tr;
+            DemographicResponse dr;
+            for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
+                tr = (DemographicResponse) it.next();
+                log.debug("adding response:" + tr.getQuestion().getId() + " " + tr.getAnswer().getId() + " " + tr.getResponse());
+                dr = new DemographicResponse();
+                dr.setAnswer(tr.getAnswer());
+                dr.setQuestion(tr.getQuestion());
+                dr.setResponse(tr.getResponse());
+                dr.setUser(u);
+                dr.getId().setAnswer(tr.getAnswer());
+                dr.getId().setQuestion(tr.getQuestion());
+                dr.getId().setUser(u);
+                u.addDemographicResponse(dr);
+                //super.saveOrUpdate(dr);
+            }
+            super.saveOrUpdate(u);
+
+        } else {
+            //todo consider putting all this logic in the POJO instead of here.
+
+            //don't need to worry about anything that is already in the db.
+            for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
+                u.getTransientResponses().remove(it.next());
+            }
+
+            DemographicResponse dr;
+            DemographicResponse badResponse;
+            HashSet processedQuestions = new HashSet();
+            DemographicResponse goodResponse;
+            for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
+                dr = (DemographicResponse) it.next();
+                log.debug("process " + dr.toString());
+                if (dr.getQuestion().isFreeForm() || dr.getQuestion().isSingleSelect()) {
+                    log.debug("free form or single");
+                    if (!u.getDemographicResponses().contains(dr)) {
+                        badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());
+                        if (badResponse!=null) {
+                            log.debug("remove " + badResponse.getQuestion().getId() + " " + badResponse.getAnswer().getId());
+                            u.removeDemographicResponse(badResponse);
+                            badResponse.setUser(null);
+                        }
+                        dr.setUser(u);
+                        dr.getId().setUser(u);
+                        dr.getId().setQuestion(dr.getQuestion());
+                        dr.getId().setAnswer(dr.getAnswer());
+                        log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
+                        u.addDemographicResponse(dr);
+                    }
+                } else if (!processedQuestions.contains(dr.getQuestion())) {
+                    log.debug("multiple");
+                    Set currResponses = findResponses(u.getDemographicResponses(), dr.getQuestion());
+                    Set newResponses = findResponses(u.getTransientResponses(), dr.getQuestion());
+                    for (Iterator itr = currResponses.iterator(); itr.hasNext();) {
+                        badResponse = (DemographicResponse) itr.next();
+                        if (!newResponses.contains(badResponse)) {
+                            u.removeDemographicResponse(badResponse);
+                            badResponse.setUser(null);
+                        }
+                    }
+                    for (Iterator itr = newResponses.iterator(); itr.hasNext();) {
+                        goodResponse = (DemographicResponse)itr.next();
+                        goodResponse.setUser(u);
+                        goodResponse.getId().setUser(u);
+                        goodResponse.getId().setQuestion(goodResponse.getQuestion());
+                        goodResponse.getId().setAnswer(goodResponse.getAnswer());
+                        u.addDemographicResponse(goodResponse);
+                    }
+                    processedQuestions.add(dr.getQuestion());
+                }
+            }
+            super.saveOrUpdate(u);
+        }
+   }
+
+    private DemographicResponse findResponse(Set responses, DemographicQuestion q) {
+        boolean found = false;
+        DemographicResponse ret = null;
+        for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
+            ret = (DemographicResponse) it.next();
+            found = ret.getQuestion().equals(q);
+        }
+        log.debug((found?"found":"didn't find") + q.toString());
+        return ret;
+    }
+
+    private Set findResponses(Set responses, DemographicQuestion q) {
+        HashSet ret = new HashSet();
+        DemographicResponse response;
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            response = (DemographicResponse) it.next();
+            if (response.getQuestion().equals(q)) {
+                ret.add(response);
+            }
+        }
+        log.debug("found " + ret.size() + " responses for " + q.toString());
+        return ret;
     }
 }

@@ -16,8 +16,9 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
 
+
     public void testTransientDemogUpdate() {
-        User u = Util.getFactory().getUserDAO().find("vald");
+        User u = Util.getFactory().getUserDAO().find("dok");
         DemographicResponse r = new DemographicResponse();
         r.setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
         r.setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
@@ -33,15 +34,16 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 
 /*
+
     public void testDemogUpdate() {
-        User u = Util.getFactory().getUserDAO().find("vald");
+        User u = Util.getFactory().getUserDAO().find("dok");
         DemographicResponse r = new DemographicResponse();
         r.setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
         r.setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
         r.setUser(u);
         r.getId().setUser(u);
-        r.getId().setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
-        r.getId().setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
+        r.getId().setAnswer(r.getAnswer());
+        r.getId().setQuestion(r.getQuestion());
         u.addDemographicResponse(r);
         Util.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);

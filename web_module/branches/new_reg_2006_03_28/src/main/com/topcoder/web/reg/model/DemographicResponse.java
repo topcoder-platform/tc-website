@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
  *          Create Date: Apr 7, 2006
  */
 public class DemographicResponse extends Base {
+    protected static final Logger log = Logger.getLogger(DemographicResponse.class);
     private Identifier id = new Identifier();
     private User user;
     private DemographicQuestion question;
@@ -93,6 +95,18 @@ public class DemographicResponse extends Base {
                 return false;
             }
         }
+    }
+
+    public int hashCode() {
+        StringBuffer buf = new StringBuffer(30);
+        buf.append(user.getId());
+        buf.append(" ");
+        buf.append(answer.getId());
+        buf.append(" ");
+        buf.append(question.getId());
+        buf.append(" ");
+        buf.append(response);
+        return buf.toString().hashCode();
     }
 
 /*

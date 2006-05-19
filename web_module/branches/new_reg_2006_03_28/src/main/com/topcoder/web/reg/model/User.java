@@ -214,7 +214,11 @@ public class User extends Base {
     }
 
     public void addDemographicResponse(DemographicResponse response) {
-        this.demographicResponses.add(response);    
+        this.demographicResponses.add(response);
+    }
+
+    public void removeDemographicResponse(DemographicResponse response) {
+        this.demographicResponses.remove(response);
     }
 
     public Set getNotifications() {
