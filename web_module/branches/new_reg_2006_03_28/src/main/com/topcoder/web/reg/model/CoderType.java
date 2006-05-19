@@ -39,4 +39,17 @@ public class CoderType extends Base {
         this.status = status;
     }
 
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                CoderType oa = (CoderType) o;
+                return oa.getId().equals(id);
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
 }
