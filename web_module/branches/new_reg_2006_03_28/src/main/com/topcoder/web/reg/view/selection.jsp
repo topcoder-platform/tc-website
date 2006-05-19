@@ -62,7 +62,6 @@ function popHide(){
         <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
         <% int i=0;%>
         <c:forEach items="${registrationTypeList}" var="type">
-            <c:set value="<%=i++%>" var="index"/>
             <c:set value="${regType}${type.id}" var="regTypeKey"/>
             <c:choose>
                 <c:when test="${requestScope[defaults][regTypeKey]==null}"><tc-webtag:chkBox name="${regTypeKey}"/></c:when>
