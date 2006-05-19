@@ -43,7 +43,7 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
         for (int i=0; i<ret.size(); i++) {
             da = (DemographicAssignment)ret.get(i);
             for (int j=i+1; j<ret.size(); j++) {
-                if (ret.get(j).equals(da)) {
+                if (((DemographicAssignment)ret.get(j)).getQuestion().equals(da.getQuestion())) {
                     ret.remove(j);
                 }
             }
