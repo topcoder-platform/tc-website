@@ -59,7 +59,7 @@ function submitEnter(e) {
       <td class="name">
          First Name
       </td>
-      <td class="value">
+      <td class="value" width="100%">
          <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
