@@ -1,7 +1,6 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.AggregationResponse;
@@ -15,14 +14,19 @@ import org.apache.struts.action.ActionMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Form bean for the final review editing page.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added save and finish later functionality.
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
-
 public class FinalReviewForm extends AggregationWorksheetForm {
 
     // --------------------------------------------------- Instance Variables
@@ -219,11 +223,13 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         ActionErrors errors = new ActionErrors();
         setValid(true);
 
+        setCompleted(Constants.ACTION_FINISH.equals(action));
+
         // If the final review isn't marked completed, we don't need to
         // validate yet.
-        //if (!getCompleted()) {
-        //    return errors;
-        //}
+        if (!getCompleted()) {
+            return errors;
+        }
         
         if (getResponses() != null) {
             for (int i = 0; i < getResponses().length; i++) {
@@ -288,7 +294,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
         statuses = businessDelegate.getFinalFixStatuses();
         isApproved = finalReview.isApproved();
-        //isCompleted = Constants.ACTION_FINISH.equals(action);
+        isCompleted = Constants.ACTION_FINISH.equals(action);
     }
 
     /**
@@ -299,8 +305,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return the FinalReviewData created from this form bean.
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
-        //finalReview.setCompleted(isCompleted);
-        finalReview.setCompleted(true);
+        finalReview.setCompleted(isCompleted);
         finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }
