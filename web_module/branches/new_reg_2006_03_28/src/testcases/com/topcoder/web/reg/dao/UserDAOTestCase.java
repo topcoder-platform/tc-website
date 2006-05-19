@@ -2,7 +2,7 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.TransientResponse;
+import com.topcoder.web.reg.model.DemographicResponse;
 import com.topcoder.web.reg.model.User;
 
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
     public void testTransientDemogUpdate() {
         User u = Util.getFactory().getUserDAO().find("vald");
-        TransientResponse r = new TransientResponse();
+        DemographicResponse r = new DemographicResponse();
         r.setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
         r.setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
         r.setUser(u);

@@ -1,11 +1,10 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.dao.UserDAO;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.model.TransientResponse;
 import com.topcoder.web.reg.model.DemographicResponse;
-import org.hibernate.Session;
+import com.topcoder.web.reg.model.User;
 import org.hibernate.Query;
+import org.hibernate.Session;
 
 import java.util.Iterator;
 
@@ -44,10 +43,10 @@ public class UserDAOHibernate extends Base implements UserDAO {
             q.setLong(0, u.getId().longValue());
             q.executeUpdate();
         }
-        TransientResponse tr;
+        DemographicResponse tr;
         DemographicResponse dr;
         for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
-            tr = (TransientResponse) it.next();
+            tr = (DemographicResponse) it.next();
             log.debug("adding response:" + tr.getQuestion().getId() + " " + tr.getAnswer().getId() + " " + tr.getResponse());
             dr = new DemographicResponse();
             dr.setAnswer(tr.getAnswer());
