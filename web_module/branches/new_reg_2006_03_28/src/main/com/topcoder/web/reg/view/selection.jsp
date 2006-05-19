@@ -71,7 +71,7 @@ function popHide(){
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
 
         <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
-            <tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator>
+            <span class="bigRed"><tc-webtag:errorIterator id="err" name="${regType}">${err}<br/></tc-webtag:errorIterator></span>
 
         <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
         <c:forEach items="${registrationTypeList}" var="type">
