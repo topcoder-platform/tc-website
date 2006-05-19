@@ -6,6 +6,20 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.19.06<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Downtime for scheduled maintenance: 05.21
+      </span><br><br>
+      We've scheduled downtime for all TopCoder systems this Sunday 05.21 at 8:00 PM while we run some general maintenance.  The downtime should last for about 2 hours.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506018" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.17.06<br>10:50 AM</td>
@@ -182,21 +196,6 @@
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.10.06<br>1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      TCO06 <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_finals">Design</A> & <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">Development</A> Finals results
-      </span><br><br>
-      Here are the results for TCO06 CDDC Finals.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_finals">design</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_finals">development</A>&#160;|&#160;
-      <tc-webtag:forumLink forumID="506009" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
