@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -51,7 +52,7 @@
 
         <c:if test="${results!=null}">
             <c:choose>
-                <c:when test="${results.empty}">Your search returned no records.  You may search again or click
+                <c:when test="${fn:length(results)==0}">Your search returned no records.  You may search again or click
             <A href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolAdd">here</A> to add
             your school.</c:when>
                 <c:otherwise>
