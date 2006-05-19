@@ -23,6 +23,7 @@ select team_id,  round_id, sum(team_points)
 from room_result
 where team_id is not null
 group by team_id, round_id
+having sum(team_points) > 0
 
 -- give permissions to coder on that view   
 grant select on view_team_points to coder;
