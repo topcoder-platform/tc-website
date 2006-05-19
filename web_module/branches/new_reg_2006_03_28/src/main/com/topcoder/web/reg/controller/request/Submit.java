@@ -12,6 +12,7 @@ import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.model.RegistrationType;
 
 import java.util.Set;
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -74,6 +75,9 @@ public class Submit extends Base {
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
                            RegistrationType min) throws Exception {
+        for (Iterator it =regTypes.iterator(); it.hasNext();) {
+            log.debug("reg type: " + ((RegistrationType)it.next()).getDescription());
+        }
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("TopCoder Activation");
         StringBuffer msgText = new StringBuffer(3000);

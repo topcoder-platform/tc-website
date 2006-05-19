@@ -54,6 +54,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
     }
 
     protected void markForCommit() {
+        log.debug("mark the end of the conversation");
         getRequest().setAttribute(END_OF_CONVERSATION_FLAG, String.valueOf(true));
     }
 
