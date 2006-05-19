@@ -19,6 +19,7 @@ public interface DAOFactory {
     RegistrationTypeDAO getRegistrationTypeDAO();
     SchoolDAO getSchoolDAO();
     SchoolTypeDAO getSchoolTypeDAO();
+    SecurityGroupDAO getSecurityGroupDAO();
     StateDAO getStateDAO();
     TimeZoneDAO getTimeZoneDAO();
     UserDAO getUserDAO();

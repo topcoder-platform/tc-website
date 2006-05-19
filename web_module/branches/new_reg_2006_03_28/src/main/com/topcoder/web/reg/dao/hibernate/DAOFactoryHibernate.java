@@ -60,6 +60,10 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new SchoolTypeDAOHibernate();
     }
 
+    public SecurityGroupDAO getSecurityGroupDAO() {
+        return new SecurityGroupDAOHibernate();
+    }
+
     public StateDAO getStateDAO() {
         return new StateDAOHibernate();
     }

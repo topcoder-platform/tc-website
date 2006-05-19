@@ -15,15 +15,13 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.SecurityGroup;
 import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.UserGroup;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -102,9 +100,10 @@ public class Submit extends Base {
             myPrincipal = new UserPrincipal("", u.getId().longValue());
         }
 
-        Set types = u.getSecurityGroups();
+        List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
         for (Iterator it = types.iterator(); it.hasNext();) {
-            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup)it.next()).getGroupId().longValue()), myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            pmr.addUserToGroup(pmr.getGroup(((UserGroup)it.next()).getSecurityGroup().getGroupId().longValue()),
+                    myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
         }
 
         //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
