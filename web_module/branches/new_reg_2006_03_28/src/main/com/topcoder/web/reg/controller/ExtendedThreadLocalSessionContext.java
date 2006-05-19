@@ -55,9 +55,9 @@ public class ExtendedThreadLocalSessionContext extends ThreadLocalSessionContext
 
     protected Session buildOrObtainSession() {
         log.debug("Opening a new Session");
-        Thread.dumpStack();
+        //Thread.dumpStack();
         Session s = super.buildOrObtainSession();
-        log.debug("Disabling automatic flushing of the Session");
+        //log.debug("Disabling automatic flushing of the Session");
         s.setFlushMode(FlushMode.NEVER);
         return s;
     }
