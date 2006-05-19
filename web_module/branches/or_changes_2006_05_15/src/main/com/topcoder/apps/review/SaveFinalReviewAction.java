@@ -1,7 +1,6 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.FixItem;
@@ -12,12 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Extends from <strong>ReviewAction</strong> that saves the final review.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * 
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class SaveFinalReviewAction extends ReviewAction {
 

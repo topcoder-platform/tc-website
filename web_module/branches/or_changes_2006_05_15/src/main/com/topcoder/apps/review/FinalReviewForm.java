@@ -1,7 +1,6 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.AggregationResponse;
@@ -15,14 +14,19 @@ import org.apache.struts.action.ActionMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Form bean for the final review editing page.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * 
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
-
 public class FinalReviewForm extends AggregationWorksheetForm {
 
     // --------------------------------------------------- Instance Variables

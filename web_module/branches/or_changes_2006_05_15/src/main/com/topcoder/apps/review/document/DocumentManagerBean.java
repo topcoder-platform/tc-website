@@ -55,8 +55,15 @@ import java.util.*;
  * </li>
  * </ol>
  *
+ * Version 1.0.4 Change notes:
+ * <ol>
+ * <li>
+ * 
+ * </li>
+ * </ol>
+ *
  * @author FatClimber, pulky
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
