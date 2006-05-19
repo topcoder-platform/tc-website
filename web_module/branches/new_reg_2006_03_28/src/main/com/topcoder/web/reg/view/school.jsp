@@ -60,8 +60,8 @@
             duplicate, please choose the school with more
             associated students.
             <br><br>
-            Please <strong>select</strong> your school from list below.
-            <span id="submitMessage"></span>
+            Please <strong>select</strong> your school from list below.<br />
+            <span id="submitMessage"></span><br />
             <span class="small">
                 <c:forEach items="${results}" var="result">
                          ${result[1].name}<br />
