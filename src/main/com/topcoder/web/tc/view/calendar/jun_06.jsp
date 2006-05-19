@@ -73,7 +73,7 @@
         <td id="calendar">5</td>
      <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">5</span><br />
-            <strong>Match 1</strong><br />
+            <strong>HS Match 1</strong><br />
             Register: 4:00&#160;PM<br />
             Compete: 7:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -93,7 +93,7 @@
     
          <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">8</span><br />
-            <strong>Match 2</strong><br />
+            <strong>HS Match 2</strong><br />
             Register: 11:00&#160;AM<br />
             Compete: 2:00&#160;PM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -128,7 +128,7 @@
         <td id="calendar">19</td>
          <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">19</span><br />
-            <strong>Match 3</strong><br />
+            <strong>HS Match 3</strong><br />
             Register: 7:00&#160;AM<br />
             Compete: 10:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -151,7 +151,7 @@
         <td id="calendar">26</td>
          <%--   <td id="calendarTCHS"> ****need to design style****
             <span id="calendarTCHSDate">26</span><br />
-            <strong>Match 4</strong><br />
+            <strong>HS Match 4</strong><br />
             Register: 5:00&#160;AM<br />
             Compete: 8:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
