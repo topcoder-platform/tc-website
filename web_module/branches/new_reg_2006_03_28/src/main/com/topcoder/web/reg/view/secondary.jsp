@@ -49,7 +49,7 @@
 </div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" enctype="multipart/form-data">
-<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
 <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
