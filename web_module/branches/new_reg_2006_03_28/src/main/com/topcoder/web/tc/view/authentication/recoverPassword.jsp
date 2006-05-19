@@ -42,7 +42,7 @@ function submitEnter(e) {
      </jsp:include>
 
    <strong>Forgot your password?</strong><br>
-   Have you forgotten your password?  Enter the information below.  We will immediately email your password to you.
+   Have you forgotten your password?  Enter the information below. This must be the <strong>same information</strong> you used when you registered. We will immediately email your password to you.
    <br><br>
 
 <form method="post" name="frmPass" action="/tc">
@@ -89,9 +89,6 @@ function submitEnter(e) {
          <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
-      <td colspan="2">
-      (This must be the same information you used when you registered.)
-      </td>
    <tr>
       <td class="name">
          &#160;
