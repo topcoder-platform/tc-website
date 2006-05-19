@@ -28,11 +28,9 @@ function popUpUnder(event,objectID){
 function popUp(objectID){
    objPopUp = document.getElementById(objectID);
    objPopUp.style.visibility = 'visible';
-//   objPopUp.style.display = 'block';
 }
 function popHide(){
    objPopUp.style.visibility = 'hidden';
-//   objPopUp.style.display = 'none';
    objPopUp = null;
 }
 
