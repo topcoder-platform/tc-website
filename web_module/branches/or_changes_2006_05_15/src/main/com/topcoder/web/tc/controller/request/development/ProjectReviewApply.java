@@ -6,6 +6,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.rboard.RBoardUser;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -13,7 +14,6 @@ import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.common.web.util.DateTime;
 
 import javax.transaction.Status;

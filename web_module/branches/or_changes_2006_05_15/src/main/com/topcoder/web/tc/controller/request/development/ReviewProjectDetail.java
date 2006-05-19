@@ -6,11 +6,11 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
-import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;

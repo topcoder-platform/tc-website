@@ -10,10 +10,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.util.Map;
 

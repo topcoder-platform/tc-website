@@ -27,6 +27,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.common.render.NodeElementRenderer;
 import com.topcoder.web.common.render.UserConstraintRenderer;

@@ -28,9 +28,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 
 import javax.naming.Context;
