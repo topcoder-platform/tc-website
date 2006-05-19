@@ -25,7 +25,7 @@ insert into registration_type_lu values (1, 'Competition Registration', 'Some lo
 insert into registration_type_lu values (2, 'Corporate Registration', 'Some long test', 1, 2000116); 
 insert into registration_type_lu values (3, 'High School Competition Registration', 'Some long test', 1, 12); 
 insert into registration_type_lu values (4, 'Minimal Registration', 'Some long test', 1, 11);
-insert into registration_type_lu values (5, 'TopCoder Software Registration', 'Some long test', 1, 2); 
+insert into registration_type_lu values (5, 'TopCoder Software Customer Registration', 'Some long test', 1, 2); 
 
 
 insert into security_groups values (10, 'Competition User', 132456);
@@ -55,3 +55,6 @@ where registration_type_id = 2;
 
 update registration_type_lu set registration_type_desc = '<span class="bodySubtitle">Minimal Registration</span><br>Access to only the basic functionality of the TopCoder website, including viewing and posting to the forums, and access to detailed competition statistics.'
 where registration_type_id = 4;
+
+--deactivate corp, tcs and minimal
+update registration_type_lu set active_ind = 0 where registration_type_id in (2,4,5)

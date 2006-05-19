@@ -162,3 +162,20 @@ select coder_id,demographic_answer_id, demographic_response, demographic_questio
 from demographic_response where demographic_question_id = 26;
 
 
+--move the school stuff so it's below the other stuff
+update demographic_assignment set sort = 1500 where demographic_question_id = 17 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1510 where demographic_question_id = 14 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1520 where demographic_question_id = 16 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1530 where demographic_question_id = 18 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1540 where demographic_question_id = 23 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1550 where demographic_question_id = 19 and coder_type_id = 1 and registration_type_id = 1;
+update demographic_assignment set sort = 1560 where demographic_question_id = 22 and coder_type_id = 1 and registration_type_id = 1;
+
+--remove the school name unlisted question
+update demographic_assignment set status = 'I' where demographic_question_id = 20;  
+
+--hs demographics
+insert into demographic_assignment values (1, 1, 3, 100, 'A', 1);
+insert into demographic_assignment values (18, 1, 3, 200, 'A', 1);
+insert into demographic_assignment values (23, 1, 3, 300, 'A', 1);
+insert into demographic_assignment values (26, 1, 3, 400, 'A', 1);
