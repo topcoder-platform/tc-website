@@ -13,7 +13,7 @@
       <td class="newsTextCell"><span class="newsTitle">
       Downtime for scheduled maintenance: 05.21
       </span><br><br>
-      We've scheduled downtime for all TopCoder systems this Sunday 05.21 at 8:00 PM while we run some general maintenance.  The downtime should last for about 2 hours.
+      We've scheduled downtime for all TopCoder systems this Sunday 05.21 at 8:00 PM EDT while we run some general maintenance.  The downtime should last for about 2 hours.
    </tr>
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506018" message="discuss this" />&#160;|&#160;
