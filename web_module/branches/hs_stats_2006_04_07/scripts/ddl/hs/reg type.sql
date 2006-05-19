@@ -4,7 +4,7 @@
 create table registration_type_lu (
     registration_type_id DECIMAL(3,0),
     registration_type_name VARCHAR(200),
-    registration_type_desc LVARCHAR(1000),
+    registration_type_desc LVARCHAR(5000),
     active_ind decimal(1,0) default 1,
     security_group_id decimal(12,0)
 )
