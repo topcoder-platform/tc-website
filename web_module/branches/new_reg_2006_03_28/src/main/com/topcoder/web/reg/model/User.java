@@ -214,9 +214,7 @@ public class User extends Base {
     }
 
     public void addDemographicResponse(DemographicResponse response) {
-        if (!this.demographicResponses.contains(response)) {
-            this.demographicResponses.add(response);    
-        }
+        this.demographicResponses.add(response);    
     }
 
     public Set getNotifications() {
