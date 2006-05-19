@@ -1,16 +1,28 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.*;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.SecurityGroup;
 import com.topcoder.web.reg.model.User;
 
+import javax.ejb.CreateException;
+import javax.naming.Context;
+import java.rmi.RemoteException;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -28,6 +40,9 @@ public class Submit extends Base {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
+
+            securityStuff(newUser, u);
+
             markForCommit();
             if (newUser) {
                 Long newUserId = u.getId();
@@ -50,6 +65,7 @@ public class Submit extends Base {
                 RegistrationType corp = dao.getCorporateType();
                 RegistrationType min = dao.getMinimalType();
 
+
                 closeConversation();
                 try {
                     sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
@@ -69,6 +85,51 @@ public class Submit extends Base {
 
 
     }
+
+
+
+    private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+        TCSubject tcs = new TCSubject(132456);
+        UserPrincipal myPrincipal;
+        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote pmr = pmrh.create();
+        if (newUser) {
+            //create the security user entry
+            myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } else {
+            myPrincipal = new UserPrincipal("", u.getId().longValue());
+        }
+
+        Set types = u.getSecurityGroups();
+        for (Iterator it = types.iterator(); it.hasNext();) {
+            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup)it.next()).getGroupId().longValue()), myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        }
+
+        //add them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
+        Collection groups = pmr.getGroups(tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        GroupPrincipal anonGroup = null;
+        GroupPrincipal userGroup = null;
+        for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+            anonGroup = (GroupPrincipal) iterator.next();
+            if (anonGroup.getName().equals("Anonymous")) {
+                break;
+            }
+        }
+        for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+            userGroup = (GroupPrincipal) iterator.next();
+            if (userGroup.getName().equals("Users")) {
+                break;
+            }
+        }
+        pmr.addUserToGroup(anonGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
+        pmr.addUserToGroup(userGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
+        //refresh the cached object
+        SecurityHelper.getUserSubject(u.getId().longValue(), true);
+
+    }
+
 
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
