@@ -127,7 +127,7 @@
 <c:if test="${cf:contains(fields, address2)}">
    <tr>
     <td class="name">
-        Address2: 
+        Address2:
       </td>
       <td class="value">
          ${regUser.homeAddress.address2}
@@ -318,18 +318,19 @@
    </tr>
 </c:if>
 
-<%--Demographics--%>
-   <tr>
-      <td class="name">
-        <strong>Demographics:</strong>
-      </td>
-      <td class="value">
-         <strong><a href="">edit</A></strong>
-      </td>
-   </tr>
 
 <c:set value="<%=Constants.DEMOG_PREFIX%>" var="demogPrefix"/>
 <c:if test="${cf:contains(fields, demogPrefix)}">
+    <%--Demographics--%>
+    <tr>
+       <td class="name">
+         <strong>Demographics:</strong>
+       </td>
+       <td class="value">
+          <strong><a href="">edit</A></strong>
+       </td>
+    </tr>
+
     <rt:responseIterator id="resp" collection="${regUser.demographicResponses}">
    <tr>
      <td class="name"><rt:demographicQuestionText response="${resp}"/>:
