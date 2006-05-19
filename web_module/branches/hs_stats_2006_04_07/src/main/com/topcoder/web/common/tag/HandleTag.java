@@ -105,7 +105,7 @@ public class HandleTag extends TagSupport {
             if (algorithm && rsc.getIntItem(0, "algorithm_rating")>0) {
                 output.append("&tab=alg");
             } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating")>0) {
-                output.append("&tab=hsa");
+                output.append("&tab=hs");
             } else if (design && rsc.getIntItem(0, "design_rating")>0) {
                 output.append("&tab=des");
             } else if (development && rsc.getIntItem(0, "development_rating")>0) {
