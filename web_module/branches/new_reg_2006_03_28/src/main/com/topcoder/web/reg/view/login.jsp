@@ -82,7 +82,7 @@
       </td>
    </tr>
    <tr>
-      <td class="name">
+      <td class="value">
       &#160;
       </td>
       <td class="value">
