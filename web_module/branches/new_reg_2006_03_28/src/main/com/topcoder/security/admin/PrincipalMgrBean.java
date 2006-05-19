@@ -532,7 +532,7 @@ public class PrincipalMgrBean extends BaseEJB {
             long user_group_xrefid = gen.getNextID();
             long userId = user.getId();
             long groupId = group.getId();
-            String deleteQuery = "DELETE FROM user_group_xref where user_id = ? and group_id = ?";
+            String deleteQuery = "DELETE FROM user_group_xref where login_id = ? and group_id = ?";
             String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES ( ?, ?, ?, ? )";
             conn = Util.getConnection(ctx, dataSource);
 
