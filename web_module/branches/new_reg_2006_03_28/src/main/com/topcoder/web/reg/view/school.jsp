@@ -65,9 +65,9 @@
             <span class="small">
                 <c:forEach items="${results}" var="result">
                          ${result[1].name}<br />
-                         <c:if test="${result[1].address.city!=null}">${result[1].address.city},</c:if> <c:if test="${result[1].address.state!=null}">${result[1].address.state.code},</c:if> <c:if test="${result[1].address.postalCode!=null}">${result[1].address.postalCode},</c:if> <c:if test="${result[1].address.province!=null}">${result[1].address.province},</c:if>  <c:if test="${result[1].address.country!=null}">${result[1].address.country.code}</c:if><br />
+                         <c:if test="${result[1].address.city!=null}">${result[1].address.city}c,</c:if> <c:if test="${result[1].address.state!=null}">${result[1].address.state.code}s,</c:if> <c:if test="${result[1].address.postalCode!=null}">${result[1].address.postalCode}p,</c:if> <c:if test="${result[1].address.province!=null}">${result[1].address.province}pr,</c:if>  <c:if test="${result[1].address.country!=null}">${result[1].address.country.code}c</c:if><br />
                          Registrants: ${result[0]}<br />
-                         <A class="small" href="#" onclick="Javascript:submit(${result[1].name},${result[1].id});">Select</A>
+                         <A class="small" href="#" onclick="Javascript:submit('${result[1].name}',${result[1].id});">Select</A>
                          <br /><br />
                 </c:forEach>
             </span>
