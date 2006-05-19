@@ -87,13 +87,13 @@ public class RegFieldHelper {
 
     static {
         secondaryHSFields.add(Constants.DEMOG_PREFIX);
-        secondaryCompStudentFields.add(Constants.SCHOOL_NAME);
-        secondaryCompStudentFields.add(Constants.SCHOOL_CITY);
-        secondaryCompStudentFields.add(Constants.SCHOOL_ID);
-        secondaryCompStudentFields.add(Constants.SCHOOL_PROVINCE);
-        secondaryCompStudentFields.add(Constants.SCHOOL_STATE);
-        secondaryCompStudentFields.add(Constants.SCHOOL_COUNTRY);
-        secondaryCompStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryHSFields.add(Constants.SCHOOL_NAME);
+        secondaryHSFields.add(Constants.SCHOOL_CITY);
+        secondaryHSFields.add(Constants.SCHOOL_ID);
+        secondaryHSFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryHSFields.add(Constants.SCHOOL_STATE);
+        secondaryHSFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryHSFields.add(Constants.SCHOOL_TYPE);
     }
 
     static {
