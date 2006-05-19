@@ -71,6 +71,7 @@ public class Confirm extends Base {
                         tr = new DemographicResponse();
                         tr.setQuestion(da.getQuestion());
                         tr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
+                        tr.setUser(u);
                         responses.add(tr);
                     }
                 } else if (da.getQuestion().isFreeForm()) {
@@ -78,12 +79,14 @@ public class Confirm extends Base {
                     tr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                     tr.setQuestion(da.getQuestion());
                     tr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
+                    tr.setUser(u);
                     responses.add(tr);
                 } else if (da.getQuestion().isSingleSelect()) {
                     answerId = new Long((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                     tr = new DemographicResponse();
                     tr.setQuestion(da.getQuestion());
                     tr.setAnswer(da.getQuestion().getAnswer(answerId));
+                    tr.setUser(u);
                     responses.add(tr);
                 }
             }
