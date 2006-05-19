@@ -105,8 +105,8 @@
                 :
             </td>
             <td class="value">
-                ${assignment.question.description}<br />
-                <rt:demographicInput question="${assignment.question}"/>
+                <rt:demographicInput question="${assignment.question}"/><br />
+               ${assignment.question.description}
             </td>
         </tr>
     </rt:questionIterator>
