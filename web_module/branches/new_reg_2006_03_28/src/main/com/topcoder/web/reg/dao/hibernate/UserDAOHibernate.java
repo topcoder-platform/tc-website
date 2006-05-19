@@ -55,7 +55,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
             dr.setUser(u);
             dr.getId().setAnswer(tr.getAnswer());
             dr.getId().setQuestion(tr.getQuestion());
-            dr.getId().setUser(tr.getUser());
+            dr.getId().setUser(u);
             super.saveOrUpdate(dr);
         }
 
