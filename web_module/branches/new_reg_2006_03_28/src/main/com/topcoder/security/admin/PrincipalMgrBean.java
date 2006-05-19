@@ -381,8 +381,12 @@ public class PrincipalMgrBean extends BaseEJB {
     }
 
 
-
     public Collection getGroups(TCSubject requestor)
+            throws GeneralSecurityException {
+        return getGroups(requestor, DATA_SOURCE);
+    }
+
+    public Collection getGroups(TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         Set pl = new HashSet();
         String query = "SELECT group_id, description FROM security_groups";
@@ -392,7 +396,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             GroupPrincipal gp;
             for (rs = ps.executeQuery(); rs.next(); pl.add(gp))
@@ -409,7 +413,14 @@ public class PrincipalMgrBean extends BaseEJB {
         return pl;
     }
 
+
     public GroupPrincipal getGroup(long id)
+            throws GeneralSecurityException, NoSuchGroupException {
+        return getGroup(id, DATA_SOURCE);
+    }
+
+
+    public GroupPrincipal getGroup(long id, String dataSource)
             throws GeneralSecurityException, NoSuchGroupException {
         String query = "SELECT description FROM security_groups WHERE group_id = ?";
         InitialContext ctx = null;
@@ -418,7 +429,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -506,6 +517,11 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
             throws GeneralSecurityException {
+            addUserToGroup(group, user, requestor, DATA_SOURCE);
+    }
+
+    public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor, String dataSource)
+            throws GeneralSecurityException {
         InitialContext ctx = null;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -518,7 +534,7 @@ public class PrincipalMgrBean extends BaseEJB {
             long groupId = group.getId();
             String deleteQuery = "DELETE FROM user_group-xref where user_id = ? and group_id = ?";
             String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES ( ?, ?, ?, ? )";
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
 
             ps2 = conn.prepareStatement(deleteQuery);
             ps2.setLong(1, userId);
