@@ -51,14 +51,14 @@ import java.util.*;
  * Version 1.0.3 Change notes:
  * <ol>
  * <li>
- * added successful flag to appeals.
+ * Added successful flag to appeals.
  * </li>
  * </ol>
  *
  * Version 1.0.4 Change notes:
  * <ol>
  * <li>
- * 
+ * Added save and finish later functionality.
  * </li>
  * </ol>
  *
@@ -2972,13 +2972,13 @@ public class DocumentManagerBean implements SessionBean {
     /**
      * Get a FinalReview for the given project from the database.
      *
-     * @param project
-     * @param retrieveFull
-     * @param requestor
+     * @param project The required final review's project 
+     * @param retrieveFull Flag wheter or not retrieve FixItems
+     * @param requestor Requestor of this operation
      *
-     * @return FinalReview
+     * @return FinalReview the corresponding FinalReview
      *
-     * @throws RuntimeException DOCUMENT ME!
+     * @throws RuntimeException
      */
     public FinalReview getFinalReview(Project project, boolean retrieveFull, TCSubject requestor) {
         log.debug("DM.getFinalReview(), projectId: " + project.getId() +
@@ -2998,6 +2998,7 @@ public class DocumentManagerBean implements SessionBean {
             // Do not retrieve aggregation responses.
             AggregationWorksheet aggWorksheet = getAggregation(project, requestor, false);
 
+            // the final review common data will be always returned
             ps = conn.prepareStatement(
                     "SELECT fr.final_review_id, " +
                     "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
@@ -3398,12 +3399,13 @@ public class DocumentManagerBean implements SessionBean {
     /**
      * Save a FinalReview to the database.
      *
-     * @param finalReview
+     * @param finalReview The final review to be saved
+     * @param requestor Requestor of this operation
      *
      * @throws InvalidEditException
      * @throws DocumentAlreadySubmittedException
      * @throws IncorrectProjectStateException
-     * @throws RuntimeException DOCUMENT ME!
+     * @throws RuntimeException
      */
     public void saveFinalReview(FinalReview finalReview, TCSubject requestor)
             throws InvalidEditException,

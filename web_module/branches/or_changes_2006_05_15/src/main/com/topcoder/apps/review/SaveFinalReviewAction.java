@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * 
+ * Added save and finish later functionality.
  * </li>
  * </ol>
  *
@@ -68,13 +68,12 @@ public final class SaveFinalReviewAction extends ReviewAction {
             ResultData result = new BusinessDelegate().finalReview(data);
 
             if (result instanceof SuccessResult)  {
-                 log(Level.DEBUG, "Success!!!");
-                
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
+                // only continues process when the worksheet is completed
                 if (data.getFinalReview().isCompleted()) {
-                    // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
+                    // If final fixes are not approved, mails will be sent and the project will go back to final fixes
                     if (data.getFinalReview().isApproved()) {
                         AutoPilot.finalReviewEmail(data);
                     } else {

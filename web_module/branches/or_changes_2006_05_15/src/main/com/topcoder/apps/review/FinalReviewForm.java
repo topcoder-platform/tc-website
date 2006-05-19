@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
- * 
+ * Added save and finish later functionality.
  * </li>
  * </ol>
  *
@@ -223,10 +223,10 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         ActionErrors errors = new ActionErrors();
         setValid(true);
 
-        // If the final review isn't marked completed, we don't need to
-        // validate yet.
         setCompleted(Constants.ACTION_FINISH.equals(action));
 
+        // If the final review isn't marked completed, we don't need to
+        // validate yet.
         if (!getCompleted()) {
             return errors;
         }
