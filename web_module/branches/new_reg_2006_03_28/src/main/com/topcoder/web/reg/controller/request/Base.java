@@ -86,9 +86,6 @@ abstract class Base extends HibernateProcessor {
      */
     protected Set getRequestedTypes() {
         Set regTypes = (Set) getRequest().getSession().getAttribute(Constants.REG_TYPES);
-        for (Iterator it =regTypes.iterator(); it.hasNext();) {
-            log.debug("reg type: " + ((RegistrationType)it.next()).getDescription());
-        }
         return regTypes;
     }
 
@@ -99,9 +96,6 @@ abstract class Base extends HibernateProcessor {
      * @param requestedTypes
      */
     protected void setRequestedTypes(Set requestedTypes) {
-        for (Iterator it =requestedTypes.iterator(); it.hasNext();) {
-            log.debug("set reg type: " + ((RegistrationType)it.next()).getDescription());
-        }
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
     }
 

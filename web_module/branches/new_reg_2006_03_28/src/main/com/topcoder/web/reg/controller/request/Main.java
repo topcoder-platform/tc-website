@@ -28,6 +28,7 @@ public class Main extends Base {
             for (Iterator it = types.iterator(); it.hasNext();) {
                 rt = (RegistrationType)it.next();
                 if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
+                    //log.debug("adding type: " + rt.getName());
                     requestedTypes.add(rt);
                 }
             }
@@ -38,6 +39,7 @@ public class Main extends Base {
             if (u==null) {
                 u = new User();
             }
+
 
             requestedTypes.addAll(u.getRegistrationTypes());
             setRequestedTypes(requestedTypes);
