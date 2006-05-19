@@ -141,7 +141,7 @@ z-index: 2;
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_hs_stats"/>
+            <jsp:param name="node" value="m_competitions"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -222,7 +222,7 @@ z-index: 2;
       </A>
       </td>
       <td class="value">
-         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
+         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
       </td>
 
       <td class="value" nowrap>
@@ -336,8 +336,8 @@ z-index: 2;
            <rsc:iterator list="<%= rscChallenge %>" id="resultRow">
                <% even = !even; %>
                <tr class="<%=even?"dark":"light"%>">
-                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
-                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" context='hs_algorithm'/></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" context='hs_algorithm'/></td>
                   <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
                   <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
                   <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
@@ -366,8 +366,8 @@ z-index: 2;
            <rsc:iterator list="<%= rscDefense %>" id="resultRow">
                <% even = !even; %>
                <tr class="<%=even?"dark":"light"%>">
-                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" /></td>
-                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" /></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("defendant_id").toString() %>" context='hs_algorithm'/></td>
+                  <td class="value"><tc-webtag:handle coderId="<%= resultRow.getItem("challenger_id").toString() %>" context='hs_algorithm'/></td>
                   <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
                   <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
                   <td class="valueR"><rsc:item name="defendant_points" row="<%=resultRow%>" format="0.00"/></td>

@@ -17,15 +17,15 @@
 </jsp:include>
 
 <%
-	Map resultMap = (Map) request.getAttribute("resultMap");
-	ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
-	ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_coder_rank");
-	
-	RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
-	ListInfo li = (ListInfo)request.getAttribute("listInfo");
-	
-	int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
-	
+    Map resultMap = (Map) request.getAttribute("resultMap");
+    ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+    ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_coder_rank");
+
+    RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+    ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+    int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
+
 %>
 
 <script language="JavaScript">
@@ -85,11 +85,11 @@ function submitEnter(e)
         showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false);
     } else return true;
  }
- 
- 
+
+
 function clickColumn(n)
 {
-	var sd = "asc";
+    var sd = "asc";
     if ((n == <%= li.getSortColumn() %>) && ("asc" == "<%= li.getSortDirection() %>")) {
             sd = "desc";
     }
@@ -97,7 +97,7 @@ function clickColumn(n)
                    "&sc=" + n + "&sd=" + sd;
 
 }
- 
+
 // -->
 </script>
 </head>
@@ -139,8 +139,8 @@ function clickColumn(n)
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
 
 <span class="bc">
-Coders | 
-<a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> | 
+Coders |
+<a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> |
 <a href="/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>" class="bcLink">Countries</a>
 </span>
 <div class="pagingBox">
@@ -158,15 +158,15 @@ Coders |
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= result%>" id="resultRow">
-	   <% even = !even; %>
-	   <tr class="<%=even?"dark":"light"%>">
-	      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-	      <td class="value">
-	                       <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
-	      </td>
-	      <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
-	      <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-	   </tr>
+       <% even = !even; %>
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+          <td class="value">
+                           <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm' />
+          </td>
+          <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+       </tr>
    </rsc:iterator>
 </table>
 

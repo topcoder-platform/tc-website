@@ -21,19 +21,19 @@
 <%
 boolean competed = "true".equals(request.getAttribute("competed"));
 if (competed) {
-	Map resultMap = (Map) request.getAttribute("resultMap");
-	ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons_for_team");
-	ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season_and_team");
-	ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
-	ResultSetContainer teams = (ResultSetContainer) resultMap.get("teams_for_round");
-	
-	RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
-	ListInfo li = (ListInfo)request.getAttribute("listInfo");
-	
-	int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
-	
-	String teamName = result.getStringItem(0, "team_name");
-	%>
+    Map resultMap = (Map) request.getAttribute("resultMap");
+    ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons_for_team");
+    ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season_and_team");
+    ResultSetContainer result = (ResultSetContainer) resultMap.get("hs_ind_result_for_team");
+    ResultSetContainer teams = (ResultSetContainer) resultMap.get("teams_for_round");
+
+    RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+    ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+    int tmid = Integer.parseInt((String) request.getAttribute("tmid"));
+
+    String teamName = result.getStringItem(0, "team_name");
+    %>
 
 <script language="JavaScript">
 <!--
@@ -83,7 +83,7 @@ function clickColumn(n)
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="hs_team_match_results"/>
+            <jsp:param name="node" value="m_competitions"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -149,7 +149,7 @@ function clickColumn(n)
           <A href="/tc?module=HSRoomStats&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&cr=<%= resultRow.getItem("coder_id") %>&rm=<%= resultRow.getItem("room_id") %>"><img src="/i/interface/exp_w.gif" alt="" /></A>
           </td>
       <td class="value">
-         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
+         <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
       </td>
 
           <td class="valueR">

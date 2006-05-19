@@ -48,7 +48,7 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 <jsp:param name="title" value="High School Rating History"/>
 </jsp:include>
 
-<span class="bigHandle">Coder: <tc-webtag:handle coderId="144400" /></span>
+<span class="bigHandle">Coder: <tc-webtag:handle coderId="144400" context='hs_algorithm' /></span>
 <br>
 <span class="bodySubtitle">High School Statistics > </span><br>
 <span class="bc">

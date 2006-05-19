@@ -167,7 +167,7 @@ z-index: 2;
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="hs_ind_match_results"/>
+            <jsp:param name="node" value="m_competitions"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -247,7 +247,7 @@ z-index: 2;
            %>
            <tr class="<%=even?"dark":"light"%>">
               <td class="value">
-                 <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' />
+                 <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
               </td>
               <td class="value" nowrap>
                  <div id="popBox">

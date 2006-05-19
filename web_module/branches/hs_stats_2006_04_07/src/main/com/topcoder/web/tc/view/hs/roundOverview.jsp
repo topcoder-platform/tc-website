@@ -28,7 +28,7 @@
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="hs_match_overview"/>
+            <jsp:param name="node" value="m_competitions"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -146,7 +146,7 @@ function submitForm(){
       <%= i + 1 %>
       </td>
       <td class="value">
-      <tc-webtag:handle coderId='<%= leaders.getIntItem(i, "coder_id") %>' />
+      <tc-webtag:handle coderId='<%= leaders.getIntItem(i, "coder_id") %>' context='hs_algorithm' />
       </td>
       <td class="value" nowrap="nowrap">
       <%= leaders.getStringItem(i, "room_name") %>
