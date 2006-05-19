@@ -68,8 +68,13 @@ public class UserDAOHibernate extends Base implements UserDAO {
             //todo consider putting all this logic in the POJO instead of here.
 
             //don't need to worry about anything that is already in the db.
+            DemographicResponse temp;
             for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
-                u.getTransientResponses().remove(it.next());
+                temp = (DemographicResponse)it.next();
+                if (temp.getQuestion().isFreeForm()||temp.getQuestion().isSingleSelect()) {
+                    u.getTransientResponses().remove(temp);
+                }
+
             }
 
             DemographicResponse dr;
@@ -110,20 +115,27 @@ public class UserDAOHibernate extends Base implements UserDAO {
                     }
                 } else if (!processedQuestions.contains(dr.getQuestion())) {
                     log.debug("multiple");
+
                     Set currResponses = findResponses(u.getDemographicResponses(), dr.getQuestion());
                     Set newResponses = findResponses(u.getTransientResponses(), dr.getQuestion());
+                    //remove any responses from the database that the user hasn't chosen
                     for (Iterator itr = currResponses.iterator(); itr.hasNext();) {
                         badResponse = (DemographicResponse) itr.next();
-                        u.removeDemographicResponse(badResponse);
-                        badResponse.setUser(null);
+                        if (!newResponses.contains(badResponse)) {
+                            u.removeDemographicResponse(badResponse);
+                            badResponse.setUser(null);
+                        }
                     }
+                    //add any responses to the db that the user has chosen that are not current there
                     for (Iterator itr = newResponses.iterator(); itr.hasNext();) {
                         goodResponse = (DemographicResponse) itr.next();
-                        goodResponse.setUser(u);
-                        goodResponse.getId().setUser(u);
-                        goodResponse.getId().setQuestion(goodResponse.getQuestion());
-                        goodResponse.getId().setAnswer(goodResponse.getAnswer());
-                        u.addDemographicResponse(goodResponse);
+                        if (!currResponses.contains(goodResponse)) {
+                            goodResponse.setUser(u);
+                            goodResponse.getId().setUser(u);
+                            goodResponse.getId().setQuestion(goodResponse.getQuestion());
+                            goodResponse.getId().setAnswer(goodResponse.getAnswer());
+                            u.addDemographicResponse(goodResponse);
+                        }
                     }
                     processedQuestions.add(dr.getQuestion());
                 }
