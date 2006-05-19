@@ -57,8 +57,7 @@
         <c:if test="${results!=null}">
             <strong>Results</strong><br>
             Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
-            duplicate, please choose the school with more
-            associated students.
+            duplicate, please choose the school with the greatest number of associated registrants.
             <br><br>
             Please <strong>select</strong> your school from list below.<br />
             <span id="submitMessage"></span><br />
