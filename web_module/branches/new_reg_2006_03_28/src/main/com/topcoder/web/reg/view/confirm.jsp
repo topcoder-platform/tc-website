@@ -66,7 +66,7 @@
         <strong>General:</strong>
     </td>
     <td class="value">
-        <strong><a href="${sessionInfo.secureAbsoluteServletPath}/?<%=Constants.MODULE_KEY%>=Main">edit</A></strong>
+        <strong><a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Main">edit</A></strong>
     </td>
 </tr>
 
@@ -338,7 +338,7 @@
             <strong>Demographics:</strong>
         </td>
         <td class="value">
-            <strong><a href="${sessionInfo.secureAbsoluteServletPath}/?<%=Constants.MODULE_KEY%>=Secondary">edit</A>
+            <strong><a href="${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=Secondary">edit</A>
             </strong>
         </td>
     </tr>
