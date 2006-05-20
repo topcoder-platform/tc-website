@@ -32,7 +32,9 @@
                 putValue("window.opener.document.secondaryForm", "${stateCode}", getValue("document.schoolAddForm", "${stateCode}"));
                 putValue("window.opener.document.secondaryForm", "${province}", getValue("document.schoolAddForm", "${province}"));
                 putValue("window.opener.document.secondaryForm", "${city}", getValue("document.schoolAddForm", "${city}"));
-                putValue("window.opener.document.secondaryForm", "${visibleSchool}", getValue("document.schoolAddForm", "${visibleSchool}"));
+                if (document.schoolAddForm.${visibleSchool}) {
+                    putValue("window.opener.document.secondaryForm", "${visibleSchool}", getValue("document.schoolAddForm", "${visibleSchool}"));
+                }
                 putValue("window.opener.document.secondaryForm", "${schoolType}", getValue("document.schoolAddForm", "${schoolType}"));
                 updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", getValue("document.schoolAddForm", "${schoolName}"));
                 window.close();
@@ -76,7 +78,7 @@
 
 
 <c:if test="${cf:contains(fields, visibleSchool)}">
-    <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school. 
+    <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school.
 </c:if>
             <br><br>
              School Type:
