@@ -29,8 +29,15 @@ public class UserDAOHibernate extends Base implements UserDAO {
         return (User) super.find(User.class, id);
     }
 
+    public User find(String userName, boolean ignoreCase) {
+        if (ignoreCase) {
+            return (User) findOne(User.class, "handle_lower", userName.toLowerCase());
+        } else {
+            return (User) findOne(User.class, "handle", userName);
+        }
+    }
+
     public User find(String userName) {
-        return (User) findOne(User.class, "handle_lower", userName.toLowerCase());
     }
 
     public void saveOrUpdate(User u) {
