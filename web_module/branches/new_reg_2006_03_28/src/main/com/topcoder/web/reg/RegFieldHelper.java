@@ -182,10 +182,10 @@ public class RegFieldHelper {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(CoderType.PROFESSIONAL)) {
+                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         ret.addAll(secondaryCompProFields);
                         ret.add(Constants.PHOTO);
-                    } else if (user.getCoder().getCoderType().equals(CoderType.STUDENT)) {
+                    } else if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         ret.addAll(secondaryCompStudentFields);
                         ret.add(Constants.PHOTO);
                     } else {
@@ -235,10 +235,10 @@ public class RegFieldHelper {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(CoderType.PROFESSIONAL)) {
+                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         ret.addAll(secondaryCompProFields);
                         ret.add(Constants.PHOTO);
-                    } else if (user.getCoder().getCoderType().equals(CoderType.STUDENT)) {
+                    } else if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         ret.addAll(secondaryCompStudentFields);
                         ret.add(Constants.PHOTO);
                     } else {
