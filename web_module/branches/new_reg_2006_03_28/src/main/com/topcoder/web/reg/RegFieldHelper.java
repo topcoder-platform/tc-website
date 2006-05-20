@@ -181,16 +181,10 @@ public class RegFieldHelper {
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
+                //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
-                        ret.addAll(secondaryCompProFields);
-                        ret.add(Constants.PHOTO);
-                    } else if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
-                        ret.addAll(secondaryCompStudentFields);
-                        ret.add(Constants.PHOTO);
-                    } else {
-                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
-                    }
+                    ret.addAll(mainCompFields);
+                    ret.add(Constants.PHOTO);
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
                     ret.addAll(mainCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
@@ -234,6 +228,7 @@ public class RegFieldHelper {
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
+                //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
                     if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         ret.addAll(secondaryCompProFields);
