@@ -68,6 +68,14 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new StateDAOHibernate();
     }
 
+    public TeamDAO getTeamDAO() {
+        return new TeamDAOHibernate();
+    }
+
+    public TeamTypeDAO getTeamTypeDAO() {
+        return new TeamTypeDAOHibernate();
+    }
+
     public TimeZoneDAO getTimeZoneDAO() {
         return new TimeZoneDAOHibernate();
     }

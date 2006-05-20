@@ -58,23 +58,6 @@ public class DemographicResponse extends Base {
         this.response = response;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        DemographicResponse ret = (DemographicResponse) super.clone();
-/*
-        if (user!=null) {
-            ret.user= (User)user.clone();
-        }
-*/
-        if (question != null) {
-            ret.question = (DemographicQuestion) question.clone();
-        }
-        if (answer != null) {
-            ret.answer = (DemographicAnswer) answer.clone();
-        }
-        ret.id = (Identifier) id.clone();
-        return ret;
-    }
-
 
     public boolean equals(Object o) {
         if (o == null) {
@@ -197,9 +180,6 @@ public class DemographicResponse extends Base {
                 buf.append(demographicAnswerId);
             return buf.toString().hashCode();
         }
-        public Object clone() throws CloneNotSupportedException {
-            return super.clone();
-        }
 
     }
 */
@@ -270,9 +250,6 @@ public class DemographicResponse extends Base {
             return buf.toString().hashCode();
         }
 
-        public Object clone() throws CloneNotSupportedException {
-            return super.clone();
-        }
 
     }
 

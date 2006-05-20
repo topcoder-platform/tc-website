@@ -64,13 +64,21 @@ public class School extends Base {
         this.type = type;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        School ret = (School) super.clone();
-        ret.setAddress((Address) address.clone());
-        ret.setType((SchoolType) type.clone());
-        ret.setCoder((Coder) coder.clone());
-        return ret;
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                School oa = (School) o;
+                if (oa.getId()==null||getId()==null) {
+                    return oa.getName().equals(getName());
+                } else {
+                    return oa.getId().equals(getId());
+                }
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
     }
-
 
 }

@@ -3,10 +3,10 @@ package com.topcoder.web.reg.model;
 import com.topcoder.web.common.model.Base;
 
 import java.sql.Timestamp;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
-import java.util.HashSet;
-import java.util.Collections;
 
 /**
  * A class to hold coder data.
@@ -28,10 +28,13 @@ public class Coder extends Base {
     private CurrentSchool currentSchool;
     private Set resumes;
     private User user;
-    private Set createdSchools = new HashSet();
+    private Set createdSchools;
+    private Set teams;
 
     public Coder() {
         this.resumes = new HashSet();
+        this.teams = new HashSet();
+        this.createdSchools = new HashSet();
     }
 
 
@@ -135,34 +138,33 @@ public class Coder extends Base {
         this.createdSchools.add(s);
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        Coder ret = (Coder) super.clone();
-/*
-        ret.setHSRating((HSAlgoRating) hsRating.clone());
-        ret.setTCRating((TCAlgoRating) tcRating.clone());
-*/
-        if (currentSchool!=null) {
-            ret.setCurrentSchool((CurrentSchool) currentSchool.clone());
-        }
-        if (compCountry!=null) {
-            ret.setCompCountry((Country) compCountry.clone());
-        }
-        if (coderType!=null) {
-            ret.setCoderType((CoderType) coderType.clone());
-        }
-        if (user!=null) {
-            ret.setUser((User) user.clone());
-        }
+    public Set getTeams() {
+        return Collections.unmodifiableSet(teams);
+    }
 
-        for(Iterator it =resumes.iterator(); it.hasNext();) {
-            ret.resumes.add(((Resume)it.next()).clone());
-        }
-        for(Iterator it =createdSchools.iterator(); it.hasNext();) {
-            ret.createdSchools.add(((School)it.next()).clone());
-        }
+    public void setTeams(Set teams) {
+        this.teams = teams;
+    }
 
+    public void addTeam(Team t) {
+        this.teams.add(t);
+    }
 
+    public void removeTeam(Team t) {
+        this.teams.remove(t);
+    }
+
+    public Team getHighSchoolTeam() {
+        Team t;
+        Team ret = null;
+        for(Iterator it = teams.iterator(); it.hasNext();) {
+            t = (Team)it.next();
+            if (t.getType().getId().equals(TeamType.HIGH_SCHOOL_TYPE)) {
+                ret = t;
+            }
+        }
         return ret;
     }
+
 
 }

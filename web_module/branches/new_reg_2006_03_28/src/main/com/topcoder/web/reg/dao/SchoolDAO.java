@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.dao;
 
 import com.topcoder.web.reg.model.School;
+import com.topcoder.web.reg.model.SchoolType;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface SchoolDAO {
 
     School find(Long id);
     List searchByName(String name, int maxResults);
+    List searchByNameAndType(String name, SchoolType type, int maxResults);
 }

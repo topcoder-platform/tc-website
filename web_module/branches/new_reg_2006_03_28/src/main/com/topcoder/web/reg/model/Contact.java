@@ -45,12 +45,4 @@ public class Contact extends Base {
         this.user = user;
     }
 
-
-    public Object clone() throws CloneNotSupportedException {
-        Contact ret = (Contact) super.clone();
-        ret.setCompany((Company) company.clone());
-        ret.setUser((User) user.clone());
-        return ret;
-    }
-
 }

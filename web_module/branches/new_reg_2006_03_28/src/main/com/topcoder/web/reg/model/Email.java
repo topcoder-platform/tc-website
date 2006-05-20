@@ -76,13 +76,5 @@ public class Email extends Base {
         this.statusId = statusId;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        Email ret = (Email) super.clone();
-        if (user!=null) {
-            ret.user = (User)user.clone();
-        }
-        return ret;
-    }
-
 
 }

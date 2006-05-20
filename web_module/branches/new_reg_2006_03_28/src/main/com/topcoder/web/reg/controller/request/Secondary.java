@@ -79,9 +79,6 @@ public class Secondary extends Base {
         if (fields.contains(Constants.POSTAL_CODE)) {
             a.setPostalCode((String) params.get(Constants.POSTAL_CODE));
         }
-        if (fields.contains(Constants.PROVINCE)) {
-            a.setProvince((String) params.get(Constants.PROVINCE));
-        }
 
         if (fields.contains(Constants.COUNTRY_CODE)) {
             a.setCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COUNTRY_CODE)));
@@ -90,6 +87,10 @@ public class Secondary extends Base {
         if (getFactory().getCountryDAO().getUS().equals(a.getCountry())) {
             if (fields.contains(Constants.STATE_CODE)) {
                 a.setState(getFactory().getStateDAO().find((String) params.get(Constants.STATE_CODE)));
+            }
+        } else {
+            if (fields.contains(Constants.PROVINCE)) {
+                a.setProvince((String) params.get(Constants.PROVINCE));
             }
         }
 

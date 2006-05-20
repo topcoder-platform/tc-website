@@ -54,17 +54,5 @@ public class UserGroup extends Base {
         this.securityStatusId = securityStatusId;
     }
 
-    public Object clone() throws CloneNotSupportedException {
-        UserGroup ret = (UserGroup) super.clone();
-        if (user!=null) {
-            ret.user= (User)user.clone();
-        }
-        if (securityGroup!=null) {
-            ret.securityGroup = (SecurityGroup)securityGroup.clone();
-        }
-
-        return ret;
-    }
-
 
 }

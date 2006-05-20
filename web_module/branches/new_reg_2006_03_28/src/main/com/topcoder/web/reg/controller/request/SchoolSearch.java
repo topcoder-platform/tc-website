@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.model.SchoolType;
 import com.topcoder.web.common.StringUtils;
 
 /**
@@ -18,8 +19,15 @@ public class SchoolSearch extends Base {
             addError(Constants.SCHOOL_NAME, "Please enter some criteria to search on.");
         } else {
             String s = StringUtils.replace(schoolName, "*", "%");
-            getRequest().setAttribute("results",
-                    getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
+            if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                getRequest().setAttribute("results",
+                        getFactory().getSchoolDAO().searchByNameAndType(s,
+                                getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL),
+                                Constants.MAX_SCHOOL_RESULTS));
+            } else {
+                getRequest().setAttribute("results",
+                        getFactory().getSchoolDAO().searchByName(s, Constants.MAX_SCHOOL_RESULTS));
+            }
             setDefault(Constants.SCHOOL_NAME, schoolName);
         }
         setNextPage("/school.jsp");

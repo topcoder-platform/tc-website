@@ -290,37 +290,5 @@ public class User extends Base {
 
 
 
-    public Object clone() throws CloneNotSupportedException {
-        User ret = (User)super.clone();
-        if (timeZone!=null) {
-            ret.setTimeZone((TimeZone)timeZone.clone());
-        }
-        if (coder!=null) {
-            ret.setCoder((Coder)coder.clone());
-        }
-        if (contact!=null) {
-            ret.setContact((Contact)contact.clone());
-        }
-        for(Iterator it = addresses.iterator(); it.hasNext();) {
-            ret.addAddress((Address)((Address)it.next()).clone());
-        }
-        for(Iterator it =phoneNumbers.iterator(); it.hasNext();) {
-            ret.addPhoneNumber((Phone)((Phone)it.next()).clone());
-        }
-        for(Iterator it =emailAddresses.iterator(); it.hasNext();) {
-            ret.addEmailAddress((Email)((Email)it.next()).clone());
-        }
-        for(Iterator it =demographicResponses.iterator(); it.hasNext();) {
-            ret.addDemographicResponse((DemographicResponse)((DemographicResponse)it.next()).clone());
-        }
-        for(Iterator it =notifications.iterator(); it.hasNext();) {
-            ret.addNotification((Notification)((Notification)it.next()).clone());
-        }
-        for(Iterator it =securityGroups.iterator(); it.hasNext();) {
-            ret.securityGroups.add(((SecurityGroup)it.next()).clone());
-        }
-
-        return ret;
-    }
 
 }

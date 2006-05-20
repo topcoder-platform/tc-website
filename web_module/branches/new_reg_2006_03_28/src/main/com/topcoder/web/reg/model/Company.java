@@ -46,16 +46,4 @@ public class Company extends Base {
         this.timeZone = timeZone;
     }
 
-
-    public Object clone() throws CloneNotSupportedException {
-        Company ret = (Company) super.clone();
-        if (primaryContact!=null) {
-            ret.setPrimaryContact((Contact) primaryContact.clone());
-        }
-        if (timeZone!=null) {
-            ret.setTimeZone((TimeZone) timeZone.clone());
-        }
-        return ret;
-    }
-
 }

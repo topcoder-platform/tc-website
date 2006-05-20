@@ -2,9 +2,8 @@ package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
 
-import java.util.Set;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -41,17 +40,6 @@ public class SecurityGroup extends Base {
 
     public Set getRegistrationTypes() {
         return Collections.unmodifiableSet(registrationTypes);
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        SecurityGroup ret = (SecurityGroup)super.clone();
-        for(Iterator it = users.iterator(); it.hasNext();) {
-            ret.users.add(((SecurityGroup)it.next()).clone());
-        }
-        for(Iterator it = registrationTypes.iterator(); it.hasNext();) {
-            ret.registrationTypes.add(((RegistrationType)it.next()).clone());
-        }
-        return ret;
     }
 
 

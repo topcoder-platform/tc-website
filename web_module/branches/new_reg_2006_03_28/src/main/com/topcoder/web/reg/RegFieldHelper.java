@@ -181,20 +181,25 @@ public class RegFieldHelper {
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
-                //the user updating reg info for the specified type
-                //todo implement this part
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    //todo be sure to put in logic for student/pro since we must know on an update
+                    if (user.getCoder().getCoderType().equals(CoderType.PROFESSIONAL)) {
+                        ret.addAll(secondaryCompProFields);
+                        ret.add(Constants.PHOTO);
+                    } else if (user.getCoder().getCoderType().equals(CoderType.STUDENT)) {
+                        ret.addAll(secondaryCompStudentFields);
+                        ret.add(Constants.PHOTO);
+                    } else {
+                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
+                    }
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
-
+                    ret.addAll(mainCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
-
+                    ret.addAll(mainHSFields);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
-
+                    ret.addAll(mainMinFields);
                 } else if (curr.getId().equals(RegistrationType.SOFTWARE_ID)) {
-
+                    ret.addAll(mainSoftwareFields);
                 }
-
             } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
@@ -229,18 +234,24 @@ public class RegFieldHelper {
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType)it.next();
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
-                //the user updating reg info for the specified type
-                //todo implement this part
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    //todo be sure to put in logic for student/pro since we must know on an update
+                    if (user.getCoder().getCoderType().equals(CoderType.PROFESSIONAL)) {
+                        ret.addAll(secondaryCompProFields);
+                        ret.add(Constants.PHOTO);
+                    } else if (user.getCoder().getCoderType().equals(CoderType.STUDENT)) {
+                        ret.addAll(secondaryCompStudentFields);
+                        ret.add(Constants.PHOTO);
+                    } else {
+                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
+                    }
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
-
+                    ret.addAll(secondaryCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
-
+                    ret.addAll(secondaryHSFields);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
-
+                    ret.addAll(secondaryMinFields);
                 } else if (curr.getId().equals(RegistrationType.SOFTWARE_ID)) {
-
+                    ret.addAll(secondarySoftwareFields);
                 }
 
             } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
@@ -259,13 +270,13 @@ public class RegFieldHelper {
                         }
                     }
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
-                    ret.addAll(mainCorpFields);
+                    ret.addAll(secondaryCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
-                    ret.addAll(mainHSFields);
+                    ret.addAll(secondaryHSFields);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
-                    ret.addAll(mainMinFields);
+                    ret.addAll(secondaryMinFields);
                 } else if (curr.getId().equals(RegistrationType.SOFTWARE_ID)) {
-                    ret.addAll(mainSoftwareFields);
+                    ret.addAll(secondarySoftwareFields);
                 }
             }
         }

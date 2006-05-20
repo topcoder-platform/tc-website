@@ -63,13 +63,5 @@ public class Phone extends Base {
     }
 
 
-    public Object clone() throws CloneNotSupportedException {
-        Phone ret = (Phone) super.clone();
-        if (user!=null) {
-            ret.user = (User)user.clone();
-        }
-        return ret;
-    }
-
 
 }

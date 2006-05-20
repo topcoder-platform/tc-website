@@ -2,10 +2,9 @@ package com.topcoder.web.reg.model;
 
 import com.topcoder.web.common.model.Base;
 
-import java.util.Set;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author dok
@@ -59,18 +58,6 @@ public class RegistrationType extends Base {
 
     public Integer getSort() {
         return sort;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        RegistrationType ret = (RegistrationType) super.clone();
-        if (securityGroup!=null) {
-            ret.securityGroup = (SecurityGroup)securityGroup.clone();
-        }
-        for (Iterator it = notifications.iterator(); it.hasNext();) {
-            ret.notifications.add(((Notification) it.next()).clone());
-        }
-
-        return ret;
     }
 
     /**

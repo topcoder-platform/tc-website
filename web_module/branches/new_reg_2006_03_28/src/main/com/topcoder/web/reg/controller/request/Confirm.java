@@ -122,6 +122,30 @@ public class Confirm extends Base {
                 s.setAddress(a);
                 cs.setSchool(s);
             }
+            if (u.getCoder().getCurrentSchool()!=null&&getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+
+                List teams = getFactory().getTeamDAO().getHighSchoolTeamsForSchool(u.getCoder().getCurrentSchool().getSchool());
+                Team t;
+                if (teams.isEmpty()) {
+                    t = new Team();
+                    School s = u.getCoder().getCurrentSchool().getSchool();
+                    t.setName(s.getName());
+                    t.setSchool(s);
+                    t.setType(getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+                } else {
+                    t = (Team)teams.iterator().next();
+                }
+
+                Team userTeam = u.getCoder().getHighSchoolTeam();
+                if (userTeam==null) {
+                    u.getCoder().addTeam(t);
+                } else {
+                    if (!(userTeam.getSchool().getId()!=null && userTeam.getSchool().equals(t.getSchool()))) {
+                        u.getCoder().removeTeam(userTeam);
+                        u.getCoder().addTeam(t);
+                    }
+                }
+            }
         }
         if (fields.contains(Constants.RESUME)&&hasParameter(params, Constants.FILE)) {
             Resume r = null;

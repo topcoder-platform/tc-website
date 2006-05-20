@@ -56,16 +56,5 @@ public class Resume extends Base  {
     }
 
 
-    public Object clone() throws CloneNotSupportedException {
-        Resume ret = (Resume) super.clone();
-        if (fileType!=null) {
-            ret.fileType = (FileType)fileType.clone();
-        }
-        if (coder!=null) {
-            ret.coder= (Coder)coder.clone();
-        }
-        return ret;
-    }
-
 
 }

@@ -51,6 +51,8 @@ public class Constants implements WebConstants {
 
     public static final String NEW_REG = "nrg";
 
+    public static final String PHOTO = "photo";
+
 
     public final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET =  StringUtils.ALPHABET_ALPHA_EN +
