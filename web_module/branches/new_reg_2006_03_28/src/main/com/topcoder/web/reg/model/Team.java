@@ -63,7 +63,11 @@ public class Team extends Base  {
     }
 
     public int hashCode() {
-        return id.hashCode();
+        if (id==null) {
+            return name.hashCode();
+        } else {
+            return id.hashCode();
+        }
     }
 
     public boolean equals(Object o) {

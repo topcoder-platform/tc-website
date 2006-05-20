@@ -50,6 +50,12 @@ public class TestUtils {
         cs.setViewable(Boolean.TRUE);
         ret.setCurrentSchool(cs);
 
+        Team t = new Team();
+        t.setName(s.getName());
+        t.setSchool(s);
+        t.setType(Util.getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+
+        ret.addTeam(t);
 
 
         return ret;

@@ -2,11 +2,8 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.*;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Iterator;
+import com.topcoder.web.reg.TestUtils;
+import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -19,7 +16,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 
 
-    public void testTransientDemogUpdate() {
+ /*   public void testTransientDemogUpdate() {
         User u = Util.getFactory().getUserDAO().find("dok");
 
         HashSet h = new HashSet();
@@ -67,7 +64,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         Util.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);
 
-    }
+    }*/
 
 
 
@@ -92,14 +89,16 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 
 
-        /*public void testSaveOrUpdate() {
+        public void testSaveOrUpdate() {
             User u = TestUtils.makeUser();
             Util.getFactory().getUserDAO().saveOrUpdate(u);
             User u1 = Util.getFactory().getUserDAO().find(u.getId());
             assertTrue("new coder does not exist", u1 != null);
 
         }
-*/
+
+
+
 /*
         public void testSaveOrUpdateResponses() {
             User u = TestUtils.makeUser();
