@@ -521,14 +521,14 @@ abstract class Base extends HibernateProcessor {
 
             Address a = s.getAddress();
             if (a != null) {
-                setDefault(Constants.SCHOOL_NAME, a.getCity());
+                setDefault(Constants.SCHOOL_CITY, a.getCity());
                 State state = a.getState();
                 if (state != null) {
-                    setDefault(Constants.SCHOOL_NAME, state.getCode());
+                    setDefault(Constants.SCHOOL_STATE, state.getCode());
                 }
-                setDefault(Constants.SCHOOL_NAME, a.getProvince());
+                setDefault(Constants.SCHOOL_PROVINCE, a.getProvince());
                 if (a.getCountry()!=null) {
-                    setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
+                    setDefault(Constants.SCHOOL_COUNTRY, a.getCountry().getCode());
                 }
             }
         } else {
