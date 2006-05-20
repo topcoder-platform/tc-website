@@ -467,7 +467,14 @@ abstract class Base extends HibernateProcessor {
 
 
     protected void setSecondaryDefaults(User u) {
-        Set responses = u.getDemographicResponses();
+        Set responses;
+
+        if (u.getTransientResponses().isEmpty()) {
+            responses = u.getDemographicResponses();
+        } else {
+            responses = u.getTransientResponses();
+        }
+        
         DemographicResponse r;
         HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {
