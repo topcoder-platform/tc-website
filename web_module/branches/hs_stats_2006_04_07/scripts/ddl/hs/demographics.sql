@@ -182,3 +182,6 @@ insert into demographic_assignment values (26, 1, 3, 400, 'A', 1);
 
 --helper for mulitselect question
 update demographic_question set demographic_question_desc = 'Choose all that apply' where demographic_question_id = 19
+
+--don't require the employer question
+update demographic_assignment set is_required = 0 where demographic_question_id = 15
