@@ -158,7 +158,6 @@
 
 </c:if>
 
-</c:if>
 
 
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
