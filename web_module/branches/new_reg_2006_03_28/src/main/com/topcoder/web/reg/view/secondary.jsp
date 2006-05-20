@@ -143,6 +143,21 @@
                 School</a>
         </td>
     </tr>
+
+    <c:if test="${cf:contains(fields, visibleSchool)}">
+        <tr>
+        <td class="name">
+            Allow others to see my school:
+        </td>
+        <td class="value">
+            <tc-webtag:chkBox name="${visibleSchool}"/>
+        </td>
+    </tr>
+    </c:if>
+
+
+</c:if>
+
 </c:if>
 
 

@@ -77,9 +77,7 @@
             <br><br>
 
 
-<c:if test="${cf:contains(fields, visibleSchool)}">
-    <tc-webtag:chkBox name="${visibleSchool}"/> Allow others to see my school.
-</c:if>
+
             <br><br>
              School Type:
              <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
