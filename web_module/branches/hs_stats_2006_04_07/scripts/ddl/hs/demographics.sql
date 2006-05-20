@@ -185,3 +185,4 @@ update demographic_question set demographic_question_desc = 'Choose all that app
 
 --don't require the employer question
 update demographic_assignment set is_required = 0 where demographic_question_id = 15
+update demographic_assignment set is_required = 0 where demographic_question_id = 22
