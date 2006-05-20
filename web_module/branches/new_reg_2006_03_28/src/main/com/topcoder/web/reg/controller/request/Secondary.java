@@ -75,7 +75,9 @@ public class Secondary extends Base {
         User u = getRegUser();
         Address a = u.getHomeAddress();
         //we'll consider address1 to be the indicator as to whether or not we're getting an address
-        if (fields.contains(Constants.ADDRESS1)) {
+        if (fields.contains(Constants.ADDRESS1) || fields.contains(Constants.ADDRESS2) || fields.contains(Constants.ADDRESS3)
+                || fields.contains(Constants.CITY) || fields.contains(Constants.POSTAL_CODE) || fields.contains(Constants.COUNTRY_CODE) ||
+                fields.contains(Constants.STATE_CODE) || fields.contains(Constants.PROVINCE)) {
             if (a == null) {
                 a = new Address();
                 u.addAddress(a);
