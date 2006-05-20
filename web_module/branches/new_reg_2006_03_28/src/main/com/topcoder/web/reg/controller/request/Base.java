@@ -356,20 +356,20 @@ abstract class Base extends HibernateProcessor {
                 //validate the response we got
                 if (da.getQuestion().isFreeForm()) {
                     //validate free form
-                    ValidationResult freeResult = new DemogFreeFormValidator(getRegUser()).validate(
+                    ValidationResult freeResult = new DemogFreeFormValidator(getRegUser(), da.isRequired()).validate(
                             new StringInput((String) params.get(key)));
                     if (!freeResult.isValid()) {
                         addError(key, freeResult.getMessage());
                     }
                 } else if (da.getQuestion().isMultipleSelect()) {
                     //validate answers
-                    ValidationResult multiResult = new DemogMultiSelectValidator(da.getQuestion()).validate(
+                    ValidationResult multiResult = new DemogMultiSelectValidator(da.getQuestion(), da.isRequired()).validate(
                             new ListInput((List) params.get(key)));
                     if (!multiResult.isValid()) {
                         addError(key, multiResult.getMessage());
                     }
                 } else if (da.getQuestion().isSingleSelect()) {
-                    ValidationResult singleResult = new DemogSingleSelectValidator(da.getQuestion()).validate(
+                    ValidationResult singleResult = new DemogSingleSelectValidator(da.getQuestion(), da.isRequired()).validate(
                             new StringInput((String) params.get(key)));
                     if (!singleResult.isValid()) {
                         addError(key, singleResult.getMessage());
@@ -474,7 +474,7 @@ abstract class Base extends HibernateProcessor {
         } else {
             responses = u.getTransientResponses();
         }
-        
+
         DemographicResponse r;
         HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {

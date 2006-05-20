@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.*;
@@ -66,28 +67,36 @@ public class Confirm extends Base {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {
                     answers = (List)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
-                    //todo if they answer the multiple choice with a real answer, remove the decline to answer 
-                    for (int i=0; i<answers.size(); i++) {
+                    //todo if they answer the multiple choice with a real answer, remove the decline to answer
+                    if (answers!=null) {
+                        for (int i=0; i<answers.size(); i++) {
+                            tr = new DemographicResponse();
+                            tr.setQuestion(da.getQuestion());
+                            tr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
+                            tr.setUser(u);
+                            responses.add(tr);
+                        }
+                    }
+                } else if (da.getQuestion().isFreeForm()) {
+                    String response = (String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
+                    if (!"".equals(StringUtils.checkNull(response))) {
                         tr = new DemographicResponse();
+                        tr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                         tr.setQuestion(da.getQuestion());
-                        tr.setAnswer(da.getQuestion().getAnswer(new Long((String)answers.get(i))));
+                        tr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
                         tr.setUser(u);
                         responses.add(tr);
                     }
-                } else if (da.getQuestion().isFreeForm()) {
-                    tr = new DemographicResponse();
-                    tr.setAnswer(getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
-                    tr.setQuestion(da.getQuestion());
-                    tr.setResponse((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
-                    tr.setUser(u);
-                    responses.add(tr);
                 } else if (da.getQuestion().isSingleSelect()) {
-                    answerId = new Long((String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId()));
-                    tr = new DemographicResponse();
-                    tr.setQuestion(da.getQuestion());
-                    tr.setAnswer(da.getQuestion().getAnswer(answerId));
-                    tr.setUser(u);
-                    responses.add(tr);
+                    String response = (String)params.get(Constants.DEMOG_PREFIX+da.getQuestion().getId());
+                    if (!"".equals(StringUtils.checkNull(response))) {
+                        answerId = new Long(response);
+                        tr = new DemographicResponse();
+                        tr.setQuestion(da.getQuestion());
+                        tr.setAnswer(da.getQuestion().getAnswer(answerId));
+                        tr.setUser(u);
+                        responses.add(tr);
+                    }
                 }
             }
             u.setTransientResponses(responses);
@@ -122,7 +131,7 @@ public class Confirm extends Base {
                 s.setAddress(a);
                 cs.setSchool(s);
             }
-            
+
             if (u.getCoder().getCurrentSchool().getSchool().getType().equals(getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL))) {
                 u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
             } else {

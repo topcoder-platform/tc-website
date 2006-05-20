@@ -14,14 +14,16 @@ import com.topcoder.web.reg.model.User;
 public class DemogFreeFormValidator implements Validator {
     private static final Logger log = Logger.getLogger(DemogFreeFormValidator.class);
     private User u;
+    private boolean isRequired;
 
-    public DemogFreeFormValidator(User u) {
+    public DemogFreeFormValidator(User u, boolean required) {
         this.u = u;
+        this.isRequired = isRequired;
     }
 
     public ValidationResult validate(ValidationInput input) {
         Address a = u.getHomeAddress();
-        if (a == null || a.getState() == null || !a.getState().isOptionalDemographics()) {
+        if (a == null || a.getState() == null || !a.getState().isOptionalDemographics() || isRequired) {
             ValidationResult eret = new NonEmptyValidator("Please respond to this question.").validate(input);
             if (eret.isValid()) {
                 return new SizeValidator(1, Constants.MAX_DEMOG_RESPONSE_LENGTH, "response").validate(input);

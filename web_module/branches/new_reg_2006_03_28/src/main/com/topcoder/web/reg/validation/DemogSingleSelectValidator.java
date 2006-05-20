@@ -1,11 +1,12 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.BasicResult;
-import com.topcoder.web.reg.model.DemographicQuestion;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.model.DemographicAnswer;
+import com.topcoder.web.reg.model.DemographicQuestion;
 
 import java.util.Iterator;
 
@@ -17,15 +18,22 @@ import java.util.Iterator;
 public class DemogSingleSelectValidator implements Validator  {
 
     private DemographicQuestion q;
-    public DemogSingleSelectValidator(DemographicQuestion q) {
+    private boolean isRequired;
+
+    public DemogSingleSelectValidator(DemographicQuestion q, boolean isRequired) {
         this.q = q;
+        this.isRequired = isRequired;
     }
 
     public ValidationResult validate(ValidationInput input) {
 
+        if (!isRequired && "".equals(StringUtils.checkNull((String)input.getInput()))) {
+            return ValidationResult.SUCCESS;
+        }
+        
         Long answerId;
         try {
-                answerId = new Long((String)input.getInput());
+            answerId = new Long((String)input.getInput());
         } catch (NumberFormatException e) {
             return new BasicResult(false, "Please choose a valid answer.");
         }
