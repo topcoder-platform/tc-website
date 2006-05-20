@@ -34,15 +34,16 @@ public class Login extends Base {
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
 
+/*
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
+*/
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
-        if (username != null) {
-
+        if ("POST".equals(getRequest().getMethod()) && username != null) {
             password = StringUtils.checkNull(password);
             if (username.equals("") || password.equals("")) {
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a handle and a password.");
+                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "You must enter a user name and a password.");
 
             } else {
                 try {
@@ -112,9 +113,11 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
+/*
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
+*/
         String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getHeader("Referer");
