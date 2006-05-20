@@ -566,7 +566,7 @@ abstract class Base extends HibernateProcessor {
     }
 
     protected boolean hasParameter(Map params, String key) {
-        return params.get(key) != null;
+        return params.get(key) != null && params.get(key).toString().trim().length()>0;
     }
 
     /**
