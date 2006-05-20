@@ -5,6 +5,7 @@ import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.dao.Util;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.*;
 
@@ -15,6 +16,7 @@ import java.util.*;
  */
 public class RegFieldHelper {
 
+    protected static Logger log = Logger.getLogger(RegFieldHelper.class);
     private static Set mainHSFields = new HashSet();
     private static Set mainCompFields = new HashSet();
     private static Set mainCorpFields = new HashSet();
@@ -180,14 +182,17 @@ public class RegFieldHelper {
         RegistrationType curr;
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType)it.next();
+            log.debug("curr reg type: " + curr.getName());
             if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
+                    log.debug("update: adding the competition ones");
                     ret.addAll(mainCompFields);
                     ret.add(Constants.PHOTO);
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
                     ret.addAll(mainCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
+                    log.debug("update: adding the hs ones");
                     ret.addAll(mainHSFields);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
                     ret.addAll(mainMinFields);
@@ -197,10 +202,12 @@ public class RegFieldHelper {
             } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
+                    log.debug("insert: adding the competition ones");
                     ret.addAll(mainCompFields);
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
                     ret.addAll(mainCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
+                    log.debug("insert: adding the hs ones");
                     ret.addAll(mainHSFields);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
                     ret.addAll(mainMinFields);
