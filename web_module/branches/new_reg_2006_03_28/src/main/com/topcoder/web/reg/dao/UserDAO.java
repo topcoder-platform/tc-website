@@ -10,7 +10,7 @@ import com.topcoder.web.reg.model.User;
 public interface UserDAO {
     User find(Long id);
 
-    User find(String userName);
+    User find(String userName, boolean ignoreCase);
 
     void saveOrUpdate(User u);
 }

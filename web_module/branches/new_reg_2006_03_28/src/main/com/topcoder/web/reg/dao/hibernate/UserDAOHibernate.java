@@ -37,9 +37,6 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
     }
 
-    public User find(String userName) {
-    }
-
     public void saveOrUpdate(User u) {
 //        boolean isNew = u.isNew();
 
