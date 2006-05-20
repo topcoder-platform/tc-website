@@ -303,7 +303,8 @@
 <c:if test="${cf:contains(fields, notification)}">
     <c:forEach items="${regUser.notifications}" var="notif">
         <tr>
-            <td class="name">&#160;
+            <td class="name">
+                Email Notifications:
             </td>
             <td class="value">
                     ${notif.name}
