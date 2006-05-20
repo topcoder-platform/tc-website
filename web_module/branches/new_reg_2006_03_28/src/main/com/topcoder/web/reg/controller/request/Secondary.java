@@ -22,27 +22,40 @@ public class Secondary extends Base {
         User u = getRegUser();
         if (u == null) {
             throw new NavigationException("Sorry, your session has timed out.");
-        } else if (u.isNew() || userLoggedIn()) {
-            Map params = getMainUserInput();
-            checkMainFields(params);
+        } else {
+            if ("POST".equals(getRequest().getMethod())) {
+                if (u.isNew() || userLoggedIn()) {
+                    Map params = getMainUserInput();
+                    checkMainFields(params);
 
-            Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
+                    Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
 
-            if (hasErrors()) {
-                Map.Entry me;
-                for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                    me = (Map.Entry) it.next();
-                    setDefault((String) me.getKey(), me.getValue());
+                    if (hasErrors()) {
+                        Map.Entry me;
+                        for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
+                            me = (Map.Entry) it.next();
+                            setDefault((String) me.getKey(), me.getValue());
+                        }
+                        getRequest().setAttribute(Constants.FIELDS, fields);
+                        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
+                        getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
+                        getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
+                        setNextPage("/main.jsp");
+                        setIsNextPageInContext(true);
+                    } else {
+                        //set the fields in the user object
+                        loadFieldsIntoUserObject(fields, params);
+                        Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
+                        getRequest().setAttribute("demographicAssignments",getAssignments(u));
+                        setSecondaryDefaults(u);
+                        getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                        setNextPage("/secondary.jsp");
+                        setIsNextPageInContext(true);
+                    }
+                } else {
+                    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
-                getRequest().setAttribute(Constants.FIELDS, fields);
-                getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
-                getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
-                getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
-                setNextPage("/main.jsp");
-                setIsNextPageInContext(true);
             } else {
-                //set the fields in the user object
-                loadFieldsIntoUserObject(fields, params);
                 Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
                 setSecondaryDefaults(u);
@@ -50,9 +63,11 @@ public class Secondary extends Base {
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             }
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+
         }
+
+
+
     }
 
 
