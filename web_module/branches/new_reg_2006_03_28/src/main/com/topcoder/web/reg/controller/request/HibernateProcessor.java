@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.DAOFactory;
@@ -35,6 +36,9 @@ public abstract class HibernateProcessor extends BaseProcessor {
                 endCommunication();
             }
 
+        } catch (PermissionException e) {
+            endCommunication();
+            throw e;
         } catch (StaleObjectStateException staleEx) {
             log.error("This interceptor does not implement optimistic concurrency control!");
             log.error("Your application will not work until you add compensation actions!");
