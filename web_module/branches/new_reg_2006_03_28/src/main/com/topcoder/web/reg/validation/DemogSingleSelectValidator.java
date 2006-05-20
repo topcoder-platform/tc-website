@@ -1,10 +1,6 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.validation.BasicResult;
-import com.topcoder.web.common.validation.ValidationInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.common.validation.*;
 import com.topcoder.web.reg.model.DemographicAnswer;
 import com.topcoder.web.reg.model.DemographicQuestion;
 
@@ -27,10 +23,12 @@ public class DemogSingleSelectValidator implements Validator  {
 
     public ValidationResult validate(ValidationInput input) {
 
-        if (!isRequired && "".equals(StringUtils.checkNull((String)input.getInput()))) {
+        ValidationResult eret = new NonEmptyValidator("Please respond to this question.").validate(input);
+
+        if (!isRequired && !eret.isValid()) {
             return ValidationResult.SUCCESS;
         }
-        
+
         Long answerId;
         try {
             answerId = new Long((String)input.getInput());
