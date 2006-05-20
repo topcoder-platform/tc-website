@@ -106,7 +106,8 @@
             </td>
             <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
-               <c:if test="${assignment.question.description!=null}"><br /><span class="small">${assignment.question.description}</span></c:if>
+                <c:if test="${assignment.question.description!=null}"><br/>
+                    <span class="small">${assignment.question.description}</span></c:if>
             </td>
         </tr>
     </rt:questionIterator>
@@ -178,7 +179,7 @@
                 <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
                 <OPTION value=""></OPTION>
                 <c:forEach items="${scales}" var="scale">
-                    ${requestScoep[gpaScale]}
+                    ${requestScope[gpaScale]}
                     <OPTION value="${scale}" <c:if test="${requestScoep[gpaScale]==scale}">
                         selected="true"</c:if>>${scale}</OPTION>
                 </c:forEach>
