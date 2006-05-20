@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.validation.*;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.validation.*;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.User;
 
 /**
@@ -33,7 +33,7 @@ public class UserNameValidator implements Validator {
                 ValidationResult hret  = null;
                 if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
                     //log.debug("in here");
-                    hret = new BasicResult(new UserDAOHibernate().find(handle) == null, "Please choose another handle.");
+                    hret = new BasicResult(Util.getFactory().getUserDAO().find(handle, true) == null, "Please choose another handle.");
                 }
                 if (hret==null || hret.isValid()) {
                     if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
