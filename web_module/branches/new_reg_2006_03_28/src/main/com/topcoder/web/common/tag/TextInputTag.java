@@ -57,15 +57,9 @@ public class TextInputTag extends BaseTag {
             if (value == null) {
                 value = getDefaultValue() == null ? null : getDefaultValue();
             }
-            ret.append("<span id=\"").append(name).append("\" ");
-            if (styleClass != null) {
-                ret.append("class=\"").append(styleClass).append("\" ");
-            }
-            ret.append(">");
             if (value != null) {
                 ret.append(format(value));
             }
-            ret.append("</span>");
         }
         //log.debug("gonna print " + ret.toString());
         try {
