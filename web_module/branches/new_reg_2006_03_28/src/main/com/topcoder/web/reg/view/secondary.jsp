@@ -130,7 +130,7 @@
             School:
         </td>
         <td class="value">
-            <tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/>
+            <span id="schooName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
                 <%--School widget--%>
         </td>
     </tr>

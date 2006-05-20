@@ -36,7 +36,7 @@
                     putValue("window.opener.document.secondaryForm", "${visibleSchool}", getValue("document.schoolAddForm", "${visibleSchool}"));
                 }
                 putValue("window.opener.document.secondaryForm", "${schoolType}", getValue("document.schoolAddForm", "${schoolType}"));
-                updateDivOrSpan(window.opener.document, "<%=Constants.SCHOOL_NAME%>", getValue("document.schoolAddForm", "${schoolName}"));
+                updateDivOrSpan(window.opener.document, "schoolName", getValue("document.schoolAddForm", "${schoolName}"));
                 window.close();
             }
         -->
