@@ -35,6 +35,7 @@ public class ViewSchoolAdd extends Base {
             }
         }
 
+        setDefault(Constants.VISIBLE_SCHOOL, String.valueOf("true"));
         getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
         getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());

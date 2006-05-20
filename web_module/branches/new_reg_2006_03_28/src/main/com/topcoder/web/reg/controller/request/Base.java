@@ -505,7 +505,7 @@ abstract class Base extends HibernateProcessor {
                 setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
             }
             if (u.getCoder().getCurrentSchool().getViewable()!=null) {
-                setDefault(Constants.SCHOOL_TYPE, u.getCoder().getCurrentSchool().getViewable().toString());
+                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable().toString());
             }
             if (u.getCoder().getCurrentSchool().getGPA()!=null) {
                 setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
@@ -531,6 +531,8 @@ abstract class Base extends HibernateProcessor {
                     setDefault(Constants.SCHOOL_NAME, a.getCountry().getCode());
                 }
             }
+        } else {
+            setDefault(Constants.VISIBLE_SCHOOL, String.valueOf(true));
         }
 
         if (u.getCoder() != null && !u.getCoder().getResumes().isEmpty()) {
