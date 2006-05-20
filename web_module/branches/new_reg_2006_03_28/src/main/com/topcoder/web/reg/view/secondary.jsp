@@ -175,14 +175,8 @@
             GPA Scale:
         </td>
         <td class="value">
-            <SELECT NAME="${gpaScale}">
-                <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
-                <OPTION value=""></OPTION>
-                <c:forEach items="${scales}" var="scale">
-                    <OPTION value="${scale}" <c:if test="${requestScope[gpaScale]==scale}">
-                        selected="true"</c:if>>${scale}</OPTION>
-                </c:forEach>
-            </SELECT>
+            <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
+            <tc-webtag:objectSelect name="${gpaScale}" list="${scales}"/>
         </td>
     </tr>
     </c:if>
