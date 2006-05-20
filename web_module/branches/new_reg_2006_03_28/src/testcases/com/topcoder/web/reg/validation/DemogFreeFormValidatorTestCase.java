@@ -14,24 +14,36 @@ import com.topcoder.web.common.validation.ValidationResult;
 public class DemogFreeFormValidatorTestCase extends TCHibernateTestCase {
 
     public void testAnswerNullDeclineEnabled() {
-        User u = Util.getFactory().getUserDAO().find("dok");
+        User u = Util.getFactory().getUserDAO().find("dok",true);
         u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("VT"));
-        DemogFreeFormValidator d = new DemogFreeFormValidator(u);
+        DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
         ValidationResult r =d.validate(new StringInput(null));
         log.debug(r.getMessage());
         assertTrue("didn't allow null response from a decline state", r.isValid());
     }
 
     public void testAnswerNullDeclineDisabled() {
-        User u = Util.getFactory().getUserDAO().find("dok");
+        User u = Util.getFactory().getUserDAO().find("dok", true);
         u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("CO"));
-        DemogFreeFormValidator d = new DemogFreeFormValidator(u);
+        DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
         assertFalse("allowed null response from a non-decline state", d.validate(new StringInput(null)).isValid());
     }
 
+    public void testAnswerNullNotRequired() {
+        User u = Util.getFactory().getUserDAO().find("dok", true);
+        u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("CO"));
+        DemogFreeFormValidator d = new DemogFreeFormValidator(u, false);
+        assertTrue("didn't allow null response on unrequired question", d.validate(new StringInput(null)).isValid());
+    }
+
     public void testMaxLength() {
-        User u = Util.getFactory().getUserDAO().find("dok");
-        DemogFreeFormValidator d = new DemogFreeFormValidator(u);
+        User u = Util.getFactory().getUserDAO().find("dok", true);
+        DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
+        assertFalse("validated a response that was too long", d.validate(new StringInput("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).isValid());
+    }
+    public void testMaxLengthNotRequired() {
+        User u = Util.getFactory().getUserDAO().find("dok", true);
+        DemogFreeFormValidator d = new DemogFreeFormValidator(u, false);
         assertFalse("validated a response that was too long", d.validate(new StringInput("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).isValid());
     }
 

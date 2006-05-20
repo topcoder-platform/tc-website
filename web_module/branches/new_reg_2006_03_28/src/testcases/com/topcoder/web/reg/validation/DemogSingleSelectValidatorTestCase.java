@@ -14,9 +14,14 @@ public class DemogSingleSelectValidatorTestCase extends TCHibernateTestCase {
 
     public void testInvalidAnswer() {
         DemogSingleSelectValidator d =
-                new DemogSingleSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(1)));
+                new DemogSingleSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(1)), true);
         assertFalse("allowed non numeric answerid", d.validate(new StringInput("dd")).isValid());
     }
 
+    public void testInvalidAnswerNotRequired() {
+        DemogSingleSelectValidator d =
+                new DemogSingleSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(1)), false);
+        assertFalse("allowed non numeric answerid", d.validate(new StringInput("dd")).isValid());
+    }
 
 }

@@ -16,14 +16,18 @@ public class DemogFreeFormValidator implements Validator {
     private User u;
     private boolean isRequired;
 
-    public DemogFreeFormValidator(User u, boolean required) {
+    public DemogFreeFormValidator(User u, boolean isRequired) {
         this.u = u;
         this.isRequired = isRequired;
     }
 
     public ValidationResult validate(ValidationInput input) {
         Address a = u.getHomeAddress();
-        if (a == null || a.getState() == null || !a.getState().isOptionalDemographics() || isRequired) {
+        if (!isRequired && input.getInput()==null) {
+            return ValidationResult.SUCCESS;
+        }
+        
+        if (a == null || a.getState() == null || !a.getState().isOptionalDemographics()) {
             ValidationResult eret = new NonEmptyValidator("Please respond to this question.").validate(input);
             if (eret.isValid()) {
                 return new SizeValidator(1, Constants.MAX_DEMOG_RESPONSE_LENGTH, "response").validate(input);

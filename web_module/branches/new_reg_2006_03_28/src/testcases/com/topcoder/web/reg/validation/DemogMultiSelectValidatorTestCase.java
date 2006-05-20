@@ -15,15 +15,31 @@ public class DemogMultiSelectValidatorTestCase extends TCHibernateTestCase {
 
     public void testAnswerNull() {
         DemogMultiSelectValidator d =
-                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)));
+                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)), true);
         ArrayList a = new ArrayList();
         a.add(null);
         assertFalse("allowed null response", d.validate(new ListInput(a)).isValid());
     }
 
+    public void testAnswerNullNotRequired() {
+        DemogMultiSelectValidator d =
+                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)), false);
+        ArrayList a = new ArrayList();
+        a.add(null);
+        assertTrue("didn't allow null response", d.validate(new ListInput(a)).isValid());
+    }
+
     public void testInvalidAnswer() {
         DemogMultiSelectValidator d =
-                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)));
+                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)), true);
+        ArrayList a = new ArrayList();
+        a.add("96");
+        a.add("97");
+        assertFalse("allowed unassociated answerid", d.validate(new ListInput(a)).isValid());
+    }
+    public void testInvalidAnswerNotRequired() {
+        DemogMultiSelectValidator d =
+                new DemogMultiSelectValidator(Util.getFactory().getDemographicQuestionDAO().find(new Long(19)), false);
         ArrayList a = new ArrayList();
         a.add("96");
         a.add("97");

@@ -19,7 +19,7 @@ public class UserNameValidatorTestCase extends TCHibernateTestCase {
     User existingUser;
     public void setUp() {
         super.setUp();
-        existingUser = Util.getFactory().getUserDAO().find("dok");
+        existingUser = Util.getFactory().getUserDAO().find("dok", true);
     }
 
 
