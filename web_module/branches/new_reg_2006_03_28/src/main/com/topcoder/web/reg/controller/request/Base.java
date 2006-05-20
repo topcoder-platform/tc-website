@@ -510,8 +510,13 @@ abstract class Base extends HibernateProcessor {
             if (u.getCoder().getCurrentSchool().getGPA()!=null) {
                 setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
             }
-            if (u.getCoder().getCurrentSchool().getGPAScale()!=null) {
-                setDefault(Constants.GPA_SCALE, u.getCoder().getCurrentSchool().getGPAScale().toString());
+            Float gpaScale = u.getCoder().getCurrentSchool().getGPAScale();
+            if (gpaScale!=null) {
+                for (int i=0; i<Constants.GPA_SCALES.size(); i++) {
+                    if (gpaScale.equals(new Float((String)Constants.GPA_SCALES.get(i)))) {
+                        setDefault(Constants.GPA_SCALE, Constants.GPA_SCALES.get(i));
+                    }
+                }
             }
 
             Address a = s.getAddress();
