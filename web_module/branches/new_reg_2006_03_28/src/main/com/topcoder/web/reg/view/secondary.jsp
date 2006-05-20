@@ -176,7 +176,7 @@
         </td>
         <td class="value">
             <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
-            <tc-webtag:objectSelect name="${gpaScale}" list="${scales}"/>
+            <tc-webtag:stringSelect name="${gpaScale}" list="${scales}"/>
         </td>
     </tr>
     </c:if>
