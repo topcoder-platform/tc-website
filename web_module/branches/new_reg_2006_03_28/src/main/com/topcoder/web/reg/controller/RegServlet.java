@@ -2,6 +2,7 @@ package com.topcoder.web.reg.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -23,6 +24,7 @@ public class RegServlet extends BaseServlet {
 
         protected WebAuthentication createAuthentication(TCRequest request,
                                                          TCResponse response) throws Exception {
-        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.REG_SITE);
+        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
+                BasicAuthentication.REG_SITE, DBMS.JTS_OLTP_DATASOURCE_NAME);
     }
 }

@@ -5,6 +5,7 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
@@ -52,7 +53,7 @@ public class Login extends Base {
                         //we need to check if they got the right user name and password before we check anything else
                         try {
                             LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
-                            sub = login.login(username, password);
+                            sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
                             log.debug("correct user name and password");
                         } catch (Exception e) {
                             throw new LoginException("Handle or password incorrect.");
