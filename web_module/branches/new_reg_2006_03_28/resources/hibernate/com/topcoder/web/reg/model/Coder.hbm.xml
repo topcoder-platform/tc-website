@@ -25,5 +25,9 @@
             <key column="coder_id" not-null="true"/>
             <one-to-many class="School"/>
         </set>
+        <set name="teams" table="team_coder_xref" cascade="save-update" access="field">
+            <key column="coder_id" not-null="true"/>
+            <many-to-many column="team_id" class="Team"/>
+        </set>
     </class>
 </hibernate-mapping>
