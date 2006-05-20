@@ -5,6 +5,7 @@ import com.topcoder.web.reg.model.School;
 import org.hibernate.Query;
 
 import java.util.List;
+import java.util.Collections;
 
 /**
  * @author dok
@@ -13,12 +14,16 @@ import java.util.List;
  */
 public class TeamDAOHibernate extends Base implements TeamDAO {
     public List getHighSchoolTeamsForSchool(School s) {
-        StringBuffer query = new StringBuffer(100);
-        query.append("FROM Team t ");
-        query.append(" WHERE t.school.id = ?");
-        Query q = session.createQuery(query.toString());
-        q.setLong(0, s.getId().longValue());
+        if (s==null || s.getId()==null) {
+            return Collections.EMPTY_LIST;
+        } else {
+            StringBuffer query = new StringBuffer(100);
+            query.append("FROM Team t ");
+            query.append(" WHERE t.school.id = ?");
+            Query q = session.createQuery(query.toString());
+            q.setLong(0, s.getId().longValue());
 
-        return q.list();
+            return q.list();
+        }
     }
 }
