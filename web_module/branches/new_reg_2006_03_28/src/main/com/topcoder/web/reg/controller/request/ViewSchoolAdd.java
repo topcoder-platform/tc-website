@@ -5,6 +5,8 @@ import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.SchoolType;
 import com.topcoder.web.reg.model.User;
 
+import java.util.ArrayList;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -37,7 +39,13 @@ public class ViewSchoolAdd extends Base {
 
         setDefault(Constants.VISIBLE_SCHOOL, String.valueOf("true"));
         getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
-        getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
+        if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+            ArrayList a = new ArrayList();
+            a.add(getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL));
+            getRequest().setAttribute("schoolTypes", a);
+        } else {
+            getRequest().setAttribute("schoolTypes", getFactory().getSchoolTypeDAO().getSchoolTypes());
+        }
         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
         setNextPage("/schoolEntry.jsp");
         setIsNextPageInContext(true);
