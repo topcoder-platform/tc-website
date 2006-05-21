@@ -1884,6 +1884,7 @@
             <pathelement location="${jars.dir}/ifxjdbc.jar"/>
             <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
             <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+            <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
             <pathelement location="${resources}"/>
         </classpath>
     </java>
