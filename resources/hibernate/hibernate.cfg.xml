@@ -32,8 +32,10 @@
 
 
         <!-- Echo all executed SQL to stdout -->
+<!--
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+-->
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
