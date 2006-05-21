@@ -50,13 +50,17 @@ function popHide(){
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
-   <%-----make this only show up if you're logged in and updating your profile--------%>
-   <div style="float:right;"><A href="/tc?module=Logout" class="small">logout</A></div>
+       <c:if test="${sessionInfo.loggedIn}">
+           <div style="float:right;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
+       </c:if>
 
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
    <br><br>
-   (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update your profile.)
-   <br><br>
+
+       <c:if test="${!sessionInfo.loggedIn}">
+           (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update your profile.)
+           <br><br>
+       </c:if>
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
