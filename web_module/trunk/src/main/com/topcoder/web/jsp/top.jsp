@@ -105,7 +105,7 @@ left: 0px;
 </div>
 <%---------------------------------%>
 
-<div id="register_now_container" style="position:absolute; left:100%; top:31px;">
+<div id="register_now_container" style="position:absolute; left:100%; top:31px; height:30px;">
    <% if ( !sessionInfo.isAnonymous() ) { %>
    <div style="position:absolute; left:-150px; top:0px;">
       <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A>
