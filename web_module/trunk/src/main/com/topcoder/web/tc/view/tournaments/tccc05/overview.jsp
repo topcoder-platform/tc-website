@@ -97,7 +97,7 @@
                     		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
 							<li>The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
 						</ul>
-						<p>*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.</p>
+						<p>*If you're not already a TopCoder member<br/><a href="/reg/">click here</a> to register.</p>
 					</td>
                 </tr>
             </table>
@@ -151,7 +151,7 @@
                     		<li>Any TopCoder member* who is 18 years of age or older and a matriculated full-time student at an accredited college or university can participate</li>
 							<li>The top 4 Designers and the top 4 Developers will advance to the onsite Championship Round.</li>
 						</ul>
-						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
+						*If you're not already a TopCoder member<br/><a href="/reg/">click here</a> to register.
 					</td>
                 </tr>
 

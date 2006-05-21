@@ -192,7 +192,7 @@ later to configure your build script.</p>
 <span class=bodySubtitle>Registration</span>
 <p>To participate in any development contest, you must first register with TopCoder
 Software. Registration not only allows you to submit design and
-development solutions, but also allows you to compete in TopCoder algorithm competitions. To register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
+development solutions, but also allows you to compete in TopCoder algorithm competitions. To register, follow this <a href="/reg/" target="_blank">link</a>.</p>
 <h2><A name="#sectionII"></A>II. Picking A Project</h2>
 <p>Picking a project is the first step to a winning development submission.
 You can quickly find open development contests at <a href="/tc?module=ViewActiveContests" target="_blank">
