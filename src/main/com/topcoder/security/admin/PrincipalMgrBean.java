@@ -548,13 +548,13 @@ public class PrincipalMgrBean extends BaseEJB {
 
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw new GeneralSecurityException(e);
         } catch (IDGenerationException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             throw new GeneralSecurityException(e);
         } finally {
             close(ps);
