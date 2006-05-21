@@ -46,7 +46,7 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
 
 
-<c:set value="<%=Constants.PHOTO%>" var="givenName"/>
+<c:set value="<%=Constants.PHOTO%>" var="photo"/>
 <c:if test="${cf:contains(fields, photo)}">
     <tr valign="middle">
         <td class="registerLabel" width="200">Member Photo</td>
