@@ -41,7 +41,7 @@
 <span class="bigTitle">Tutorial</span>
 <br><br>
 <span class="bodySubtitle">Before You Begin</span><br>
-Before you begin the Assembly Competitions, you need to download software, set up your environment, and <A href="/Registration">register</A> with TopCoder.
+Before you begin the Assembly Competitions, you need to download software, set up your environment, and <A href="/reg/">register</A> with TopCoder.
 <br><br>
 <strong>Required Software</strong><br>
 TopCoder Software uses Poseidon software from <A href="http://www.gentleware.com">www.gentleware.com</A> to capture diagrams during the design process. You need to download a Community Edition of the software. Gentleware regularly publishes updates to Poseidon. However, TopCoder Software does NOT use the latest version as soon as it's available. Please consult the <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">TopCoder Software documentation</A> for the version of Poseidon that you need to download.

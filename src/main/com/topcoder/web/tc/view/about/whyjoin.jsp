@@ -64,7 +64,7 @@ The TopCoder member base includes some of the best programmers in the world.  Th
 <span class="bodySubtitle">Employment Opportunities</span><br>
 We are aggressively seeking out companies that have a strong need for the level of talent that only TopCoder members can provide. TopCoder does all of the leg work for you - we find the companies, look for the right positions and when we find a match, we present you with the opportunity. Only after you confirm your interest in a particular position will TopCoder pass on your information to the appropriate hiring manager. Before you even talk to the company's representative, TopCoder will make sure your salary requirements, job requirements, and relocation requests are met. Best of all, TopCoder provides this service for full time and contract work at no cost to you.<br><A href="/">Learn more...</A>
                     <br><br>
-                    <div align="center"><strong>- There is no cost to <a class="bodyText" href="/Registration"><strong>register</strong></a> or participate in any match or tournament -</strong></div>
+                    <div align="center"><strong>- There is no cost to <a class="bodyText" href="/reg/"><strong>register</strong></a> or participate in any match or tournament -</strong></div>
                     </td>
                 </tr>
             </table>

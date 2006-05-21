@@ -61,7 +61,7 @@
    </tr>
 </table>
 <p></p>
-<div align="center"><a href="/Registration"><img src="/i/development/ad_register.gif" width="146" height="35" border="0"></a></div>
+<div align="center"><a href="/reg/"><img src="/i/development/ad_register.gif" width="146" height="35" border="0"></a></div>
 <p></p>
 
 </td>

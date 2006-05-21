@@ -102,7 +102,7 @@ if(a.getAffidavit().getBirthday().length() <= 0) {
 out.print("<input type=\"submit\" value=\"affirm affidavit\">");
 out.print("</form>");
 out.print("</td><td>");
-%><form action="/Registration"><%
+%><form action="/reg/?nrg=false"><%
 out.print("<input type=\"submit\" value=\"Edit Personal Information\">");
 out.print("</form>");
 out.print("</td></tr></table></center>");

@@ -38,8 +38,8 @@
 
             <table border="0" cellpadding=5 cellspacing=0 width="100%">
                 <tr>
-                    <td class="bodyText" valign=top width=150><A href="/Registration"><img src="/i/my_home/profile.gif" alt="Update My Profile"  border="0"/></A></td>
-                    <td class="bodyText" valign=top>Want to make your member profile more personalized?  Click <A href="/Registration">here</A> to update your profile.  You can add or change your quote.  You can upload a personal photo of yourself so your peers know who they're competing with.  Do you already have a photo on the site, but it's so old you don't recognize yourself?  Just upload a new one.  You can even upload a resume to help the right recruiter find you.</td>
+                    <td class="bodyText" valign=top width=150><A href="/reg/?nrg=false"><img src="/i/my_home/profile.gif" alt="Update My Profile"  border="0"/></A></td>
+                    <td class="bodyText" valign=top>Want to make your member profile more personalized?  Click <A href="/reg/?nrg=false">here</A> to update your profile.  You can add or change your quote.  You can upload a personal photo of yourself so your peers know who they're competing with.  Do you already have a photo on the site, but it's so old you don't recognize yourself?  Just upload a new one.  You can even upload a resume to help the right recruiter find you.</td>
                 </tr>
             </table>
 

@@ -62,7 +62,7 @@
             TopCoder would like to give any member the opportunity to put their creativity to the test and come up with the logo design that we'll be using to brand this year's TCO.  That includes our website, t-shirts, the stage at the onsite finals, and anywhere else that the TCO might show up.  So here is your chance to express what TopCoder tournaments mean to you, by designing the face of this year's TopCoder Open.  All TopCoder members are welcome to vote on 10 finalists selected by the TopCoder staff.
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
-            <A href="/Registration">Register here</A>
+            <A href="/reg/">Register here</A>
             <br><br>
             <b>Make sure you read the contest rules:</b><br>
             <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=logo_rules">Read the rules</A>

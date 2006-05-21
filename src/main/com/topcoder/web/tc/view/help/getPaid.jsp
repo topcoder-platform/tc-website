@@ -56,7 +56,7 @@ Members can be paid by check, by wire transfer, or by PayPal®. <A href="/tc?modu
 <strong>Requirements</strong><br>
 Before TopCoder can process payment, we must have your full name and an accurate address in your member profile, as well as the required affidavits and completed tax form on file. 
 <ul>
-<li>Update your <A href="/Registration">member profile</A> now.</li>
+<li>Update your <A href="/reg/?nrg=false">member profile</A> now.</li>
 </ul>
 
 <% if (node.equals("algo_get_paid")) { %>
