@@ -47,6 +47,7 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
                 if (((DemographicAssignment)ret.get(j)).getQuestion().equals(da.getQuestion())) {
                     //remove duplicate questions
                     ret.remove(j);
+                    j--;
                 }
             }
         }
@@ -63,6 +64,7 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
                 if (h.contains(da.getQuestion().getId())) {
                     //if they're registering for high school, remove college specific questions
                     ret.remove(i);
+                    i--;
                 }
             }
         }
