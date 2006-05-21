@@ -6,6 +6,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -23,18 +24,18 @@ public class EmailActivate extends Base {
         long userId = StringUtils.getCoderId(code);
 
         try {
-            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+            User userBean = (User) createEJB(getInitialContext(), Coder.class);
             String dbCode = null;
             try {
-                dbCode = coder.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
+                dbCode = userBean.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
             } catch (Exception e) {
                 throw new NavigationException("Sorry, incorrect activation code, account not activated.", e);
             }
             if (dbCode.equals(code)) {
                 //activate account
                 Email email = (Email) createEJB(getInitialContext(), Email.class);
-                email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                        ACTIVE_STATUS, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                email.setStatusId(email.getPrimaryEmailId(userId, DBMS.JTS_OLTP_DATASOURCE_NAME),
+                        ACTIVE_STATUS, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 setNextPage(Constants.ACTIVATE);
                 setIsNextPageInContext(true);
             } else {
