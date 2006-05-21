@@ -105,13 +105,13 @@ left: 0px;
 </div>
 <%---------------------------------%>
 
-<%--
-<div id="register_now_container" style="position:absolute; left:100%; top:0px;">
-   <div style="position:absolute; left:-127px; top:31px;">
-   <A href="/reg/"><img src="/i/interface/register_now.gif" alt="" /></A>
+<div id="register_now_container" style="position:absolute; left:100%; top:31px;">
+   <div style="position:absolute; left:-127px; top:0px;">
+      <A href="/reg/"><img src="/i/interface/register_now.gif" alt="" style="display:block;"/></A>
    </div>
+   <img src="/i/interface/register_now_bg.gif" alt="" style="display:block;"/>
 </div>
---%>
+
 
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
