@@ -132,15 +132,7 @@
         <td class="value">
             <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
                 <%--School widget--%>
-        </td>
-    </tr>
-    <tr>
-        <td class="name">
-            &#160;
-        </td>
-        <td class="value">
-            <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose
-                School</a>
+            <br><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose School</a>
         </td>
     </tr>
 
