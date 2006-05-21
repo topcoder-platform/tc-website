@@ -18,7 +18,7 @@
         <!--
             function submit(name,id) {
                     putValue("window.opener.document.secondaryForm", "<%=Constants.SCHOOL_ID%>", id);
-                    updateDivOrSpan(window.opener.document, "schoolname", name);
+                    updateDivOrSpan(window.opener.document, "schoolName", name);
                     window.close();
             }
         -->
