@@ -76,8 +76,7 @@ public class Submit extends Base {
                 }
             }
 
-            clearSession();
-            getAuthentication().logout();
+            getRequest().getSession().invalidate();
 
             setNextPage("/success.jsp");
             setIsNextPageInContext(true);
