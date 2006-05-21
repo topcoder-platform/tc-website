@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
 
 /**
  * @author dok
@@ -44,10 +45,28 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
             da = (DemographicAssignment)ret.get(i);
             for (int j=i+1; j<ret.size(); j++) {
                 if (((DemographicAssignment)ret.get(j)).getQuestion().equals(da.getQuestion())) {
+                    //remove duplicate questions
                     ret.remove(j);
                 }
             }
         }
+
+        RegistrationType hs = Util.getFactory().getRegistrationTypeDAO().getHighSchoolType();
+        HashSet h = new HashSet();
+        h.add(DemographicQuestion.COLLEGE_MAJOR);
+        h.add(DemographicQuestion.COLLEGE_MAJOR_DESC);
+        h.add(DemographicQuestion.DEGREE_PROGRAM);
+
+        if (regTypes.contains(hs)) {
+            for (int i=0; i<ret.size(); i++) {
+                da = (DemographicAssignment)ret.get(i);
+                if (h.contains(da.getQuestion().getId())) {
+                    //if they're registering for high school, remove college specific questions
+                    ret.remove(i);
+                }
+            }
+        }
+
 
         return ret;
     }

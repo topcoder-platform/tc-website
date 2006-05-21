@@ -10,6 +10,11 @@ import java.util.*;
  *          Create Date: Apr 7, 2006
  */
 public class DemographicQuestion extends Base {
+
+    public static final Long COLLEGE_MAJOR_DESC = new Long(14);
+    public static final Long DEGREE_PROGRAM = new Long(16);
+    public static final Long COLLEGE_MAJOR= new Long(17);
+
     private Long id;
     private String text;
     private Character selectable;
