@@ -65,15 +65,20 @@ public class DemographicResponse extends Base {
         } else {
             try {
                 DemographicResponse oa = (DemographicResponse) o;
+                //log.debug(" compare " + oa.getQuestion().getId() + " " + question.getId() + " " + oa.getAnswer().getId() + " " + getAnswer().getId());
                 boolean sameUser = (oa.user.getId()==null&&user.getId()==null) ||
                         (oa.user.getId()!=null&&user.getId()!=null&&oa.user.getId().equals(user.getId()));
                 boolean sameQuestion = (oa.question.getId()==null&&question.getId()==null) ||
                         (oa.question.getId()!=null&&question.getId()!=null&&oa.question.getId().equals(question.getId()));
                 boolean sameAnswer = (oa.answer.getId()==null&&answer.getId()==null) ||
                         (oa.answer.getId()!=null&&answer.getId()!=null&&oa.answer.getId().equals(answer.getId()));
-                boolean sameResponse = (oa.response==null&&response==null) ||
-                        (oa.response.equals(response));
-                return sameUser&&sameQuestion&&sameAnswer&&sameResponse;
+                boolean sameResponse = true;
+                if (question.isFreeForm()) {
+                    sameResponse = (oa.response==null&&response==null) ||
+                            (oa.response.equals(response));
+                }
+                boolean ret = sameUser&&sameQuestion&&sameAnswer&&sameResponse;
+                return ret;
             } catch (ClassCastException e) {
                 return false;
             }
@@ -106,84 +111,18 @@ public class DemographicResponse extends Base {
         } else {
             buf.append(question.getId());
         }
-        buf.append(" ");
-        if (response==null) {
-            buf.append("");
-        } else {
-            buf.append(response.hashCode());
-        }
-        //log.debug(buf.toString());
-        return buf.toString().hashCode();
-    }
-
-/*
-    public static class Identifier implements Serializable, Cloneable {
-        private Long userId;
-        private Long demographiextends BasecQuestionId;
-        private Long demographicAnswerId;
-
-        public Identifier() {
-
-        }
-
-        public Identifier(Long userId, Long demographicQuestionId, Long demographicAnswerId) {
-            this.userId = userId;
-            this.demographicQuestionId = demographicQuestionId;
-            this.demographicAnswerId = demographicAnswerId;
-        }
-
-        public Long getUserId() {
-            return userId;
-        }
-
-        public void setUserId(Long userId) {
-            this.userId = userId;
-        }
-
-        public Long getDemographicQuestionId() {
-            return demographicQuestionId;
-        }
-
-        public void setDemographicQuestionId(Long demographicQuestionId) {
-            this.demographicQuestionId = demographicQuestionId;
-        }
-
-        public Long getDemographicAnswerId() {
-            return demographicAnswerId;
-        }
-
-        public void setDemographicAnswerId(Long demographicAnswerId) {
-            this.demographicAnswerId = demographicAnswerId;
-        }
-
-        public boolean equals(Object o) {
-            if (o == null) {
-                return false;
+        if (question.isFreeForm()) {
+            buf.append(" ");
+            if (response==null) {
+                buf.append("");
             } else {
-                try {
-                    DemographicResponse.Identifier oa = (DemographicResponse.Identifier) o;
-                    return (oa.userId.equals(userId) &&
-                            oa.demographicQuestionId.equals(demographicQuestionId) &&
-                            oa.demographicAnswerId.equals(demographicAnswerId));
-                } catch (ClassCastException e) {
-                    return false;
-                }
+                buf.append(response);
             }
         }
-
-        public int hashCode() {
-            StringBuffer buf = new StringBuffer(100);
-                buf.append(userId);
-                buf.append(" ");
-                buf.append(demographicQuestionId);
-                buf.append(" ");
-                buf.append(demographicAnswerId);
-            return buf.toString().hashCode();
-        }
-
+        int ret = buf.toString().hashCode();
+        //log.debug(buf.toString() + " code: " + ret);
+        return ret;
     }
-*/
-
 
     public static class Identifier implements Serializable, Cloneable {
 
@@ -255,3 +194,54 @@ public class DemographicResponse extends Base {
 
 
 }
+
+
+
+
+
+/*
+2006-05-21 15:30:17,200 [Base] - q 19 a 145 -427181105
+2006-05-21 15:30:17,200 [Base] - q 17 a 114 -513992141
+2006-05-21 15:30:17,200 [Base] - q 23 a 150 -403168784
+2006-05-21 15:30:17,200 [Base] - q 18 a 130 -460427892
+2006-05-21 15:30:17,200 [Base] - q 19 a 138 -453039693
+2006-05-21 15:30:17,200 [Base] - q 19 a 147 -425334063
+2006-05-21 15:30:17,200 [Base] - q 19 a 139 -452116172
+2006-05-21 15:30:17,200 [Base] - q 22 a 321 -370990668
+2006-05-21 15:30:17,201 [Base] - q 19 a 148 -424410542
+2006-05-21 15:30:17,201 [Base] - q 26 a 179 -337598700
+2006-05-21 15:30:17,201 [Base] - q 19 a 144 -428104626
+2006-05-21 15:30:17,201 [Base] - q 14 a 318 -772001895
+2006-05-21 15:30:17,201 [Base] - q 2 a 103 1783581621
+2006-05-21 15:30:17,201 [Base] - q 16 a 111 -516762735
+2006-05-21 15:30:17,201 [Base] - q 19 a 146 -426257584
+2006-05-21 15:30:17,201 [Base] - q 19 a 140 -431798710
+2006-05-21 15:30:17,201 [Base] - q 19 a 143 -429028147
+2006-05-21 15:30:17,202 [Base] - q 25 a 164 -370845487
+2006-05-21 15:30:17,202 [Base] - q 1 a 102 1783551799
+2006-05-21 15:30:17,202 [Base] - q 5 a 15 1166044876
+
+
+
+2006-05-21 15:30:26,909 [Base] - remove trans response 26 181 -1836672432
+2006-05-21 15:30:26,909 [Base] - remove trans response 6 19 -302789496
+2006-05-21 15:30:26,909 [Base] - remove trans response 18 132 501553747
+2006-05-21 15:30:26,909 [Base] - remove trans response 2 6 -888812128
+2006-05-21 15:30:26,909 [Base] - remove trans response 4 13 -1025397589
+2006-05-21 15:30:26,910 [Base] - remove trans response 3 10 -1572065397
+2006-05-21 15:30:26,910 [Base] - remove trans response 22 321 1286874615
+2006-05-21 15:30:26,910 [Base] - remove trans response 14 318 1264709212
+2006-05-21 15:30:26,910 [Base] - remove trans response 13 105 -444543106
+2006-05-21 15:30:26,910 [Base] - remove trans response 25 167 -327327956
+2006-05-21 15:30:26,910 [Base] - remove trans response 1 2 -49318122
+2006-05-21 15:30:26,910 [Base] - remove trans response 16 112 -837380385
+2006-05-21 15:30:26,911 [Base] - remove trans response 23 155 -273728169
+2006-05-21 15:30:26,911 [Base] - remove trans response 5 15 1120434658
+2006-05-21 15:30:26,911 [Base] - remove trans response 17 117 602222400
+2006-05-21 15:30:26,912 [Base] - remove trans response 20 320 1002942187*/
+
+
+
+
+
+

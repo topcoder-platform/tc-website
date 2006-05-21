@@ -71,15 +71,31 @@ public class UserDAOHibernate extends Base implements UserDAO {
         } else {
             //todo consider putting all this logic in the POJO instead of here.
 
+
+/*
+            DemographicResponse t;
+            for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
+                t = (DemographicResponse)it.next();
+                log.debug("q " + t.getQuestion().getId() + " a " + t.getAnswer().getId() + " " + t.hashCode());
+            }
+
+            10574855 15 5 Cash Prizes code: 1120434658
+            10574855 15 5  code: 1166044876
+
+*/
+
             //don't need to worry about anything that is already in the db.
             DemographicResponse temp;
+            //log.debug("trans size b4" + u.getTransientResponses().size());
             for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
                 temp = (DemographicResponse)it.next();
                 if (temp.getQuestion().isFreeForm()||temp.getQuestion().isSingleSelect()) {
-                    u.getTransientResponses().remove(temp);
+                    u.removeTransientResponse(temp);
+                    //log.debug("remove trans response " + temp.getQuestion().getId() + " " + temp.getAnswer().getId() + " " + temp.hashCode());
                 }
 
             }
+            //log.debug("trans size after" + u.getTransientResponses().size());
 
             DemographicResponse dr;
             DemographicResponse badResponse;
@@ -103,6 +119,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
                     dr.getId().setAnswer(dr.getAnswer());
                     log.debug("adding response:" + dr.getQuestion().getId() + " " + dr.getAnswer().getId() + " " + dr.getResponse());
                     u.addDemographicResponse(dr);
+
                 } else if (dr.getQuestion().isFreeForm()) {
                     log.debug("free form: " + dr.getQuestion().getId());
                     badResponse = findResponse(u.getDemographicResponses(), dr.getQuestion());

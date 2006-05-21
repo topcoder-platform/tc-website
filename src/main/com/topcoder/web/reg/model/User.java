@@ -206,7 +206,7 @@ public class User extends Base {
     }
 
     public Set getDemographicResponses() {
-        return demographicResponses;
+        return Collections.unmodifiableSet(demographicResponses);
     }
 
     public void setDemographicResponses(Set demographicResponses) {
@@ -284,10 +284,13 @@ public class User extends Base {
         return transientResponses;
     }
 
+    public void removeTransientResponse(DemographicResponse r) {
+        transientResponses.remove(r);
+    }
+
     public void setTransientResponses(Set transientResponses) {
         this.transientResponses = transientResponses;
     }
-
 
 
 
