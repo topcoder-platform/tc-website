@@ -1,22 +1,18 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
-import com.topcoder.common.web.data.Coder;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import javax.transaction.TransactionManager;
-import javax.transaction.Status;
-import javax.rmi.PortableRemoteObject;
 import java.util.StringTokenizer;
 
 /**
@@ -54,14 +50,10 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
-                UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
-                        UserServicesHome.class.getName()),
-                        UserServicesHome.class);
+                Email e = (Email)createEJB(getInitialContext(), Email.class);
+                e.setStatusId(e.getPrimaryEmailId(subject.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME),
+                        2, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Long(subject.getUserId()));
-                com.topcoder.common.web.data.User user = userServices.getUser();
-
-                updateEmail(userServices, email);
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder Account Reactivation");
                 StringBuffer msgText = new StringBuffer(1000);
@@ -71,7 +63,7 @@ public class SubmitEmailActivate extends Base {
                 msgText.append("/tc?module=EmailActivate&");
                 msgText.append(Constants.ACTIVATION_CODE);
                 msgText.append("=");
-                msgText.append(StringUtils.getActivationCode(user.getUserId()));
+                msgText.append(StringUtils.getActivationCode(subject.getUserId()));
                 msgText.append("\n\n");
                 msgText.append("Thank You,\nTopCoder Service");
                 mail.setBody(msgText.toString());
@@ -102,27 +94,4 @@ public class SubmitEmailActivate extends Base {
         return ret;
     }
 
-    private void updateEmail(UserServices userServices, String email) throws Exception {
-
-        TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-        try {
-            tm.begin();
-            com.topcoder.common.web.data.User user = userServices.getUser();
-            user.setEmail(email);
-            user.setModified("U");
-            Coder tempCoder = (Coder) user.getUserTypeDetails().get("Coder");
-            //just in case they have the old type activation code, update them to the new version
-            tempCoder.setActivationCode(StringUtils.getActivationCode(user.getUserId()));
-            tempCoder.setModified("U");
-            userServices.setUser(user);
-            tm.commit();
-
-
-        } catch (Exception e) {
-            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                tm.rollback();
-            }
-            throw e;
-        }
-    }
 }
