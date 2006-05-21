@@ -22,9 +22,9 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.util.TCException;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.project.phases.TCPhase;
 import com.topcoder.apps.review.TCWorkdays;
@@ -1414,124 +1414,7 @@ public class ProjectTrackerBean implements SessionBean {
         return null;
     }
 
-    /**
-     * Gets current phaseInstance for a project.
-     *
-     * @param projectId
-     *
-     * @return PhaseInstance
-     *
-     * @throws RuntimeException DOCUMENT ME!
-     */
-/*
-    private PhaseInstance getCurrentPhaseInstance(long projectId) {
-        info("PT.getCurrentPhaseInstance, project: " + projectId);
 
-        PhaseInstance phaseInstance = null;
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        try {
-            conn = dataSource.getConnection();
-
-            ps = conn.prepareStatement(
-                    "SELECT pi.phase_instance_id, pi.phase_id, " +
-                    "pi.start_date, pi.end_date, pi.phase_inst_v_id " +
-                    "FROM project p, phase_instance pi " +
-                    "WHERE p.cur_version = 1 AND " +
-                    "pi.cur_version = 1 AND " +
-                    "p.project_id = pi.project_id AND " +
-                    "p.phase_instance_id = pi.phase_instance_id AND " +
-                    "p.project_id = ?");
-            ps.setLong(1, projectId);
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                long phaseInstanceId = rs.getLong(1);
-                long phaseId = rs.getLong(2);
-                Date startDate = rs.getDate(3);
-                Date endDate = rs.getDate(4);
-                long piVersionId = rs.getLong(5);
-
-                PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
-                Phase phase = phaseManager.getPhase(phaseId);
-
-                phaseInstance = new PhaseInstance(phaseInstanceId, phase, startDate, endDate, piVersionId);
-            } else {
-                String errorMsg = "PT.getCurrentPhaseInstance(): Could not retrieve current phaseInstance for projectId: " + projectId;
-                error(errorMsg);
-                throw new RuntimeException(errorMsg);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            Common.close(conn, ps, rs);
-        }
-
-        info("PT.getCurrentPhaseInstance(): end");
-        return phaseInstance;
-    }
-*/
-
-    /**
-     * Retrieves a PaymentInfo object from the database.
-     *
-     * @param paymentInfoId
-     *
-     * @return PaymentInfo
-     *
-     * @throws RuntimeException DOCUMENT ME!
-     */
-/*
-    private PaymentInfo getPaymentInfo(long paymentInfoId) {
-        debug("PT.getPaymentInfo( " + paymentInfoId + " )");
-
-        PaymentInfo paymentInfo = null;
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        try {
-            conn = dataSource.getConnection();
-            ps = conn.prepareStatement(
-                    "SELECT pi.payment, pi.payment_stat_id, " +
-                    "pi.payment_info_v_id " +
-                    "FROM payment_info pi " +
-                    "WHERE pi.cur_version = 1 AND " +
-                    "pi.payment_info_id = ?");
-            ps.setLong(1, paymentInfoId);
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                float amount = rs.getFloat(1);
-                long paymentStatusId = rs.getLong(2);
-                long paymentVersionId = rs.getLong(3);
-
-                PaymentStatusManager paymentStatusManager = (PaymentStatusManager) Common.getFromCache(
-                        "PaymentStatusManager");
-                PaymentStatus paymentStatus = paymentStatusManager.getPaymentStatus(paymentStatusId);
-
-                paymentInfo = new PaymentInfo(paymentInfoId, amount, paymentStatus, paymentVersionId);
-            }
-// UserRoles don't need paymentinfo(pm does not have one)
-//             else {
-//                String errorMsg = "Could not retrieve paymentInfo, id: " + paymentInfoId;
-//                error(errorMsg);
-//                throw new RuntimeException(errorMsg);
-//            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            Common.close(conn, ps, rs);
-        }
-
-        return paymentInfo;
-    }
-*/
 
     /**
      * Creates a new Online Review Project.
@@ -1552,7 +1435,7 @@ public class ProjectTrackerBean implements SessionBean {
             String overview,
             Date[] dates,
             TCSubject requestor,
-            long levelId) throws TCException {
+            long levelId) throws BaseException {
         log.debug("PT.createProject: compVersId: " + compVersId);
 
         Connection conn = null;
@@ -1578,7 +1461,7 @@ public class ProjectTrackerBean implements SessionBean {
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                throw new TCException("Online Review: A project already exists! Terminate it before changing phase!");
+                throw new BaseException("Online Review: A project already exists! Terminate it before changing phase!");
             }
             Common.close(rs);
             Common.close(ps);
@@ -1965,83 +1848,8 @@ public class ProjectTrackerBean implements SessionBean {
 
     }
 
-    /**
-     * @param userId
-     * @param componentId
-     * @param version
-     * @param projectTypeId
-     */
-/*
-    public void userInquiry(long userId, long componentId, long version, long projectTypeId)
-            throws TCException {
-        info("PT.userInquiry; userId: " + userId +
-                " ,componentId: " + componentId +
-                " ,version: " + version +
-                " ,projectTypeId: " + projectTypeId);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        try {
-            conn = dataSource.getConnection();
-
-            // Check that user exists!
-            ps = conn.prepareStatement(
-                    "SELECT su.user_id " +
-                    "FROM security_user su, user_customer uc " +
-                    "WHERE su.login_id = uc.login_id AND " +
-                    "su.login_id = ?");
-            ps.setLong(1, userId);
-            rs = ps.executeQuery();
-            if (!rs.next()) {
-                throw new TCException("Missing user!");
-            }
-            Common.close(rs);
-            Common.close(ps);
-            rs = null;
-            ps = null;
-
-            ps = conn.prepareStatement(
-                    "SELECT p.project_id " +
-                    "FROM comp_catalog cc, comp_versions cv, project p " +
-                    "WHERE p.cur_version = 1 AND " +
-                    "p.comp_vers_id = cv.comp_vers_id AND " +
-                    "cc.component_id = cv.component_id AND " +
-                    "cv.component_id = ? AND " +
-                    "cv.version = ? AND " +
-                    "p.project_type_id = ? AND " +
-                    "p.project_stat_id IN (1,3)");
-            ps.setLong(1, componentId);
-            ps.setLong(2, version);
-            ps.setLong(3, projectTypeId);
-            rs = ps.executeQuery();
-
-            long projectId = 0;
-            if (rs.next()) {
-                projectId = rs.getLong(1);
-            } else {
-                throw new TCException("Missing component");
-            }
-            Common.close(rs);
-            Common.close(ps);
-            rs = null;
-            ps = null;
-
-            userInquiry(userId, projectId);
-        } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
-            throw new RuntimeException("SQLException: " + e.getMessage());
-        } catch (RemoteException e) {
-            ejbContext.setRollbackOnly();
-            throw new RuntimeException("RemoteException: " + e.getMessage());
-        } finally {
-            Common.close(conn, ps, rs);
-        }
-    }
-*/
     public void userInquiry(long userId, long projectId)
-            throws TCException {
+            throws BaseException {
         log.debug("PT.userInquiry; userId: " + userId +
                 " ,projectId: " + projectId);
 
@@ -2193,7 +2001,7 @@ public class ProjectTrackerBean implements SessionBean {
                 projectTypeId = rs.getLong("project_type_id");
 
             } else {
-                throw new TCException("Missing component");
+                throw new BaseException("Missing component");
             }
 
             ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
@@ -2319,203 +2127,6 @@ public class ProjectTrackerBean implements SessionBean {
 
     }
 
-    /**
-     * Converts a project from the dde-system to Online Review.
-     *
-     * @param projectName
-     * @param version
-     * @param versionId
-     * @param componentId
-     * @param compVersId
-     * @param phaseId
-     * @param projectTypeId
-     * @param overview
-     * @param dates
-     * @param requestor
-     * @return long - the projectId for the create Online Review project.
-     * @throws TCException
-     */
-/*
-    public long convertProject(
-            String projectName, String version, long versionId,
-            long componentId,
-            long compVersId, long phaseId, long projectTypeId,
-            String overview, Date[] dates, TCSubject requestor, long levelId)
-            throws TCException {
-        info("PT.convertProject()");
-
-        long projectId = -1;
-        Connection conn = null;
-        PreparedStatement psProject = null;
-        PreparedStatement psGetInq = null;
-        PreparedStatement psGetSub = null;
-        PreparedStatement psSub = null;
-
-        ResultSet rsProject = null;
-        ResultSet rsGetInq = null;
-        ResultSet rsGetSub = null;
-
-        try {
-            conn = dataSource.getConnection();
-
-            // SQL Query to see if project already exists
-            psProject = conn.prepareStatement(
-                    "SELECT project_id " +
-                    "FROM project " +
-                    "WHERE comp_vers_id = ? AND " +
-                    "project_type_id = ?");
-            psProject.setLong(1, compVersId);
-            psProject.setLong(2, projectTypeId);
-            rsProject = psProject.executeQuery();
-            if (!rsProject.next()) {
-                // Project didn't exist
-                projectId = createProject(projectName, version,
-                        compVersId, projectTypeId, overview, dates, requestor, levelId);
-
-                info("Created project, projectId: " + projectId +
-                        " ,componentId: " + componentId +
-                        " ,compVersId: " + compVersId);
-
-                // SQL Query to get inquiries for a project
-                psGetInq = conn.prepareStatement(
-                        "SELECT DISTINCT ci.user_id " +
-                        "FROM component_inquiry ci " +
-                        "WHERE " +
-                        "ci.agreed_to_terms = 1 AND " +
-                        "ci.component_id = ? AND " +
-                        "ci.version = ? AND " +
-                        "ci.phase = ?");
-                psGetInq.setLong(1, componentId);
-                psGetInq.setLong(2, versionId);
-                psGetInq.setLong(3, phaseId);
-                rsGetInq = psGetInq.executeQuery();
-
-                while (rsGetInq.next()) {
-                    long userId = rsGetInq.getLong(1);
-                    info("Found inquiry, userId: " + userId);
-
-                    // Use PT.userInquiry() to insert entry in
-                    // table r_user_role
-                    // and set up permissions with security manager
-                    try {
-                        userInquiry(userId, componentId, versionId, projectTypeId);
-                    } catch (TCException e) {
-                        info("Problem with pt.userInquiry: " + e.getMessage());
-                        continue;
-                    }
-                    info("Created submitter, userId: " + userId);
-
-                    // SQL Query to retrieve submissions
-                    // for a specific project and user
-                    psGetSub = conn.prepareStatement(
-                            "SELECT sub.submission, sub.comment, sub.date " +
-                            "FROM submissions sub, submitters ss " +
-                            "WHERE " +
-                            "sub.submitter_id = ss.submitter_id AND " +
-                            "ss.login_id = ? AND " +
-                            "ss.comp_version_id = ? AND " +
-                            "ss.phase_id = ? " +
-                            "ORDER BY sub.date DESC");
-                    psGetSub.setLong(1, userId);
-                    psGetSub.setLong(2, compVersId);
-                    psGetSub.setLong(3, phaseId);
-                    rsGetSub = psGetSub.executeQuery();
-                    boolean curVersionFlag = true;
-
-                    while (rsGetSub.next()) {
-                        byte[] sub = rsGetSub.getBytes(1);
-                        String subComment = rsGetSub.getString(2);
-                        Date subDate = rsGetSub.getDate(3);
-
-                        info("Found submission, subDate: " + subDate);
-                        long subId;
-                        try {
-                            subId = idGen.nextId();
-                        } catch (RemoteException e2) {
-                            error(e2.toString());
-                            throw new RuntimeException();
-                        }
-                        // save submission to file
-                        String destFilename = "test/Submitter_" + subId + "_"
-                                + FormatMethodFactory.getDefaultDateFormatMethod("yyyy-MM-dd-HH-mm-ss-SSS").format(subDate)
-                                + ".jar";
-                        try {
-                            FileOutputStream subOut = new FileOutputStream(
-                                    "/export/home/ddedev/app_online_review/" +
-                                    destFilename);
-                            subOut.write(sub);
-                            subOut.close();
-                        } catch (FileNotFoundException e1) {
-                            error(e1.toString());
-                            throw new RuntimeException(e1);
-                        } catch (IOException e1) {
-                            error(e1.toString());
-                            throw new RuntimeException(e1);
-                        }
-
-                        // SQL Query to insert a submission
-                        psSub = conn.prepareStatement(
-                                "INSERT INTO submission " +
-                                "(submission_v_id, submission_id, " +
-                                "submission_type, submission_url, " +
-                                "sub_pm_review_msg, sub_pm_screen_msg, " +
-                                "submitter_id, project_id, is_removed, " +
-                                "modify_date, modify_user, cur_version) " + "VALUES " +
-                                "(0, ?, 1, ?, null, null, ?, ?, 0, ?, ?, ?)");
-                        String subURL = "http://65.112.118.206:9000/submissions/" + destFilename;
-
-                        psSub.setLong(1, subId);
-                        psSub.setString(2, subURL);
-                        psSub.setLong(3, userId);
-                        psSub.setLong(4, projectId);
-                        psSub.setDate(5, subDate);
-                        psSub.setLong(6, requestor.getUserId());
-                        psSub.setBoolean(7, curVersionFlag);
-                        psSub.executeUpdate();
-
-                        Common.close(psSub);
-                        psSub = null;
-
-                        info("Created submission, submissionId: " + subId +
-                                " ,subURL: " + subURL);
-                        curVersionFlag = false;
-                    }
-                    Common.close(rsGetSub);
-                    Common.close(psGetSub);
-                    rsGetSub = null;
-                    psGetSub = null;
-
-                } // end while get inquiries
-                Common.close(rsGetInq);
-                Common.close(psGetInq);
-                rsGetInq = null;
-                psGetInq = null;
-
-            } else { // end if project already exists
-                info("Project already exists, compVersId: " + compVersId + ", phaseId: " + phaseId);
-                throw new TCException("Project already exists, compVersId: " + compVersId + ", phaseId: " + phaseId);
-            }
-            Common.close(rsProject);
-            Common.close(psProject);
-            rsProject = null;
-            psProject = null;
-
-        } catch (SQLException e) {
-            error(e.toString());
-            throw new RuntimeException(e);
-        } finally {
-            Common.close(psSub);
-            Common.close(rsGetSub);
-            Common.close(psGetSub);
-            Common.close(rsGetInq);
-            Common.close(psGetInq);
-            Common.close(rsProject);
-            Common.close(psProject);
-            Common.close(conn);
-        }
-        return projectId;
-    }
-*/
     public void versionRename(long compVersId, String oldVersion, String newVersion) {
         ddeRename(-1, compVersId, null, null, oldVersion, newVersion);
     }

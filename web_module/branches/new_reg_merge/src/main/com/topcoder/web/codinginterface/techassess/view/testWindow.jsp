@@ -79,7 +79,8 @@
                 <td>
             </tr>
         </table>
-        <script language="javascript" src="/js/techassess.js"></script>
+          <script language="javascript" type="text/javascript" src="/js/techassess.js"></script>
+          <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
         <script language="javascript">
             <% DataType[] arguments = prob.getComponent(0).getParamTypes();%>
             var numArgs = <%=arguments.length%>;

@@ -20,17 +20,6 @@ import java.util.Arrays;
 
 public class Activate extends Base {
 
-    public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
-    public static final char[] UNACTIVE_STATI = {'U', '2'};
-    public static final char[] ACTIVE_STATI = {'1', 'A'};
-
-    static {
-        //sort them so that one can use Arrays.binarySearch to figure out if a particular
-        //status is in the list
-        Arrays.sort(INACTIVE_STATI);
-        Arrays.sort(UNACTIVE_STATI);
-        Arrays.sort(ACTIVE_STATI);
-    }
 
     protected void businessProcessing() throws TCWebException {
 
@@ -49,15 +38,15 @@ public class Activate extends Base {
                 //activate account
                 User user = (User) createEJB(getInitialContext(), User.class);
                 char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
+                if (Arrays.binarySearch(Constants.UNACTIVE_STATI, status) >= 0) {
                     doLegacyCrap((int) userId);
                     Email email = (Email) createEJB(getInitialContext(), Email.class);
                     email.setStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
                             EmailActivate.ACTIVE_STATUS, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                    user.setStatus(userId, Constants.ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
-                } else if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                } else if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
                     //just send them to the home page
                     setIsNextPageInContext(false);
                 } else {
@@ -85,7 +74,7 @@ public class Activate extends Base {
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 
-            user.setStatus(String.valueOf(ACTIVE_STATI[1]));
+            user.setStatus(String.valueOf(Constants.ACTIVE_STATI[1]));
             user.setModified("U");
 
             tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);

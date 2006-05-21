@@ -3,7 +3,7 @@ package com.topcoder.web.ejb.company;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import java.sql.Connection;
