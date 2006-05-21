@@ -46,6 +46,19 @@
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Secondary"/>
 
 
+<c:set value="<%=Constants.PHOTO%>" var="givenName"/>
+<c:if test="${cf:contains(fields, photo)}">
+    <tr valign="middle">
+        <td class="registerLabel" width="200">Member Photo</td>
+        <td class="statText" width="99%">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.
+            <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,resizable=yes,width=600,height=700,status=0');" class="statTextBig">Click here</a>
+            for more info about member photos.</td>
+    </tr>
+
+</c:if>
+
+
+
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
    <tr>
