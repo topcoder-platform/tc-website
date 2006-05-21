@@ -109,7 +109,6 @@ left: 0px;
    <div style="position:absolute; left:-127px; top:0px;">
       <A href="/reg/"><img src="/i/interface/register_now.gif" alt="" style="display:block;"/></A>
    </div>
-   <img src="/i/interface/register_now_bg.gif" alt="" style="display:block;"/>
 </div>
 
 
@@ -135,15 +134,13 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
       <% } else { %>
                &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
       <% } %>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Update Profile</a>
+               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update My Profile</a>
    <% } else {
        if (level1.equals("long")) {%>
                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
       <% } else { %>
                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
       <% } %>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/Registration">Register</a>
    <%}%>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/">Home</a>
    </div>
 </div>
