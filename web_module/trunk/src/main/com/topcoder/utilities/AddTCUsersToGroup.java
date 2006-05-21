@@ -47,7 +47,7 @@ private static Logger log = Logger.getLogger(AddTCUsersToGroup.class);
             GroupPrincipal g = pmr.getGroup(10);
             TCSubject gp = new TCSubject(132456);
             conn = DBMS.getDirectConnection();
-            ps = conn.prepareStatement("select coder_id from coder where not exists (select '1' from user_group_xref where group_id = 10 and login_id = coder_id)");
+            ps = conn.prepareStatement("select c.coder_id from coder c, security_user u where u.login_id = c.coder_id and not exists (select '1' from user_group_xref where group_id = 10 and login_id = c.coder_id)");
             rs =  ps.executeQuery();
 
             while(rs.next()) {
