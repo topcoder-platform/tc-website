@@ -4,7 +4,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
@@ -24,7 +23,7 @@ public class EmailActivate extends Base {
         long userId = StringUtils.getCoderId(code);
 
         try {
-            User userBean = (User) createEJB(getInitialContext(), Coder.class);
+            User userBean = (User) createEJB(getInitialContext(), User.class);
             String dbCode = null;
             try {
                 dbCode = userBean.getActivationCode(userId, DBMS.OLTP_DATASOURCE_NAME);
