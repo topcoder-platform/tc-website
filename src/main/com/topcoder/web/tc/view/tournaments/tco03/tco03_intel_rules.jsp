@@ -75,7 +75,7 @@ by any human error which may occur in the processing of the entries in this prom
 submissions become property of Intel and will not be returned.</p>
 
 <p>If not already a member, register for TopCoder by completing the online registration form 
-at <A href="http://www.topcoder.com/reg/index.jsp" target="blank">http://www.topcoder.com/reg/index.jsp</A>.</p>
+at <A href="/reg/" target="blank">http://www.topcoder.com/reg/</A>.</p>
 
 <p><span class="bodySubtitle">SELECTION OF WINNER</span><br />
 The winners will be selected at random at the conclusion of each Intel-sponsored TopCoder Single 

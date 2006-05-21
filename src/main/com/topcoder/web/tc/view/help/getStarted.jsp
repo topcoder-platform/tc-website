@@ -42,7 +42,7 @@
 
         <a name="becomemember"></a>
       <p><span class="bodySubtitle">1 Become a TopCoder Member</span><br/>
-      In order to log into the TopCoder Arena, you will need to be a TopCoder member.  If you have not already done so, you must first <A href="/reg/index.jsp">register</A> on TopCoder's web site.  Once you register, you will be sent an activation email to the email address that you provided during the registration process.  As soon as you activate your account, you will be free to log into the TopCoder Arena using the handle and password that you've specified.
+      In order to log into the TopCoder Arena, you will need to be a TopCoder member.  If you have not already done so, you must first <A href="/reg/">register</A> on TopCoder's web site.  Once you register, you will be sent an activation email to the email address that you provided during the registration process.  As soon as you activate your account, you will be free to log into the TopCoder Arena using the handle and password that you've specified.
       </p>
         <a name="whatisarena"></a>
       <p><span class="bodySubtitle">2 What is the TopCoder Arena?</span><br/>

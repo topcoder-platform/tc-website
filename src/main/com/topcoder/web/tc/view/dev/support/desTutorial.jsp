@@ -60,7 +60,7 @@
 <p>Finally, the Community Edition of Poseidon does not provide support for .NET designs. It comes with a set of pre-defined classes from java.lang and java.util packages, but no .NET classes. If you are designing for .NET, you need to download a Poseidon template with pre-defined .NET classes. The template is available <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">here</A>.</p>
 
 <h3>Registration</h3>
-<p>You must register with TopCoder software to participate in design competitions. This registration is in addition to your regular TopCoder registration. You can complete your registration <A href="/reg/index.jsp">here</A>.</p>
+<p>You must register with TopCoder software to participate in design competitions. This registration is in addition to your regular TopCoder registration. You can complete your registration <A href="/reg/">here</A>.</p>
 
 <h2>Gathering the Requirements</h2>
 <p>Before you start designing, you need to understand what you are designing. TopCoder has gathered most of the requirements for you, and made them available in the form of the Requirements Specification document. Typically, this document provides you with a good starting point. However, you may find that the document describes the requirements very generally. This is intentional: TopCoder Software avoids limiting your creativity by specifying the requirements in very general terms. TopCoder Software also gives you access to <A href="https://software.topcoder.com/forum/c_active_collab.jsp?ft=2">forums</A> where you can ask questions and obtain any necessary clarifications to the requirements.</p>
