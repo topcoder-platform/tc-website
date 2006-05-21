@@ -11,7 +11,7 @@
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
-        <property name="connection.datasource">java:/JTS_HS_OLTP</property>
+        <property name="connection.datasource">java:/JTS_OLTP</property>
         <!-- for testing-->
 <!--
         <property name="connection.username">coder</property>
