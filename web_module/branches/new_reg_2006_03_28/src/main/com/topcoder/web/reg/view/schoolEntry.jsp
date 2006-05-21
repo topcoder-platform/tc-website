@@ -22,6 +22,7 @@
     <c:set value="<%=Constants.SCHOOL_CITY%>" var="city"/>
     <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:set value="<%=Constants.SCHOOL_TYPE%>" var="schoolType"/>
+    <c:set value="<%=Constants.SCHOOL_ID%>" var="schoolId"/>
 
     <script language="javascript" type="text/javascript">
         <!--
@@ -32,6 +33,7 @@
                 putValue("window.opener.document.secondaryForm", "${stateCode}", getValue("document.schoolAddForm", "${stateCode}"));
                 putValue("window.opener.document.secondaryForm", "${province}", getValue("document.schoolAddForm", "${province}"));
                 putValue("window.opener.document.secondaryForm", "${city}", getValue("document.schoolAddForm", "${city}"));
+                putValue("window.opener.document.secondaryForm", "${schoolId}", '');
                 if (document.schoolAddForm.${visibleSchool}) {
                     putValue("window.opener.document.secondaryForm", "${visibleSchool}", getValue("document.schoolAddForm", "${visibleSchool}"));
                 }
