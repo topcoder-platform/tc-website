@@ -59,7 +59,7 @@
                     <tr valign="middle">
                     <td class="registerLabel">&nbsp;</td>
                     <td class="statText">
-                        <A HREF="mailto:memberphotos@topcoder.com?subject=${sessionInfo.activationCode}%20|%20[%20${sessionInfo.handle}%20]%20|%20${sessionInfo.userId}%20<c:if test="${sessionInfo.hasImage}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT"> Click here to <c:if test="${sessionInfo.hasImage}">re</c:if>send your photo</A>
+                        <A HREF="mailto:memberphotos@topcoder.com?subject=${regUser.activationCode}%20|%20[%20${sessionInfo.handle}%20]%20|%20${sessionInfo.userId}%20<c:if test="${regUser.coder.memberPhoto!=null}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT"> Click here to <c:if test="${regUser.coder.memberPhoto!=null}">re</c:if>send your photo</A>
                     </td>
                 </tr>
 
