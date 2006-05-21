@@ -10,7 +10,6 @@
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
 </head>
-<body>
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
@@ -27,9 +26,7 @@
    <div id="regBcContainer">
       <div class="regBc">
          <div class="title">
-             <c:if test="${sessionInfo.loggedIn}">
-                 <div style="float:right;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
-             </c:if>
+             <%--user should never be logged in at this point --%>
          Step <strong>5</strong> of <strong>6</strong></div>
          <div class="off">Select Your Registration</div>
          <div class="off">General</div>
@@ -129,5 +126,8 @@
 </table>
 
 <br><br>
+   </div>
+</div>
+
 </body>
 </html>
