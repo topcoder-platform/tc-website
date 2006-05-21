@@ -63,8 +63,6 @@
     </tr>
 </c:if>
 
-
-
 <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
 <c:if test="${cf:contains(fields, givenName)}">
    <tr>
