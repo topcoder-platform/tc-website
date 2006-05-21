@@ -18,20 +18,21 @@ import java.util.Date;
  */
 public class TCUser extends SimpleUserAdapter {
 
-	/**
-	 * TC-specific fields
-	 */
-	private String imagePath;
-	public String getImagePath() {
-		return imagePath;
-	}
+    /**
+     * TC-specific fields
+     */
+    private String imagePath;
+
+    public String getImagePath() {
+        return imagePath;
+    }
 
     /**
      * Load a user by id.
      *
-     * @param id the user id.
+     * @param id         the user id.
      * @param dataSource data source connected to the database that contains the
-     *      user information.
+     *                   user information.
      * @throws UserNotFoundException if the user could not be loaded.
      */
     public TCUser(long id, DataSource dataSource) throws UserNotFoundException {
@@ -45,9 +46,9 @@ public class TCUser extends SimpleUserAdapter {
     /**
      * Load a user by username.
      *
-     * @param username the username.
+     * @param username   the username.
      * @param dataSource data source connected to the database that contains the
-     *      user information.
+     *                   user information.
      * @throws UserNotFoundException if the user could not be loaded.
      */
     public TCUser(String username, DataSource dataSource) throws UserNotFoundException {
@@ -62,32 +63,34 @@ public class TCUser extends SimpleUserAdapter {
      * Loads the user_id, handle and email address for the user
      *
      * @param dataSource data source connected to the database that contains the
-     *      user information.
+     *                   user information.
      * @throws UserNotFoundException if the user could not be loaded.
      */
     private void loadFromDb(DataSource dataSource) throws UserNotFoundException {
 
-    	final String QUERY =
-        	" select u.email " +
-	        	" , u.user_id " +
-				" , u.handle " +
-				" , c.member_since " +
-				" , p.path || i.file_name as image_path " +
-			" from user u, coder c, outer(coder_image_xref x, image i, path p) " +
-			" where u.user_id = c.coder_id " +
-				" and u.user_id = x.coder_id " +
-				" and x.image_id = i.image_id " +
-				" and i.path_id = p.path_id " +
-				" and i.image_type_id = 1 " + 
-                " and display_flag = 1 ";
+        final String QUERY =
+                " select e.address as email" +
+                        " , u.user_id " +
+                        " , u.handle " +
+                        " , c.member_since " +
+                        " , p.path || i.file_name as image_path " +
+                        " from user u, email e, coder c, outer(coder_image_xref x, image i, path p) " +
+                        " where u.user_id = c.coder_id " +
+                        " and u.user_id = x.coder_id " +
+                        " and u.user_id = e.user_id " +
+                        " and e.primary_ind = 1 " +
+                        " and x.image_id = i.image_id " +
+                        " and i.path_id = p.path_id " +
+                        " and i.image_type_id = 1 " +
+                        " and display_flag = 1 ";
 
         final String FIND_BY_ID =
                 QUERY +
-                " and u.user_id = ? ";
+                        " and u.user_id = ? ";
 
         final String FIND_BY_HANDLE =
                 QUERY +
-                   " and u.handle_lower = ? ";
+                        " and u.handle_lower = ? ";
 
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -117,9 +120,9 @@ public class TCUser extends SimpleUserAdapter {
             this.imagePath = rs.getString("image_path");
             //System.out.println("ID: " + this.ID + " | username: " + this.username +
             //		" | email: " + this.email + " | creationDate: " + this.creationDate +
-			//		" | imagePath: " + this.imagePath);
+            //		" | imagePath: " + this.imagePath);
         } catch (SQLException sqle) {
-        	sqle.printStackTrace();
+            sqle.printStackTrace();
             Log.error(sqle);
         } finally {
             Common.close(rs);
@@ -133,6 +136,7 @@ public class TCUser extends SimpleUserAdapter {
      * Our implementation of this method will simply return <code>true</code>.
      * This means that none of the setter methods on a <code>com.jivesoftware.base.User</code>
      * are available.  We don't want jive modifying any of the user attributes anyway.
+     *
      * @return
      */
     public boolean isReadOnly() {
@@ -143,6 +147,7 @@ public class TCUser extends SimpleUserAdapter {
      * Our implementation of this method will simply return <code>true</code>.
      * I suspect properties at the user level may be of some value as we're
      * building the front end.
+     *
      * @return
      */
     public boolean isPropertyEditSupported() {
@@ -152,6 +157,7 @@ public class TCUser extends SimpleUserAdapter {
     /**
      * Nope, nobody can see modification date.  Doesn't
      * really make sense for us right now anyway.
+     *
      * @return
      */
     public Date getModificationDate() {
@@ -160,6 +166,7 @@ public class TCUser extends SimpleUserAdapter {
 
     /**
      * We don't let anyone see email addresses.
+     *
      * @return <code>false</code> always
      */
     public boolean isEmailVisible() {
@@ -168,6 +175,7 @@ public class TCUser extends SimpleUserAdapter {
 
     /**
      * We don't let anyone see names.
+     *
      * @return <code>false</code> always
      */
     public boolean isNameVisible() {
@@ -175,9 +183,9 @@ public class TCUser extends SimpleUserAdapter {
     }
 
     public String getProperty(String name) {
-    	if (name.equals("imagePath")) {
-    		return getImagePath();
-    	}
-    	return super.getProperty(name);
+        if (name.equals("imagePath")) {
+            return getImagePath();
+        }
+        return super.getProperty(name);
     }
 }
