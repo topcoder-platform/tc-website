@@ -71,12 +71,12 @@ public class Confirm extends FullRegConfirm {
 
             //check first name
             if (info.getFirstName().length() < 1) {
-                addError(Constants.FIRST_NAME, "Please enter your first name.");
+                addError(Constants.GIVEN_NAME, "Please enter your first name.");
             }
 
             //check last name
             if (info.getLastName().length() < 1) {
-                addError(Constants.LAST_NAME, "Please enter your last name.");
+                addError(Constants.SURNAME, "Please enter your last name.");
             }
 
         } catch (Exception e) {

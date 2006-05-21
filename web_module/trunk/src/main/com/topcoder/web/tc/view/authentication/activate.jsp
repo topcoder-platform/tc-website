@@ -11,87 +11,29 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_reg"/>
 </jsp:include>
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-<!-- Top begins -->
-<jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="login"/>
-</jsp:include>
-<!-- Top ends -->
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-
-<!-- Left Column Begins -->
-        <td width="170">
-            <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="competition_reg"/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column begins -->
-        <td width="100%" class="bodyText" align="center">
-
-         <div class="myTCBody">
-
-         <jsp:include page="../page_title.jsp" >
+     <jsp:include page="/page_title.jsp">
          <jsp:param name="image" value="registration_w"/>
-         <jsp:param name="title" value="Activation"/>
-         </jsp:include>
+         <jsp:param name="title" value="&#160;"/>
+     </jsp:include>
 
-         <p>
-         <span class="bodySubtitle">Your account has been successfully activated. Thank You!</span>
-         <br><br>
-         <A HREF="/tc?&module=Login&<%=BaseServlet.NEXT_PAGE_KEY%>=/" class="bodyText">Click here</A> to login to your account, or check some of the great services that we offer to TopCoder members:
-         <br>
-         </p>
+   <strong>Your account has been successfully activated. Thank You!</strong>
+   <br><br>
+   <A HREF="/tc?&module=Login&<%=BaseServlet.NEXT_PAGE_KEY%>=/" class="bodyText">Click here</A> to login to your account.
+   <br><br>
          
-            <table border=0 cellpadding=5 cellspacing=0 width="100%">
-                <tr>
-                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/registration/icon_emp_opps.gif" border=0/></A></td>
-                    <td class="bodyText" valign="top"><A href="/tc?module=Static&d1=contracting&d2=index">Register here</A> to enroll in <strong>TopCoder Employment Opportunities</strong>.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
-                </tr>
-                <tr>
-                    <td class="bodyText" valign="top" width="150"><A href="/tc?module=ViewActiveContests&ph=112"><img src="/i/registration/icon_components.gif" border=0/></A></td>
-                    <td class="bodyText" valign="top">Compete in Software Component <A href="/tc?module=ViewActiveContests&ph=112"><strong>Design</strong></A> and <A href="/tc?module=ViewActiveContests&ph=113"><strong>Development</strong></A> Competitions and get paid for what you build!</td>
-                </tr>
-                <tr>
-                    <td class="bodyText" valign="top" width="150"><A href="/tc"><img src="/i/registration/icon_algorithm.gif" border=0/></A></td>
-                    <td class="bodyText" valign="top">How do you match up among your peers? <A href="/tc">Compete</A> in our <strong>Algorithm competitions</strong>.</td>
-                </tr>
-            </table>
-         <p><br></p>
-         </div>
-        </td>
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-    </tr>
-</table>
-
-<!-- Footer begins -->
-  <jsp:include page="../foot.jsp"/>
-<!-- Footer ends -->
+   </div>
+</div>
 
 </body>
 </html>

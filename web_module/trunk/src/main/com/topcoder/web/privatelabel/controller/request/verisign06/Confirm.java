@@ -117,14 +117,14 @@ public class Confirm extends FullRegConfirm {
 
         //check first name
         if (info.getFirstName().length() < 1) {
-            addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name"));
+            addError(Constants.GIVEN_NAME, getBundle().getProperty("error_enter_first_name"));
         }
 
         //nothing for middle name
 
         //check last name
         if (info.getLastName().length() < 1) {
-            addError(Constants.LAST_NAME, getBundle().getProperty("error_enter_last_name"));
+            addError(Constants.SURNAME, getBundle().getProperty("error_enter_last_name"));
         }
 
     }
@@ -158,10 +158,10 @@ public class Confirm extends FullRegConfirm {
             info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
         if (hasRequestParameter(Constants.EMAIL_CONFIRM))
             info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
-        if (hasRequestParameter(Constants.FIRST_NAME))
-            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
-        if (hasRequestParameter(Constants.LAST_NAME))
-            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
+        if (hasRequestParameter(Constants.GIVEN_NAME))
+            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.GIVEN_NAME)));
+        if (hasRequestParameter(Constants.SURNAME))
+            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.SURNAME)));
         if (hasRequestParameter(Constants.COMPANY_ID))
             info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         if (hasRequestParameter(Constants.EVENT_ID))

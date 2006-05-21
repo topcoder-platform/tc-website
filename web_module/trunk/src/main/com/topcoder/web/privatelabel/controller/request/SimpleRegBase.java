@@ -31,9 +31,9 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.PASSWORD_CONFIRM, info.getPasswordConfirm());
         setDefault(Constants.EMAIL, info.getEmail());
         setDefault(Constants.EMAIL_CONFIRM, info.getEmailConfirm());
-        setDefault(Constants.FIRST_NAME, info.getFirstName());
+        setDefault(Constants.GIVEN_NAME, info.getFirstName());
         setDefault(Constants.MIDDLE_NAME, info.getMiddleName());
-        setDefault(Constants.LAST_NAME, info.getLastName());
+        setDefault(Constants.SURNAME, info.getLastName());
         setDefault(Constants.ADDRESS1, info.getAddress1());
         setDefault(Constants.ADDRESS2, info.getAddress2());
         setDefault(Constants.ADDRESS3, info.getAddress3());
@@ -41,7 +41,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.STATE_CODE, info.getStateCode());
         setDefault(Constants.PROVINCE, info.getProvince());
         setDefault(Constants.CITY, info.getCity());
-        setDefault(Constants.ZIP, info.getZip());
+        setDefault(Constants.POSTAL_CODE, info.getZip());
         setDefault(Constants.PHONE_NUMBER, info.getPhoneNumber());
         setDefault(Constants.LOCALE, getLocale().getLanguage());
     }
@@ -66,12 +66,12 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
         if (hasRequestParameter(Constants.EMAIL_CONFIRM))
             info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
-        if (hasRequestParameter(Constants.FIRST_NAME))
-            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
+        if (hasRequestParameter(Constants.GIVEN_NAME))
+            info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.GIVEN_NAME)));
         if (hasRequestParameter(Constants.MIDDLE_NAME))
             info.setMiddleName(StringUtils.checkNull(getRequestParameter(Constants.MIDDLE_NAME)));
-        if (hasRequestParameter(Constants.LAST_NAME))
-            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
+        if (hasRequestParameter(Constants.SURNAME))
+            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.SURNAME)));
         if (hasRequestParameter(Constants.ADDRESS1))
             info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
         if (hasRequestParameter(Constants.ADDRESS2))
@@ -86,8 +86,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
         if (hasRequestParameter(Constants.PROVINCE))
             info.setProvince(StringUtils.checkNull(getRequestParameter(Constants.PROVINCE)));
-        if (hasRequestParameter(Constants.ZIP))
-            info.setZip(StringUtils.checkNull(getRequestParameter(Constants.ZIP)));
+        if (hasRequestParameter(Constants.POSTAL_CODE))
+            info.setZip(StringUtils.checkNull(getRequestParameter(Constants.POSTAL_CODE)));
         if (hasRequestParameter(Constants.COMPANY_ID))
             info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         if (hasRequestParameter(Constants.EVENT_ID))
@@ -143,14 +143,14 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
         //check first name
         if (info.getFirstName().length() < 1) {
-            addError(Constants.FIRST_NAME, getBundle().getProperty("error_enter_first_name"));
+            addError(Constants.GIVEN_NAME, getBundle().getProperty("error_enter_first_name"));
         }
 
         //nothing for middle name
 
         //check last name
         if (info.getLastName().length() < 1) {
-            addError(Constants.LAST_NAME, getBundle().getProperty("error_enter_last_name"));
+            addError(Constants.SURNAME, getBundle().getProperty("error_enter_last_name"));
         }
 
         //check address1
@@ -182,7 +182,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         }
         //zip
         if (info.getZip().length() != 0 && info.getZip().length() < 4) {
-            addError(Constants.ZIP, getBundle().getProperty("error_enter_zip"));
+            addError(Constants.POSTAL_CODE, getBundle().getProperty("error_enter_zip"));
         }
     }
 

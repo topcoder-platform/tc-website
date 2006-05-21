@@ -17,6 +17,7 @@ import com.topcoder.web.privatelabel.controller.request.RegistrationBase;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
@@ -52,7 +53,7 @@ public class MainServlet extends BaseServlet {
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp;
         WebAuthentication authentication;
         SessionInfo info;
@@ -125,7 +126,7 @@ public class MainServlet extends BaseServlet {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
                 //todo perhaps catch Throwable here instead
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
@@ -134,7 +135,7 @@ public class MainServlet extends BaseServlet {
              * and the forward to error page failed.  in any event, make
              * one last attempt to get an error message to the browser
              */
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
             response.setContentType("text/html");

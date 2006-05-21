@@ -47,12 +47,12 @@
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion"><span class="demoErrorText">*</span> Given Name</td>
-                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
@@ -65,12 +65,12 @@
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion"><span class="demoErrorText">*</span> Surname</td>
-                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.SURNAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
@@ -140,12 +140,12 @@
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">Pin/Zip Code</td>
-                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/></td>
+                            <td class="demoRegAnswer"><tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>"  size="10" maxlength="15"/></td>
                         </tr>
                         <tr>
                             <td class="demoErrorText" colspan="2">
