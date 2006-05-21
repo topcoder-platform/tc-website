@@ -40,6 +40,7 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid", "How to Get Paid", "algo_get_paid"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=charity", "Charity Donations", "algo_charity"));
 //      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_hs_competitions')", "High School", "m_hs_competitions"));
+//         nav.search("m_hs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=hs&d2=home", "Overview", "hs_overview"));
 //         nav.search("m_hs_competitions").addChild(new NavNode("javascript:arena();", "Compete<br>(Launch Arena)", "hs_compete"));
 //         nav.search("m_hs_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_hs_stats')", "Statistics", "m_hs_stats"));
 //            nav.search("m_hs_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=HSRoundOverview", "Match Overview", "hs_match_overview"));
