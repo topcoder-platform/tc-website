@@ -63,7 +63,7 @@
                 In order to compete, you must:
 
                 <ol>
-                    <li><A href="/Registration" target="blank">Register</a> as a TopCoder member</li>
+                    <li><A href="/reg/" target="blank">Register</a> as a TopCoder member</li>
                     <li><A href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>" target="blank">Register</A> for this TopCoder College Tour event</li>
                 </ol>
 

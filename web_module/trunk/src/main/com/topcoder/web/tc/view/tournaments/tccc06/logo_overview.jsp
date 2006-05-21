@@ -62,7 +62,7 @@
             To put your creativity to the test, just send us a logo design that we can use to brand this year's TCCC &mdash; including our website, t-shirts, the stage at the onsite finals, and anywhere else the TCCC name might appear. All TopCoder members are welcome to submit, and all members will have the chance to vote on the finalists selected by TopCoder staff. For more details and submission guidelines, review the <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Official Contest Rules</A>.
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
-            <A href="/Registration">Register here</A>
+            <A href="/reg/">Register here</A>
             <br><br>
             <b>Make sure you read the contest rules:</b><br>
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Read the rules</A>
