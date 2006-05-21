@@ -105,18 +105,15 @@ left: 0px;
 </div>
 <%---------------------------------%>
 
-<div id="register_now_container" style="position:absolute; left:100%; top:31px; height:30px;">
+<div id="register_now_container" style="position:absolute; left:0; top:31px; width:100%;">
    <% if ( !sessionInfo.isAnonymous() ) { %>
-   <div style="position:absolute; left:-150px; top:0px;">
-      <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A>
-   </div>
+   <div style="float:right; width:775px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
    <% } else { %>
-   <div style="position:absolute; left:-127px; top:0px;">
-      <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A>
-   </div>
+   <div style="float:right; width:775px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A></div>
    <%}%>
 </div>
-
+<%--
+--%>
 
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
