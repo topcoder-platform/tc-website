@@ -50,6 +50,7 @@ function popHide(){
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
+   <%-----make this only show up if you're logged in and updating your profile--------%>
    <div style="float:right;"><A href="/tc?module=Logout" class="small">logout</A></div>
 
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>

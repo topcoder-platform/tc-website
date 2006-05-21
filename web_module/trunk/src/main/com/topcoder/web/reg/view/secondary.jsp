@@ -32,7 +32,10 @@
 
 <div id="regBcContainer">
     <div class="regBc">
-        <div class="title"><div style="float:left;"><A href="/tc?module=Logout" class="small">logout</A></div>Step <strong>3</strong> of <strong>6</strong></div>
+         <div class="title">
+            <%-----make this only show up if you're logged in and updating your profile--------%>
+            <div style="float:left;"><A href="/tc?module=Logout" class="small">logout</A></div>
+         Step <strong>3</strong> of <strong>6</strong></div>
         <div class="off">Select Your Registration</div>
         <div class="off">General</div>
         <div class="on">Demographics</div>
