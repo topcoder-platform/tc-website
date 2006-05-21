@@ -109,6 +109,8 @@ public class Login extends ForumsProcessor {
     private String getPassword(long userID) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-        return pmgr.getPassword(userID);
+        String ret = pmgr.getPassword(userID);
+        log.debug("password is "  + ret);
+        return ret;
     }
 }
