@@ -2,7 +2,11 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.reg.model.*;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -15,8 +19,8 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 
 
- /*   public void testTransientDemogUpdate() {
-        User u = Util.getFactory().getUserDAO().find("dok");
+    public void testTransientDemogUpdate() {
+        User u = Util.getFactory().getUserDAO().find("Petr", true);
 
         HashSet h = new HashSet();
         h.add(Util.getFactory().getRegistrationTypeDAO().getCompetitionType());
@@ -63,7 +67,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         Util.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);
 
-    }*/
+    }
 
 
 
@@ -96,15 +100,12 @@ public class UserDAOTestCase extends TCHibernateTestCase {
             assertTrue("new coder does not exist", u1 != null);
 
         }
-*/
 
     public void testFindWithImage() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
     }
 
-
-/*
         public void testSaveOrUpdateResponses() {
             User u = TestUtils.makeUser();
             Util.getFactory().getUserDAO().saveOrUpdate(u);
