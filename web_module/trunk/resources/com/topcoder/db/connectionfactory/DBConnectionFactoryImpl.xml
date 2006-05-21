@@ -13,7 +13,7 @@
             from a JDBC URL
         -->
         <!-- for testing -->
-        <Property name="TestingConnection">
+<!--        <Property name="TestingConnection">
             <Property name="producer">
                 <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
             </Property>
@@ -22,7 +22,7 @@
                     <Value>com.informix.jdbc.IfxDriver</Value>
                 </Property>
                 <Property name="jdbc_url">
-                    <Value>jdbc:informix-sqli://65.112.118.221:1526/hs_informixoltp:INFORMIXSERVER=devinformix10_shm</Value>
+                    <Value>jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</Value>
                 </Property>
                 <Property name="user">
                     <Value>coder</Value>
@@ -31,7 +31,7 @@
                     <Value>altec</Value>
                 </Property>
             </Property>
-        </Property>
+        </Property>-->
 
         <!--
             The following property configures the ConnectionProducer obtaining the Connections
