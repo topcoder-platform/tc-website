@@ -5,20 +5,20 @@
 
 <hibernate-configuration>
 
+<!--
     <session-factory>
+-->
 
-<!--
     <session-factory name="java:comp/env/hibernate/SessionFactory">
--->
 
-<!--
         <property name="connection.datasource">java:/JTS_HS_OLTP</property>
--->
         <!-- for testing-->
+<!--
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
         <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/hs_informixoltp:INFORMIXSERVER=devinformix10_shm</property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+-->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
