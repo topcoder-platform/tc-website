@@ -8,6 +8,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
 
 public class PasswordEmail extends Base {
@@ -48,7 +49,7 @@ public class PasswordEmail extends Base {
                     msgText.append("Handle:  ");
                     msgText.append(rsc.getStringItem(0, "handle"));
                     msgText.append("\nPassword:  ");
-                    msgText.append(rsc.getStringItem(0, "password"));
+                    msgText.append(getPassword(rsc.getLongItem(0, "user_id")));
                     msgText.append("\n\nWe recommend that you login and change your password immediately.\n");
                     msgText.append("\n\nThank You for registering with TopCoder!\n");
                     msgText.append("\n\nPlease do not reply to this e-mail.\n");
@@ -78,4 +79,14 @@ public class PasswordEmail extends Base {
         log.debug("out " + ret.toString());
         return ret.toString();
     }
+
+
+    private String getPassword(long userID) throws Exception {
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
+                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+        String ret = pmgr.getPassword(userID);
+        log.debug("password is "  + ret);
+        return ret;
+    }
+
 }
