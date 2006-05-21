@@ -60,7 +60,7 @@ private static Logger log = Logger.getLogger(AddTCUsersToGroup.class);
     }
 
 
-    private static String addGroup(List users) throws Exception {
+    private static void addGroup(List users) throws Exception {
 
         Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                 ApplicationServer.SECURITY_PROVIDER_URL);
