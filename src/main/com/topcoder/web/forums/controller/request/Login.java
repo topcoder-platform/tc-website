@@ -5,8 +5,6 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
@@ -109,13 +107,8 @@ public class Login extends ForumsProcessor {
     }
     
     private String getPassword(long userID) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("user_to_password");
-        r.setProperty("uid", ""+userID);
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("user_to_password");
-        if (rsc.isEmpty())
-            return "";
-        else
-            return rsc.getStringItem(0, "password");
+        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
+                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+        return pmgr.getPassword(userID);
     }
 }
