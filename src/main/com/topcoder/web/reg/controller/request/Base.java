@@ -2,7 +2,6 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -300,16 +299,6 @@ abstract class Base extends HibernateProcessor {
                 ret.put(key, getTrimmedParameter(key));
             }
         }
-        log.debug("got: " + Constants.SCHOOL_ID + " " + getTrimmedParameter(Constants.SCHOOL_ID));
-        log.debug("got: " + Constants.SCHOOL_CITY + " " + getTrimmedParameter(Constants.SCHOOL_CITY));
-        log.debug("got: " + Constants.SCHOOL_STATE + " " + getTrimmedParameter(Constants.SCHOOL_STATE));
-        log.debug("got: " + Constants.SCHOOL_COUNTRY + " " + getTrimmedParameter(Constants.SCHOOL_COUNTRY));
-        log.debug("got: " + Constants.SCHOOL_PROVINCE + " " + getTrimmedParameter(Constants.SCHOOL_PROVINCE));
-        log.debug("got: " + Constants.SCHOOL_NAME + " " + getTrimmedParameter(Constants.SCHOOL_NAME));
-        log.debug("got: " + Constants.SCHOOL_TYPE + " " + getTrimmedParameter(Constants.SCHOOL_TYPE));
-        log.debug("got: " + Constants.VISIBLE_SCHOOL + " " + getTrimmedParameter(Constants.VISIBLE_SCHOOL));
-        log.debug("got: " + Constants.GPA_SCALE + " " + getTrimmedParameter(Constants.GPA_SCALE));
-        log.debug("got: " + Constants.GPA + " " + getTrimmedParameter(Constants.GPA));
 
         ret.put(Constants.SCHOOL_ID, getTrimmedParameter(Constants.SCHOOL_ID));
         ret.put(Constants.SCHOOL_CITY, getTrimmedParameter(Constants.SCHOOL_CITY));
