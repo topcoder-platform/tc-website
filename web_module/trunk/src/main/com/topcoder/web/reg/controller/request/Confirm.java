@@ -132,7 +132,7 @@ public class Confirm extends Base {
                 cs.setSchool(s);
             }
 
-            if (u.getCoder().getCurrentSchool().getSchool().getType().equals(getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL))) {
+            if (getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL).equals(u.getCoder().getCurrentSchool().getSchool().getType())) {
                 u.getCoder().getCurrentSchool().setViewable(Boolean.TRUE);
             } else {
                 u.getCoder().getCurrentSchool().setViewable(Boolean.valueOf("on".equals(params.get(Constants.VISIBLE_SCHOOL))));
