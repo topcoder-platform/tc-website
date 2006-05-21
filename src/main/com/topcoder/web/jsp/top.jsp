@@ -106,9 +106,15 @@ left: 0px;
 <%---------------------------------%>
 
 <div id="register_now_container" style="position:absolute; left:100%; top:31px;">
-   <div style="position:absolute; left:-127px; top:0px;">
-      <A href="/reg/"><img src="/i/interface/register_now.gif" alt="" style="display:block;"/></A>
+   <% if ( !sessionInfo.isAnonymous() ) { %>
+   <div style="position:absolute; left:-150px; top:0px;">
+      <A href="/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A>
    </div>
+   <% } else { %>
+   <div style="position:absolute; left:-127px; top:0px;">
+      <A href="/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A>
+   </div>
+   <%}%>
 </div>
 
 
@@ -134,7 +140,6 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
       <% } else { %>
                &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
       <% } %>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update My Profile</a>
    <% } else {
        if (level1.equals("long")) {%>
                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
