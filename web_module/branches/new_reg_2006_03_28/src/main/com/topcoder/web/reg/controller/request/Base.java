@@ -2,6 +2,7 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -321,22 +322,25 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.GPA_SCALE, getTrimmedParameter(Constants.GPA_SCALE));
         ret.put(Constants.GPA, getTrimmedParameter(Constants.GPA));
 
-        MultipartRequest req = (MultipartRequest) getRequest();
-        UploadedFile file = req.getUploadedFile(Constants.RESUME);
 
-        if (file != null && file.getContentType() != null) {
-            log.debug("FOUND RESUME");
-            byte[] fileBytes = new byte[(int) file.getSize()];
-            try {
-                file.getInputStream().read(fileBytes);
-            } catch (IOException e) {
-                throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
+        if (getRequest() instanceof MultipartRequest) {
+            MultipartRequest req = (MultipartRequest) getRequest();
+            UploadedFile file = req.getUploadedFile(Constants.RESUME);
+
+            if (file != null && file.getContentType() != null) {
+                log.debug("FOUND RESUME");
+                byte[] fileBytes = new byte[(int) file.getSize()];
+                try {
+                    file.getInputStream().read(fileBytes);
+                } catch (IOException e) {
+                    throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
+                }
+
+                ret.put(Constants.FILE, fileBytes);
+                ret.put(Constants.FILE_TYPE, file.getContentType());
+                ret.put(Constants.FILE_NAME, file.getRemoteFileName());
+
             }
-
-            ret.put(Constants.FILE, fileBytes);
-            ret.put(Constants.FILE_TYPE, file.getContentType());
-            ret.put(Constants.FILE_NAME, file.getRemoteFileName());
-
         }
 
         return ret;
