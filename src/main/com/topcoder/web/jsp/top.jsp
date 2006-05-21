@@ -100,12 +100,12 @@ left: 0px;
 <area shape="rect" alt="" coords="141,0,165,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="popDescription('launch3')" onmouseout="hideDescription()" />
 <area shape="rect" alt="" coords="166,0,228,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="popDescription('launch4')" onmouseout="hideDescription()" />
 </map>
-<div style="position:absolute; left:0px; top:31px;">
-<img src="/i/interface/launchBar.gif" alt="" usemap="#launchBar"/>
-</div>
 <%---------------------------------%>
 
 <div id="register_now_container" style="position:absolute; left:0; top:31px; width:100%;">
+   <div style="position:absolute; left:0px; top:0px;">
+   <img src="/i/interface/launchBar.gif" alt="" usemap="#launchBar"/>
+   </div>
    <% if ( !sessionInfo.isAnonymous() ) { %>
    <div style="float:right; width:775px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
    <% } else { %>
