@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
-<taglib>
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>TopCoder Generic Web Tags</shortname>
-    <!--    <info /> -->
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+
+    <description>
+        Basic stuff
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>tc-webtag</short-name>
+
+    <uri>tc-webtags</uri>
     <tag>
         <name>textInput</name>
-        <tagclass>com.topcoder.web.common.tag.TextInputTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.TextInputTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -63,7 +72,8 @@
     </tag>
     <tag>
         <name>textArea</name>
-        <tagclass>com.topcoder.web.common.tag.TextAreaTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.TextAreaTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -122,7 +132,8 @@
     </tag>
     <tag>
         <name>chkBox</name>
-        <tagclass>com.topcoder.web.common.tag.ChkBoxTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.ChkBoxTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -136,8 +147,9 @@
         </attribute>
     </tag>
     <tag>
-    <name>radioButton</name>
-        <tagclass>com.topcoder.web.common.tag.RadioButtonTag</tagclass>
+        <name>radioButton</name>
+        <tag-class>com.topcoder.web.common.tag.RadioButtonTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -162,8 +174,9 @@
 
     <tag>
         <name>errorIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
+        <tag-class>com.topcoder.web.common.tag.ErrorIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.IteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -177,10 +190,9 @@
     </tag>
     <tag>
         <name>queryIterator</name>
-        <tagclass>com.topcoder.web.common.tag.QueryIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>iterator tag to iterate through resultset of db query</info>
+        <tag-class>com.topcoder.web.common.tag.QueryIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -199,9 +211,8 @@
     </tag>
     <tag>
         <name>item</name>
-        <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>Tag to get the value of a TCResultItem</info>
+        <tag-class>com.topcoder.web.common.tag.ResultSetItemTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>row</name>
             <required>true</required>
@@ -215,7 +226,8 @@
     </tag>
     <tag>
         <name>rscSelect</name>
-        <tagclass>com.topcoder.web.common.tag.RSCSelectTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.RSCSelectTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -290,7 +302,8 @@
     </tag>
     <tag>
         <name>listSelect</name>
-        <tagclass>com.topcoder.web.common.tag.ListSelectTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.ListSelectTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -346,7 +359,8 @@
 
     <tag>
         <name>multiRSCSelect</name>
-        <tagclass>com.topcoder.web.common.tag.MultiRSCSelectTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.MultiRSCSelectTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -417,7 +431,8 @@
 
     <tag>
         <name>handle</name>
-        <tagclass>com.topcoder.web.common.tag.HandleTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.HandleTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>coderId</name>
             <required>true</required>
@@ -448,8 +463,8 @@
 
     <tag>
         <name>ratingColor</name>
-        <tagclass>com.topcoder.web.common.tag.RatingColorTag</tagclass>
-        <bodycontent>JSP</bodycontent>
+        <tag-class>com.topcoder.web.common.tag.RatingColorTag</tag-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>rating</name>
             <required>true</required>
@@ -469,7 +484,8 @@
 
     <tag>
         <name>hiddenInput</name>
-        <tagclass>com.topcoder.web.common.tag.HiddenInputTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.HiddenInputTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -485,12 +501,9 @@
 
     <tag>
         <name>listIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ListIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -515,12 +528,9 @@
 
     <tag>
         <name>useBean</name>
-        <tagclass>com.topcoder.web.common.tag.UseBeanTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.UseBeanTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to make a bean available for use
-        </info>
+        <tag-class>com.topcoder.web.common.tag.UseBeanTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.UseBeanTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -557,11 +567,8 @@
 
     <tag>
         <name>problemStatement</name>
-        <tagclass>com.topcoder.web.common.tag.ProblemStatementTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag for generating html output of a given problem statement xml string
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ProblemStatementTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>text</name>
             <required>false</required>
@@ -586,11 +593,8 @@
 
     <tag>
         <name>format</name>
-        <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag for format objects
-        </info>
+        <tag-class>com.topcoder.web.common.tag.FormatTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>object</name>
             <required>true</required>
@@ -613,14 +617,10 @@
         </attribute>
     </tag>
 
-	<tag>
+    <tag>
         <name>beanWrite</name>
-        <tagclass>com.topcoder.web.common.tag.BeanWriteTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag to write out properties of beans stored in a scope attribute
-            variable
-        </info>
+        <tag-class>com.topcoder.web.common.tag.BeanWriteTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -640,12 +640,9 @@
 
     <tag>
         <name>iterator</name>
-        <tagclass>com.topcoder.web.common.tag.IteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            generic iterator tag iterates through elements of a Collection
-        </info>
+        <tag-class>com.topcoder.web.common.tag.IteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.IteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -665,7 +662,8 @@
 
     <tag>
         <name>sort</name>
-        <tagclass>com.topcoder.web.common.tag.SortTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.SortTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>column</name>
             <required>true</required>
@@ -695,7 +693,8 @@
 
     <tag>
         <name>forumLink</name>
-        <tagclass>com.topcoder.web.common.tag.ForumLinkTag</tagclass>
+        <tag-class>com.topcoder.web.common.tag.ForumLinkTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>forumID</name>
             <required>true</required>
@@ -715,9 +714,8 @@
 
     <tag>
         <name>sponsorImage</name>
-        <tagclass>com.topcoder.web.common.tag.SponsorImage</tagclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.SponsorImage</tag-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>image</name>
             <required>false</required>
@@ -753,15 +751,14 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-        
+
     </tag>
 
     <tag>
         <name>questionIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.QuestionIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.QuestionIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -772,14 +769,13 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
-    </tag>    
-    
-	<tag>
+    </tag>
+
+    <tag>
         <name>answerInput</name>
-        <tagclass>com.topcoder.web.common.tag.AnswerInput</tagclass>
-        <teiclass>com.topcoder.web.common.tag.AnswerInputTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.AnswerInput</tag-class>
+        <tei-class>com.topcoder.web.common.tag.AnswerInputTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>question</name>
             <required>true</required>
@@ -796,4 +792,150 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+
+        <tag>
+        <name>objectSelect</name>
+        <tag-class>com.topcoder.web.common.tag.ObjectSelectTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onChange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedText</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedOnly</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>multiple</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>valueField</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>textField</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>useTopValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>topValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>topText</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+    <name>stringSelect</name>
+    <tag-class>com.topcoder.web.common.tag.StringSelectTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+        <name>name</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>styleClass</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>onChange</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>selectedValue</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>selectedText</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>selectedOnly</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>size</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>multiple</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <attribute>
+        <name>list</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>useTopValue</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>topValue</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>topText</name>
+        <required>false</required>
+        <rtexprvalue>true</rtexprvalue>
+    </attribute>
+</tag>
+
+
 </taglib>

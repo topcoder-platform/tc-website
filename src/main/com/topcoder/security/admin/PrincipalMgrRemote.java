@@ -63,7 +63,13 @@ public interface PrincipalMgrRemote extends EJBObject {
     public abstract Collection getGroups(TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 
+    public abstract Collection getGroups(TCSubject tcsubject, String dataSource)
+            throws RemoteException, GeneralSecurityException;
+
     public abstract GroupPrincipal getGroup(long l)
+            throws RemoteException, GeneralSecurityException, NoSuchGroupException;
+
+    public abstract GroupPrincipal getGroup(long l, String dataSource)
             throws RemoteException, GeneralSecurityException, NoSuchGroupException;
 
     public abstract GroupPrincipal createGroup(String s, TCSubject tcsubject)
@@ -73,6 +79,9 @@ public interface PrincipalMgrRemote extends EJBObject {
             throws RemoteException, GeneralSecurityException;
 
     public abstract void addUserToGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
+            throws RemoteException, GeneralSecurityException;
+
+    public abstract void addUserToGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject, String dataSource)
             throws RemoteException, GeneralSecurityException;
 
     public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)

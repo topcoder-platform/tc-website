@@ -13,6 +13,7 @@
             <ejb-class>com.topcoder.security.admin.PrincipalMgrBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-local-ref>
                 <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
@@ -20,6 +21,7 @@
                 <local>com.topcoder.util.idgenerator.bean.LocalIdGen</local>
                 <ejb-link>IdGenEJB</ejb-link>
             </ejb-local-ref>
+-->
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>

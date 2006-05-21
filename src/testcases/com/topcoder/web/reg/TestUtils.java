@@ -1,0 +1,161 @@
+package com.topcoder.web.reg;
+
+import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.reg.model.*;
+
+import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.HashSet;
+import java.util.List;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Apr 25, 2006
+ */
+public class TestUtils {
+    public static Coder makeCoder() {
+        Coder ret = null;
+
+        ret = new Coder();
+        ret.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
+        ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
+        ret.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+
+/*
+        School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
+*/
+        School s = new School();
+        s.setCoder(ret);
+        s.setName("some school");
+        s.setShortName("ss");
+        s.setType(Util.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
+
+
+        //todo add address
+        Address a = new Address();
+        a.setCity("mycity");
+        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
+        a.setState(Util.getFactory().getStateDAO().find("CO"));
+        a.setProvince("myprovince");
+        s.setAddress(a);
+
+        ret.addCreatedSchool(s);
+
+        CurrentSchool cs = new CurrentSchool();
+        cs.setCoder(ret);
+        cs.setGPA(new Float(3));
+        cs.setGPAScale(new Float(5));
+        cs.setSchool(s);
+        cs.setViewable(Boolean.TRUE);
+        ret.setCurrentSchool(cs);
+
+        Team t = new Team();
+        t.setName(s.getName());
+        t.setSchool(s);
+        t.setType(Util.getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+
+        ret.addTeam(t);
+
+
+        return ret;
+    }
+
+
+    public static User makeUser() {
+        User ret = null;
+        String handle = "f" + System.currentTimeMillis();
+
+        ret = new User();
+        ret.setActivationCode("active");
+        ret.setFirstName("first name");
+        ret.setLastName("last_name");
+        ret.setHandle(handle);
+        ret.setMiddleName("middle name");
+        ret.setPassword("password");
+
+        Coder c = makeCoder();
+        c.setUser(ret);
+        ret.setCoder(c);
+
+        Address a = new Address();
+        a.setAddress1("address1");
+        a.setAddress2("address2");
+        a.setAddress3("address3");
+        a.setAddressTypeId(Address.HOME_TYPE_ID);
+        a.setCity("city");
+        a.setState(Util.getFactory().getStateDAO().find("CO"));
+        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
+        a.setProvince("province");
+        a.setPostalCode("zip");
+        ret.addAddress(a);
+
+        Email e = new Email();
+        e.setAddress("dok@topcoder.com");
+        e.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+        e.setPrimary(Boolean.TRUE);
+        e.setStatusId(Email.STATUS_ID_UNACTIVE);
+        ret.addEmailAddress(e);
+
+        Phone p = new Phone();
+        p.setNumber("6666666666");
+        p.setPhoneTypeId(Phone.PHONE_TYPE_HOME);
+        p.setPrimary(Boolean.TRUE);
+        ret.addPhoneNumber(p);
+
+        for (Iterator it = Util.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
+            ret.addNotification((Notification) it.next());
+        }
+
+        ret.setTimeZone(Util.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
+
+
+        HashSet regTypes = new HashSet();
+        regTypes.add(Util.getFactory().getRegistrationTypeDAO().find(new Integer(1)));
+        List assignments = Util.getFactory().getDemographicAssignmentDAO().getAssignments(
+                Util.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
+        DemographicAssignment da;
+        DemographicResponse dr;
+        HashSet responses = new HashSet();
+        for (Iterator it = assignments.iterator(); it.hasNext();) {
+            da = (DemographicAssignment)it.next();
+            if (da.getQuestion().isMultipleSelect()) {
+                for (Iterator it1 = da.getQuestion().getAnswers().iterator(); it1.hasNext();) {
+                    dr = new DemographicResponse();
+                    dr.setUser(ret);
+                    dr.setQuestion(da.getQuestion());
+                    dr.setAnswer((DemographicAnswer)it1.next());
+                    //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                    responses.add(dr);
+                }
+            } else if (da.getQuestion().isSingleSelect()) {
+                dr = new DemographicResponse();
+                dr.setUser(ret);
+                dr.setQuestion(da.getQuestion());
+                Iterator it1 = da.getQuestion().getAnswers().iterator();
+                dr.setAnswer((DemographicAnswer)it1.next());
+                //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                responses.add(dr);
+            } else if (da.getQuestion().isFreeForm()) {
+                dr = new DemographicResponse();
+                dr.setUser(ret);
+                dr.setQuestion(da.getQuestion());
+                dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
+                dr.setResponse("hell");
+                //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
+                responses.add(dr);
+            }
+        }
+        ret.setTransientResponses(responses);
+
+        return ret;
+    }
+
+    public static User makeUser(String handle) {
+        User ret = makeUser();
+        ret.setHandle(handle);
+        return ret;
+    }
+
+
+}

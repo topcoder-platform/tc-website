@@ -4,15 +4,15 @@
 <application>
     <display-name>Security Manager</display-name>
     <module>
-          <ejb>idgenerator.jar</ejb>
+          <ejb>id_generator.jar</ejb>
     </module>
     <module>
         <java>configmanager2.jar</java>
     </module>
     <module>
-        <java>tcsUtil.jar</java>
+        <ejb>security.jar</ejb>
     </module>
     <module>
-        <ejb>security.jar</ejb>
+        <ejb>base_exception.jar</ejb>
     </module>
 </application>

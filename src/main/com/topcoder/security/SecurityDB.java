@@ -12,6 +12,8 @@ public class SecurityDB {
     public static final int maxUsernameLength = 50;
     public static final int maxGroupnameLength = 254;
     public static final int maxRolenameLength = 254;
+    public static final int STATUS_ACTIVE = 1;
+    public static final int STATUS_INACTIVE = 2;
 
     private SecurityDB() {
     }

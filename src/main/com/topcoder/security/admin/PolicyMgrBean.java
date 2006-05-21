@@ -40,7 +40,7 @@ public class PolicyMgrBean extends BaseEJB {
         logger.debug("PolicyMgrBean.getPermissions");
         long roleId = role.getId();
         PermissionCollection pc = new PermissionCollection();
-        String query = "SELECT permission FROM security_perms WHERE role_id = ?";
+        String query = "SELECT permission FROM security_perms WHERE role_id = ? and security_status_id = ?";
 
         InitialContext ctx = null;
         ResultSet rs = null;
@@ -52,6 +52,7 @@ public class PolicyMgrBean extends BaseEJB {
 
             ps = conn.prepareStatement(query);
             ps.setLong(1, roleId);
+            ps.setInt(2, SecurityDB.STATUS_ACTIVE);
             rs = ps.executeQuery();
             while (rs.next()) {
                 pc.addPermission(new GenericPermission(rs.getString(1)));
@@ -84,30 +85,40 @@ public class PolicyMgrBean extends BaseEJB {
         logger.debug("PolicyMgrBean.addPermissions");
         long roleId = role.getId();
         Collection c = permissions.getPermissions();
+        String deleteQuery = "DELETE FROM security_perms where role_id = ? and permission = ?";
         String query =
-                "INSERT INTO security_perms (role_id, permission) " +
-                " VALUES ( ?, ? )";
+                "INSERT INTO security_perms (role_id, permission, security_status_id) " +
+                " VALUES ( ?, ?, ?)";
         Iterator it = c.iterator();
 
         InitialContext ctx = null;
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
         Connection conn = null;
 
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
+            ps2 = conn.prepareStatement(deleteQuery);
             while (it.hasNext()) {
                 TCPermission p = (TCPermission) it.next();
                 String name = p.getName();
+
+                ps2.setLong(1, roleId);
+                ps2.setString(2, name);
+                ps2.executeUpdate();
+
                 ps.setLong(1, roleId);
                 ps.setString(2, name);
+                ps.setInt(3, SecurityDB.STATUS_ACTIVE);
                 ps.executeUpdate();
             }
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ps);
+            close(ps2);
             close(conn);
             close(ctx);
         }
@@ -129,7 +140,7 @@ public class PolicyMgrBean extends BaseEJB {
         logger.debug("PolicyMgrBean.removePermissions");
         Collection c = permissions.getPermissions();
         Iterator i = c.iterator();
-        String query = "DELETE FROM security_perms WHERE permission = ? and  role_id = ?";
+        String query = "UPDATE security_perms SET security_status_id = ? WHERE permission = ? and  role_id = ?";
 
         InitialContext ctx = null;
         PreparedStatement ps = null;
@@ -141,8 +152,9 @@ public class PolicyMgrBean extends BaseEJB {
             ps = conn.prepareStatement(query);
             while (i.hasNext()) {
                 TCPermission p = (TCPermission) i.next();
-                ps.setString(1, p.getName());
-                ps.setLong(2, role.getId());
+                ps.setInt(1, SecurityDB.STATUS_INACTIVE);
+                ps.setString(2, p.getName());
+                ps.setLong(3, role.getId());
                 ps.executeUpdate();
             }
         } catch (Exception e) {

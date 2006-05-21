@@ -1,11 +1,11 @@
 package com.topcoder.security.admin;
 
 import com.topcoder.security.*;
-import com.topcoder.util.idgenerator.bean.IdGenException;
-import com.topcoder.util.idgenerator.bean.LocalIdGenHome;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import org.apache.log4j.Logger;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class PrincipalMgrBean extends BaseEJB {
 
-    private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);;
+    private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
 
     public Collection getUsers(TCSubject requestor)
@@ -37,7 +37,7 @@ public class PrincipalMgrBean extends BaseEJB {
             UserPrincipal up;
             for (rs = ps.executeQuery(); rs.next(); pl.add(up))
                 up = new UserPrincipal(rs.getString(2), rs.getLong(1));
-
+jjjjjjjjjjj
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -146,14 +146,20 @@ public class PrincipalMgrBean extends BaseEJB {
             query.append(" FROM user_role_xref, security_roles ");
             query.append(" WHERE user_role_xref.login_id = ? ");
             query.append(" AND user_role_xref.role_id = security_roles.role_id ");
+            query.append(" AND user_role_xref.security_status_id = ?");
             query.append(" UNION SELECT security_roles.role_id, description");
             query.append(" FROM security_roles, user_group_xref, group_role_xref");
             query.append(" WHERE user_group_xref.login_id = ?");
             query.append(" AND user_group_xref.group_id = group_role_xref.group_id");
             query.append(" AND group_role_xref.role_id = security_roles.role_id");
+            query.append(" AND group_role_xref.security_status_id = ?");
+            query.append(" AND user_group_xref.security_status_id = ?");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
-            ps.setLong(2, userId);
+            ps.setInt(2, SecurityDB.STATUS_ACTIVE);
+            ps.setLong(3, userId);
+            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(5, SecurityDB.STATUS_ACTIVE);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -267,8 +273,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long userId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long userId = gen.getNextID();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
             conn = Util.getConnection(ctx, dataSource);
@@ -282,9 +288,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -377,8 +381,12 @@ public class PrincipalMgrBean extends BaseEJB {
     }
 
 
-
     public Collection getGroups(TCSubject requestor)
+            throws GeneralSecurityException {
+        return getGroups(requestor, DATA_SOURCE);
+    }
+
+    public Collection getGroups(TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         Set pl = new HashSet();
         String query = "SELECT group_id, description FROM security_groups";
@@ -388,7 +396,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             GroupPrincipal gp;
             for (rs = ps.executeQuery(); rs.next(); pl.add(gp))
@@ -405,7 +413,14 @@ public class PrincipalMgrBean extends BaseEJB {
         return pl;
     }
 
+
     public GroupPrincipal getGroup(long id)
+            throws GeneralSecurityException, NoSuchGroupException {
+        return getGroup(id, DATA_SOURCE);
+    }
+
+
+    public GroupPrincipal getGroup(long id, String dataSource)
             throws GeneralSecurityException, NoSuchGroupException {
         String query = "SELECT description FROM security_groups WHERE group_id = ?";
         InitialContext ctx = null;
@@ -414,7 +429,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setLong(1, id);
             rs = ps.executeQuery();
@@ -442,8 +457,8 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long groupId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long groupId = gen.getNextID();
             logger.debug("createGroup: " + groupId);
             String query = "INSERT INTO security_groups (group_id, description) VALUES ( ?, ? )";
             conn = Util.getConnection(ctx, DATA_SOURCE);
@@ -455,9 +470,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return gs;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -504,32 +517,46 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
             throws GeneralSecurityException {
+            addUserToGroup(group, user, requestor, DATA_SOURCE);
+    }
+
+    public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor, String dataSource)
+            throws GeneralSecurityException {
         InitialContext ctx = null;
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long user_group_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long user_group_xrefid = gen.getNextID();
             long userId = user.getId();
             long groupId = group.getId();
-            String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id) VALUES ( ?, ?, ? )";
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            String deleteQuery = "DELETE FROM user_group_xref where login_id = ? and group_id = ?";
+            String query = "INSERT INTO user_group_xref (user_group_id, login_id, group_id, security_status_id) VALUES ( ?, ?, ?, ? )";
+            conn = Util.getConnection(ctx, dataSource);
+
+            ps2 = conn.prepareStatement(deleteQuery);
+            ps2.setLong(1, userId);
+            ps2.setLong(2, groupId);
+            ps2.executeUpdate();
+
             ps = conn.prepareStatement(query);
             ps.setLong(1, user_group_xrefid);
             ps.setLong(2, userId);
             ps.setLong(3, groupId);
+            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
+
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ps);
+            close(ps2);
             close(conn);
             close(ctx);
         }
@@ -539,7 +566,7 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         long userId = user.getId();
         long groupId = group.getId();
-        String query = "DELETE FROM user_group_xref WHERE login_id = ? AND group_id = ?";
+        String query = "UPDATE user_group_xref SET security_status_id = ? WHERE login_id = ? AND group_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -547,8 +574,9 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
-            ps.setLong(1, userId);
-            ps.setLong(2, groupId);
+            ps.setInt(1, SecurityDB.STATUS_ACTIVE);
+            ps.setLong(2, userId);
+            ps.setLong(3, groupId);
             ps.executeUpdate();
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
@@ -624,8 +652,8 @@ public class PrincipalMgrBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long roleId = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long roleId = gen.getNextID();
             String query = "INSERT INTO security_roles (role_id, description) VALUES ( ?, ? )";
             ps = conn.prepareStatement(query);
             ps.setLong(1, roleId);
@@ -635,9 +663,7 @@ public class PrincipalMgrBean extends BaseEJB {
             return rp;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
@@ -651,15 +677,15 @@ public class PrincipalMgrBean extends BaseEJB {
     public void removeRole(RolePrincipal role, TCSubject requestor)
             throws GeneralSecurityException {
         long roleId = role.getId();
-        String query1 = "DELETE FROM group_role_xref WHERE role_id = ?";
-        String query2 = "DELETE FROM user_role_xref WHERE role_id = ?";
-        String query3 = "DELETE FROM security_perms WHERE role_id = ?";
-        String query4 = "DELETE FROM security_roles WHERE role_id = ?";
+        String query1 = "UPDATE group_role_xref SET security_status_id = ? WHERE role_id = ?";
+        String query2 = "UPDATE user_role_xref security_status_id = ? WHERE role_id = ?";
+        String query3 = "UPDATE security_perms security_status_id = ? WHERE role_id = ?";
+        //String query4 = "DELETE FROM security_roles WHERE role_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
-        PreparedStatement ps4 = null;
+        //PreparedStatement ps4 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
@@ -667,22 +693,25 @@ public class PrincipalMgrBean extends BaseEJB {
             ps1 = conn.prepareStatement(query1);
             ps2 = conn.prepareStatement(query2);
             ps3 = conn.prepareStatement(query3);
-            ps4 = conn.prepareStatement(query4);
-            ps1.setLong(1, roleId);
-            ps2.setLong(1, roleId);
-            ps3.setLong(1, roleId);
-            ps4.setLong(1, roleId);
+            //ps4 = conn.prepareStatement(query4);
+            ps1.setInt(1, SecurityDB.STATUS_INACTIVE);
+            ps1.setLong(2, roleId);
+            ps2.setInt(1, SecurityDB.STATUS_INACTIVE);
+            ps2.setLong(2, roleId);
+            ps3.setInt(1, SecurityDB.STATUS_INACTIVE);
+            ps3.setLong(2, roleId);
+            //ps4.setLong(1, roleId);
             ps1.executeUpdate();
             ps2.executeUpdate();
             ps3.executeUpdate();
-            ps4.executeUpdate();
+            //ps4.executeUpdate();
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ps1);
             close(ps2);
             close(ps3);
-            close(ps4);
+            //close(ps4);
             close(conn);
             close(ctx);
         }
@@ -692,31 +721,39 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         long userId = user.getId();
         long roleId = role.getId();
-        String query = "INSERT INTO user_role_xref (user_role_id, login_id, role_id) VALUES ( ?, ?, ?)";
+        String query = "INSERT INTO user_role_xref (user_role_id, login_id, role_id, security_status_id) VALUES ( ?, ?, ?, ?)";
+        String deleteQuery = "DELETE FROM user_role_xref where login_id = ? and role_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
 
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long user_role_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long user_role_xrefid = gen.getNextID();
+
+            ps2 = conn.prepareStatement(deleteQuery);
+            ps2.setLong(1, userId);
+            ps2.setLong(2, roleId);
+            ps2.executeUpdate();
+
             ps = conn.prepareStatement(query);
             ps.setLong(1, user_role_xrefid);
             ps.setLong(2, userId);
             ps.setLong(3, roleId);
+            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ps);
+            close(ps2);
             close(conn);
             close(ctx);
         }
@@ -726,7 +763,7 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         long userId = user.getId();
         long roleId = role.getId();
-        String query = "DELETE FROM user_role_xref WHERE login_id = ? AND role_id = ?";
+        String query = "UPDATE user_role_xref SET security_status_id = ? WHERE login_id = ? AND role_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -734,8 +771,9 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
-            ps.setLong(1, userId);
-            ps.setLong(2, roleId);
+            ps.setInt(1, SecurityDB.STATUS_ACTIVE);
+            ps.setLong(2, userId);
+            ps.setLong(3, roleId);
             ps.executeUpdate();
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
@@ -750,31 +788,39 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         long groupId = group.getId();
         long roleId = role.getId();
-        String query = "INSERT INTO group_role_xref (group_role_id, group_id, role_id) VALUES ( ?, ?, ? )";
+        String query = "INSERT INTO group_role_xref (group_role_id, group_id, role_id, security_status_id) VALUES ( ?, ?, ?, ? )";
+        String deleteQuery = "DELETE FROM group_role_xref where group_id = ? and role_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
         Connection conn = null;
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
 
-            LocalIdGenHome idGenHome = (LocalIdGenHome) ctx.lookup(LocalIdGenHome.EJB_REF_NAME);
-            long group_role_xrefid = idGenHome.create().nextId();
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            long group_role_xrefid = gen.getNextID();
+
+            ps2 = conn.prepareStatement(deleteQuery);
+            ps2.setLong(1, groupId);
+            ps2.setLong(2, roleId);
+            ps2.executeUpdate();
+
             ps = conn.prepareStatement(query);
             ps.setLong(1, group_role_xrefid);
             ps.setLong(2, groupId);
             ps.setLong(3, roleId);
+            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
-        } catch (CreateException e) {
-            throw new GeneralSecurityException(e);
-        } catch (IdGenException e) {
+        } catch (IDGenerationException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
         } finally {
             close(ps);
+            close(ps2);
             close(conn);
             close(ctx);
         }
@@ -784,7 +830,7 @@ public class PrincipalMgrBean extends BaseEJB {
             throws GeneralSecurityException {
         long groupId = group.getId();
         long roleId = role.getId();
-        String query = "DELETE FROM group_role_xref WHERE group_id = ? AND role_id = ?";
+        String query = "UPDATE group_role_xref SET security_status_id = ? WHERE group_id = ? AND role_id = ?";
         InitialContext ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -792,8 +838,9 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
-            ps.setLong(1, groupId);
-            ps.setLong(2, roleId);
+            ps.setInt(1, SecurityDB.STATUS_ACTIVE);
+            ps.setLong(2, groupId);
+            ps.setLong(3, roleId);
             ps.executeUpdate();
         } catch (Exception e) {
             throw new GeneralSecurityException(e);

@@ -4,7 +4,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
@@ -225,7 +224,7 @@ public class RequestTracker {
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
             this.sessionId = r.getSession().getId();
-            log.debug("session: " + this.sessionId);
+            //log.debug("session: " + this.sessionId);
         }
     }
 

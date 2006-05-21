@@ -40,6 +40,7 @@ public class BasicAuthentication implements WebAuthentication {
 
     public static final Resource CORP_SITE = new SimpleResource("corp");
     public static final Resource MAIN_SITE = new SimpleResource("main");
+    public static final Resource REG_SITE = new SimpleResource("reg");
     public static final Resource HS_SITE = new SimpleResource("hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
@@ -119,8 +120,10 @@ public class BasicAuthentication implements WebAuthentication {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub;
             if (dataSource==null) {
+                log.debug("data source was null");
                 sub = login.login(u.getUserName(), u.getPassword());
             } else {
+                log.debug("datasource was not null");
                 sub = login.login(u.getUserName(), u.getPassword(), dataSource);
             }
             long uid = sub.getUserId();
@@ -327,6 +330,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @param user
      */
     protected void setUserInPersistor(User user) {
+        log.debug("set " + user.getUserName() + " as logged in");
         persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
     }
 

@@ -51,11 +51,16 @@ public class Policy {
                                  " WHERE x.login_id = ?" +
                                    " and p.role_id = x.role_id" +
                                    " and p.permission = ?" +
+                                   " and p.security_status_id = ?" +
+                                   " and x.security_status_id = ?" +
                                  " UNION SELECT grx.role_id" +
                                   " FROM user_group_xref ugx, group_role_xref grx, security_perms p" +
                                  " WHERE ugx.login_id = ?" +
                                    " AND ugx.group_id = grx.group_id" +
                                    " and grx.role_id = p.role_id" +
+                                   " and p.security_status_id = ?" +
+                                   " and ugx.security_status_id = ?" +
+                                   " and grx.security_status_id = ?" +
                                    " and p.permission = ?";
 
         ResultSet rs = null;
@@ -66,8 +71,13 @@ public class Policy {
             ps = conn.prepareStatement(permQuery);
             ps.setLong(1, subject.getUserId());
             ps.setString(2, permission.getName());
-            ps.setLong(3, subject.getUserId());
-            ps.setString(4, permission.getName());
+            ps.setInt(3, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(4, SecurityDB.STATUS_ACTIVE);
+            ps.setLong(5, subject.getUserId());
+            ps.setInt(6, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(7, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(8, SecurityDB.STATUS_ACTIVE);
+            ps.setString(9, permission.getName());
             rs = ps.executeQuery();
             return rs.next();
         } catch (SQLException e) {
