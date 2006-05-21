@@ -4,6 +4,7 @@ import com.topcoder.security.*;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
+import com.topcoder.shared.util.logging.Logger;
 import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;
@@ -37,7 +38,6 @@ public class PrincipalMgrBean extends BaseEJB {
             UserPrincipal up;
             for (rs = ps.executeQuery(); rs.next(); pl.add(up))
                 up = new UserPrincipal(rs.getString(2), rs.getLong(1));
-jjjjjjjjjjj
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
