@@ -89,15 +89,21 @@ public class LoginBean extends BaseEJB {
                     "FROM user_role_xref, security_roles " +
                     "WHERE user_role_xref.login_id = ? " +
                     "AND user_role_xref.role_id = security_roles.role_id" +
+                    " AND user_role_xref.security_status_id = ?"+
                     " UNION " +
                     "SELECT security_roles.role_id, description " +
                     "FROM security_roles, user_group_xref, group_role_xref " +
                     "WHERE user_group_xref.login_id = ? " +
                     "AND user_group_xref.group_id = group_role_xref.group_id " +
+                    " and user_group_xref.security_status_id = ? " + 
+                    " and group_role_xref.security_status_id = ? " +
                     "AND group_role_xref.role_id = security_roles.role_id";
             ps2 = conn.prepareStatement(query);
             ps2.setLong(1, userId);
-            ps2.setLong(2, userId);
+            ps2.setInt(2, SecurityDB.STATUS_ACTIVE);
+            ps2.setLong(3, userId);
+            ps2.setInt(4, SecurityDB.STATUS_ACTIVE);
+            ps2.setInt(5, SecurityDB.STATUS_ACTIVE);
             rs2 = ps2.executeQuery();
 
             //build list of RolePrincipals
