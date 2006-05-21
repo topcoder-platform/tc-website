@@ -32,18 +32,12 @@
 
 <div id="regBcContainer">
     <div class="regBc">
-        <div class="title">Step <strong>4</strong> of <strong>6</strong></div>
-
+        <div class="title"><div style="float:left;"><A href="/tc?module=Logout" class="small">logout</A></div>Step <strong>4</strong> of <strong>6</strong></div>
         <div class="off">Select Your Registration</div>
-
         <div class="off">General</div>
-
         <div class="off">Demographics</div>
-
         <div class="on">Confirm</div>
-
         <div class="off">Success</div>
-
         <div class="off">Activation</div>
     </div>
 </div>

@@ -50,6 +50,8 @@ function popHide(){
          <jsp:param name="title" value="&#160;"/>
      </jsp:include>
 
+   <div style="float:right;"><A href="/tc?module=Logout" class="small">logout</A></div>
+
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
    <br><br>
    (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update your profile.)
