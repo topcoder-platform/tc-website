@@ -108,11 +108,11 @@ left: 0px;
 <div id="register_now_container" style="position:absolute; left:100%; top:31px;">
    <% if ( !sessionInfo.isAnonymous() ) { %>
    <div style="position:absolute; left:-150px; top:0px;">
-      <A href="/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A>
+      <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A>
    </div>
    <% } else { %>
    <div style="position:absolute; left:-127px; top:0px;">
-      <A href="/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A>
+      <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A>
    </div>
    <%}%>
 </div>
