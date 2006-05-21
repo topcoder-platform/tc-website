@@ -144,6 +144,7 @@ public class Submit extends Base {
         StringBuffer msgText = new StringBuffer(3000);
 
 
+
         msgText.append("Thank you for registering with TopCoder!\n\n");
 
         msgText.append("Your TopCoder activation code is ");
@@ -161,75 +162,51 @@ public class Submit extends Base {
         msgText.append("please make sure you copy and paste both sections without any spaces ");
         msgText.append("between them.\n\n");
 
-        if (regTypes.contains(comp)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to ");
-            msgText.append("access your member home page on TopCoder's web site.  Your handle and ");
-            msgText.append("password will also provide you with access to the TopCoder Competition ");
-            msgText.append("Arena, where you can practice, chat, and compete in rated algorithm ");
-            msgText.append("events.\n\n");
-
-            msgText.append("TOPCODER DESIGN AND DEVELOPMENT COMPETITIONS\n\n");
-
-            msgText.append("Participating in TopCoder rated component competitions (held weekly) ");
-            msgText.append("will allow you to establish a TopCoder design or development rating.  ");
-            msgText.append("Members earn monetary prizes and royalties by creating winning designs ");
-            msgText.append("and implementations - competing in a single rated event is all it takes ");
-            msgText.append("to become a rated member.   Gain valuable real world design and ");
-            msgText.append("development experience, learn best practices, and improve your skills ");
-            msgText.append("through feedback from the TopCoder Peer Review Boards.\n\n");
-
-            msgText.append("You can get started in TopCoder component competitions here: ");
-            msgText.append("http://www.topcoder.com/?t=development&c=getting_started\n\n");
-
-            msgText.append("TOPCODER ALGORITHM COMPETITIONS\n\n");
-
-            msgText.append("Participating in TopCoder algorithm competitions (held weekly) will ");
-            msgText.append("allow you to establish a TopCoder algorithm rating.  Competing in a ");
-            msgText.append("single rated event is all it takes to become a rated member, however ");
-            msgText.append("most major tournaments will require that you have participated in at ");
-            msgText.append("least three rated events.  You can view a schedule of TopCoder events ");
-            msgText.append("here: ");
-            msgText.append("http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth\n\n");
-
-            msgText.append("We also suggest that you read up on the rules and competition process ");
-            msgText.append("from the FAQs and links that are available here: ");
-            msgText.append("http://www.topcoder.com/?t=support&c=index\n\n\n");
-
-
-            msgText.append("PRACTICING AT TOPCODER\n\n");
-
-            msgText.append("TopCoder provides a number of practice rooms that will allow you to ");
-            msgText.append("become acclimated with our competition environment before you ");
-            msgText.append("participate in your first rated algorithm competition.  Each practice ");
-            msgText.append("room has a problem set that was actually used in a previous rated event.  ");
-            msgText.append("In addition, participating in a practice room is a very similar ");
-            msgText.append("experience to competing in an actual rated event.  The practice rooms ");
-            msgText.append("are always available.\n\n");
-
-            msgText.append("You can download and run the TopCoder Competition Arena Applet from ");
-            msgText.append("here: ");
-            msgText.append("http://www.topcoder.com/tc?module=Static&d1=help&d2=pracArena\n\n");
-
-            msgText.append("If you have any questions about how to participate, please email them to ");
-            msgText.append("service@topcoder.com\n\n");
+        if (regTypes.contains(comp) && !regTypes.contains(hs)) {
+            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in events, as well as to the Component Competition Forums, where you can read about and discuss component projects.\n\n");
         }
+
+        if (regTypes.contains(comp) && regTypes.contains(hs)) {
+            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the following areas within the TopCoder website: High School Competition Arena, where you can practice, chat, and compete in rated events; TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in those events; the Component Competition Forums, where you can read about and discuss component projects.\n\n");
+        }
+
+        if (!regTypes.contains(comp) && regTypes.contains(hs)) {
+            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the High School Competition Arena, where you can practice, chat, and compete in rated events.\n\n");
+        }
+
         if (regTypes.contains(hs)) {
-            msgText.append("\n\n\nHIGH SCHOOL REG TEXT GOES HERE\n\n\n");
-        }
-        if (regTypes.contains(tcs)) {
-            msgText.append("\n\n\nSOFTWARE REG TEXT GOES HERE\n\n\n");
-        }
-        if (regTypes.contains(corp)) {
-            msgText.append("\n\n\nCORPORATE REG TEXT GOES HERE\n\n\n");
-        }
-        if (regTypes.contains(min)) {
-            msgText.append("\n\n\nMINIMAL REG TEXT GOES HERE\n\n\n");
+            msgText.append("TOPCODER HIGH SCHOOL COMPETITIONS\n\n");
+            msgText.append("Participating in TopCoder High School competitions (held weekly) will allow you to establish a TopCoder rating.  Competing in a single rated event is all it takes to become a rated member, however the TopCoder High School tournament requires that you and/or your team have participated in at least four rated events.  You can view a schedule of High School events here:\n\n");
+            msgText.append("http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth\n\n");
+            msgText.append("We also suggest that you read up on the rules and competition process from the FAQs and links that are available here:\n");
+            msgText.append("http://www.topcoder.com/tc?module=Static&d1=hs&d2=support&d3=index\n\n");
+            msgText.append("PRACTICING AT TOPCODER\n\n");
+            msgText.append("TopCoder provides a number of practice rooms that will allow you to become acclimated with our competition environment before you participate in your first rated competition.  Each practice room has a problem set that was actually used in a previous rated event.  In addition, participating in a practice room is a very similar experience to competing in an actual rated event.  The practice rooms are always available.\n\n");
+            msgText.append("You can download and run the High School Competition Arena Applet from here: http://www.topcoder.com/tc?module=Static&d1=help&d2=pracArena\n\n");
         }
 
+        if (regTypes.contains(comp)) {
+            msgText.append("TOPCODER DESIGN AND DEVELOPMENT COMPETITIONS\n\n");
+            msgText.append("Participating in TopCoder rated component competitions (held weekly) will allow you to establish a TopCoder design or development rating.  Members earn monetary prizes and royalties by creating winning designs and implementations - competing in a single rated event is all it takes to become a rated member.  Gain valuable real world design and development experience, learn best practices, and improve your skills through feedback from the TopCoder Peer Review Boards.\n\n");
+            msgText.append("You can get started in TopCoder component competitions here:\n");
+            msgText.append("http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted\n\n");
+            msgText.append("Be sure to read the details of the Digital Run, where you can compete for large quarterly prizes and a chance to attend the next TopCoder Open.\n\n");
+            msgText.append("http://www.topcoder.com/tc?module=Static&d1=digital_run&d2=description\n\n");
+            msgText.append("TOPCODER MARATHON MATCH COMPETITIONS\n");
+            msgText.append("TopCoder has created Marathon Matches in an effort to provide a more flexible competition format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder Algorithm round.\n\n");
+            msgText.append("To learn about how to compete in Marathon Matches, read here: http://www.topcoder.com/longcontest/?module=Static&d1=instructions\n\n");
+            msgText.append("TOPCODER ALGORITHM COMPETITIONS\n\n");
+            msgText.append("Participating in TopCoder algorithm competitions (held weekly) will allow you to establish a TopCoder algorithm rating.  Competing in a single rated event is all it takes to become a rated member, however most major tournaments will require that you have participated in at least three rated events.  You can view a schedule of TopCoder events here: http://www.topcoder.com/tc?module=Static&d1=calendar&d2=thisMonth\n\n");
+            msgText.append("We also suggest that you read up on the rules and competition process from the FAQs and links that are available here: http://www.topcoder.com/tc?module=Static&d1=help&d2=index\n\n");
+            msgText.append("PRACTICING AT TOPCODER\n\n");
+            msgText.append("TopCoder provides a number of practice rooms that will allow you to become acclimated with our competition environment before you participate in your first Marathon Match or Algorithm competition.  Each practice room has a problem set that was actually used in a previous rated event.  In addition, participating in a practice room is a very similar experience to competing in an actual event.  The practice rooms are always available.\n\n");
+            msgText.append("You can download and run the TopCoder Marathon Match Competition Arena Applet from here: http://www.topcoder.com/longcontest/?module=ViewPractice&rt=14\n\n");
+            msgText.append("You can download and run the TopCoder Algorithm Competition Arena Applet from here: http://www.topcoder.com/tc?module=Static&d1=help&d2=pracArena\n\n");
+        }
 
+        msgText.append("If you have any questions about how to participate, please email them to service@topcoder.com.\n\n");
+        msgText.append("Thank you again for registering with TopCoder and we look forward to seeing you in the arena!");
 
-
-        msgText.append("Thank you again for registering with TopCoder");
 
         mail.setBody(msgText.toString());
         mail.addToAddress(email, TCSEmailMessage.TO);
