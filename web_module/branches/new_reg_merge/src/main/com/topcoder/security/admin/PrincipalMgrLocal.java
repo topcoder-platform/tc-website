@@ -58,7 +58,13 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
     public abstract Collection getGroups(TCSubject tcsubject)
             throws GeneralSecurityException;
 
+    public abstract Collection getGroups(TCSubject tcsubject, String dataSource)
+            throws GeneralSecurityException;
+
     public abstract GroupPrincipal getGroup(long l)
+            throws GeneralSecurityException, NoSuchGroupException;
+
+    public abstract GroupPrincipal getGroup(long l, String dataSource)
             throws GeneralSecurityException, NoSuchGroupException;
 
     public abstract GroupPrincipal createGroup(String s, TCSubject tcsubject)
@@ -68,6 +74,9 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
             throws GeneralSecurityException;
 
     public abstract void addUserToGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
+            throws GeneralSecurityException;
+
+    public abstract void addUserToGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject, String dataSource)
             throws GeneralSecurityException;
 
     public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)

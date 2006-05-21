@@ -112,7 +112,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp;
         WebAuthentication authentication;
         SessionInfo info;
@@ -146,7 +146,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
-                    log.debug("got module attribute " + cmd);
+                    //log.debug("got module attribute " + cmd);
                     if (cmd.equals("")) {
                         cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
                     }
@@ -158,7 +158,7 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException();
                     }
 
-                    log.debug("path " + PATH);
+                    //log.debug("path " + PATH);
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
@@ -185,8 +185,8 @@ public abstract class BaseServlet extends HttpServlet {
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
-                //todo perhaps catch Throwable here instead
-            } catch (Exception e) {
+
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
@@ -264,7 +264,7 @@ public abstract class BaseServlet extends HttpServlet {
         return true;
     }
 
-    protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
             throws Exception {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {

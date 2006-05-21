@@ -50,6 +50,7 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
 
         <!-- tcs components -->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -67,6 +68,7 @@
         <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
         <pathelement location="${jars.dir}/tcs/searchengine.jar"/>
         <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
+        <!--only need this for the old shitty forums component -->
         <pathelement location="${jars.dir}/tcs/tcsUtil.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
@@ -403,6 +405,11 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+                <include name="id_generator.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
