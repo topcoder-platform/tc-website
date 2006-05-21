@@ -32,8 +32,9 @@
    <div id="regBcContainer">
       <div class="regBc">
          <div class="title">
-            <%-----make this only show up if you're logged in and updating your profile--------%>
-            <div style="float:left;"><A href="/tc?module=Logout" class="small">logout</A></div>
+             <c:if test="${sessionInfo.loggedIn}">
+                 <div style="float:right;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
+             </c:if>
          Step <strong>2</strong> of <strong>6</strong></div>
          <div class="off">Select Your Registration</div>
          <div class="on">General</div>
@@ -247,7 +248,7 @@
    </tr>
    <tr>
       <td class="name">
-         Country: 
+         Country:
       </td>
       <td class="value">
          <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
