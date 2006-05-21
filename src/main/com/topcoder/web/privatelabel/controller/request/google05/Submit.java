@@ -79,7 +79,7 @@ public class Submit extends FullRegSubmit {
                     State s = new State();
                     s.setStateCode(regInfo.getStateCode());
                     c.setHomeState(s);
-                    c.setHomeZip(regInfo.getZip());
+                    c.setHomeZip(regInfo.getPostalCode());
                     Country co = new Country();
                     co.setCountryCode(regInfo.getCountryCode());
                     c.setHomeCountry(co);

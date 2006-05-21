@@ -10,7 +10,8 @@
   <head>
     <title></title>
     <META HTTP-EQUIV=Refresh CONTENT="600; URL=<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Static&d1=clockFrame">
-    <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
+      <script language="javascript" type="text/javascript" src="/js/techassess.js"></script>
+      <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
   </head>
   <body>
     <script language="javascript">

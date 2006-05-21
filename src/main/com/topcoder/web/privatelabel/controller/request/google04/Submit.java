@@ -1,31 +1,14 @@
 package com.topcoder.web.privatelabel.controller.request.google04;
 
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.Country;
-import com.topcoder.common.web.data.State;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.BaseActivate;
 import com.topcoder.web.privatelabel.controller.request.FullRegSubmit;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import javax.rmi.PortableRemoteObject;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class Submit extends FullRegSubmit {
 
@@ -84,7 +67,7 @@ public class Submit extends FullRegSubmit {
                     State s = new State();
                     s.setStateCode(regInfo.getStateCode());
                     c.setHomeState(s);
-                    c.setHomeZip(regInfo.getZip());
+                    c.setHomeZip(regInfo.getPostalCode());
                     Country co = new Country();
                     co.setCountryCode(regInfo.getCountryCode());
                     c.setHomeCountry(co);

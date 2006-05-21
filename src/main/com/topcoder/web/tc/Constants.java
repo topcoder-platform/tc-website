@@ -20,11 +20,9 @@ public class Constants implements WebConstants {
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
-    public static String MODULE_KEY;
     public static String FIRST_NAME;
     public static String LAST_NAME;
     public static String EMAIL;
-    public static String ACTIVATION_CODE;
     public static final String COMPANY_NAME = "compName";
 
     public static String NOTE_ID;
@@ -42,7 +40,6 @@ public class Constants implements WebConstants {
     public static String NOTE_TEXT;
     public static String CONTACT_TEXT;
     public static String SCHOOL_NAME;
-    public static String SCHOOL_ID;
     public static int TCO05_LOGO_TERMS_ID;
     public static int TCO06_LOGO_TERMS_ID;
     public static String LOGO;

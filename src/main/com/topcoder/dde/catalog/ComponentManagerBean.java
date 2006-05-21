@@ -30,8 +30,8 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.util.TCException;
 import com.topcoder.util.config.*;
+import com.topcoder.util.errorhandling.BaseException;
 
 import javax.ejb.*;
 import javax.naming.Context;
@@ -997,7 +997,7 @@ public class ComponentManagerBean
             } catch (CreateException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.toString());
-            } catch (TCException e) {
+            } catch (BaseException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.getMessage());
             }

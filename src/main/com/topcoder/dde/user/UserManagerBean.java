@@ -18,11 +18,11 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
-import com.topcoder.util.TCException;
 import com.topcoder.util.config.*;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenException;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.shared.util.DBMS;
 import org.apache.log4j.Logger;
 
@@ -1126,7 +1126,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         } catch (NamingException ne) {
             ejbContext.setRollbackOnly();
             throw new DDEException("Could not create context: " + ne.getMessage());
-        } catch (TCException e) {
+        } catch (BaseException e) {
             ejbContext.setRollbackOnly();
             throw new DDEException("Could create online review user inquiry!" +
                     e.getMessage());

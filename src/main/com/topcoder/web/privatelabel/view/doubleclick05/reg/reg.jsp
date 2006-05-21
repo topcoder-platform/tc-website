@@ -90,21 +90,21 @@ function changeField() {
                 </tr>
                 <tr>
                    <td class="dc_errorText" colspan="2">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                    </td>
                 </tr>
                 <tr>
                    <td class="dc_regTableQuestion">First Name</td>
-                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/>
+                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>"  size="15" maxlength="50"/>
                 </tr>
                 <tr>
                    <td class="dc_errorText" colspan="2">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator>
                    </td>
                 </tr>
                 <tr>
                    <td class="dc_regTableQuestion">Last Name</td>
-                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/>
+                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.SURNAME%>"  size="15" maxlength="50"/>
                 </tr>
                 <tr>
                    <td class="dc_errorText" colspan="2">

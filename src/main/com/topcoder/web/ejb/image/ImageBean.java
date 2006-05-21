@@ -1,7 +1,7 @@
 package com.topcoder.web.ejb.image;
 
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 

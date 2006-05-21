@@ -45,8 +45,8 @@ public class Reg extends FullRegBase {
         setDefault(Constants.PASSWORD_CONFIRM, info.getPasswordConfirm());
         setDefault(Constants.EMAIL, info.getEmail());
         setDefault(Constants.EMAIL_CONFIRM, info.getEmailConfirm());
-        setDefault(Constants.FIRST_NAME, info.getFirstName());
-        setDefault(Constants.LAST_NAME, info.getLastName());
+        setDefault(Constants.GIVEN_NAME, info.getFirstName());
+        setDefault(Constants.SURNAME, info.getLastName());
         setDefault(Constants.LOCALE, getLocale().getLanguage());
 
         setDefault(Constants.CODER_TYPE, String.valueOf(((FullRegInfo) info).getCoderType()));

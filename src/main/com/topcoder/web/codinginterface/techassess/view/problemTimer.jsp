@@ -6,7 +6,8 @@
                  com.topcoder.web.codinginterface.techassess.model.ProblemInfo,
                  java.util.TimeZone,
                  java.util.Date"%>
-<script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
+<script language="javascript" type="text/javascript" src="/js/techassess.js"></script>
+<script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
 <script language="javascript">
 
         <%

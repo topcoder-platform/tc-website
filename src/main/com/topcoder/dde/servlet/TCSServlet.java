@@ -13,6 +13,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.MissingResourceException;
@@ -29,7 +30,7 @@ public class TCSServlet extends BaseServlet {
     private static final User GUEST = SimpleUser.createGuest();
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;
@@ -98,7 +99,7 @@ public class TCSServlet extends BaseServlet {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                     return;
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 handleException(request, response, e);
             }
 
@@ -107,7 +108,7 @@ public class TCSServlet extends BaseServlet {
              * and the forward to error page failed.  in any event, make
              * one last attempt to get an error message to the browser
              */
-        } catch (Exception e) {
+        } catch (Throwable e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
             response.setContentType("text/html");

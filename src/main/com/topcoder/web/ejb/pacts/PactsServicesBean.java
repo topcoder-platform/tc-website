@@ -6,12 +6,12 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
-import javax.naming.NamingException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
@@ -620,13 +620,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserProfile(long userId) throws SQLException {
         StringBuffer selectDetails = new StringBuffer(300);
-        selectDetails.append("SELECT u.email, c.work_phone, c.home_phone, c.country_code, c.zip, ");
+        selectDetails.append("SELECT e.address as email, c.work_phone, c.home_phone, c.country_code, c.zip, ");
         selectDetails.append("c.state_code, c.city, c.address1, c.address2, c.first_name, c.middle_name, ");
         selectDetails.append("c.last_name, state.state_name, country.country_name, ");
         selectDetails.append("c.coder_type_id, ct.coder_type_desc ");
-        selectDetails.append("FROM coder c, user u, coder_type ct, OUTER state, OUTER country ");
+        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
+        selectDetails.append("AND u.user_id = e.user_id ");
+        selectDetails.append("AND e.primary_ind = 1 ");
         selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
         selectDetails.append("AND state.state_code = c.state_code ");
         selectDetails.append("AND country.country_code = c.country_code");
@@ -3933,11 +3935,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
             select.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
             select.append("pa.address2, pa.city, pa.state_code, state.state_name, ");
-            select.append("pa.zip, pa.country_code, country.country_name, u.email, ");
+            select.append("pa.zip, pa.country_code, country.country_name, e.address AS email, ");
             select.append("c.contract_type_id, p.print_count, p.review, pd.date_due, ");
             select.append("utx.tax_form_id AS w9_tax_form, utx2.tax_form_id AS w8ben_tax_form ");
             select.append("FROM payment p, payment_detail pd, payment_address pa, ");
-            select.append("user u, OUTER state, OUTER country, ");
+            select.append("user u, email e, OUTER state, OUTER country, ");
             select.append("OUTER(contract_payment_xref cpx, contract c), ");
             select.append("OUTER(user_tax_form_xref utx, tax_form tx), ");
             select.append("OUTER(user_tax_form_xref utx2, tax_form tx2) ");
@@ -3945,6 +3947,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
             select.append("AND pd.payment_address_id = pa.payment_address_id ");
             select.append("AND p.user_id = u.user_id ");
+            select.append("AND u.user_id = e.user_id ");
+            select.append("AND e.primary_ind = 1 ");
             select.append("AND state.state_code = pa.state_code ");
             select.append("AND country.country_code = pa.country_code ");
             select.append("AND cpx.payment_id = p.payment_id ");
@@ -4452,7 +4456,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw(new EJBException("Wrong number of rows updated in 'useaffidavit_tempater'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
-        } catch (NamingException e) {
+        } catch (IDGenerationException e) {
             throw new EJBException(e);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);

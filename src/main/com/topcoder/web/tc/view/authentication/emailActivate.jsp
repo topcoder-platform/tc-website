@@ -11,7 +11,7 @@
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
+<jsp:param name="key" value="tc_reg"/>
 </jsp:include>
 
 <SCRIPT type="text/javascript">
@@ -30,35 +30,26 @@ function submitEnter(e) {
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-<!-- Top begins -->
-<jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="login"/>
-</jsp:include>
-<!-- Top ends -->
+     <jsp:include page="/page_title.jsp">
+         <jsp:param name="image" value="registration_w"/>
+         <jsp:param name="title" value="&#160;"/>
+     </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
+   <strong>Invalid email addresss.</strong>
+   <br><br>
+   We have determined that there is a problem with the email address currently associated with your account.
+   In order to participate in TopCoder, you will have to maintain a valid email address.  Please enter your
+   handle, password and valid email address below.  Your account will be updated and an email sent to the
+   provided address.  Once you receive the email you will be able to reactivate your account.
+   <br><br>
 
-<!-- Left Column Begins -->
-        <td width="170">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column begins -->
-        <td width="100%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <p>
-              We have determined that there is a problem with the email address currently associated with your account.
-              In order to participate in TopCoder, you will have to maintain a valid email address.  Please enter your
-              handle, password and valid email address below.  Your account will be updated and an email sent to the
-              provided address.  Once you receive the email you will be able to reactivate your account.
+   <div align="center">
 
                   <form method="post" name="emailForm" action="/tc">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitEmailActivate">
@@ -69,58 +60,51 @@ function submitEnter(e) {
                       if(username==null) username = "";
                      %>
 
-                        <table border="0" cellpadding="3" cellspacing="0">
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                            <tr valign="top">
-                                <td class="errorText" colspan="3">
-                                    <p><%= message %></p>
-                                </td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Handle:</td>
-                                <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="15" onkeypress="submitEnter(event)"></td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Password:</td>
-                                <td colspan="2" align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="15" onkeypress="submitEnter(event)"></td>
-                            </tr>
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Email:</td>
-                                <td nowrap class="bodyText"><input type="text" name="<%=Constants.EMAIL%>" value="" maxlength="100" size="25" onkeypress="submitEnter(event)"></td>
-                                <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.emailForm.submit()" class="bodyText">Send&#160;&gt;</a></td>
-                            </tr>
-
-
-                           <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
-                        </table>
-
-
-                  </form>
-
-            </p>
-        </td>
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-    </tr>
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <%= message %>
+      </td>
+   </tr>
+   </tr>
+   <tr>
+      <td class="name">
+         Handle:
+      </td>
+      <td class="value">
+         <input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="15" onkeypress="submitEnter(event)">
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Password:
+      </td>
+      <td class="value">
+         <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="15" onkeypress="submitEnter(event)">
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Email:
+      </td>
+      <td class="value">
+         <input type="text" name="<%=Constants.EMAIL%>" value="" maxlength="100" size="25" onkeypress="submitEnter(event)">
+      </td>
+   <tr>
+      <td class="value">
+         &#160;
+      </td>
+      <td class="value">
+         <a href="JavaScript:document.emailForm.submit()" class="bodyText">Send</a>
+      </td>
+   </tr>
 </table>
 
-<!-- Footer begins -->
-  <jsp:include page="../foot.jsp"/>
-<!-- Footer ends -->
+</form>
+</div>
+
+   </div>
+</div>
 
 </body>
 </html>

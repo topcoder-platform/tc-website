@@ -10,7 +10,7 @@ import com.topcoder.apps.review.ConcurrentModificationException;
 import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.document.InvalidEditException;
 import com.topcoder.security.TCSubject;
-import com.topcoder.util.TCException;
+import com.topcoder.util.errorhandling.BaseException;
 
 import javax.ejb.EJBLocalObject;
 import java.sql.Date;
@@ -90,7 +90,7 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
             String overview,
             Date[] dates,
             TCSubject requestor,
-            long levelId) throws TCException;
+            long levelId) throws BaseException;
 
     /**
      * @param userId
@@ -107,10 +107,10 @@ public interface ProjectTrackerLocal extends EJBLocalObject {
      *
      * @param userId
      * @param projectId
-     * @throws TCException
+     * @throws BaseException
      */
     public void userInquiry(long userId, long projectId)
-            throws TCException;
+            throws BaseException;
 
     /**
      * Return scorecardtemplate id:s for project.

@@ -4,7 +4,6 @@ import com.topcoder.security.*;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
-import com.topcoder.shared.util.logging.Logger;
 import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;

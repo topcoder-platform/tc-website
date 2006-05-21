@@ -35,7 +35,7 @@ public class MainServlet extends BaseServlet {
     private static WebQueueResponseManager receiver = null;
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
         super.process(request, response);
     }
 

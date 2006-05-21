@@ -53,12 +53,12 @@
                         </tr>
                         <tr>
                             <td class="errorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="regTableQuestion"><span class="errorText">*</span> First Name</td>
-                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
                             <td class="errorText" colspan="2">
@@ -71,12 +71,12 @@
                         </tr>
                         <tr>
                             <td class="errorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="regTableQuestion"><span class="errorText">*</span> Last Name</td>
-                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
+                            <td class="regTableAnswer"><tc-webtag:textInput name="<%=Constants.SURNAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
                             <td class="errorText" colspan="2">

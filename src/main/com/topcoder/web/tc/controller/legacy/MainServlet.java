@@ -281,10 +281,10 @@ public final class MainServlet extends BaseServlet {
                 e.printStackTrace();
                 showInternalError(response);
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             try {
                 handleException(request, response, e);
-            } catch (Exception ex) {
+            } catch (Throwable ex) {
                 log.fatal("forwarding to error page failed", e);
                 ex.printStackTrace();
                 showInternalError(response);

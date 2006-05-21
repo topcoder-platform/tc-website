@@ -243,7 +243,7 @@ public final class Registration extends UserEdit {
 
         valid &= // zip validity (required)
                 checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_ZIPCODE_EN,
-                        true, 1, "Ensure ZIP code is not empty and, consists of digits only"
+                        true, 1, "Ensure postal code is not empty and, consists of digits only"
                 );
         valid &= checkTerms(agree);
         return valid;
