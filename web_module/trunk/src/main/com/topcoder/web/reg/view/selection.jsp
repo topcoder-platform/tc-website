@@ -52,6 +52,8 @@ function popHide(){
 
    <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
    <br><br>
+   <A href="/reg/?module=Login">Click here</A> if you're already a registered member and would like to update your profile.
+   <br><br>
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
