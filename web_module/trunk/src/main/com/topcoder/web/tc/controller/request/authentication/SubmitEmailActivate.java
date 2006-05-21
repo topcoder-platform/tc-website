@@ -51,8 +51,9 @@ public class SubmitEmailActivate extends Base {
             }
             try {
                 Email e = (Email)createEJB(getInitialContext(), Email.class);
-                e.setStatusId(e.getPrimaryEmailId(subject.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME),
-                        2, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                long emailId = e.getPrimaryEmailId(subject.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                e.setStatusId(emailId,2, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                e.setAddress(emailId, email, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder Account Reactivation");
