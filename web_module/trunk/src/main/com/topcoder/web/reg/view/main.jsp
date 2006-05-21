@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.web.common.StringUtils"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags" prefix="tc-webtag" %>
@@ -54,6 +55,13 @@
             <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,resizable=yes,width=600,height=700,status=0');" class="statTextBig">Click here</a>
             for more info about member photos.</td>
     </tr>
+
+                    <tr valign="middle">
+                    <td class="registerLabel">&nbsp;</td>
+                    <td class="statText">
+                        <A HREF="mailto:memberphotos@topcoder.com?subject=${sessionInfo.activationCode}%20|%20[%20${sessionInfo.handle}%20]%20|%20${sessionInfo.userId}%20<c:if test="${sessionInfo.hasImage}">RE</c:if>SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT"> Click here to <c:if test="${sessionInfo.hasImage}">re</c:if>send your photo</A>
+                    </td>
+                </tr>
 
 </c:if>
 
