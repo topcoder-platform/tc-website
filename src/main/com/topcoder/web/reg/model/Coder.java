@@ -30,10 +30,12 @@ public class Coder extends Base {
     private User user;
     private Set createdSchools;
     private Set teams;
+    private Set images;
 
     public Coder() {
         this.resumes = new HashSet();
         this.teams = new HashSet();
+        this.images= new HashSet();
         this.createdSchools = new HashSet();
     }
 
@@ -152,6 +154,25 @@ public class Coder extends Base {
 
     public void removeTeam(Team t) {
         this.teams.remove(t);
+    }
+
+    public Set getImages() {
+        return Collections.unmodifiableSet(images);
+    }
+
+    public void setImages(Set images) {
+        this.images = images;
+    }
+
+    public Image getMemberPhoto() {
+        CoderImage c;
+        for (Iterator it = images.iterator(); it.hasNext();) {
+            c = (CoderImage)it.next();
+            if (c.getDisplay().equals(Boolean.TRUE)&&c.getImage().getImageTypeId().equals(Image.MEMBER_PHOTO_TYPE)) {
+                return c.getImage();
+            }
+        }
+        return null;
     }
 
     public Team getHighSchoolTeam() {

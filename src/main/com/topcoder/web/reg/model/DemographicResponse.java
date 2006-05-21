@@ -119,7 +119,7 @@ public class DemographicResponse extends Base {
 /*
     public static class Identifier implements Serializable, Cloneable {
         private Long userId;
-        private Long demographicQuestionId;
+        private Long demographiextends BasecQuestionId;
         private Long demographicAnswerId;
 
         public Identifier() {

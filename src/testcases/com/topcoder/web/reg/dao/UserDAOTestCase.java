@@ -2,7 +2,6 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.User;
 
 /**
@@ -89,6 +88,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 
 
+/*
         public void testSaveOrUpdate() {
             User u = TestUtils.makeUser();
             Util.getFactory().getUserDAO().saveOrUpdate(u);
@@ -96,7 +96,12 @@ public class UserDAOTestCase extends TCHibernateTestCase {
             assertTrue("new coder does not exist", u1 != null);
 
         }
+*/
 
+    public void testFindWithImage() {
+        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+        assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
+    }
 
 
 /*

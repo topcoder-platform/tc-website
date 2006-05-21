@@ -29,5 +29,10 @@
             <key column="coder_id" not-null="true"/>
             <many-to-many column="team_id" class="Team"/>
         </set>
+        <set name="images" table="coder_image_xref" cascade="none" inverse="true" access="field">
+            <key column="coder_id" not-null="true"/>
+            <one-to-many class="CoderImage"/>
+        </set>
+
     </class>
 </hibernate-mapping>

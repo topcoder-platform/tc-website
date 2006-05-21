@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.FlushMode;
 import org.hibernate.classic.Session;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.reg.model.Image;
 
 /**
  * Trivial implementation of a session-per-conversation context.
