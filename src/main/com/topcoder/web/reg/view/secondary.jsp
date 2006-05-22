@@ -129,7 +129,7 @@
             <br><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose School</a>
         </td>
     </tr>
-
+<c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
         <tr>
         <td class="name">
