@@ -1,11 +1,6 @@
 <%@  page
     language="java"
-    import="com.topcoder.common.web.data.CoderRegistration,
-        com.topcoder.ejb.DataCache.*,
-        com.topcoder.common.web.util.*,
-        java.text.DecimalFormat,
-        com.topcoder.common.web.data.Navigation,
-            com.topcoder.shared.util.ApplicationServer" %>
+    import="com.topcoder.shared.util.ApplicationServer" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <a name="top"/>
