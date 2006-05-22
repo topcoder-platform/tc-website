@@ -58,3 +58,45 @@ alter table team_coder_xref add constraint foreign key
     references coder
     (coder_id) 
     constraint team_coder_xref_coder_fk;
+    
+    
+--- *** Create table team_round and its constraints
+
+create table team_round (
+    round_id DECIMAL(10,0),
+    team_id DECIMAL(10,0),
+    problems_presented DECIMAL(6,0),
+    problems_opened DECIMAL(6,0),
+    problems_submitted DECIMAL(6,0),
+    problems_correct DECIMAL(6,0),
+    problems_failed_by_system_test DECIMAL(6,0),
+    problems_failed_by_challenge DECIMAL(6,0),
+    problems_left_open DECIMAL(6,0),
+    challenge_attempts_made DECIMAL(6,0),
+    challenges_made_successful DECIMAL(6,0),
+    challenges_made_failed DECIMAL(6,0),
+    challenge_attempts_received DECIMAL(6,0),
+    average_points DECIMAL(12,2),
+    point_standard_deviation DECIMAL(14,7),
+    defense_points DECIMAL(12,2),
+    num_coders DECIMAL(6,0), 
+    team_points DECIMAL(6,0), 
+    team_placed DECIMAL(6,0)
+);
+
+alter table team_round add constraint primary key 
+    (round_id, team_id)
+    constraint team_round_pkey;
+    
+alter table team_round add constraint foreign key 
+    (team_id)
+    references team
+    (team_id) 
+    constraint team_round_team_fk;
+    
+alter table team_round add constraint foreign key 
+    (round_id)
+    references round
+    (round_id) 
+    constraint team_round_round_fk;
+    
