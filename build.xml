@@ -352,14 +352,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-AuthenticationServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/AuthenticationServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/AuthenticationServices" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-EmailServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/EmailServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/*.class"/>
@@ -667,6 +659,7 @@
         <antcall target="deploy-corp"/>
         <antcall target="deploy-privatelabel"/>
         <antcall target="deploy-longcontest"/>
+        <antcall target="deploy-reg"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
@@ -1433,7 +1426,6 @@
 
     <target name="deploy-tc">
         <antcall target="package-EJB-AddressBean"/>
-        <antcall target="package-EJB-AuthenticationServicesBean"/>
    <!--
         <antcall target="package-EJB-Catalog"/>
    -->
@@ -1486,7 +1478,6 @@
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="Address.jar"/>
-                <include name="AuthenticationServices.jar"/>
                 <include name="Catalog.jar"/>
                 <include name="Coder.jar"/>
                 <include name="CoderSkill.jar"/>
