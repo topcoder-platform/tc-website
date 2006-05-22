@@ -130,7 +130,7 @@ function goTo(selection){
 
 <%
 String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-if (sessionInfo.isIdentified()){
+if (!sessionInfo.isAnonymous()){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 
