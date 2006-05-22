@@ -100,8 +100,7 @@
             </td>
             <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
-                <c:if test="${assignment.question.description!=null}"><br/>
-                    <span class="small">${assignment.question.description}</span></c:if>
+                <c:if test="${assignment.question.description!=null}"><br><span class="small">${assignment.question.description}</span></c:if>
             </td>
         </tr>
     </rt:questionIterator>
