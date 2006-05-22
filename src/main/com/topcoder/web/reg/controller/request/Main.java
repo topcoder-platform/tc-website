@@ -59,6 +59,7 @@ public class Main extends Base {
                     Coder c= new Coder();
                     u.setCoder(c);
                     c.setUser(u);
+                    //high school people have to be students
                     c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
                 }
                 setRegUser(u);

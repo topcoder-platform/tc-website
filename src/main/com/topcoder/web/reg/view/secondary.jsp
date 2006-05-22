@@ -131,21 +131,14 @@
     </tr>
 
     <c:if test="${cf:contains(fields, visibleSchool)}">
-        <c:choose>
-            <c:when test="${cf:contains(regTypes, Util.factory.registrationTypeDAO.highSchoolType)}">
-                <tc-webtag:hiddenInput name="${visibleSchool}"/>
-            </c:when>
-            <c:otherwise>
-                <tr>
-                <td class="name">
-                    Allow others to see my school:
-                </td>
-                <td class="value">
-                    <tc-webtag:chkBox name="${visibleSchool}"/>
-                </td>
-            </tr>
-            </c:otherwise>
-        </c:choose>
+        <tr>
+        <td class="name">
+            Allow others to see my school:
+        </td>
+        <td class="value">
+            <tc-webtag:chkBox name="${visibleSchool}"/>
+        </td>
+    </tr>
     </c:if>
 
 
