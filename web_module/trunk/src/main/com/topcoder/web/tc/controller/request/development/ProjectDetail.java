@@ -6,7 +6,6 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.legacy.TaskDevelopment;
 import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.util.Map;
@@ -31,8 +30,7 @@ public class ProjectDetail extends Base {
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
 
-            boolean full = TaskDevelopment.isProjectLockedOut(details.getLongItem(0, "component_id"),
-                    details.getLongItem(0, "version_id"), details.getLongItem(0, "phase_id"), getUser().getId());
+            boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
 
             //added rfairfax
