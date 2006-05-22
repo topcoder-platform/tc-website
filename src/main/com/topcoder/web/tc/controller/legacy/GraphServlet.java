@@ -1,14 +1,15 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.fx4m.plot13.HistoryPlot;
-import com.topcoder.common.web.data.Navigation;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.WebAuthentication;
 import org.faceless.graph.BarGraph;
 import org.faceless.graph.Graph;
 import org.faceless.graph.PieGraph;
@@ -19,7 +20,6 @@ import org.faceless.graph.output.PNGOutput;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
@@ -37,7 +37,7 @@ import java.util.Map;
  * @author Greg Paul
  */
 
-public final class GraphServlet extends HttpServlet {
+public final class GraphServlet extends BaseServlet {
 
     private static final Color GREEN = new Color(0x00, 0xa9, 0x00);
     private static final Color YELLOW = new Color(0xff, 0xcc, 0x00);
@@ -72,31 +72,27 @@ public final class GraphServlet extends HttpServlet {
         super.init(config);
     }
 
-    public final void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        log.debug("get");
-        process(request, response);
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        log.debug("post");
-    }
-
-    public void process(HttpServletRequest request, HttpServletResponse response) {
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         ServletOutputStream o = null;
         byte[] result = null;
         Request dataRequest = null;
-        Navigation nav = null;
+        WebAuthentication authentication;
+        SessionInfo info;
+
         try {
             Graph.setLicenseKey(LICENSE_KEY);
             dataRequest = new Request(request.getParameterMap());
-            nav = (Navigation) request.getSession().getAttribute("navigation");
-            if (nav == null) {
-                nav = new Navigation(request, response);
-                request.getSession(true).setAttribute("navigation", nav);
-            }
-            log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + nav.getSessionInfo().getHandle() + " ***]");
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+            //set up security objects and session info
+            authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject user = getUser(authentication.getActiveUser().getId());
+            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
+
+            log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + info.getHandle() + " ***]");
 
             /***********************************************************************/
             if (dataRequest.getContentHandle().equals("rating_distribution_graph")) {
