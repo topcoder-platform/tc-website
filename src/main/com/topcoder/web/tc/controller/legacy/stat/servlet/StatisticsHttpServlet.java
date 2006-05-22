@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.legacy.stat.servlet;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -110,7 +109,6 @@ public class StatisticsHttpServlet extends BaseServlet {
             ServletContext sctx = null;
             Map accessMap = null;
             String accessLevel = null;
-            Navigation nav = null;
             Request dataRequest = null;
             try {
                 dataRequest = new Request(map);
@@ -145,7 +143,7 @@ public class StatisticsHttpServlet extends BaseServlet {
 
                 //hoke so that we can reload the properties file on the fly
                 if (dataRequest.getContentHandle().equals("reload")) {
-                    if (nav.getSessionInfo().isAdmin()) {
+                    if (info.isAdmin()) {
                         this.reload(sctx);
                         response.getOutputStream().write("reloaded".getBytes());
                         return;
@@ -155,7 +153,7 @@ public class StatisticsHttpServlet extends BaseServlet {
                     }
                 }
 
-                if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
+                if (accessLevel.equals(LOGGED_IN_ONLY) && (info.isAnonymous())) {
                     request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
                             "and password.");
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
