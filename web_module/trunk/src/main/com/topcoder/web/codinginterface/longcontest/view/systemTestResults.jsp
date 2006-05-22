@@ -10,7 +10,7 @@
 <%@ page import="java.util.HashMap"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>

@@ -8,7 +8,7 @@
 <%@ page import="com.topcoder.shared.language.Language"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";

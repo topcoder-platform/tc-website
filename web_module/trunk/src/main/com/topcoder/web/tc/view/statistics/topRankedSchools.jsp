@@ -4,8 +4,8 @@
 
 %>
 
-<%@ taglib uri="struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Top Ranked Schools</TITLE>
