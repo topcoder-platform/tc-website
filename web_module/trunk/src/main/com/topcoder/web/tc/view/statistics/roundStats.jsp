@@ -1,10 +1,10 @@
 <%@ page
   language="java"
   import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.common.web.data.Navigation,com.topcoder.shared.util.ApplicationServer"
+          com.topcoder.shared.util.ApplicationServer"
 
 %>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -130,7 +130,7 @@ function goTo(selection){
 
 <%
 String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-if (((Navigation)session.getAttribute("navigation")).isIdentified()){
+if (sessionInfo.isIdentified()){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 

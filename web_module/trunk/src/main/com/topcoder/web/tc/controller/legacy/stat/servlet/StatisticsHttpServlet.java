@@ -2,14 +2,13 @@ package com.topcoder.web.tc.controller.legacy.stat.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Data;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
 import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
@@ -18,17 +17,14 @@ import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
 
-public class StatisticsHttpServlet extends HttpServlet {
+public class StatisticsHttpServlet extends BaseServlet {
     private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
 //    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
     private static final String XML_FILE = "statServlet.xml";
@@ -87,30 +83,6 @@ public class StatisticsHttpServlet extends HttpServlet {
     }
 
     /**
-     * This method implements the doGet method, which forwards the request to process
-     *
-     * @param request object
-     * @param response object
-     * @throws    ServletException
-     * @throws    IOException
-     */
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        process(request, response);
-    }
-
-    /**
-     * This method implements the doPost method, which forwards the request to process
-     *
-     * @param request object
-     * @param response object
-     * @throws    ServletException
-     * @throws    IOException
-     */
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        process(request, response);
-    }
-
-    /**
      * This method handles the actual request processing
      *
      * @param request object
@@ -118,8 +90,12 @@ public class StatisticsHttpServlet extends HttpServlet {
      * @throws    ServletException
      * @throws    IOException
      */
-    public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void process(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         String sQueryString = request.getQueryString();
+        WebAuthentication authentication;
+        SessionInfo info;
+
         if (sQueryString != null) {
             //check to redirect member profile requests to new servlet
             if (request.getParameter("c") != null && request.getParameter("c").equals("member_profile")) {
@@ -142,19 +118,18 @@ public class StatisticsHttpServlet extends HttpServlet {
                 sctx = this.getServletContext();
                 accessMap = (Map) this.getServletContext().getAttribute(ACCESS_MAP_KEY);
                 accessLevel = (String) accessMap.get(dataRequest.getContentHandle());
-                HttpSession session = request.getSession(true);
-                nav = (Navigation) session.getAttribute("navigation");
-                if (nav == null) nav = new Navigation(request, response);
+
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                WebAuthentication authentication = new BasicAuthentication(
-                        new SessionPersistor(session),
-                        tcRequest,
-                        HttpObjectFactory.createUnCachedResponse(response),
-                        BasicAuthentication.MAIN_SITE);
-                SessionInfo info = new SessionInfo(tcRequest, authentication, Collections.EMPTY_SET);
+                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                //set up security objects and session info
+                authentication = createAuthentication(tcRequest, tcResponse);
+                TCSubject user = getUser(authentication.getActiveUser().getId());
+                info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                //todo perhaps this should be configurable...so implementing classes
+                //todo don't have to do it if they don't want to
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-                session.setAttribute("navigation", nav);
 
                 StringBuffer loginfo = new StringBuffer(100);
                 loginfo.append("[* ");
@@ -202,40 +177,8 @@ public class StatisticsHttpServlet extends HttpServlet {
 
         }
     }
-/*
-
-    private String replace(String s) {
-
-        if (s == null) {
-            return "";
-        } else {
-            StringBuffer buffer = new StringBuffer(s);
-            for (int i = 0; i < buffer.length(); i++) {
-                if (buffer.charAt(i) == '&') {
-                    buffer.replace(i, i + 1, "%26");
-                    i += 3;
-                }
-            }
-            return buffer.toString();
-        }
-    }
-*/
 
 
-    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                          boolean forward) throws Exception {
-
-        if (forward) {
-            if (!dest.startsWith("/")) {
-                dest = "/" + dest;
-            }
-            log.debug("forwarding to " + dest);
-            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
-        } else {
-            log.debug("redirecting to " + dest);
-            response.sendRedirect(response.encodeRedirectURL(dest));
-        }
-    }
 
 
 }
