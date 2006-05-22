@@ -6,15 +6,15 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.apps.review.projecttracker.ProjectStatus;
+import com.topcoder.util.idgenerator.bean.IdGenException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
-import javax.naming.NamingException;
-
 import java.rmi.RemoteException;
+
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
@@ -597,13 +597,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             hm.put(PAYMENT_DETAIL_LIST, rsc);
 
             StringBuffer selectCoderAddress = new StringBuffer(300);
-            selectCoderAddress.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
-            selectCoderAddress.append("c.address1, c.address2, c.first_name, c.middle_name, ");
-            selectCoderAddress.append("c.last_name, state.state_name, country.country_name ");
-            selectCoderAddress.append("FROM coder c, OUTER state, OUTER country ");
+            selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+            selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+            selectCoderAddress.append("u.last_name, state.state_name, country.country_name ");
+            selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
             selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
-            selectCoderAddress.append("AND state.state_code = c.state_code ");
-            selectCoderAddress.append("AND country.country_code = c.country_code");
+            selectCoderAddress.append("AND state.state_code = a.state_code ");
+            selectCoderAddress.append("and x.user_id = c.coder_id and x.address_id = a.address_id ");
+            selectCoderAddress.append("and a.address_type_id = 2 ");
+            selectCoderAddress.append("and u.user_id = c.coder_id ");
+            selectCoderAddress.append("AND country.country_code = a.country_code");
 
             rsc = runSelectQuery(c, selectCoderAddress.toString(), false);
             hm.put(CURRENT_CODER_ADDRESS, rsc);
@@ -632,16 +635,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserProfile(long userId) throws SQLException {
         StringBuffer selectDetails = new StringBuffer(300);
-        selectDetails.append("SELECT u.email, c.work_phone, c.home_phone, c.country_code, c.zip, ");
-        selectDetails.append("c.state_code, c.city, c.address1, c.address2, c.first_name, c.middle_name, ");
-        selectDetails.append("c.last_name, state.state_name, country.country_name, ");
+        selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
+        selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
+        selectDetails.append("u.last_name, state.state_name, country.country_name, ");
         selectDetails.append("c.coder_type_id, ct.coder_type_desc ");
-        selectDetails.append("FROM coder c, user u, coder_type ct, OUTER state, OUTER country ");
+        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, phone p, address a, user_address_xref x ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
+        selectDetails.append("AND u.user_id = e.user_id ");
+        selectDetails.append("AND e.primary_ind = 1 ");
+        selectDetails.append("and p.user_id = u.user_id ");
+        selectDetails.append("and p.primary_ind = 1 ");
+        selectDetails.append("and x.user_id = u.user_id ");
+        selectDetails.append("and x.address_id = a.address_id ");
+        selectDetails.append("and a.address_type_id = 2 ");
         selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
-        selectDetails.append("AND state.state_code = c.state_code ");
-        selectDetails.append("AND country.country_code = c.country_code");
+        selectDetails.append("AND state.state_code = a.state_code ");
+        selectDetails.append("AND country.country_code = a.country_code");
 
         Connection c = null;
         try {
@@ -697,9 +707,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function to get the user profile header given a connection and user Id.
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, c.first_name, c.middle_name, c.last_name FROM user u, coder c");
-        selectHeader.append(" WHERE user_id = " + userId + " ");
-        selectHeader.append(" AND u.user_id = c.coder_id");
+        selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name FROM user u");
+        selectHeader.append(" WHERE user_id = " + userId);
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
@@ -1312,7 +1321,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(AFFIDAVIT_ID)) {
                     selectHeaders.append(" AND a.affidavit_id = " + value);
                 } else if (key.equals(HANDLE)) {
-                    selectHeaders.append(" AND UPPER(u.handle) LIKE ?");
+                    selectHeaders.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
                     selectHeaders.append(" AND a.status_id = " + value);
@@ -1391,7 +1400,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(CONTRACT_ID)) {
                     whereClauses.append(" AND c.contract_id = " + value);
                 } else if (key.equals(HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(CONTRACT_NAME)) {
                     whereClauses.append(" AND UPPER(c.name) LIKE ?");
@@ -1531,7 +1540,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND UPPER(u2.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(SUBMITTING_HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?"); //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(IN_DEPTH_HANDLE)) {
                     from.append(", user u3, user_note_xref x");
@@ -1626,7 +1635,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(PAYMENT_ID)) {
                     whereClauses.append(" AND p.payment_id = " + value);
                 } else if (key.equals(HANDLE)) {
-                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");
+                    whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
                     whereClauses.append(" AND pd.status_id = " + value);
@@ -1770,13 +1779,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, c.first_name, c.middle_name, c.last_name ");
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name ");
 
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM user u, coder c");
+        from.append("FROM user u ");
 
         ArrayList whereClauses = new ArrayList();
-        whereClauses.add("u.user_id = c.coder_id");
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
 
@@ -1802,13 +1810,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.add("u.user_id = utf.user_id");
                     whereClauses.add("utf.tax_form_id = " + value);
                 } else if (key.equals(FIRST_NAME)) {
-                    whereClauses.add("UPPER(c.first_name) LIKE ?");
+                    whereClauses.add("UPPER(u.first_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(MIDDLE_NAME)) {
-                    whereClauses.add("UPPER(c.middle_name) LIKE ?");
+                    whereClauses.add("UPPER(u.middle_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(LAST_NAME)) {
-                    whereClauses.add("UPPER(c.last_name) LIKE ?");
+                    whereClauses.add("UPPER(u.last_name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(HANDLE)) {
                     whereClauses.add("UPPER(u.handle) LIKE ?");
@@ -1819,7 +1827,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (!wantExists) {
                         clause.append("NOT ");
                     }
-                    clause.append("EXISTS (SELECT * FROM contract ");
+                    clause.append("EXISTS (SELECT 1 FROM contract ");
                     clause.append("        WHERE contract.contracted_user_id = u.user_id");
                     clause.append("        AND contract.status_id = " + CONTRACT_ACTIVE_STATUS + ")");
                     orClauses.add(clause.toString());
@@ -1829,7 +1837,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (!wantExists) {
                         clause.append("NOT ");
                     }
-                    clause.append("EXISTS (SELECT * FROM affidavit ");
+                    clause.append("EXISTS (SELECT 1 FROM affidavit ");
                     clause.append("        WHERE affidavit.user_id = u.user_id");
                     clause.append("        AND affidavit.affirmed = 0)");
                     orClauses.add(clause.toString());
@@ -1839,7 +1847,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (!wantExists) {
                         clause.append("NOT ");
                     }
-                    clause.append("EXISTS (SELECT * FROM user_tax_form_xref ");
+                    clause.append("EXISTS (SELECT 1 FROM user_tax_form_xref ");
                     clause.append("        WHERE user_tax_form_xref.user_id = u.user_id)");
                     orClauses.add(clause.toString());
                 } else if (key.equals(IS_OWED_MONEY)) {
@@ -1848,7 +1856,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (!wantExists) {
                         clause.append("NOT ");
                     }
-                    clause.append("EXISTS (SELECT * FROM payment, payment_detail ");
+                    clause.append("EXISTS (SELECT 1 FROM payment, payment_detail ");
                     clause.append("        WHERE payment.user_id = u.user_id");
                     clause.append("        AND payment.most_recent_detail_id = payment_detail.payment_detail_id");
                     clause.append("        AND payment_detail.status_id = " + PAYMENT_OWED_STATUS + ")");
@@ -1990,11 +1998,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 log.debug("get the affidavit text from the db");
                 StringBuffer getAffidavitTexts = new StringBuffer(300);
                 getAffidavitTexts.append("SELECT att.text ");
-                getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x, coder c ");
+                getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x, user_address_xref uax, address ad ");
                 getAffidavitTexts.append("WHERE att.affidavit_type_id = " + a.getHeader().getTypeId());
                 getAffidavitTexts.append(" and att.affidavit_template_id =x.affidavit_template_id ");
-                getAffidavitTexts.append(" and c.country_code = x.country_code ");
-                getAffidavitTexts.append(" and c.coder_id = " + a.getHeader().getUser().getId());
+                getAffidavitTexts.append(" and ad.country_code = x.country_code ");
+                getAffidavitTexts.append(" and uax.address_id = ad.address_id ");
+                getAffidavitTexts.append(" and ad.address_type_id = 2 ");
+                getAffidavitTexts.append(" and uax.user_id = " + a.getHeader().getUser().getId());
                 ResultSetContainer rsc = runSelectQuery(c, getAffidavitTexts.toString(), false);
                 if (rsc.isEmpty()) {
                     throw new Exception("Couldn't find an affidavit template for user " + a.getHeader().getUser().getId());
@@ -2159,9 +2169,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer getUserWithholding = new StringBuffer(300);
         getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
         getUserWithholding.append("utf.use_percentage ");
-        getUserWithholding.append("FROM user_tax_form_xref utf, coder c, country ");
-        getUserWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
-        getUserWithholding.append("AND c.country_code = country.country_code ");
+        getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
+        getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+        getUserWithholding.append("AND a.country_code = country.country_code ");
+        getUserWithholding.append("and a.address_id = x.address_id ");
+        getUserWithholding.append("and a.address_type_id = 2 ");
         getUserWithholding.append("AND country.default_taxform_id = utf.tax_form_id ");
         getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
         ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
@@ -2175,9 +2187,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer getWithholding = new StringBuffer(300);
             getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
             getWithholding.append("tf.use_percentage AS default_use_percentage ");
-            getWithholding.append("FROM tax_form tf, coder c, country ");
-            getWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
-            getWithholding.append("AND c.country_code = country.country_code ");
+            getWithholding.append("FROM tax_form tf, user_address_xref x, address a,  country ");
+            getWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+            getWithholding.append("AND a.country_code = country.country_code ");
+            getWithholding.append("and x.address_id = a.address_id ");
+            getWithholding.append("and a.address_type_id = 2 ");
             getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
 
             rsc = runSelectQuery(c, getWithholding.toString(), false);
@@ -2249,13 +2263,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // to create the payment_address entry
             if (p.getStatusId() == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddress = new StringBuffer(300);
-                selectAddress.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
-                selectAddress.append("c.address1, c.address2, c.first_name, c.middle_name, ");
-                selectAddress.append("c.last_name, state.state_name, country.country_name ");
-                selectAddress.append("FROM coder c, OUTER state, OUTER country ");
-                selectAddress.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
-                selectAddress.append("AND state.state_code = c.state_code ");
-                selectAddress.append("AND country.country_code = c.country_code ");
+                selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+                selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+                selectAddress.append("u.last_name, state.state_name, country.country_name ");
+                selectAddress.append("FROM user u, address a, user_address_xref x, OUTER state, OUTER country ");
+                selectAddress.append("WHERE u.user_id = " + p.getHeader().getUser().getId() + " ");
+                selectAddress.append("AND state.state_code = a.state_code ");
+                selectAddress.append("AND country.country_code = a.country_code ");
+                selectAddress.append("and u.user_id = x.user_id ");
+                selectAddress.append("and x.address_id = a.address_id ");
+                selectAddress.append("and a.address_type_id = 2 ");
 
                 ResultSetContainer rsc = runSelectQuery(c, selectAddress.toString(), false);
                 if (rsc.getRowCount() == 0)
@@ -3041,15 +3058,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (p.getStatusId() == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddresses = new StringBuffer(300);
-                selectAddresses.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
-                selectAddresses.append("c.address1, c.address2, c.first_name, c.middle_name, ");
-                selectAddresses.append("c.last_name, state.state_name, country.country_name, ");
+                selectAddresses.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+                selectAddresses.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+                selectAddresses.append("u.last_name, state.state_name, country.country_name, ");
                 selectAddresses.append("p.payment_id ");
-                selectAddresses.append("FROM coder c, payment p, OUTER state, OUTER country ");
+                selectAddresses.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
                 selectAddresses.append("WHERE p.payment_id = " + p.getHeader().getId() + " ");
-                selectAddresses.append("AND c.coder_id = p.user_id ");
-                selectAddresses.append("AND state.state_code = c.state_code ");
-                selectAddresses.append("AND country.country_code = c.country_code ");
+                selectAddresses.append("AND u.user_id = p.user_id ");
+                selectAddresses.append("AND state.state_code = a.state_code ");
+                selectAddresses.append("AND country.country_code = a.country_code ");
+                selectAddresses.append("and a.address_id = x.address_id ");
+                selectAddresses.append("and a.address_type_id = 2 ");
+                selectAddresses.append("and x.user_id = u.user_id ");
+
 
                 ResultSetContainer rsc = runSelectQuery(c, selectAddresses.toString(), false);
                 if (rsc.getRowCount() == 0)
@@ -3436,15 +3457,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (statusId == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddress = new StringBuffer(2000);
-                selectAddress.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
-                selectAddress.append("c.address1, c.address2, c.first_name, c.middle_name, ");
-                selectAddress.append("c.last_name, state.state_name, country.country_name, ");
+                selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+                selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+                selectAddress.append("u.last_name, state.state_name, country.country_name, ");
                 selectAddress.append("p.payment_id ");
-                selectAddress.append("FROM coder c, payment p, OUTER state, OUTER country ");
+                selectAddress.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
                 selectAddress.append("WHERE p.payment_id = " + paymentId[i] + " ");
-                selectAddress.append("AND c.coder_id = p.user_id ");
-                selectAddress.append("AND state.state_code = c.state_code ");
-                selectAddress.append("AND country.country_code = c.country_code ");
+                selectAddress.append("AND u.user_id = p.user_id ");
+                selectAddress.append("AND state.state_code = a.state_code ");
+                selectAddress.append("AND country.country_code = a.country_code ");
+                selectAddress.append("and u.user_id = x.user_id ");
+                selectAddress.append("and x.address_id = a.address_id ");
+                selectAddress.append("and a.address_type_id = 2 ");
 
                 addressData = runSelectQuery(c, selectAddress.toString(), false);
                 if (addressData.getRowCount() != 1) {
@@ -3522,15 +3546,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // Get all the address data we need (if applicable)
         if (statusId == READY_TO_PRINT_STATUS) {
             StringBuffer selectAddresses = new StringBuffer(2000);
-            selectAddresses.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
-            selectAddresses.append("c.address1, c.address2, c.first_name, c.middle_name, ");
-            selectAddresses.append("c.last_name, state.state_name, country.country_name, ");
+            selectAddresses.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+            selectAddresses.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+            selectAddresses.append("u.last_name, state.state_name, country.country_name, ");
             selectAddresses.append("p.payment_id ");
-            selectAddresses.append("FROM coder c, payment p, OUTER state, OUTER country ");
+            selectAddresses.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
             selectAddresses.append("WHERE p.payment_id IN(" + paymentList + ") ");
-            selectAddresses.append("AND c.coder_id = p.user_id ");
-            selectAddresses.append("AND state.state_code = c.state_code ");
-            selectAddresses.append("AND country.country_code = c.country_code ");
+            selectAddresses.append("AND u.user_id = p.user_id ");
+            selectAddresses.append("AND state.state_code = a.state_code ");
+            selectAddresses.append("AND country.country_code = a.country_code ");
+            selectAddresses.append("and u.user_id = x.user_id ");
+            selectAddresses.append("and x.address_id = a.address_id ");
+            selectAddresses.append("and a.address_type_id = 2 ");
             selectAddresses.append("ORDER BY p.payment_id");
 
             addressData = runSelectQuery(c, selectAddresses.toString(), false);
@@ -3881,7 +3908,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" and da.status = 'A'");
         query.append(" AND dq.demographic_question_id NOT IN ");
         query.append("  (SELECT demographic_question_id FROM demographic_response ");
-        query.append("   WHERE coder_id = " + userId + ") ");
+        query.append("   WHERE user_id = " + userId + ") ");
 
         Connection c = null;
         boolean ret = false;
@@ -4007,11 +4034,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
             select.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
             select.append("pa.address2, pa.city, pa.state_code, state.state_name, ");
-            select.append("pa.zip, pa.country_code, country.country_name, u.email, ");
+            select.append("pa.zip, pa.country_code, country.country_name, e.address AS email, ");
             select.append("c.contract_type_id, p.print_count, p.review, pd.date_due, ");
             select.append("utx.tax_form_id AS w9_tax_form, utx2.tax_form_id AS w8ben_tax_form ");
             select.append("FROM payment p, payment_detail pd, payment_address pa, ");
-            select.append("user u, OUTER state, OUTER country, ");
+            select.append("user u, email e, OUTER state, OUTER country, ");
             select.append("OUTER(contract_payment_xref cpx, contract c), ");
             select.append("OUTER(user_tax_form_xref utx, tax_form tx), ");
             select.append("OUTER(user_tax_form_xref utx2, tax_form tx2) ");
@@ -4019,6 +4046,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
             select.append("AND pd.payment_address_id = pa.payment_address_id ");
             select.append("AND p.user_id = u.user_id ");
+            select.append("AND u.user_id = e.user_id ");
+            select.append("AND e.primary_ind = 1 ");
             select.append("AND state.state_code = pa.state_code ");
             select.append("AND country.country_code = pa.country_code ");
             select.append("AND cpx.payment_id = p.payment_id ");
@@ -4306,11 +4335,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
 
             StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, c.country_code ");
-            getWinners.append("FROM room_result rr, coder c, round_payment rp ");
+            getWinners.append("SELECT rr.room_id, rr.coder_id, rr.room_placed, rp.paid, a.country_code ");
+            getWinners.append("FROM room_result rr, user u, user_address_xref x, address a, round_payment rp ");
             getWinners.append("WHERE rr.round_id = " + roundId + " ");
             getWinners.append("AND rp.paid > 0 ");
-            getWinners.append("AND rr.coder_id = c.coder_id ");
+            getWinners.append("AND rr.coder_id = u.user_id ");
+            getWinners.append("and u.user_id = x.user_id ");
+            getWinners.append("and x.address_id = a.address_id ");
+            getWinners.append("and a.address_type_id = 2 ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
             getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT);
@@ -4708,7 +4740,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw(new EJBException("Wrong number of rows updated in 'useaffidavit_tempater'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
-        } catch (NamingException e) {
+        } catch (IdGenException e) {
             throw new EJBException(e);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
@@ -4723,23 +4755,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Payment getEmptyPayment(long userId) throws SQLException {
         log.debug("getemptypayment called...");
         StringBuffer query = new StringBuffer(1000);
-        query.append(" select c.last_name ");
-        query.append(" , c.first_name ");
-        query.append(" , c.middle_name ");
-        query.append(" , c.address1 ");
-        query.append(" , c.address2 ");
-        query.append(" , c.city ");
+        query.append(" select u.last_name ");
+        query.append(" , u.first_name ");
+        query.append(" , u.middle_name ");
+        query.append(" , a.address1 ");
+        query.append(" , a.address2 ");
+        query.append(" , a.city ");
         query.append(" , s.state_name ");
         query.append(" , co.country_name ");
-        query.append(" , c.state_code ");
-        query.append(" , c.country_code ");
-        query.append(" , c.zip ");
-        query.append(" from coder c ");
+        query.append(" , a.state_code ");
+        query.append(" , a.country_code ");
+        query.append(" , a.zip ");
+        query.append(" from user u ");
+        query.append(" , user_address_xref x ");
+        query.append(" , address a ");
         query.append(" , outer state s ");
         query.append(" , country co ");
-        query.append(" where c.country_code = co.country_code ");
-        query.append(" and c.state_code = s.state_code ");
-        query.append(" and c.coder_id = ").append(userId);
+        query.append(" where a.country_code = co.country_code ");
+        query.append(" and a.state_code = s.state_code ");
+        query.append(" and x.address_id = a.address_id ");
+        query.append(" and x.user_id = u.user_id ");
+        query.append(" and a.address_type_id = 2 ");
+        query.append(" and u.user_id = ").append(userId);
 
         Connection conn = null;
         PreparedStatement ps = null;

@@ -546,8 +546,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             } else {
                 doSearch(request, response);
             }
-        } catch (Exception e) {
-            handleException(request, response, e);
+        } catch (Throwable e) {
+            try {
+                handleException(request, response, e);
+            } catch (Exception e1) {
+            log.fatal("forwarding to error page failed", e);
+            e.printStackTrace();
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
+            }
         }
     }
 
@@ -1006,8 +1018,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                 }
             }
-        } catch (Exception e) {
-            handleException(request, response, e);
+        } catch (Throwable e) {
+            try {
+                handleException(request, response, e);
+            } catch (Exception e1) {
+            log.fatal("forwarding to error page failed", e);
+            e.printStackTrace();
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
+            }
         }
 
 
@@ -1243,8 +1267,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
-            handleException(request, response, e);
+        } catch (Throwable e) {
+            try {
+                handleException(request, response, e);
+            } catch (Exception e1) {
+            log.fatal("forwarding to error page failed", e);
+            e.printStackTrace();
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
+            }
         }
     }
 
@@ -2629,7 +2665,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         try {
             super.handleException(request, response, e);
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             log.fatal("forwarding to error page failed", ex);
             ex.printStackTrace();
 
@@ -2687,14 +2723,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         }
         try {
             d = dfmt.parse(birthday);
-        } catch (Exception e3) {
+        } catch (Throwable e3) {
             handleException(request, response, e3);
             return;
         }
         Calendar c = Calendar.getInstance();
         c.setTime(d);
         if (c.get(Calendar.YEAR) < 1900 || c.get(Calendar.YEAR) > 2099) {
-        	throw new NavigationException("Birth date must be between 1900-2099."); 
+        	throw new NavigationException("Birth date must be between 01/01/1900 to 12/31/2099."); 
         }
 
         // if it is for india, replace the form text with what they enterd
