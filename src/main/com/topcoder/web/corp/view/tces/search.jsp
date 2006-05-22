@@ -71,7 +71,7 @@
         deselect('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>');
         </rsc:iterator>
         document.search.submit();
-    }F
+    }
     function deselect( a ){
         var i;
         for(i = 0; i<document.search[a].length; i++){
