@@ -1,20 +1,12 @@
 <%@  page
   language="java"
   import="java.text.DecimalFormat,
-          com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.common.web.data.Navigation" %>
+          com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%@ page import="com.topcoder.web.common.BaseServlet"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-    if (sessionInfo==null) {
-        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-        if (nav==null) nav = new Navigation(request, response);
-        request.getSession(true).setAttribute("navigation", nav);
-        sessionInfo = nav.getSessionInfo();
-    }
-
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
 
 %>

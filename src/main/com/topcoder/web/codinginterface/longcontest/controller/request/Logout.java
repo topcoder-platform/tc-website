@@ -1,10 +1,10 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.security.TCSubject;
+//import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * Logs the user out of the long contest system
@@ -21,14 +21,14 @@ public class Logout extends Base {
 
         // Logs the user out
         getAuthentication().logout();
-        try {
+  /*      try {
             doLegacyWork(getRequest());
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-
+*/
         // Invalidates the session
         getRequest().getSession().invalidate();
 
@@ -41,12 +41,12 @@ public class Logout extends Base {
         setIsNextPageInContext(false);
     }
 
-    private void doLegacyWork(TCRequest request) throws Exception {
+/*    private void doLegacyWork(TCRequest request) throws Exception {
         TCSubject user = SecurityHelper.getUserSubject(getAuthentication()
                 .getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request,
                 getAuthentication(), user.getPrincipals());
         Navigation nav = new Navigation(request, ret);
         request.getSession(true).setAttribute("navigation", nav);
-    }
+    }*/
 }

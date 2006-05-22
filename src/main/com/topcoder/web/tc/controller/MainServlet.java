@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
@@ -40,9 +39,10 @@ public class MainServlet extends BaseServlet {
                                             WebAuthentication auth, Set groups) throws Exception {
         //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
         //goes, so does this crap
-        Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
+        //Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         CoderSessionInfo ret = null;
         ret = new CoderSessionInfo(request, auth, groups);
+/*
         if (nav == null) {
             nav = new Navigation(request, ret);
             nav.setCoderSessionInfo(ret);
@@ -51,6 +51,7 @@ public class MainServlet extends BaseServlet {
             nav.setCoderSessionInfo(ret);
             request.setAttribute("navigation", nav);
         }
+*/
         return ret;
     }
 

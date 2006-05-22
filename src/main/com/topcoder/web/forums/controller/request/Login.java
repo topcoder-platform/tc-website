@@ -1,17 +1,13 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.AuthFactory;
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 
 /**
@@ -70,7 +66,9 @@ public class Login extends ForumsProcessor {
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
                 getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
+/*
                 doLegacyCrap(getRequest());
+*/
             } else {
                 log.debug("forum password hash not matched");
                 throw new Exception();
@@ -92,6 +90,7 @@ public class Login extends ForumsProcessor {
     }
     //todo use userid to password, or get rid of this entirely
 
+/*
     private void doLegacyCrap(TCRequest request) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
@@ -105,7 +104,8 @@ public class Login extends ForumsProcessor {
             nav.setCoderSessionInfo(ret);
         }
     }
-    
+*/
+
     private String getPassword(long userID) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
