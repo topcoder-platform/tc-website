@@ -1,13 +1,11 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.HibernateUtils;
 import com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext;
 import com.topcoder.web.reg.dao.DAOFactory;
 import com.topcoder.web.reg.dao.Util;
 import org.hibernate.Session;
-import org.hibernate.StaleObjectStateException;
 
 /**
  * @author dok
@@ -36,9 +34,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
                 endCommunication();
             }
 
-        } catch (PermissionException e) {
-            endCommunication();
-            throw e;
+/*
         } catch (StaleObjectStateException staleEx) {
             log.error("This interceptor does not implement optimistic concurrency control!");
             log.error("Your application will not work until you add compensation actions!");
@@ -47,6 +43,7 @@ public abstract class HibernateProcessor extends BaseProcessor {
             // give the user of the application a chance to merge some of his work with
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
+*/
         } catch (Exception e) {
 //            log.debug("printing the stack from base");
             //e.printStackTrace();
