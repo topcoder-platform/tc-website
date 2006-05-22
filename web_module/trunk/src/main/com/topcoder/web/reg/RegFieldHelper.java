@@ -220,8 +220,6 @@ public class RegFieldHelper {
         if (currentTypes.contains(hs)||regTypes.contains(hs)) {
             //high school people have to be students
             ret.remove(Constants.CODER_TYPE);
-            //high school people have to show their school
-            ret.remove(Constants.VISIBLE_SCHOOL);
         }
         return ret;
     }
@@ -285,6 +283,12 @@ public class RegFieldHelper {
                 }
             }
         }
+        RegistrationType hs = dao.getHighSchoolType();
+        if (currentTypes.contains(hs)||regTypes.contains(hs)) {
+            //high school people have to show their school
+            ret.remove(Constants.VISIBLE_SCHOOL);
+        }
+
         return ret;
     }
 
