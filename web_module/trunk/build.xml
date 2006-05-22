@@ -608,28 +608,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-UserServicesBean" depends="compile">
-        <jar jarfile="${ejb_jars}/UserServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemoteHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemote.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/Email.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/EmailHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddress.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddressHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/AddressHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/Address.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/PhoneHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/Phone.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/UserServices/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/UserServices" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-PasswordBean" depends="compile">
         <jar
             jarfile="${ejb_jars}/Password.jar"
@@ -1527,7 +1505,6 @@
         <!--
                  <antcall target="package-EJB-UserEvent"/>
         -->
-        <antcall target="package-EJB-UserServicesBean"/>
         <antcall target="package-EJB-UtilBean"/>
 
         <antcall target="war-tc"/>
@@ -1571,7 +1548,6 @@
                 <!--
                                  <include name="UserEvent.jar"/>
                 -->
-                <include name="UserServices.jar"/>
                 <include name="Util.jar"/>
             </fileset>
         </copy>
@@ -1620,8 +1596,6 @@
                          <include name="com/topcoder/common/web/data/Browser.class" />
                          <include name="com/topcoder/common/web/data/Round.class" />
                         <include name="com/topcoder/web/common/**/*.class" />
-                        <include name="com/topcoder/ejb/UserServices/UserServices.class" />
-                        <include name="com/topcoder/ejb/UserServices/UserServicesHome.class" />
                         <include name="com/topcoder/web/forums/**/*.class" />
                         <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
                     </classes>
