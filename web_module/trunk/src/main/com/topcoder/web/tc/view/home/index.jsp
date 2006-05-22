@@ -52,7 +52,9 @@ margin:0px auto;
         <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
         <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
        </td>
-      <td class="homeTopBar" align=right><A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
+      <td class="homeTopBar" align=right>
+      <A href="/reg/" class="loginLinks">Register Now</A>
+      | <A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
    </tr>
 </table>
 
