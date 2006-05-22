@@ -559,9 +559,12 @@ public class AutoPilot {
                 return new SuccessResult();
 
             DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
-            		(new Long(project.getLevelId())).intValue(), count, passedCount, 
+            		DefaultPriceComponent.LEVEL1, count, passedCount, 
             				project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
             
+
+    		//(new Long(project.getLevelId())).intValue(),
+    		
 	        //check project for reviewers
             UserRole[] participants = project.getParticipants();
             
