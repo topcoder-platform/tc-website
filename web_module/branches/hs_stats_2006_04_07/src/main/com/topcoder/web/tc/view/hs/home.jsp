@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>TopCoder High School</title>
+<title>TopCoder High School Competitions</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
