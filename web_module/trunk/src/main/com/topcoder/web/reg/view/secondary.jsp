@@ -199,7 +199,7 @@
     </tr>
     </c:if>
 </table>
-* required
+* = required
 
 <br><br>
 
