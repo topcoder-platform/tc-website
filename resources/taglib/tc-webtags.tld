@@ -13,7 +13,7 @@
 
     <short-name>tc-webtag</short-name>
 
-    <uri>tc-webtags</uri>
+    <uri>tc-webtags.tld</uri>
     <tag>
         <name>textInput</name>
         <tag-class>com.topcoder.web.common.tag.TextInputTag</tag-class>
