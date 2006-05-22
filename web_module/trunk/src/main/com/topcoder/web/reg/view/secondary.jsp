@@ -34,7 +34,7 @@
     <div class="regBc">
          <div class="title">
              <c:if test="${sessionInfo.loggedIn}">
-                 <div style="float:right;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
+                 <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
              </c:if>
          Step <strong>3</strong> of <strong>6</strong></div>
         <div class="off">Select Your Registration</div>

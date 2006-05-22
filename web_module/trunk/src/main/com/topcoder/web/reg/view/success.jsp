@@ -26,7 +26,6 @@
    <div id="regBcContainer">
       <div class="regBc">
          <div class="title">
-             <%--user should never be logged in at this point --%>
          Step <strong>5</strong> of <strong>6</strong></div>
          <div class="off">Select Your Registration</div>
          <div class="off">General</div>
