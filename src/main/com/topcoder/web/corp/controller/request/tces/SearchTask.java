@@ -147,7 +147,7 @@ public class SearchTask extends ViewSearchTask {
         query.append(" , r.rating as alg_rating\n");
         query.append(" , desr.rating as des_rating\n");
         query.append(" , devr.rating as dev_rating\n");
-        query.append(" , c.state_code\n");
+        query.append(" , a.state_code\n");
         query.append(" , cry.country_name\n");
         query.append(" , ct.coder_type_desc\n");
         if (hasSchool) {
@@ -169,6 +169,8 @@ public class SearchTask extends ViewSearchTask {
         }
         query.append("    ,user u\n");
         query.append("    ,rating r\n");
+        query.append("    , user_address_xref uax\n");
+        query.append("    , address a\n");
         if (containsDesRating) {
             query.append("    ,tcs_catalog:user_rating desr\n");
         } else {
@@ -197,6 +199,9 @@ public class SearchTask extends ViewSearchTask {
         }
         query.append("    ,country cry\n");
         query.append("  WHERE 1 = 1\n");
+        query.append("    AND uax.address_id = a.address_id\n");
+        query.append("    AND uax.user_id = u.user_id\n");
+        query.append("    AND a.address_type_id = 2\n");
         query.append("    AND desr.user_id = c.coder_id\n");
         query.append("    AND desr.phase_id = 112\n");
         query.append("    AND devr.user_id = c.coder_id\n");
@@ -205,7 +210,7 @@ public class SearchTask extends ViewSearchTask {
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
-        query.append("    AND cry.country_code = c.country_code\n");
+        query.append("    AND cry.country_code = a.country_code\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
         query.append("    and jh.timestamp||'-'||jh.job_id = (select max(timestamp||'-'||jh1.job_id) from job_hit jh1, campaign_job_xref cjx1 where jh1.user_id = u.user_id and jh1.job_id = cjx1.job_id and cjx1.campaign_id = cjx.campaign_id)\n");
@@ -278,7 +283,7 @@ public class SearchTask extends ViewSearchTask {
                 }
                 query.append(" AND dr");
                 query.append(demoId);
-                query.append(".coder_id = c.coder_id");
+                query.append(".user_id = c.coder_id");
                 tables.add("demographic_response dr" + demoId);
                 constraints.add(query.toString());
             }
@@ -348,7 +353,7 @@ public class SearchTask extends ViewSearchTask {
     }
 
     private String buildCoderConstraints(TCRequest request, boolean skill) {
-        String[] columns = {"c.zip", "c.city", "c.first_name", "c.last_name", "u.email", "u.handle"};
+        String[] columns = {"a.zip", "a.city", "u.first_name", "u.last_name", "e.address as email", "u.handle"};
         String[] fields = {"zipcode", "city", "firstname", "lastname", "email", "handle"};
         boolean cs = "on".equals(request.getParameter("casesensitive"));
         StringBuffer query = new StringBuffer(200);
@@ -358,7 +363,7 @@ public class SearchTask extends ViewSearchTask {
                 query.append(stringMatcher(s, columns[i], cs));
             }
         }
-        columns = new String[]{"c.state_code", "c.country_code", "c.comp_country_code"};
+        columns = new String[]{"a.state_code", "a.country_code", "c.comp_country_code"};
         fields = new String[]{"states", "country", "countryoforigin"};
         boolean usa = false;
         for (int i = 0; i < columns.length; i++) {
