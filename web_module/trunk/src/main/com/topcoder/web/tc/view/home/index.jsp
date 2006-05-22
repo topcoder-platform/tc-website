@@ -3,7 +3,7 @@
                  com.topcoder.common.web.data.Navigation,
                  com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@  page language="java"  %>
-<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -50,7 +50,7 @@ margin:0px auto;
    <tr>
        <td class="homeTopBar" align=left>
         <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
-        <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
+        <tc-webtag:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
        </td>
       <td class="homeTopBar" align=right>
       <A href="/reg/" class="loginLinks">Register Now</A>
