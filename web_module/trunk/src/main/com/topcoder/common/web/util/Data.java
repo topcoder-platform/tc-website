@@ -14,14 +14,11 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.problem.DataType;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
 import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
@@ -50,6 +47,7 @@ public final class Data {
     }
 
 
+/*
     public static void saveUser(Navigation nav) throws TCException {
         Context ctx = null;
         TransactionManager tm = null;
@@ -92,6 +90,7 @@ public final class Data {
             }
         }
     }
+*/
 
     public static void loadUser(Navigation nav) throws TCException {
         log.debug("load user called");
