@@ -8,8 +8,8 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 
-<%--<%@ taglib uri="struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="struts-logic.tld" prefix="logic" %>--%>
+<%--<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>--%>
 
 <% //common code that pulls out the request bean.
     Request srb = (Request) request.getAttribute("REQUEST_BEAN");
