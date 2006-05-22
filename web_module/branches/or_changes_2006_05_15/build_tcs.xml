@@ -163,6 +163,7 @@
                 <include name="com/topcoder/project/phases/TCPhase.class"/>
                 <include name="com/topcoder/dde/util/ApplicationServer.class"/>
                 <include name="com/topcoder/dde/util/Cookies.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
 
             <webinf dir="${struts.lib.dir}">
