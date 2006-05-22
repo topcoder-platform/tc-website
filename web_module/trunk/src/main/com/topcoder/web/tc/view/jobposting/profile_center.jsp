@@ -67,11 +67,6 @@
       Handle: <jsp:getProperty name="JobHitData" property="handle" /><br>
       Member Since Date: <jsp:getProperty name="JobHitData" property="memberSince" /><br>
       Most Recent Rated Event: <jsp:getProperty name="JobHitData" property="mostRecentEvent" /><br>
-<%if (coderType.equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
-      <br/>
-      GPA: <jsp:getProperty name="JobHitData" property="gpa" /><br>
-      GPA Scale: <jsp:getProperty name="JobHitData" property="gpaScale" /><br>
-<% } %>
     </td>
   </tr>
   <tr valign="middle">
