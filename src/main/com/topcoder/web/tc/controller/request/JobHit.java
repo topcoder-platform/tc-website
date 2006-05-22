@@ -1,20 +1,23 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.data.User;
-import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.tc.model.JobHitData;
 
 import java.rmi.RemoteException;
@@ -60,12 +63,15 @@ public class JobHit extends Base {
             }
 
 
+/*
             Navigation navigation = (Navigation) getRequest().getSession().getAttribute("navigation");
             if (navigation == null)
                 navigation = new Navigation(getRequest(),
                         (CoderSessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY));
             Data.loadUser(navigation);
             JobHitData hit = getData(navigation.getUser());
+*/
+            JobHitData hit = getData();
             getRequest().setAttribute("JobHitData", hit);
 
             log.debug("user rating: " + hit.getRating());
@@ -180,7 +186,7 @@ public class JobHit extends Base {
     }
 
 
-    private JobHitData getData(User user) throws Exception {
+    private JobHitData getData() throws Exception {
 
         JobHitData ret = new JobHitData();
         Request dataRequest = new Request();
@@ -198,29 +204,35 @@ public class JobHit extends Base {
             ret.setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
         }
 
-        CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-        ret.setUserId(user.getUserId());
-        ret.setRating(coder.getRating().getRating());
-        ret.setFirstName(coder.getFirstName());
-        ret.setLastName(coder.getLastName());
-        ret.setAddress1(coder.getHomeAddress1());
-        ret.setAddress2(coder.getHomeAddress2());
-        ret.setCity(coder.getHomeCity());
-        ret.setState(coder.getHomeState().getStateCode());
-        ret.setZip(coder.getHomeZip());
-        ret.setCountry(coder.getHomeCountry().getCountryCode());
-        ret.setPhone(coder.getHomePhone());
-        ret.setHandle(user.getHandle());
-        ret.setEmail(user.getEmail());
-        ret.setCoderType(coder.getCoderType().getCoderTypeDesc());
-        ret.setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
-        if (coder.getCurrentSchool().getGpa() > 0 && coder.getCurrentSchool().getGpaScale() > 0) {
-            ret.setGpa(String.valueOf(coder.getCurrentSchool().getGpa()));
-            ret.setGpaScale(String.valueOf(coder.getCurrentSchool().getGpaScale()));
-        } else {
-            ret.setGpa("");
-            ret.setGpaScale("");
-        }
+        CoderSessionInfo info = (CoderSessionInfo)getSessionInfo();
+
+        User userBean = (User)createEJB(getInitialContext(), User.class);
+        Email emailBean = (Email)createEJB(getInitialContext(), Email.class);
+        UserAddress userAddressBean = (UserAddress)createEJB(getInitialContext(), UserAddress.class);
+        Address addressBean = (Address)createEJB(getInitialContext(), Address.class);
+        Phone phoneBean = (Phone)createEJB(getInitialContext(), Phone.class);
+        Coder coderBean = (Coder)createEJB(getInitialContext(), Coder.class);
+        CurrentSchool csBean = (CurrentSchool)createEJB(getInitialContext(), CurrentSchool.class);
+
+        ResultSetContainer addresses = userAddressBean.getUserAddresses(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+        long addressId = addresses.getLongItem(0, "address_id");
+
+        ret.setUserId(info.getUserId());
+        ret.setRating(info.getRating());
+        ret.setFirstName(userBean.getFirstName(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setLastName(userBean.getLastName(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setAddress1(addressBean.getAddress1(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setAddress2(addressBean.getAddress2(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setCity(addressBean.getCity(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setState(addressBean.getStateCode(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setZip(addressBean.getZip(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setCountry(addressBean.getCountryCode(addressId, DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setPhone(phoneBean.getNumber(phoneBean.getPrimaryPhoneId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME), DBMS.JTS_OLTP_DATASOURCE_NAME));
+        ret.setHandle(info.getHandle());
+        ret.setEmail(emailBean.getAddress(emailBean.getPrimaryEmailId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME), DBMS.JTS_OLTP_DATASOURCE_NAME));
+        int coderTypeId = coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+        ret.setCoderType(coderTypeId==1?"Student":"Professional");
+        ret.setCoderTypeId(String.valueOf(coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME)));
         if (!profileInfo.isEmpty()) {
             ret.setSchool(profileInfo.getItem(0, "school_name").toString());
             ret.setMemberSince(profileInfo.getItem(0, "member_since_date").toString());
