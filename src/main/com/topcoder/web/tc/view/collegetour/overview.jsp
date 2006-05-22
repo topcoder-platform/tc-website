@@ -2,7 +2,6 @@
 <%@ page import="java.util.Map"%>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% Map conf = (Map)request.getAttribute(Constants.COLLEGE_TOUR_CONFIG_INFO);%>
 <html>

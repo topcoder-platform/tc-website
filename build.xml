@@ -944,7 +944,6 @@
                 <include name="tc-webtags.tld"/>
                 <include name="screening.tld"/>
                 <include name="tces-taglib.tld"/>
-                <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="privatelabel.tld"/>
             </webinf>
@@ -1024,7 +1023,6 @@
                 <include name="screening.tld"/>
                 <include name="tc.tld"/>
                 <include name="tces-taglib.tld"/>
-                <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="privatelabel.tld"/>
                 -->
@@ -1362,7 +1360,6 @@
                 <include name="tc-webtags.tld"/>
                 <include name="privatelabel.tld"/>
                 <include name="nav.tld"/>
-                <include name="tc-taglib.tld"/>
                 <include name="rsc-taglib.tld"/>
             </webinf>
         </war>
@@ -1406,7 +1403,6 @@
                 <include name="tc.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="tc-webtags.tld"/>
-                <include name="tc-taglib.tld"/>
                 <include name="nav.tld"/>
             </webinf>
             <webinf dir="${struts.dir}">

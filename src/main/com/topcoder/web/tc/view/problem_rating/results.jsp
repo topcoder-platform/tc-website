@@ -3,7 +3,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-taglib.tld" prefix="tc-tags" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% List problemRatingResults = (List)request.getAttribute("problemRatingResults");%>
 <% List overallDistribution = (List)request.getAttribute("overallDistribution");%>
@@ -125,13 +125,13 @@
                 <jsp:getProperty name="result" property="question"/>
             </td>
             <td class="sidebarText" align="center">
-                <tc-tags:format object="<%=result.getOverallAverage()%>" format="0.00"/>
+                <tc-webtag:format object="<%=result.getOverallAverage()%>" format="0.00"/>
             </td>
             <td class="sidebarText" align="center">
-                <tc-tags:format object="<%=result.getDiv1Average()%>" format="0.00"/>
+                <tc-webtag:format object="<%=result.getDiv1Average()%>" format="0.00"/>
             </td>
             <td class="sidebarText" align="center">
-                <tc-tags:format object="<%=result.getDiv2Average()%>" format="0.00"/>
+                <tc-webtag:format object="<%=result.getDiv2Average()%>" format="0.00"/>
             </td>
         </tr>
         </tc:problemRatingResultIterator>

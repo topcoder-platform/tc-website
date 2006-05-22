@@ -2,7 +2,6 @@
                  java.util.Iterator,
                  com.topcoder.web.tc.model.JobHitData"%>
 <%@ page errorPage="/errorPage.jsp" %>
-<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <jsp:useBean id="JobHitData" scope="request" class="com.topcoder.web.tc.model.JobHitData" />
 
 <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
@@ -52,8 +51,10 @@
     <jsp:getProperty name="JobHitData" property="city" />,
         <jsp:getProperty name="JobHitData" property="state" />,
         <jsp:getProperty name="JobHitData" property="zip" />,
+<%--
         <tc:getProperty id="country" name="JobHitData" property="Country" />
         <tc:countrySelect name="country" selectedValue="<%=country%>" selectedOnly="true" /><br>
+--%>
         Phone: <jsp:getProperty name="JobHitData" property="phone" /><br>
     </td>
   </tr>
