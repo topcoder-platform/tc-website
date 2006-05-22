@@ -1,22 +1,25 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
 
-<taglib>
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>Result Set Container Tags</shortname>
-    <info>
-    </info>
+
+    <description>
+        Result Set Container Tags
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>rsc_tag</short-name>
+
+    <uri>rsc-taglib.tld</uri>
 
     <tag>
         <name>iterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a ResultSetContainer
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -31,11 +34,8 @@
 
     <tag>
         <name>item</name>
-        <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag to get the value of a TCResultItem
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ResultSetItemTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>row</name>
             <required>false</required>

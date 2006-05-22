@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
 
-<taglib>
 
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>TopCoder Tags</shortname>
-    <info>
-    </info>
+    <description>
+        TopCoder Tags
+    </description>
 
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>rsc_tag</short-name>
+
+    <uri>tc-taglib.tld</uri>
     <tag>
         <name>getProperty</name>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.GetProperty</tagclass>
-        <teiclass>com.topcoder.web.tc.view.reg.tag.GetPropertyTEI</teiclass>
-        <bodycontent>empty</bodycontent>
-        <info>Similar to jsp:getProperty</info>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.GetProperty</tag-class>
+        <tei-class>com.topcoder.web.tc.view.reg.tag.GetPropertyTEI</tei-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>id</name>
             <required>false</required>
@@ -45,11 +48,8 @@
 
     <tag>
         <name>countrySelect</name>
-        <info>
-            Generates an html select box with countries
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.CountrySelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.CountrySelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -89,11 +89,8 @@
 
     <tag>
         <name>degreeSelect</name>
-        <info>
-            Generates an html select box with degrees
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.DegreeSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.DegreeSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -133,11 +130,9 @@
 
     <tag>
         <name>demographic</name>
-        <info>
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.Demographic</tagclass>
-        <teiclass>com.topcoder.web.tc.view.reg.tag.DemographicTEI</teiclass>
-        <bodycontent>JSP</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.Demographic</tag-class>
+        <tei-class>com.topcoder.web.tc.view.reg.tag.DemographicTEI</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>styleClass</name>
             <required>false</required>
@@ -172,11 +167,9 @@
 
     <tag>
         <name>notification</name>
-        <info>
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.Notification</tagclass>
-        <teiclass>com.topcoder.web.tc.view.reg.tag.NotificationTEI</teiclass>
-        <bodycontent>JSP</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.Notification</tag-class>
+        <tei-class>com.topcoder.web.tc.view.reg.tag.NotificationTEI</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>styleClass</name>
             <required>false</required>
@@ -196,11 +189,8 @@
 
     <tag>
         <name>editorSelect</name>
-        <info>
-            Generates an html select box with editor
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.EditorSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.EditorSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -240,11 +230,8 @@
 
     <tag>
         <name>jobSelect</name>
-        <info>
-            Generates an html select box with jobs
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.JobSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.JobSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -284,11 +271,8 @@
 
     <tag>
         <name>languageSelect</name>
-        <info>
-            Generates an html select box with languages
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.LanguageSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.LanguageSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -328,11 +312,8 @@
 
     <tag>
         <name>organizationSelect</name>
-        <info>
-            Generates an html select box with organizations
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.OrganizationSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.OrganizationSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -372,11 +353,8 @@
 
     <tag>
         <name>majorSelect</name>
-        <info>
-            Generates an html select box with majors
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.MajorSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.MajorSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -416,11 +394,8 @@
 
     <tag>
         <name>referralSelect</name>
-        <info>
-            Generates an html select box with referral sources
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.ReferralSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.ReferralSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -465,11 +440,8 @@
 
     <tag>
         <name>schoolSelect</name>
-        <info>
-            Generates an html select box with schools (optionally filtered by U.S. state)
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.SchoolSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.SchoolSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -514,11 +486,8 @@
 
     <tag>
         <name>stateSelect</name>
-        <info>
-            Generates an html select box with U.S. states
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.StateSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.StateSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -558,11 +527,8 @@
 
     <tag>
         <name>yearSelect</name>
-        <info>
-            Generates an html select box with years
-        </info>
-        <tagclass>com.topcoder.web.tc.view.reg.tag.YearSelect</tagclass>
-        <bodycontent>empty</bodycontent>
+        <tag-class>com.topcoder.web.tc.view.reg.tag.YearSelect</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -612,11 +578,8 @@
 
     <tag>
         <name>format</name>
-        <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag for format objects
-        </info>
+        <tag-class>com.topcoder.web.common.tag.FormatTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>object</name>
             <required>true</required>
