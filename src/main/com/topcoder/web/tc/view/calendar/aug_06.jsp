@@ -70,21 +70,20 @@
             Register: 4:00&#160;AM<br />
             Compete: 7:00&#160;AM<br />
             <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-           <A href="/tc?module=MatchDetails&rd=9994">Details</A><br/><br/></td>
-           
-     <%--   <td id="calendarTCHS">
-            <span id="calendarTCHSDate">3</span><br />
-            <strong>HS Match 10</strong><br />
-            Register: 11:00&#160;AM<br />
-            Compete: 2:00&#160;PM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
+           <A href="/tc?module=MatchDetails&rd=9994">Details</A><br/><br/></td>     
         <td id="calendar">4</td>
         <td id="calendar">5</td>
     </tr>
     <tr> 
         <td id="calendar">6</td>
         <td id="calendar">7</td>
+     <%--   <td id="calendarTCHS">
+            <span id="calendarTCHSDate">7</span><br />
+            <strong>HS Match 10</strong><br />
+            Register: 11:00&#160;AM<br />
+            Compete: 2:00&#160;PM<br />
+            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
         <td id="calendar">8</td>
         <td id="calendarSRM">
             <span id="calendarSRMDate">9</span><br />
