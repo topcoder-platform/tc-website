@@ -638,8 +638,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("and x.address_id = a.address_id ");
         selectDetails.append("and a.address_type_id = 2 ");
         selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
-        selectDetails.append("AND state.state_code = c.state_code ");
-        selectDetails.append("AND country.country_code = c.country_code");
+        selectDetails.append("AND state.state_code = a.state_code ");
+        selectDetails.append("AND country.country_code = a.country_code");
 
         Connection c = null;
         try {
@@ -4515,8 +4515,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" , address a ");
         query.append(" , outer state s ");
         query.append(" , country co ");
-        query.append(" where c.country_code = co.country_code ");
-        query.append(" and c.state_code = s.state_code ");
+        query.append(" where a.country_code = co.country_code ");
+        query.append(" and a.state_code = s.state_code ");
         query.append(" and x.address_id = a.address_id ");
         query.append(" and x.user_id = u.user_id ");
         query.append(" and a.address_type_id = 2 ");
