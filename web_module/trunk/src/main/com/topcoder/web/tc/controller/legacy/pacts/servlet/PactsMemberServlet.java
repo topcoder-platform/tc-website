@@ -11,11 +11,10 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  * information is passed using a session Navigation object.
  *
  * @author Sam King
- * @see Navigation
+ * @see com.topcoder.common.web.data.Navigation
  * @see PactsMemberTableModel
  */
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
