@@ -78,10 +78,6 @@
 <c:if test="${cf:contains(fields, schoolType)}">
     <tc-webtag:hiddenInput name="${schoolType}"/>
 </c:if>
-<c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="schoolVisible"/>
-<c:if test="${cf:contains(fields, schoolVisible)}">
-    <tc-webtag:hiddenInput name="${schoolVisible}"/>
-</c:if>
 
 
 <%--Demographics--%>
@@ -135,14 +131,21 @@
     </tr>
 
     <c:if test="${cf:contains(fields, visibleSchool)}">
-        <tr>
-        <td class="name">
-            Allow others to see my school:
-        </td>
-        <td class="value">
-            <tc-webtag:chkBox name="${visibleSchool}"/>
-        </td>
-    </tr>
+        <c:choose>
+            <c:when test="${cf:contains(regTypes, Util.factory.registrationTypeDAO.highSchoolType)}">
+                <tc-webtag:hiddenInput name="${visibleSchool}"/>
+            </c:when>
+            <c:otherwise>
+                <tr>
+                <td class="name">
+                    Allow others to see my school:
+                </td>
+                <td class="value">
+                    <tc-webtag:chkBox name="${visibleSchool}"/>
+                </td>
+            </tr>
+            </c:otherwise>
+        </c:choose>
     </c:if>
 
 
