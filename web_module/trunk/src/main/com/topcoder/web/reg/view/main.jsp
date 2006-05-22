@@ -45,7 +45,6 @@
       </div>
    </div>
 
-* required<br>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
 
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
@@ -464,6 +463,7 @@
    </tr>
 </c:if>
 </table>
+<br>* required
 
 <br><br>
 
