@@ -29,7 +29,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -235,16 +234,14 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     public void doAffidavitHistory(HttpServletRequest request,
                                    HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         AffidavitBean bean = new AffidavitBean();
         Affidavit[] affidavits;
 
         String fullList = request.getParameter("full_list");
         if (fullList != null) {
-            affidavits = bean.getAffidavitsForUser(nav.getUserId());
+            affidavits = bean.getAffidavitsForUser(getUserId(request));
         } else {
-            affidavits = bean.getPendingAffidavitsForUser(nav.getUserId());
+            affidavits = bean.getPendingAffidavitsForUser(getUserId(request));
         }
 
         if (affidavits == null) {
@@ -291,16 +288,14 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doContractHistory(HttpServletRequest request,
                                    HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         ContractBean bean = new ContractBean();
         ContractHeader[] contracts;
 
         String fullList = request.getParameter("full_list");
         if (fullList != null) {
-            contracts = bean.getContractsForUser(nav.getUserId());
+            contracts = bean.getContractsForUser(getUserId(request));
         } else {
-            contracts = bean.getActiveContractsForUser(nav.getUserId());
+            contracts = bean.getActiveContractsForUser(getUserId(request));
         }
 
         if (contracts == null) {
@@ -322,8 +317,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doContractDetails(HttpServletRequest request,
                                    HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         ContractBean bean = new ContractBean();
 
         String str = request.getParameter(CONTRACT_ID);
@@ -335,7 +328,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             } else {
 
                 // make sure the contract user id is the same as for the nav ob
-                if (nav.getUserId() != c.getContract().getHeader().getUser().getId()) {
+                if (getUserId(request) != c.getContract().getHeader().getUser().getId()) {
                     log.error("the contract user id != the nav user id");
                     return;
                 }
@@ -357,8 +350,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doContractPaymentSummary(HttpServletRequest request,
                                           HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         ContractBean bean = new ContractBean();
 
         // get the contract id
@@ -378,7 +369,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
         //check one of the payment and see if it has the correct user id
         if (payments.length > 0) {
-            if (payments[0].getUser().getId()!= nav.getUserId()) {
+            if (payments[0].getUser().getId()!= getUserId(request)) {
                 log.error("bad bad bad, this user id does not equal the nav uid");
                 return;
             }
@@ -403,8 +394,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doAffidavitDetails(HttpServletRequest request,
                                     HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         AffidavitBean bean = new AffidavitBean();
 
         // extract the affidavit id
@@ -425,7 +414,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
             // check and make sure that the user id is the same for the
             // affiavid and member that is logged in
-            if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
+            if (getUserId(request) != a.getAffidavit().getHeader().getUser().getId()) {
                 log.error("the user id in the affidavit does not match the nav id");
                 return;
             }
@@ -439,8 +428,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
     private void doAffidavitRender(HttpServletRequest request,
                                    HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         AffidavitBean bean = new AffidavitBean();
 
         // extract the affidavit id
@@ -461,7 +448,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
             // check and make sure that the user id is the same for the
             // affiavid and member that is logged in
-            if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
+            if (getUserId(request) != a.getAffidavit().getHeader().getUser().getId()) {
                 log.error("the user id in the affidavit does not match the nav id");
                 return;
             }
@@ -481,10 +468,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doPaymentHistory(HttpServletRequest request,
                                   HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         PaymentBean bean = new PaymentBean();
-        PaymentHeader[] payments = bean.getPaymentsForUser(nav.getUserId());
+        PaymentHeader[] payments = bean.getPaymentsForUser(getUserId(request));
 
         if (payments == null) {
             log.error("we got null from getPaymentsForUser");
@@ -506,8 +491,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doPaymentDetails(HttpServletRequest request,
                                   HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         PaymentBean bean = new PaymentBean();
 
         //make sure we got a payment id passed into us
@@ -527,7 +510,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             }
 
             // make sure the payment user id matches the nav user id
-            if (payment.getHeader().getUser().getId()!= nav.getUserId()) {
+            if (payment.getHeader().getUser().getId()!= getUserId(request)) {
                 log.error("Shame on you trying to get payments that are not for you");
                 return;
             }
@@ -565,10 +548,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doTaxFormHistory(HttpServletRequest request,
                                   HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         UserTaxFormBean bean = new UserTaxFormBean();
-        TaxFormHeader[] taxForms = bean.getTaxFormsForUser(nav.getUserId());
+        TaxFormHeader[] taxForms = bean.getTaxFormsForUser(getUserId(request));
 
         if (taxForms == null) {
             log.error("we got null from getPaymentsForUser");
@@ -587,15 +568,13 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doTaxFormDetails(HttpServletRequest request,
                                   HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         UserTaxFormBean bean = new UserTaxFormBean();
 
         // this expects the tax form id to be in the nav object
         String str = request.getParameter(TAX_FORM_ID);
         try {
             long taxId = Long.parseLong(str);
-            TaxFormWithText tf = bean.getTaxFormWithText(taxId, nav.getUserId());
+            TaxFormWithText tf = bean.getTaxFormWithText(taxId, getUserId(request));
             if (tf == null) {
                 log.error("got null returned from get tax form with text");
             } else {
@@ -643,8 +622,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      */
     private void doAffirmAffidavit(HttpServletRequest request,
                                    HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
         AffidavitBean bean = new AffidavitBean();
 
         // extract the affidavit id
@@ -684,7 +661,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
         // check and make sure that the user id is the same for the
         // affiavid and member that is logged in
-        if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
+        if (getUserId(request) != a.getAffidavit().getHeader().getUser().getId()) {
             log.error("the user id in the affidavit does not match the nav id");
             // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp",request,response);
             forward("/errorPage.jsp", request, response);
@@ -749,6 +726,12 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         doAffidavitHistory(request, response);
     }
     /***********************************************************************/
+
+
+    private long getUserId(HttpServletRequest request) {
+        SessionInfo info = (SessionInfo)request.getAttribute(SESSION_INFO_KEY);
+        return info.getUserId();
+    }
 }
 
 
