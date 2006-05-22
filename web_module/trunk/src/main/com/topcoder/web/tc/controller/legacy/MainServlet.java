@@ -179,14 +179,6 @@ public final class MainServlet extends BaseServlet {
             else if (requestTask.equals("time")) {
                 HTMLString = TaskTime.process(request, response, htmlMaker, nav, document);
             }
-            //************************ schedule ************************
-            else if (requestTask.equals("schedule")) {
-                HTMLString = TaskSchedule.process(request, htmlMaker, nav, document);
-            }
-            //************************ development ************************
-            else if (requestTask.equals("development")) {
-                HTMLString = TaskDevelopment.process(request, response, htmlMaker, nav, document);
-            }
             //************************ xsl cache refresh ************************
             else if (requestTask.equals("refresh_xsl")) {
                 htmlMaker.refresh();
