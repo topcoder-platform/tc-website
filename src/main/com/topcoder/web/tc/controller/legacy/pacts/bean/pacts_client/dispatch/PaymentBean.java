@@ -54,7 +54,7 @@ public class PaymentBean implements PactsConstants {
      * @param memberId the member id
      * @return the payment headers, or null if the payment id is bad
      */
-    public PaymentHeader[] getPaymentsForUser(int memberId) {
+    public PaymentHeader[] getPaymentsForUser(long memberId) {
         log.debug("getPaymentsForUser, memberId = " + memberId);
         DataInterfaceBean bean = new DataInterfaceBean();
         java.util.Map reply = null;
