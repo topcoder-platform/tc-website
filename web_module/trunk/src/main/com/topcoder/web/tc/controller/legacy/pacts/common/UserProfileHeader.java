@@ -16,9 +16,9 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 import java.util.Map;
@@ -78,9 +78,9 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *   o nav - The Navigation Object
 *
 */
-    public UserProfileHeader(Navigation nav) throws Exception {
-        if (nav.isIdentified()) {
-            id = nav.getUserId();
+    public UserProfileHeader(SessionInfo info) throws Exception {
+        if (!info.isAnonymous()) {
+            id = info.getUserId();
             log.debug("UPH - Have nav object.");
             DataInterfaceBean bean = new DataInterfaceBean();
             Map results = bean.getUserProfileHeader(id);
