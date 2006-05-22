@@ -45,6 +45,7 @@
       </div>
    </div>
 
+* required<br>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
 
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
@@ -60,7 +61,7 @@
    </tr>
    <tr>
       <td class="name">
-        Given Name:
+        * Given Name:
       </td>
       <td class="value">
          <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" size="15" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
@@ -77,7 +78,7 @@
    </tr>
    <tr>
       <td class="name">
-         Surname:
+         * Surname:
       </td>
       <td class="value">
          <tc-webtag:textInput name="<%=Constants.SURNAME%>" size="15" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
@@ -128,7 +129,7 @@
    </tr>
    <tr>
       <td class="name">
-        Address1:
+        * Address1:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
@@ -180,7 +181,7 @@
    <tr>
 
       <td class="name">
-        City:
+        * City:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
@@ -248,7 +249,7 @@
    </tr>
    <tr>
       <td class="name">
-         Country:
+         * Country:
       </td>
       <td class="value">
          <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
@@ -266,7 +267,7 @@
    </tr>
    <tr>
       <td class="name">
-         Country to represent:
+         * Country to represent:
       </td>
       <td class="value">
          <tc-webtag:objectSelect name="${compCountryCode}" list="${countries}" valueField="code" textField="name"/>
@@ -283,7 +284,7 @@
    </tr>
    <tr>
       <td class="name">
-         Timezone:
+         * Timezone:
       </td>
       <td class="value">
          <tc-webtag:objectSelect name="${timeZone}" list="${timeZones}" valueField="id" textField="description"/>
@@ -317,7 +318,7 @@
    </tr>
    <tr>
       <td class="name">
-        Email Address:
+        * Email Address:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
@@ -334,7 +335,7 @@
    </tr>
    <tr>
       <td class="name">
-        Confirm Email Address:
+        * Confirm Email Address:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.EMAIL_CONFIRM%>" size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>" editable="true"/>
@@ -370,7 +371,7 @@
    </tr>
    <tr>
       <td class="name">
-        User Name:
+        * User Name:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
@@ -387,7 +388,7 @@
    </tr>
    <tr>
       <td class="name">
-        Password:
+        * Password:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
@@ -404,7 +405,7 @@
    </tr>
    <tr>
       <td class="name">
-        Confirm Password:
+        * Confirm Password:
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>" editable="true"/>
