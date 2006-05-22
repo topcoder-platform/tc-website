@@ -4,7 +4,7 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <jsp:useBean id="JobHitData" scope="request" class="com.topcoder.web.tc.model.JobHitData" />
-<tc:getProperty id="coderType" name="JobHitData" property="CoderTypeId" />
+
 <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
   <div align="center">
   <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
@@ -90,7 +90,7 @@
     <td class="statText" align="right" valign="middle">&nbsp;</td>
     <td class="statText"  align="left" valign="top">
       <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
-<%if (coderType.equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
+<%if (JobHitData().getCoderType().equalsIgnoreCase(JobHitData.CODER_TYPE_STUDENT)) { %>
     <tr>
         <td class="statText">School:</td>
         <td class="statText">
