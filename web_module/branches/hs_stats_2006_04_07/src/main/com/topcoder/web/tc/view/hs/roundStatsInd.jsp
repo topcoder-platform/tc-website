@@ -246,7 +246,7 @@ z-index: 2;
            }
            %>
            <tr class="<%=even?"dark":"light"%>">
-              <td class="value">
+              <td class="value" nowrap="nowrap">
                  <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
               </td>
               <td class="value" nowrap>
