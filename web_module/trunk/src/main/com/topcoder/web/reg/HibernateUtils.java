@@ -198,8 +198,8 @@ public class HibernateUtils {
             if (t != null && t.isActive()) {
                 t.rollback();
             }
-        } catch (HibernateException e) {
-            log.error("Failed to rollback transaction");
+        } catch (Throwable e) {
+            log.error("Failed to rollback transaction " + e.getMessage());
         }
     }
 
