@@ -11,7 +11,7 @@
    NavTree nav = new NavTree();
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_competitions')", "Competitions", "m_competitions"));
       nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "competition_home"));
-      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_competitor_stats')",  "The &quot;Tops&quot;", "m_competitor_stats"));
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_competitor_stats')",  "The Tops", "m_competitor_stats"));
          nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_top_rated_competitors')",  "Top Ranked", "m_top_rated_competitors"));
             nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=AlgoRank", "Algorithm", "top_rated_algo"));
             nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/stat?c=top_designers", "Design", "top_rated_des"));
@@ -123,8 +123,8 @@
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?&module=SurveyList", "Surveys", "competitor_surveys"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_my_tc')", "My TopCoder", "m_my_tc"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
-//      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/reg/?nrg=false", "Update My Profile", "competitor_update_profile"));
+//      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
+      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/reg/?nrg=false", "Update My Profile", "competitor_update_profile"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Member Referrals", "referrals"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history", "Affidavits", "affidavits"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description", "Cards / Badges", "cards_badges"));
