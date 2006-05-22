@@ -10,6 +10,7 @@
          ,com.topcoder.web.tc.Constants
          ,com.topcoder.shared.util.ApplicationServer
          ,java.awt.*
+         ,java,util.Map
          ,java.io.StringReader"
 %>
 
@@ -61,8 +62,8 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 <jsp:param name="title" value="Problem Statement"/>
 </jsp:include>
 
-<bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
+Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
 ResultSetContainer.ResultSetRow resultRow_0 = null;
 String sClassName = null;
