@@ -36,11 +36,6 @@
         <!--        <load-on-startup>2</load-on-startup>-->
     </servlet>
 
-    <listener>
-        <listener-class>
-            com.topcoder.web.reg.controller.TestSessionListener
-        </listener-class>
-    </listener>
 
     <filter>
         <filter-name>GZIPResponse</filter-name>
