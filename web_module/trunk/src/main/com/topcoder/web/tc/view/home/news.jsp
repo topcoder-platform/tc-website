@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.19.06<br>12:00 NOON</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.19.06<br>1:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Downtime for scheduled maintenance: 05.21
       </span><br><br>
