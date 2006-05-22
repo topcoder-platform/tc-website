@@ -463,7 +463,7 @@
    </tr>
 </c:if>
 </table>
-<br>* required
+* required
 
 <br><br>
 

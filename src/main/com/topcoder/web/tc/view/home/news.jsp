@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.22.06<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm303">SRM 303 - Problem Set & Analysis</A></span><br><br>
+      With 843 registrants, this single round match again had a healthy amount of participants, even though no money prizes were at stake.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/mathijs_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="262056" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm303">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505869" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.19.06<br>1:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Downtime for scheduled maintenance: 05.21
@@ -177,23 +194,6 @@
    <tr><td class="newsLinksCell">
       <A href="http://forums.topcoder.com/?module=Thread&threadID=510919&mc=1#541170">discuss this</A>&#160;|&#160;
       <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.10.06<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm301">SRM 301 - Problem Set & Analysis</A></span><br><br>
-      This was the first competition after the TopCoder Open finals. Some of the TCO finalists tried for a rematch, while the coders who hadn't made it to Vegas finally got the chance to compete after almost two weeks.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm301">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505867" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
