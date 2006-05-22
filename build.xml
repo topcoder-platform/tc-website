@@ -1625,9 +1625,6 @@
                         <include name="com/topcoder/web/forums/**/*.class" />
                         <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
                     </classes>
-                    <classes dir="${resources}/forums">
-                        <include name="jive_init.xml" />
-                    </classes>
                     <webinf dir="${resources}/taglib">
                         <include name="tc-webtags.tld"/>
                         <include name="nav.tld"/>
