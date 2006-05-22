@@ -455,7 +455,7 @@
    </tr>
    <tr>
       <td class="name">
-         Coder Type:
+        * Coder Type:
       </td>
       <td class="value">
          <tc-webtag:objectSelect name="${coderType}" list="${coderTypes}" valueField="id" textField="description"/>
