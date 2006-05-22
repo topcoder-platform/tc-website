@@ -16,7 +16,10 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  */
 
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.ContractBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
@@ -24,14 +27,13 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.Us
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PactsMemberServlet extends HttpServlet implements PactsConstants {
+public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
 
     /**
@@ -53,18 +55,19 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) {
         try {
-            // check if there is a NAV object
-            HttpSession session = request.getSession();
-            //check if the are logged in
-            Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
-
-            // this is a check to see if it is from the login
-            String handle = request.getParameter("loginName");
-            String passwd = request.getParameter("password");
-            String url = request.getParameter("errorURL");
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            //set up security objects and session info
+            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject user = getUser(authentication.getActiveUser().getId());
+            SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            //todo perhaps this should be configuraable...so implementing classes
+            //todo don't have to do it if they don't want to
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
             // check to see if the user has not logged in
-            if ((nav == null) || (!nav.isIdentified())) {
+            if (info.isAnonymous()) {
                 // forward to login page
                 String errorURL = request.getRequestURI();
                 errorURL += (request.getQueryString() == null) ? "" : "?" + request.getQueryString();
@@ -142,7 +145,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             // the task and command did not get anywhere, but they are
             // logged in, send them to the main page with the user
             // profile header so that they can display the handle
-            UserProfileHeader header = new UserProfileHeader(nav);
+            UserProfileHeader header = new UserProfileHeader(info);
             request.setAttribute(PACTS_MEMBER_RESULT, header);
 
             forward("/pacts/client/Main.jsp", request, response);
@@ -156,13 +159,22 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) {
         try {
-            // check if there is a NAV object
-            HttpSession session = request.getSession();
-            //check if the are logged in
-            Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            //set up security objects and session info
+            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject user = getUser(authentication.getActiveUser().getId());
+            SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            //todo perhaps this should be configuraable...so implementing classes
+            //todo don't have to do it if they don't want to
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+
 
             // check to see if the user has not logged in
-            if ((nav == null) || (!nav.isIdentified())) {
+            if (info.isAnonymous()) {
                 // forward to login page
                 //String loginHref = "/?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
                 //forward(loginHref,request,response);
@@ -199,7 +211,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             }
 
             //if we got here, there was no post method, send them back to the main page
-            UserProfileHeader header = new UserProfileHeader(nav);
+            UserProfileHeader header = new UserProfileHeader(info);
             request.setAttribute(PACTS_MEMBER_RESULT, header);
 
             forward("/pacts/client/Main.jsp", request, response);
