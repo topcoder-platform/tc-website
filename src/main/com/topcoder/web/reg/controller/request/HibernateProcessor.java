@@ -130,8 +130,6 @@ public abstract class HibernateProcessor extends BaseProcessor {
 //                log.debug("Trying to rollback database transaction after exception");
                 HibernateUtils.rollback();
             }
-        } catch (Throwable rbEx) {
-            log.error("Could not rollback transaction after exception! " + rbEx.getMessage());
         } finally {
 //            log.error("Cleanup after exception!");
 
