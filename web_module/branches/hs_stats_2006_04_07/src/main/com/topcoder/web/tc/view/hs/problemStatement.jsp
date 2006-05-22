@@ -10,7 +10,7 @@
          ,com.topcoder.web.tc.Constants
          ,com.topcoder.shared.util.ApplicationServer
          ,java.awt.*
-         ,java,util.Map
+         ,java.util.Map
          ,java.io.StringReader"
 %>
 
