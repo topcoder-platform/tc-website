@@ -50,7 +50,7 @@ public class TCAuthFactory extends AuthFactory {
            auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
                    HttpObjectFactory.createRequest(httpServletRequest), HttpObjectFactory.createUnCachedResponse(httpServletResponse));
        } catch (Exception e) {
-           log.error(e);
+           throw new RuntimeException(e);
        }
        if (auth.getActiveUser().isAnonymous() &&
                httpServletRequest.getParameter("username") != null &&
