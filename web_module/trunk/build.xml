@@ -332,17 +332,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-SearchBean" depends="compile">
-        <jar jarfile="${ejb_jars}/Search.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/Sort.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/Search/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/Search" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-PactsServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -375,20 +364,6 @@
         <jar jarfile="${ejb_jars}/EmailServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/*.class"/>
             <metainf dir="${shared}/com/topcoder/shared/ejb/EmailServices" includes="*.xml"/>
-        </jar>
-    </target>
-
-    <target name="package-EJB-DataCacheBean" depends="compile">
-        <jar jarfile="${ejb_jars}/DataCache.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/ejb/DataCache/*.class"/>
-            <metainf dir="${java}/com/topcoder/ejb/DataCache" includes="*.xml"/>
         </jar>
     </target>
 
@@ -1003,7 +978,6 @@
     <target name="deploy-corp" depends="war-corp">
         <antcall target="package-EJB-AddressBean"/>
         <antcall target="package-EJB-CompanyBean"/>
-        <antcall target="package-EJB-DataCacheBean"/>
         <antcall target="package-EJB-EmailBean"/>
         <antcall target="package-EJB-NoteBean"/>
         <antcall target="package-EJB-PhoneBean"/>
@@ -1021,9 +995,7 @@
     <target name="expand-corp">
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
-                <include name="DataCache.jar"/>
                 <include name="Company.jar"/>
-                <include name="DataCache.jar"/>
                 <include name="Email.jar"/>
                 <include name="Note.jar"/>
                 <include name="Phone.jar"/>
@@ -1469,7 +1441,6 @@
         <antcall target="package-EJB-CoderSkillBean"/>
         <antcall target="package-EJB-CollegeTourBean"/>
         <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
-        <antcall target="package-EJB-DataCacheBean"/>
    <!--
         <antcall target="package-EJB-DDEPersistence"/>
    -->
@@ -1490,7 +1461,6 @@
         <antcall target="package-EJB-RBoard"/>
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
-        <antcall target="package-EJB-SearchBean"/>
    <!--
         <antcall target="package-EJB-SoftwareUser"/>
    -->
@@ -1522,7 +1492,6 @@
                 <include name="CoderSkill.jar"/>
                 <include name="CollegeTour.jar"/>
                 <include name="ComponentRegistrationServices.jar"/>
-                <include name="DataCache.jar"/>
                 <include name="ddepersistence.jar"/>
                 <include name="Email.jar"/>
                 <include name="FileConversion.jar"/>
@@ -1541,7 +1510,6 @@
                 <include name="RBoard.jar"/>
                 <include name="Reporting.jar"/>
                 <include name="ResumeServices.jar"/>
-                <include name="Search.jar"/>
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
                 <include name="user.jar"/>
