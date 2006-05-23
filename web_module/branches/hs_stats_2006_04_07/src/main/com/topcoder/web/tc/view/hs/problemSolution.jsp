@@ -213,13 +213,16 @@ boolean even = false;
        <% even = !even; %>
            <tr class="<%=even?"dark":"light"%>">
               <td class="value">
+                   <tc-webtag:handle coderId='<%= resultRow.getIntItem("challenger_id") %>' context='hs_algorithm'/>
+              </td>
+              <td class="value">
                  <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
               </td>
               <td class="valueR">
-                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected_result"))%>
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected"))%>
               </td>
               <td class="valueR">
-                 <%= resultRow.getItem("succeeded").toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))+"</span>"%>
+                 <%= resultRow.getItem("succeeded").toString().equals("Y")?"Yes": ("No - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))) %>
               </td>
            </tr>
        </rsc:iterator>
@@ -251,16 +254,13 @@ boolean even = false;
        <% even = !even; %>
            <tr class="<%=even?"dark":"light"%>">
               <td class="value">
-                   <tc-webtag:handle coderId='<%= resultRow.getIntItem("challenger_id") %>' context='hs_algorithm'/>
-              </td>
-              <td class="value">
                  <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
               </td>
               <td class="valueR">
-                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected"))%>
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected_result"))%>
               </td>
               <td class="valueR">
-                 <%= resultRow.getItem("succeeded").toString().equals("Y")?"Yes": ("No - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))) %>
+                 <%= resultRow.getItem("succeeded").toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))+"</span>"%>
               </td>
            </tr>
        </rsc:iterator>
