@@ -64,6 +64,8 @@
                     Lists includes only up to the first <strong><%=Constants.MAX_SCHOOL_RESULTS%></strong> schools. If you see a
                     duplicate, please choose the school with the greatest number of associated registrants.
                     <br><br>
+                     If any information about your school is missing or incorrect and you'd like send us the correct information, <A href="mailto:service@topcoder.com?subject=School Information Correction">click here</A>.
+                    <br><br>
                     Please <strong>select</strong> your school from list below.<br />
                     <span id="submitMessage"></span><br />
                     <span class="small">
