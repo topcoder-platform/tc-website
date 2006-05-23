@@ -86,15 +86,13 @@ if (rsc!=null && !rsc.isEmpty()) {
 
 <span class="bigTitle"><%= sClassName==null? "" : sClassName %></span>
 <br><br>
-<span class="bodySubtitle">Problem Statement</span><br>
-
-                      <% if (problem!=null) {
-                        ProblemRenderer pr = new ProblemRenderer(problem);
-                        pr.setTdClass("bodyIndented");%>
-              		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
-                      <% } else { %>
-                        Problem Statement not available.
-                      <% } %>
+                 <% if (problem!=null) {
+                   ProblemRenderer pr = new ProblemRenderer(problem);
+                   pr.setTdClass("bodyIndented");%>
+         		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
+                 <% } else { %>
+                   Problem Statement not available.
+                 <% } %>
 
 </td>
         <!-- Center Column Ends -->
