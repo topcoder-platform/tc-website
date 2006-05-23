@@ -13,6 +13,71 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 </head>
+<bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
+
+<%
+Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
+
+//common code that pulls out the request bean.
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+String sCoderId = srb.getProperty("cr","");
+String sRoomId = srb.getProperty("rm","");
+String sRoundId = srb.getProperty("rd","");
+pageContext.setAttribute("pm", srb.getProperty("pm",""));
+
+int pm = Integer.parseInt(srb.getProperty("pm",""));
+
+//get the Header info
+
+ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
+ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
+
+ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
+
+String sHeader = "";
+
+if (resultRowHdr != null) {
+ sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(3).toString();
+}
+
+//get the Problem Name info
+ResultSetContainer rscInfo = (ResultSetContainer) queryEntries.get("Problem_Data");
+ResultSetContainer.ResultSetRow resultRow_Info = rscInfo.isValidRow(0)? rscInfo.getRow(0):null;
+String sClassName = resultRow_Info!=null?resultRow_Info.getItem(0).toString():"";
+
+//get the solution text
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Submission");
+ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
+String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").toString():"";
+
+ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
+boolean even = false;
+%>
+<%!
+  private String addSpace(String text) {
+      int i=-1;
+      text = JSPUtils.htmlEncode(text);
+      while((i = text.indexOf("\n\n"))>=0){
+        text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
+
+      }
+
+    StringTokenizer strtok = new StringTokenizer(text,"\n");
+    StringBuffer stBuffer = new StringBuffer(text.length());
+    String sTemp = "";
+    while (strtok.hasMoreTokens()){
+      sTemp = strtok.nextToken();
+      for (i=0; i<sTemp.length(); i++){
+        if (sTemp.charAt(i)==' ')
+          stBuffer.append("&#160;");
+        else
+          stBuffer.append(sTemp.charAt(i));
+      }
+      stBuffer.append("<BR>");
+    }
+    return stBuffer.toString();
+  }
+%>
 
 <body>
 
@@ -70,57 +135,27 @@
          Points
       </td>
    </tr>
-   <tr class="light">
+
+   <rsc:iterator list="<%= rscSubmissions %>" id="resultRow">
+   <% even = !even; %>
+   <tr class='<%= resultRow.getIntItem("problem_id") == pm? "highlight" : (even? "light" : "dark")'>
       <td class="value">
-         <A href="">Knights</A>
+        <rsc:item name="class_name" row="<%=resultRow%>"/>
       </td>
       <td class="value">
-         makeFriendly
+         <rsc:item name="method_name" row="<%=resultRow%>"/>
       </td>
       <td class="value">
-         Level One
+         <rsc:item name="level_desc" row="<%=resultRow%>"/>
       </td>
       <td class="value">
-         Passed System Test
+       <rsc:item name="end_status_text" row="<%=resultRow%>"/>
       </td>
       <td class="valueR">
-         378.04
+         <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/>
       </td>
    </tr>
-   <tr class="highlight">
-      <td class="value">
-         Knights
-      </td>
-      <td class="value">
-         makeFriendly
-      </td>
-      <td class="value">
-         Level Two
-      </td>
-      <td class="value">
-         <span class="bigRed">Failed System Test</span>
-      </td>
-      <td class="valueR">
-         0.00
-      </td>
-   </tr>
-   <tr class="light">
-      <td class="value">
-         <A href="">Knights</A>
-      </td>
-      <td class="value">
-         makeFriendly
-      </td>
-      <td class="value">
-         Level Three
-      </td>
-      <td class="value">
-         Compiled
-      </td>
-      <td class="valueR">
-         0.00
-      </td>
-   </tr>
+   </rsc:iterator>
 </table>
 
 <br><br>
@@ -136,7 +171,7 @@
     int row = 0, col = 0, w, s, p;
     w = Math.round((float)Math.ceil(Math.sqrt((double)num)));
     if (w%2 == 0) w++;
-    
+
     num -= (w-2)*(w-2);
     s = (w-1)/2;
     p = num%(w-1);
@@ -158,7 +193,7 @@
         col = -s+p;
         break;
     }
-    
+
     return "(" + row + "," + col + ")";
   }
 }
