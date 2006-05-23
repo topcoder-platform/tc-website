@@ -42,7 +42,7 @@ ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_
 ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
 
 String sHeader = "";
-String sRoom = "";
+String sRoomName = "";
 
 if (resultRowHdr != null) {
  sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
