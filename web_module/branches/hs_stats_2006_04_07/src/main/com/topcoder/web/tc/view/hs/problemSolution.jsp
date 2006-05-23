@@ -32,9 +32,13 @@ String sRoomId = srb.getProperty("rm","");
 String sRoundId = srb.getProperty("rd","");
 String sProblemId = srb.getProperty("pm","");
 
+String seasonName = (String) request.getAttribute("seasonName");
+
 int pm = Integer.parseInt(srb.getProperty("pm",""));
 int forumId = -1;
 //get the Header info
+
+boolean highSchool = false;
 
 ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
 ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
@@ -45,9 +49,10 @@ String sHeader = "";
 String sRoomName = "";
 
 if (resultRowHdr != null) {
- sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
+ sHeader = (highSchool? seasonName + "&nbsp;&gt;&nbsp;" : "") + resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
  sRoomName = resultRowHdr.getItem(2).toString() ;
  forumId =resultRowHdr.getIntItem("forum_id");
+ highSchool = resultRowHdr.getIntItem("algo_rating_type_id") == 2;
 }
 
 //get the Problem Name info
@@ -64,7 +69,23 @@ ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder
 ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
 ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Problem_Defenses");
 boolean even = false;
+
+String roundOverviewLink = null;
+String roomStatsLink = null;
+
+String context = highSchool? "hs_algorithm" : "algorithm";
+
+if (highSchool) {
+    roundOverviewLink ="/tc?module=HSRoundOverview&rd=" + sRoundId;
+    roomStatsLink = "/tc?module=HSRoomStats&rd="+ sRoundId + "&rm="+ sRoomId;
+} else {
+    roundOverviewLink ="/stat?c=round_overview&rd=" + sRoundId;
+    roomStatsLink = "/stat?c=room_stats&rd="+ sRoundId + "&rm="+ sRoomId;
+}
+
 %>
+
+
 <%!
   private String addSpace(String text) {
       int i=-1;
@@ -102,7 +123,7 @@ boolean even = false;
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_hs_stats"/>
+            <jsp:param name="node" value='<%= highSchool? "m_hs_stats" : "m_algo_stats" %>'/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -111,16 +132,16 @@ boolean even = false;
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp" >
-<jsp:param name="image" value="high_school"/>
+<jsp:param name="image" value='<%= highSchool? "high_school" : "algorithm" %>'/>
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink">Match Overview</A> >
-<A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
+<span class="bodySubtitle"><%= highSchool? "High School" : "Algorithm" %> Statistics > <A href="<%= roundOverviewLink %>" class="bcLink">Match Overview</A> >
+<A href="<%= roomStatsLink%>" class="bcLink">Room Statistics</A> > Problem Solution</span>
 <br><br>
-<strong>Match:</strong> <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink"><%=sHeader%></A><br>
-<strong>Room:</strong> <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink"><%= sRoomName %></A><br>
-<strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm' /><br>
+<strong>Match:</strong> <A href="<%= roundOverviewLink %>" class="bcLink"><%=sHeader%></A><br>
+<strong>Room:</strong> <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A><br>
+<strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>' /><br>
 <% if(forumId > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
 <% } %>
@@ -185,7 +206,7 @@ boolean even = false;
 <br><br>
 
 <div style="float:right;"><A href="/tc?module=HSProblemStatement&pm=<%=sProblemId%>&rd=<%=sRoundId%>">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm'/>'s solution to <%=sClassName%></span>
+<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>'/>'s solution to <%=sClassName%></span>
 <br><br>
 
 <pre>
@@ -218,7 +239,7 @@ boolean even = false;
        <% even = !even; %>
            <tr class="<%=even?"dark":"light"%>">
               <td class="value">
-                   <tc-webtag:handle coderId='<%= resultRow.getIntItem("challenger_id") %>' context='hs_algorithm'/>
+                   <tc-webtag:handle coderId='<%= resultRow.getIntItem("challenger_id") %>' context='<%=context%>'/>
               </td>
               <td class="value">
                  <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
