@@ -558,21 +558,24 @@ public class AutoPilot {
             if (count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
                 return new SuccessResult();
 
+            // only permitted levels
+            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ? 
+            		DefaultPriceComponent.LEVEL2 : DefaultPriceComponent.LEVEL1;
+                        
             DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
-            		(new Long(project.getLevelId())).intValue(), count, passedCount, 
+            		levelId, count, passedCount, 
             				project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
             
-	        //check project for reviewers
+	        // check project for reviewers
             UserRole[] participants = project.getParticipants();
             
+            // get primary screener ID
             long primaryScreenerId = -1;
             for (int i = 0; i < participants.length && primaryScreenerId == -1; i++) {
             	if (participants[i].getRole().getId() == Role.ID_PRIMARY_SCREENER) {
             		primaryScreenerId = participants[i].getUser().getId();
             	}
             }
-            
-            System.out.println("primaryScreenerId: " + primaryScreenerId);
             
             for (int i = 0; i < participants.length; i++) {
             	long roleId = participants[i].getRole().getId();
@@ -583,9 +586,9 @@ public class AutoPilot {
                     }
                 }
                 
-                System.out.println("participants[i].getUser().getId(): " + participants[i].getUser().getId());                
-
-                // calculate payment for reviewers tasks.
+                // calculate payment for reviewers tasks. If the primary screener is also a reviewer, 
+                // he only gets CoreCost for the review since startup time is already calculated
+                // for the screening.
                 float amountToPay = 0;
                 if (roleId == Role.ID_AGGREGATOR)
                 	amountToPay = defaultPriceComponent.getAggregationCost();
@@ -598,10 +601,7 @@ public class AutoPilot {
                     	    defaultPriceComponent.getCoreReviewCost() : 
                     	        defaultPriceComponent.getReviewPrice();
 
-                System.out.println("roleId: " + roleId);                
-                System.out.println("amountToPay: " + amountToPay);                
-                    	    
-                    	    
+                // update payment info.
                 if (amountToPay > 0) {
                 	PaymentInfo paymentInfo = participants[i].getPaymentInfo();
                 	paymentInfo.setPayment(amountToPay);
