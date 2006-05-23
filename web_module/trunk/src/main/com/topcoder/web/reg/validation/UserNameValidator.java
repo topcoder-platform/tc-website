@@ -33,13 +33,15 @@ public class UserNameValidator implements Validator {
                 ValidationResult hret  = null;
                 if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
                     //log.debug("in here");
-                    hret = new BasicResult(Util.getFactory().getUserDAO().find(handle, true) == null, "Please choose another handle.");
+                    hret = new BasicResult(Util.getFactory().getUserDAO().find(handle, true) == null, "Please choose another user name.");
                 }
                 if (hret==null || hret.isValid()) {
                     if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
                         ret = new BasicResult(false, "Your user name may contain only letters, numbers and " + Constants.PUNCTUATION);
                     } else if (StringUtils.containsOnly(handle, Constants.PUNCTUATION, false)) {
                         ret = new BasicResult(false, "Your user name may not contain only punctuation.");
+                    } else if (handle.toLowerCase().trim().startsWith("admin")) {
+                        ret = new BasicResult(false, "Please choose answer user name.");
                     } else {
                         ret = ValidationResult.SUCCESS;
                     }
