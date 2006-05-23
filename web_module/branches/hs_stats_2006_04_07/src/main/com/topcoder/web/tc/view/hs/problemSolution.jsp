@@ -59,6 +59,7 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
 
 ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
 ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
+ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Problem_Defenses");
 boolean even = false;
 %>
 <%!
@@ -116,7 +117,7 @@ boolean even = false;
 <br><br>
 <strong>Match:</strong> <A href="" class="bcLink">FIX HS SRM 1 > Round 1</A><br>
 <strong>Room:</strong> <A href="" class="bcLink">4 FIX</A><br>
-<strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" /><br>
+<strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm' /><br>
 <a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">FIX Discuss this contest</a>
 <br><br>
 
@@ -179,7 +180,7 @@ boolean even = false;
 <br><br>
 
 <div style="float:right;"><A href="/tc?module=HSProblemStatement&pm=<%=sProblemId%>&rd=<%=sRoundId%>">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" />'s solution to <%=sClassName%></span>
+<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm'/>'s solution to <%=sClassName%></span>
 <br><br>
 
 <pre>
@@ -187,38 +188,85 @@ boolean even = false;
 </pre>
 
 
-<table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
-   <tr>
-      <td class="title" colspan="3">
-          System Test Results
-      </td>
-   </tr>
-   <tr>
-      <td class="header">
-         Test Arguments
-      </td>
-      <td class="headerR">
-         Expected Results
-      </td>
-      <td class="headerR">
-         Success
-      </td>
-   </tr>
-   <rsc:iterator list="<%= rscSysTest %>" id="resultRow">
-   <% even = !even; %>
-       <tr class="<%=even?"dark":"light"%>">
-          <td class="value">
-             <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
-          </td>
-          <td class="valueR">
-             <%= JSPUtils.htmlEncode(resultRow.getItem("expected_result"))%>
-          </td>
-          <td class="valueR">
-             expected_result<%= resultRow.getItem("succeeded").toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))+"</span>"%>
+<% if (rscDefense.size() > 0) { %>
+    <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
+       <tr>
+          <td class="title" colspan="4">
+              Defense Results
           </td>
        </tr>
-   </rsc:iterator>
-</table>
+       <tr>
+          <td class="header">
+             Challenger
+          </td>
+          <td class="header">
+             Challenge Arguments
+          </td>
+          <td class="headerR">
+             Expected Result
+          </td>
+          <td class="headerR">
+             Succeeded
+          </td>
+       </tr>
+       <rsc:iterator list="<%= rscDefense %>" id="resultRow">
+       <% even = !even; %>
+           <tr class="<%=even?"dark":"light"%>">
+              <td class="value">
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
+              </td>
+              <td class="valueR">
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected_result"))%>
+              </td>
+              <td class="valueR">
+                 <%= resultRow.getItem("succeeded").toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))+"</span>"%>
+              </td>
+           </tr>
+       </rsc:iterator>
+    </table>
+<% } %>
+
+
+<br>
+
+<% if (rscSysTest.size() > 0) { %>
+    <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
+       <tr>
+          <td class="title" colspan="3">
+              System Test Results
+          </td>
+       </tr>
+       <tr>
+          <td class="header">
+             Test Arguments
+          </td>
+          <td class="headerR">
+             Expected Results
+          </td>
+          <td class="headerR">
+             Success
+          </td>
+       </tr>
+       <rsc:iterator list="<%= rscSysTest %>" id="resultRow">
+       <% even = !even; %>
+           <tr class="<%=even?"dark":"light"%>">
+              <td class="value">
+                   <tc-webtag:handle coderId='<%= resultRow.getIntItem("challenger_id") %>' context='hs_algorithm'/>
+              </td>
+              <td class="value">
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
+              </td>
+              <td class="valueR">
+                 <%= JSPUtils.htmlEncode(resultRow.getItem("expected"))%>
+              </td>
+              <td class="valueR">
+                 <%= resultRow.getItem("succeeded").toString().equals("Y")?"Yes": ("No - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))) %>
+              </td>
+           </tr>
+       </rsc:iterator>
+    </table>
+<% } %>
+
 
 </td>
         <!-- Center Column Ends -->
