@@ -26,23 +26,36 @@
    <div id="regBcContainer">
       <div class="regBc">
          <div class="title">
-         Step <strong>5</strong> of <strong>6</strong></div>
+         Step <strong>5</strong> of
+<%--- IF NEW REG -----%>
+         <strong>6</strong>
+<%--- ELSE -----%>
+         <strong>5</strong>
+<%---------------------%>
+         </div>
          <div class="off">Select Your Registration</div>
          <div class="off">General</div>
          <div class="off">Demographics</div>
          <div class="off">Confirm</div>
          <div class="on">Success</div>
+<%--- IF REGISTERING -----%>
          <div class="off">Activation</div>
+<%---------------------%>
       </div>
    </div>
 
    <div style="width:400px;">
-   <strong>Registration successful!</strong>
-   <br><br>
-   <span class="bigRed">Please check your email. You <u>MUST</u> activate your account to complete registration.</span>
-   <br><br>
-   Your activation code is being emailed to you. Follow the instructions in the email to activate your account.
-
+<%--- IF NEW REG -----%>
+      <strong>Registration successful!</strong>
+      <br><br>
+      <span class="bigRed">Please check your email. You <u>MUST</u> activate your account to complete registration.</span>
+      <br><br>
+      Your activation code is being emailed to you. Follow the instructions in the email to activate your account.
+<%--- ELSE -----%>
+      <strong>Profile updated!</strong>
+      <br><br>
+      Your profile has been successfully updated 
+<%---------------------%>
    </div>
 
 <br><br>
