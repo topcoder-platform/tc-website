@@ -49,10 +49,10 @@ String sHeader = "";
 String sRoomName = "";
 
 if (resultRowHdr != null) {
+ highSchool = resultRowHdr.getIntItem("algo_rating_type_id") == 2;
  sHeader = (highSchool? seasonName + "&nbsp;&gt;&nbsp;" : "") + resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
  sRoomName = resultRowHdr.getItem(2).toString() ;
  forumId =resultRowHdr.getIntItem("forum_id");
- highSchool = resultRowHdr.getIntItem("algo_rating_type_id") == 2;
 }
 
 //get the Problem Name info
