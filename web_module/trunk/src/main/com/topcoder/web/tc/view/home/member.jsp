@@ -10,6 +10,12 @@
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
+<script type="text/javascript">
+  <!--
+    _uacct = "UA-321688-1"; urchinTracker();
+    -->
+    </script>
 </head>
 
 <body>
