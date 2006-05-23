@@ -12,7 +12,7 @@
                     <td>&#160;</td>
 
                     <td class="bodyText" width="170" align="right"> 
-                        <jsp:include page="../calendar.jsp" />
+                        <jsp:include page="/calendar.jsp" />
                     </td>
 
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>

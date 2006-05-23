@@ -40,7 +40,7 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <img src="/i/tournament/tco05/verisign_right.gif" alt="Verisign" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<jsp:include page="../../calendar.jsp" />
+<jsp:include page="/calendar.jsp" />
 </td>
 		
 	</tr>

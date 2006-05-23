@@ -29,7 +29,7 @@ function find(n) {
 <!-- Member Profiles, Search Pages, and Private Label Events Pages begins -->
 <% if ((level1.equals("default")) | (level1.equals("profile")) | (level1.equals("search")) | (level1.equals("tournament")) | (level1.equals("privatelabel"))) { %>
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 <!-- Member Profiles, Search Pages, and Private Label Events Pages ends -->
@@ -59,7 +59,7 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
 
 
@@ -85,7 +85,7 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -103,7 +103,7 @@ function find(n) {
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign"><img src="/i/tournament/tco05/verisign_right.gif" alt="Verisign" border="0" /></a><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -118,7 +118,7 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
 
             <p><br/></p>
@@ -134,7 +134,7 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -149,7 +149,7 @@ function find(n) {
 
          <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -164,7 +164,7 @@ function find(n) {
 
          <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -179,7 +179,7 @@ function find(n) {
 
          <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <jsp:include page="calendar.jsp" />
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -188,7 +188,7 @@ function find(n) {
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
 
-            <jsp:include page="calendar.jsp"/>
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -204,7 +204,7 @@ function find(n) {
 <!-- Review Board begins -->
 <% } else if (level1.equals("review_board")) { %>
 
-            <jsp:include page="calendar.jsp"/>
+            <jsp:include page="/calendar.jsp" />
 
             <p><br/></p>
 
@@ -213,7 +213,7 @@ function find(n) {
 <!-- Employment Opportunities begins -->
 <% } else if (level1.equals("employmentOpps")) { %>
 
-            <jsp:include page="calendar.jsp"/>
+            <jsp:include page="/calendar.jsp" />
             <p><br/></p>
 
 <!-- Employment Opportunities ends -->
