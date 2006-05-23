@@ -460,7 +460,7 @@ abstract class Base extends HibernateProcessor {
 
 
     protected void setSecondaryDefaults(User u) {
-        Set responses;
+        Collection responses;
 
         if (u.getTransientResponses().isEmpty()) {
             responses = u.getDemographicResponses();

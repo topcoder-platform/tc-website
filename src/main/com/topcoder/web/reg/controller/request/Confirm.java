@@ -62,7 +62,7 @@ public class Confirm extends Base {
             Long answerId;
             List answers;
             DemographicResponse tr;
-            HashSet responses = new HashSet();
+            ArrayList responses = new ArrayList();
             for (Iterator it = getAssignments(u).iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
                 if (da.getQuestion().isMultipleSelect()) {

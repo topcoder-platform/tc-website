@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.Collection;
 
 /**
  * @author dok
@@ -165,7 +166,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
     }
 
-    private DemographicResponse findResponse(Set responses, DemographicQuestion q) {
+    private DemographicResponse findResponse(Collection responses, DemographicQuestion q) {
         boolean found = false;
         DemographicResponse ret = null;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
@@ -179,7 +180,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
     }
 
-    private Set findResponses(Set responses, DemographicQuestion q) {
+    private Set findResponses(Collection responses, DemographicQuestion q) {
         HashSet ret = new HashSet();
         DemographicResponse response;
         for (Iterator it = responses.iterator(); it.hasNext();) {
