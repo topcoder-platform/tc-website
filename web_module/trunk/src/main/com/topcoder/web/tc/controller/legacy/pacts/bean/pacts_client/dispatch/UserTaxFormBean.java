@@ -56,7 +56,7 @@ public class UserTaxFormBean implements PactsConstants {
      * @return an array of tax form headers for the user, or null if there
      *         are none or the member id is invalid.
      */
-    public TaxFormHeader[] getTaxFormsForUser(int memberId) {
+    public TaxFormHeader[] getTaxFormsForUser(long memberId) {
         log.debug("getTaxFormsForUser, memberId = " + memberId);
         DataInterfaceBean bean = new DataInterfaceBean();
         java.util.Map reply = null;
