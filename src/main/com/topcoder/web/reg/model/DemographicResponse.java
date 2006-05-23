@@ -75,7 +75,7 @@ public class DemographicResponse extends Base {
                 boolean sameResponse = true;
                 if (getQuestion().isFreeForm()) {
                     sameResponse = (oa.getResponse()==null&&getResponse()==null) ||
-                            (oa.getResponse().equals(getResponse()));
+                            (oa.getResponse()!=null && oa.getResponse().equals(getResponse()));
                 }
                 boolean ret = sameUser&&sameQuestion&&sameAnswer&&sameResponse;
                 return ret;
