@@ -110,12 +110,13 @@ boolean even = false;
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="bodySubtitle">High School Statistics > <A href="" class="bcLink">Match Overview</A> > <A href="" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
+<span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview" class="bcLink">Match Overview</A> >
+<A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
 <br><br>
-<strong>Match:</strong> <A href="" class="bcLink">HS SRM 1 > Round 1</A><br>
-<strong>Room:</strong> <A href="" class="bcLink">4</A><br>
+<strong>Match:</strong> <A href="" class="bcLink">FIX HS SRM 1 > Round 1</A><br>
+<strong>Room:</strong> <A href="" class="bcLink">4 FIX</A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" /><br>
-<a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">Discuss this contest</a>
+<a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">FIX Discuss this contest</a>
 <br><br>
 
 
@@ -126,8 +127,8 @@ boolean even = false;
       </td>
    </tr>
    <tr>
-      <td class="header">&#160;<
-      /td>
+      <td class="header">&#160;
+      </td>
       <td class="header">
          Class Name
       </td>
@@ -176,44 +177,12 @@ boolean even = false;
 
 <br><br>
 
-<div style="float:right;"><A href="">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" />'s solution to Knights</span>
+<div style="float:right;"><A href="/tc?module=HSProblemStatement&pm=<%=sProblemId%>&rd=<%=sRoundId%>">view problem statement</A></div>
+<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" />'s solution to <%=sClassName%></span>
 <br><br>
 
 <pre>
- public class SpiralNumbers {
-  public String getPosition(int num) {
-    if (num == 1) return "(0,0)";
-    int row = 0, col = 0, w, s, p;
-    w = Math.round((float)Math.ceil(Math.sqrt((double)num)));
-    if (w%2 == 0) w++;
-
-    num -= (w-2)*(w-2);
-    s = (w-1)/2;
-    p = num%(w-1);
-    switch (num/(w-1)) {
-      case 0:  // R
-        row = -s+p;
-        col = s;
-        break;
-      case 1:  // D
-        row = s;
-        col = s-p;
-        break;
-      case 2:  // L
-        row = s-p;
-        col = -s;
-        break;
-      case 3:  // U
-        row = -s;
-        col = -s+p;
-        break;
-    }
-
-    return "(" + row + "," + col + ")";
-  }
-}
-
+<%= sClassText %>
 </pre>
 
 
