@@ -26,15 +26,6 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
-// -->
 </script>
 </head>
 
