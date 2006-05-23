@@ -84,7 +84,7 @@ if (rsc!=null && !rsc.isEmpty()) {
 %>
 
 
-<span class="bigTitle"><%= sClassName %></span>
+<span class="bigTitle"><%= sClassName==null? "" : sClassName %></span>
 <br><br>
 <span class="bodySubtitle">Problem Statement</span><br>
 
