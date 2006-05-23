@@ -559,12 +559,9 @@ public class AutoPilot {
                 return new SuccessResult();
 
             DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
-            		DefaultPriceComponent.LEVEL1, count, passedCount, 
+            		(new Long(project.getLevelId())).intValue(), count, passedCount, 
             				project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
             
-
-    		//(new Long(project.getLevelId())).intValue(),
-    		
 	        //check project for reviewers
             UserRole[] participants = project.getParticipants();
             
@@ -574,6 +571,8 @@ public class AutoPilot {
                 primaryScreenerId = participants[i].getRole().getId();
             }
             
+            System.out.println("primaryScreenerId: " + primaryScreenerId);
+            
             for (int i = 0; i < participants.length; i++) {
             	long roleId = participants[i].getRole().getId();
                 if (roleId == Role.ID_REVIEWER) {
@@ -582,6 +581,8 @@ public class AutoPilot {
                         return new SuccessResult();
                     }
                 }
+                
+                System.out.println("participants[i].getRole().getId(): " + participants[i].getRole().getId());                
 
                 // calculate payment for reviewers tasks.
                 float amountToPay = 0;
@@ -595,6 +596,10 @@ public class AutoPilot {
                 	amountToPay = (participants[i].getRole().getId() == primaryScreenerId) ? 
                     	    defaultPriceComponent.getCoreReviewCost() : 
                     	        defaultPriceComponent.getReviewPrice();
+
+                System.out.println("roleId: " + roleId);                
+                System.out.println("amountToPay: " + amountToPay);                
+                    	    
                     	    
                 if (amountToPay > 0) {
                 	PaymentInfo paymentInfo = participants[i].getPaymentInfo();
