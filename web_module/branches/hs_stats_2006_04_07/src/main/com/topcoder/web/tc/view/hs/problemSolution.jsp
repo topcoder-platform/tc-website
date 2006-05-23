@@ -58,6 +58,7 @@ ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):n
 String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").toString():"";
 
 ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
+ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
 boolean even = false;
 %>
 <%!
@@ -182,7 +183,7 @@ boolean even = false;
 <br><br>
 
 <pre>
-<%= sSolutionText %>
+<%= sSolutionText.trim().length()==0?"Solution Not Available":addSpace(sSolutionText) %>
 </pre>
 
 
@@ -203,42 +204,20 @@ boolean even = false;
          Success
       </td>
    </tr>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         3
-      </td>
-      <td class="valueR">
-         "(1,1)"
-      </td>
-      <td class="valueR">
-         Passed
-      </td>
-   </tr>
+   <rsc:iterator list="<%= rscSysTest %>" id="resultRow">
    <% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         7
-      </td>
-      <td class="valueR">
-         "(-1,-1)"
-      </td>
-      <td class="valueR">
-         <span class="bigRed">FAILED - Result:    "(0,0)"</span>
-      </td>
-   </tr>
-   <% even = !even; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-         17
-      </td>
-      <td class="valueR">
-         "(2,-2)"
-      </td>
-      <td class="valueR">
-         Passed
-      </td>
-   </tr>
-   <% even = !even; %>
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="value">
+             <%= JSPUtils.htmlEncode(resultRow.getItem("args"))%>
+          </td>
+          <td class="valueR">
+             <%= JSPUtils.htmlEncode(resultRow.getItem("expected_result"))%>
+          </td>
+          <td class="valueR">
+             expected_result<%= resultRow.getItem("succeeded").toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem("received"))+"</span>"%>
+          </td>
+       </tr>
+   </rsc:iterator>
 </table>
 
 </td>
