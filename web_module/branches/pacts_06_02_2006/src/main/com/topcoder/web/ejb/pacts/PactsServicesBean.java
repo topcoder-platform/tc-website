@@ -1583,7 +1583,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer selectHeaders = new StringBuffer(300);
         selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
-        selectHeaders.append("p.user_id, u.handle, c.first_name, c.middle_name, c.last_name, ");
+        selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
         selectHeaders.append("pd.date_modified, pd.gross_amount, p.review ");
 
         StringBuffer from = new StringBuffer(300);
