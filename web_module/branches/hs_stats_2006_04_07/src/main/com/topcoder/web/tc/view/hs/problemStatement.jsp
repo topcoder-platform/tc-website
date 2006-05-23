@@ -90,7 +90,7 @@ if (rsc!=null && !rsc.isEmpty()) {
 
                       <% if (problem!=null) {
                         ProblemRenderer pr = new ProblemRenderer(problem);
-                        pr.setTdClass("statText");%>
+                        pr.setTdClass("bodyIndented");%>
               		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
