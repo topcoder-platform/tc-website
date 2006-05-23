@@ -5,50 +5,13 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<jsp:include page="/script.jsp"/>
+<jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
+  <jsp:param name="key" value="tc_calendar"/>
 </jsp:include>
-
-<STYLE TYPE="text/css">
-        #calendarTCO06
-        {
-        color: #FFF;
-        font-size: 11px;
-        font-weight: normal;
-        text-align: left;
-        vertical-align: top;
-        background-color: #0F4377;
-        background-image: url(/i/bg_calcell_tco06_gradient.gif);
-        background-repeat: repeat-x;
-        }
-        #calendarTCO06Date
-        {
-        color: #FFFFFF;
-        font-weight: bold;
-        }
-        A.calendarTCO06Link:link
-        {
-        color: #DDDDFF;
-        text-decoration: underline;
-        }
-        A.calendarTCO06Link:visited
-        {
-        color: #DDDDFF;
-        text-decoration: underline;
-        }
-        A.calendarTCO06Link:hover
-        {
-        color: #FF0000;
-        text-decoration: none;
-        }
-
-</STYLE>
-
 </head>
 
 <body>
-
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -56,187 +19,196 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
 <jsp:include page="../includes/global_left.jsp">
 <jsp:param name="node" value="competition_calendar"/>
 </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
+<%-- Center Column Begins --%>
+<td width="100%" align="left" class="bodyColumn">
 <div class="bodyText">
+
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
 <jsp:param name="title" value="April 2006"/>
 </jsp:include>
 
+<div style="float:right;">All times are <A target="_blank" href="http://www.timeanddate.com/">Eastern Time</A> unless stated otherwise.</div>
+
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="apr_06"/>
 </jsp:include>
 
-<table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
-    <tr> 
-        <td id="calendarDays" width="14%">Sun</td>
-        <td id="calendarDays" width="14%">Mon</td>
-        <td id="calendarDays" width="14%">Tues</td>
-        <td id="calendarDays" width="14%">Wed</td>
-        <td id="calendarDays" width="14%">Thurs</td>
-        <td id="calendarDays" width="14%">Fri</td>
-        <td id="calendarDays" width="14%">Sat</td>
-    </tr>
-  
-    <tr> 
-        <td id="calendarBlank">
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendar">1</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar" rowspan="2">2</td>
-        <td id="calendarSRM" rowspan="2">
-            <span id="calendarSRMDate">3</span><br />
-            <strong>Match 296</strong><br />
-            Register: 4:00&#160;AM<br />
-            Compete: 7:00&#160;AM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9817">Details</A><br/><br/></td>
-        <td id="calendar" rowspan="2">4</td>
-        <td id="calendar" rowspan="2">5</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">6</span><br />
-            <strong>Match 297</strong><br />
-            Register: 6:00&#160;PM<br />
-            Compete: 9:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9818">Details</A><br/><br/></td>
-        <td id="calendar" rowspan="2">7</td>
-        <td id="calendar" rowspan="2">8</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendarTCO06">
-            <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #2 Submission Deadline: 9:00 AM ET
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
-            </td>
-    </tr>
-    <tr> 
-        <td id="calendar">9</td>
-        <td id="calendar">10</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">11</span><br />
-            <strong>Match 298</strong><br />
-            Register: 8:00&#160;AM<br />
-            Compete: 11:00&#160;AM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9819">Details</A><br/><br/></td>
-        <td id="calendar">12</td>
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">13</span><br/>
-            <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #3 Projects Posted: 9:00 AM ET
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
-            </td>
-        <td id="calendar">14</td>
-        <td id="calendar">15</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar">16</td>
-        <td id="calendar">17</td>
-        <td id="calendar">18</td>
-        <td id="calendarLong">
-            <span id="calendarLongDate">19</span><br />
-            <strong>Intel Multi-threading Competition 4</strong><br />
-            Registration Opens: 12:00 Noon<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>      
-        <td id="calendarTCO06">
-            <span id="calendarTCO06Date">20</span><br/>
-            <strong>2006 TopCoder Open Component Competition</strong><br/>
-            Online Championship Round #3 Submission Deadline: 9:00 AM ET
-            &#160;<br />
-            <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-            <A class="calendarTCO06Link" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule">Details</A>
-            </td>
-        <td id="calendar">21</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">22</span><br />
-            <strong>Match 299</strong><br />
-            Register: 9:00&#160;AM<br />
-            Compete: 12:00&#160;PM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9820">Details</A><br/><br/></td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar">23</td>
-        <td id="calendar">24</td>
-        <td id="calendar">25</td>
-        <td id="calendar">26</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">27</span><br />
-            <strong>Match 300</strong><br />
-            Register: 6:00&#160;PM<br />
-            Compete: 9:00&#160;PM<br />
-            Sponsored by: <br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS</A><br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9821">Details</A><br/><br/>
-            &#160;<br />
-            </td>
-        <td id="calendar">28</td>
-        <td id="calendar">29</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar">30</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">&#160;</td>
-        <td id="calendarBlank">
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;</td>
-    </tr>
+<table cellspacing="0" cellpadding="0" class="calendar" width="100%">
+   <tr>
+      <td class="headerC" width="14%">Sun</td>
+      <td class="headerC" width="14%">Mon</td>
+      <td class="headerC" width="14%">Tues</td>
+      <td class="headerC" width="14%">Wed</td>
+      <td class="headerC" width="14%">Thurs</td>
+      <td class="headerC" width="14%">Fri</td>
+      <td class="headerC" width="14%">Sat</td>
+   </tr>
+   
+   <tr>
+      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="value">1
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">2
+      </td>
+      <td class="value">3
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=9817">SRM 296</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br>
+         7:00 AM
+         </div>
+      </td>
+      <td class="value">4
+      </td>
+      <td class="value">5
+      </td>
+      <td class="value">6
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+         <div class="tco06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC Online Round 2 Deadline</A></strong><br>
+         9:00 AM
+         </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=9818">SRM 297</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=nsa">NSA</A><br>
+         9:00 PM
+         </div>
+      </td>
+      <td class="value">7
+      </td>
+      <td class="value">8
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">9
+      </td>
+      <td class="value">10
+      </td>
+      <td class="value">11
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=9819">SRM 298</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=amd">AMD</A><br>
+         11:00 AM
+         </div>
+      </td>
+      <td class="value">12
+      </td>
+      <td class="value">13
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+         <div class="tco06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC Online Round 3 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="value">14
+      </td>
+      <td class="value">15
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">16
+      </td>
+      <td class="value">17
+      </td>
+      <td class="value">18
+      </td>
+      <td class="value">19
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 4</A></strong><br>
+         12:00 PM
+         </div>
+      </td>
+      <td class="value">20
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+         <div class="tco06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC Online Round 3 Deadline</A></strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="value">21
+      </td>
+      <td class="value">22
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=9820">SRM 299</A></strong><br>
+         12:00 NOON
+         </div>
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">23
+      </td>
+      <td class="value">24
+      </td>
+      <td class="value">25
+      </td>
+      <td class="value">26
+      </td>
+      <td class="value">27
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=9821">SRM 300</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs">UBS</A><br>
+         9:00 PM
+         </div>
+      </td>
+      <td class="value">28
+      </td>
+      <td class="value">29
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">30
+      </td>
+      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+   </tr>
+
 </table>
 
 </div>
 </td>
-<!-- Center Column Ends -->
+<%-- Center Column Ends --%>
 
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
-
 </html>
