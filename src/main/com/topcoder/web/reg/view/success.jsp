@@ -87,7 +87,7 @@
                 <A href="/tc?module=Static&d1=help&d2=index">Algorithm</A><br>
                 <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Software Design</A><br>
                 <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Software Development</A><br>
-                <A href="/longcontest/?module=Static&d1=instructions">Marathon Matches</A>:
+                <A href="/longcontest/?module=Static&d1=instructions">Marathon Matches</A>
             </td>
         </tr>
         <tr>
