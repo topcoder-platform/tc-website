@@ -5,16 +5,13 @@
 <html>
 <head>
 <title>TopCoder Events Calendar</title>
-<jsp:include page="/script.jsp"/>
+<jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
+  <jsp:param name="key" value="tc_calendar"/>
 </jsp:include>
-
-
 </head>
 
 <body>
-
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -31,146 +28,173 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-<td class="statTableSpacer" width="100%" valign="top">
+<td width="100%" align="left" class="bodyColumn">
 <div class="bodyText">
+
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
 <jsp:param name="title" value="November 2006"/>
 </jsp:include>
 
+<div style="float:right;">All times are <A target="_blank" href="http://www.timeanddate.com/">Eastern Time</A> unless stated otherwise.</div>
+
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="nov_06"/>
 </jsp:include>
 
-<table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
-    <tr> 
-        <td id="calendarDays" width="14%">Sun</td>
-        <td id="calendarDays" width="14%">Mon</td>
-        <td id="calendarDays" width="14%">Tues</td>
-        <td id="calendarDays" width="14%">Wed</td>
-        <td id="calendarDays" width="14%">Thurs</td>
-        <td id="calendarDays" width="14%">Fri</td>
-        <td id="calendarDays" width="14%">Sat</td>
-    </tr>
-  
-    <tr> 
-        <td id="calendarBlank"></td>
-        <td id="calendarBlank"></td>
-        <td id="calendarBlank"></td>
-        <td id="calendar">1
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;<br />
-            &#160;</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">2</span><br />
-            <strong>Match 325</strong><br />
-            Register: 6:00&#160;PM<br />
-            Compete: 9:00&#160;PM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-           <A href="/tc?module=MatchDetails&rd=10005">Details</A><br/><br/></td>
-        <td id="calendar">3</td>
-        <td id="calendar">4</td>
-    </tr>
-    <tr> 
-        <td id="calendar">5</td>
-        <td id="calendar">6</td>
-     <%--   <td id="calendarTCHS">
-            <span id="calendarTCHSDate">6</span><br />
-            <strong>HS Match 19</strong><br />
-            Register: 7:00&#160;AM<br />
-            Compete: 10:00&#160;AM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
-        <td id="calendar">7</td>
-        <td id="calendar">8</td>
-        <td id="calendar">9</td>
-        <td id="calendar">10</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">11</span><br />
-            <strong>Match 326</strong><br />
-            Register: 9:00&#160;AM<br />
-            Compete: 12:00&#160;Noon<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-           <A href="/tc?module=MatchDetails&rd=10006">Details</A><br/><br/></td>
-    </tr>
+<table cellspacing="0" cellpadding="0" class="calendar" width="100%">
+   <tr>
+      <td class="headerC" width="14%">Sun</td>
+      <td class="headerC" width="14%">Mon</td>
+      <td class="headerC" width="14%">Tues</td>
+      <td class="headerC" width="14%">Wed</td>
+      <td class="headerC" width="14%">Thurs</td>
+      <td class="headerC" width="14%">Fri</td>
+      <td class="headerC" width="14%">Sat</td>
+   </tr>
 
-    <tr> 
-        <td id="calendar">12</td>
-        <td id="calendar">13</td>
-        <td id="calendar">14</td>
-        <td id="calendarLong">
-            <span id="calendarLongDate">15</span><br />
-            <strong>Intel Multi-threading Competition 11</strong><br />
-            Registration Opens: 12:00 Noon<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/longcontest/?module=Static&d1=intel_rules">Details</A><br/><br/></td>
-        <td id="calendar">16</td>
-        <td id="calendar">17</td>
-        <td id="calendar">18</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar">19</td>
-        <td id="calendar">20</td>
-     <%--   <td id="calendarTCHS">
-            <span id="calendarTCHSDate">20</span><br />
-            <strong>HS Match 20</strong><br />
-            Register: 3:00&#160;AM<br />
-            Compete: 6:00&#160;AM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>
-        <td id="calendar">21</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">22</span><br />
-            <strong>Match 327</strong><br />
-            Register: 4:00&#160;AM<br />
-            Compete: 7:00&#160;AM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-           <A href="/tc?module=MatchDetails&rd=10007">Details</A><br/><br/></td>
-        <td id="calendar">23</td>
-        <td id="calendar">24</td>
-        <td id="calendar">25</td>
-    </tr>
-    
-    <tr> 
-        <td id="calendar">26</td>
-        <td id="calendar">27</td>
-     <%--   <td id="calendarTCHS">
-            <span id="calendarTCHSDate">27</span><br />
-            <strong>HS Match 21</strong><br />
-            Register: 4:00&#160;PM<br />
-            Compete: 7:00&#160;PM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-            <A href="/tc?module=MatchDetails&rd=9822">Details</A><br/><br/></td>--%>           
-        <td id="calendar">28</td>
-        <td id="calendarSRM">
-            <span id="calendarSRMDate">29</span><br />
-            <strong>Match 328</strong><br />
-            Register: 8:00&#160;AM<br />
-            Compete: 11:00&#160;AM<br />
-            <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-           <A href="/tc?module=MatchDetails&rd=10008">Details</A><br/><br/></td>
-        <td id="calendar">30</td>
-        <td id="calendarBlank"></td>
-        <td id="calendarBlank"></td>
-    </tr>
+   <tr>
+      <td class="empty">&#160;<br><br><br><br><br></td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="value">1
+      </td>
+      <td class="value">2
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10005">SRM 325</A></strong><br>
+         9:00 PM
+         </div>
+      </td>
+      <td class="value">3
+      </td>
+      <td class="value">4
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">5
+      </td>
+      <td class="value">6
+         <div class="hs">
+         <strong><A href="">HS SRM 19</A></strong><br>
+         10:00 AM
+         </div>
+      </td>
+      <td class="value">7
+      </td>
+      <td class="value">8
+      </td>
+      <td class="value">9
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="value">10
+      </td>
+      <td class="value">11
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10006">SRM 326</A></strong><br>
+         12:00 NOON
+         </div>
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">12
+      </td>
+      <td class="value">13
+      </td>
+      <td class="value">14
+      </td>
+      <td class="value">15
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=intel_rules">Intel&#174; Multi-threading Competition 11</A></strong><br>
+         12:00 NOON
+         </div>
+      </td>
+      <td class="value">16
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="value">17
+      </td>
+      <td class="value">18
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">19
+      </td>
+      <td class="value">20
+         <div class="hs">
+         <strong><A href="">HS SRM 20</A></strong><br>
+         6:00 AM
+         </div>
+      </td>
+      <td class="value">21
+      </td>
+      <td class="value">22
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10007">SRM 327</A></strong><br>
+         7:00 AM
+         </div>
+      </td>
+      <td class="value">23
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="value">24
+      </td>
+      <td class="value">25
+      </td>
+   </tr>
+   
+   <tr>
+      <td class="value">26
+      </td>
+      <td class="value">27
+         <div class="hs">
+         <strong><A href="">HS SRM 21</A></strong><br>
+         7:00 PM
+         </div>
+      </td>
+      <td class="value">28
+      </td>
+      <td class="value">29
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10008">SRM 328</A></strong><br>
+         11:00 AM
+         </div>
+      </td>
+      <td class="value">30
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
+      </td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+   </tr>
+
 </table>
 
 </div>
 </td>
 <%-- Center Column Ends --%>
 
-<%-- Gutter --%>
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<%-- Gutter Ends --%>
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="/foot.jsp" />
 
 </body>
-
 </html>
