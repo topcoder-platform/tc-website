@@ -21,10 +21,7 @@ import com.topcoder.web.reg.model.User;
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -76,6 +73,14 @@ public class Submit extends Base {
                 }
             }
 
+            HashSet h = new HashSet();
+            for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
+                h.add(((RegistrationType)it.next()).getId());
+            }
+
+            //set these in the request for the success page, cuz we're about to kill the session
+            getRequest().setAttribute(Constants.REG_TYPES, h);
+            getRequest().setAttribute(Constants.USER, u);
             getRequest().getSession().invalidate();
 
             setNextPage("/success.jsp");
