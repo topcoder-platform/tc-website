@@ -33,7 +33,7 @@ String sRoundId = srb.getProperty("rd","");
 String sProblemId = srb.getProperty("pm","");
 
 int pm = Integer.parseInt(srb.getProperty("pm",""));
-
+int forumId = -1;
 //get the Header info
 
 ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
@@ -47,6 +47,7 @@ String sRoomName = "";
 if (resultRowHdr != null) {
  sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
  sRoomName = resultRowHdr.getItem(2).toString() ;
+ forumId =resultRowHdr.getIntItem("forum_id");
 }
 
 //get the Problem Name info
@@ -117,10 +118,12 @@ boolean even = false;
 <span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink">Match Overview</A> >
 <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
 <br><br>
-<strong>Match:</strong> <A href="/tc?module=HSRoomStats&rd=<&=sRoundId%>rm=<%= sRoomId%>&cr=<%=sCoderId%>" class="bcLink"><%=sHeader%></A><br>
+<strong>Match:</strong> <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>rm=<%= sRoomId%>&cr=<%=sCoderId%>" class="bcLink"><%=sHeader%></A><br>
 <strong>Room:</strong> <A href="" class="bcLink"><%= sRoomName %></A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm' /><br>
-<a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">FIX Discuss this contest</a>
+<% if(forumId > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
+<% } %>
 <br><br>
 
 
