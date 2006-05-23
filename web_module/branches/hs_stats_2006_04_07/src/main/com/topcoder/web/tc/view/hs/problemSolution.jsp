@@ -145,7 +145,7 @@ boolean even = false;
 
    <rsc:iterator list="<%= rscSubmissions %>" id="resultRow">
    <% even = !even; %>
-   <tr class='<%= resultRow.getIntItem("problem_id") == pm? "highlight" : (even? "light" : "dark")'>
+   <tr class='<%= resultRow.getIntItem("problem_id") == pm? "highlight" : (even? "light" : "dark") %>'>
       <td class="value">
         <rsc:item name="class_name" row="<%=resultRow%>"/>
       </td>
