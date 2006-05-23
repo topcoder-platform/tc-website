@@ -206,6 +206,7 @@ abstract class Base extends HibernateProcessor {
             }
         }
 
+        //grandfather in existing accounts
         if (getRegUser().isNew()) {
             if (fields.contains(Constants.HANDLE)) {
                 ValidationResult userNameResult = new UserNameValidator(getRegUser()).validate(
