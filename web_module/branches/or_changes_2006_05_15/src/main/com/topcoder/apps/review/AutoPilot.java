@@ -582,7 +582,7 @@ public class AutoPilot {
                     }
                 }
                 
-                System.out.println("participants[i].getRole().getId(): " + participants[i].getRole().getId());                
+                System.out.println("participants[i].getUser().getId(): " + participants[i].getUser().getId());                
 
                 // calculate payment for reviewers tasks.
                 float amountToPay = 0;
