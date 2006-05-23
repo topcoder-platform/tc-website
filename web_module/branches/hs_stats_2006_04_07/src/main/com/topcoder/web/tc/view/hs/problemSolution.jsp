@@ -2,7 +2,7 @@
   language="java"
   import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.StringTokenizer,
-          com.topcoder.web.common.StringUtils, com.topcoder.web.tc.Constants"
+          com.topcoder.web.common.StringUtils, com.topcoder.web.tc.Constants, java.util.Map"
 
 %>
 <%@ page language="java" %>
@@ -225,7 +225,6 @@ boolean even = false;
          Success
       </td>
    </tr>
-   <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
          3
