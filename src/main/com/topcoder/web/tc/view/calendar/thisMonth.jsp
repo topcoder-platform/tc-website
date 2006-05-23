@@ -56,12 +56,6 @@
    <tr>
       <td class="empty">&#160;</td>
       <td class="value">1
-<%-- EXAMPLE HS SRM
-         <div class="hs">
-         <strong><A href="">HS SRM 1 - Alpha</A></strong><br>
-         7:00 PM
-         </div>
---%>
       </td>
       <td class="value">2
       </td>
@@ -71,40 +65,40 @@
          9:00 AM PDT
          </div>
          <div class="tco06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo Room 2</A></strong><br>
-         4:00 PM PDT
-         </div>
-         <div class="tco06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC 1</A></strong><br>
          1:00 PM PDT
          </div>
+         <div class="tco06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo Room 2</A></strong><br>
+         4:00 PM PDT
+         </div>
       </td>
       <td class="value">4
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
          <div class="tco06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo Room 3</A></strong><br>
          9:00 AM PDT
          </div>
          <div class="tco06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo WildCard</A></strong><br>
-         4:00 PM PDT
-         </div>
-         <div class="tco06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC 2</A></strong><br>
          1:00 PM PDT
          </div>
-         <div class="des_dev">
-         <strong><A href="/">Des & Dev contests posted</A></strong><br>
-         9:00 AM
+         <div class="tco06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo WildCard</A></strong><br>
+         4:00 PM PDT
          </div>
       </td>
       <td class="value">5
          <div class="tco06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo Finals</A></strong><br>
-         2:30 PM PDT
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC Finals</A></strong><br>
+         9:00 AM PDT
          </div>
          <div class="tco06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>CDDC Finals</A></strong><br>
-         9:00 AM
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=onsite_schedule"><img src="/i/interface/emblem/tco06.gif" alt="TCO06" border="0"/><br>Algo Finals</A></strong><br>
+         2:30 PM PDT
          </div>
       </td>
       <td class="value">6
@@ -134,7 +128,7 @@
          7:00 AM
          </div>
          <div class="des_dev">
-         <strong><A href="/">Des & Dev contests posted</A></strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
       </td>
@@ -158,13 +152,13 @@
          </div>
       </td>
       <td class="value">18
+         <div class="des_dev">
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
+         9:00 AM
+         </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=9824">SRM 303</A></strong><br>
          11:00 AM
-         </div>
-         <div class="des_dev">
-         <strong><A href="/">Des & Dev contests posted</A></strong><br>
-         9:00 AM
          </div>
       </td>
       <td class="value">19
@@ -184,7 +178,7 @@
       </td>
       <td class="value">25
          <div class="des_dev">
-         <strong><A href="/">Des & Dev contests posted</A></strong><br>
+         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
       </td>
