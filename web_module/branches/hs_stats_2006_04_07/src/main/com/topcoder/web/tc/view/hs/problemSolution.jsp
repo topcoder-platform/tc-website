@@ -118,8 +118,8 @@ boolean even = false;
 <span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink">Match Overview</A> >
 <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
 <br><br>
-<strong>Match:</strong> <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>rm=<%= sRoomId%>&cr=<%=sCoderId%>" class="bcLink"><%=sHeader%></A><br>
-<strong>Room:</strong> <A href="" class="bcLink"><%= sRoomName %></A><br>
+<strong>Match:</strong> <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink"><%=sHeader%></A><br>
+<strong>Room:</strong> <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink"><%= sRoomName %></A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm' /><br>
 <% if(forumId > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
