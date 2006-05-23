@@ -57,7 +57,7 @@
 <div style="width:400px;">
     <strong>Is this information correct?</strong>
     <br><br>
-    <span class="bigRed">NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete registration.</span>
+    <span class="bigRed">NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.</span>
     <br><br>
 </div>
 
@@ -409,7 +409,7 @@
 <br><br>
 
 <div align="center">
-    <a href="Javascript:document.confirmForm.submit();">Submit</a>
+    <a href="Javascript:document.confirmForm.submit();">Confirm</a>
 </div>
 
 </div>
