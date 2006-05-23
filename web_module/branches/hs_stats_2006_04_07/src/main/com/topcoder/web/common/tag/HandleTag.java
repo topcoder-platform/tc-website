@@ -142,6 +142,7 @@ public class HandleTag extends TagSupport {
                     // special case for admins
                     if (rsc.getIntItem(0, "algorithm_rating")<0) rating =rsc.getIntItem(0, "algorithm_rating");
                     else rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                            rsc.getIntItem(0, "hs_algorithm_rating"),
                             rsc.getIntItem(0, "design_rating"),
                             rsc.getIntItem(0, "development_rating"));
                 }
@@ -179,10 +180,10 @@ public class HandleTag extends TagSupport {
         return "";
     }
 
-    private int max(int a, int b, int c) {
-        return max(max(a, b), c);
-    }
 
+    private int max(int a, int b, int c, int d) {
+        return max(max(a,b), max(c,d));
+    }
     private int max(int a, int b) {
         if (a >= b) return a;
         return b;
