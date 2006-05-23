@@ -12,7 +12,7 @@
             </generator>
         </id>
         <one-to-one name="user" class="User" constrained="true"/>
-        <property name="memberSince" type="timestamp" column="member_since" access="field"/>
+        <property name="memberSince" type="timestamp" column="member_since" access="field" update="false" insert="false"/>
         <property name="quote" access="field"/>
         <many-to-one name="coderType" column="coder_type_id" class="CoderType" access="field" cascade="none"/>
         <many-to-one name="compCountry" column="comp_country_code" class="Country" access="field"/>
