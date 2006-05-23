@@ -30,7 +30,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 String sCoderId = srb.getProperty("cr","");
 String sRoomId = srb.getProperty("rm","");
 String sRoundId = srb.getProperty("rd","");
-pageContext.setAttribute("pm", srb.getProperty("pm",""));
+String sProblemId = srb.getProperty("pm","");
 
 int pm = Integer.parseInt(srb.getProperty("pm",""));
 
@@ -121,11 +121,13 @@ boolean even = false;
 
 <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
    <tr>
-      <td class="title" colspan="5">
+      <td class="title" colspan="6">
          Problem Solutions
       </td>
    </tr>
    <tr>
+      <td class="header">&#160;<
+      /td>
       <td class="header">
          Class Name
       </td>
@@ -144,8 +146,15 @@ boolean even = false;
    </tr>
 
    <rsc:iterator list="<%= rscSubmissions %>" id="resultRow">
-   <% even = !even; %>
-   <tr class='<%= resultRow.getIntItem("problem_id") == pm? "highlight" : (even? "light" : "dark") %>'>
+   <% even = !even;
+      boolean selected = resultRow.getIntItem("problem_id") == pm;
+   %>
+   <tr class='<%= selected? "highlight" : (even? "light" : "dark") %>'>
+      <td class="value" style="vertical-align: middle;">
+         <A href='/tc?module=HSProblemSolution&rm=<%= sRoomId %>&rd=<%= sRoundId %>&pm=<%= resultRow.getIntItem("problem_id") %>&cr=<%= sCoderId %>'>
+            <img src='<%= "/i/interface/" + selected? "exp_ed_w.gif" : "exp_w.gif") %>' alt="" />
+         </A>
+      </td>
       <td class="value">
         <rsc:item name="class_name" row="<%=resultRow%>"/>
       </td>
