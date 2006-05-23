@@ -36,20 +36,23 @@
                  <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
              </c:if>
          Step <strong>2</strong> of
-<%--- IF NEW REG -----%>
-         <strong>6</strong>
-<%--- ELSE -----%>
-         <strong>5</strong>
-<%---------------------%>
+             <c:choose>
+                 <c:when test="regUser.isNew">
+                     <strong>6</strong>
+                 </c:when>
+                 <c:otherwise>
+                     <strong>5</strong>
+                 </c:otherwise>
+             </c:choose>
          </div>
          <div class="off">Select Your Registration</div>
          <div class="on">General</div>
          <div class="off">Demographics</div>
          <div class="off">Confirm</div>
          <div class="off">Success</div>
-<%--- IF NEW REG -----%>
-         <div class="off">Activation</div>
-<%---------------------%>
+        <c:if test="regUser.isNew">
+            <div class="off">Activation</div>
+        </c:if>
       </div>
    </div>
 
