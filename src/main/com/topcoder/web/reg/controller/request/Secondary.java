@@ -171,9 +171,12 @@ public class Secondary extends Base {
             e.setAddress((String) params.get(Constants.EMAIL));
         }
 
-        if (fields.contains(Constants.HANDLE)) {
-            //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
-            u.setHandle((String) params.get(Constants.HANDLE));
+        //we don't allow updates, so no need to set it here.
+        if (u.isNew()) {
+            if (fields.contains(Constants.HANDLE)) {
+                //yeah...100% chance they'll contain it, but i'll be consistent with the code anyway
+                u.setHandle((String) params.get(Constants.HANDLE));
+            }
         }
 
         if (fields.contains(Constants.PHONE_NUMBER)) {

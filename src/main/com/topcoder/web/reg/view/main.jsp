@@ -384,7 +384,7 @@
         * User Name:
       </td>
       <td class="value">
-        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+        <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="${regUser.new}"/>
       </td>
    </tr>
 </c:if>

@@ -206,13 +206,16 @@ abstract class Base extends HibernateProcessor {
             }
         }
 
-        if (fields.contains(Constants.HANDLE)) {
-            ValidationResult userNameResult = new UserNameValidator(getRegUser()).validate(
-                    new StringInput((String) params.get(Constants.HANDLE)));
-            if (!userNameResult.isValid()) {
-                addError(Constants.HANDLE, userNameResult.getMessage());
+        if (getRegUser().isNew()) {
+            if (fields.contains(Constants.HANDLE)) {
+                ValidationResult userNameResult = new UserNameValidator(getRegUser()).validate(
+                        new StringInput((String) params.get(Constants.HANDLE)));
+                if (!userNameResult.isValid()) {
+                    addError(Constants.HANDLE, userNameResult.getMessage());
+                }
             }
         }
+
         if (!hasError(Constants.COUNTRY_CODE)) {
             if (fields.contains(Constants.STATE_CODE)) {
                 ValidationResult stateResult = new StateValidator(getFactory().getCountryDAO().find(
