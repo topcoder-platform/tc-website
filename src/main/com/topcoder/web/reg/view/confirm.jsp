@@ -377,7 +377,9 @@
             GPA:
         </td>
         <td class="value">
+            <c:if test="${regUser.coder.currentSchool.GPA!=null&&regUser.coder.currentSchool.GPAScale!=null}">
                 ${regUser.coder.currentSchool.GPA}/${regUser.coder.currentSchool.GPAScale}
+            </c:if>
         </td>
     </tr>
 </c:if>
