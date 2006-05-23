@@ -566,9 +566,10 @@ public class AutoPilot {
             UserRole[] participants = project.getParticipants();
             
             long primaryScreenerId = -1;
-            for (int i = 0; i < participants.length && 
-            	participants[i].getRole().getId() != Role.ID_PRIMARY_SCREENER; i++) {
-                primaryScreenerId = participants[i].getUser().getId();
+            for (int i = 0; i < participants.length && primaryScreenerId == -1; i++) {
+            	if (participants[i].getRole().getId() == Role.ID_PRIMARY_SCREENER) {
+            		primaryScreenerId = participants[i].getUser().getId();
+            	}
             }
             
             System.out.println("primaryScreenerId: " + primaryScreenerId);
