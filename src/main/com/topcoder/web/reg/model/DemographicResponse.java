@@ -66,16 +66,16 @@ public class DemographicResponse extends Base {
             try {
                 DemographicResponse oa = (DemographicResponse) o;
                 //log.debug(" compare " + oa.getQuestion().getId() + " " + question.getId() + " " + oa.getAnswer().getId() + " " + getAnswer().getId());
-                boolean sameUser = (oa.user.getId()==null&&user.getId()==null) ||
-                        (oa.user.getId()!=null&&user.getId()!=null&&oa.user.getId().equals(user.getId()));
-                boolean sameQuestion = (oa.question.getId()==null&&question.getId()==null) ||
-                        (oa.question.getId()!=null&&question.getId()!=null&&oa.question.getId().equals(question.getId()));
-                boolean sameAnswer = (oa.answer.getId()==null&&answer.getId()==null) ||
-                        (oa.answer.getId()!=null&&answer.getId()!=null&&oa.answer.getId().equals(answer.getId()));
+                boolean sameUser = (oa.getUser().getId()==null&&getUser().getId()==null) ||
+                        (oa.getUser().getId()!=null&&getUser().getId()!=null&&oa.getUser().getId().equals(getUser().getId()));
+                boolean sameQuestion = (oa.getQuestion().getId()==null&&getQuestion().getId()==null) ||
+                        (oa.getQuestion().getId()!=null&&getQuestion().getId()!=null&&oa.getQuestion().getId().equals(getQuestion().getId()));
+                boolean sameAnswer = (oa.getAnswer().getId()==null&&getAnswer().getId()==null) ||
+                        (oa.getAnswer().getId()!=null&&getAnswer().getId()!=null&&oa.getAnswer().getId().equals(getAnswer().getId()));
                 boolean sameResponse = true;
-                if (question.isFreeForm()) {
-                    sameResponse = (oa.response==null&&response==null) ||
-                            (oa.response.equals(response));
+                if (getQuestion().isFreeForm()) {
+                    sameResponse = (oa.getResponse()==null&&getResponse()==null) ||
+                            (oa.getResponse().equals(getResponse()));
                 }
                 boolean ret = sameUser&&sameQuestion&&sameAnswer&&sameResponse;
                 return ret;
@@ -88,35 +88,35 @@ public class DemographicResponse extends Base {
     public int hashCode() {
         StringBuffer buf = new StringBuffer(30);
 
-        if (user==null) {
+        if (getUser()==null) {
             buf.append("");
-        } else if(user.getId()==null) {
-            buf.append(user.hashCode());
+        } else if(getUser().getId()==null) {
+            buf.append(getUser().hashCode());
         } else {
-            buf.append(user.getId());
+            buf.append(getUser().getId());
         }
         buf.append(" ");
-        if (answer==null) {
+        if (getAnswer()==null) {
             buf.append("");
-        } else if(answer.getId()==null) {
-            buf.append(answer.hashCode());
+        } else if(getAnswer().getId()==null) {
+            buf.append(getAnswer().hashCode());
         } else {
-            buf.append(answer.getId());
+            buf.append(getAnswer().getId());
         }
         buf.append(" ");
-        if (question==null) {
+        if (getQuestion()==null) {
             buf.append("");
-        } else if(question.getId()==null) {
-            buf.append(question.hashCode());
+        } else if(getQuestion().getId()==null) {
+            buf.append(getQuestion().hashCode());
         } else {
-            buf.append(question.getId());
+            buf.append(getQuestion().getId());
         }
-        if (question.isFreeForm()) {
+        if (getQuestion().isFreeForm()) {
             buf.append(" ");
-            if (response==null) {
+            if (getResponse()==null) {
                 buf.append("");
             } else {
-                buf.append(response);
+                buf.append(getResponse());
             }
         }
         int ret = buf.toString().hashCode();
