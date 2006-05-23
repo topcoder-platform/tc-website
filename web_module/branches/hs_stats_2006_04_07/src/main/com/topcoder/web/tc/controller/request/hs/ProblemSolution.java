@@ -37,9 +37,11 @@ public class ProblemSolution extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
 
+            
             getRequest().setAttribute("REQUEST_BEAN", r);
             getRequest().setAttribute("QUERY_RESPONSE", result);
             
+            lookupSeason(Integer.parseInt(getRequest().getParameter("rd")));
             setNextPage(Constants.HS_PROBLEM_SOLUTION);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
@@ -47,6 +49,22 @@ public class ProblemSolution extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    private void lookupSeason(int roundId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("lookup_season");
+        r.setProperty("rd", "" + roundId);
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) result.get("lookup_season");
+        if (rsc.getRowCount() < 1) {
+            getRequest().setAttribute("seasonName", "");
+            getRequest().setAttribute("seasonId", "-1");
+        } else {
+            getRequest().setAttribute("seasonName", rsc.getItem(0, "name").toString());
+            getRequest().setAttribute("seasonId", rsc.getItem(0, "season_id").toString());            
+        }
+
     }
 
 

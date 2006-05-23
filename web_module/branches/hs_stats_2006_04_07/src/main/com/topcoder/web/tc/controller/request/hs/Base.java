@@ -257,6 +257,9 @@ abstract public class Base extends BaseProcessor {
      * @return a team name of at most 15 characters 
      */
     public static String cutTeamName(String name) {
+        if (name == null) {
+            return "";            
+        }
         if (name.length() <= 15) {
             return name;
         }
