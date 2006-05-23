@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author dok
@@ -116,7 +117,7 @@ public class TestUtils {
                 Util.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
         DemographicAssignment da;
         DemographicResponse dr;
-        HashSet responses = new HashSet();
+        ArrayList responses = new ArrayList();
         for (Iterator it = assignments.iterator(); it.hasNext();) {
             da = (DemographicAssignment)it.next();
             if (da.getQuestion().isMultipleSelect()) {

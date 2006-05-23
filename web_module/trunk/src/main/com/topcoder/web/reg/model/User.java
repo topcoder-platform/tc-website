@@ -35,7 +35,7 @@ public class User extends Base {
     /**
      * hoke: used for making changes
      */
-    private Set transientResponses;
+    private List transientResponses;
 
     public User() {
         status = new Character(Constants.UNACTIVE_STATI[1]);
@@ -45,7 +45,7 @@ public class User extends Base {
         demographicResponses = new HashSet();
         notifications = new TreeSet();
         securityGroups = new HashSet();
-        transientResponses = new HashSet();
+        transientResponses = new ArrayList();
     }
 
     public Long getId() {
@@ -280,7 +280,7 @@ public class User extends Base {
         demographicResponses.clear();
     }
 
-    public Set getTransientResponses() {
+    public List getTransientResponses() {
         return transientResponses;
     }
 
@@ -288,7 +288,7 @@ public class User extends Base {
         transientResponses.remove(r);
     }
 
-    public void setTransientResponses(Set transientResponses) {
+    public void setTransientResponses(List transientResponses) {
         this.transientResponses = transientResponses;
     }
 
