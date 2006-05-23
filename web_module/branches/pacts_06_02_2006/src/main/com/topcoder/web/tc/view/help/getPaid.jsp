@@ -11,7 +11,7 @@
 </jsp:include>
 
     <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
-        if (node!=null&&!(node.equals("algo_get_paid")||node.equals("des_get_paid")||node.equals("dev_get_paid"))) {
+        if (node!=null&&!(node.equals("algo_get_paid")||node.equals("des_get_paid")||node.equals("dev_get_paid")||node.equals("assem_get_paid"))) {
             node = null;
         }
     %>
@@ -45,7 +45,7 @@
 
 <span class="title">How to Get Paid</span>
 <br><br>
-TopCoder begins the payment process for algorithm, design and development contests one business day after each contest is concluded. Design and development contests are over when either the winning submission goes through a successful final review, or when the contest is closed because no submission has passed screening or review. 
+TopCoder begins the payment process for algorithm, design, development and assembly contests one business day after each contest is concluded. Design, development and assembly contests are over when either the winning submission goes through a successful final review, or when the contest is closed because no submission has passed screening or review. 
 <br><br>
 <strong>Timing</strong><br>
 Once the payment process begins, TopCoder will send out your payment within 14 days. When you actually receive your payment will depend on the payment method you select.
@@ -56,7 +56,7 @@ Members can be paid by check, by wire transfer, or by PayPal®. <A href="/tc?modu
 <strong>Requirements</strong><br>
 Before TopCoder can process payment, we must have your full name and an accurate address in your member profile, as well as the required affidavits and completed tax form on file. 
 <ul>
-<li>Update your <A href="/Registration">member profile</A> now.</li>
+<li>Update your <A href="/reg/?nrg=false">member profile</A> now.</li>
 </ul>
 
 <% if (node.equals("algo_get_paid")) { %>

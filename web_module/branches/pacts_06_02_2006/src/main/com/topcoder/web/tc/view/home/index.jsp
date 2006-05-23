@@ -21,6 +21,13 @@ width: 600px;
 margin:0px auto;
 }
 </STYLE>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script> 
+<script type="text/javascript"> 
+  <!--
+    _uacct = "UA-321688-1"; urchinTracker(); 
+    -->
+    </script>
+
 
 </head>
 
@@ -45,19 +52,31 @@ margin:0px auto;
         <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
         <tc:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
        </td>
-      <td class="homeTopBar" align=right><A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
+      <td class="homeTopBar" align=right>
+      <A href="/reg/" class="loginLinks">Register Now</A>
+      | <A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
    </tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
- <%-- <td class="BIGPromoBox" align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><IMG SRC="/i/home/tco06_logo_grn.gif" border="0" ALT="2006 TopCoder Open" /></A></td> --%>
-<map name="tco06prog_map">
-<area shape="rect" alt="" coords="1,1, 258,158" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-<area shape="rect" alt="" coords="263,1, 509,158" href="/pdfs/tournaments/tco06_program.pdf" />
+<%-- TCO06 --%>
+<map name="tco06_map">
+<area shape="rect" alt="" coords="1,1, 260,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
+<area shape="rect" alt="" coords="316,8, 364,105" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis" />
+<area shape="rect" alt="" coords="371,8, 420,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary" />
+<area shape="rect" alt="" coords="426,8, 473,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary" />
 </map>
-      <td class="BIGPromoBox" align="center"><IMG SRC="/i/home/tco06_program.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06prog_map" /></td>
+<map name="tco06_links">
+<area shape="rect" alt="" coords="9,1, 65,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
+<area shape="rect" alt="" coords="82,1, 143,24" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
+<area shape="rect" alt="" coords="159,1, 209,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
+</map>
+      <td class="BIGPromoBox" align="center">
+      <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
+      <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
+      </td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>
 </table>
@@ -167,7 +186,7 @@ margin:0px auto;
 --%>
 <%-- WSJ
 --%>
-            <A href="http://webreprints.djreprints.com/1404341094425.html" target="_blank"><img src="/i/home/wsj_020806_sm.gif" alt="The Wall Street Journal" border="0" /></A>
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" /></A>
 <%-- Intel MTCS
             <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
 --%>
@@ -176,20 +195,19 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">April Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">May Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>04/03</b> - SRM 296 - 7AM - AMD<br><br>
-            <b>04/06</b> - SRM 297 - 9PM - NSA<br><br>
-            <b>04/06</b> - TCO06 Component - Round #2 submission deadline - 9AM<br><br>
-            <b>04/11</b> - SRM 298 - 11AM - AMD<br><br>
-            <b>04/13</b> - TCO06 Component - Round #3 projects posted - 9AM<br><br>
-            <b>04/19</b> - Intel Multi-Threading Competition 4 - 12 NOON<br><br>
-            <b>04/20</b> - TCO06 Component - Round #3 submission deadline - 9AM<br><br>
-            <b>04/22</b> - SRM 299 - 12 NOON<br><br>
-            <b>04/27</b> - SRM 300 - 9PM - UBS<br><br>
+            <b>05/03 - 05/05</b> - TCO06 Semis and Finals<br><br>
+            <b>05/09</b> - SRM 301 - 9 PM<br><br>
+            <b>05/10</b> - Marathon Match 1 - 12 NOON<br><br>
+            <b>05/11</b> - SRM 302 - 7 AM<br><br>
+            <b>05/17</b> - Intel Multi-Threading Competition 5 - 12 NOON<br><br>
+            <b>05/18</b> - SRM 303 - 11 AM<br><br>
+            <b>05/27</b> - SRM 304 - 12 NOON - AMD<br><br>
+            <b>05/31</b> - SRM 305 - 9 PM - VeriSign<br><br>
             </td>
          </tr>
 <%-- Press Room --%>
@@ -200,22 +218,24 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/uga_acm_logo.gif" width="88" height="19" alt="UGA-ACM" border="0" /></div>
-            TopCoder College Tour: Report from University of Georgia <A href="http://www.cs.uga.edu/~acm/topcoder.html" target="_blank">...more</A><br>[April 5]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0" /></div>
+            Gartner cites TopCoder as model for "Web 2.0" community <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May 16]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/whitworthian_logo.gif" width="88" height="18" alt="The Whitworthian" border="0" /></div>
-            Students compete in online competition <A href="http://www.whitworth.edu/Students/Whitworthian/V96/I14/Students-compete-in-online-competition.html" target="_blank">...more</A><br>[March 30]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" border="0" /></div>
+            Idol or idle: which one are you? <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">...more</A><br>[May 15]<br><br>
 
-            TopCoder Announces AMD as Title Sponsor of 2006 TopCoder Open in Las Vegas <A href="/tc?module=Static&d1=pressroom&d2=pr_031606">...more</A><br>[March 16]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/cnbc_logo.gif" width="68" height="35" alt="CNBC TV" border="0" /></div>
+            CNBC's Jane's Addiction and Squawk Box [MOVIE] <A href="/movies/press/cnbc_051506.mov" target="_blank">...more</A><br>[May 15]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/adt_logo.gif" width="88" height="24" alt="ADT Mag" border="0" /></div>
-            SOA vendors partner with LogicLibrary to create integrated governance platform <A href="http://www.adtmag.com/article.aspx?id=18109" target="_blank">...more</A><br>[March 14]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
+            Java Posse - Listener Feedback and TopCoder Interviews [PODCAST] <A href="http://media41b.libsyn.com/andueJx1nXycfJd1Z3lvpGqtZXqZ/podcasts/dickwall/JavaPosse053.mp3" target="_blank">...more</A><br>[May 15]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wallstreetnTech_logo.gif" width="88" height="34" alt="Wallstreet &amp; Technology" border="0" /></div>
-            UBS Sponsors TopCoder Open <A href="http://www.wallstreetandtech.com/showArticle.jhtml?articleID=181502379" target="_blank">...more</A><br>[March 13]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="The Wall Street Journal" border="0" /></div>
+            Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">...more</A><br>[May 12]<br><br>
             
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/dnaIndia_logo.gif" width="61" height="33" alt="DNA India" border="0" /></div>
-            Code jockey contest returns to IT hub <A href="http://www.dnaindia.com/report.asp?NewsID=1017289&CatID=2" target="_blank">...more</A><br>[March 13]<br><br>
+            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
+            Java Posse - Live at the TopCoder Open [PODCAST] <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 11]<br><br>
+
             </td>
          </tr>
       </table>

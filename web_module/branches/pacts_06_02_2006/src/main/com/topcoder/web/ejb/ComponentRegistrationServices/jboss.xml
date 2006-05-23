@@ -7,7 +7,7 @@
         <session>
             <ejb-name>ComponentRegistrationServices</ejb-name>
             <jndi-name>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesHome</jndi-name>
-            <local-jndi-name>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-jndi-name>
         </session>
     </enterprise-beans>
 </jboss>

@@ -37,6 +37,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText" valign="top"><td nowrap="nowrap">05.15.06 2:00 PM&#160;-&#160</td><td width="100%"><A href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">02.09.06 11:20 AM&#160;-&#160</td><td width="100%"><A href="http://software.topcoder.com/about/explanationMovie.jsp">How engineering meets manufacturing at TopCoder Software</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">10.21.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=movies">Interviews with TCO05 Competitors</A></td></tr>
 <tr class="bodyText" valign="top"><td nowrap="nowrap">08.09.05 6:15 PM&#160;-&#160</td><td width="100%"><A href="/movies/press/cnn_072405.mp4">TopCoder on CNN International</A></td></tr>

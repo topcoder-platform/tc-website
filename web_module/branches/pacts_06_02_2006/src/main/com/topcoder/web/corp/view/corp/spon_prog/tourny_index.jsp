@@ -51,12 +51,12 @@
                         algorithmic problems and design and develop working pieces of reusable software.  All current
                         technologies are incorporated, including Java, C++, C#, VB.Net, UML, J2EE and .NET.</p>
 
-                        <p><strong>The TopCoder Open (TCO)</strong>, our fall event, is host to professional and collegiate
+                        <p><strong>The TopCoder Open (TCO)</strong>, our spring event, is host to professional and collegiate
                         developers.  This event is dominated by the highest rated members in the TopCoder community, but
                         enjoys heavy participation and spectatorship from developers of all levels.  Our flagship event,
                         the TCO routinely draws substantial press in the US and abroad.</p>
 
-                        <p><img src="/i/corp/TCCC04.jpg" width="200" height="200" alt="" border="0" align="right" ><strong>The TopCoder Collegiate Challenge (TCCC)</strong>, our spring event, involves thousands
+                        <p><img src="/i/corp/TCCC04.jpg" width="200" height="200" alt="" border="0" align="right" ><strong>The TopCoder Collegiate Challenge (TCCC)</strong>, our fall event, involves thousands
                         of university-level students majoring in everything from computer science to mathematics to
                         applied physics.  The students compete head-to-head over several online elimination rounds until
                         the best are flown in to compete in person at the onsite finals.  As with the TCO, the destination
@@ -89,19 +89,20 @@
 
                         <table width="530" border="0" cellpadding="5" cellspacing="0" align="center">
                         	<tr>
+                        		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about"><img src="/i/corp/tourny_tco06.gif" width="182" height="88" alt="" border="0"></a></td>
                         		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/corp/tourny_tco05.gif" width="182" height="88" alt="" border="0"></a></td>
+                        	</tr>
+                        	<tr>
                         		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/corp/tourny_tccc05.gif" width="182" height="88" alt="" border="0"></a></td>
-                        	</tr>
-                        	<tr>
                         		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/corp/tourny_tco04.gif" width="182" height="88" alt="" border="0"></a></td>
+                        	</tr>
+                        	<tr>
                         		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about"><img src="/i/corp/tourny_tccc04.gif" width="182" height="88" alt="" border="0"></a></td>
-                        	</tr>
-                        	<tr>
                         		<td align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final"><img src="/i/corp/tourny_tco03.gif" width="182" height="88" alt="" border="0"></a></td>
-                        		<td align="center"><a href="/index?t=tournaments&c=tccc03_champ"><img src="/i/corp/tourny_tccc03.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
-                        		<td colspan="2" align="center"><a href="/index?t=tournaments&c=2002tccc_champ"><img src="/i/corp/tourny_tccc02.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/index?t=tournaments&c=tccc03_champ"><img src="/i/corp/tourny_tccc03.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td align="center"><a href="/index?t=tournaments&c=2002tccc_champ"><img src="/i/corp/tourny_tccc02.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                        </table>
 

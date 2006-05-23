@@ -11,30 +11,17 @@
 package com.topcoder.web.tc.controller.request.calendar;
 
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.util.Cache;
-//import com.topcoder.common.web.util.Conversion;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.common.web.util.Data;
-import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.docGen.xml.ValueTag;
-import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 
 import javax.naming.Context;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.Map;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 /**
  *
  * @author cstjohn
@@ -53,7 +40,6 @@ public abstract class MatchInfo extends Base {
 
         try {
             String rd = StringUtils.checkNull(getRequest().getParameter("rd"));
-            ctx = getInitialContext();
             dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest = new Request();
             dataRequest.setContentHandle("schedule_srms");

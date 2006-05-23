@@ -26,7 +26,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitor_stats"/>
+            <jsp:param name="node" value="m_competitions"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -52,7 +52,7 @@ This member has not yet been rated in a competition.
    <%if( rscCoderData.getItem(0,"has_image").toString().equals("1")) { %>
       <IMG SRC='<rsc:item name="image_path" set="<%=rscCoderData%>"/>' class="memberPhoto" />
    <% } else { %>
-      <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" class="memberPhoto"/></A>
+      <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/reg/?nrg=false"%>"><IMG SRC="/i/m/nophoto_login.gif" class="memberPhoto"/></A>
    <% } %>
       </td>
       <td valign="top">

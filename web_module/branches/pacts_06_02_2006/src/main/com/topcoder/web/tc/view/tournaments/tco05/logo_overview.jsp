@@ -69,7 +69,7 @@
 <%--
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
-            <A href="/Registration">Register here</A>
+            <A href="/reg/">Register here</A>
             <br><br>
             <b>Ready to submit your design?</b><br>
             <A href="/tc?module=TCO05LogoTerms">Submit now</A>

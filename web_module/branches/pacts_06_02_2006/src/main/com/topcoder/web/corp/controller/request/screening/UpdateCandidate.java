@@ -1,6 +1,5 @@
 package com.topcoder.web.corp.controller.request.screening;
 
-import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -8,11 +7,10 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.PrincipalMgr;
-import com.topcoder.web.common.security.PrincipalMgrException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
@@ -29,8 +27,8 @@ import com.topcoder.web.ejb.user.UserHome;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpSession;
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.Map;
 
 /**
@@ -94,13 +92,7 @@ public class UpdateCandidate extends BaseScreeningProcessor {
                     try {
                         //check to see if user already exists
                         userPrincipal = principalMgr.getUser(info.getUserName());
-                    } catch (PrincipalMgrException e) {
-                        Throwable nested = e.getNestedException();
-                        if (nested == null ||
-                                !(nested instanceof NoSuchUserException)) {
-                            throw e;
-                        }
-
+                    } catch (Exception e) {
                         //do nothing, we want to get here
                         //create new user
                         userPrincipal = principalMgr.createUser(info.getUserName(),

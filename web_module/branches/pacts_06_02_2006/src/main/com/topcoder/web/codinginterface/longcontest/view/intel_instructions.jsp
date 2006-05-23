@@ -84,7 +84,11 @@ Each individual test case will be run against a competitor's submission on a ded
 At any time during an Intel Software Network Multi-threading Competition Series event, TopCoder members may view the latest standings of that event. This will show the current score (for the latest submission) for each member who has registered for that event, their rank, and the number of submissions they have performed during the event. Clicking on the submission count will display the date, time, and point-in-time score of each submission for a given participant.
 <br><br>
 <span class="bodySubtitle">Match results</span><br>
-Once the submission phase of an Intel Software Network Multi-threading Competition Series event has ended, the final results will become available by clicking the Results link. Competitors will be able to see the test cases, other competitors' submissions, and the testing results.  Competitors will have 24 hours from the end of the submission phase of each event to submit any scoring appeals.  All appeals must be submitted to service@topcoder.com in order to be considered.  Prize winners will be notified via email at the conclusion of the appeals period for each event.
+Once the submission phase of an Intel Software Network Multi-threading Competition Series event has ended, system testing will begin.  During System Testing each competitors' submission will be run through a suite of system test cases and assigned a score based on the rules outlined in the problem statement.  Only this final score will be used in determining the results of each match.
+<br><br>
+Once system testing is complete, the final results will become available by clicking the Results link. Competitors will be able to see the test cases, other competitors' submissions, and the testing results.
+<br><br>
+Competitors will have 24 hours from the end of the system testing phase of each event to submit any scoring appeals. All appeals must be submitted to service@topcoder.com in order to be considered. Prize winners will be notified via email at the conclusion of the appeals period for each even
 <br><br>
 <span class="bodySubtitle">Competition Series Schedule</span><br>
 The Intel Software Network Multi-threading Competition Series event schedule will be as follows:

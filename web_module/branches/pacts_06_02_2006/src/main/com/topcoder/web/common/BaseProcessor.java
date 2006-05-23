@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
-    protected static Logger log = Logger.getLogger(BaseProcessor.class);
+    protected static final Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
     private TCRequest request;
     private TCResponse response;
@@ -37,7 +37,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     private boolean nextPageInContext = false;
 
     public BaseProcessor() {
-        log.debug("constructing " + this.getClass().getName());
+        //log.debug("constructing " + this.getClass().getName());
         errors = new HashMap();
         defaults = new HashMap();
     }
@@ -228,6 +228,10 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     protected boolean hasParameter(String param) {
         return !"".equals(StringUtils.checkNull(getRequest().getParameter(param)));
+    }
+
+    protected String getTrimmedParameter(String param) {
+        return StringUtils.getTrimmedParameter(getRequest(), param);
     }
 
 

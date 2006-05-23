@@ -62,27 +62,30 @@
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                             <tr>
-                                <td class="tableTitle" colspan="5">Queue Status</td>
+                                <td class="tableTitle" colspan="6">Queue Status</td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Handle
                                 </td>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Contest
                                 </td>
-                                <td class="tableHeader" width="20%">
+                                <td class="tableHeader" width="15%">
                                     Language
                                 </td>
                                 <td class="tableHeader" width="20%" align="center">
                                     Entered Queue
                                 </td>
-                                <td class="tableHeader" width="20%" align="right">
+                                <td class="tableHeader" width="15%" align="right">
                                     Type
+                                </td>
+                                <td class="tableHeader" width="20%" align="right">
+                                    Tests Remaining
                                 </td>
                             </tr>
                             <% if (queue.isEmpty()) { %>
-                            <tr><td colspan="5" class="statDk">There are currently no submissions in the queue.</td></tr>
+                            <tr><td colspan="6" class="statDk">There are currently no submissions in the queue.</td></tr>
                             <% } %>
                             <%boolean even = true;%>
                             <rsc:iterator list="<%=queue%>" id="resultRow">
@@ -101,6 +104,9 @@
                                     </td>
                                     <td class="<%=even?"statLt":"statDk"%>" align="right">
                                         <rsc:item name="submission_type" row="<%=resultRow%>"/>
+                                    </td>
+                                    <td class="<%=even?"statLt":"statDk"%>" align="right">
+                                        <rsc:item name="tests" row="<%=resultRow%>"/>
                                     </td>
                                 </tr>
                                 <%even = !even;%>

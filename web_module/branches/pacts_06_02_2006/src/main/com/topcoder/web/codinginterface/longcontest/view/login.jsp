@@ -68,7 +68,7 @@
                             and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder?</b><br/>
-                            <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/Registration">Register
+                            <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/reg/">Register
                                 now.</A>
                             After you complete the registration process, we will send your account activation code via
                             email.</p>

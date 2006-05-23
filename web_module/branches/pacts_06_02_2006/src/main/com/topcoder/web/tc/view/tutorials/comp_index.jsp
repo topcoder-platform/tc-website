@@ -44,19 +44,19 @@
                <td class="bodyText" align="center"><b>Date</b></td>
             </tr>
             <tr valign="top"><td class="bodyText">
-               <tc-webtag:handle coderId="152342" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial"><strong>Design Tutorial</strong></a></td>
-               <td class="bodyText">12.17.2004</td>
+               <tc-webtag:handle coderId="296145" context="development"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=comp_dev_tc_style"><strong>Component-Based Development: TopCoder Style</strong></a></td>
+               <td class="bodyText">03.17.2003</td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="251989" context="development"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial"><strong>Development Tutorial</strong></a></td>
                <td class="bodyText">08.12.2004</td>
-            </td></tr>
+            </tr>
             <tr valign="top"><td class="bodyText">
-               <tc-webtag:handle coderId="296145" context="development"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=comp_dev_tc_style"><strong>Component-Based Development: TopCoder Style</strong></a></td>
-               <td class="bodyText">03.17.2003</td>
+               <tc-webtag:handle coderId="152342" context="design"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial"><strong>Design Tutorial</strong></a></td>
+               <td class="bodyText">12.17.2004</td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
@@ -79,16 +79,19 @@
             </tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=decoratorPattern"><strong>The Decorator Pattern</strong></a>
-            </td></tr>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=decoratorPattern"><strong>The Decorator Pattern</strong></a></td>
+               <td class="bodyText">09.22.2005</td>
+            </tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern"><strong>Parallel Patterns: WaveFront Pattern</strong></a>
-            </td></tr>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=adapterPattern"><strong>Adapter Pattern</strong></a></td>
+               <td class="bodyText">12.13.2005</td>
+            </tr>
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=adapterPattern"><strong>Adapter Pattern</strong></a>
-            </td></tr>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern"><strong>Parallel Patterns: WaveFront Pattern</strong></a></td>
+               <td class="bodyText">01.24.2006</td>
+            </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="15664457" context="development"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter"><strong>Using XMI Documenter</strong></a></td>

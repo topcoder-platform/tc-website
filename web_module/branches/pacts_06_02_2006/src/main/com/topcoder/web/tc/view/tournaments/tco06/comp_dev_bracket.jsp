@@ -33,7 +33,7 @@ The finalists are sorted alphabetically.
       <td align="right"><img src="/i/tournament/tco06/bracket_TL.gif" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #FFFFFF;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="3" valign="middle"><img src="/i/tournament/tco06/bracket_R.gif" alt="" border="0" /></td>
-      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="299979" context="development"/></span>--%></td>
+      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tco06/champion.gif" alt="" border="0" /><br><span class="bigTitle"><tc-webtag:handle coderId="7548200" context="development"/></span></td>
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">

@@ -1,11 +1,9 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.common.web.data.CoderRegistration;
-import com.topcoder.common.web.data.Country;
-import com.topcoder.common.web.data.State;
-import com.topcoder.ejb.UserServices.UserServices;
-import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
@@ -16,7 +14,6 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
-import javax.rmi.PortableRemoteObject;
 
 public class GoogleRegSubmit extends FullRegSubmit {
 
@@ -31,6 +28,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(useId, DBMS.OLTP_DATASOURCE_NAME)) {
                 TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
+/*
                     UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
                                     UserServicesHome.class.getName()),
                                     UserServicesHome.class);
@@ -62,6 +60,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
                     tm.begin();
                     userEJB.setUser(u);
                     tm.commit();
+*/
                 } catch (Exception e) {
                     try {
                         if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {

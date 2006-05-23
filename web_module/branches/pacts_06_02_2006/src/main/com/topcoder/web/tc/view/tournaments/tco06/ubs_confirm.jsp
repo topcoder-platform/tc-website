@@ -23,7 +23,7 @@
       <td valign=top align=center>
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco06/ubs_logo.gif" alt="UBS" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco06/ubs_logo_final.gif" alt="UBS" border="0" /></div>
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to UBS and you will be giving UBS permission to contact you about their current job opportunities.
 <br><br>

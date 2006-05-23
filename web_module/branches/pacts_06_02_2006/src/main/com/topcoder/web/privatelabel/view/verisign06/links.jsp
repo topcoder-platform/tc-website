@@ -39,11 +39,11 @@
                 <% } %>
                 <% if (tabLev2.equals("results")) {%>
                 <td class="nav">
-                    <A href="/pl/?module=Static&d1=verisign06&d2=results"><img src="/i/events/verisign06/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
+                    <A href="/pl/?module=Static&d1=verisign06&d2=resultsSrm1"><img src="/i/events/verisign06/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
                 </td>
                 <% } else { %>
                 <td class="nav">
-                    <A href="/pl/?module=Static&d1=verisign06&d2=results"><img src="/i/events/verisign06/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
+                    <A href="/pl/?module=Static&d1=verisign06&d2=resultsSrm1"><img src="/i/events/verisign06/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
                 </td>
                 <% } %>
                 <%--
@@ -93,10 +93,18 @@
                     <a href="/pl/?module=Static&d1=verisign06&d2=instructions"><% if (tabLev3.equals("instructions")) {%><img src="/i/events/verisign06/tabs/ver_L3_instructionsOn.gif" border="0" width="80" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_instructionsOff.gif" border="0" width="80" /><% } %></a></td>
                 <% } else if (tabLev2.equals("registration")) {%>
                 <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
+                <%--
                 <% } else if (tabLev2.equals("registrants")) {%>
                 <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
+                --%>
+                <% } else if (tabLev2.equals("results")) {%>
+                <td class="subnav">
+                    <a href="/pl/?module=Static&d1=verisign06&d2=resultsSrm1"><% if (tabLev3.equals("srm1")) {%><img src="/i/events/verisign06/tabs/ver_L3_srm1On.gif" border="0" width="52" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_srm1Off.gif" border="0" width="52" /><% } %></a></td>
+                <td class="subnav">
+                    <a href="/pl/?module=Static&d1=verisign06&d2=resultsSrm2"><% if (tabLev3.equals("srm2")) {%><img src="/i/events/verisign06/tabs/ver_L3_srm2On.gif" border="0" width="52" /><% } else { %><img src="/i/events/verisign06/tabs/ver_L3_srm2Off.gif" border="0" width="52" /><% } %></a></td>
                 <% } else if (tabLev2.equals("competitionArena")) {%>
                 <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
+                <%--
                 <% } else if (tabLev2.equals("advancers")) {%>
                 <td class="subnav">
                     <a href="/tc?module=SimpleStats&c=tco06_spon_qual&trans=true&d1=tournaments&d2=tco06&d3=qualification"><% if (tabLev3.equals("qualification")) {%><img src="/i/events/verisign06/tabs/L3_qualificationOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/L3_qualificationOff.gif" border="0"/><% } %>
@@ -122,8 +130,9 @@
                     </a></td>
                 <td class="subnav">
                     <a href="/pl/?module=Static&d1=verisign06&d2=alg_finals_analysis"><% if (tabLev3.equals("finals")) {%><img src="/i/events/verisign06/tabs/L3_finalsOn.gif" border="0"/><% } else { %><img src="/i/events/verisign06/tabs/L3_finalsOff.gif" border="0"/><% } %>
-                    </a></td>
+                    </a></td>--%>
                 <% } %>
+                
                 <td class="subnavBG" width="100%">&#160;</td>
             </tr>
         </table>

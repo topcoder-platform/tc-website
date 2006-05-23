@@ -17,6 +17,7 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 
+import javax.print.attribute.standard.MediaSize;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.TimeZone;
@@ -115,7 +116,7 @@ public class EmailInfo extends BaseModel {
         end.setTimeZone(tz);
 
         //todo yikes this is a nasty hack for google india
-        if (companyId == 8039) {
+        if (companyId == 8039||companyId == 17841) {
             msgText.append("Dear Google Engineering Candidate,\n\n");
             msgText.append("You have been requested to write an online programming test by Google.\n\n");
             msgText.append("Please review the Help Manual before getting started: ");

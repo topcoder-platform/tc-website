@@ -140,10 +140,12 @@ The competitors with the top 50 scores from Round 2 will be invited to compete f
 
     <tr valign="top">
         <td class="sidebarText" colspan="3">* All times denoted as GMT/UTC.<br>
-		** The Championship Round date is subject to change with or without prior notice.
+		** The Championship Round date is subject to change with or without prior notice.<br>
 		</td>
     </tr>
 </table>
+<br><br>
+We understand that final exams may occur in May and June for students; however, please note that the online rounds in May and June only last 60-75 minutes.  We hope that the June 29th finals in Dublin, Ireland will fit within your exam schedule.
 <br><br>
 <span class="greenSubtitle">Prizes</span>
 <br><br>

@@ -3,7 +3,7 @@ package com.topcoder.web.ejb.email;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;

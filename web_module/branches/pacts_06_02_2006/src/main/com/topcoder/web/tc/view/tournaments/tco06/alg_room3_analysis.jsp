@@ -31,182 +31,181 @@
 <img src="/i/tournament/tco06/onsite_photos/shot_room3.jpg" alt="" class="photoFrameBig" /><br>
 </div>
 
-<p>
-<span class="bigTitle">misof wins Room 3</span>
+<p style="vertical-align:top;">
+<span class="bigTitle">tomek wins Room 3</span>
 <br><br>
-<img src="/i/m/FogleBird_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/>
-<tc-webtag:forumLink forumID="505778" message="Discuss this match" /><br>
-Thursday, October 13, 2006<br>
-Introduction by <tc-webtag:handle coderId="160049" context="algorithm"/>
-<br><br><br>
-Everyone can go home feeling content after the Room 3 portion of the on-site finals here at the 2006 TopCoder Open.  Each of the sixteen competitors submitted a correct 250-point solution, leaving each of them with a positive final score.  The relatively easy 250 left plenty of time for thirteen of the coders to submit the 500-point problem.  However, only three of them ended up passing - four were brought down during the challenge phase and the rest during system tests.  Finally, misof was the only one to submit the difficult 1000-point problem.  He seemed rather excited as his solution passed system tests, keeping him in 1st place for the room.  He and nicka81 will advance to the finals tomorrow.  ivan_metelsky, antimatter, marian, and kalmakka will move on to the wildcard round for a second chance to make it into the final championship round.  Good luck!
-</p>
+<img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<tc-webtag:forumLink forumID="505963" message="Discuss this match" /><br>
+Thursday, May 4, 2006<br>
+Introduction by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<br><br>
+Semifinal round 3 proved to be the most exciting so far with tight
+races and a slew of challenges.   The match started out slowly with many 
+competitors taking over half an hour to submit the easy problem.  The
+medium problem didn't prove much easier and it was about an hour
+before anyone had two submissions.  John Dethridge tried to skip the
+medium after he submitted the easy, but he quickly gave up, and went
+back, getting the fastest time on the medium.  Going into the
+challenge phase, John Dethridge had the lead, followed by ploh,
+tomek, and halyvin, each less than a challenge away.  
+<br><br>
+The challenges phase yielded no fewer than 16 challenges, 6 of which
+were successful.  With 2 of the successful challenges, tomek moved up
+into first place, while ploh and John Dethridge both dropped 25
+points.  The system testing phase proved uneventful by comparison, and
+the top 6 remained unchanged: tomek and JD move on to the finals,
+while ploh, reid, liympanda, and JongMan will have to fight it out in 
+the wildcard round.</p>
 
-
-<h1>ModeProbability</h1>
+<h1>TaylorAlgebra</h1>
 by <tc-webtag:handle coderId="251317" context="algorithm"/>
 <br><br>
-Here we must compute the probability that a given number will occur most frequently.  The friendly
-constraints guarantee there will be at most 5 different values, and at most 15 numbers generated.
-Looping through all possible counts for each value, we see there are at most C(19,4)=3876 (read "19
-choose 4") ways to choose the values.  If we only consider the ways where the required number occurs
-most frequently, there are even fewer possibilities to consider.  For each set of counts, we can
-compute the probability of that set occurring.  First, fix a particular ordering of the multiset we
-have chosen (a multiset is a collection of values with different counts).  To compute the
-probability of that ordering, we multiply the probability of getting each value.  For example, if
-<pre>
-<b>probs</b> = {20,30,50}
-</pre>
-and we are considering the multiset
-<pre>
-M = { 0 with count 2, 1 with count 1, 2 with count 3 }
-</pre>
-with fixed ordering &lt;2,0,1,0,2,2&gt;, then the associated probability is
-<pre>
-P = .5*.2*.3*.2*.5*.5
-</pre>
-Conveniently, any ordering of these 6 values will occur with the same probability, so the total
-probability for this set of counts can be computed by multiplying P by the number of orderings of
-these values.  This count is
+As done in Apostol's wonderful calculus text, we define the nth Taylor operator (it takes a
+function and produces the corresponding finite Taylor series).  This problem explores how
+derivatives and integrals interact with the Taylor operator (and requires no knowledge of
+calculus).  To solve the task at hand, we recursively descend into the given nested formula keeping
+track of the number of D's and I's we have accumulated, and cancelling appropriately (no sense in
+having both D's and I's).  Upon finding
+a T, we compute the maximum number of D's (or I's) that can be pushed deeper without violating the
+numeric constraints.  When we hit the deepest nesting level of the expression, we are left with an
+'f'.  As we climb out of our recursive calls, we construct the return value by surrounding the
+current formula with the correct number of D's, I's, and T's that were accumulated at that level (of
+the recursion).
 
-<pre>
-C = 6!/(2!*1!*3!) = 60
-</pre>
-6! represents the number of ways to order 6 distinct objects.  The denominator accounts for the
-duplicates.  This formula is called a <a href="http://mathworld.wolfram.com/MultinomialCoefficient.html">
-multinomial coefficient</a>.  To complete the task at hand, we sum all of the C*P values 
-(for each possible set of counts), and get our final result.
-
-<h1>Conference</h1>
-by <tc-webtag:handle coderId="159052" context="algorithm"/>
+<h1>ModelRailroad</h1>
+by <tc-webtag:handle coderId="277659" context="algorithm"/>
 <br><br>
-It is useful to think about what happens when n = 1: there is only 1 person and he wants to attend as many meetings as possible. In this case, a simple greedy algorithm is correct. First go to the meeting that gets out earliest. Then, among meetings that are still options, go the the one that gets out earliest, and so on. By always picking the meeting that gets out earliest, you maximize your potential to go to future meetings.
+This problem has two parts:  calculating the number of
+configurations, and handling the symmetry.  Consider
+the number of consecutive straight sections as we go around
+the circle as six numbers a, b, c, d, e, and f.  In order
+for the loop to be closed, a+b must equal d+e, and b+c must
+equal e+f.  These two equations also imply a third, that
+c+d=f+a.  Using these equations, we can set any four of
+the variables (say, a, b, c, and d) and compute the other
+two.  Thus one possible solution is to iterate over all
+possible values for a, b, c, and d, compute the other two,
+and if they are nonnegative, consider it a found configuration.
+This runs too slowly.
 <br><br>
-It turns out that you can extend this to the case where n > 1. By having someone go to the meeting that gets out earliest, you maximize that person's ability to go to future meetings. As long as you iteratively assign the meetings, always picking the one that ends earliest out of your available options, you'll end up covering the most meetings possible. All that remains is to figure out which meetings are still possible, given that some meetings have already been selected. 
+We can eliminate one of the loops by giving only a, b, and
+c values, and then computing the range of values d can take
+on that would result in a valid configuration.  These
+equations can be calcuated by considering the equations
+above, keeping d as a variable, and solving them for
+e and f nonnegative, and the sum of all six numbers less
+than straight.  The lower bound on d is the greater of
+0 and a-c, and the upper bounds on d is the lesser of
+a+b and n-a-2*(b+c).  Sum up the count of all possible
+configurations, and call this n1.
 <br><br>
-One way to do this is to assign people to meetings as the meetings are selected. Number the people from 1 to n, and whenever you select a meeting, assign it to the person who is done with other meetings latest, but doesn't have a conflict with that meeting. If you do this, you will always assign the meetings to people in such a way that you are maximizing the ability of the group to go to future meetings. Then, during the execution of your algorithm, a meeting is an option if and only if there is some person who doesn't have any conflict with it, assuming that you assign meetings in order by ending time.
+This lets us enumerate all configurations ignoring symmetry.
+To handle symmetry, we calculate in addition to the above
+number the count of positions that have 6-symmetry (all six
+60 degree rotations are identical); 3-symmetry (all three
+120 degree rotations are identical), and 2-symmetry (both
+180 degree rotations are identical).  We call these values
+n6, n3, and n2, respectively.  Each of these can be
+calculated very quickly because the number of free variables
+is reduced to 1, 2, and 3, respectively.
 <br><br>
-Note that one incorrect way to do this (which cost many coders), is to simply count the number of conflicts that each meeting has with previously assigned meetings.  While this is temptingly simple, it has the unfortunate property that it fails.  Image a meeting from 8-9, 9-10 and 8:30-11, and two people.  We examine the meetings in order by end time, and find that we can go to both of the first two meetings. Now, we look at the 8:30-11 meeting and see that it conflicts with two previously assigned meetings.  Hence, we erroneously conclude that we can't go to the third meeting also.
-
-<h1>DiscCover</h1>
-by <tc-webtag:handle coderId="310430" context="algorithm"/>
-<br><br>
-It is easier here to solve the inverse problem, i.e., what is
-the maximum radius of a disc that we can cover with <b>numDiscs</b>
-unit discs (radius 1.0). If we have found that, we can scale
-the solution to the given <b>discRadius</b>, and deduce
-thus the minimum radius we need for the small discs.
-<p>
-Let's call the maximum radius of a disc that we can cover
-using n unit discs <code>maxRadius(n)</code>. We use dynamic
-programming to compute <code>maxRadius(n)</code> beginning
-with n=0 (<code>maxRadius(0)=0</code>) and going up to
-
-<b>numDiscs</b>. In order to compute <code>maxRadius(n)</code>,
-we iterate over the number of discs, m, that are used to
-cover the outermost ring in the optimal solution. Since
-n-m discs can cover a disc of maximum radius
-<code>maxRadius(n-m)</code> (which we have computed in
-previous steps), this will be the inner radius of the outer
-most ring that we need to cover with the m remaining unit discs.
-So we need to place the m discs at an optimal distance
-x from the center (at the vertices of an m-gon as described in
-the problem statement), such that the ring covered has the
-maximum possible outer radius, but still covering the
-circle with radius <code>maxRadius(n-m)</code> (how this is
-done is explained later). Choosing the value for m
-that maximizes the outer radius gives us finally
-<code>maxRadius(n)</code>. Noticing that each ring except the
-innermost one has to be covered by at least 3 rings helps
-avoiding to handle special cases for m=2 or m=1.
-In pseudo-code we have:
-</p>
+To calculate the final answer, consider that every position
+whose greatest symmetry is 1-symmetry has been counted six
+times in n1 and no times in any of n2, n3, or n6.  Every
+position whose greatest symmetry is 2-symmetry has been
+counted three times in n1 and three times in n2.  Every
+position whose greatest symmetry is 3-symmetry has been
+counted twice in n1 and twice in n3.  Every position
+that exhibits 6-symmetry has been counted once in each
+of n1, n2, n3, and n6.  If sn is the number of positions
+that have a greatest symmetry of n, then we have the following
+equations:
 <pre>
-double minRadius(double discRadius, int numDiscs) {
-    double[] maxRadius = new double[numDiscs + 1];
-    maxRadius[0] = 0.0;
-    maxRadius[1] = 1.0; // just one disc
-    maxRadius[2] = 1.0; // a second disc does not help much
-    for (int n = 3; n <= numDiscs; n++) {
-        // We initialize first maxRadius[n] to the worst value we
-        // know that we can achieve.
-        maxRadius[n] = maxRadius[n - 1]
-        for (int m = 3; m <= n; m++) {
-            // addRing(double r0, int m) returns the maximum radius
-            // we can cover if we already have a disc with radius r0
-            // covered and add m discs covering an additional ring
-            // (see below for implementation details).
-            double rnext = addRing(maxRadius[n - m], m);
-            if (rnext > maxRadius[n]) {
-                maxRadius[n] = rnext;
-            }
-        }
-    }
-    // With numDiscs discs of radius 1.0 we can cover a disc of radius maxRadius[numDiscs]
-    // So, we can cover a disc of radius discRadius using numDiscs discs of radius:
-    return discRadius / maxRadius[numDiscs];
-}
-
+n1 = 6 * s1 + 3 * s2 + 2 * s3 + s6
+n2 = 3 * s2 + s6
+n3 = 2 * s3 + s6
+n6 = s6
 </pre>
-<p>
-Now remains the hard part, implementing the function <code>addRing(r0, m)</code>,
-which computes the optimal way to place m&gt;2 unit discs around the already covered
-disc with radius r0. As described in the problem statement, we place
-the m discs centered at the vertices of a regular m-gon, let's say at
-a distance x from the center. In the figure below, A and B are the
-centers of two neighbouring of the m unit discs we place. Since
-we have a regular polygon, the angle AOB (O is the center of the
-original disc) will be equal to (2 * PI / m); in the following we
-call 'a' half of this angle, i.e., a = PI / m. Since the m unit discs
-have to cover at least the circle at distance r0 from O, the point
-M (the middle of the arc between OA and OB) will have to be covered
-by the disc centered at A or B (since these are the discs closest to M),
-i.e., x must be choosen such that AM <= 1.0. This gives us an upper
-bound for x (see figure for details):
-</p>
-<div align="center"><img src="/i/srm/tco06_r2_1.png" alt="" border="0"/></div>
-<p>
-Note that if the term under the square root is negative, i.e.,
-r0 * sin(a) > 1.0, we can not cover the circle r0 with only m
-additional discs, so we just return r0.
-</p>
-<div align="center"><img src="/i/srm/tco06_r2_2.png" alt="" border="0"/></div>
-<p>
-If we place the discs at a distance x, we cover a ring up to an
-outer radius (see figure):
-</p>
-<div align="center"><img src="/i/srm/tco06_r2_3.png" alt="" border="0"/></div>
-<p>
-We want to find the x that maximises this, so the derivative
-of this term must be set to 0 (to ensure that this is actually
-a maximum we need to also check the second derivative, but
-this turns out to be always negative, so we do indeed have a maximum):
-</p>
-<div align="center"><img src="/i/srm/tco06_r2_4.png" alt="" border="0"/></div>
-<p>
-If this is within the limit given above for x, then this is
-the value we need to take for x, otherwise we have to use
-the maximum allowed x value as given above. Using the formula
-for r<sub>out</sub> we can finally return the radius of the disc we can
-cover with m discs additional to the already covered r0 disc.
-</p>
-<p>
-In total, we end up with the following code (in Java)
-for <code>addRing(r0, m)</code>
+The answer we desire is s1+s2+s3+s6, and we can easily solve
+these equations to find that that answer is simply
+(n1+2*n2+3*n3+2*n6)/6.
+
+
+<h1>CompressedStringSearch</h1>
+by <tc-webtag:handle coderId="277659" context="algorithm"/>
+<br><br>
+Operating on compressed representations of data is frequently key to
+high-performance algorithms.  Sparse matrices and Binary Decision Diagrams
+are just two examples of common data structures that are just compressed
+representations of more natural formats.  Indeed, memoization itself
+simply compresses the expression graph.  It is no surprise, then, that
+memoization is key to this problem.
+<br><br>
+The first step to the solution of this problem is to ignore the
+compression, and just consider calculating a string match by walking
+the haystack character by character.  At any given point, the state
+is the maximum number of characters in the needle that have been
+successfully matched.  For every new character in haystack we see,
+we calculate the next state based on the current state and the
+new character.  When we reach a state that indicates we have
+matched all characters, we have found our match.
+<br><br>
+Because of needles like "aabab" and input like "aabaabab", we cannot
+simply start over at the beginning of needle every time we find a
+mismatched character.  Instead, when we find a mismatch, we want
+to find out the longest prefix of needle that is a suffix of the
+part of haystack we have examined so far.
+There are many ways to compute this state machine.  Perhaps the easiest
+is to simply use a loop like the following:
 <pre>
-double addRing(double r0, int m) {
-    double a = Math.PI / m;
-    double z = 1.0 - r0 * r0 * Math.sin(a) * Math.sin(a);
-    if (z < 0) return r0;
-    double xmax = r0 * Math.cos(a) + Math.sqrt(z);
-    double x = Math.cos(a) / Math.sin(a);
-    if (x > xmax) x = xmax;
-    return x * Math.cos(a) + Math.sqrt(1.0 - x * x * Math.sin(a) * Math.sin(a));
-}
-
+      for (int i=0; i&lt;needle.length(); i++) {
+         String p = needle.substring(0, i) ;
+         char c = needle.charAt(i) ;
+         for (int j=0; j+i&lt;=needle.length(); j++)
+            if (needle.substring(j, j+i).equals(p))
+               nextState[j+i][c] = (i+1) ;
+      }
 </pre>
-
-
+This works great so long as we have no compression.  As it turns
+out, it is easy to add compression too; just consider a character
+that represents a compressed string as another character, and
+calculate what the next state is for a given input state.
+With the potential of compressed strings representing huge
+haystacks, this may seem to run too slow, but memoization makes
+it easily run in time.
+<br><br>
+The only remaining complication is remembering the offset where
+we found the needle.  To do this we simply calculate how many
+total uncompressed characters we have consumed, and when we find
+a match, return that value less the length of the needle.  In
+order to keep the code clean, we can use an exception to return
+the final match position.  Note that we can memoize both length
+and search easily.
+<pre>
+   long length(char a) { // memoize this for speed
+      if (!inDictionary(a))
+         return 1 ;
+      long r = 0 ;
+      for (char c : expansion(a))
+         r += length(c) ;
+      return r ;
+   }
+   int search(String haystack, long pos, int state) throws Found {
+      for (char c : haystack) {
+         if (state == needle.length())
+            throw new Found(pos-needle.length()) ;
+         if (not_calculated(nextState[state][c]))
+            nextState[state][c] = search(expansion(c), pos, state) ;
+         state = nextState[state][c] ;
+         pos += length(c) ;
+      }
+      if (state == needle.length())
+         throw new Found(pos-needle.length()) ;
+   }
+</pre>
+The rest is straightforward; if we get an exception indicating
+the string was found, we extract the found position from that
+exception and return it; otherwise, we return -1.
         </div>
       </td>
         

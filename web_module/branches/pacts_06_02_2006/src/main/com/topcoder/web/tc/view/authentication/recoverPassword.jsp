@@ -7,11 +7,11 @@
 
 <html>
 <head>
-<title>TopCoder | Password</title>
+<title>TopCoder</title>
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
+<jsp:param name="key" value="tc_reg"/>
 </jsp:include>
 
 <SCRIPT type="text/javascript">
@@ -30,114 +30,79 @@ function submitEnter(e) {
 </head>
 
 <body>
+<div align="center" style="padding:6px 0px 6px; 0px;">
+<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+</div>
+<div align="center">
+   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
 
-<!-- Top begins -->
-<jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value="login"/>
-</jsp:include>
-<!-- Top ends -->
+     <jsp:include page="/page_title.jsp">
+         <jsp:param name="image" value="registration_w"/>
+         <jsp:param name="title" value="&#160;"/>
+     </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
+   <strong>Forgot your password?</strong><br>
+   Have you forgotten your password?  Enter the information below. This must be the <strong>same information</strong> you used when you registered. We will immediately email your password to you.
+   <br><br>
 
-<!-- Left Column Begins -->
-        <td width="170">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
+<form method="post" name="frmPass" action="/tc">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
 
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column begins -->
-        <td width="100%" class="bodyText"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <p>
-               Have you forgotten your password?  Enter the
-               information below.  We will immediately send your password to you via Email.
-            </p>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <form method="post" name="frmPass" action="/tc">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
-                    <tr>
-                        <td class="errorText">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bodyText">
-                            First Name
-                        </td>
-                        <td>
-                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="errorText">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bodyText">
-                            Last Name
-                        </td>
-                        <td>
-                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="errorText">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bodyText">
-                            Email Address
-                        </td>
-                        <td>
-                             <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
-                        </td>
-                    </tr>
-                    <tr><td><br/></td></tr>
-                    <tr>
-                        <td colspan="2" align="center" class="bodyText">
-                            <p>(This must be the same information you used when you registered.)</p>
-                        </td>
-                    </tr>
-                    <tr><td><br/></td></tr>
-                    <tr>
-                        <td colspan="2" align="center" class="bodyText">
-                            <a href="JavaScript:document.frmPass.submit()" class="bodyText">Submit</a>
-                        </td>
-                    </tr>
-                </form>
-            </table>
-        </td>
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-    </tr>
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tr>
+      <td colspan="2"><span class="bigRed">
+         <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         First Name:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+         <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Last Name:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Email Address:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="value">
+         &#160;
+      </td>
+      <td class="value">
+         <a href="JavaScript:document.frmPass.submit()" class="bodyText">Submit</a>
+      </td>
+   </tr>
 </table>
+</form>
+</div>
 
-<!-- Footer begins -->
-  <jsp:include page="../foot.jsp"/>
-<!-- Footer ends -->
+   </div>
+</div>
 
 </body>
 </html>
-

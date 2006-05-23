@@ -173,7 +173,7 @@ Arg Types: <%=StringUtils.htmlEncode((String)paramTypes.get(i))%>
               </div>
 
                 <div style="float:right; padding: 5px 0px 0px 5px;">
-                    <A href="javascript:exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Save" border="0"/></A>
+                    <A href="javascript:exampleSubmit();"><img src="/i/interface/btn_test_examples.gif" alt="Test" border="0"/></A>
                 </div>
 
               <div style="float:right; padding: 5px 0px 0px 5px;">

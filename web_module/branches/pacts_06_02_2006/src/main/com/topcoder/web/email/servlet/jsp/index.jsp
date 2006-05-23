@@ -22,16 +22,26 @@
 	<input type="hidden" name="<%=EmailConstants.STEP%>">
 </form>
 
+<p>
 <a href="javascript:menuSubmit('<%=EmailConstants.EMAILTEMPLATE_TASK%>', '<%=EmailConstants.TEMPLATE_LIST%>');">
 E-mail Templates</a>
+</p>
 
 <p>
 <a href="javascript:menuSubmit('<%=EmailConstants.ADDRESSLIST_TASK%>', '<%=EmailConstants.ADDRESSLIST_LIST%>');">
 Mailing Lists</a>
+</p>
 
 <p>
 <a href="javascript:menuSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_LIST%>');">
 Scheduled Jobs</a>
+</p>
+
+<p>
+    <a href="javascript:menuSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CREATE%>');">
+Schedule new Job</a>
+
+</p>
 
 <p>
 <jsp:include page="footer.jsp" />
