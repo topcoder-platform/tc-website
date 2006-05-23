@@ -35,13 +35,21 @@
              <c:if test="${sessionInfo.loggedIn}">
                  <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
              </c:if>
-         Step <strong>2</strong> of <strong>6</strong></div>
+         Step <strong>2</strong> of
+<%--- IF NEW REG -----%>
+         <strong>6</strong>
+<%--- ELSE -----%>
+         <strong>5</strong>
+<%---------------------%>
+         </div>
          <div class="off">Select Your Registration</div>
          <div class="on">General</div>
          <div class="off">Demographics</div>
          <div class="off">Confirm</div>
          <div class="off">Success</div>
+<%--- IF NEW REG -----%>
          <div class="off">Activation</div>
+<%---------------------%>
       </div>
    </div>
 
