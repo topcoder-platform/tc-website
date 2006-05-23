@@ -114,6 +114,7 @@ public class TCCC05Payments {
             ArrayList winners = getWinnerPaymentInfo(all);
             psIns = conn.prepareStatement(ADD_PAYMENT);
 
+            //have to use old id gen because the new one doesn't suppor multiple datasources
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),

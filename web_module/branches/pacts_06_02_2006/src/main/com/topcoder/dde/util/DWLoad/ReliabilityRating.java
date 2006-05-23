@@ -561,7 +561,6 @@ public class ReliabilityRating {
             " and pi.cur_version = 1" +
             " and pi.start_date >= ?" +
             " and pr.reliability_ind = 1" +
-            " and pr.final_score is not null" +
             " and pr.reliable_submission_ind is null";
 
     private static final String updateReliableSubmission =
@@ -595,7 +594,13 @@ public class ReliabilityRating {
             rs = ps.executeQuery();
             while (rs.next()) {
                 ps2.clearParameters();
-                ps2.setInt(1, Double.compare(rs.getDouble("final_score"), MIN_RELIABLE_SCORE) < 0 ? 0 : 1);
+
+                int reliableSubmissionInd = 0;
+                if (rs.getObject("final_score")!=null&&Double.compare(rs.getDouble("final_score"), MIN_RELIABLE_SCORE) >= 0) {
+                    reliableSubmissionInd = 1;
+                }
+
+                ps2.setInt(1, reliableSubmissionInd);
                 ps2.setLong(2, rs.getLong("user_id"));
                 ps2.setLong(3, rs.getLong("project_id"));
                 ret += ps2.executeUpdate();

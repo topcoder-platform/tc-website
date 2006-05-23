@@ -7,7 +7,6 @@ import com.topcoder.web.reg.model.*;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * @author dok
@@ -29,7 +28,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
                 u.getHomeAddress().getState(), h);
         DemographicAssignment da;
         DemographicResponse dr;
-        ArrayList responses = new ArrayList();
+        HashSet responses = new HashSet();
         log.debug("found " + assignments.size() + " assignments");
         for (Iterator it = assignments.iterator(); it.hasNext();) {
             da = (DemographicAssignment)it.next();
