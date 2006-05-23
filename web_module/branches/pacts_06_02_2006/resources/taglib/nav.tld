@@ -1,14 +1,24 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
-<taglib>
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>TopCoder Generic Web Tags</shortname>
-    <!--    <info /> -->
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+
+    <description>
+        TopCoder Generic Web Tags
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>nav_tag</short-name>
+
+    <uri>nav.tld</uri>
+
     <tag>
         <name>navBuilder</name>
-        <tagclass>com.topcoder.web.common.tag.NavBuilder</tagclass>
+        <tag-class>com.topcoder.web.common.tag.NavBuilder</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>navTree</name>
             <required>true</required>

@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
 
-<taglib>
-    <tlibversion>1.0</tlibversion>
-    <jspversion>1.1</jspversion>
-    <shortname>TopCoder Private Label Tags</shortname>
-    <info>
-    </info>
+
+    <description>
+        TopCoder Main Site Tags
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>tc_tag</short-name>
+
+    <uri>tc.tld</uri>
 
     <tag>
         <name>questionIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.QuestionIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.QuestionIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -29,10 +34,9 @@
 
     <tag>
         <name>answerInput</name>
-        <tagclass>com.topcoder.web.common.tag.AnswerInput</tagclass>
-        <teiclass>com.topcoder.web.common.tag.AnswerInputTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.AnswerInput</tag-class>
+        <tei-class>com.topcoder.web.common.tag.AnswerInputTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>question</name>
             <required>true</required>
@@ -52,10 +56,9 @@
 
     <tag>
         <name>counter</name>
-        <tagclass>com.topcoder.web.tc.view.tag.Counter</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.CounterTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.tc.view.tag.Counter</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.CounterTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>min</name>
             <required>false</required>
@@ -80,10 +83,9 @@
 
     <tag>
         <name>problemRatingIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.ProblemRatingIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -96,22 +98,11 @@
         </attribute>
     </tag>
 
-   <tag>
-        <name>ratingStyle</name>
-        <tagclass>com.topcoder.web.common.tag.RatingStyleTag</tagclass>
-        <attribute>
-            <name>rating</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-
     <tag>
         <name>problemRatingResultIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingResultInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.ProblemRatingResultInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -126,10 +117,9 @@
 
     <tag>
         <name>problemRatingDistributionIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingDistributionInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.ProblemRatingDistributionInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -144,10 +134,8 @@
 
     <tag>
         <name>sponsorImage</name>
-        <tagclass>com.topcoder.web.tc.view.tag.SponsorImage</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-        </info>
+        <tag-class>com.topcoder.web.tc.view.tag.SponsorImage</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>src</name>
             <required>true</required>
@@ -203,10 +191,8 @@
 
     <tag>
         <name>ratingStyle</name>
-        <tagclass>com.topcoder.web.tc.view.tag.RatingStyle</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-        </info>
+        <tag-class>com.topcoder.web.tc.view.tag.RatingStyle</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>rating</name>
             <required>true</required>
@@ -216,12 +202,9 @@
 
     <tag>
         <name>listIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a List
-        </info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.common.tag.ListIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -237,12 +220,8 @@
 
     <tag>
         <name>beanWrite</name>
-        <tagclass>com.topcoder.web.common.tag.BeanWriteTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag to write out properties of beans stored in a scope attribute
-            variable
-        </info>
+        <tag-class>com.topcoder.web.common.tag.BeanWriteTag</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>name</name>
             <required>true</required>
@@ -268,10 +247,9 @@
 
     <tag>
         <name>placementProfileSearchResultIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.PlacementProfileSearchResultInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.PlacementProfileSearchResultInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -286,10 +264,9 @@
 
     <tag>
         <name>preferenceGroupIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.PreferenceGroupIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.PreferenceGroupIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -304,10 +281,9 @@
 
     <tag>
         <name>preferenceIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.PreferenceIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.PreferenceIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -322,7 +298,8 @@
 
     <tag>
         <name>preferenceInput</name>
-        <tagclass>com.topcoder.web.tc.view.tag.PreferenceInput</tagclass>
+        <tag-class>com.topcoder.web.tc.view.tag.PreferenceInput</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>styleClass</name>
             <required>false</required>
@@ -337,10 +314,9 @@
 
     <tag>
         <name>skillIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.SkillIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info></info>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.tc.view.tag.SkillIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -355,7 +331,8 @@
 
     <tag>
         <name>skillInput</name>
-        <tagclass>com.topcoder.web.tc.view.tag.SkillInput</tagclass>
+        <tag-class>com.topcoder.web.tc.view.tag.SkillInput</tag-class>
+        <body-content>empty</body-content>
         <attribute>
             <name>styleClass</name>
             <required>false</required>

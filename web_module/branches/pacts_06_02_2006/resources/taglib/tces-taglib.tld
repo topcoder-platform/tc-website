@@ -1,77 +1,74 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
-  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
 
-<taglib>
-  <tlibversion>1.0</tlibversion>
-  <jspversion>1.1</jspversion>
-  <shortname>TopCoder TCES Tags</shortname>
-  <info>
-  </info>
 
-  <tag>
-    <name>mapIterator</name>
-    <tagclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTagInfo</teiclass>
-    <bodycontent>JSP</bodycontent>
-    <info>
-      tag to iterate through a list of maps
-    </info>
-    <attribute>
-      <name>id</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-      <name>mapList</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-  </tag>
+    <description>
+        TopCoder TCES Tags
+    </description>
 
-  <tag>
-    <name>rowIterator</name>
-    <tagclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTagInfo</teiclass>
-    <bodycontent>JSP</bodycontent>
-    <info>
-      Tag to iterate through a List of ResultSetRows
-    </info>
-    <attribute>
-      <name>id</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-      <name>rowList</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-  </tag>
+    <tlib-version>1.0</tlib-version>
 
-  <tag>
-    <name>trailIterator</name>
-    <tagclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTag</tagclass>
-    <teiclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTagInfo</teiclass>
-    <bodycontent>JSP</bodycontent>
-    <info>
-      Tag to iterate through a List of TrailItems
-    </info>
-    <attribute>
-      <name>id</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-    <attribute>
-      <name>trailList</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-    </attribute>
-  </tag>
+    <short-name>tces_tag</short-name>
+
+    <uri>tces-taglib.tld</uri>
+
+    <tag>
+        <name>mapIterator</name>
+        <tag-class>com.topcoder.web.corp.view.tces.tag.MapIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.corp.view.tces.tag.MapIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>mapList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>rowIterator</name>
+        <tag-class>com.topcoder.web.corp.view.tces.tag.RowIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.corp.view.tces.tag.RowIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>rowList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>trailIterator</name>
+        <tag-class>com.topcoder.web.corp.view.tces.tag.TrailIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.corp.view.tces.tag.TrailIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>trailList</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
     <tag>
         <name>handle</name>
-        <tagclass>com.topcoder.web.corp.view.tces.tag.HandleTag</tagclass>
+        <tag-class>com.topcoder.web.corp.view.tces.tag.HandleTag</tag-class>
         <attribute>
             <name>coderId</name>
             <required>true</required>
