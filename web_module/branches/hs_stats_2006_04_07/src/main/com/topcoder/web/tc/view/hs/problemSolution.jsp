@@ -182,7 +182,7 @@ boolean even = false;
 <br><br>
 
 <pre>
-<%= sClassText %>
+<%= sSolutionText %>
 </pre>
 
 
