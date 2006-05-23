@@ -32,7 +32,7 @@
         <div class="title">
             Step <strong>5</strong> of
             <c:choose>
-                <c:when test="${regUser.isNew}">
+                <c:when test="${regUser.new}">
                     <strong>6</strong>
                 </c:when>
                 <c:otherwise>
@@ -50,7 +50,7 @@
         <div class="off">Confirm</div>
 
         <div class="on">Success</div>
-        <c:if test="${regUser.isNew}">
+        <c:if test="${regUser.new}">
             <div class="off">Activation</div>
         </c:if>
     </div>
@@ -58,7 +58,7 @@
 
 <div style="width:400px;">
     <c:choose>
-        <c:when test="${regUser.isNew}">
+        <c:when test="${regUser.new}">
             <strong>Registration successful!</strong>
             <br><br>
             <span class="bigRed">Please check your email. You <u>MUST</u> activate your account to complete registration.</span>
