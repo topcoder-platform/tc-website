@@ -37,7 +37,7 @@
              </c:if>
          Step <strong>2</strong> of
              <c:choose>
-                 <c:when test="regUser.isNew">
+                 <c:when test="${regUser.isNew}">
                      <strong>6</strong>
                  </c:when>
                  <c:otherwise>
@@ -50,7 +50,7 @@
          <div class="off">Demographics</div>
          <div class="off">Confirm</div>
          <div class="off">Success</div>
-        <c:if test="regUser.isNew">
+        <c:if test="${regUser.isNew}">
             <div class="off">Activation</div>
         </c:if>
       </div>
