@@ -114,7 +114,7 @@ boolean even = false;
 <br><br>
 <strong>Match:</strong> <A href="" class="bcLink">HS SRM 1 > Round 1</A><br>
 <strong>Room:</strong> <A href="" class="bcLink">4</A><br>
-<strong>Coder:</strong> <tc-webtag:handle coderId="267834" /><br>
+<strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" /><br>
 <a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">Discuss this contest</a>
 <br><br>
 
@@ -152,7 +152,7 @@ boolean even = false;
    <tr class='<%= selected? "highlight" : (even? "light" : "dark") %>'>
       <td class="value" style="vertical-align: middle;">
          <A href='/tc?module=HSProblemSolution&rm=<%= sRoomId %>&rd=<%= sRoundId %>&pm=<%= resultRow.getIntItem("problem_id") %>&cr=<%= sCoderId %>'>
-            <img src='<%= "/i/interface/" + selected? "exp_ed_w.gif" : "exp_w.gif") %>' alt="" />
+            <img src='<%= "/i/interface/" + (selected? "exp_ed_w.gif" : "exp_w.gif") %>' alt="" />
          </A>
       </td>
       <td class="value">
@@ -177,7 +177,7 @@ boolean even = false;
 <br><br>
 
 <div style="float:right;"><A href="">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="267834" />'s solution to Knights</span>
+<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" />'s solution to Knights</span>
 <br><br>
 
 <pre>
