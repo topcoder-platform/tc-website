@@ -21,20 +21,22 @@
                 <table border="1" cellpadding="5" cellspacing="0">
                     <tr>
                     	<td colspan="2" align="left">
-                    		<%	int errorCount = 0; %>
+                    		<%	int errCount = 0; %>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_ID%>">
-                    			<% if (errorCount > 0) { %><br><% } %>
-                    			<% if (error.indexOf("Error:") != -1) { %>
-                    				<font color="red"><%=err%></font>
-                    			<% } else if (error.indexOf("Success:") != -1) { %>
-                    				<font color="green"><%=err%></font>
-                    			<% } %>
-                    			<% if (err!=null && !err.equals("")) errorCount++; %>
+                    			<%	String errStr = (String)err; %>
+                    			<% 	if (errCount > 0) { %><br><% } %>
+                    			<% 	if (errStr.indexOf("Error:") != -1) { %>
+                    					<font color="red"><%=errStr%></font>
+                    			<% 	} else if (errStr.indexOf("Success:") != -1) { %>
+                    					<font color="green"><%=errStr%></font>
+                    			<% 	} %>
+                    			<% 	if (err!=null && !err.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>">
-                    			<% if (errorCount > 0) { %><br><% } %>
-                    			<font color="red"><%=err%></font>
-                    			<% if (err!=null && !err.equals("")) errorCount++; %>
+                    			<%	String errStr = (String)err; %>
+                    			<% 	if (errCount > 0) { %><br><% } %>
+                    				<font color="red"><%=errStr%></font>
+                    			<% 	if (errStr!=null && !errStr.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>
                     	</td>
                     </tr>
