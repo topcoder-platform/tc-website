@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.23.06<br>1:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"> 
+      <A href="/longcontest/?module=ViewOverview&rd=10015">Marathon Match 1 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="16064986" />.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/longcontest/?module=ViewOverview&rd=10015">results</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505971" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.22.06<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,20 +195,6 @@
        <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506011" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.11.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Intel&#174; Multi-Threading Competition 5 delayed
-      </span><br><br>
-      Intel&#174; Multi-Threading Competition 5 will start at <strong>2:00 PM</strong> on 5/17 rather than <strong>12:00 NOON</strong> on 5/17.  The end of the competition will also be delayed by 2 hours.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="http://forums.topcoder.com/?module=Thread&threadID=510919&mc=1#541170">discuss this</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
 

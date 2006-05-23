@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.23.06 1:45 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10015">Marathon Match 1 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.11.06 10:30 AM - </td><td width="100%">Intel Multi-Threading Competition 5 postponed</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.08.06 2:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9974">Intel Multi-Threading Competition 4 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.27.06 9:00 AM - </td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A></td></tr>
