@@ -130,7 +130,6 @@ public class HandleTag extends TagSupport {
                 if (algorithm) {
                     rating = rsc.getIntItem(0, "algorithm_rating");
                 } else if (hsAlgorithm) {
-                    log.info("for coder " + coderId + " rating is " + rsc.getIntItem(0, "hs_algorithm_rating"));
                     rating = rsc.getIntItem(0, "hs_algorithm_rating");
                 } else if (design) {
                     rating = rsc.getIntItem(0, "design_rating");
