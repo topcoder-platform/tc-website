@@ -568,7 +568,7 @@ public class AutoPilot {
             long primaryScreenerId = -1;
             for (int i = 0; i < participants.length && 
             	participants[i].getRole().getId() != Role.ID_PRIMARY_SCREENER; i++) {
-                primaryScreenerId = participants[i].getRole().getId();
+                primaryScreenerId = participants[i].getUser().getId();
             }
             
             System.out.println("primaryScreenerId: " + primaryScreenerId);
@@ -593,7 +593,7 @@ public class AutoPilot {
                 else if (roleId == Role.ID_FINAL_REVIEWER)
                 	amountToPay = defaultPriceComponent.getFinalReviewCost();
                 else if (roleId == Role.ID_REVIEWER)
-                	amountToPay = (participants[i].getRole().getId() == primaryScreenerId) ? 
+                	amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ? 
                     	    defaultPriceComponent.getCoreReviewCost() : 
                     	        defaultPriceComponent.getReviewPrice();
 
