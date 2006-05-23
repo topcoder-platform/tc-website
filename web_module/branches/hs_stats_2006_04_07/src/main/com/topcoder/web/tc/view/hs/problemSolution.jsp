@@ -42,9 +42,11 @@ ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_
 ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
 
 String sHeader = "";
+String sRoom = "";
 
 if (resultRowHdr != null) {
- sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(3).toString();
+ sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
+ sRoomName = resultRowHdr.getItem(2).toString() ;
 }
 
 //get the Problem Name info
@@ -112,11 +114,11 @@ boolean even = false;
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview" class="bcLink">Match Overview</A> >
+<span class="bodySubtitle">High School Statistics > <A href="/tc?module=HSRoundOverview&rd=<%=sRoundId%>" class="bcLink">Match Overview</A> >
 <A href="/tc?module=HSRoomStats&rd=<%=sRoundId%>&rm=<%=sRoomId%>" class="bcLink">Room Statistics</A> > Problem Solution</span></span>
 <br><br>
-<strong>Match:</strong> <A href="" class="bcLink">FIX HS SRM 1 > Round 1</A><br>
-<strong>Room:</strong> <A href="" class="bcLink">4 FIX</A><br>
+<strong>Match:</strong> <A href="/tc?module=HSRoomStats&rd=<&=sRoundId%>rm=<%= sRoomId%>&cr=<%=sCoderId%>" class="bcLink"><%=sHeader%></A><br>
+<strong>Room:</strong> <A href="" class="bcLink"><%= sRoomName %></A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='hs_algorithm' /><br>
 <a href="http://forums.dev.topcoder.com/?module=ThreadList&amp;forumID=505540" class="bcLink">FIX Discuss this contest</a>
 <br><br>
@@ -244,7 +246,7 @@ boolean even = false;
              Test Arguments
           </td>
           <td class="headerR">
-             Expected Results
+             Expected Result
           </td>
           <td class="headerR">
              Success

@@ -221,7 +221,7 @@ z-index: 2;
       <img src='<%= "/i/interface/" + (resultRow.getIntItem("coder_id") == cr? "exp_ed_w.gif" : "exp_w.gif") %>' alt="" />
       </A>
       </td>
-      <td class="value">
+      <td class="value" nowrap>
          <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
       </td>
 
