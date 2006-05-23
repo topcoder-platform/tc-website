@@ -9,7 +9,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
 <title>TopCoder High School Competitions</title>
 
 <jsp:include page="/script.jsp"/>
@@ -97,18 +96,17 @@ function clickColumn(n)
 </jsp:include>
 
 <div style="float:right; padding-left:10px;" align="right">
-<% if(seasons.getRowCount() > 1) { %>
-<div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + ""%>" useTopValue="false" onChange="selectSeason(this)"/>
-</div>
-<% }  %>
-<div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + ""%>" useTopValue="false" onChange="selectRound(this)"/>
-</div>
-<div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="tmid" list="<%=teams%>" fieldText="name" fieldValue="team_id" selectedValue="<%=  tmid + "" %>" useTopValue="false" onChange="selectTeam(this)"/>
-</div>
-
+   <% if(seasons.getRowCount() > 1) { %>
+   <div style="padding-bottom:5px;">
+       <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + ""%>" useTopValue="false" onChange="selectSeason(this)"/>
+   </div>
+   <% }  %>
+   <div style="padding-bottom:5px;">
+       <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + ""%>" useTopValue="false" onChange="selectRound(this)"/>
+   </div>
+   <div style="padding-bottom:5px;">
+       <tc-webtag:rscSelect name="tmid" list="<%=teams%>" fieldText="name" fieldValue="team_id" selectedValue="<%=  tmid + "" %>" useTopValue="false" onChange="selectTeam(this)"/>
+   </div>
 </div>
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>

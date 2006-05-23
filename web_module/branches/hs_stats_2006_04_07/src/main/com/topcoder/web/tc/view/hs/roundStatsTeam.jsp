@@ -41,7 +41,6 @@
 <jsp:param name="image" value="high_school"/>
 <jsp:param name="title" value="Match Results - Team"/>
 </jsp:include>
-
 <%
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
@@ -170,14 +169,14 @@ function clickColumn(n)
 
 
 <div style="float:right; padding-left:10px;" align="right">
-<% if(seasons.getRowCount() > 1) { %>
-<div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
-</div>
-<% }  %>
-<div style="padding-bottom:5px;">
-    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
-</div>
+   <% if(seasons.getRowCount() > 1) { %>
+   <div style="padding-bottom:5px;">
+       <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
+   </div>
+   <% }  %>
+   <div style="padding-bottom:5px;">
+       <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
+   </div>
 </div>
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
