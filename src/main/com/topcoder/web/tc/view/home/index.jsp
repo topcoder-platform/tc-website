@@ -1,7 +1,10 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
-                 java.text.DecimalFormat,
-                 com.topcoder.common.web.data.Navigation,
+                 java.text.DecimalFormat
                  com.topcoder.web.common.model.CoderSessionInfo"%>
+<%@ page import="com.topcoder.web.common.model.CoderSessionInfo"%>
+<%@ page import="java.text.DecimalFormat"%>
+<%@ page import="com.topcoder.web.common.BaseProcessor"%>
+<%@ page import="com.topcoder.web.common.BaseServlet"%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -32,10 +35,7 @@ margin:0px auto;
 </head>
 
 <%
-    Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-    if (nav==null) nav = new Navigation(request, response);
-    request.getSession(true).setAttribute("navigation", nav);
-    CoderSessionInfo sessionInfo = nav.getSessionInfo();
+    CoderSessionInfo sessionInfo = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 %>
 
 <body>
