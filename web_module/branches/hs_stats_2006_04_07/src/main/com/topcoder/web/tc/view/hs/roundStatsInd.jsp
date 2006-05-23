@@ -240,7 +240,7 @@ z-index: 2;
            even = !even;
            if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
            %>
-                 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href=""><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
+                 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href='/tc?module=HSRoomStats&rm=<%=resultRow.getIntItem("room_id")%>&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>'><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
            <%
                  lastRoom = resultRow.getIntItem("room_id");
            }
