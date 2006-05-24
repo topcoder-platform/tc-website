@@ -102,6 +102,12 @@ public final class MainServlet extends BaseServlet {
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+            //set up security objects and session info
+            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+            SessionInfo info = createSessionInfo(tcRequest, authentication,
+                    getUser(authentication.getActiveUser().getId()).getPrincipals());
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
+
             document = new XMLDocument("TC");
             nav = getNav(tcRequest, tcResponse);
 
@@ -111,12 +117,6 @@ public final class MainServlet extends BaseServlet {
             requestCommand = request.getParameter("c");
 
             if (!"sponsor_image".equals(requestCommand)) {
-                WebAuthentication authentication = new BasicAuthentication(
-                        new SessionPersistor(session),
-                        tcRequest,
-                        tcResponse,
-                        BasicAuthentication.MAIN_SITE);
-
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
             }
 
