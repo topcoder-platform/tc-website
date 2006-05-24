@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="/css/coders.css">
   <link type="text/css" rel="stylesheet" href="/css/TCOstyle.css">
 <% } else if (key.equals("tc_calendar")) { %>
+  <link type="text/css" rel="stylesheet" href="/css/coders.css">
   <link type="text/css" rel="stylesheet" href="/css/tcCalendar.css">
   <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
 <% } else if (key.equals("crpf")) { %>
