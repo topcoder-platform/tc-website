@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>12:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for Marathon Matches</A>
+      </span><br><br>
+      We have added a Marathon Match to each month for the remainder of the year.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/tc?module=Static&d1=calendar&d2=jun_06">view</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506020" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -176,22 +191,6 @@
        <A href="/tc?module=Static&d1=match_editorials&d2=srm302">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505868" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /><br>05.11.06<br>5:30 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">Java Posse - Live at the TopCoder Open</A> [PODCAST]
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="88" height="40" alt="Java Posse" News border="0" /></div>
-       Play by play coverage of the algorithm competition finals, as well as some fun moments and surprise guests. This recording was made live at the TopCoder Open event held in Las Vegas, and you'll be hearing it less-than-live about a week later.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506012" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
    </td></tr>
 
 
