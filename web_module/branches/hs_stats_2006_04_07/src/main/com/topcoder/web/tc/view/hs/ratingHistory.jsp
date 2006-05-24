@@ -1,7 +1,11 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page language="java" %>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.web.tc.controller.request.hs.ListInfo,
+                    com.topcoder.web.tc.controller.request.hs.Base,
+          com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -13,6 +17,11 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 </head>
+<%
+Map resultMap = (Map) request.getAttribute("resultMap");
+ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_history");
+
+%>
 
 <body>
 
@@ -63,15 +72,32 @@
       <td class="headerR"><A href="">Rank</A></td>
    </tr>
    <% boolean even = false; %>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
+   <rsc:iterator list="<%= history %>" id="resultRow">
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="valueC"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
+          <td class="value"><A href=""><rsc:item name="season_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href=""><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href=""><rsc:item name="round_name" row="<%=resultRow%>"/></A></td>
+          <td class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+       </tr>
+    </rsc:iterator>
 </table>
+
+
+
+SELECT rr.round_id,
+r.name as round_name,
+r.contest_id,
+cal.date,
+c.name as contest_name,
+rr.new_rating,
+rr.room_id,
+rth.vol,
+rkh.rank,
+s.name as season_name
+
 
 <div class="pagingBox">
 &lt;&lt; prev
