@@ -682,7 +682,7 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
-            " AND user_id NOT IN (SELECT user_id" +
+            " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
             " GROUP BY s.state_name" +
@@ -718,7 +718,7 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
-            " AND user_id NOT IN (SELECT user_id" +
+            " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
             " GROUP BY region_name" +
@@ -914,7 +914,7 @@ public class Legacy extends Base {
                            " and x.address_id = a.address_id " +
                            " and a.address_type_id = 2 " +
             " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-            " AND user_id NOT IN (SELECT user_id" +
+            " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
             " GROUP BY 1" +
@@ -1066,7 +1066,7 @@ public class Legacy extends Base {
             " date(ch.start_time) > mdy(1,24,2002) and " +
             " calc_seconds(start_time, end_time) between 60 and 22000 and" +
             " handle_lower not in ('mike', 'chuck', 'grunt', 'td', 'dok', 'tlongo', 'jhughes', 'fenway', 'gt494') and" +
-            " user_id not in  " +
+            " u.user_id not in  " +
             " ( " +
             " select user_id from group_user where group_id = 13 " +
             " ) " +
@@ -1099,7 +1099,7 @@ public class Legacy extends Base {
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2" +
-            " AND user_id NOT IN (SELECT user_id" +
+            " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
             " GROUP BY co.country_name" +
