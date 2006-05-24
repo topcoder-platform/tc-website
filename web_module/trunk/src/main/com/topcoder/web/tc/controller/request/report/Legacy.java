@@ -1266,6 +1266,8 @@ public class Legacy extends Base {
             "   user u," +
             "   rating r," +
             "   coder c," +
+            "	address a," +
+            "	user_address_xref uax," +
             "   invite_list l" +
             " where " +
             "   l.round_id = 4320 and" +
@@ -1275,9 +1277,10 @@ public class Legacy extends Base {
             "   r.rating >= 923 and" +
             "   u.status = 'A' and" +
             "   r.num_ratings > 2 and" +
-            "   date(last_rated_event) >= mdy(4,1,2002) and" +
+            "   date(r.modify_date) >= mdy(4,1,2002) and" +
             "   handle not like 'guest%' and" +
-            "   country_code in ('036','124','372','356','826','840','156','554') and" +
+            "	u.user_id = uax.user_id and uax.address_id = a.address_id and" +
+            "   a.country_code in ('036','124','372','356','826','840','156','554') and" +
             "   u.user_id not in (select user_id from group_user where group_id = 13)" +
             " )) y";
 
