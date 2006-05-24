@@ -12,16 +12,6 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
-}
-}
-// -->
-</script>
 </head>
 
 <body>
@@ -62,9 +52,10 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="6">High School Rating History</td></tr>
+   <tr><td class="title" colspan="7">High School Rating History</td></tr>
    <tr>
       <td class="headerC" width="1%"><A href="">Date</A></td>
+      <td class="header"><A href="">Season</A></td>
       <td class="header"><A href="">Contest</A></td>
       <td class="header"><A href="">Round</A></td>
       <td class="headerR"><A href="">Rating</A></td>
@@ -80,79 +71,6 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="valueR">457</td>
       <td class="valueR">1</td>
    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">03.22.06</td>
-      <td class="value"><A href="">High School Single Round Match 1</A></td>
-      <td class="value"><A href="">Round 1</A></td>
-      <td class="valueR">3457</td>
-      <td class="valueR">457</td>
-      <td class="valueR">1</td>
-   </tr>
-   <% even = !even;%>
 </table>
 
 <div class="pagingBox">

@@ -50,6 +50,13 @@ public class ProblemSolution extends Base {
             throw new TCWebException(e);
         }
     }
+    
+    /**
+     * Set the seasonId and seasonName request attributes by looking them up from the round.
+     * 
+     * @param roundId round to lookup its season.
+     * @throws Exception
+     */
     private void lookupSeason(int roundId) throws Exception {
         Request r = new Request();
         r.setContentHandle("lookup_season");

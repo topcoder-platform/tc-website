@@ -14,7 +14,6 @@ import com.topcoder.web.tc.Constants;
  */
 public class RoundStatsInd extends Base { 
 
-
     /**
      * Column names used for sorting. 
      */
@@ -101,5 +100,4 @@ public class RoundStatsInd extends Base {
         map.put(name, rsc.subList(startRow, endRow));
         return roomNumber;
     }
-
 }
