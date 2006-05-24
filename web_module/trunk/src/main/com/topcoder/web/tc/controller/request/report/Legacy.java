@@ -279,13 +279,13 @@ public class Legacy extends Base {
         query.append(" SELECT u.user_id\n");
         query.append(" ,u.handle\n");
         query.append(" ,u.email\n");
-        query.append(" ,c.first_name\n");
-        query.append(" ,c.last_name\n");
-        query.append(" ,c.address1\n");
-        query.append(" ,c.address2\n");
-        query.append(" ,c.city\n");
-        query.append(" ,c.state_code\n");
-        query.append(" ,c.zip\n");
+        query.append(" ,u.first_name\n");
+        query.append(" ,u.last_name\n");
+        query.append(" ,a.address1\n");
+        query.append(" ,a.address2\n");
+        query.append(" ,a.city\n");
+        query.append(" ,a.state_code\n");
+        query.append(" ,a.zip\n");
         query.append(" ,c.member_since\n");
         query.append(" ,co.country_name\n");
         query.append(" ,ct.coder_type_desc\n");
@@ -308,6 +308,8 @@ public class Legacy extends Base {
         query.append(" ,coder c\n");
         query.append(" ,coder_type ct\n");
         query.append(" ,rating r\n");
+        query.append(" , address a\n");
+        query.append(" , user_address_xref x\n");
         query.append(" ,country co \n");
         query.append(" ,round_segment rs\n");
         if (hasGradYear) {
@@ -330,31 +332,34 @@ public class Legacy extends Base {
         query.append(" AND r.coder_id = u.user_id\n");
         query.append(" AND r.round_id = rs.round_id\n");
         query.append(" AND rs.segment_id = 2\n");
-        query.append(" AND co.country_code = c.country_code\n");
+        query.append(" AND co.country_code = a.country_code\n");
+        query.append(" and x.address_id = a.address_id\n");
+        query.append(" and x.user_id = u.user_id\n");
+        query.append(" and a.address_type_id = 2\n");
         if (hasGradYear) {
-            query.append(" AND dr1.coder_id = c.coder_id\n");
+            query.append(" AND dr1.user_id = c.coder_id\n");
             query.append(" AND dr1.demographic_question_id = 18\n");
             query.append(" AND dr1.demographic_answer_id = da1.demographic_answer_id\n");
             query.append(" AND dr1.demographic_question_id = da1.demographic_question_id\n");
             query.append(" AND da1.demographic_answer_text::DECIMAL >= " + minGradYear + "\n");
             query.append(" AND da1.demographic_answer_text::DECIMAL <= " + maxGradYear + "\n");
         }
-        query.append(" AND dr2.coder_id = c.coder_id\n");
+        query.append(" AND dr2.user_id = c.coder_id\n");
         query.append(" AND dr2.demographic_question_id = 15\n");
-        query.append(" AND dr3.coder_id = c.coder_id\n");
+        query.append(" AND dr3.user_id = c.coder_id\n");
         query.append(" AND dr3.demographic_question_id = 3\n");
         query.append(" AND dr3.demographic_answer_id = da3.demographic_answer_id\n");
         query.append(" AND dr3.demographic_question_id = da3.demographic_question_id\n");
-        query.append(" AND dr4.coder_id = c.coder_id\n");
+        query.append(" AND dr4.user_id = c.coder_id\n");
         query.append(" AND dr4.demographic_question_id = 20\n");
         query.append(" AND dr4.demographic_answer_id <> 0\n");
         query.append(" AND dr4.demographic_answer_id = da4.demographic_answer_id\n");
         query.append(" AND dr4.demographic_question_id = da4.demographic_question_id\n");
-        query.append(" AND dr5.coder_id = c.coder_id\n");
+        query.append(" AND dr5.user_id = c.coder_id\n");
         query.append(" AND dr5.demographic_question_id = 16\n");
         query.append(" AND dr5.demographic_answer_id = da5.demographic_answer_id\n");
         query.append(" AND dr5.demographic_question_id = da5.demographic_question_id\n");
-        query.append(" AND dr6.coder_id = c.coder_id\n");
+        query.append(" AND dr6.user_id = c.coder_id\n");
         query.append(" AND dr6.demographic_question_id = 4\n");
         query.append(" AND dr6.demographic_answer_id = da6.demographic_answer_id\n");
         query.append(" AND dr6.demographic_question_id = da6.demographic_question_id\n");
@@ -372,7 +377,7 @@ public class Legacy extends Base {
             query.append(" AND LOWER(c.last_name) like LOWER('" + lastName + "')\n");
         }
         if (stateCodes != null && !stateCodes.equals("")) {
-            query.append(" AND c.state_code in (" + stateCodes + ")\n");
+            query.append(" AND a.state_code in (" + stateCodes + ")\n");
         }
         if (minRating != null && !minRating.equals("")) {
             query.append(" AND r.rating >= " + minRating + "\n");
@@ -662,9 +667,14 @@ public class Legacy extends Base {
             " ,state s" +
             " ,region_state rs" +
             " ,region r" +
+             ", user_address_xref x " +
+             ", address a " +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
-            " AND c.state_code = s.state_code" +
+            " AND a.state_code = s.state_code" +
+            " and x.address_id = a.address_id" +
+            " and a.address_type_id = 2 " +
+            " and x.user_id = u.user_id " +
             " AND s.state_code = rs.state_code" +
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
@@ -693,9 +703,15 @@ public class Legacy extends Base {
             " ,state s" +
             " ,region_state rs" +
             " ,region r" +
+            " ,user_address_xref x" +
+            " ,address a " +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
-            " AND c.state_code = s.state_code" +
+            " AND a.state_code = s.state_code" +
+                    " and x.address_id = a.address_id" +
+                    " and a.address_type_id = 2 " +
+                    " and x.user_id = u.user_id " +
+
             " AND s.state_code = rs.state_code" +
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
@@ -859,10 +875,15 @@ public class Legacy extends Base {
     private static final String MEMBER_COUNTS =
             " SELECT COUNT(*) AS total_count" +
             " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN c.country_code = 840 THEN 1 ELSE 0 END) AS usa_count" +
+            " ,SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count" +
             " FROM coder c" +
             " ,rating cr" +
+            " ,user_address_xref x" +
+            " , address a" +
             " WHERE cr.coder_id = c.coder_id" +
+             " and x.user_id = u.user_id " +
+                    " and x.address_id = a.address_id " +
+                    " and a.address_type_id = 2 " +
             " AND c.status = 'A'";
 
 
@@ -877,19 +898,24 @@ public class Legacy extends Base {
             " ,SUM(CASE WHEN c.coder_type_id = 2 THEN 1 ELSE 0 END) AS pro_count" +
             " ,COUNT(*) AS total_count" +
             " ,SUM(CASE WHEN status='A' THEN 1 ELSE 0 END) AS active_count" +
-            " ,SUM(CASE WHEN c.country_code = 840 AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
-            " ,SUM(CASE WHEN c.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
-            " ,SUM(CASE WHEN c.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
-            " ,SUM(CASE WHEN c.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
-            " ,SUM(CASE WHEN c.country_code = 804 AND status='A' THEN 1 ELSE 0 END) AS ukraine_count" +
-            " ,SUM(CASE WHEN c.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
-            " ,SUM(CASE WHEN c.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
-            " ,SUM(CASE WHEN c.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
+            " ,SUM(CASE WHEN a.country_code = 840 AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
+            " ,SUM(CASE WHEN a.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
+            " ,SUM(CASE WHEN a.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
+            " ,SUM(CASE WHEN a.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
+            " ,SUM(CASE WHEN a.country_code = 804 AND status='A' THEN 1 ELSE 0 END) AS ukraine_count" +
+            " ,SUM(CASE WHEN a.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
+            " ,SUM(CASE WHEN a.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
+            " ,SUM(CASE WHEN a.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
             " FROM user u" +
             " ,coder c" +
             " ,rating cr" +
+                    " ,user_address_xref x" +
+                    " , address a" +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
+                    " and x.user_id = u.user_id " +
+                           " and x.address_id = a.address_id " +
+                           " and a.address_type_id = 2 " +
             " AND email NOT LIKE '%topcoder.com%'" +
             " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
             " AND user_id NOT IN (SELECT user_id" +
@@ -910,12 +936,17 @@ public class Legacy extends Base {
             " max(cal.date) date_ending," +
             " count(*) total_reg," +
             " sum(case when c.status = 'A' then 1 else 0 end) active_count," +
-            " sum(case when c.country_code in ('840','124') then 0 else 1 end) intl_count" +
+            " sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count" +
             " from" +
             "   coder c," +
             "  calendar cal" +
+                    " ,user_address_xref x" +
+                    " , address a" +
             " where" +
             "  date(c.member_since) = cal.date and" +
+                    " and x.user_id = u.user_id " +
+                           " and x.address_id = a.address_id " +
+                           " and a.address_type_id = 2 " +
             "  cal.date >= today - 730" +
             " group by 1,2" +
             " order by 1 desc, 2 desc";
@@ -1065,10 +1096,15 @@ public class Legacy extends Base {
             " ,coder c" +
             " ,rating cr" +
             " ,country co" +
+                    " ,user_address_xref x " +
+                    " ,address a " +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
-            " AND c.country_code = co.country_code" +
+            " AND a.country_code = co.country_code" +
             " AND u.status = 'A'" +
+                    " and x.user_id = u.user_id " +
+                    " and x.address_id = a.address_id " +
+                    " and a.address_type_id = 2" +
             " AND email not like '%topcoder.com%'" +
             " AND user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
