@@ -167,7 +167,6 @@
       <td class="value">25
       </td>
       <td class="value">26
-         </div>
       </td>
    </tr>
    
