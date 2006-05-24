@@ -82,6 +82,7 @@ public class Secondary extends Base {
                 a = new Address();
                 u.addAddress(a);
             }
+            a.setAddressTypeId(Address.HOME_TYPE_ID);
             a.setAddress1((String) params.get(Constants.ADDRESS1));
         }
         if (fields.contains(Constants.ADDRESS2)) {
