@@ -51,33 +51,27 @@
             <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div><br>
             <div align="center">
             <jsp:include page="logo_links.jsp" >
-            <jsp:param name="selectedTab" value="submissions"/>
+            <jsp:param name="selectedTab" value="past"/>
             </jsp:include>
             </div>
-<!--
-<p align="center">
-0
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_1">1</A>
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_2">2</A>
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_3">3</A>
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_4">4</A>
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_5">5</A>
-&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_6">6</A>
-</p>
--->
-<table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>0010<br><img src="/i/tournament/tco06/logo_submissions/0010.jpg" alt="" border="0" /></td></tr>   <%--15795717--%>
-<tr><td>0009<br><img src="/i/tournament/tco06/logo_submissions/0009.png" alt="" border="0" /></td></tr>   <%--15498334--%>
-<tr><td>0008<br><img src="/i/tournament/tco06/logo_submissions/0008.png" alt="" border="0" /></td></tr>   <%--15498334--%>
-<tr><td>0007<br><img src="/i/tournament/tco06/logo_submissions/0007.jpg" alt="" border="0" /></td></tr>   <%--19797817--%>
-<tr><td>0006<br><img src="/i/tournament/tco06/logo_submissions/0006.jpg" alt="" border="0" /></td></tr>   <%--19797315--%>
-<tr><td>0005<br><img src="/i/tournament/tco06/logo_submissions/0005.gif" alt="" border="0" /></td></tr>   <%--19746045--%>
-<tr><td>0004<br><img src="/i/tournament/tco06/logo_submissions/0004.jpg" alt="" border="0" /></td></tr>   <%--15795717--%>
-<tr><td>0003<br><img src="/i/tournament/tco06/logo_submissions/0003.gif" alt="" border="0" /></td></tr>   <%--13334614--%>
-<tr><td>0002<br><img src="/i/tournament/tco06/logo_submissions/0002.png" alt="" border="0" /></td></tr>   <%--10487679--%>
-<tr><td>0001<br><img src="/i/tournament/tco06/logo_submissions/0001.jpg" alt="" border="0" /></td></tr>   <%--8396227--%>
-</table>
-         </div>
+            
+            <br><br>
+            <span class="bodySubtitle">Helpful Logo Design Hints</span><br>
+            You may find the information at the sites below helpful when starting your logo design.
+            <br><br>
+            <A href="/?t=sponsor&c=link&link=http://www.fizbang.com/1-3-06.php" target="blank">http://www.fizbang.com/1-3-06.php</A><br>
+            <A href="/?t=sponsor&c=link&link=http://www.mymarkets.com/lm/01.htm" target="blank">http://www.mymarkets.com/lm/01.htm</A><br>
+            <br><br>
+            
+            <span class="bodySubtitle">Past Winners</span><br>
+            Here are the winners of the last two Logo Design Contests to further inspire your creativity:<br><br>
+            
+            <table cellpadding="10" cellspacing="0" align="center" border="0">
+            <tr><td><img src="/i/tournament/tco06/tco06_logo_solo.gif" alt="TCO06 logo" border="0" /></td></tr>
+            <tr><td><img src="/i/tournament/tco05/tco05_logo_solo.gif" alt="TCO05 logo" border="0" /></td></tr>
+            </table>
+            <br><br>
+            </div>
 
          <p><br/></p>
          </td>
