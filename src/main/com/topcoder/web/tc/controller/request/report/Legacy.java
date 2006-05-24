@@ -278,7 +278,7 @@ public class Legacy extends Base {
         query = new StringBuffer();
         query.append(" SELECT u.user_id\n");
         query.append(" ,u.handle\n");
-        query.append(" ,u.email\n");
+        query.append(" ,e.address as email\n");
         query.append(" ,u.first_name\n");
         query.append(" ,u.last_name\n");
         query.append(" ,a.address1\n");
@@ -308,6 +308,7 @@ public class Legacy extends Base {
         query.append(" ,coder c\n");
         query.append(" ,coder_type ct\n");
         query.append(" ,rating r\n");
+        query.append(" , email e\n");
         query.append(" , address a\n");
         query.append(" , user_address_xref x\n");
         query.append(" ,country co \n");
@@ -335,6 +336,8 @@ public class Legacy extends Base {
         query.append(" AND co.country_code = a.country_code\n");
         query.append(" and x.address_id = a.address_id\n");
         query.append(" and x.user_id = u.user_id\n");
+        query.append(" and e.user_id = u.user_id\n");
+        query.append(" and e.primary_ind = 1\n");
         query.append(" and a.address_type_id = 2\n");
         if (hasGradYear) {
             query.append(" AND dr1.user_id = c.coder_id\n");
@@ -1015,7 +1018,6 @@ public class Legacy extends Base {
             " AND r.referral_id = cr.referral_id" +
             " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
             " and c.coder_Id = u.user_id" +
-            " AND u.email NOT LIKE '%topcoder.com%' " +
             " GROUP BY 1, 2" +
             " ORDER BY 1 DESC, 2";
 
@@ -1177,14 +1179,14 @@ public class Legacy extends Base {
             " FROM demographic_response dr " +
             " WHERE dr.coder_id = u.user_id " +
             " AND dr.demographic_question_id = 8) as title " +
-            " ,first_name " +
-            " ,last_name " +
-            " ,email " +
-            " ,handle " +
-            " ,city " +
-            " ,state_code " +
-            " ,country_name " +
-            " ,DATE(member_since) as date_registered " +
+            " ,u.first_name " +
+            " ,u.last_name " +
+            " ,e.address as email " +
+            " ,u.handle " +
+            " ,a.city " +
+            " ,a.state_code " +
+            " ,co.country_name " +
+            " ,DATE(c.member_since) as date_registered " +
             " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
             " cr.other" +
             " else" +
@@ -1195,15 +1197,22 @@ public class Legacy extends Base {
             " end" +
             " FROM user u " +
             " ,coder c " +
+            " ,user_address_xref x " +
+                    " , address a "+
             " ,country co " +
+             " , email e " +
             " ,coder_referral cr" +
             " WHERE u.user_id = c.coder_id " +
             " and c.coder_id = cr.coder_id" +
+                   " and e.user_id = u.user_id " +
+                   " and e.primary_ind = 1 " +
             " AND c.coder_type_id = 2 " +
             " AND DATE(member_since) >= today-14 " +
             " AND handle NOT LIKE 'guest%' " +
-            " AND co.country_code = c.country_code " +
-            " AND LOWER(u.email) NOT LIKE '%topcoder.com' " +
+                    " and x.user_id = u.user_id " +
+                    " and x.address_id = a.address_id " +
+                    " and a.address_type_id = 2 " +
+            " AND co.country_code = a.country_code " +
             " AND u.user_id NOT IN (SELECT g.user_id " +
             " FROM group_user g " +
             " WHERE g.group_id = 13) " +
@@ -1215,15 +1224,15 @@ public class Legacy extends Base {
     private static final int[] STUDENT_REG_INFO_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country", "Referral Info"};
     private static final String STUDENT_REG_INFO =
-            " SELECT status " +
-            "     ,handle" +
-            " ,first_name" +
-            " ,last_name" +
-            " ,email" +
-            " ,date(member_since) as date_registered" +
-            " ,city" +
-            " ,state_code" +
-            " ,country_name" +
+            " SELECT u.status " +
+            "     ,u.handle" +
+            " ,u.first_name" +
+            " ,u.last_name" +
+            " ,e.address as email" +
+            " ,date(c.member_since) as date_registered" +
+            " ,a.city" +
+            " ,a.state_code" +
+            " ,co.country_name" +
             " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
             " cr.other" +
             " else" +
@@ -1234,15 +1243,22 @@ public class Legacy extends Base {
             " end" +
             " FROM user u" +
             " ,coder c" +
+                    " , user_address_xref x " +
+                    ", address a" +
+                    " , email e "  +
             " ,country co" +
             " ,coder_referral cr" +
             " WHERE u.user_id = c.coder_id" +
             " and cr.coder_id = c.coder_id" +
+                    " and x.user_id = u.user_id " +
+                    " and x.address_id = a.address_id " +
+                    " and a.address_type_id = 2 " +
+                    " and e.user_id = u.user_id " +
+                    " and e.primary_ind = 1 " +
             " AND c.coder_type_id = 1" +
             " AND date(member_since) >= today-14" +
             " AND handle not like 'guest%'" +
-            " AND co.country_code = c.country_code" +
-            " AND lower(u.email) not like '%topcoder.com'" +
+            " AND co.country_code = a.country_code" +
             " AND u.user_id NOT IN (" +
             " SELECT g.user_id" +
             " FROM group_user g" +
