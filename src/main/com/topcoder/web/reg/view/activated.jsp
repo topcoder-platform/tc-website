@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.reg.Constants"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -14,7 +15,7 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+<A href="<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
 </div>
 <div align="center">
    <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">

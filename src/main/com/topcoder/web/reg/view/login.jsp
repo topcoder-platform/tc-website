@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet"%>
 <%@ page import="com.topcoder.web.reg.controller.request.Login"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -38,7 +39,7 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
+<A href="<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
 </div>
 <div align="center">
    <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
