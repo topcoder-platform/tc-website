@@ -85,20 +85,6 @@ ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_histo
     </rsc:iterator>
 </table>
 
-
-
-SELECT rr.round_id,
-r.name as round_name,
-r.contest_id,
-cal.date,
-c.name as contest_name,
-rr.new_rating,
-rr.room_id,
-rth.vol,
-rkh.rank,
-s.name as season_name
-
-
 <div class="pagingBox">
 &lt;&lt; prev
 | <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
