@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -19,7 +20,7 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
 </div>
 
 <div align="center">

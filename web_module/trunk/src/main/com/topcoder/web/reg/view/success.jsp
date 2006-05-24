@@ -16,7 +16,7 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
 </div>
 
 <div align="center">
@@ -171,7 +171,7 @@
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
     <tr>
         <td class="image">
-            <A href="/"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+            <A href="<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
         </td>
         <td class="text" width="100%">
             As a TopCoder member you now have access to all <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">TopCoder
