@@ -682,7 +682,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
-            " AND email not like '%topcoder.com%'" +
             " AND user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -719,7 +718,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
-            " AND email not like '%topcoder.com%'" +
             " AND user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -755,7 +753,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
-            " AND email NOT LIKE '%topcoder.com%'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -791,7 +788,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
-            " AND email NOT LIKE '%topcoder.com%'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -828,7 +824,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
-            " AND email NOT LIKE '%topcoder.com%'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -864,7 +859,6 @@ public class Legacy extends Base {
             " AND rs.region_code = r.region_code" +
             " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
-            " AND email NOT LIKE '%topcoder.com%'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -919,7 +913,6 @@ public class Legacy extends Base {
                     " and x.user_id = u.user_id " +
                            " and x.address_id = a.address_id " +
                            " and a.address_type_id = 2 " +
-            " AND email NOT LIKE '%topcoder.com%'" +
             " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
             " AND user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -1069,7 +1062,6 @@ public class Legacy extends Base {
             " u.user_id = c.coder_id and " +
             " cr.coder_id = c.coder_id and " +
             " ch.coder_id = c.coder_id and " +
-            " email not like '%topcoder.com%' and " +
             " date(ch.start_time) > date(today-30) and  " +
             " date(ch.start_time) > mdy(1,24,2002) and " +
             " calc_seconds(start_time, end_time) between 60 and 22000 and" +
@@ -1107,7 +1099,6 @@ public class Legacy extends Base {
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2" +
-            " AND email not like '%topcoder.com%'" +
             " AND user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
             " WHERE group_id = 13)" +
@@ -1305,7 +1296,6 @@ public class Legacy extends Base {
             "   u.status = 'A' and" +
             "   r.num_ratings > 2 and" +
             "   date(last_rated_event) >= mdy(4,1,2002) and" +
-            "   lower(email) not like '%topcoder.com' and" +
             "   handle not like 'guest%' and" +
             "   country_code in ('036','124','372','356','826','840','156','554') and" +
             "   u.user_id not in (select user_id from group_user where group_id = 13)" +
