@@ -124,9 +124,9 @@ public class ProfileSearch extends Base {
                 query.append(" {+ordered}");
             }
             query.append(" u.handle as Handle\n");
-            query.append("  , c.first_name as First_Name\n");
-            query.append("  , c.last_name as Last_Name\n");
-            query.append("  , c.city as City\n");
+            query.append("  , u.first_name as First_Name\n");
+            query.append("  , u.last_name as Last_Name\n");
+            query.append("  , a.city as City\n");
             query.append("  , st.state_name as State\n");
             query.append("  , cry.country_name as Country\n");
             headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country"}));
@@ -165,6 +165,8 @@ public class ProfileSearch extends Base {
         }
         query.append("    coder c,\n");
         query.append("    user u,\n");
+        query.append("    user_address_xref x,\n");
+        query.append("    address a,\n");
         query.append("    rating r,\n");
         if (containsDesRating) {
             query.append(" tcs_catalog:user_rating desr,\n");
@@ -181,7 +183,7 @@ public class ProfileSearch extends Base {
         }
         String[] notify = request.getParameterValues("notifications");
         if (notify != null && notify.length > 0) {
-            query.append("    coder_notify cn,\n");
+            query.append("    user_notify_xref cn,\n");
         }
 
         for (int i = 0; i < tables.size(); i++) {
@@ -204,12 +206,15 @@ public class ProfileSearch extends Base {
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
-        query.append("    AND cry.country_code = c.country_code\n");
-        query.append("    AND st.state_code = NVL(c.state_code,'')\n");
+        query.append("    AND cry.country_code = a.country_code\n");
+        query.append("    and x.user_id = u.user_id \n");
+        query.append("    and x.address_id = a.address_id \n");
+        query.append("    and a.address_type_id = 2 \n");
+        query.append("    AND st.state_code = NVL(a.state_code,'')\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
         if (comp != null && comp.length() > 0) {
-            query.append("    AND drc.coder_id = c.coder_id\n");
+            query.append("    AND drc.user_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
             query.append(stringMatcher(comp, "drc.demographic_response", isCaseSensitive));
         }
@@ -285,7 +290,7 @@ public class ProfileSearch extends Base {
                 }
                 query.append(" AND dr");
                 query.append(demoId);
-                query.append(".coder_id = c.coder_id");
+                query.append(".user_id = c.coder_id");
                 tables.add("demographic_response dr" + demoId);
                 constraints.add(query.toString());
             }
@@ -355,7 +360,7 @@ public class ProfileSearch extends Base {
     }
 
     private String buildCoderConstraints(TCRequest request, boolean skill) {
-        String[] columns = {"c.zip", "c.city", "c.first_name", "c.last_name", "u.email", "u.handle"};
+        String[] columns = {"a.zip", "a.city", "u.first_name", "u.last_name", "e.address", "u.handle"};
         String[] fields = {"zipcode", "city", "firstname", "lastname", "email", "handle"};
         boolean cs = "on".equals(request.getParameter("casesensitive"));
         StringBuffer query = new StringBuffer(200);
@@ -365,7 +370,7 @@ public class ProfileSearch extends Base {
                 query.append(stringMatcher(s, columns[i], cs));
             }
         }
-        columns = new String[]{"c.state_code", "c.country_code", "c.comp_country_code"};
+        columns = new String[]{"a.state_code", "a.country_code", "c.comp_country_code"};
         fields = new String[]{"states", "country", "countryoforigin"};
         boolean usa = false;
         for (int i = 0; i < columns.length; i++) {
