@@ -20,7 +20,7 @@
 <%
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_history");
-
+String cr = (String) request.getAttribute("cr");
 %>
 
 <body>
@@ -47,7 +47,7 @@ ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_histo
 <jsp:param name="title" value="High School Rating History"/>
 </jsp:include>
 
-<span class="bigHandle">Coder: <tc-webtag:handle coderId="144400" context='hs_algorithm' /></span>
+<span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='hs_algorithm' /></span>
 <br>
 <span class="bodySubtitle">High School Statistics > </span><br>
 <span class="bc">
