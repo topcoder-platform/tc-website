@@ -34,6 +34,7 @@ public class RatingHistory extends Base {
             sortAndCrop(result, "hs_rating_history", li);
             
             getRequest().setAttribute("resultMap", result);
+            getRequest().setAttribute("cr", getRequest().getParameter("cr"));
             
             setNextPage(Constants.HS_RATING_HISTORY);
             setIsNextPageInContext(true);
