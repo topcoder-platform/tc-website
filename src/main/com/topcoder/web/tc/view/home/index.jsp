@@ -31,10 +31,6 @@ margin:0px auto;
 
 </head>
 
-<%
-    CoderSessionInfo sessionInfo = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
-%>
-
 <body>
 
 <%--
@@ -46,8 +42,8 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
        <td class="homeTopBar" align=left>
-        <span class="time">Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
-        <tc-webtag:format object="<%=sessionInfo.getDate()%>" format="MMMM d, yyyy"/>
+        <span class="time">Current Member Count</span>&#160;:&#160;<tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> -
+        <tc-webtag:format object="${sessionInfo.date}" format="MMMM d, yyyy"/>
        </td>
       <td class="homeTopBar" align=right>
       <A href="/reg/" class="loginLinks">Register Now</A>
