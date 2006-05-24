@@ -90,6 +90,10 @@
       <td class="value">10
       </td>
       <td class="value">11
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 6</A></strong><br>
+         12:00 NOON
+         </div>
       </td>
       <td class="value">12
          <div class="des_dev">
@@ -107,10 +111,10 @@
       <td class="value">15
       </td>
       <td class="value">16
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 16</A></strong><br>
          6:00 AM
-         </div>
+         </div>--%>
       </td>
       <td class="value">17
       </td>
@@ -140,11 +144,11 @@
       <td class="value">22
       </td>
       <td class="value">23
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 17</A></strong><br>
          7:00 PM
          </div>
-      </td>
+      </td>--%>
       <td class="value">24
       </td>
       <td class="value">25
@@ -169,10 +173,10 @@
       <td class="value">29
       </td>
       <td class="value">30
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 18</A></strong><br>
          2:00 PM
-         </div>
+         </div>--%>
       </td>
       <td class="value">31
       </td>

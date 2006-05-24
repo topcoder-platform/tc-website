@@ -72,10 +72,10 @@
       <td class="value">4
       </td>
       <td class="value">5
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 5</A></strong><br>
          7:00 PM
-         </div>
+         </div>--%>
       </td>
       <td class="value">6
          <div class="des_dev">
@@ -97,10 +97,10 @@
       <td class="value">9
       </td>
       <td class="value">10
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 6</A></strong><br>
          2:00 PM
-         </div>
+         </div>--%>
       </td>
       <td class="value">11
       </td>
@@ -108,6 +108,10 @@
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=9991">SRM 311</A></strong><br>
          7:00 AM
+         </div>
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 3</A></strong><br>
+         12:00 NOON
          </div>
       </td>
       <td class="value">13
@@ -126,10 +130,10 @@
       <td class="value">16
       </td>
       <td class="value">17
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 7</A></strong><br>
          10:00 AM
-         </div>
+         </div>--%>
       </td>
       <td class="value">18
       </td>
@@ -159,10 +163,10 @@
       <td class="value">23
       </td>
       <td class="value">24
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 8</A></strong><br>
          6:00 AM
-         </div>
+         </div>--%>
       </td>
       <td class="value">25
       </td>
@@ -188,10 +192,10 @@
       <td class="value">30
       </td>
       <td class="value">31
-         <div class="hs">
+         <%--<div class="hs">
          <strong><A href="">HS SRM 9</A></strong><br>
          7:00 PM
-         </div>
+         </div>--%>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>
