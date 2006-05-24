@@ -209,17 +209,6 @@
       <td>&#160;&#160;&#160;</td>
       <td><rsc:item name="home_phone" row="<%=p%>"/></td>
     </tr>
-<%
-    if (p.getItem("work_phone")!=null) {
-%>
-    <tr>
-      <td>Work Phone</td>
-      <td>&#160;&#160;&#160;</td>
-      <td><rsc:item name="work_phone" row="<%=p%>"/></td>
-    </tr>
-<%
-    }
-%>
     <tr>
       <td>Coder Type</td>
       <td>&#160;&#160;&#160;</td>
