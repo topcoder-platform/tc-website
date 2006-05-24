@@ -9,6 +9,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>10:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Downtime for scheduled maintenance: 05.24
+      </span><br><br>
+      We've scheduled downtime for all TopCoder systems on 05.24 at 10:00 PM EDT while we run some general maintenance.  The downtime should last for about 2 hours.  As a result of the downtime, we'll be extending the deadline for the <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel&#174; Multi-Threading Competition 5</A> by 24 hours.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506019" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.23.06<br>1:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"> 
       <A href="/longcontest/?module=ViewOverview&rd=10015">Marathon Match 1 Results</A>
@@ -179,22 +192,6 @@
        <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">listen</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506012" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.11.06<br>12:00 Noon</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">Russian Talents Shine in IT Contests</A>
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/moscowTimes_logo.gif" width="88" height="10" alt="The Moscow Times" News border="0" /></div>
-       Moscow State University student Pyotr Mitrichev, 21, took the gold this month at a major programming competition in the United States. His prize was the latest in a string of victories by Russian programmers.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.themoscowtimes.com/stories/2006/05/11/042.html" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506011" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
