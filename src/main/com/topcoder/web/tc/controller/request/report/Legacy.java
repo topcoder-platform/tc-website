@@ -869,20 +869,12 @@ public class Legacy extends Base {
     private static final String MEMBER_COUNTS_TITLE = "Member Counts";
     private static final int[] MEMBER_COUNTS_TYPES = {ResultItem.INT, ResultItem.INT, ResultItem.INT};
     private static final String[] MEMBER_COUNTS_HEADINGS = {"Total Count", "Rated Count", "USA Count"};
-    private static final String MEMBER_COUNTS =
-            " SELECT COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count" +
-            " FROM coder c" +
-            " ,rating cr" +
-            " ,user_address_xref x" +
-            " , address a" +
-            " WHERE cr.coder_id = c.coder_id" +
-             " and x.user_id = u.user_id " +
-                    " and x.address_id = a.address_id " +
-                    " and a.address_type_id = 2 " +
-            " AND c.status = 'A'";
-
+    private static final String MEMBER_COUNTS =            
+    	"SELECT COUNT(*) AS total_count, SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count, " +
+    	"SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count " +
+    	"FROM user u, rating cr, user_address_xref x, address a " +
+    	"WHERE cr.coder_id = u.user_id and x.user_id = u.user_id " +
+    	"and x.address_id = a.address_id and a.address_type_id = 2 AND u.status = 'A'";
 
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
@@ -924,28 +916,14 @@ public class Legacy extends Base {
     private static final String MEMBER_COUNTS_WEEKLY_TITLE = "Member Counts By Week";
     private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT};
     private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International"};
-    private static final String MEMBER_COUNTS_WEEKLY =
-            " select" +
-            "  cal.year," +
-            "  cal.week_of_year week_number," +
-            " min(cal.date) date_starting," +
-            " max(cal.date) date_ending," +
-            " count(*) total_reg," +
-            " sum(case when c.status = 'A' then 1 else 0 end) active_count," +
-            " sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count" +
-            " from" +
-            "   coder c," +
-            "  calendar cal" +
-                    " ,user_address_xref x" +
-                    " , address a" +
-            " where" +
-            "  date(c.member_since) = cal.date and" +
-                    " and x.user_id = u.user_id " +
-                           " and x.address_id = a.address_id " +
-                           " and a.address_type_id = 2 " +
-            "  cal.date >= today - 730" +
-            " group by 1,2" +
-            " order by 1 desc, 2 desc";
+    private static final String MEMBER_COUNTS_WEEKLY =    
+		    "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " + 
+			"count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
+			"sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count " +
+			"from coder c, user u, calendar cal ,user_address_xref x , address a " +
+			"where date(c.member_since) = cal.date and u.user_id = c.coder_id and " +
+			"x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +  
+			"and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
 
 
     private static final Integer REGISTRATION_BY_SCHOOL_ID = new Integer(8);
@@ -954,19 +932,21 @@ public class Legacy extends Base {
     private static final String[] REGISTRATION_BY_SCHOOL_HEADINGS = {"Registration Date", "School", "Registration Count", "Active Count"};
     private static final String REGISTRATION_BY_SCHOOL =
             " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
-            " ,school_name" +
+            " ,s.name" +
             " ,COUNT(*) AS reg_count" +
             " ,SUM(case WHEN status = 'A' THEN 1 ELSE 0 END) AS active_count" +
             " FROM user u" +
             " ,coder c" +
             " ,current_school cs" +
+            " ,school s" +
             " WHERE u.user_id = c.coder_id" +
             " AND cs.coder_id = c.coder_id" +
+            " AND s.school_id = cs.school_id" +
             " AND member_since > CURRENT-INTERVAL(10) DAY (2) TO DAY" +
             " AND country_code IN (840,124)" +
             " GROUP BY 1,2 " +
             " ORDER BY 1,2";
-
+    
 
 /*
     private static final Integer MATCH_SUMMARY_ID = new Integer(9);
@@ -1164,11 +1144,11 @@ public class Legacy extends Base {
             " SELECT status " +
             "  ,(SELECT dr.demographic_response " +
             " FROM demographic_response dr " +
-            " WHERE dr.coder_id = u.user_id " +
+            " WHERE dr.user_id = u.user_id " +
             " AND dr.demographic_question_id = 15) as company " +
             " ,(SELECT dr.demographic_response " +
             " FROM demographic_response dr " +
-            " WHERE dr.coder_id = u.user_id " +
+            " WHERE dr.user_id = u.user_id " +
             " AND dr.demographic_question_id = 8) as title " +
             " ,u.first_name " +
             " ,u.last_name " +
