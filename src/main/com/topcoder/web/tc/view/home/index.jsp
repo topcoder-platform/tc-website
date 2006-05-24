@@ -1,9 +1,6 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer,
-                 java.text.DecimalFormat
-                 com.topcoder.web.common.model.CoderSessionInfo"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@ page import="java.text.DecimalFormat"%>
-<%@ page import="com.topcoder.web.common.BaseProcessor"%>
 <%@ page import="com.topcoder.web.common.BaseServlet"%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -253,7 +250,7 @@ margin:0px auto;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
          <br>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
-            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
+            <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td>
     <tr><td class="copyright"colspan="5">Copyright &#169; 2001-2006, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 </body>
