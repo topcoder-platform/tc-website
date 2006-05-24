@@ -9,7 +9,7 @@
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>12:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>1:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for Marathon Matches</A>
       </span><br><br>
