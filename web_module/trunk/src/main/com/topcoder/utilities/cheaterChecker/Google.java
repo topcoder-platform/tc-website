@@ -1,11 +1,11 @@
 package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.sql.InformixSimpleDataSource;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 import com.topcoder.utilities.CommentStripper;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,16 +36,11 @@ public class Google {
         try {
             ArrayList allPotentialViolators = new ArrayList();
             Fraud fraud = null;
-            DataSource ds = null;
-            if (dataSourceName.equals("GOOGLE_CHINA_05")) {
-                ds = new InformixSimpleDataSource(PROD_GOOGLE_CHINA);
-            } else if (dataSourceName.equals("GOOGLE_INDIA_06")) {
-                ds = new InformixSimpleDataSource(PROD_GOOGLE_INDIA);
-            }
 
-            List submissions = getSubmissions(ds, rounds[0], componentId);
+
+            List submissions = getSubmissions(dataSourceName, rounds[0], componentId);
             for (int i = 1; i < rounds.length; i++) {
-                submissions.addAll(getSubmissions(ds, rounds[i], componentId));
+                submissions.addAll(getSubmissions(dataSourceName, rounds[i], componentId));
             }
             log.debug("got submissions");
             if (submissions != null && submissions.size() > 0) {
@@ -159,7 +154,7 @@ public class Google {
 
     }
 
-    private static List getSubmissions(DataSource ds, long roundId, long componentId) throws Exception {
+    private static List getSubmissions(String dataSourceName, long roundId, long componentId) throws Exception {
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
@@ -167,7 +162,7 @@ public class Google {
         List ret = null;
 
         try {
-            conn = ds.getConnection();
+            conn = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty(dataSourceName)).getConnection();
             StringBuffer query = new StringBuffer(500);
 
             query.append(" SELECT cc.coder_id ");
