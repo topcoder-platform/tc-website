@@ -69,10 +69,10 @@
       <td class="value">3
       </td>
       <td class="value">4
-         <%--<div class="hs">
+         <div class="hs">
          <strong><A href="">HS SRM 22</A></strong><br>
          2:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">5
       </td>
@@ -103,10 +103,10 @@
       <td class="value">10
       </td>
       <td class="value">11
-         <%--<div class="hs">
+         <div class="hs">
          <strong><A href="">HS SRM 23</A></strong><br>
          10:00 AM
-         </div>--%>
+         </div>
       </td>
       <td class="value">12
       </td>
@@ -136,10 +136,10 @@
       <td class="value">17
       </td>
       <td class="value">18
-         <%--<div class="hs">
+         <div class="hs">
          <strong><A href="">HS SRM 24</A></strong><br>
          6:00 AM
-         </div>--%>
+         </div>
       </td>
       <td class="value">19
       </td>
@@ -169,10 +169,10 @@
       <td class="value">26
       </td>
       <td class="value">27
-         <%--<div class="hs">
+         <div class="hs">
          <strong><A href="">HS SRM 25</A></strong><br>
          7:00 PM
-         </div>--%>
+         </div>
       </td>
       <td class="value">28
          <div class="des_dev">
