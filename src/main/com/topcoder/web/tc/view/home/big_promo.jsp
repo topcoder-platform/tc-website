@@ -1,4 +1,4 @@
-<%-- TCO06 --%>
+<%-- TCO06 
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 260,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
 <area shape="rect" alt="" coords="316,8, 364,105" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis" />
@@ -12,7 +12,7 @@
 </map>
 <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
 <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
-
+--%>
 
 <%-- Digital Run 
 <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digital_run.jpg" border="0" ALT="The Digital Run"/></A>
@@ -26,3 +26,9 @@
 <%-- Emp Referrals 
 <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><IMG SRC="/i/home/empReferrals.jpg" border="0" ALT="TopCoder Employee Referral Program"/></A>
 --%>
+<%-- TCHS --%>
+<map name="tchs">
+<area shape="rect" alt="" coords="19,8, 211,57" href="/tc?module=Static&d1=hs&d2=home" />
+<area shape="rect" alt="" coords="16,62, 211,93" href="/reg/" />
+</map>
+<img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />

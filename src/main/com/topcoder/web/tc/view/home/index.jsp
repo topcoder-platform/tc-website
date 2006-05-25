@@ -54,7 +54,7 @@ margin:0px auto;
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
       <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-<%-- TCO06 --%>
+<%-- TCO06 
 <map name="tco06_map">
 <area shape="rect" alt="" coords="1,1, 260,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
 <area shape="rect" alt="" coords="316,8, 364,105" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis" />
@@ -66,9 +66,14 @@ margin:0px auto;
 <area shape="rect" alt="" coords="82,1, 143,24" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
 <area shape="rect" alt="" coords="159,1, 209,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
 </map>
-      <td class="BIGPromoBox" align="center">
       <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
-      <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
+--%>
+<map name="tchs">
+<area shape="rect" alt="" coords="19,8, 211,57" href="/tc?module=Static&d1=hs&d2=home" />
+<area shape="rect" alt="" coords="16,62, 211,93" href="/reg/" />
+</map>
+      <td class="BIGPromoBox" align="center">
+      <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
       </td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>

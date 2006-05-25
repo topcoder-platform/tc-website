@@ -37,9 +37,8 @@
                 <div align="center" style="margin-top: 15px;">
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
-                <p>
-                <h2>TopCoder High School</h2>
 
+<%--
 We are excited to announce the addition of a new level of competition at TopCoder &ndash; the TopCoder High School tournament. In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide.
 <br/><br/>
 Given the competitive technological nature of today's world, we believe it is more important than ever to encourage, reward and recognize those who possess the skills to shape tomorrow's surroundings. By adding a tournament for high school-aged students, TopCoder is doing its part to ensure that there is a fun and competitive learning environment where students from around the world can build and showcase their talent.
@@ -56,8 +55,8 @@ TopCoder does NOT intend to make a profit on its high school offerings. Any proc
 <span class="bodySubtitle">Stay Tuned</span><br/>
 As we firm up the structure of the tournament, we will post changes to the TopCoder web site and will contact those interested by email. So, start practicing and, as always, good luck to you in the arena!
 <br/><br/>
+--%>
 
-<%--
 <span class="title">TopCoder High School</span>
 <br><br>
 We are excited to announce the addition of a new level of competition at TopCoder - the TopCoder High School tournament. In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide. 
@@ -73,11 +72,9 @@ Based on support from local, national and international sponsors, prizes will ta
 <span class="subtitle">Who can Compete</span><br>
 Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves.  All students who register from a school will be part of that school's team.  Eligible students who do not attend a school can register to compete as an individual.  In order to be eligible for participation in the TopCoder High School tournament, teams and individuals must participate in at least four (4) of the rated events for their region between June 2006 and February 2007.  Registration for TopCoder High School is simple, so <A href="/reg/">start now</A>.
 <br><br>
---%>
 
 <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">Discuss TopCoder High School</a>
 <br/><br/>
-                </p>
 
             </div>
 
