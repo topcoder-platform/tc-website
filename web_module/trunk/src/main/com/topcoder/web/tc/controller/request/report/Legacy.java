@@ -460,9 +460,9 @@ public class Legacy extends Base {
             Query collegeStatsBySchoolStateQuery = new Query(COLLEGE_STATS_BY_SCHOOL_STATE, COLLEGE_STATS_BY_SCHOOL_STATE_TYPES);
             Query collegeStatsBySchoolRegionQuery = new Query(COLLEGE_STATS_BY_SCHOOL_REGION, COLLEGE_STATS_BY_SCHOOL_REGION_TYPES);
             Query collegeStatsByRegionQuery = new Query(COLLEGE_STATS_BY_REGION, COLLEGE_STATS_BY_REGION_TYPES);
-            Query memberCountsQuery = new Query(MEMBER_COUNTS, MEMBER_COUNTS_TYPES, Query.WAREHOUSE);
+            Query memberCountsQuery = new Query(MEMBER_COUNTS, MEMBER_COUNTS_TYPES);
             Query memberCountsDailyQuery = new Query(MEMBER_COUNTS_DAILY, MEMBER_COUNTS_DAILY_TYPES);
-            Query memberCountsWeeklyQuery = new Query(MEMBER_COUNTS_WEEKLY, MEMBER_COUNTS_WEEKLY_TYPES, Query.WAREHOUSE);
+            Query memberCountsWeeklyQuery = new Query(MEMBER_COUNTS_WEEKLY, MEMBER_COUNTS_WEEKLY_TYPES);
             Query registrationBySchoolQuery = new Query(REGISTRATION_BY_SCHOOL, REGISTRATION_BY_SCHOOL_TYPES);
             //Query matchSummaryQuery = new Query(MATCH_SUMMARY, MATCH_SUMMARY_TYPES);
             Query referralQuery = new Query(REFERRAL, REFERRAL_TYPES);
