@@ -5,18 +5,20 @@
 
 <hibernate-configuration>
 
-    <session-factory>
-
 <!--
+    <session-factory>
+-->
+
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
--->
         <!-- for testing-->
+<!--
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
         <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+-->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
@@ -30,12 +32,15 @@
 
 
         <!-- Echo all executed SQL to stdout -->
+<!--
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+-->
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/AlgoRatingType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CoderImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CoderType.hbm.xml"/>

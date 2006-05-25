@@ -33,6 +33,11 @@
             <key column="coder_id" not-null="true"/>
             <one-to-many class="CoderImage"/>
         </set>
+        <set name="ratings" cascade="save-update" inverse="true" access="field">
+            <key column="coder_id" not-null="true"/>
+            <one-to-many class="AlgoRating"/>
+        </set>
+
 
     </class>
 </hibernate-mapping>
