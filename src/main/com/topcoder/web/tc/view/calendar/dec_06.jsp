@@ -36,8 +36,9 @@
 <jsp:param name="title" value="December 2006"/>
 </jsp:include>
 
-<div style="float:right;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; <strong><A href="/tc?module=Static&d1=calendar&d2=nov_06" class="prevNext">&lt; PREV</A> </strong></div>
+<div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
 
+<strong><A href="/tc?module=Static&d1=calendar&d2=nov_06" class="prevNext">&lt; prev</A></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="dec_06"/>
 </jsp:include>
