@@ -86,6 +86,7 @@ public class Constants implements WebConstants {
     public static int MAX_FILE_NAME_LENGTH;
 
 
+    public static int REG_TERMS_ID;
 
 
     private Constants() {
