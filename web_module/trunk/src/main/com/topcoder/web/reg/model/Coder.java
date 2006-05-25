@@ -32,11 +32,14 @@ public class Coder extends Base {
     private Set teams;
     private Set images;
 
+    private Set ratings;
+
     public Coder() {
         this.resumes = new HashSet();
         this.teams = new HashSet();
         this.images= new HashSet();
         this.createdSchools = new HashSet();
+        this.ratings = new HashSet();
     }
 
 
@@ -162,6 +165,38 @@ public class Coder extends Base {
 
     public void setImages(Set images) {
         this.images = images;
+    }
+
+    public Set getRatings() {
+        return Collections.unmodifiableSet(ratings);
+    }
+
+    public void setRatings(Set ratings) {
+        this.ratings = ratings;
+    }
+
+    public void addRating(AlgoRating rating) {
+        this.ratings.add(rating);
+    }
+
+    public boolean hasHSRating() {
+        boolean found = false;
+        for (Iterator it = getRatings().iterator(); it.hasNext()&&!found;) {
+            if (((AlgoRating)it.next()).getType().getId().equals(AlgoRatingType.HIGH_SCHOOL)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+    public boolean hasTCRating() {
+        boolean found = false;
+        for (Iterator it = getRatings().iterator(); it.hasNext()&&!found;) {
+            if (((AlgoRating)it.next()).getType().getId().equals(AlgoRatingType.TC)) {
+                found = true;
+            }
+        }
+        return found;
     }
 
     public Image getMemberPhoto() {

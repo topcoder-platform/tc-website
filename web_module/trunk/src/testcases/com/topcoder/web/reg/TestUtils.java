@@ -59,6 +59,24 @@ public class TestUtils {
         ret.addTeam(t);
 
 
+        AlgoRating hs = new AlgoRating();
+        hs.setType(Util.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.HIGH_SCHOOL));
+        hs.setCoder(ret);
+        hs.getId().setCoder(ret);
+        hs.getId().setType(hs.getType());
+        ret.addRating(hs);
+
+        AlgoRating tc = new AlgoRating();
+        tc.setType(Util.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.TC));
+        tc.setCoder(ret);
+        tc.getId().setCoder(ret);
+        tc.getId().setType(tc.getType());
+        ret.addRating(tc);
+
+
+
+
+
         return ret;
     }
 
