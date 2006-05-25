@@ -35,10 +35,10 @@
         <td width="100%" align="left" class="bodyText">
          <jsp:include page="../page_title.jsp" >
          <jsp:param name="image" value="alg_support_faqs"/>
-         <jsp:param name="title" value="How to compete"/>
+         <jsp:param name="title" value="How to Compete"/>
          </jsp:include>
 
-        <h2>How to compete</h2>
+        <h2>How to Compete</h2>
 
         <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=getStarted">General TopCoder Arena Usage / Getting Started</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=getStarted#becomemember">Become a TopCoder Member</a></span><br/>

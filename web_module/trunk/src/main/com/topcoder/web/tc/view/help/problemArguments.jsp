@@ -35,7 +35,7 @@
         <td width="100%" align="left" class="bodyText">
          <jsp:include page="../page_title.jsp" >
          <jsp:param name="image" value="alg_support_faqs"/>
-         <jsp:param name="title" value="How to compete"/>
+         <jsp:param name="title" value="How to Compete"/>
          </jsp:include>
 
       <h2>The Problem Arguments Window</h2>
