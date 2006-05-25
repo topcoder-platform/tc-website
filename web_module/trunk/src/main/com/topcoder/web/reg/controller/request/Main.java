@@ -69,9 +69,7 @@ public class Main extends Base {
             }
 
             if (hasErrors()) {
-                u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                setRegUser(u);
-                
+
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
@@ -79,6 +77,9 @@ public class Main extends Base {
                 //todo if they are attempting to register for high school, and they are not eligible,
                   //todo give them a message saying they are not eligible to register for highschool
                 setMainDefaults(u);
+
+                u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                setRegUser(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
                 if (nots!=null) {
