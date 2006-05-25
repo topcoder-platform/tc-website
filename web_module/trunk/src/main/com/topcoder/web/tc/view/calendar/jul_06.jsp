@@ -73,7 +73,7 @@
       </td>
       <td class="value">5
          <div class="hs">
-         <strong><A href="">HS SRM 5</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 5</A></strong><br>
          7:00 PM
          </div>
       </td>
@@ -98,7 +98,7 @@
       </td>
       <td class="value">10
          <div class="hs">
-         <strong><A href="">HS SRM 6</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 6</A></strong><br>
          2:00 PM
          </div>
       </td>
@@ -131,7 +131,7 @@
       </td>
       <td class="value">17
          <div class="hs">
-         <strong><A href="">HS SRM 7</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 7</A></strong><br>
          10:00 AM
          </div>
       </td>
@@ -164,7 +164,7 @@
       </td>
       <td class="value">24
          <div class="hs">
-         <strong><A href="">HS SRM 8</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 8</A></strong><br>
          6:00 AM
          </div>
       </td>
@@ -193,7 +193,7 @@
       </td>
       <td class="value">31
          <div class="hs">
-         <strong><A href="">HS SRM 9</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 9</A></strong><br>
          7:00 PM
          </div>
       </td>

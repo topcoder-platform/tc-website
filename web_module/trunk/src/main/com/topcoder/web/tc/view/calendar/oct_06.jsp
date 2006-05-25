@@ -112,7 +112,7 @@
       </td>
       <td class="value">16
          <div class="hs">
-         <strong><A href="">HS SRM 16</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 16</A></strong><br>
          6:00 AM
          </div>
       </td>
@@ -145,7 +145,7 @@
       </td>
       <td class="value">23
          <div class="hs">
-         <strong><A href="">HS SRM 17</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 17</A></strong><br>
          7:00 PM
          </div>
       </td>
@@ -174,7 +174,7 @@
       </td>
       <td class="value">30
          <div class="hs">
-         <strong><A href="">HS SRM 18</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 18</A></strong><br>
          2:00 PM
          </div>
       </td>

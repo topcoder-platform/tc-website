@@ -95,7 +95,7 @@
       </td>
       <td class="value">11
          <div class="hs">
-         <strong><A href="">HS SRM 14</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 14</A></strong><br>
          2:00 PM
          </div>
       </td>
@@ -149,7 +149,7 @@
       </td>
       <td class="value">25
          <div class="hs">
-         <strong><A href="">HS SRM 15</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 15</A></strong><br>
          10:00 AM
          </div>
       </td>
