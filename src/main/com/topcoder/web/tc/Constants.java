@@ -51,10 +51,6 @@ public class Constants implements WebConstants {
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
-    public static String TERMS;
-    public static String TERMS_AGREE;
-    public static String TERMS_OF_USE_ID;
-
     public static String QUESTION_PREFIX;
     public static String ANSWER_PREFIX;
     public static String MESSAGE;

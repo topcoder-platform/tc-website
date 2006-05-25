@@ -36,6 +36,12 @@ public interface WebConstants {
     public static final String POSTAL_CODE ="zip";
     public static final String PHONE_NUMBER="ph";
 
+    public static final String TERMS="terms";
+    public static final String TERMS_AGREE="terms_agree";
+    public static final String TERMS_OF_USE_ID="tuid";
+
+
+
     //secondary reg parameters
     public static final String CODER_TYPE="cty";
     public static final String DEMOG_PREFIX="demog_";
