@@ -315,7 +315,7 @@ public class User extends Base {
         Integer id = new Integer(Constants.REG_TERMS_ID);
         boolean found = false;
         for (Iterator it = getTerms().iterator(); it.hasNext()&&!found;) {
-            found = id.equals(((TermsOfUse)it.next()).getTypeId());
+            found = id.equals(((TermsOfUse)it.next()).getId());
         }
         agreedToSiteTerms = found;
         return agreedToSiteTerms;

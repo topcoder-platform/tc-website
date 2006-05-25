@@ -65,8 +65,10 @@ public class Main extends Base {
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
             }
-            if (!u.getAgreedToSiteTerms()&&!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
-                addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
+            if (!u.getAgreedToSiteTerms()) {
+                if (!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
+                    addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
+                }
             }
 
             if (hasErrors()) {
@@ -79,8 +81,6 @@ public class Main extends Base {
                         regType = (RegistrationType) it.next();
                         setDefault(Constants.REGISTRATION_TYPE + regType.getId(), String.valueOf(true));
                     }
-                    setNextPage("/selection.jsp");
-                    setIsNextPageInContext(true);
                 }
 
                 setNextPage("/selection.jsp");
@@ -91,6 +91,7 @@ public class Main extends Base {
                 setMainDefaults(u);
 
                 u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                log.debug("has site terms: " + u.getAgreedToSiteTerms());
                 setRegUser(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
