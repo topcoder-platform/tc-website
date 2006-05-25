@@ -73,6 +73,5 @@
 </font>
 
 <br><br>
-<%--
-<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advFinal" class="bigRed">Click here</A> for the results of the Finals!</span>
---%>
+
+<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advQual" class="bigRed">Click here</A> for the results of the Qualification Round!</span>
