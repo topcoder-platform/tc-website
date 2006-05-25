@@ -5,6 +5,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
+import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.*;
 
 import java.util.HashSet;
@@ -71,6 +72,17 @@ public class Main extends Base {
             if (hasErrors()) {
 
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
+                if (userLoggedIn()) {
+                    //they're updating their info, and they're logged in, so here we go
+                    RegistrationType regType;
+                    for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
+                        regType = (RegistrationType) it.next();
+                        setDefault(Constants.REGISTRATION_TYPE + regType.getId(), String.valueOf(true));
+                    }
+                    setNextPage("/selection.jsp");
+                    setIsNextPageInContext(true);
+                }
+
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
             } else {
