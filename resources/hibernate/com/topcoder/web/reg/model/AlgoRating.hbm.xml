@@ -9,16 +9,17 @@
           but seems to be necessary -->
     <class name="AlgoRating" table="algo_rating" discriminator-value="0">
         <composite-id name="id" class="AlgoRating$Identifier">
-            <key-property name="coderId" type="long" column="coder_id" access="field"/>
-            <key-property name="ratingTypeId" type="integer" column="algo_rating_type_id" access="field"/>
+            <key-many-to-one name="coder" class="Coder" column="coder_id"/>
+            <key-many-to-one name="type" class="AlgoRatingType" column="algo_rating_type_id"/>
         </composite-id>
-        <discriminator column="algo_rating_type_id" type="integer" insert="false"/>
+
         <property name="rating" access="field"/>
+        <property name="volatility" column="vol" access="field"/>
         <property name="roundId" column="round_id" access="field"/>
         <property name="numRatings" column="num_ratings" access="field"/>
-        <subclass name="TCAlgoRating" discriminator-value="1"/>
-        <subclass name="HSAlgoRating" discriminator-value="2"/>
 
+        <many-to-one name="type" column="algo_rating_type_id" class="AlgoRatingType" access="field" insert="false" update="false"/>
+        <many-to-one name="coder" column="coder_id" class="Coder" access="field" cascade="none" insert="false" update="false"/>
     </class>
 
 
