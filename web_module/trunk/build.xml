@@ -1111,14 +1111,15 @@
     </target>
 
     <target name="deploy-reg" depends="war-reg">
-<!--
-        <copy file="${resources}/Reg.properties" todir="${jboss_home}/server/all/conf" overwrite="true"/>
--->
-        <copy file="${shared.jar}" todir="${jboss_home}/server/all/lib" overwrite="true"/>
+        <antcall target="expand-reg"/>
+    </target>
+
+    <target name="expand-reg" depends="">
         <delete file="${jboss_home}/server/all/deploy/reg.war"/>
         <unwar src="${war.dir}/reg.war" dest="${jboss_home}/server/all/deploy/reg.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/reg.war/META-INF"/>
     </target>
+
 
 
     <target name="package-TCUser" depends="compile_TCUser">
