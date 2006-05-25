@@ -55,13 +55,41 @@ function popHide(){
            <div style="float:right;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
        </c:if>
 
-   <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
-   <br><br>
+      <c:if test="${!sessionInfo.loggedIn}">
+      <strong>A Message from the TopCoder Founder</strong>
+      <br><br>
+      Welcome to TopCoder. Before you register, there are a few things we think you should know:  First, and most importantly, TopCoder is a commercial
+      site.  We charge sponsors for the right to advertise on our site.  This money pays for the operation of the site and the prizes awarded in competitions.
+      <br><br>
+      This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much
+      demographic information as possible without making the Registration process overly burdensome.  Furthermore, we require that you verify the accuracy of
+      the information you provide.  This does not mean that sponsors have access to your personal information; in general, they do
+      not. In certain circumstances such as participating in or opting in to certain events,
+      sponsors will be given access to view your demographic information, educational and work
+      experience (if provided by you), and contact information.
+      <br><br>
+      While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more
+      than just money to our member base.  We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill
+      level as well as increase their value to employers. Therefore, we are careful to choose sponsors that represent this philosophy.
+      <br><br>
+      We are also very strict about the way in which sponsors present themselves to the member base&#151;no annoying banners, pop-ups, etc. We work with
+      sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
+      believe that they have value to provide.  We ask that you listen to what they have to say.
+      <%--
+      <br><br>
+      Please read the <A href="/tc?module=Static&d1=about&d2=terms" class="statTextBig">Terms of Use</A> and <A href="/tc?module=Static&d1=about&d2=privacy"class="statTextBig">Privacy Policy</A>, and let me be the first to say good luck in the arena.
+      --%>
+      <br><br>
+      <em>Jack Hughes<br>
+      Founder and Chairman, TopCoder, Inc.</em>
+      <br><br>
+      (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update your profile.)
+      <br><br>
+      </c:if>
 
-       <c:if test="${!sessionInfo.loggedIn}">
-           (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update your profile.)
-           <br><br>
-       </c:if>
+      <strong>What would you like to do as a registered TopCoder member?<br>Check all that apply.</strong>
+      <br><br>
+
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
