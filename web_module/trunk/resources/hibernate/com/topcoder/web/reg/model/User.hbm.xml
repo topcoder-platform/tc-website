@@ -48,8 +48,7 @@
         </set>
         <set name="terms" table="user_terms_of_use_xref" cascade="save-update" access="field">
             <key column="user_id" not-null="true"/>
-            <!-- fetch select cuz the db doesn't like the outer join with the text column -->
-            <many-to-many column="terms_of_use_id" class="TermsOfUse" fetch="select"/>
+            <many-to-many column="terms_of_use_id" class="TermsOfUse"/>
         </set>
     </class>
 
