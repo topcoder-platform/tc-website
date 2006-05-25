@@ -51,4 +51,20 @@ public class TermsOfUse extends Base {
     }
 
 
+    public boolean equals(Object obj) {
+        boolean ret = false;
+        try {
+            TermsOfUse other = (TermsOfUse) obj;
+            ret = other.getId().equals(getId());
+        } catch (ClassCastException e) {
+            ret = false;
+        }
+        return ret;
+    }
+
+    public int hashCode() {
+        return id.hashCode();
+    }
+
+
 }
