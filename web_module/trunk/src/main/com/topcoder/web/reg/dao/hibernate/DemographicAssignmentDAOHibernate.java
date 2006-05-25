@@ -34,8 +34,9 @@ public class DemographicAssignmentDAOHibernate extends Base implements Demograph
             DemographicAssignment da;
             for (Iterator it = ret.iterator(); it.hasNext();) {
                 da = (DemographicAssignment)it.next();
-                if (!containsDecline(da.getQuestion())) {
-                    da.getQuestion().addAnswer(Util.getFactory().getDemographicAnswerDAO().findDecline(da.getQuestion()));
+                if ((da.getQuestion().isMultipleSelect() || da.getQuestion().isSingleSelect())&&!containsDecline(da.getQuestion())) {
+                    DemographicAnswer dan = Util.getFactory().getDemographicAnswerDAO().findDecline(da.getQuestion());
+                    da.getQuestion().addAnswer(dan);
                 }
             }
         }
