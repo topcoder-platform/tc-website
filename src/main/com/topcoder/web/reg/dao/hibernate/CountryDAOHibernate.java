@@ -25,7 +25,7 @@ public class CountryDAOHibernate extends Base implements CountryDAO {
     public List getCountries() {
         StringBuffer query = new StringBuffer(100);
         query.append("from Country n ");
-        query.append(" order by lower(country_name)");
+        query.append(" order by country_name");
         Query q = session.createQuery(query.toString());
 
         return q.list();
