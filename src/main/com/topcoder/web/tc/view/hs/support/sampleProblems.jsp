@@ -39,7 +39,7 @@
          </jsp:include>
 
 <H2>Sample Problem Statements</H2>
-<br><br>
+
 <P>
 Here are a couple of examples of the types of problems you can expect from a TopCoder competition. Once you become a TopCoder member, you can view all of the problems that TopCoder has ever used in the statistics section of our web site. If you're looking to practice, you'll find that after each TopCoder competition the problem sets that were used will be added as "practice rooms" in the TopCoder competition Arena. The TopCoder practice rooms are a great place to test your skills without the pressure of live competition and at the same time, get a feel for the competition environment. During an event you are presented with mulitple problems (usually 3) of increasing difficulty.
 <br/><br/>
