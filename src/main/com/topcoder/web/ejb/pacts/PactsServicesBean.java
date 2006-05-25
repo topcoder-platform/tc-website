@@ -1182,7 +1182,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("WHERE da.coder_type_id = ");
         sb.append("  (SELECT coder_type_id from coder where coder_id = " + userId + ") ");
         sb.append("AND dq.demographic_question_id = da.demographic_question_id ");
-        sb.append("AND dr.coder_id = " + userId + " ");
+        sb.append("AND dr.user_id = " + userId + " ");
         sb.append("AND dr.demographic_question_id = dq.demographic_question_id ");
         sb.append("AND dans.demographic_question_id = dr.demographic_question_id ");
         sb.append("AND dans.demographic_answer_id = dr.demographic_answer_id ");
