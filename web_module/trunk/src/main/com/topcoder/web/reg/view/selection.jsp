@@ -97,12 +97,12 @@ function popHide(){
               <br /><br />
             <%i++;%>
         </c:forEach>
-      <strong>Terms of Use</strong>
-      <br>
 
 
         <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="termsId"/>
-        <c:if test="!regUser.hasAgreedToTerms">
+        <c:if test="${!regUser.hasAgreedToTerms}">
+            <strong>Terms of Use</strong>
+            <br>
           <IFRAME SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>" WIDTH="100%" HEIGHT="200"></IFRAME>
           <div align="center">
               <span class="bigRed"><tc-webtag:errorIterator id="err" name="${termsId}">${err}<br/></tc-webtag:errorIterator></span>
