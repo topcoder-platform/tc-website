@@ -53,6 +53,7 @@
                 <include name="resources/privatelabel/**"/>
                 <include name="resources/TC.properties"/>
                 <include name="resources/PrivateLabel*.properties"/>
+                <include name="resources/Registration.properties"/>
                 <include name="resources/LongContest.properties"/>
                 <include name="resources/CorpConstants.properties"/>
                 <include name="resources/DataAccess.properties"/>
