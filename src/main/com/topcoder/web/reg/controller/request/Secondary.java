@@ -1,9 +1,9 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.*;
@@ -212,6 +212,31 @@ public class Secondary extends Base {
                     getFactory().getTimeZoneDAO().find(new Integer((String) params.get(Constants.TIMEZONE)));
             u.setTimeZone(tz);
         }
+
+        if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType()) &&
+                !u.getCoder().hasHSRating()) {
+            AlgoRatingType hs = getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.HIGH_SCHOOL);
+            AlgoRating hsRating = new AlgoRating();
+            hsRating.setType(hs);
+            hsRating.setCoder(u.getCoder());
+            hsRating.getId().setCoder(u.getCoder());
+            hsRating.getId().setType(hs);
+            u.getCoder().addRating(hsRating);
+
+        }
+
+        if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getCompetitionType()) &&
+                !u.getCoder().hasTCRating()) {
+            AlgoRatingType tc = getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.TC);
+            AlgoRating tcRating = new AlgoRating();
+            tcRating.setType(tc);
+            tcRating.setCoder(u.getCoder());
+            tcRating.getId().setCoder(u.getCoder());
+            tcRating.getId().setType(tc);
+            u.getCoder().addRating(tcRating);
+        }
+
+
         setRegUser(u);
     }
 }

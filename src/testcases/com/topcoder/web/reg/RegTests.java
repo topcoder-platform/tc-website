@@ -23,11 +23,13 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
-        suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
         suite.addTest(new TestSuite(SecurityGroupDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicQuestionDAOTestCase.class));
         suite.addTest(new TestSuite(TeamDAOTestCase.class));
         suite.addTest(new TestSuite(TeamTypeDAOTestCase.class));
+        suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
+        suite.addTest(new TestSuite(UserDAOTestCase.class));
+        suite.addTest(new TestSuite(CountryDAOTestCase.class));
 */
         suite.addTest(new TestSuite(UserDAOTestCase.class));
 /*
@@ -36,7 +38,6 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ContactDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
-        suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAnswerDAOTestCase.class));
 

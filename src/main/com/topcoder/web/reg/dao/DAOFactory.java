@@ -6,6 +6,7 @@ package com.topcoder.web.reg.dao;
  *          Create Date: May 11, 2006
  */
 public interface DAOFactory {
+    AlgoRatingTypeDAO getAlgoRatingTypeDAO();
     CoderDAO getCoderDAO();
     CoderTypeDAO getCoderTypeDAO();
     CompanyDAO getCompanyDAO();

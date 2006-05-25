@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class DemographicAssignmentDAOTestCase extends TCHibernateTestCase {
 
 
-    public void testLoadList() {
+/*    public void testLoadList() {
         CoderType ct = Util.getFactory().getCoderTypeDAO().find(new Integer(1));
         RegistrationType rt = Util.getFactory().getRegistrationTypeDAO().find(new Integer(1));
         HashSet h = new HashSet();
@@ -41,7 +41,7 @@ public class DemographicAssignmentDAOTestCase extends TCHibernateTestCase {
 
         }
         assertTrue("problem getting is required field", !error);
-    }
+    }*/
 
     public void testDecline() {
         CoderType ct = Util.getFactory().getCoderTypeDAO().find(new Integer(1));
@@ -56,7 +56,11 @@ public class DemographicAssignmentDAOTestCase extends TCHibernateTestCase {
             if (dq.isMultipleSelect()||dq.isSingleSelect()) {
                 boolean found = false;
                 for (Iterator it1 = dq.getAnswers().iterator(); it1.hasNext()&&!found;) {
-                    found = DemographicAnswer.DECLINE.equals(((DemographicAnswer)it1.next()).getText());
+                    DemographicAnswer da = (DemographicAnswer)it1.next();
+                    if (da==null) {
+                        log.debug("friggin answer is null!!!!!!");
+                    }
+                    found = DemographicAnswer.DECLINE.equals(da.getText());
                 }
                 if (!found) {
                     allFound = false;

@@ -8,6 +8,10 @@ import com.topcoder.web.reg.dao.*;
  *          Create Date: May 11, 2006
  */
 public class DAOFactoryHibernate implements DAOFactory  {
+    public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
+        return new AlgoRatingTypeDAOHibernate();
+    }
+
     public CoderDAO getCoderDAO() {
         return new CoderDAOHibernate();
     }
