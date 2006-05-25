@@ -209,7 +209,7 @@
    </tr>
    <tr>
       <td class="name">
-        State:
+        State (US Only):
       </td>
       <td class="value">
         <tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/>
