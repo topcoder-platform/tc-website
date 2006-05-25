@@ -65,6 +65,9 @@ public class ViewProblemStatement extends Base {
                 } else {
                     Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
                     lid = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
+                    if (lid==0) {
+                        lid = JavaLanguage.ID;
+                    }
                 }
 
             }
