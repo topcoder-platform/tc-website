@@ -123,7 +123,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                              <center>
                                              <span class="bodySubtitle"><rsc:item name="contest_name" row="<%=rsr%>"/></span>
                                              <br><br>
-                                             All times are Eastern Time unless otherwise noted, click <a HREF="<%="/worldclock/city.html?n=98worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
+                                             All times are Eastern Time unless otherwise noted, click <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
                                             to see when coding begins in other time zones.<br/></center>
                                             <% if (rsr.getItem("forum_id").getResultData()!=null && rsr.getIntItem("forum_id") != 0) { %>
                                             <center><strong><tc-webtag:forumLink forumID="<%=rsr.getIntItem("forum_id")%>" message="Discuss This Match" /></strong><br/><br/></center>

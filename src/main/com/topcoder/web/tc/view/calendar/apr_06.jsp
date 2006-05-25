@@ -36,7 +36,7 @@
 <jsp:param name="title" value="April 2006"/>
 </jsp:include>
 
-<div style="float:right;">All times are <A target="_blank" href="/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; <strong><A href="/tc?module=Static&d1=calendar&d2=mar_06" class="prevNext">&lt; PREV</A> &#160; <A href="/tc?module=Static&d1=calendar&d2=may_06" class="prevNext">NEXT &gt;</A></strong></div>
+<div style="float:right;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; <strong><A href="/tc?module=Static&d1=calendar&d2=mar_06" class="prevNext">&lt; PREV</A> &#160; <A href="/tc?module=Static&d1=calendar&d2=may_06" class="prevNext">NEXT &gt;</A></strong></div>
 
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="apr_06"/>
