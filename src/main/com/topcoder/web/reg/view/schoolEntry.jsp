@@ -65,7 +65,7 @@
             <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
             <br><br>
-            <strong>State Code (US Only):</strong><br>
+            <strong>State (US Only):</strong><br>
             <tc-webtag:errorIterator id="err" name="${stateCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${stateCode}" size="2" maxlength="2" editable="true"/>
             <br><br>
