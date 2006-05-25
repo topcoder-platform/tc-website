@@ -1,8 +1,6 @@
 package com.topcoder.web.reg.dao.hibernate;
 
 import com.topcoder.web.reg.model.Coder;
-import com.topcoder.web.reg.model.HSAlgoRating;
-import com.topcoder.web.reg.model.TCAlgoRating;
 import com.topcoder.web.reg.dao.CoderDAO;
 import org.hibernate.Session;
 
