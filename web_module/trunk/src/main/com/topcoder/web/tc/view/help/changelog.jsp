@@ -40,6 +40,23 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.1.1 - 2006.05.25
+        <ul>
+            <li>Bugfix for PACTS due to schema change</li>
+            <li>If user doesn't have a default language set, use Java for viewing problem statements</li>
+            <li>Bugfix store country/state for schools</li>
+            <li>Add note to indicate that only US states are necessary</li>
+        </ul>
+    </p>
+    <p>
+        5.1.0 - 2006.05.24
+        <ul>
+            <li>New Registration Path</li>
+            <li>Boatloads of DB schema changes and associated software changes</li>
+            <li>GZIP output for tc and forums applications</li>
+        </ul>
+    </p>
+    <p>
         5.0.11 - 2006.04.26
         <ul>
             <li>Add ability to have the same page highlight different left nav items</li>
