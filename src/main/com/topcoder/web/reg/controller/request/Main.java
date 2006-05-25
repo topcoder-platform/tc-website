@@ -64,7 +64,7 @@ public class Main extends Base {
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
             }
-            if (u.isNew()&&!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
+            if (!u.getAgreedToSiteTerms()&&!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
                 addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
             }
 
