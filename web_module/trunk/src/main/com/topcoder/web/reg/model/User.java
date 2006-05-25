@@ -38,6 +38,11 @@ public class User extends Base {
      */
     private List transientResponses;
 
+    /**
+     * doing this weirdness to allow the EL to work with this
+      */
+    private boolean agreedToSiteTerms;
+
     public User() {
         status = new Character(Constants.UNACTIVE_STATI[1]);
         addresses = new HashSet();
@@ -306,13 +311,14 @@ public class User extends Base {
         terms.add(t);
     }
 
-    public boolean agreedToSiteTerms() {
+    public boolean getAgreedToSiteTerms() {
         Integer id = new Integer(Constants.REG_TERMS_ID);
         boolean found = false;
         for (Iterator it = getTerms().iterator(); it.hasNext()&&!found;) {
             found = id.equals(((TermsOfUse)it.next()).getTypeId());
         }
-        return found;
+        agreedToSiteTerms = found;
+        return agreedToSiteTerms;
     }
 
 
