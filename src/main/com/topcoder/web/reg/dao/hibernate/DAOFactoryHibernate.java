@@ -80,6 +80,10 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new TeamTypeDAOHibernate();
     }
 
+    public TermsOfUseDAO getTermsOfUse() {
+        return new TermsOfUseDAOHibernate();
+    }
+
     public TimeZoneDAO getTimeZoneDAO() {
         return new TimeZoneDAOHibernate();
     }

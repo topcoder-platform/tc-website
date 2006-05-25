@@ -32,6 +32,7 @@ public class User extends Base {
     private Set securityGroups;
     private Coder coder;
     private Contact contact;
+    private Set terms;
     /**
      * hoke: used for making changes
      */
@@ -46,6 +47,7 @@ public class User extends Base {
         notifications = new TreeSet();
         securityGroups = new HashSet();
         transientResponses = new ArrayList();
+        terms = new HashSet();
     }
 
     public Long getId() {
@@ -292,6 +294,26 @@ public class User extends Base {
         this.transientResponses = transientResponses;
     }
 
+    public Set getTerms() {
+        return Collections.unmodifiableSet(terms);
+    }
+
+    public void setTerms(Set terms) {
+        this.terms = terms;
+    }
+
+    public void addTerms(TermsOfUse t) {
+        terms.add(t);
+    }
+
+    public boolean agreedToSiteTerms() {
+        Integer id = new Integer(Constants.REG_TERMS_ID);
+        boolean found = false;
+        for (Iterator it = getTerms().iterator(); it.hasNext()&&!found;) {
+            found = id.equals(((TermsOfUse)it.next()).getTypeId());
+        }
+        return found;
+    }
 
 
 }

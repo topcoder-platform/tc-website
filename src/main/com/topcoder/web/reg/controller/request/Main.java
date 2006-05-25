@@ -34,28 +34,23 @@ public class Main extends Base {
             }
 
 
-            //set up the user object we're gonna use
             User u = getRegUser();
-            if (u==null) {
-                u = new User();
-            }
-
 
             requestedTypes.addAll(u.getRegistrationTypes());
             setRequestedTypes(requestedTypes);
 
             if (u.isNew()) {
-                if (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())) {
+                if (u.getContact()==null&&(requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType()))) {
                     Contact c = new Contact();
                     u.setContact(c);
                     c.setUser(u);
                 }
-                if (requestedTypes.contains(regTypeDAO.getCompetitionType())) {
+                if (u.getCoder()==null && requestedTypes.contains(regTypeDAO.getCompetitionType())) {
                     Coder c= new Coder();
                     u.setCoder(c);
                     c.setUser(u);
                 }
-                if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                if (u.getCoder()==null && requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
                     Coder c= new Coder();
                     u.setCoder(c);
                     c.setUser(u);
@@ -66,11 +61,18 @@ public class Main extends Base {
             }
 
 
-
             if (requestedTypes.isEmpty()) {
-                //error message, back to selection page
-                getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
+            }
+            if (u.isNew()&&!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
+                addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
+            }
+
+            if (hasErrors()) {
+                u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                setRegUser(u);
+                
+                getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
             } else {

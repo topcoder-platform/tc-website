@@ -66,6 +66,7 @@
         <mapping resource="com/topcoder/web/reg/model/State.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Team.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/TeamType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/TermsOfUse.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/UserGroup.hbm.xml"/>
