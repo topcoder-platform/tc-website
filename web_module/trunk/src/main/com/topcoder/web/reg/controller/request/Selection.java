@@ -3,6 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.RegistrationType;
+import com.topcoder.web.reg.model.User;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 
@@ -21,6 +22,14 @@ public class Selection extends Base {
         if (getRequest().getParameter(Constants.NEW_REG)!=null) {
             newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
         }
+
+        //set up the user object we're gonna use
+        User u = getRegUser();
+        if (u==null) {
+            u = new User();
+            setRegUser(u);
+        }
+
 
         log.debug("new reg " + newReg);
         if (newReg) {

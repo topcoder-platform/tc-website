@@ -99,11 +99,23 @@ function popHide(){
         </c:forEach>
       <strong>Terms of Use</strong>
       <br>
-      <IFRAME SRC="" WIDTH="100%" HEIGHT="200"></IFRAME>
-      <div align="center"><INPUT TYPE="checkbox" NAME="terms">I agree
-      <br><br>
-      <a href="Javascript:document.selectionForm.submit();">Submit</a>
-      </div>
+
+
+        <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="termsId"/>
+        <c:if test="!regUser.hasAgreedToTerms">
+          <IFRAME SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>" WIDTH="100%" HEIGHT="200"></IFRAME>
+          <div align="center">
+              <span class="bigRed"><tc-webtag:errorIterator id="err" name="${termsId}">${err}<br/></tc-webtag:errorIterator></span>
+              <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
+                <br><br>
+          </div>
+        </c:if>
+        <div align="center">
+            <a href="Javascript:document.selectionForm.submit();">Submit</a>
+        </div>
+
+
+
 
     </form>
 

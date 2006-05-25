@@ -24,6 +24,7 @@ public interface DAOFactory {
     StateDAO getStateDAO();
     TeamDAO getTeamDAO();
     TeamTypeDAO getTeamTypeDAO();
+    TermsOfUseDAO getTermsOfUse();
     TimeZoneDAO getTimeZoneDAO();
     UserDAO getUserDAO();
 }

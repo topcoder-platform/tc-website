@@ -2,7 +2,6 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.TestUtils;
 import com.topcoder.web.reg.model.User;
 
 /**
@@ -86,7 +85,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         assertTrue("couldn't make demographic change", true);
 
     }
-*/
 
 
 
@@ -99,6 +97,13 @@ public class UserDAOTestCase extends TCHibernateTestCase {
             assertTrue("new coder does not exist", u1 != null);
 
         }
+
+*/
+    public void testFindWithTerms() {
+        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+        assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
+    }
+
 /*
     public void testFindWithImage() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
