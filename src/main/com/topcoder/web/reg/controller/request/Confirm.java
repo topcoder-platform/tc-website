@@ -122,11 +122,11 @@ public class Confirm extends Base {
                 Address a = new Address();
                 a.setCity((String)params.get(Constants.SCHOOL_CITY));
                 a.setProvince((String)params.get(Constants.SCHOOL_PROVINCE));
-                if (hasParameter(params, Constants.STATE_CODE)) {
-                    a.setState(getFactory().getStateDAO().find((String)params.get(Constants.STATE_CODE)));
+                if (hasParameter(params, Constants.SCHOOL_STATE)) {
+                    a.setState(getFactory().getStateDAO().find((String)params.get(Constants.SCHOOL_STATE)));
                 }
-                if (hasParameter(params, Constants.COUNTRY_CODE)) {
-                    a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.COUNTRY_CODE)));
+                if (hasParameter(params, Constants.SCHOOL_COUNTRY)) {
+                    a.setCountry(getFactory().getCountryDAO().find((String)params.get(Constants.SCHOOL_COUNTRY)));
                 }
                 s.setAddress(a);
                 cs.setSchool(s);
