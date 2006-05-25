@@ -1265,6 +1265,7 @@ public class Legacy extends Base {
             " from " +
             "   user u," +
             "   rating r," +
+            "	round_segment rs," +
             "   coder c," +
             "	address a," +
             "	user_address_xref uax," +
@@ -1277,7 +1278,9 @@ public class Legacy extends Base {
             "   r.rating >= 923 and" +
             "   u.status = 'A' and" +
             "   r.num_ratings > 2 and" +
-            "   date(r.modify_date) >= mdy(4,1,2002) and" +
+            "	r.round_id = rs.round_id and" + 
+            "	rs.segment_id = 2 and" +
+            "   date(rs.end_time) >= mdy(4,1,2002) and" +
             "   handle not like 'guest%' and" +
             "	u.user_id = uax.user_id and uax.address_id = a.address_id and" +
             "   a.country_code in ('036','124','372','356','826','840','156','554') and" +
