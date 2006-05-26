@@ -20,14 +20,14 @@ import java.util.List;
 public class Main extends Base {
 
     protected void registrationProcessing() throws Exception {
-        if (getRegUser()==null||getRegUser().isNew() || userLoggedIn()) {
+        if (getRegUser() == null || getRegUser().isNew() || userLoggedIn()) {
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
             List types = regTypeDAO.getRegistrationTypes();
 
             RegistrationType rt;
             HashSet requestedTypes = new HashSet();
             for (Iterator it = types.iterator(); it.hasNext();) {
-                rt = (RegistrationType)it.next();
+                rt = (RegistrationType) it.next();
                 if ("on".equals(getRequest().getParameter(Constants.REGISTRATION_TYPE + rt.getId()))) {
                     //log.debug("adding type: " + rt.getName());
                     requestedTypes.add(rt);
@@ -40,19 +40,20 @@ public class Main extends Base {
             requestedTypes.addAll(u.getRegistrationTypes());
             setRequestedTypes(requestedTypes);
 
-                if (u.getContact()==null&&(requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType()))) {
-                    Contact c = new Contact();
-                    u.setContact(c);
-                    c.setUser(u);
-                }
-                if (u.getCoder()==null && requestedTypes.contains(regTypeDAO.getCompetitionType())) {
-                    Coder c= new Coder();
-                    u.setCoder(c);
-                    c.setUser(u);
-                }
+            if (u.getContact() == null && (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())))
+            {
+                Contact c = new Contact();
+                u.setContact(c);
+                c.setUser(u);
+            }
+            if (u.getCoder() == null && requestedTypes.contains(regTypeDAO.getCompetitionType())) {
+                Coder c = new Coder();
+                u.setCoder(c);
+                c.setUser(u);
+            }
             if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
                 Coder c;
-                if (u.getCoder()==null) {
+                if (u.getCoder() == null) {
                     c = new Coder();
                     c.setUser(u);
                     u.setCoder(c);
@@ -79,7 +80,8 @@ public class Main extends Base {
                 if (userLoggedIn()) {
                     //they're updating their info, and they're logged in, so here we go
                     RegistrationType regType;
-                    for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
+                    for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();)
+                    {
                         regType = (RegistrationType) it.next();
                         setDefault(Constants.REGISTRATION_TYPE + regType.getId(), String.valueOf(true));
                     }
@@ -89,7 +91,7 @@ public class Main extends Base {
                 setIsNextPageInContext(true);
             } else {
                 //todo if they are attempting to register for high school, and they are not eligible,
-                  //todo give them a message saying they are not eligible to register for highschool
+                //todo give them a message saying they are not eligible to register for highschool
                 setMainDefaults(u);
 
                 u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
@@ -97,7 +99,7 @@ public class Main extends Base {
                 setRegUser(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
-                if (nots!=null) {
+                if (nots != null) {
                     getRequest().setAttribute("notifications", nots);
                 }
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
