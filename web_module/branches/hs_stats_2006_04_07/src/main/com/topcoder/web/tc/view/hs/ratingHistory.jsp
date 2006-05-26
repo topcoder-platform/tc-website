@@ -108,8 +108,8 @@ function showRows(sr, nr, adjust)
 
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
     <div class="pagingBox">
-    <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-    | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+    <%=(history.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+    | <%=(history.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
     </div>
 <% } %>
 
@@ -140,8 +140,8 @@ function showRows(sr, nr, adjust)
 
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
     <div class="pagingBox">
-    <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
-    | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+    <%=(history.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+    | <%=(history.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
     </div>
 <% } %>
 
