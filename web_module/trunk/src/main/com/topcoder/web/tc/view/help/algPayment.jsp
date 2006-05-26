@@ -84,7 +84,7 @@ Members can be paid by the following methods:
       <li>Provide TopCoder with the email address you used to establish your PayPal account.</li>
       <li>If you do not have an account, <A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE">click here</A> to sign up.</li>
       <li>Funds are transferred via e-check and are generally available within a few business days.</li>
-      <li>To receive your payments via PayPal, email us at <A href="payments@topcoder.com">payments@topcoder.com</A>.</li>
+      <li>To receive your payments via PayPal, email us at <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.</li>
       </ul>
       </td>
       <td valign="top">
