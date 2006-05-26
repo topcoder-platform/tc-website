@@ -32,6 +32,7 @@
 %>
 
 <body>
+<script language="JavaScript">
 <!--
 
 function clickColumn(n)
@@ -75,6 +76,7 @@ function showRows(sr, nr, adjust)
 
 
 // -->
+</script>
 
 <jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
