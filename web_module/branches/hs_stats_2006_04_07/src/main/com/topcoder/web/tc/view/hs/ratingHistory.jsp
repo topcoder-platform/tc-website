@@ -99,7 +99,7 @@ function showRows(sr, nr, adjust)
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="<%= algoType %> Rating History"/>
+<jsp:param name="title" value="x Rating History"/>
 </jsp:include>
 
 <span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='<%= context %>' /></span>
