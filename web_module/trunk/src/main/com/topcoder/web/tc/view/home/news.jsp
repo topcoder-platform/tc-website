@@ -6,7 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-   
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.26.06<br>1:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New guidelines for component competitors and reviewers</span><br><br>
+      We've updated the component documentation with two new items - Competitor Guidelines, which addresses a number of common issues, and updated Reviewer Guidelines. The guidelines apply to both design and development competition.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">design docs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">development docs</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506022" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.25.06<br>2:30 AM</td>
@@ -173,22 +187,6 @@
    <tr><td class="newsLinksCell">
        <A href="http://media38b.libsyn.com/ZndueJp1bXzHfGd1mHpup2qmZnKX/podcasts/dickwall/JavaPosse053.mp3" target="_blank">listen</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506014" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.12.06<br>12:20 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">Cause for Concern? Americans Are Scarce In Top Tech Contest</A>
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="Wall Street Journal" News border="0" /></div>
-       "Of the 48 best computer programmers in the world, only four of them are Americans. But what that bit of data says about the state of the U.S. education system is open to debate."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506013" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
    </td></tr>
 

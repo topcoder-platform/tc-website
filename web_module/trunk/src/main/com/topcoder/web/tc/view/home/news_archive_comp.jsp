@@ -38,6 +38,8 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.26.06 1:30 PM - </td><td width="100%">New guidelines for component competitors and reviewers<br>
+<A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">design docs</A>&#160;|&#160;<A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">development docs</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.08.06 5:30 PM - </td><td width="100%">Poseidon 4.1 now the official standard</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.28.06 5:30 PM - </td><td width="100%">New Software <A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</A> and <A href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</A> Tutorial Movies</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.29.06 3:15 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Software Testing registration extended</A></td></tr>
