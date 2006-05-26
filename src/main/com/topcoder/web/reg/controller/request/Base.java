@@ -274,10 +274,11 @@ abstract class Base extends HibernateProcessor {
         }
         if (u.getCoder() != null && u.getCoder().getCompCountry() != null) {
             setDefault(Constants.COMP_COUNTRY_CODE, u.getCoder().getCompCountry().getCode());
-            if (u.getCoder().getCoderType() != null) {
-                setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
-            }
         }
+        if (u.getCoder()!=null && u.getCoder().getCoderType() != null) {
+            setDefault(Constants.CODER_TYPE, u.getCoder().getCoderType().getId());
+        }
+
         if (u.getTimeZone() != null) {
             setDefault(Constants.TIMEZONE, u.getTimeZone().getId());
         }

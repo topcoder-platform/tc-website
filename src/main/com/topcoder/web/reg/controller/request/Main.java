@@ -40,7 +40,6 @@ public class Main extends Base {
             requestedTypes.addAll(u.getRegistrationTypes());
             setRequestedTypes(requestedTypes);
 
-            if (u.isNew()) {
                 if (u.getContact()==null&&(requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType()))) {
                     Contact c = new Contact();
                     u.setContact(c);
@@ -51,16 +50,19 @@ public class Main extends Base {
                     u.setCoder(c);
                     c.setUser(u);
                 }
-                if (u.getCoder()==null && requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
-                    Coder c= new Coder();
-                    u.setCoder(c);
+            if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                Coder c;
+                if (u.getCoder()==null) {
+                    c = new Coder();
                     c.setUser(u);
-                    //high school people have to be students
-                    c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+                    u.setCoder(c);
+                } else {
+                    c = u.getCoder();
                 }
-                setRegUser(u);
+                c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
             }
 
+            setRegUser(u);
 
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");

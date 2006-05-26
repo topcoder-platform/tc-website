@@ -201,6 +201,7 @@ public class Secondary extends Base {
             u.getCoder().setCompCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COMP_COUNTRY_CODE)));
         }
 
+
         if (fields.contains(Constants.CODER_TYPE)) {
             CoderType ct =
                     getFactory().getCoderTypeDAO().find(new Integer((String) params.get(Constants.CODER_TYPE)));
