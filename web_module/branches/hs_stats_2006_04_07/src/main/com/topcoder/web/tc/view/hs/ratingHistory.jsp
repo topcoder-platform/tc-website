@@ -97,10 +97,17 @@ function showRows(sr, nr, adjust)
         <!-- Center Column Begins -->
 <td width="100%" align="left" class="bodyColumn">
 
+<% if (isHighSchool) { %>
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="x Rating History"/>
+<jsp:param name="title" value="High School Rating History"/>
 </jsp:include>
+<% } else { %>
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Algorithm Rating History"/>
+</jsp:include>
+<% } %>
 
 <span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='<%= context %>' /></span>
 <br>
@@ -109,7 +116,7 @@ function showRows(sr, nr, adjust)
 <a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
  | Rating History
 </span>
-<br>
+<br><br>
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
     <div class="pagingBox">
     <%=(history.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
