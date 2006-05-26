@@ -422,7 +422,7 @@ Testing components may require connections to databases, telnet servers, ftp ser
 <br>
 Build.xml:
 <pre class="body"> 
-   &lt;jvmarg value="-Djditestport=\\${jdi_port}"/&gt;
+   &lt;jvmarg value="-Djditestport=\${jdi_port}"/&gt;
 </pre>
 
 Test Case Source Code:
