@@ -18,15 +18,63 @@
 </jsp:include>
 </head>
 <%
-Map resultMap = (Map) request.getAttribute("resultMap");
-ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_history");
-String cr = (String) request.getAttribute("cr");
-boolean isHighSchool = Integer.ParseInt((String) request.getAttribute("ratid")) == 2;
-String context = isHighSchool? "hs_algorithm" : "algorithm";
+    Map resultMap = (Map) request.getAttribute("resultMap");
+    ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_history");
+    String cr = (String) request.getAttribute("cr");
+    int ratid = Integer.parseInt((String) request.getAttribute("ratid"));
+    boolean isHighSchool = ratid == 2;
+    String context = isHighSchool? "hs_algorithm" : "algorithm";
+
+    ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+    int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
 
 %>
 
 <body>
+<!--
+
+function clickColumn(n)
+{
+    var sd = "asc";
+
+    if(n == <%= li.getSortColumn() %>) {
+        if ("asc" == "<%= li.getSortDirection() %>") {
+            sd = "desc";
+        }
+    }
+
+    window.location = "/tc?module=HSRatingHistory&cr=<%= cr %>&ratid=<%= ratid %>&sc=" + n + "&sd=" + sd;
+}
+
+
+function showRows(sr, nr, adjust)
+{
+
+    if (adjust) {
+        if (sr > <%= totalRows %> ) sr = <%= totalRows %>;
+        if (sr < 1) sr = 1;
+    } else {
+
+        if (isNaN(parseInt(nr)) || parseInt(nr) < 1)
+        {
+            alert(nr + " is not a valid positive integer");
+            return;
+         }
+        if (isNaN(parseInt(sr)) || parseInt(sr) < 1)
+        {
+            alert(sr + " is not a valid positive integer");
+            return;
+         }
+    }
+
+     window.location = "/tc?module=HSRatingHistory&cr=<%= cr %>&ratid=<%= ratid %>" +
+                   "&sc=<%= li.getSortColumn() %>&sd=<%= li.getSortDirection() %>&sr=" + sr + "&nr=" + nr;
+
+}
+
+
+// -->
 
 <jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
@@ -59,22 +107,22 @@ String context = isHighSchool? "hs_algorithm" : "algorithm";
 </span>
 
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
-	<div class="pagingBox">
-	<%=(history.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-	| <%=(history.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
-	</div>
+    <div class="pagingBox">
+    <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+    | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+    </div>
 <% } %>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="7">High School Rating History</td></tr>
    <tr>
-      <td class="headerC" width="1%"><A href="">Date</A></td>
-      <td class="header"><A href="">Season</A></td>
-      <td class="header"><A href="">Contest</A></td>
-      <td class="header"><A href="">Round</A></td>
-      <td class="headerR"><A href="">Rating</A></td>
-      <td class="headerR"><A href="">Volatility</A></td>
-      <td class="headerR"><A href="">Rank</A></td>
+      <td class="headerC" width="1%"><A href="javascript:clickColumn(0)">Date</A></td>
+      <td class="header"><A href="javascript:clickColumn(1)">Season</A></td>
+      <td class="header"><A href="javascript:clickColumn(2)">Contest</A></td>
+      <td class="header"><A href="javascript:clickColumn(3)">Round</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(4)">Rating</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(5)">Volatility</A></td>
+      <td class="headerR"><A href="javascript:clickColumn(6)">Rank</A></td>
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= history %>" id="resultRow">
@@ -91,10 +139,10 @@ String context = isHighSchool? "hs_algorithm" : "algorithm";
 </table>
 
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
-	<div class="pagingBox">
-	<%=(history.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-	| <%=(history.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
-	</div>
+    <div class="pagingBox">
+    <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
+    | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
+    </div>
 <% } %>
 
 <br><br>

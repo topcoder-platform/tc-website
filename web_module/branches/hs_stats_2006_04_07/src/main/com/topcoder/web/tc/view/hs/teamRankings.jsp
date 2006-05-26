@@ -17,15 +17,15 @@
 </jsp:include>
 
 <%
-	Map resultMap = (Map) request.getAttribute("resultMap");
-	ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
-	ResultSetContainer result = (ResultSetContainer) resultMap.get("season_team_rank");
-	
-	RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
-	ListInfo li = (ListInfo)request.getAttribute("listInfo");
-	
-	int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
-	
+    Map resultMap = (Map) request.getAttribute("resultMap");
+    ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+    ResultSetContainer result = (ResultSetContainer) resultMap.get("season_team_rank");
+
+    RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+    ListInfo li = (ListInfo)request.getAttribute("listInfo");
+
+    int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
+
 %>
 
 <script language="JavaScript">
@@ -85,19 +85,8 @@ function submitEnter(e)
         showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false);
     } else return true;
  }
- 
- 
-function clickColumn(n)
-{
-	var sd = "asc";
-    if ((n == <%= li.getSortColumn() %>) && ("asc" == "<%= li.getSortDirection() %>")) {
-            sd = "desc";
-    }
-    window.location = "/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
-                   "&sc=" + n + "&sd=" + sd;
 
-}
- 
+
 // -->
 </script>
 </head>
@@ -139,8 +128,8 @@ function clickColumn(n)
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
 
 <span class="bc">
-<a href="/tc?module=HSRank&snid=<%= round.getSeasonId() %>" class="bcLink">Coders</a> | 
-Teams | 
+<a href="/tc?module=HSRank&snid=<%= round.getSeasonId() %>" class="bcLink">Coders</a> |
+Teams |
 <a href="/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>" class="bcLink">Countries</a>
 </span>
 <div class="pagingBox">
@@ -158,13 +147,13 @@ Teams |
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%= result%>" id="resultRow">
-	   <% even = !even; %>
-	   <tr class="<%=even?"dark":"light"%>">
-	      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-	      <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
-	      <td class="value"><rsc:item name="member_count" row="<%=resultRow%>"/></td>
-	      <td class="valueR"><rsc:item name="team_points" row="<%=resultRow%>"/></td>
-	   </tr>
+       <% even = !even; %>
+       <tr class="<%=even?"dark":"light"%>">
+          <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+          <td class="value"><rsc:item name="name" row="<%=resultRow%>"/></td>
+          <td class="value"><rsc:item name="member_count" row="<%=resultRow%>"/></td>
+          <td class="valueR"><rsc:item name="team_points" row="<%=resultRow%>"/></td>
+       </tr>
    </rsc:iterator>
 </table>
 
