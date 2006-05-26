@@ -228,7 +228,7 @@ public class ProfileSearch extends Base {
             query.append("    AND res.coder_id = c.coder_id\n");
         }
         if (notify != null && notify.length > 0) {
-            query.append("    AND cn.coder_id = c.coder_id\n");
+            query.append("    AND cn.user_id = c.coder_id\n");
             query.append("    AND cn.notify_id in (");
             query.append(notify[0]);
             for (int i = 1; i < notify.length; i++) {
