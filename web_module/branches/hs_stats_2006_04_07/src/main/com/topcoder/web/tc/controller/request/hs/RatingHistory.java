@@ -23,9 +23,14 @@ public class RatingHistory extends Base {
         try {
             ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "DESC", columnNames);
             
+            if (!hasParameter("cr") || !hasParameter("ratid")) {
+                throw new IllegalArgumentException("Parameters cr and ratid expected"); 
+            }
+            
             Request r = new Request();
             r.setContentHandle("hs_rating_history");
             r.setProperty("cr", getRequest().getParameter("cr"));
+            r.setProperty("ratid", getRequest().getParameter("ratid"));
             
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
@@ -35,6 +40,7 @@ public class RatingHistory extends Base {
             
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("cr", getRequest().getParameter("cr"));
+            getRequest().setAttribute("ratid", getRequest().getParameter("ratid"));
             
             setNextPage(Constants.HS_RATING_HISTORY);
             setIsNextPageInContext(true);
