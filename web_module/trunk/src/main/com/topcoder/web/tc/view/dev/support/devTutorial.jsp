@@ -333,10 +333,10 @@ value</span><span class="m">="<strong>C:\Program&#160;Files\JavaSoft\JRE\1.3.1_1
 </p>
 <p>In many cases, this will be all the configuration you will need to do.  If
 you cannot add the JUnit jar to your classpath, you will need to include it in
-the build script.  Uncomment the section below, and change <font face="Courier New" size="2">${ext_libdir}/junit.jar</font>
+the build script.  Uncomment the section below, and change <font face="Courier New" size="2">\\${ext_libdir}/junit.jar</font>
 to the correct path.</p>
 <p><font face="Courier New" size="2">&lt;!-- 3rd Party Dependencies --&gt;<br>
-&lt;!-- &lt;property name="junit.jar" value="${ext_libdir}/junit.jar"/&gt;<br>
+&lt;!-- &lt;property name="junit.jar" value="\\${ext_libdir}/junit.jar"/&gt;<br>
 --&gt;</font></p>
 <p>If your project requires additional libraries, you will need to configure your
 build script to account for these during build and run time.  There should
@@ -345,13 +345,13 @@ already be a few commented examples of libraries in the script.</p>
 value="1.0"/&gt;<br>
 &lt;property name="spell_check.jar.name" value="spell_check.jar"/&gt;<br>
 &lt;property name="spell_check.path"
-value="spell_check/${spell_check.version}"/&gt;<br>
+value="spell_check/\\${spell_check.version}"/&gt;<br>
 &lt;property name="spell_check.jar"
-value="${tcs_libdir}/${spell_check.path}/${spell_check.jar.name}"/&gt;</font>
+value="\\${tcs_libdir}/\\${spell_check.path}/\\${spell_check.jar.name}"/&gt;</font>
 </p>
 <p>This allows for easy configuration of different versions of the library with
 minimal build editing. You may have noted the reference to <font face="Courier New" size="2">
-${tcs_libdir}</font> .  This should already be defined at the top of
+\\${tcs_libdir}</font> .  This should already be defined at the top of
 your build script as follows:</p>
 <p><font face="Courier New" size="2">&lt;property name="tcs_libdir" value="lib/tcs"
 /&gt;</font></p>
@@ -363,12 +363,12 @@ appropriate, by changing the path or file name property above.</font></font></p>
 <p>Once you have your jar references set up, you will need to add them to the
 buildlibs property in your script.</p>
 <p><font face="Courier New" size="2">&lt;path id="buildlibs"&gt;<br>
-   &lt;pathelement location="${spell_check.jar}" /&gt;<br>
+   &lt;pathelement location="\\${spell_check.jar}" /&gt;<br>
    <br>
    &lt;!-- .... other library references .... --&gt;<br>
 <br>
    </font><font face="Courier New" size="2">&lt;pathelement
-location="${j2ee.jar}" /&gt;<br>
+location="\\${j2ee.jar}" /&gt;<br>
 &lt;/path&gt;</font>
 </p>
 <p>You must include any library your component requires to build or run.
@@ -395,7 +395,7 @@ java_1_3_bootclasspath=C:\Program Files\JavaSoft\JRE\1.3.1_10\lib\rt.jar</font><
 <p>You can also use property expansion.
 </p>
 <p><font face="Courier New" size="2">java_home=C:\Program Files\JavaSoft\JRE\1.3.1_10<br>
-java_1_3_bootclasspath=${java_home}\lib\rt.jar</font></p>
+java_1_3_bootclasspath=\\${java_home}\lib\rt.jar</font></p>
 <p>
 Keep in mind that your topcoder_global.properties reference is at the beginning
 of your build.xml. This means that properties from the build.xml won't expand
@@ -417,7 +417,7 @@ time.  .NET is somewhat more flexible with binary locations, but it is
 always good practice to place your libraries in the <font face="Courier New" size="2">
 /lib</font> directory. </font></p>
 <p><font face="Courier New" size="2">&lt;property
-value="${tcs_bin}\generic_parser\1.0\TopCoder.Util.GenericParser.dll"
+value="\\${tcs_bin}\generic_parser\1.0\TopCoder.Util.GenericParser.dll"
 name="generic_parser.dll"/&gt; </font></p>
 <a name="sectionIV"></A>
 <h2>IV. Getting Started - Development</h2>
