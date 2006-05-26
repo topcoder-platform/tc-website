@@ -29,6 +29,8 @@
 
     int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
 
+    String algoType = isHighSchool? "High School" : "Algorithm";
+
 %>
 
 <body>
@@ -97,17 +99,17 @@ function showRows(sr, nr, adjust)
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
-<jsp:param name="title" value="High School Rating History"/>
+<jsp:param name="title" value="<%= algoType %> Rating History"/>
 </jsp:include>
 
 <span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='<%= context %>' /></span>
 <br>
-<span class="bodySubtitle">High School Statistics > </span><br>
+<span class="bodySubtitle"><%= algoType %> Statistics > </span><br>
 <span class="bc">
 <a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
  | Rating History
 </span>
-
+<br>
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
     <div class="pagingBox">
     <%=(history.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
@@ -116,7 +118,7 @@ function showRows(sr, nr, adjust)
 <% } %>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="7">High School Rating History</td></tr>
+   <tr><td class="title" colspan="7"><%= algoType %> Rating History</td></tr>
    <tr>
       <td class="headerC" width="1%"><A href="javascript:clickColumn(0)">Date</A></td>
       <td class="header"><A href="javascript:clickColumn(1)">Season</A></td>
@@ -130,9 +132,9 @@ function showRows(sr, nr, adjust)
    <rsc:iterator list="<%= history %>" id="resultRow">
        <tr class="<%=even?"dark":"light"%>">
           <td class="valueC"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
-          <td class="value"><A href=""><rsc:item name="season_name" row="<%=resultRow%>"/></A></td>
-          <td class="value"><A href=""><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
-          <td class="value"><A href=""><rsc:item name="round_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="season_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+          <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="round_name" row="<%=resultRow%>"/></A></td>
           <td class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></td>
           <td class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></td>
           <td class="valueR"><rsc:item name="rank" row="<%=resultRow%>"/></td>
