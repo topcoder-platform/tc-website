@@ -61,6 +61,7 @@
             <br><br>
             <A href="/?t=sponsor&c=link&link=http://www.fizbang.com/1-3-06.php" target="blank">http://www.fizbang.com/1-3-06.php</A><br>
             <A href="/?t=sponsor&c=link&link=http://www.mymarkets.com/lm/01.htm" target="blank">http://www.mymarkets.com/lm/01.htm</A><br>
+            <A href="/?t=sponsor&c=link&link=http://www.attitudedesign.co.uk/journal/?p=41" target="blank">http://www.attitudedesign.co.uk/journal/?p=41</A>
             <br><br>
             
             <span class="bodySubtitle">Past Winners</span><br>
