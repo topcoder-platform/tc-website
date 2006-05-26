@@ -51,6 +51,14 @@
                <td class="projectCells" valign="top" align="center">12.17.2004</td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial">Component Design Tutorial</A></td>
             </tr>
+               <tr>
+               <td class="projectCells" valign="top">
+               <strong>Component Competition Guidelines</strong><br/>
+               The Competition Guidelines compiles a number of answers, clarifications and best practices originally published elsewhere into one definitive document.
+               </td>
+               <td class="projectCells" valign="top" align="center">05.26.2006</td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=desComponentCompGuide">Component Competition Guidelines</A></td>
+               </tr>
                 <tr>
                <td class="projectCells" valign="top">
                <strong>Component Specification</strong><br/>
@@ -128,10 +136,10 @@
             </tr>
                 <tr>
                <td class="projectCells" valign="top">
-               <strong>Reviewer Guidelines</strong><br/>
+               <strong>Review Board Guidelines</strong><br/>
                These guidelines are a must-read for all reviewers, and can provide designers and developers with valuable insight into how the review process works.</td>
-               <td class="projectCells" valign="top" align="center">09.14.2004</td>
-               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewerGuide">Reviewer Guidelines</A></td>
+               <td class="projectCells" valign="top" align="center">05.26.2006</td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewerGuide">Review Board Guidelines</A></td>
             </tr>
          </table>
 

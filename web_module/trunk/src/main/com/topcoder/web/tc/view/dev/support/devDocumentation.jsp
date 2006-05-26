@@ -38,20 +38,28 @@
          <h2>Development Documentation</h2>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
-                <tr>
+               <tr>
                     <td class="projectHeaders" align="left" width="60%">Description</td>
                     <td class="projectHeaders" align="center">Last Modified</td>
                     <td class="projectHeaders" align="right" width="40%">File</td>
-                </tr>
-                <tr>
+               </tr>
+               <tr>
                <td class="projectCells" valign="top">
                <strong>TopCoder Software Component Tutorials</strong><br/>
                The TopCoder Software Development Tutorial provides detailed information on developing components using the TopCoder Software process.  This tutorial was written by review board member AdamSelene.
                </td>
                <td class="projectCells" valign="top" align="center">08.12.2004</td>
                <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Component Development Tutorial</A></td>
-            </tr>
-                <tr>
+               </tr>
+               <tr>
+               <td class="projectCells" valign="top">
+               <strong>Component Competition Guidelines</strong><br/>
+               The Competition Guidelines compiles a number of answers, clarifications and best practices originally published elsewhere into one definitive document.
+               </td>
+               <td class="projectCells" valign="top" align="center">05.26.2006</td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devComponentCompGuide">Component Competition Guidelines</A></td>
+               </tr>
+               <tr>
                <td class="projectCells" valign="top">
                <strong>Screening and Review Scorecards</strong><br/>
                The screening and review scorecards are used by the Development Review Boards to score component submissions. All members who submit a development solution will be able to log in to TopCoder Software Project Submit & Review and view their corresponding project's screening and review scorecards. These are sample screen shots from the Submit & Review application.
@@ -64,7 +72,7 @@
                <A href="/tc?module=Static&d1=dev&d2=support&d3=devScreeningSample">Sample Development Screening Scorecard</A><br/>
                <A href="/tc?module=Static&d1=dev&d2=support&d3=devReviewSample">Sample Development Review Scorecard</A><br/>
                </td>
-            </tr>
+               </tr>
                 <tr>
                <td class="projectCells" valign="top">
                <strong>TopCoder Software Jalopy Configuration File</strong><br/>
@@ -106,10 +114,10 @@
             </tr>
                 <tr>
                <td class="projectCells" valign="top">
-               <strong>Reviewer Guidelines</strong><br/>
+               <strong>Review Board Guidelines</strong><br/>
                These guidelines are a must-read for all reviewers, and can provide designers and developers with valuable insight into how the review process works.</td>
-               <td class="projectCells" valign="top" align="center">09.14.2004</td>
-               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devReviewerGuide">Reviewer Guidelines</A></td>
+               <td class="projectCells" valign="top" align="center">05.26.2006</td>
+               <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devReviewerGuide">Review Board Guidelines</A></td>
             </tr>
          </table>
 
