@@ -21,6 +21,9 @@
 Map resultMap = (Map) request.getAttribute("resultMap");
 ResultSetContainer history = (ResultSetContainer) resultMap.get("hs_rating_history");
 String cr = (String) request.getAttribute("cr");
+boolean isHighSchool = Integer.ParseInt((String) request.getAttribute("ratid")) == 2;
+String context = isHighSchool? "hs_algorithm" : "algorithm";
+
 %>
 
 <body>
@@ -47,18 +50,20 @@ String cr = (String) request.getAttribute("cr");
 <jsp:param name="title" value="High School Rating History"/>
 </jsp:include>
 
-<span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='hs_algorithm' /></span>
+<span class="bigHandle">Coder: <tc-webtag:handle coderId="<%= cr %>" context='<%= context %>' /></span>
 <br>
 <span class="bodySubtitle">High School Statistics > </span><br>
 <span class="bc">
-<a href="" class="bcLink">Member Profile</a>
+<a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
  | Rating History
 </span>
 
-<div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-</div>
+<% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
+	<div class="pagingBox">
+	<%=(history.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+	| <%=(history.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
+	</div>
+<% } %>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
    <tr><td class="title" colspan="7">High School Rating History</td></tr>
@@ -85,10 +90,12 @@ String cr = (String) request.getAttribute("cr");
     </rsc:iterator>
 </table>
 
-<div class="pagingBox">
-&lt;&lt; prev
-| <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-</div>
+<% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
+	<div class="pagingBox">
+	<%=(history.croppedDataBefore()?"<a href=\"Javascript:previous()\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+	| <%=(history.croppedDataAfter()?"<a href=\"Javascript:next()\" >next &gt;&gt;</a>":"next &gt;&gt;")%>
+	</div>
+<% } %>
 
 <br><br>
 
