@@ -41,6 +41,7 @@ public class RatingHistory extends Base {
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("cr", getRequest().getParameter("cr"));
             getRequest().setAttribute("ratid", getRequest().getParameter("ratid"));
+            getRequest().setAttribute("listInfo", li);
             
             setNextPage(Constants.HS_RATING_HISTORY);
             setIsNextPageInContext(true);
