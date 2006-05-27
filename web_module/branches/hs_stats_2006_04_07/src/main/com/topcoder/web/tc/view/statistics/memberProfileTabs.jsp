@@ -27,9 +27,9 @@
          <td width="20%">
          <% if (isRatedAlg) {%>
             <% if (selectedTab.equals("hs")) {%>
-            <A class="tabLinkOn" href="HIGH SCHOOL TAB LINK"><div>High School</div></A>
+            <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=hs&cr=<%=coderId%>"><div>High School</div></A>
             <% } else { %>
-            <A class="tabLinkOff" href="HIGH SCHOOL TAB LINK"><div>High School</div></A>
+            <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=hs&cr=<%=coderId%>"><div>High School</div></A>
             <% } %>
          <% } else { %>
          <div class="tabLinkNA">High School</div>
