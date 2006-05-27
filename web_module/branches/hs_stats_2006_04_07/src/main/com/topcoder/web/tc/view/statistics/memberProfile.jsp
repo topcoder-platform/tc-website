@@ -66,7 +66,11 @@ This member has not yet been rated in a competition.
             <%}%>
             </td></tr>
             <tr><td class="cat" nowrap="nowrap">High School Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "hs_rating") != null && rscCoderData.getIntItem(0, "hs_rating") != 0) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "hs_rating")%>'><rsc:item name="hs_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
                 not rated
+            <%}%>
             </td></tr>
             <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
@@ -115,6 +119,9 @@ This member has not yet been rated in a competition.
 <%    } else if(tab.equals("alg")) {%>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabAlg.jsp" />
+<% } else if(tab.equals("hs")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabHS.jsp" />
 <% } else if(tab.equals("des")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDes.jsp" />
