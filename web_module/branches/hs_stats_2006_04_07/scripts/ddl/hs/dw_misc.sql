@@ -106,3 +106,34 @@ alter table team_round add constraint foreign key
     (round_id) 
     constraint team_round_round_fk;
     
+    
+--- *** add algo_rating_type_id column to coder_level table ***        
+alter table coder_level add algo_rating_type_id DECIMAL(3,0);
+
+alter table coder_level add constraint foreign key (algo_rating_type_id) 
+        references algo_rating_type_lu (algo_rating_type_id)
+        constraint coder_level_algo_rating_type_fk;
+
+alter table coder_level drop constraint coder_level_pk;
+
+update coder_level set algo_rating_type_id = 1;
+
+alter table coder_level add constraint primary key 
+    (coder_id, division_id, level_id, algo_rating_type_id)
+    constraint coder_level_pk; 
+    
+    
+--- *** add algo_rating_type_id column to coder_problem_summary table ***     
+alter table coder_problem_summary add algo_rating_type_id DECIMAL(3,0);
+
+alter table coder_problem_summary add constraint foreign key (algo_rating_type_id) 
+        references algo_rating_type_lu (algo_rating_type_id)
+        constraint coder_problem_summary_algo_rating_type_fk;
+
+alter table coder_problem_summary drop constraint coder_problem_summarya_pk;
+
+update coder_problem_summary set algo_rating_type_id = 1;
+
+alter table coder_problem_summary add constraint primary key 
+    (coder_id, algo_rating_type_id)
+constraint coder_problem_summarya_pk;    
