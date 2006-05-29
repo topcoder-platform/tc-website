@@ -106,6 +106,7 @@ public class MemberProfile extends Base {
                     r = new Request();
                     r.setContentHandle("Coder_Alg_Data");
                     r.setProperty("cr", coderId);
+                    r.setProperty("ratid", "1");
 
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
@@ -119,7 +120,8 @@ public class MemberProfile extends Base {
                         r = new Request();
                         r.setContentHandle("Coder_hs_Data");
                         r.setProperty("cr", coderId);
-
+                        r.setProperty("ratid", "2");
+                        
                         dai = getDataAccess(true);
                         Map algoData = dai.getData(r);
                         Iterator it = algoData.keySet().iterator();
