@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.rboard;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
@@ -15,8 +14,6 @@ import java.sql.*;
  * Date: Feb 12, 2004
  */
 public class RBoardApplicationBean extends BaseEJB {
-
-    private static final Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     public void createRBoardApplication(String dataSource, long userId, long projectId, int phaseId) {
         int ret = insert("rboard_application",
@@ -67,16 +64,23 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     public boolean isPrimary(String dataSource, long userId, long projectId, int phaseId) {
-        Integer ret = selectInt("rboard_application",
+/*        Integer ret = selectInt("rboard_application",
                 "primary_ind",
                 new String[]{"user_id", "project_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
                 dataSource);
-        return (ret != null && ret.intValue() == 1);
+        return (ret != null && ret.intValue() == 1);*/
+    	
+        Integer ret = selectInt("r_user_role rur, project p",
+                "rur.r_role_id",
+                new String[]{"rur.login_id", "p.project_id", "p.project_type_id", "rur.cur_version"},
+                new String[]{String.valueOf(userId), String.valueOf(projectId), phaseId == 112 ? "1" : "2", "1"},
+                dataSource);
+        return (ret != null && ret.intValue() == 2);
     }
 
     public boolean exists(String dataSource, long userId, long projectId, int phaseId) {
-        try {
+/*        try {
             selectLong("rboard_application",
                     "user_id",
                     new String[]{"user_id", "project_id", "phase_id"},
@@ -85,19 +89,34 @@ public class RBoardApplicationBean extends BaseEJB {
         } catch (RowNotFoundException e) {
             return false;
         }
-        return true;
+        return true; */
+        try {
+            selectLong("r_user_role rur, project p",
+                    "rur.login_id",
+                    new String[]{"rur.login_id", "p.project_id", "p.project_type_id", "rur.cur_version"},
+                    new String[]{String.valueOf(userId), String.valueOf(projectId), phaseId == 112 ? "1" : "2", "1"},
+                    dataSource);
+        } catch (RowNotFoundException e) {
+            return false;
+        }
+        return true;    	
     }
 
     public ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) {
-        return selectSet("rboard_application",
+/*        return selectSet("rboard_application",
                 new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
                 new String[]{"project_id"},
                 new String[]{String.valueOf(projectId)},
+                dataSource);*/
+        return selectSet("r_user_role",
+                new String[]{"login_id", "r_resp_id", "r_role_id", "modify_date"},
+                new String[]{"project_id", "cur_version"},
+                new String[]{String.valueOf(projectId), "1"},
                 dataSource);
     }
 
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
-        StringBuffer query = new StringBuffer(200);
+/*        StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
         query.append(" order by create_date desc");
 
@@ -114,6 +133,33 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = rs.getTimestamp("create_date");
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return ret;*/
+        StringBuffer query = new StringBuffer(200);
+        query.append("select max(modify_date) last_date from r_user_role where login_id = ? and modify_user = 289824");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        Timestamp ret = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ret = rs.getTimestamp("last_date");
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
