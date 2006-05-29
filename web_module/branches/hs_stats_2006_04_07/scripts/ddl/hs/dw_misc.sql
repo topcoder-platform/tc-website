@@ -8,7 +8,7 @@ alter table current_school drop degree_number;
 
 alter table round_type_lu add algo_rating_type_id DECIMAL(3,0);
 
-update round_type_lu set algo_rating_type_id = 1 where round_type_id in (1,2);
+update round_type_lu set algo_rating_type_id = 1 where round_type_id in (1,2,10);
 update round_type_lu set algo_rating_type_id = 2 where round_type_id in (17,18);
         
 alter table round_type_lu add constraint foreign key (algo_rating_type_id) 
