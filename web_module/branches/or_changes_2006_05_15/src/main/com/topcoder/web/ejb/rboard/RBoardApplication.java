@@ -12,7 +12,7 @@ import java.sql.Timestamp;
  */
 public interface RBoardApplication extends EJBObject {
 
-    void createRBoardApplication(String dataSource, long userId, long projectId, int phaseId, int reviewRespId) throws RemoteException;
+    void createRBoardApplication(String dataSource, long userId, long projectId, int phaseId, int reviewRespId) throws Exception;
 /*
     void setReviewRespId(String dataSource, long userId, long projectId, int phaseId, int reviewRespId) throws RemoteException;
 
