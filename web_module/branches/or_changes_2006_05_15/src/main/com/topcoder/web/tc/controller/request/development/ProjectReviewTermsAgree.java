@@ -9,8 +9,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
@@ -64,11 +62,11 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         long userId = getUser().getId();
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
-        rba.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
-        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
+        rba.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+/*        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
 
-        rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+        rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);*/
 
         //send email
         Request r = new Request();
