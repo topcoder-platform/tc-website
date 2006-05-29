@@ -60,8 +60,8 @@ if ( plugin ) {
       </td>
       <td width="75%" valign="top">
 <%
-ResultSetContainer rscSummaryDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary_Div_1");
-ResultSetContainer rscTotalDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals_Div_1");
+ResultSetContainer rscSummaryDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary");
+ResultSetContainer rscTotalDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals");
 if(!rscSummaryDiv1.isEmpty()) {
 %>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
