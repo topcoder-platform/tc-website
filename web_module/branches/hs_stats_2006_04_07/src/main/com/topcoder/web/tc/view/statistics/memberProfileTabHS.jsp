@@ -60,9 +60,9 @@ if ( plugin ) {
       </td>
       <td width="75%" valign="top">
 <%
-ResultSetContainer rscSummaryDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary");
-ResultSetContainer rscTotalDiv1 = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals");
-if(!rscSummaryDiv1.isEmpty()) {
+ResultSetContainer rscSummary = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Summary");
+ResultSetContainer rscTotal = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Submission_Totals");
+if(!rscSummary.isEmpty()) {
 %>
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="5">Submissions</td></tr>
@@ -73,7 +73,7 @@ if(!rscSummaryDiv1.isEmpty()) {
                <td class="tableHeader" align="right" width="25%">Failed Sys. Test</td>
                <td class="tableHeader" align="right" width="25%">Success %</td>
             </tr>
-            <rsc:iterator id="resultRow" list="<%=rscSummaryDiv1%>">
+            <rsc:iterator id="resultRow" list="<%=rscSummary%>">
             <tr>
                <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
                <td class="statR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
@@ -84,10 +84,10 @@ if(!rscSummaryDiv1.isEmpty()) {
             </rsc:iterator>
             <tr>
                <td class="cat" nowrap="nowrap">Total</td>
-               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv1%>" /></td>
-               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalDiv1%>" format="0.00%" /></td>
+               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotal%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotal%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotal%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotal%>" format="0.00%" /></td>
             </tr>
          </table>
 <%
