@@ -128,7 +128,9 @@ function showRows(sr, nr, adjust)
    <tr><td class="title" colspan="7"><%= algoType %> Rating History</td></tr>
    <tr>
       <td class="headerC" width="1%"><A href="javascript:clickColumn(0)">Date</A></td>
+<% if (isHighSchool) { %>      
       <td class="header"><A href="javascript:clickColumn(1)">Season</A></td>
+<% }  %>      
       <td class="header"><A href="javascript:clickColumn(2)">Contest</A></td>
       <td class="header"><A href="javascript:clickColumn(3)">Round</A></td>
       <td class="headerR"><A href="javascript:clickColumn(4)">Rating</A></td>
