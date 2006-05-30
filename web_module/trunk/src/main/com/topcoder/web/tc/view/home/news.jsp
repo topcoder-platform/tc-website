@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.30.06<br>3:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm304">SRM 304 - Problem Set & Analysis</A></span><br><br>
+      This match was a popular one, with 965 members participating. One reasons for the high participation may have been that this was the last SRM before the upcoming Google Code Jam Europe.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303185" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm304">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505870" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.26.06<br>1:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New guidelines for component competitors and reviewers</span><br><br>
       We've updated the component documentation with two new items - Competitor Guidelines, which addresses a number of common issues, and updated Reviewer Guidelines. The guidelines apply to both design and development competition.
@@ -172,22 +189,6 @@
        <tc-webtag:forumLink forumID="506016" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
          
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Podcasts" border="0" /><br>05.15.06<br>2:00 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://media38b.libsyn.com/ZndueJp1bXzHfGd1mHpup2qmZnKX/podcasts/dickwall/JavaPosse053.mp3" target="_blank">Java Posse - Listener Feedback and TopCoder Interviews</A> [PODCAST]
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="88" height="40" alt="Java Posse" News border="0" /></div>
-       Another installment from the TopCoder Open 06. Check out the interviews conducted during the competition, with antimatter and Pops.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://media38b.libsyn.com/ZndueJp1bXzHfGd1mHpup2qmZnKX/podcasts/dickwall/JavaPosse053.mp3" target="_blank">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506014" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
    </td></tr>
 
 
