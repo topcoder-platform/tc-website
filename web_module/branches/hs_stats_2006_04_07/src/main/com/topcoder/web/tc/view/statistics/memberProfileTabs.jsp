@@ -1,7 +1,7 @@
 <%
-   boolean isRegHS = true;
+   boolean isRegHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
    boolean isRatedAlg = ((Boolean)request.getAttribute("hasAlg")).booleanValue();
-   boolean isRatedHS = true;
+   boolean isRatedHS = ((Boolean)request.getAttribute("hasHS")).booleanValue();
    boolean isRatedDes = ((Boolean)request.getAttribute("hasDes")).booleanValue();
    boolean isRatedDev = ((Boolean)request.getAttribute("hasDev")).booleanValue();
    boolean isRatedLong = ((Boolean)request.getAttribute("hasLong")).booleanValue();
@@ -25,7 +25,7 @@
 
       <% if (isRegHS) {%>
          <td width="20%">
-         <% if (isRatedAlg) {%>
+         <% if (isRatedHS) {%>
             <% if (selectedTab.equals("hs")) {%>
             <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=hs&cr=<%=coderId%>"><div>High School</div></A>
             <% } else { %>

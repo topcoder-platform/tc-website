@@ -46,6 +46,7 @@ public class MemberProfile extends Base {
             //here we want to get the current tab, then load data for that tab
             boolean hasAlg = false;
             boolean hasHS = false;
+            boolean registeredHS = false;
             boolean hasDes = false;
             boolean hasDev = false;
             boolean hasLong = false;
@@ -129,6 +130,8 @@ public class MemberProfile extends Base {
                             String key = (String) it.next();
                             result.put(key, algoData.get(key));
                         }
+                        
+                        registeredHS = ((ResultSetContainer) algoData.get("Coder_hs_Data")).getIntItem(0, "hs_registered") == 1;
                     
                 } else if(tab.equals("des")) {
                     //load des data from Coder_Des_Data
@@ -177,6 +180,7 @@ public class MemberProfile extends Base {
             
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasHS", new Boolean(hasHS));
+            getRequest().setAttribute("registeredHS", new Boolean(registeredHS));
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
