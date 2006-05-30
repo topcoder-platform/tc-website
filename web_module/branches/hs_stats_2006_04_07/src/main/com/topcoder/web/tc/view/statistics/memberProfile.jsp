@@ -40,7 +40,9 @@
 </jsp:include>
 
 
-<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
+<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); 
+  boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
+%>
 
 <% if(rscCoderData.size() == 0) {%>
 This member has not yet been rated in a competition.
@@ -65,6 +67,7 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
+<% if (registeredHS) { %>            
             <tr><td class="cat" nowrap="nowrap">High School Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "hs_rating") != null && rscCoderData.getIntItem(0, "hs_rating") != 0) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "hs_rating")%>'><rsc:item name="hs_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
@@ -72,6 +75,9 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
+<% } %>            
+            
+            
             <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
