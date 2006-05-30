@@ -245,13 +245,15 @@ function referralSelection(referralType) {
 <option value="2">TopCoder member</option>
 <option value="3">Other</option>
 </select>
+
 <div id="referral_2_input" style="display:none;">
-<span class="bigRed">Referring member's handle:</span><br>
-<input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+   <span class="bigRed">Referring member's handle:</span><br>
+   <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
 </div>
+
 <div id="referral_3_input" style="display:none;">
-<span class="bigRed">Other:</span><br>
-<input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+   <span class="bigRed">Other:</span><br>
+   <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
 </div>
         </td>
     </tr>
