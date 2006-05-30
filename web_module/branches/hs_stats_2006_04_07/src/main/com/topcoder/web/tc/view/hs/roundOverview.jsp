@@ -88,11 +88,11 @@ function submitForm(){
 
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
-<div style="padding-bottom:5px;">
+<div style="padding-bottom:5px;">View another <strong>season</strong>:
     <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
 </div>
 <% } %>
-<div style="padding-bottom:5px;">
+<div style="padding-bottom:5px;">View another <strong>match</strong>:
     <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
 </div>
 </div>
