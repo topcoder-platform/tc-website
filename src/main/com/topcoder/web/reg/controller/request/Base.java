@@ -399,6 +399,14 @@ abstract class Base extends HibernateProcessor {
                         }
                     }
                 }
+                if (fields.contains(Constants.SCHOOL_TYPE)) {
+                    ValidationResult typeResult = new SchoolTypeValidator(getRequestedTypes()).validate(
+                            new StringInput((String) params.get(Constants.SCHOOL_TYPE)));
+                    if (!typeResult.isValid()) {
+                        addError(Constants.SCHOOL_TYPE, typeResult.getMessage());
+                    }
+                }
+
                 if (fields.contains(Constants.SCHOOL_NAME)) {
                     simpleValidation(SchoolNameValidator.class, fields, params, Constants.SCHOOL_NAME);
                 }
