@@ -7,7 +7,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Working at TopCoder</title>
+<title>TopCoder - Contact us</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -44,86 +44,96 @@
           <jsp:param name="title" value="Contact Us"/>
       </jsp:include>
 
-                        <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
-                        TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
-                        
-                        <div align="center">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr valign="top">
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><strong>Corporate Address</strong><br />
-                                    TopCoder, Inc.<br/>
-                                    703 Hebron Avenue<br/>
-                                    Glastonbury, CT 06033 U.S.A.<br/>
-                                    tel: 860.633.5540<br/>
-                                    fax: 860.657.4276<br/>
-                                    &#160;</p>
-                                </td>
-                                    
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><strong>Contact us by email</strong><br />
-                                    <A href="mailto:service@topcoder.com" class="bodyText">Membership</A><br />
-                                    <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
-                                    <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
-                                    <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
-                                </td>
-                            </tr>
-                            
-                            <tr valign="top">
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
-                                    Paul Moriarty<br />
-                                    tel: 860.633.5540<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                                    
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:jmckeown@topcoder.com" class="bodyText">Public Relations</a><br />
-                                    Jim McKeown<br />
-                                    tel: 860.633.5540<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                            </tr>
+<p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
+TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
 
-                            <tr valign="top">
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:service@topcoder.com" class="bodyText">TopCoder Arena / Web Site Technical Support </a><br />
-                                    Mike Lydon<br />
-                                    tel: 860.633.5540<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                                    
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br />
-                                    Paul Moriarty<br />
-                                    tel: 860.633.5540<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                            </tr>
+<div align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+ <tr valign="top">
+     <td width="50%" align="left" class="bodyText">
+         <p><strong>Corporate Address</strong><br />
+         TopCoder, Inc.<br/>
+         703 Hebron Avenue<br/>
+         Glastonbury, CT 06033 U.S.A.<br/>
+         tel: 860.633.5540<br/>
+         fax: 860.657.4276<br/>
+         &#160;</p>
+     </td>
+         
+     <td width="50%" align="left" class="bodyText">
+         <p><strong>Contact us by email</strong><br />
+         <A href="mailto:service@topcoder.com" class="bodyText">Membership</A><br />
+         <A href="mailto:mluce@topcoder.com" class="bodyText">High School Competitions</A><br />
+         <A href="mailto:service@topcoder.com" class="bodyText">General Questions</A><br />
+         <A href="mailto:service@topcoder.com" class="bodyText">Competition Tech Support</A><br />
+         <A href="mailto:service@topcodersoftware.com" class="bodyText">Software Tech Support</A></p>
+     </td>
+ </tr>
+ 
+ <tr valign="top">
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
+         Paul Moriarty<br />
+         tel: 860.633.5540<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+         
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:jmckeown@topcoder.com" class="bodyText">Public Relations</a><br />
+         Jim McKeown<br />
+         tel: 860.633.5540<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+ </tr>
 
-                            <tr valign="top">
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">TopCoder Software</a><br />
-                                    Mike Morris<br />
-                                    tel: 866.TOP.CODE<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                                    
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Events / College Relations</a><br />
-                                    Jessie D'Amato<br />
-                                    tel: 860.633.5540<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                            </tr>
+ <tr valign="top">
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:service@topcoder.com" class="bodyText">TopCoder Arena / Web Site Technical Support </a><br />
+         Mike Lydon<br />
+         tel: 860.633.5540<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+         
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br />
+         Paul Moriarty<br />
+         tel: 860.633.5540<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+ </tr>
 
-                        </table>
+ <tr valign="top">
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">TopCoder Software</a><br />
+         Mike Morris<br />
+         tel: 866.TOP.CODE<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+         
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Events / College Relations</a><br />
+         Jessie D'Amato<br />
+         tel: 860.633.5540<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+ </tr>
+ <tr valign="top">
+     <td width="50%" align="left" class="bodyText">
+         <p><a href="mailto:mluce@topcoder.com" class="bodyText">High School Competitions</a><br />
+         MaryBeth Luce<br />
+         tel: 866.TOP.CODE<br />
+         fax: 860.657.4276<br />
+         &#160;</p>
+     </td>
+   </tr>
+
+</table>
 
             <p><br></p>
         </td>
