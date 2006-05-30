@@ -48,12 +48,12 @@ TopCoder Software uses Poseidon software from <A href="http://www.gentleware.com
 <br><br>
 In addition to diagrams, you need to deliver a component specification document. You need to submit a document in Rich Text Format (RTF). You can use Microsoft Word or Microsoft WordPad to produce RTF files. Microsoft WordPad is included with the default distribution of Microsoft Windows.
 <br><br>
-Finally, depending on the target platform of your design, you will need <A href="http://ant.apache.org/">ant</A> or <A href="http://nant.sourceforge.net/">nant</A> to prepare your design distribution for submission. See the <A href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf">TopCoder Software Member Guide</A> for the required versions of these tools.
+Finally, depending on the target platform of your design, you will need <A href="http://ant.apache.org/">ant</A> or <A href="http://nant.sourceforge.net/">nant</A> to prepare your design distribution for submission. See the <A href="/tc?module=Static&d1=dev&d2=support&d3=desMemberGuide">TopCoder Software Member Guide</A> for the required versions of these tools.
 <br><br>
 You will need to download the distributions for all components used during the competition.  All of these components will be stored in the forums.
 <br><br>
 <strong>Scorecards</strong><br>
-Please review the Scorecards <<link to scorecard>> for information on how you will be evaluated by the Review Board.
+Please review the <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">Scorecard</A> for information on how you will be evaluated by the Review Board.
 <br><br>
 <strong>Review the documentation</strong><br>
 The goal of each Assembly Competition is to fit all of the components into a fully functional application.  In order to accomplish this task, you must review the available documentation.
