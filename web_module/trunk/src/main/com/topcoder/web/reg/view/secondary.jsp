@@ -18,9 +18,27 @@
     </jsp:include>
 <script language="javascript" type="text/javascript">
 <!--
-function referralSelection() {
+function referralSelection(referralType) {
+   if(referralType == '2') {
       document.getElementById('referral_2_name').style.display = 'table-cell';      
       document.getElementById('referral_2_value').style.display = 'table-cell';
+      document.getElementById('referral_3_name').style.display = 'none';      
+      document.getElementById('referral_3_value').style.display = 'none';
+      document.getElementById('refer_other').value = '';
+   }else if(referralType == '3') {
+      document.getElementById('referral_2_name').style.display = 'none';      
+      document.getElementById('referral_2_value').style.display = 'none';
+      document.getElementById('refer_member').value = '';
+      document.getElementById('referral_3_name').style.display = 'table-cell';      
+      document.getElementById('referral_3_value').style.display = 'table-cell';
+   }else{
+      document.getElementById('referral_2_name').style.display = 'none';      
+      document.getElementById('referral_2_value').style.display = 'none';
+      document.getElementById('refer_member').value = '';
+      document.getElementById('referral_3_name').style.display = 'none';      
+      document.getElementById('referral_3_value').style.display = 'none';
+      document.getElementById('refer_other').value = '';
+   }
 }
 // -->
 </script>
@@ -225,12 +243,12 @@ function referralSelection() {
             Please select something.</span>
         </td>
     </tr>
-    <tr>
+   <tr>
         <td class="name">
             How did you hear about TopCoder?:
         </td>
         <td class="value">
-<select name="referral_type" onChange="referralSelection()">
+<select name="referral_type" onChange="referralSelection(this.options[this.selectedIndex].value)">
 <option value="" selected></option>
 <option value="0">College fair</option>
 <option value="1">Newspaper</option>
@@ -244,7 +262,15 @@ function referralSelection() {
             Referring member's handle:
         </td>
         <td id="referral_2_value" class="value" style="display:none;">
-            <input type="text" size="25" maxlength="255" name="referring_member" value="none"/>
+            <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+        </td>
+    </tr>
+    <tr>
+        <td id="referral_3_name" class="name" style="display:none;">
+            Other:
+        </td>
+        <td id="referral_3_value" class="value" style="display:none;">
+            <input type="text" size="25" maxlength="255" name="refer_other" value=""/>
         </td>
     </tr>
 </table>
