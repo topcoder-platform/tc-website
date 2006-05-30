@@ -8,7 +8,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 </head>
@@ -37,16 +37,18 @@
 <jsp:param name="title" value="Design Cup Series"/>
 </jsp:include>
 
-<div style="float:right;">
-<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_schedule">Schedule</A>
+<div style="float:right; text-align:right;">
+<A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_schedule">Schedule</A>
  | Prizes
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_roty">Rookie of the Year</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_roty">Rookie of the Year</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A><br>
+<A class="bcLink" href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A> | 
+<A class="bcLink" href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
 </div>
 <span class="title">Prizes</span>
 <br><br>
-For each Stage, competitors will accumulate placement points according to the <A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">points table</A>.  In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/3 of the point-getters in each Stage will receive a smaller prize.  A total of $75,000 will be awarded in bonus prizes each Stage and will be distributed as follows:
+For each Stage, competitors will accumulate placement points according to the <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">points table</A>.  In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/3 of the point-getters in each Stage will receive a smaller prize.  A total of $75,000 will be awarded in bonus prizes each Stage and will be distributed as follows:
 <br><br>
 <strong>Top Five Stage Prizes</strong><br>
 <strong>1st</strong> - $25,000<br>
