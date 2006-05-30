@@ -115,6 +115,10 @@ function showRows(sr, nr, adjust)
 <span class="bc">
 <a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
  | Rating History
+ <% if (!isHighSchool) { %>
+ &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+<% }  %> 
+ 
 </span>
 <br><br>
 <% if (history.croppedDataBefore() || history.croppedDataAfter()) { %>
