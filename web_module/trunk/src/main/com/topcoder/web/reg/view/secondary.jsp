@@ -20,24 +20,14 @@
 <!--
 function referralSelection(referralType) {
    if(referralType == '2') {
-      document.getElementById('referral_2_name').style.display = 'table-cell';      
-      document.getElementById('referral_2_value').style.display = 'table-cell';
-      document.getElementById('referral_3_name').style.display = 'none';      
-      document.getElementById('referral_3_value').style.display = 'none';
-      document.getElementById('refer_other').value = '';
-      // put code here to clear value for Other: input
+      document.getElementById('referral_2_input').style.display = 'block';      
+      document.getElementById('referral_3_input').style.display = 'none';      
    }else if(referralType == '3') {
-      document.getElementById('referral_2_name').style.display = 'none';      
-      document.getElementById('referral_2_value').style.display = 'none';
-      document.getElementById('referral_3_name').style.display = 'table-cell';      
-      document.getElementById('referral_3_value').style.display = 'table-cell';
-      // put code here to clear value for Member's handle: input
+      document.getElementById('referral_2_input').style.display = 'none';      
+      document.getElementById('referral_3_input').style.display = 'block';      
    }else{
-      document.getElementById('referral_2_name').style.display = 'none';      
-      document.getElementById('referral_2_value').style.display = 'none';
-      document.getElementById('referral_3_name').style.display = 'none';      
-      document.getElementById('referral_3_value').style.display = 'none';
-      // put code here to clear values for both
+      document.getElementById('referral_2_input').style.display = 'none';      
+      document.getElementById('referral_3_input').style.display = 'none';      
    }
 }
 // -->
@@ -255,22 +245,14 @@ function referralSelection(referralType) {
 <option value="2">TopCoder member</option>
 <option value="3">Other</option>
 </select>
-        </td>
-    </tr>
-    <tr>
-        <td id="referral_2_name" class="name" style="display:none;">
-            Referring member's handle:
-        </td>
-        <td id="referral_2_value" class="value" style="display:none;">
-            <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
-        </td>
-    </tr>
-    <tr>
-        <td id="referral_3_name" class="name" style="display:none;">
-            Other:
-        </td>
-        <td id="referral_3_value" class="value" style="display:none;">
-            <input type="text" size="25" maxlength="255" name="refer_other" value=""/>
+<div id="referral_2_input" style="display:none;">
+<span class="bigRed">Referring member's handle:</span><br>
+<input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+</div>
+<div id="referral_3_input" style="display:none;">
+<span class="bigRed">Other:</span><br>
+<input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+</div>
         </td>
     </tr>
 </table>
