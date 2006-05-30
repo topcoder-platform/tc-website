@@ -25,6 +25,7 @@ import com.topcoder.util.idgenerator.bean.IdGenHome;
  */
 public class RBoardApplicationBean extends BaseEJB {
 
+	private static final int PRIMARY_ROLE_ID = 2;
 	private static final int INTERNAL_ADMIN_USER = 100129;
 
 	private IdGen createIDGen(String dataSource) throws CreateException {
@@ -159,15 +160,21 @@ public class RBoardApplicationBean extends BaseEJB {
 		Common.close(ps);
 	}
 
-    public void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId) throws Exception {
-    	IdGen idGen = createIDGen(dataSource);
+    public void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId) {
+    	IdGen idGen = null;
+    	try {
+    		idGen = createIDGen(dataSource);
+    	} catch (Exception e) {
+    		throw(new EJBException("Couldn't create IDGenerator"));
+    	}
     	Connection conn = null;
     	PreparedStatement ps = null;
     	ResultSet rs = null;
-        conn = DBMS.getConnection(dataSource);
     	
         try {
-	    	// gets project info
+            conn = DBMS.getConnection(dataSource);
+
+            // gets project info
         	Map projectInfo = getProjectInfo(projectId, conn);
 
 	    	// gets UserRole info
@@ -204,8 +211,15 @@ public class RBoardApplicationBean extends BaseEJB {
 	        }
 		    conn.commit();
 		} catch (SQLException e) {
-			if (conn != null) conn.rollback();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle) {
+				}
+			}
 		    DBMS.printSqlException(true, e);
+		    throw new EJBException(e.getMessage());
+		} catch (Exception e) {
 		    throw new EJBException(e.getMessage());
 		} finally {
 		    close(rs);
@@ -228,7 +242,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 new String[]{"rur.login_id", "p.project_id", "p.project_type_id", "rur.cur_version"},
                 new String[]{String.valueOf(userId), String.valueOf(projectId), phaseId == 112 ? "1" : "2", "1"},
                 dataSource);
-        return (ret != null && ret.intValue() == 2);
+        return (ret != null && ret.intValue() == PRIMARY_ROLE_ID);
     }
 
     public boolean exists(String dataSource, long userId, long projectId, int phaseId) {
