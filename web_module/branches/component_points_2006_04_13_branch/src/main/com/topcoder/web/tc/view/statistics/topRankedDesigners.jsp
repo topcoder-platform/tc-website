@@ -14,111 +14,86 @@
    <TITLE>TopCoder Statistics - Top Ranked Designers</TITLE>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
  </HEAD>
- <BODY>
-   <jsp:include page="../top.jsp" />
+ <body>
+
+   <jsp:include page="/top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top">
+     <TR valign="top">
+        <TD WIDTH="180">
+<!-- Left nav begins -->
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="top_rated_des"/>
          </jsp:include>
+<!-- Left nav ends -->
+        </TD>
+
+<!-- Center Column Begins -->
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Top Ranked Software Designers"/>
+</jsp:include>
+
+<div style="float:right; text-align:left; whitespace: no-wrap;">
+Top Ranked Designers<br>
+<A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+</div>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+
+<br><br>
+The <strong>top rated software designers</strong> that have competed in the last 180 days:
+<br><br>
+
+   <div align="center">
+
+   <table class="stat" cellpadding="0" cellspacing="0" width="500">
+      <tr>
+         <td class="title" colspan="3">Top Ranked Software Designers</td>
+      </tr>
+      <tr>
+         <td class="headerC">
+            Rank
+         </td>
+         <td class="header" width="100%">
+            Handle
+         </td>
+         <td class="headerR">
+            Rating
+         </td>
+      </tr>
+      <%boolean even = false;%>
+      <rsc:iterator list="<%=rsc%>" id="resultRow">
+      <tr class="<%=even?"dark":"light"%>">
+         <TD CLASS="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
+         <TD CLASS="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="design" /></TD>
+         <TD CLASS="valueR"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></TD>
+      </TR>
+      <%even=!even;%>
+      </rsc:iterator>
+   </table>
+
+   </div>
+</div>
        </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-         <!-- BEGIN BODY -->
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Designer Rankings&#160;&#160;</SPAN>
-             </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
-           <TR>
-             <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
-
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     To find out more about this page, click <A href="javascript:infoWindow('/tc?module=Static&d1=statistics&d2=info&d3=topRatedDesigners')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A>
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Rank</TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="34%">Handle</TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="14%">Rating</TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                 <rsc:iterator list="<%=rsc%>" id="resultRow">
-                   <TR>
-                     <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                     <TD CLASS="statText" HEIGHT="13"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="design" darkBG="true" /></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></TD>
-                     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   </TR>
-                 </rsc:iterator>
-
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6" ALIGN="center" CLASS="statText">
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="6" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>
-               </TABLE>
-             </TD>
-           </TR>
-           <TR>
-             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>
-         </TABLE>
-
-         <p><br></p>
-
-         <!-- END BODY -->
-       </TD>
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-         <jsp:include page="../public_right.jsp" />
+       <td WIDTH="180" VALIGN="top">
+         <jsp:include page="/public_right.jsp" >
+             <jsp:param name="level1" value="profile"/>
+         </jsp:include>
        </TD>
     <!-- Gutter -->
-    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
     <!-- Gutter Ends -->
-     </TR>
+     </tr>
    </TABLE>
-   <jsp:include page="../foot.jsp" />
+   <jsp:include page="/foot.jsp" />
  </BODY>
 </HTML>
-
-
