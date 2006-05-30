@@ -83,7 +83,8 @@ public class MemberProfile extends Base {
 
                 log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
                 hasLong=rsc.getStringItem(0, "has_long_comp").equals("1");
-
+                
+                registeredHS = rsc.getIntItem(0, "hs_registered") == 1;
 
                 //get the selected tab
                 if(tab.equals("")) {
@@ -130,9 +131,7 @@ public class MemberProfile extends Base {
                             String key = (String) it.next();
                             result.put(key, algoData.get(key));
                         }
-                        
-                        registeredHS = ((ResultSetContainer) algoData.get("Coder_hs_Data")).getIntItem(0, "hs_registered") == 1;
-                    
+                                                                    
                 } else if(tab.equals("des")) {
                     //load des data from Coder_Des_Data
                     r = new Request();
