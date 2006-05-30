@@ -36,6 +36,26 @@
 <img src="/i/digital_run/banner.jpg" alt="The Digital Run" />
 </div>
 
+<div align="center">
+<table cellpadding="0" cellspacing="0" border="0" class="bodyText">
+<tr>
+<td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
+<span class="subtitle">Design Cup Series</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Details</A><br>
+<A href="/tc?&ph=112&module=LeaderBoard">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=112">Current ROTY leaderboard</A>
+</td>
+<td align="left" style="padding-left:10px;">
+<span class="subtitle">Development Cup Series</span><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">Details</A><br>
+<A href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
+</td>
+</tr>
+</table>
+</div>
+<br><br>
+
 The Digital Run marks another stride for TopCoder in recognizing talent through competition. The Digital Run will reward the top software designers and developers, giving them placement points based on their performance. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple.
 <br><br>
 <span class="subtitle">How to compete</span><br>
@@ -46,12 +66,6 @@ Each component posted for a competition will carry placement points. Points will
 <br><br>
 <span class="subtitle">Rookie of the Year</span><br>
 New competitors can also make a run for the Rookie of the Year title, given to the member with the best performance in his/her first year of competition.
-<br><br>
-<span class="subtitle">Details</span><br>
-Learn more about the prizes, schedules, and rules for each field of competition in the Digital Run:
-<br><br>
-<span class="subtitle"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Design Cup Series</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview">Development Cup Series</A></span>
 <br><br>
 
 </div>

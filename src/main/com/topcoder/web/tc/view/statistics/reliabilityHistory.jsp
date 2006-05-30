@@ -11,7 +11,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Component Rating History</TITLE>
+   <TITLE>TopCoder Statistics - Component Competition History</TITLE>
    <jsp:include page="baseHRef.jsp" />
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
@@ -82,14 +82,10 @@ pageContext.setAttribute("resultRow", rsr);
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                      <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
-                     <A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
-                     |
-                     <A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
+                     <A HREF="/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
                      |
 
-                     <A HREF="/stat?c=tcs_ratings_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
-                     |
-                     <A HREF="/stat?c=component_history&amp;<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
+                     <A HREF="/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
                      |
                      <strong>Reliability Rating</strong>
                                 </TD>
@@ -139,10 +135,6 @@ String sSortUrl = "/stat?c=reliability_history&cr="+srb.getProperty("cr")+"&sq=r
   		<% if (!bEmpty) { %>
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="6" HEIGHT="18">&#160;Reliability History
-<!--
-                     <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')" class="statText">&#160;&#160;rating history graph</a>
-                     <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="statText">&#160;&#160;distribution graph</a>
--->
                     </TD>
                 </TR>
 

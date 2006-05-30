@@ -40,6 +40,7 @@ public interface WebConstants {
     public static final String TERMS_AGREE="terms_agree";
     public static final String TERMS_OF_USE_ID="tuid";
 
+    public static final String CODER_ID = "cr";
 
 
     //secondary reg parameters

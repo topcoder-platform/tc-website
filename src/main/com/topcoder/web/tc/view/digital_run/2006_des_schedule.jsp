@@ -8,7 +8,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 </head>
@@ -37,12 +37,14 @@
 <jsp:param name="title" value="Design Cup Series"/>
 </jsp:include>
 
-<div style="float:right;">
-<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
+<div style="float:right; text-align:right;">
+<A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
  | Schedule
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Prizes</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_roty">Rookie of the Year</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Prizes</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_roty">Rookie of the Year</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A><br>
+<A class="bcLink" href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A> | 
+<A class="bcLink" href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
 </div>
 <span class="title">Schedule</span>
 <br><br>
