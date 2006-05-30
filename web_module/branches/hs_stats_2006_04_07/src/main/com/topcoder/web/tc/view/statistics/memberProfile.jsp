@@ -40,7 +40,7 @@
 </jsp:include>
 
 
-<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); 
+<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data");
   boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
 %>
 
@@ -67,7 +67,7 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
-<% if (registeredHS) { %>            
+<% if (registeredHS) { %>
             <tr><td class="cat" nowrap="nowrap">High School Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "hs_rating") != null && rscCoderData.getIntItem(0, "hs_rating") != 0) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "hs_rating")%>'><rsc:item name="hs_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
@@ -75,9 +75,9 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
-<% } %>            
-            
-            
+<% } %>
+
+
             <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
@@ -93,8 +93,10 @@ This member has not yet been rated in a competition.
             <%}%>
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
+<% if (!registeredHS || (rscCoderData.getIntItem(0, "rating") != 0) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
+<% } %>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;"><rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
