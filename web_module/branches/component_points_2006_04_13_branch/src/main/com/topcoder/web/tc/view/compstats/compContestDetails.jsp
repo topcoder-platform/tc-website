@@ -15,11 +15,49 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+var objPopUp = null;
+function popUp(event,objectID){
+   objPopTrig = document.getElementById(event);
+   objPopUp = document.getElementById(objectID);
+   xPos = objPopTrig.offsetLeft+15;
+   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+   objPopUp.style.left = xPos + 'px';
+   objPopUp.style.top = yPos + 'px';
+   objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+   objPopUp.style.visibility = 'hidden';
+   objPopUp = null;
+}
+
+// -->
+</script>
+<STYLE TYPE="text/css">
+.popper{display:block; margin: 0px auto 0px auto;}
+#container{text-align:center;position:relative;margin:0px;padding:0px;}
+.popUp
+{
+font-size: 10px;
+text-align: center;
+background-color: #FFFFCC;
+visibility: hidden;
+margin: 10px;
+padding: 3px;
+position: absolute;
+white-space: nowrap;
+border: solid 1px black;
+z-index: 1;
+}
+</STYLE>
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="/top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -172,7 +210,7 @@
 </td>
 <td width="75%" valign="top">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="10">
+        <tr><td class="tableTitle" colspan="11">
             Competitors
         </td></tr>
         <tr>
@@ -182,6 +220,13 @@
             <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">
+               <div id="container">
+                  <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                  <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
+               </div>
+               Points
+            </TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
         </tr>
         <tr>
@@ -235,13 +280,18 @@
                     <% } %>
 
                 </TD>
-
-
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
                                                             ifNull="unknown*"/></TD>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
                                                                ifNull="unknown*"/></b></TD>
+                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points" 
+                                                               ifNull="unknown*"/>
+                    <% if (resultRow.getItem("final_points").getResultData() != null && 
+                        resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
+                    **
+                    <% } %>                
+                </b></TD>
                 <% if(reviewers.isEmpty()) { %>
                     <TD class="<%=even?"statLt":"statDk"%>" align="center">
                             <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
@@ -287,7 +337,7 @@
 </table>
 
 * Some information may be unknown due to missing data from old projects
-
+<br>**  This score has been changed for missed deadlines and/or quality issues
 </td>
 <!-- Center Column Ends -->
 <td width="170">

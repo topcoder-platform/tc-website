@@ -16,7 +16,38 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
+    public static String VIEW_LEADER_BOARD_PAGE;
+    public static String VIEW_ROOKIE_BOARD_PAGE;
+    public static String VIEW_COMPETITION_HISTORY_PAGE;
+    public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
+    
+    public static String LEADER_BOARD_COMMAND;
+    public static String LEADER_BOARD_QUERY;
+    public static String ROOKIE_BOARD_COMMAND;
+    public static String ROOKIE_BOARD_QUERY;
+    public static String CODER_LIST_KEY;
+    public static String HISTORY_LIST_KEY;
+    public static String COMPETITION_HISTORY_COMMAND;
+    public static String COMPETITION_HISTORY_QUERY;
+    public static String ALGO_COMPETITION_HISTORY_COMMAND;
+    public static String ALGO_COMPETITION_HISTORY_QUERY;
+    public static String CURRENT_PERIOD_COMMAND;
+    public static String CURRENT_PERIOD_QUERY;
+    public static String DR_SEASON_COMMAND;
+    public static String DR_SEASON_QUERY;
+    public static String DR_STAGE_COMMAND;
+    public static String DR_STAGE_QUERY;
 
+    public static int MAX_LEADERS;
+    public static int DEFAULT_LEADERS;
+    public static int MAX_HISTORY;
+    public static int DEFAULT_HISTORY;
+    public static String TYPE_KEY;
+
+    public static String STAGE_LIST_KEY;
+    public static String SEASON_LIST_KEY;
+    
+        
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
@@ -48,6 +79,9 @@ public class Constants implements WebConstants {
 
     public static String PROJECT_ID;
     public static String PHASE_ID;
+    public static String SEASON_ID;
+    
+    public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
 
@@ -241,7 +275,6 @@ public class Constants implements WebConstants {
     }
 
     public static void initialize() {
-
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
