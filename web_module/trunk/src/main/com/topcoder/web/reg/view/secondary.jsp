@@ -254,7 +254,7 @@ function referralSelection(referralType) {
 </div>
 
 <div id="referral_3_input">
-   <span class="bigRed">Other:</span><br>
+   <span class="bigRed">Details:</span><br>
    <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
 </div>
         </td>
