@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Component Registration Services Jar</description>
+    <display-name>Component Registration Services Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Component Registration Services EJB</description>
+            <display-name>Component Registration Services EJB</display-name>
+            <ejb-name>ComponentRegistrationServices</ejb-name>
+            <home>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesHome</home>
+            <remote>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices</remote>
+            <local-home>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocalHome</local-home>
+            <local>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal</local>
+            <ejb-class>com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>ComponentRegistrationServices</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
