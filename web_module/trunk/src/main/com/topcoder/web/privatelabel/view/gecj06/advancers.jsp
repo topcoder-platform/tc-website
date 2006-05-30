@@ -50,7 +50,7 @@
                     <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gecj06&d2=advQual" class="topLink">Qualification
                             Round</a></td>
-                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gecj06&d2=advQual">500</a></td>
+                        <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gecj06&d2=advQual">444</a></td>
                     </tr>
                     <%--<tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gecj06&d2=advRound1" class="topLink">Round 1</a></td>
