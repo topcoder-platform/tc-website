@@ -179,7 +179,7 @@
 
 <TR><TD CLASS="bodyText"><A NAME="c3"><B>What software does TopCoder use?</B></A></TD></TR>
 <TR><TD CLASS="bodyText">
-<P>Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 1.0.3705</P>
+<P>Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 2.0.50727</P>
 </TD></TR>
 <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
