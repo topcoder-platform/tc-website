@@ -16,6 +16,14 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
+<script language="javascript" type="text/javascript">
+<!--
+function referralSelection() {
+      document.getElementById('referral_2_name').style.display = 'table-cell';      
+      document.getElementById('referral_2_value').style.display = 'table-cell';
+}
+// -->
+</script>
 </head>
 
 <body>
@@ -222,20 +230,20 @@
             How did you hear about TopCoder?:
         </td>
         <td class="value">
-<select name="referral_type">
+<select name="referral_type" onChange="referralSelection()">
 <option value="" selected></option>
-<option value="15">College fair</option>
-<option value="16">Newspaper</option>
-<option value="17">TopCoder member</option>
-<option value="18">Other</option>
+<option value="0">College fair</option>
+<option value="1">Newspaper</option>
+<option value="2">TopCoder member</option>
+<option value="3">Other</option>
 </select>
         </td>
     </tr>
     <tr>
-        <td class="name" style="display:none;">
+        <td id="referral_2_name" class="name" style="display:none;">
             Referring member's handle:
         </td>
-        <td class="value" style="display:none;">
+        <td id="referral_2_value" class="value" style="display:none;">
             <input type="text" size="25" maxlength="255" name="referring_member" value="none"/>
         </td>
     </tr>
