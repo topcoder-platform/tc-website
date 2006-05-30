@@ -756,7 +756,8 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(USER_ID) ||
                     key.equals(STATUS_CODE) ||
                     key.equals(TYPE_CODE) || 
-                    key.equals(METHOD_CODE))
+                    key.equals(METHOD_CODE) ||
+                    key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
                     key.equals(HIGHEST_NET_AMOUNT))

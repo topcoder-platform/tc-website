@@ -90,6 +90,9 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(HANDLE, param);
         param = request.getParameter(IS_REVIEWED);
         if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
+        param = request.getParameter(PROJECT_ID);
+        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
+        
         DataInterfaceBean bean = new DataInterfaceBean();
 
         Map results = bean.findPayments(query);

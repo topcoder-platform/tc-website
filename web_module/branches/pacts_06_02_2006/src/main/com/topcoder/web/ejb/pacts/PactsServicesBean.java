@@ -1584,7 +1584,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeaders.append("pd.date_modified, pd.gross_amount, p.review ");
+        selectHeaders.append("pd.date_modified, pd.gross_amount, p.review, pd.project_id ");
 
         StringBuffer from = new StringBuffer(300);
         from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
@@ -1643,6 +1643,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND pd.payment_type_id = " + value);
                 } else if (key.equals(METHOD_CODE)) {
                     whereClauses.append(" AND pm.payment_method_id = " + value);
+                } else if (key.equals(PROJECT_ID)) {
+                    whereClauses.append(" AND pd.project_id = " + value);
                 } else if (key.equals(LOWEST_NET_AMOUNT)) {
                     whereClauses.append(" AND pd.net_amount >= " + value);
                 } else if (key.equals(HIGHEST_NET_AMOUNT)) {

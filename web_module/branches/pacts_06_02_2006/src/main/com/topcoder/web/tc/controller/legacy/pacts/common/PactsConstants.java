@@ -269,6 +269,7 @@ public interface PactsConstants {
     public static final String TAX_FORM_ID = "tax_form_id";
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";
+    public static final String PROJECT_ID = "project_id";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -286,7 +287,6 @@ public interface PactsConstants {
     public static final String IS_AFFIRMED = "is_affirmed";
     public static final String IS_NOTARIZED = "is_notarized";
     public static final String ROUND_ID = "round_id";
-    public static final String PROJECT_ID = "project_id";
 
     // Contract searches
     public static final String EARLIEST_START_DATE = "earliest_start_date";

@@ -221,6 +221,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)

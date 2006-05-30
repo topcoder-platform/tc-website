@@ -51,6 +51,10 @@
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.PAYMENT_ID+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
+            <td>Project ID:</td>
+<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.PROJECT_ID+"\" size=\"20\"></td>"); %>
+          </tr>
+          <tr>
             <td>Handle:</td>
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
           </tr>
