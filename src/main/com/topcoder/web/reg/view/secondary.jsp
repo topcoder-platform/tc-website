@@ -245,7 +245,7 @@ function referralSelection(referralType) {
     </tr>
    <tr>
         <td class="name">
-            How did you hear about TopCoder?:
+            How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
 <select name="referral_type" onChange="referralSelection(this.options[this.selectedIndex].value)">
