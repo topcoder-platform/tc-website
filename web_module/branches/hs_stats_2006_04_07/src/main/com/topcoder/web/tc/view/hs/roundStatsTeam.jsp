@@ -202,7 +202,7 @@ function clickColumn(n)
       <td class="headerR">=</td>
       <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point Total</td>
    </tr>
-   <% boolean even = false; %>
+   <% boolean even = true; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">
         <%   even = !even;  %>
         <tr class="<%=even?"dark":"light"%>">

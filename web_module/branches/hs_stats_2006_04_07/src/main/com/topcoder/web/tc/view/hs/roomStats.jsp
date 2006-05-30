@@ -157,18 +157,17 @@ z-index: 2;
 
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
-<div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>season</strong>:
     <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
-</div>
+   </div>
 <% }  %>
-<div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>match</strong>:
     <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
-</div>
+   </div>
 
-<div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>room</strong>:
     <tc-webtag:rscSelect name="rn" list="<%=rooms%>" fieldText="name" fieldValue="room_id" selectedValue="<%=  rm + "" %>" useTopValue="false" onChange="selectRoom(this)"/>
-</div>
-
+   </div>
 </div>
 
 
@@ -206,7 +205,7 @@ z-index: 2;
       <td class="headerR">&#160;</td>
    </tr>
 
-   <% boolean even = false; %>
+   <% boolean even = true; %>
    <rsc:iterator list="<%= roomResult%>" id="resultRow">
    <%   even = !even;
         if (resultRow.getIntItem("coder_id") == cr) {

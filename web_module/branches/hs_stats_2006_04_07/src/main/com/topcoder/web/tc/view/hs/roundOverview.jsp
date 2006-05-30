@@ -88,13 +88,13 @@ function submitForm(){
 
 <div style="float:right; padding-left:10px;" align="right">
 <% if(seasons.getRowCount() > 1) { %>
-<div style="padding-bottom:5px;">View another <strong>season</strong>:
+   <div style="padding-bottom:5px;">View another <strong>season</strong>:
     <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
-</div>
+   </div>
 <% } %>
-<div style="padding-bottom:5px;">View another <strong>match</strong>:
+   <div style="padding-bottom:5px;">View another <strong>match</strong>:
     <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
-</div>
+   </div>
 </div>
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
@@ -116,7 +116,7 @@ function submitForm(){
       <td class="headerC">Room</td>
       <td class="headerR">Score</td>
    </tr>
-   <% boolean even = false;
+   <% boolean even = true;
 
       for (int i=0; i < topN; i++) {
        even = !even;
@@ -176,7 +176,7 @@ function submitForm(){
       <td class="header" colspan="2">&#160;</td>
    </tr>
 
-
+   <% even = true; %>
    <rsc:iterator list="<%=percents%>" id="currentRow">
    <%
                even = !even;

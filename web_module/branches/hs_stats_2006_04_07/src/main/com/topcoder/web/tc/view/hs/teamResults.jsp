@@ -97,14 +97,14 @@ function clickColumn(n)
 
 <div style="float:right; padding-left:10px;" align="right">
    <% if(seasons.getRowCount() > 1) { %>
-   <div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>season</strong>:
        <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + ""%>" useTopValue="false" onChange="selectSeason(this)"/>
    </div>
    <% }  %>
-   <div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>match</strong>:
        <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + ""%>" useTopValue="false" onChange="selectRound(this)"/>
    </div>
-   <div style="padding-bottom:5px;">
+   <div style="padding-bottom:5px;">View another <strong>team</strong>:
        <tc-webtag:rscSelect name="tmid" list="<%=teams%>" fieldText="name" fieldValue="team_id" selectedValue="<%=  tmid + "" %>" useTopValue="false" onChange="selectTeam(this)"/>
    </div>
 </div>
@@ -139,7 +139,7 @@ function clickColumn(n)
       <td class="headerR" width="14%"><A href="javascript:clickColumn(8)">System Tests</A></td>
       <td class="headerR" width="14%"><A href="javascript:clickColumn(9)">Point Total</A></td>
    </tr>
-   <% boolean even = false; %>
+   <% boolean even = true; %>
    <rsc:iterator list="<%= result %>" id="resultRow">
        <%   even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
