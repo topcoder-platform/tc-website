@@ -25,19 +25,19 @@ function referralSelection(referralType) {
       document.getElementById('referral_3_name').style.display = 'none';      
       document.getElementById('referral_3_value').style.display = 'none';
       document.getElementById('refer_other').value = '';
+      // put code here to clear value for Other: input
    }else if(referralType == '3') {
       document.getElementById('referral_2_name').style.display = 'none';      
       document.getElementById('referral_2_value').style.display = 'none';
-      document.getElementById('refer_member').value = '';
       document.getElementById('referral_3_name').style.display = 'table-cell';      
       document.getElementById('referral_3_value').style.display = 'table-cell';
+      // put code here to clear value for Member's handle: input
    }else{
       document.getElementById('referral_2_name').style.display = 'none';      
       document.getElementById('referral_2_value').style.display = 'none';
-      document.getElementById('refer_member').value = '';
       document.getElementById('referral_3_name').style.display = 'none';      
       document.getElementById('referral_3_value').style.display = 'none';
-      document.getElementById('refer_other').value = '';
+      // put code here to clear values for both
    }
 }
 // -->
