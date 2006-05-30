@@ -176,5 +176,10 @@ create trigger trig_team_modified update of team_name, team_type, school_id on t
 );
 
 
---- *** New team type for High School
+--- *** New team type for High School ***
 insert into team_type_lu (team_type_id, team_type_desc) values (4, 'High School Team');
+
+
+--- *** Add permissions for queries for graphs ***
+insert into security_perms values(2002, 'DataDump:dd_hs_rating_history', 132456, 1);
+insert into security_perms values(2002, 'DataDump:dd_hs_algorithm_rating_distribution', 132456, 1);
