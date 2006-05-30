@@ -34,7 +34,9 @@ function referralSelection(referralType) {
 </script>
 </head>
 
-<body>
+<%---- THIS FUNCTION SETS WHAT IS VISIBLE ON A PAGE LOAD -----%>
+<body onLoad="referralSelection('0')">
+
 <div align="center" style="padding:6px 0px 6px; 0px;">
     <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
 </div>
@@ -238,7 +240,7 @@ function referralSelection(referralType) {
             How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
-<select name="referral_type" onChange="referralSelection(this.options[this.selectedIndex].value)">
+<select name="referral_type" onload="referralSelection(this.options[this.selectedIndex].value)" onChange="referralSelection(this.options[this.selectedIndex].value)">
 <option value="" selected></option>
 <option value="0">College fair</option>
 <option value="1">Newspaper</option>
@@ -246,12 +248,12 @@ function referralSelection(referralType) {
 <option value="3">Other</option>
 </select>
 
-<div id="referral_2_input" style="display:none;">
+<div id="referral_2_input">
    <span class="bigRed">Referring member's handle:</span><br>
    <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
 </div>
 
-<div id="referral_3_input" style="display:none;">
+<div id="referral_3_input">
    <span class="bigRed">Other:</span><br>
    <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
 </div>
