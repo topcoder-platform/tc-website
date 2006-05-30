@@ -116,7 +116,7 @@ function showRows(sr, nr, adjust)
 <a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
  | Rating History
  <% if (!isHighSchool) { %>
- &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+ &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= cr %>" class="bcLink">Earnings History</A>
 <% }  %> 
  
 </span>
