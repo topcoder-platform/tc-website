@@ -141,7 +141,9 @@ function showRows(sr, nr, adjust)
    <rsc:iterator list="<%= history %>" id="resultRow">
        <tr class="<%=even?"dark":"light"%>">
           <td class="valueC"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
+<% if (isHighSchool) { %>                
           <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="season_name" row="<%=resultRow%>"/></A></td>
+<% } %>          
           <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
           <td class="value"><A href='tc?module=HSRoomStats&cr=<%=cr%>&rd=<%=resultRow.getItem("round_id")%>&rm=<%=resultRow.getItem("room_id")%>'><rsc:item name="round_name" row="<%=resultRow%>"/></A></td>
           <td class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></td>
