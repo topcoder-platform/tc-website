@@ -117,7 +117,7 @@ public class ViewRegistration extends Base {
         } else if (getRegEJB().isUserWinningDesigner(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, Winners of the design phase of a component are not allowed to participate in the development phase.");
         } else if (!getRegEJB().isUserReliableEnough(phase, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-            getRequest().setAttribute(Constants.MESSAGE, "Sorry, since your reliablity is less than 70%, you may not register for more than 2 projects at a time.");
+            getRequest().setAttribute(Constants.MESSAGE, "Sorry, since your reliability is less than 70%, you may not register for more than 2 projects at a time.");
         } else if (rating == 0) {
             int max = getRegEJB().getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
             if (max == 0) {
