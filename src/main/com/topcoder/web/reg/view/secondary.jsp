@@ -210,6 +210,35 @@
         </td>
     </tr>
     </c:if>
+
+    <%--REFERRALS--%>
+    <tr>
+        <td colspan="2"><span class="bigRed">
+            Please select something.</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            How did you hear about TopCoder?:
+        </td>
+        <td class="value">
+<select name="referral_type">
+<option value="" selected></option>
+<option value="15">College fair</option>
+<option value="16">Newspaper</option>
+<option value="17">TopCoder member</option>
+<option value="18">Other</option>
+</select>
+        </td>
+    </tr>
+    <tr>
+        <td class="name" style="display:none;">
+            Referring member's handle:
+        </td>
+        <td class="value" style="display:none;">
+            <input type="text" size="25" maxlength="255" name="referring_member" value="none"/>
+        </td>
+    </tr>
 </table>
 * = required
 
