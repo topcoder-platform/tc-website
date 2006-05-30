@@ -10,6 +10,15 @@
         <td class="statTextBig" width="15"><A href="javascript:infoWindow('/tc?module=Static&d1=statistics&d2=info&d3=topRatedDesigners')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
         <td class="statTextBig" align="right" width="99%"><a href="/stat?c=top_designers" class="statTextBig">View all</a>&#160;</td>
     </tr>
+   <tr>
+      <td class="statTextBig" colspan="3" align="center">
+         <div style="padding:0px 0px 3px 5px;">
+            <div style="float:left;"><A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" /></A></div>
+            <A href="/tc?&ph=112&module=LeaderBoard" class="gMetal">leaderboard</A> | 
+            <A href="/tc?module=RookieBoard&ph=112" class="gMetal">ROTY</A>
+         </div>
+      </td>
+   </tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
     <tr valign="middle">

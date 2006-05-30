@@ -8,7 +8,7 @@
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
 </head>
@@ -37,16 +37,18 @@
 <jsp:param name="title" value="Design Cup Series"/>
 </jsp:include>
 
-<div style="float:right;">
-<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_schedule">Schedule</A>
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Prizes</A>
+<div style="float:right; text-align:right;">
+<A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">Overview</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_schedule">Schedule</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Prizes</A>
  | Rookie of the Year
- | <A href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A>
+ | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A><br>
+<A class="bcLink" href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A> | 
+<A class="bcLink" href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
 </div>
 <span class="title">Rookie of the Year</span>
 <br><br>
-We will also recognize a TopCoder&#174; Rookie of the Year.  Placement Points will accumulate for Rookie of the Year in the <A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">same manner</A> as they do for all component competitions:
+We will also recognize a TopCoder&#174; Rookie of the Year.  Placement Points will accumulate for Rookie of the Year in the <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_overview">same manner</A> as they do for all component competitions:
 <br><br>
 If a competitor has passed review in fewer than 6 design competitions as of May 11, 2006, the competitor will be considered eligible to be a design rookie for the 2007 TopCoder&#174; Design Cup Series.  If a competitor passes review on fewer than 6 design components during the 2007 TopCoder&#174; Design Cup Series, the next Series year will be that competitor's rookie year.  If a competitor passes review on 6 or more design components during the 2007 TopCoder&#174; Design Cup Series, it will count as the competitor's rookie year and the competitor will be eligible for TopCoder Rookie of the Year prizes. 
 <br><br>
