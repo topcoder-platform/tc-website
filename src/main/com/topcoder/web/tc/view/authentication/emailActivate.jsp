@@ -1,7 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.controller.request.authentication.Login,
-                 com.topcoder.web.tc.controller.legacy.reg.bean.Registration"%>
+                 com.topcoder.web.tc.controller.request.authentication.Login"%>
 <%@ page contentType="text/html; charset=ISO-8859-1"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
