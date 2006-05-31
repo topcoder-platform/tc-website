@@ -14,6 +14,7 @@ public class School extends Base {
     private String name;
     private String shortName;
     private SchoolType type;
+    private Boolean viewable;
 
     public Long getId() {
         return id;
@@ -62,6 +63,19 @@ public class School extends Base {
 
     public void setType(SchoolType type) {
         this.type = type;
+    }
+
+
+    public Boolean getViewable() {
+        return viewable;
+    }
+
+    public void setViewable(Boolean viewable) {
+        this.viewable = viewable;
+    }
+
+    public boolean isViewable() {
+        return viewable.booleanValue();
     }
 
     public boolean equals(Object o) {
