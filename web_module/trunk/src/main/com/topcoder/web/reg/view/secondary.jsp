@@ -178,7 +178,7 @@
     </tr>
     <tr>
         <td class="name">
-            School:
+            * School:
         </td>
         <td class="value">
             <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
