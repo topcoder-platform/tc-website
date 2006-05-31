@@ -101,9 +101,9 @@ left: 0px;
    <img src="/i/interface/competeBar.gif" alt="" usemap="#competeBar"/>
    </div>
    <% if ( !sessionInfo.isAnonymous() ) { %>
-   <div style="float:right; width:775px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
+   <div style="float:right; width:790px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false"><img src="/i/interface/update_my_profile.gif" alt="Update My Profile" style="display:block;"/></A></div>
    <% } else { %>
-   <div style="float:right; width:775px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A></div>
+   <div style="float:right; width:790px;" align="right"><A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></A></div>
    <%}%>
 </div>
 <%--
