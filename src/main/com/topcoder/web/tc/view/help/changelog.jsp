@@ -40,6 +40,14 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        xxxxxxxxxxxxxxxxxxxxxxxx
+        <ul>
+            <li>Allow for the ability to hide some schools in the registration process school search</li>
+            <li>Only count active members in school registered member counts.</li>
+            <li>Add final score to the marathon match site</li>
+        </ul>
+    </p>
+    <p>
         5.2.0 - 2006.05.30
         <ul>
             <li>Digital Run Stats Site</li>
