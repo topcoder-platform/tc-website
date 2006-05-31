@@ -46,13 +46,19 @@
         <td class="projectHeaders" align="right" width="40%">File</td>
     </tr>
     <tr>
-   <td class="projectCells" valign="top">
-   <strong>Sample Assembly Scorecard</strong><br/>
-   
-   </td>
-   <td class="projectCells" valign="top" align="center">03.15.2006</td>
-   <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">Sample Assembly Scorecard</A></td>
-</tr>
+        <td class="projectCells" valign="top">
+        <strong>Sample Assembly Scorecard</strong><br/>
+        </td>
+        <td class="projectCells" valign="top" align="center">03.15.2006</td>
+        <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">Sample Assembly Scorecard</A></td>
+    </tr>
+    <tr>
+        <td class="projectCells" valign="top">
+        <strong>Tutorial</strong><br/>
+        </td>
+        <td class="projectCells" valign="top" align="center">03.15.2006</td>
+        <td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=tutorial">Tutorial</A></td>
+    </tr>
 </table>
 
 <br><br>
