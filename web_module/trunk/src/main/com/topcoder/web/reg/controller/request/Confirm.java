@@ -37,7 +37,7 @@ public class Confirm extends Base {
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                getRequest().setAttribute("referrals",(u));
+                getRequest().setAttribute("referrals",getReferrals(u));
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             } else {
