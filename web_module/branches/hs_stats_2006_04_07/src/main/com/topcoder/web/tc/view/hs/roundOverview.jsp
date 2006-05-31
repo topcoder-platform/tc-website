@@ -155,7 +155,9 @@ function submitForm(){
       <%= leaders.getItem(i, "final_points").toString() %>
       </td>
       <% } else { %>
-          <td class="valueC" colspan="4">
+          <td class="valueC" colspan="1">&nbsp;
+          </td>
+          <td class="valueR" colspan="3">&nbsp;
           </td>
       <% } %>
    </tr>
