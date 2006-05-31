@@ -207,7 +207,22 @@ margin:0px auto;
             <b>05/27</b> - SRM 304 - 12 NOON - AMD<br><br>
             <b>05/31</b> - SRM 305 - 9 PM - VeriSign<br><br>
             </td>
+            <%--CHANGE MONTH NAME
+            <td class="homeText"><br>
+            <b>06/05</b> - HS SRM 1 - 7 PM<br><br>
+            <b>06/07</b> - Marathon Match 2 - 12 NOON<br><br>
+            <b>06/08</b> - SRM 306 - 7 AM<br><br>
+            <b>06/12</b> - HS SRM 2 - 2 PM<br><br>
+            <b>06/14</b> - Intel Multi-Threading Competition 6 - 12 NOON<br><br>
+            <b>06/14</b> - SRM 307 - 9 PM<br><br>
+            <b>06/19</b> - HS SRM 3 - 10 AM<br><br>
+            <b>06/24</b> - SRM 308 - 12 NOON<br><br>
+            <b>06/26</b> - HS SRM 4 - 6 AM<br><br>
+            <b>06/28</b> - SRM 309 - 11 AM<br><br>
+            </td>--%>
+
          </tr>
+         
 <%-- Press Room --%>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
