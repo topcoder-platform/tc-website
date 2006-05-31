@@ -23,8 +23,6 @@ import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
-import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -99,8 +97,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @param info A RegistrationInfo object contain basic user information
      * @return True if registration is successful, false otherwise
      */
-    public User register(RegistrationInfo info, long userId, long emailId, long phoneId, long addressId, long companyId) throws DDEException, DuplicateUsernameException, InvalidRegistrationException,
-            EJBException {
+    public User register(RegistrationInfo info, long userId, long emailId,
+                         long phoneId, long addressId, long companyId)
+            throws DDEException, DuplicateUsernameException, InvalidRegistrationException, EJBException {
         return register(info, true, userId, emailId, phoneId, addressId, companyId);
     }
 
@@ -115,7 +114,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @param info A RegistrationInfo object contain basic user information
      * @return True if registration is successful, false otherwise
      */
-    public User register(RegistrationInfo info, boolean sendActivationCode, long userId, long emailId, long phoneId, long addressId, long companyId)
+    public User register(RegistrationInfo info, boolean sendActivationCode,
+                         long userId, long emailId, long phoneId, long addressId, long companyId)
             throws DDEException, DuplicateUsernameException,
             InvalidRegistrationException, EJBException {
 
@@ -399,6 +399,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             throw new DDEException("" + e);
         } catch (GeneralSecurityException e) {
             throw new DDEException("" + e);
+        }
     }
 
 
@@ -409,8 +410,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @param activationCode
      * @return the user
      */
-    public User activate(String activationCode)
-            throws DDEException, NoSuchUserException, EJBException {
+    public User activate(String activationCode) throws DDEException, NoSuchUserException, EJBException {
 
         final String sqlSelect = "select c.*" +
                 " from user_customer c" +
