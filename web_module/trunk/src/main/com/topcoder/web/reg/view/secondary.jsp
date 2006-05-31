@@ -28,7 +28,7 @@
             if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
                 document.getElementById('${referralCoder}_div').style.display = 'block';
                 document.getElementById('${referralOther}_div').style.display = 'none';
-            } else if (referralType == '<%=Referral.OTHER.toString()%>') {
+            } else if (selection == '<%=Referral.OTHER.toString()%>') {
                 document.getElementById('${referralCoder}_div').style.display = 'none';
                 document.getElementById('${referralOther}_div').style.display = 'block';
             } else {
