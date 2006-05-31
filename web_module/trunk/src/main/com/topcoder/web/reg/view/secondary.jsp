@@ -277,7 +277,7 @@
 
             <div id="${referralOther}_div">
                 <span class="bigRed">Details:</span><br>
-                <tc-webtag:textInput name="${referralCoder}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="${referralOther}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
             </div>
         </td>
     </tr>
