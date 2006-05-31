@@ -104,22 +104,10 @@ public class ViewSystemTestResults extends Base {
             rsc = (ResultSetContainer)rsc.subList(startRow-1, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
-
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
             rscCol = (ResultSetContainer)rscCol.subList(startCol-1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
-/*
-            HashSet coders = new HashSet(rsc.size());
-            for (int i=0; i<rsc.size(); i++) {
-                coders.add(new Long(rsc.getLongItem(i, "coder_id")));
-            }
-
-            HashSet tests = new HashSet(rscCol.size());
-            for (int i=0; i<rscCol.size(); i++) {
-                tests.add(new Long(rscCol.getLongItem(i, "test_case_id")));
-            }
-*/
 
             ResultSetContainer rscScores = (ResultSetContainer) scoresMap.get("long_contest_system_test_results");
             HashMap hash = new HashMap();
@@ -135,15 +123,6 @@ public class ViewSystemTestResults extends Base {
                 testCases.put(row.getItem("test_case_id").getResultData(), row.getItem("score").getResultData());
                 hash.put(row.getItem("coder_id").getResultData(), testCases);
             }
-/*
-            for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-                if (coders.contains(row.getItem("coder_id").getResultData())&&tests.contains(row.getItem("test_case_id").getResultData())) {
-                    hash.put(row.getItem("coder_id") + "_" + row.getItem("test_case_id"), row.getItem("score").getResultData());
-                }
-            }
-*/
-
             log.debug("end load map");
 
             request.setAttribute("resultMap", result);
