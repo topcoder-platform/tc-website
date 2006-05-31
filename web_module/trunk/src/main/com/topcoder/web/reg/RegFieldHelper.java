@@ -247,9 +247,16 @@ public class RegFieldHelper {
                     if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
                         ret.addAll(secondaryCompProFields);
                         ret.add(Constants.PHOTO);
+                        ret.remove(Constants.REFERRAL);
+                        ret.remove(Constants.REFERRAL_CODER);
+                        ret.remove(Constants.REFERRAL_OTHER);
                     } else if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
                         ret.addAll(secondaryCompStudentFields);
                         ret.add(Constants.PHOTO);
+                        ret.remove(Constants.REFERRAL);
+                        ret.remove(Constants.REFERRAL_CODER);
+                        ret.remove(Constants.REFERRAL_OTHER);
+
                     } else {
                         throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
