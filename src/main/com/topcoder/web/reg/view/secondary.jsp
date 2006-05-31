@@ -24,7 +24,7 @@
     <script language="javascript" type="text/javascript">
         <!--
         function referralSelection() {
-            var selection = getSelectedOption('document', '${referral}');
+            var selection = getSelectedOption('document.secondaryForm', '${referral}');
             if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
                 document.getElementById('${referralCoder}_div').style.display = 'block';
                 document.getElementById('${referralOther}_div').style.display = 'none';
@@ -256,7 +256,7 @@
             How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
-            <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection(this.options[this.selectedIndex].value)"/>
+            <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>
 
             <div id="${referralCoder}_div">
                 <span class="bigRed">Referring member's handle:</span><br>
