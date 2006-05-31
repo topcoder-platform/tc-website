@@ -63,14 +63,8 @@ function submitEnter(e) {
          </div>
          <br><br>
 
-    Registration will close on Tuesday, May 23 at 8:00 AM GMT/UTC.<br/><br/>
-    If you are <A href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_EUROPE_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=18317&<%=Constants.EVENT_ID%>=7" class="bigRed">not currently a TopCoder member</A>
-    or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE_EUROPE_06_REG_MAIN%>&<%=Constants.COMPANY_ID%>=18317&<%=Constants.EVENT_ID%>=7" class="bigRed">here</a>.
-    <br><br>
-    If you are currently a TopCoder member and would like to convert your account for use in Google Code Jam Europe 2006
-    or you have an existing Google Code Jam Europe
-    2006 account and need to change your registration information
-    you may login below.<br/><br/>
+    Registration for the Google Code Jam Europe has closed.
+   <br /><br />
 
                         If you have already registered and would like to <strong>update your registration information</strong>, please login here:
                         <br><br>
