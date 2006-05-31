@@ -35,9 +35,9 @@
                 <jsp:param name="node" value="competition_home"/>
             </jsp:include>
             <jsp:include page="coder_of_month.jsp" />
-         <div style="float:left; clear:left;">
+         <%--<div style="float:left; clear:left;">
             <jsp:include page="/calendar.jsp" />
-         </div>
+         </div>--%>
         </td>
 <!-- Left Column Ends -->
 

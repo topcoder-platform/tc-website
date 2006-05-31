@@ -93,7 +93,7 @@ Click a column title to sort the list of advancers by that column. Click <a href
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <img src="/i/tournament/tco06/verisign_right.gif" alt="Verisign" border="0" /><br />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<jsp:include page="/calendar.jsp" />
+<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder Events</A></strong></div>
 </td>
 
 	</tr>
