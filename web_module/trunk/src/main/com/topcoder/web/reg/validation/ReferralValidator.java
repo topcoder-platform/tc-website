@@ -38,10 +38,10 @@ public class ReferralValidator implements Validator {
                 //if it's a member referral validate the supplied handle
                 if (Referral.MEMBER_REFERRAL.equals(i)) {
                     return new UserNameExistsValidator().validate(new StringInput(handle));
-                } else if (Referral.OTHER.equals(i)) {
-                    return new ReferralOtherValidator().validate(new StringInput(other));
-                } else {
+                } else if (Referral.DECLINE.equals(i)) {
                     return ValidationResult.SUCCESS;
+                } else {
+                    return new ReferralOtherValidator().validate(new StringInput(other));
                 }
             }
         } else {

@@ -7,9 +7,10 @@ package com.topcoder.web.reg.model;
  */
 public class Referral {
 
-    public static final String DECLINE = "Decline to Answer";
+    public static final Integer DECLINE = new Integer(0);
     public static final Integer MEMBER_REFERRAL = new Integer(40);
     public static final Integer OTHER = new Integer(10);
+
 
     private Integer id;
     private String description;
