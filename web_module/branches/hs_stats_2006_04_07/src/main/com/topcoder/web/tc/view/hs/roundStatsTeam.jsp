@@ -63,7 +63,6 @@ try {
 
 int totalRows = Integer.parseInt((String) request.getAttribute("totalRows"));
 %>
-
 <script language="JavaScript">
 <!--
 function selectSeason(selection)
@@ -147,7 +146,6 @@ function clickColumn(n)
 }
 // -->
 </script>
-
 <form name="pageForm" method="get" action ="/tc">
 <input type="hidden" name="sr" value="<%= li.getStartRow() %>">
 <input type="hidden" name="nr" value="<%= li.getNumberOfRows() %>">
@@ -157,7 +155,6 @@ function clickColumn(n)
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundStatsTeam">
 </form>
-
 <form name="seasonForm" method="get" action ="/tc">
 <input type="hidden" name="sr" value="<%= li.getStartRow() %>">
 <input type="hidden" name="nr" value="<%= li.getNumberOfRows() %>">
@@ -166,8 +163,6 @@ function clickColumn(n)
 <input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
 <input type="hidden" name="module" value="HSRoundStatsTeam">
 </form>
-
-
 <div style="float:right; padding-left:10px;" align="right">
    <% if(seasons.getRowCount() > 1) { %>
    <div style="padding-bottom:5px;">View another <strong>season</strong>:
