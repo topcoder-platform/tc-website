@@ -414,7 +414,7 @@
             How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
-                ${regUser.coder.coderReferral.referral.description} ${regUser.coder.coderReferral.referenceCoder.user.handle} ${regUser.coder.coderReferral.other} 
+                ${regUser.coder.coderReferral.referral.description} ${regUser.coder.coderReferral.referenceCoder.user.handle} ${regUser.coder.coderReferral.other}
         </td>
     </tr>
 </c:if>
@@ -425,7 +425,7 @@
 <br><br>
 
 <div align="center">
-    <a href="Javascript:document.confirmForm.submit();">Confirm</a>
+    <a href="#" onclick="Javascript:document.confirmForm.submit();">Confirm</a>
 </div>
 
 </div>

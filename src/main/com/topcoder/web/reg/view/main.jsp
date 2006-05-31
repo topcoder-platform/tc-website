@@ -480,7 +480,7 @@
 <br><br>
 
 <div align="center">
-<a href="Javascript:document.mainForm.submit();">Submit</a>
+<a href="#" onclick="Javascript:document.mainForm.submit();">Submit</a>
 </div>
 
 </form>
