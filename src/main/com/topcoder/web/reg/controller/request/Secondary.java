@@ -47,7 +47,7 @@ public class Secondary extends Base {
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                        getRequest().setAttribute("referrals",(u));
+                        getRequest().setAttribute("referrals",getReferrals(u));
                         setSecondaryDefaults(u);
                         getRequest().setAttribute(Constants.FIELDS, secondaryFields);
                         setNextPage("/secondary.jsp");
@@ -59,7 +59,7 @@ public class Secondary extends Base {
             } else {
                 Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                getRequest().setAttribute("referrals",(u));
+                getRequest().setAttribute("referrals",getReferrals(u));
                 setSecondaryDefaults(u);
                 getRequest().setAttribute(Constants.FIELDS, secondaryFields);
                 setNextPage("/secondary.jsp");
