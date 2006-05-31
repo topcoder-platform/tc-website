@@ -1,7 +1,9 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page language="java" %>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
+          java.util.Map, java.text.DecimalFormat, com.topcoder.web.tc.controller.request.hs.RoundInfo, com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -26,7 +28,7 @@
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitions"/>
+            <jsp:param name="node" value="hs_match_overview"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -39,186 +41,134 @@
 <jsp:param name="title" value="Match Overview"/>
 </jsp:include>
 
+<%
+Map resultMap = (Map) request.getAttribute("resultMap");
+ResultSetContainer seasons = (ResultSetContainer) resultMap.get("seasons");
+ResultSetContainer rounds = (ResultSetContainer) resultMap.get("rounds_for_season");
+ResultSetContainer percents = (ResultSetContainer) resultMap.get("Round_Percentages");
+ResultSetContainer leaders = (ResultSetContainer) resultMap.get("High_Scorers");
+ResultSetContainer teamResult = (ResultSetContainer) resultMap.get("team_result");
+
+RoundInfo round = (RoundInfo) request.getAttribute("roundInfo");
+
+DecimalFormat df = new DecimalFormat("0.00");
+DecimalFormat dfp = new DecimalFormat("0.00%");
+
+
+int topN = 5;
+try {
+  topN = Integer.parseInt((String) request.getParameter("er"));
+} catch(Exception e){}
+
+%>
+
 <script language="JavaScript">
 <!--
-function goTo(selection){
-sel = selection.options[selection.selectedIndex].value;
-if (sel && sel != '#'){
-window.location='/longcontest/?module=ViewOverview&rd='+sel;
+function selectSeason(selection){
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundOverview&snid='+ sel + '&er=<%= topN %>';
 }
+
+function selectRound(selection){
+    sel = selection.options[selection.selectedIndex].value;
+    window.location='/tc?module=HSRoundOverview&rd='+ sel + '&snid=<%= round.getSeasonId() %>&er=<%= topN %>';
 }
+function submitForm(){
+    var frm = document.coderRankForm;
+    if (isNaN(parseInt(frm.er.value)) || parseInt(frm.er.value) < 1)
+        alert(frm.er.value+" is not a valid positive integer");
+     else{
+        frm.er.value = parseInt(frm.er.value);
+        frm.submit();
+     }
+}
+
 // -->
 </script>
 
 <div style="float:right; padding-left:10px;" align="right">
-<div style="padding-bottom:5px;">
-   <select name="rd" onchange="goTo(this)">
-   <option value="" selected="selected">View another contest:</option>
-   <option value="0000">High School Single Round Match 1</option>
-   </select>
-</div>
-<div style="padding-bottom:5px;">
-   <select name="season" onchange="goTo(this)">
-   <option value="" selected="selected">View another season:</option>
-   <option value="0000">2006-2007</option>
-   </select>
-</div>
+<% if(seasons.getRowCount() > 1) { %>
+   <div style="padding-bottom:5px;">View another <strong>season</strong>:
+    <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
+   </div>
+<% } %>
+   <div style="padding-bottom:5px;">View another <strong>match</strong>:
+    <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
+   </div>
 </div>
 
-<span class="bigTitle">High School Single Round Match 1</span><br>
-<span class="bodySubtitle">Season: 2006-2007</span><br>
-<A href="" class="bcLink">Discuss this contest</a>
+<span class="bigTitle"><%= round.getRoundName() %></span><br>
+<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<% if(round.getForumId() > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%= round.getForumId() %>" class="bcLink">Discuss this contest</a>
+<% } %>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="8">HS SRM 1 Leaders</td></tr>
+   <tr><td class="title" colspan="7"><%= round.getRoundName() %> Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
-      <td class="headerC">Room</td>
       <td class="headerR" style="border-right:1px solid #999999;">Score</td>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Individuals</td>
       <td class="headerC">Room</td>
       <td class="headerR">Score</td>
    </tr>
-   <% boolean even = false; %>
+   <% boolean even = true;
+
+      for (int i=0; i < topN; i++) {
+       even = !even;
+       if (!teamResult.isValidRow(i) && !leaders.isValidRow(i)) {
+           break;
+       }
+   %>
    <tr class="<%=even?"dark":"light"%>">
+      <% if (teamResult.isValidRow(i)) {             %>
+             <td class="valueC">
+             <%= i + 1 %>
+             </td>
+             <td class="value">
+             <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
+             </td>
+             <td class="valueR" style="border-right:1px solid #999999;">
+             <%= teamResult.getItem(i, "team_points").toString() %>
+             </td>
+      <% } else { %>
+          <td class="valueC" >&nbsp;
+          </td>
+          <td class="value" >&nbsp;
+          </td>
+          <td class="valueR" >&nbsp;
+          </td>
+      <% } %>
+
+      <% if (leaders.isValidRow(i)) {            %>
+
       <td class="valueC">
-      1
+      <%= i + 1 %>
       </td>
       <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
+      <tc-webtag:handle coderId='<%= leaders.getIntItem(i, "coder_id") %>' context='hs_algorithm' />
       </td>
       <td class="value" nowrap="nowrap">
-      Room 20
+      <%= leaders.getStringItem(i, "room_name") %>
       </td>
       <td class="valueR">
-      1200
+      <%= leaders.getItem(i, "final_points").toString() %>
       </td>
+      <% } else { %>
+          <td class="valueC" >&nbsp;
+          </td>
+          <td class="value" colspan="2">&nbsp;
+          </td>
+          <td class="valueR" >&nbsp;
+          </td>
+      <% } %>
    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <A href="#">Team 1</A>
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR" style="border-right:1px solid #999999;">
-      1200
-      </td>
-      <td class="valueC">
-      1
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="144400" />
-      </td>
-      <td class="value" nowrap="nowrap">
-      Room 20
-      </td>
-      <td class="valueR">
-      1200
-      </td>
-   </tr>
-   <% even = !even;%>
+   <% }
+   %>
 </table>
 
 <br><br>
@@ -233,84 +183,56 @@ window.location='/longcontest/?module=ViewOverview&rd='+sel;
       <td class="headerR" width="20%" nowrap="nowrap">Average Points</td>
       <td class="header" colspan="2">&#160;</td>
    </tr>
-   <% even = false; %>
+
+   <% even = true; %>
+   <rsc:iterator list="<%=percents%>" id="currentRow">
+   <%
+               even = !even;
+               String problemLevel = currentRow.getItem("problem_level").toString();
+               String problemName = currentRow.getItem("problem_name").toString();
+               int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+               int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+               int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
+               double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+               String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
+               String avgPoints = df.format(total);
+  %>
+
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap="nowrap">
-      Level 1
+      &#160;<%=problemLevel%>
       </td>
       <td class="value">
-      <A href="">Integer Generator</A>
+      &#160;&#160;<A HREF="/tc?module=HSProblemStatement&pm=<%= problemID %>&rd=<%= round.getRoundId() %>"><%=problemName%></A>
       </td>
       <td class="valueR">
-      123
+      <%=submissions%> &#160;&#160;
       </td>
       <td class="valueR">
-      49.85%
+      <%=perCor%> &#160;&#160;
       </td>
       <td class="valueR">
-      183.72
+      <%=avgPoints%>
       </td>
       <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
+      &#160;<a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=<%= round.getRoundId() %>&pm=<%= problemID %>','600','400','distribution')">Distribution Graph</a>
       </td>
       <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
+      &#160;<a href="Javascript:void openProblemRating(<%= problemID %>)"><img border="0" src="/i/rate_it.gif" /></a>
       </td>
    </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Level 2
-      </td>
-      <td class="value">
-      <A href="">Integer Generator</A>
-      </td>
-      <td class="valueR">
-      123
-      </td>
-      <td class="valueR">
-      49.85%
-      </td>
-      <td class="valueR">
-      183.72
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
-      </td>
-      <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      Level 3
-      </td>
-      <td class="value">
-      <A href="">Integer Generator</A>
-      </td>
-      <td class="valueR">
-      123
-      </td>
-      <td class="valueR">
-      49.85%
-      </td>
-      <td class="valueR">
-      183.72
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <a href="JavaScript:getGraph('/graph?c=problem_distribution_graph&rd=0000&pm=0000&dn=1','600','400','distribution')">Distribution Graph</a>
-      </td>
-      <td class="valueC">
-      <a href="Javascript:void openProblemRating(0000)"><img src="/i/rate_it.gif" alt="Rate It" /></a>
-      </td>
-   </tr>
-   <% even = !even;%>
+   </rsc:iterator>
+
 </table>
 <div class="pagingBox">
-Viewing top 
-<input name="er" maxlength="4" size="4" value="5" type="text"> 
+<form name="coderRankForm" method="get" action ="/tc">
+<input type="hidden" name="rd" value="<%= round.getRoundId() %>">
+<input type="hidden" name="snid" value="<%= round.getSeasonId() %>">
+<input type="hidden" name="module" value="HSRoundOverview">
+Viewing top
+<input name="er" maxlength="4" size="4" value="<%= topN %>" type="text">
 <a href="javaScript:submitForm();" class="bcLink">[ submit ]</a>
+</form>
 </div>
 
 </td>
