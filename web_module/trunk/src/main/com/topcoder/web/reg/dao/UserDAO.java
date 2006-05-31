@@ -12,5 +12,7 @@ public interface UserDAO {
 
     User find(String userName, boolean ignoreCase);
 
+    User find(String userName, boolean ignoreCase, boolean activeRequired);
+
     void saveOrUpdate(User u);
 }

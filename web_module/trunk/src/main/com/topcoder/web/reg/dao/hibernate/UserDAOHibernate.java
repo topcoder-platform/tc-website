@@ -1,15 +1,17 @@
 package com.topcoder.web.reg.dao.hibernate;
 
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.dao.UserDAO;
 import com.topcoder.web.reg.model.DemographicQuestion;
 import com.topcoder.web.reg.model.DemographicResponse;
 import com.topcoder.web.reg.model.User;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.Collection;
 
 /**
  * @author dok
@@ -31,11 +33,32 @@ public class UserDAOHibernate extends Base implements UserDAO {
     }
 
     public User find(String userName, boolean ignoreCase) {
+        return find(userName, ignoreCase, false);
+    }
+
+    public User find(String userName, boolean ignoreCase, boolean activeRequired) {
+        StringBuffer query = new StringBuffer(100);
+        query.append("FROM User WHERE ");
         if (ignoreCase) {
-            return (User) findOne(User.class, "handle_lower", userName.toLowerCase());
+            query.append("handle_lower ");
         } else {
-            return (User) findOne(User.class, "handle", userName);
+            query.append("handle ");
         }
+        query.append(" = ? ");
+        if (activeRequired) {
+            query.append(" AND status = ?");
+        }
+        Query q = session.createQuery(query.toString());
+        if (ignoreCase) {
+            q.setString(0, userName.toLowerCase());
+        } else {
+            q.setString(0, userName);
+        }
+        if (activeRequired) {
+            q.setString(1, String.valueOf(Constants.ACTIVE_STATI[1]));
+        }
+        return (User) q.uniqueResult();
+
     }
 
     public void saveOrUpdate(User u) {
@@ -72,7 +95,6 @@ public class UserDAOHibernate extends Base implements UserDAO {
         } else {
             //todo consider putting all this logic in the POJO instead of here.
 
-
 /*
             DemographicResponse t;
             for (Iterator it = u.getTransientResponses().iterator(); it.hasNext();) {
@@ -89,8 +111,8 @@ public class UserDAOHibernate extends Base implements UserDAO {
             DemographicResponse temp;
             //log.debug("trans size b4" + u.getTransientResponses().size());
             for (Iterator it = u.getDemographicResponses().iterator(); it.hasNext();) {
-                temp = (DemographicResponse)it.next();
-                if (temp.getQuestion().isFreeForm()||temp.getQuestion().isSingleSelect()) {
+                temp = (DemographicResponse) it.next();
+                if (temp.getQuestion().isFreeForm() || temp.getQuestion().isSingleSelect()) {
                     u.removeTransientResponse(temp);
                     //log.debug("remove trans response " + temp.getQuestion().getId() + " " + temp.getAnswer().getId() + " " + temp.hashCode());
                 }
@@ -166,7 +188,10 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
     }
 
-    private DemographicResponse findResponse(Collection responses, DemographicQuestion q) {
+    private DemographicResponse findResponse
+            (Collection
+                    responses, DemographicQuestion
+                    q) {
         boolean found = false;
         DemographicResponse ret = null;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
@@ -180,7 +205,10 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
     }
 
-    private Set findResponses(Collection responses, DemographicQuestion q) {
+    private Set findResponses
+            (Collection
+                    responses, DemographicQuestion
+                    q) {
         HashSet ret = new HashSet();
         DemographicResponse response;
         for (Iterator it = responses.iterator(); it.hasNext();) {

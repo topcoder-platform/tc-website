@@ -12,7 +12,7 @@ public class UserNameExistsValidator implements Validator  {
     public ValidationResult validate(ValidationInput input) {
         ValidationResult nret = new NonEmptyValidator("User name does not exist.").validate(input);
         if (nret.isValid()) {
-            return new BasicResult(Util.getFactory().getUserDAO().find((String)input.getInput(), true)!=null,
+            return new BasicResult(Util.getFactory().getUserDAO().find((String)input.getInput(), true, true)!=null,
                     "User name does not exist.");
         } else {
             return nret;
