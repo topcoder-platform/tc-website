@@ -27,24 +27,27 @@
             //var selection = getSelectedOption('document.secondaryForm', '${referral}');
             var selection = getValue('document.secondaryForm', '${referral}');
             if (selection) {
-                    if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
-                        document.getElementById('${referralCoder}_div').style.display = 'block';
-                        document.getElementById('${referralOther}_div').style.display = 'none';
-                    } else if (selection == '<%=Referral.OTHER.toString()%>') {
-                        document.getElementById('${referralCoder}_div').style.display = 'none';
-                        document.getElementById('${referralOther}_div').style.display = 'block';
-                    } else {
-                        document.getElementById('${referralCoder}_div').style.display = 'none';
-                        document.getElementById('${referralOther}_div').style.display = 'none';
-                    }
+                if (selection == <%=Referral.MEMBER_REFERRAL.toString()%>) {
+                    document.getElementById('${referralCoder}_div').style.display = 'block';
+                    document.getElementById('${referralOther}_div').style.display = 'none';
+                } else if (selection == <%=Referral.OTHER.toString()%>) {
+                    document.getElementById('${referralCoder}_div').style.display = 'none';
+                    document.getElementById('${referralOther}_div').style.display = 'block';
+                } else {
+                    hide();
                 }
+            }
+        }
+        function hide() {
+            document.getElementById('${referralCoder}_div').style.display = 'none';
+            document.getElementById('${referralOther}_div').style.display = 'none';
         }
         // -->
     </script>
 </head>
 
 <%---- THIS FUNCTION SETS WHAT IS VISIBLE ON A PAGE LOAD -----%>
-<body onLoad="referralSelection('0')">
+<body>
 
 <div align="center" style="padding:6px 0px 6px; 0px;">
     <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
@@ -271,6 +274,9 @@
                 <tc-webtag:textInput name="${referralCoder}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
                 <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
             </div>
+            <script type="text/javascript"><!--
+              hide();
+            --></script>
         </td>
     </tr>
 
