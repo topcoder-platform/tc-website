@@ -87,9 +87,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 
 
-
-
-
         public void testSaveOrUpdate() {
             User u = TestUtils.makeUser();
             Util.getFactory().getUserDAO().saveOrUpdate(u);
@@ -99,12 +96,15 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         }
 
 */
+
+
+
+/*
     public void testFindWithTerms() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
     }
 
-/*
     public void testFindWithImage() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
         assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
@@ -210,6 +210,10 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 */
 
+    public void testFindWithSchool() {
+        User dok = Util.getFactory().getUserDAO().find("tomek", true);
+        assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool()==null);
+    }
 
 
 }

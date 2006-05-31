@@ -337,6 +337,10 @@ abstract class Base extends HibernateProcessor {
             }
         }
 
+        ret.put(Constants.REFERRAL, getTrimmedParameter(Constants.REFERRAL));
+        ret.put(Constants.REFERRAL_CODER, getTrimmedParameter(Constants.REFERRAL_CODER));
+        ret.put(Constants.REFERRAL_OTHER, getTrimmedParameter(Constants.REFERRAL_OTHER));
+
         return ret;
 
     }
@@ -438,6 +442,15 @@ abstract class Base extends HibernateProcessor {
             ValidationResult resumeResult = new ResumeValidator().validate(new ListInput(l));
             if (!resumeResult.isValid()) {
                 addError(Constants.RESUME, resumeResult.getMessage());
+            }
+        }
+
+        if (fields.contains(Constants.REFERRAL)) {
+            ValidationResult referralResult =
+                    new ReferralValidator((String)params.get(Constants.REFERRAL_CODER),
+                            (String)params.get(Constants.REFERRAL_OTHER)).validate(new StringInput((String)params.get(Constants.REFERRAL)));
+            if (!referralResult.isValid()) {
+                addError(Constants.REFERRAL, referralResult.getMessage());
             }
         }
 
@@ -553,6 +566,14 @@ abstract class Base extends HibernateProcessor {
             setDefault(Constants.FILE_NAME, ((Resume) it.next()).getFileName());
         }
 
+        if (u.getCoder()!=null&& u.getCoder().getCoderReferral()!=null&&u.getCoder().getCoderReferral().getReferral()!=null) {
+            setDefault(Constants.REFERRAL, u.getCoder().getCoderReferral().getReferral().getId());
+            if (u.getCoder().getCoderReferral().getReferenceCoder()!=null) {
+                setDefault(Constants.REFERRAL_CODER, u.getCoder().getCoderReferral().getReferenceCoder().getUser().getHandle());
+            }
+            setDefault(Constants.REFERRAL_OTHER, u.getCoder().getCoderReferral().getOther());
+        }
+
 
     }
 
@@ -581,6 +602,17 @@ abstract class Base extends HibernateProcessor {
     protected boolean hasParameter(Map params, String key) {
         return params.get(key) != null && params.get(key).toString().trim().length()>0;
     }
+
+    protected List getReferrals(User u) {
+        State s = null;
+        if (u.getHomeAddress() != null) {
+            s = u.getHomeAddress().getState();
+        }
+
+        return getFactory().getReferralDAO().getReferrals(s);
+    }
+
+
 
     /**
      * Should be implemented by child classes to handle all the actual processing

@@ -65,9 +65,15 @@ public class RegFieldHelper {
         secondaryCompStudentFields.add(Constants.SCHOOL_STATE);
         secondaryCompStudentFields.add(Constants.SCHOOL_COUNTRY);
         secondaryCompStudentFields.add(Constants.SCHOOL_TYPE);
+        secondaryCompStudentFields.add(Constants.REFERRAL);
+        secondaryCompStudentFields.add(Constants.REFERRAL_CODER);
+        secondaryCompStudentFields.add(Constants.REFERRAL_OTHER);
 
         secondaryCompProFields.add(Constants.DEMOG_PREFIX);
         secondaryCompProFields.add(Constants.RESUME);
+        secondaryCompProFields.add(Constants.REFERRAL);
+        secondaryCompProFields.add(Constants.REFERRAL_CODER);
+        secondaryCompProFields.add(Constants.REFERRAL_OTHER);
     }
 
 

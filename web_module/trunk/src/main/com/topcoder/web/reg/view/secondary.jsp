@@ -1,5 +1,6 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.reg.model.Referral" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -16,22 +17,26 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
-<script language="javascript" type="text/javascript">
-<!--
-function referralSelection(referralType) {
-   if(referralType == '2') {
-      document.getElementById('referral_2_input').style.display = 'block';      
-      document.getElementById('referral_3_input').style.display = 'none';      
-   }else if(referralType == '3') {
-      document.getElementById('referral_2_input').style.display = 'none';      
-      document.getElementById('referral_3_input').style.display = 'block';      
-   }else{
-      document.getElementById('referral_2_input').style.display = 'none';      
-      document.getElementById('referral_3_input').style.display = 'none';      
-   }
-}
-// -->
-</script>
+    <c:set value="<%=Constants.REFERRAL%>" var="referral"/>
+    <c:set value="<%=Constants.REFERRAL_CODER%>" var="referralCoder"/>
+    <c:set value="<%=Constants.REFERRAL_OTHER%>" var="referralOther"/>
+    <script language="javascript" type="text/javascript">
+        <!--
+        function referralSelection() {
+            var selection = getSelectedOption('document', '${referral}');
+            if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
+                document.getElementById('${referralCoder}_div').style.display = 'block';
+                document.getElementById('${referralOther}_div').style.display = 'none';
+            } else if (referralType == '<%=Referral.OTHER.toString()%>') {
+                document.getElementById('${referralCoder}_div').style.display = 'none';
+                document.getElementById('${referralOther}_div').style.display = 'block';
+            } else {
+                document.getElementById('${referralCoder}_div').style.display = 'none';
+                document.getElementById('${referralOther}_div').style.display = 'none';
+            }
+        }
+        // -->
+    </script>
 </head>
 
 <%---- THIS FUNCTION SETS WHAT IS VISIBLE ON A PAGE LOAD -----%>
@@ -51,24 +56,30 @@ function referralSelection(referralType) {
 
 <div id="regBcContainer">
     <div class="regBc">
-         <div class="title">
-             <c:if test="${sessionInfo.loggedIn}">
-                 <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
-             </c:if>
-         Step <strong>3</strong> of
-             <c:choose>
-                 <c:when test="${regUser.new}">
-                     <strong>6</strong>
-                 </c:when>
-                 <c:otherwise>
-                     <strong>5</strong>
-                 </c:otherwise>
-             </c:choose>
-         </div>
+        <div class="title">
+            <c:if test="${sessionInfo.loggedIn}">
+                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
+                </div>
+            </c:if>
+            Step <strong>3</strong> of
+            <c:choose>
+                <c:when test="${regUser.new}">
+                    <strong>6</strong>
+                </c:when>
+                <c:otherwise>
+                    <strong>5</strong>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
         <div class="off">Select Your Registration</div>
+
         <div class="off">General</div>
+
         <div class="on">Demographics</div>
+
         <div class="off">Confirm</div>
+
         <div class="off">Success</div>
         <c:if test="${regUser.new}">
             <div class="off">Activation</div>
@@ -77,7 +88,8 @@ function referralSelection(referralType) {
 </div>
 
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm"
+        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
 <table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
@@ -131,7 +143,8 @@ function referralSelection(referralType) {
             </td>
             <td class="value">
                 <rt:demographicInput question="${assignment.question}"/>
-                <c:if test="${assignment.question.description!=null}"><br><span class="small">${assignment.question.description}</span></c:if>
+                <c:if test="${assignment.question.description!=null}"><br>
+                    <span class="small">${assignment.question.description}</span></c:if>
             </td>
         </tr>
     </rt:questionIterator>
@@ -156,24 +169,25 @@ function referralSelection(referralType) {
         <td class="value">
             <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
                 <%--School widget--%>
-            <br><a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose School</a>
+            <br>
+            <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose
+                School</a>
         </td>
     </tr>
-<c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
+    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
         <tr>
-        <td class="name">
-            Allow others to see my school:
-        </td>
-        <td class="value">
-            <tc-webtag:chkBox name="${visibleSchool}"/>
-        </td>
-    </tr>
+            <td class="name">
+                Allow others to see my school:
+            </td>
+            <td class="value">
+                <tc-webtag:chkBox name="${visibleSchool}"/>
+            </td>
+        </tr>
     </c:if>
 
 
 </c:if>
-
 
 
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
@@ -229,36 +243,36 @@ function referralSelection(referralType) {
     </tr>
     </c:if>
 
-    <%--REFERRALS--%>
+
+    <c:if test="${cf:contains(fields, referral)}">
     <tr>
         <td colspan="2"><span class="bigRed">
-            Please select something.</span>
+            <tc-webtag:errorIterator id="err" name="${referral}"><%=err%><br></tc-webtag:errorIterator></span>
         </td>
     </tr>
-   <tr>
+    <tr>
         <td class="name">
             How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
-<select name="referral_type" onload="referralSelection(this.options[this.selectedIndex].value)" onChange="referralSelection(this.options[this.selectedIndex].value)">
-<option value="" selected></option>
-<option value="0">College fair</option>
-<option value="1">Newspaper</option>
-<option value="2">TopCoder member</option>
-<option value="3">Other</option>
-</select>
+            <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection(this.options[this.selectedIndex].value)"/>
 
-<div id="referral_2_input">
-   <span class="bigRed">Referring member's handle:</span><br>
-   <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
-</div>
+            <div id="${referralCoder}_div">
+                <span class="bigRed">Referring member's handle:</span><br>
+                <tc-webtag:textInput name="${referralCoder}" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+            </div>
 
-<div id="referral_3_input">
-   <span class="bigRed">Details:</span><br>
-   <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
-</div>
+            <div id="${referralOther}_div">
+                <span class="bigRed">Details:</span><br>
+                <tc-webtag:textInput name="${referralCoder}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
+                <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
+            </div>
         </td>
     </tr>
+
+    </c:if>
+
+
 </table>
 * = required
 

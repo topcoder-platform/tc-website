@@ -26,6 +26,7 @@ public class Coder extends Base {
     private TCAlgoRating tcRating;
 */
     private CurrentSchool currentSchool;
+    private CoderReferral coderReferral;
     private Set resumes;
     private User user;
     private Set createdSchools;
@@ -220,6 +221,14 @@ public class Coder extends Base {
             }
         }
         return ret;
+    }
+
+    public CoderReferral getCoderReferral() {
+        return coderReferral;
+    }
+
+    public void setCoderReferral(CoderReferral coderReferral) {
+        this.coderReferral = coderReferral;
     }
 
 

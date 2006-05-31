@@ -53,6 +53,12 @@ public class Constants implements WebConstants {
 
     public static final String PHOTO = "photo";
 
+    public static final String REFERRAL = "refid";
+    public static final String REFERRAL_CODER = "refidc";
+    public static final String REFERRAL_OTHER = "refido";
+
+
+
 
     public final static String PUNCTUATION = "-_.{}[]()";
     public final static String HANDLE_ALPHABET =  StringUtils.ALPHABET_ALPHA_EN +
@@ -85,6 +91,7 @@ public class Constants implements WebConstants {
     public static int MAX_SCHOOL_RESULTS;
     public static int MAX_FILE_NAME_LENGTH;
 
+    public static int MAX_REFERRAL_OTHER_LENGTH;
 
     public static int REG_TERMS_ID;
 
