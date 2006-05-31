@@ -83,7 +83,7 @@
       &#160;
       </td>
       <td class="value">
-         <a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login</a>
+         <a href="#" onclick="JavaScript:document.frmLogin.submit()" class="bodyText">Login</a>
       </td>
    </tr>
 </table>
