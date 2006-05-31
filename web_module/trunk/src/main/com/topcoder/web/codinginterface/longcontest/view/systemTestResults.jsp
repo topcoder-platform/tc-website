@@ -161,7 +161,7 @@ text-align: left;
                                         <tc-webtag:handle coderId='<%=coderRow.getLongItem("coder_id")%>'/></td>
                                     <td class="<%=style%>">
                                         <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=ViewSubmissionHistory&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.PROBLEM_ID%>=<%=request.getParameter(Constants.PROBLEM_ID)%>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=coderRow%>"/>" class="statLink">
-                                            <rsc:item name="point_total" row="<%=coderRow%>" format="0.00"/></a></td>
+                                            <rsc:item name="system_point_total" row="<%=coderRow%>" format="0.00"/></a></td>
                                     <rsc:iterator list="<%=cases%>" id="caseRow">
                                         <td class="<%=style%>">
                                             <tc-webtag:format object="<%=((HashMap)scoreHash.get(coderRow.getItem("coder_id").getResultData())).get(caseRow.getItem("test_case_id").getResultData())%>" ifNull="--" format="0.0000"/></td>

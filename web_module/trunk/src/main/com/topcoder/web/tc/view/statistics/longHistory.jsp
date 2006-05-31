@@ -58,11 +58,12 @@
                 <tr>
                     <td>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-                            <tr><td class="tableTitle" colspan="4">Marathon Match Competition History</td></tr>
+                            <tr><td class="tableTitle" colspan="5">Marathon Match Competition History</td></tr>
                             <tr>
                                 <TD CLASS="tableHeader" width="25%">Competition</TD>
                                 <TD CLASS="tableHeader" width="25%" align="right">Rank</TD>
-                                <TD CLASS="tableHeader" width="25%" align="right">Score</TD>
+                                <TD CLASS="tableHeader" width="25%" align="right">Provisional Score</TD>
+                                <TD CLASS="tableHeader" width="25%" align="right">Final Score</TD>
                                 <TD CLASS="tableHeader" width="25%" align="right">&#160;</TD>
                             </tr>
                             <%boolean even = true;%>
@@ -72,6 +73,7 @@
                                     </TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="placed"/></TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="point_total" format="0.00"/></TD>
+                                    <TD class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item row="<%=resultRow%>" name="system_point_total" format="0.00"/></TD>
                                     <TD class="<%=even?"statLt":"statDk"%>" align="right">
                                         <a href="/longcontest/longcontest?module=ViewSystemTestResults&pm=<rsc:item row="<%=resultRow%>" name="problem_id"/>&rd=<rsc:item row="<%=resultRow%>" name="round_id"/>">Results</a>
                                     </TD>
