@@ -340,7 +340,7 @@ z-index: 2;
                   <td class="value"><rsc:item name="class_name" row="<%=resultRow%>"/></td>
                   <td class="value"><rsc:item name="succeeded" row="<%=resultRow%>"/></td>
                   <td class="valueR"><rsc:item name="challenger_points" row="<%=resultRow%>" format="0.00"/></td>
-                  <td class="valueC"><A href='tc?module=HSProblemSolution&cr=<%=cr%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
+                  <td class="valueC"><A href='tc?module=HSProblemSolution&cr=<%=resultRow.getItem("defendant_id").toString()%>&rd=<%=round.getRoundId()%>&rm=<%= rm %>&pm=<%= resultRow.getIntItem("problem_id") %>#Defenses'>
                   details</A></td>
                </tr>
            </rsc:iterator>

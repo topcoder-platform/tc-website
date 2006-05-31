@@ -213,7 +213,7 @@ if (highSchool) {
 <%= sSolutionText.trim().length()==0?"Solution Not Available":addSpace(sSolutionText) %>
 </pre>
 
-
+             <a name="defenses"></a>
 <% if (rscDefense.size() > 0) { %>
     <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
        <tr>
