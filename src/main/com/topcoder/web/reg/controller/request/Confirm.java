@@ -199,7 +199,7 @@ public class Confirm extends Base {
             if (fields.contains(Constants.REFERRAL_OTHER) && hasParameter(params, Constants.REFERRAL_OTHER)) {
                 cr.setOther((String)params.get(Constants.REFERRAL_OTHER));
             }
-
+            u.getCoder().setCoderReferral(cr);
         }
 
         setRegUser(u);
