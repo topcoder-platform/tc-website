@@ -159,6 +159,8 @@ Design Cup Series Rookie of the Year Leaderboard
    </rsc:iterator>
 </table>
 
+<span class="small">* has not yet passed review enough times this season to qualify as a rookie</span>
+
 <div class="pagingBox">
 View &#160;
 <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
