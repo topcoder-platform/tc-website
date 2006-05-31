@@ -425,7 +425,7 @@
 <br><br>
 
 <div align="center">
-    <a href="#" onclick="document.confirmForm.submit()">Confirm</a>
+    <a href="#" onclick="document.confirmForm.submit();return false;">Confirm</a>
 </div>
 
 </div>

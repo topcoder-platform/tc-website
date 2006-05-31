@@ -480,7 +480,7 @@
 <br><br>
 
 <div align="center">
-<a href="#" onclick="document.mainForm.submit()">Submit</a>
+<a href="#" onclick="document.mainForm.submit();return false;">Submit</a>
 </div>
 
 </form>
