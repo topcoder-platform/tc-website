@@ -32,9 +32,6 @@
         <ejb>idgenerator.jar</ejb>
     </module>
     <module>
-        <ejb>id_generator.jar</ejb>
-    </module>
-    <module>
         <ejb>notification.jar</ejb>
     </module>
     <module>
