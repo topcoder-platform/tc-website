@@ -99,9 +99,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @param info A RegistrationInfo object contain basic user information
      * @return True if registration is successful, false otherwise
      */
-    public User register(RegistrationInfo info) throws DDEException, DuplicateUsernameException, InvalidRegistrationException,
+    public User register(RegistrationInfo info, long userId, long emailId, long phoneId, long addressId, long companyId) throws DDEException, DuplicateUsernameException, InvalidRegistrationException,
             EJBException {
-        return register(info, true);
+        return register(info, true, userId, emailId, phoneId, addressId, companyId);
     }
 
     /**
@@ -115,7 +115,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
      * @param info A RegistrationInfo object contain basic user information
      * @return True if registration is successful, false otherwise
      */
-    public User register(RegistrationInfo info, boolean sendActivationCode)
+    public User register(RegistrationInfo info, boolean sendActivationCode, long userId, long emailId, long phoneId, long addressId, long companyId)
             throws DDEException, DuplicateUsernameException,
             InvalidRegistrationException, EJBException {
 
@@ -159,7 +159,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             }
             String activationCode = generateActivationCode();
 
-            long userId = IDGeneratorFactory.getIDGenerator("main_sequence").getNextID();
+            //long userId = IDGeneratorFactory.getIDGenerator("main_sequence").getNextID();
             UserPrincipal up = principalMgr.createUser(userId, info.getUsername(), info.getPassword(), tcs);
             //GroupPrincipal gp = new GroupPrincipal(groupName, groupId);
             //principalMgr.addUserToGroup(gp, up, tcs);
@@ -229,7 +229,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 /*
                 long emailId = localIdGen.nextId("EMAIL_SEQ");
 */
-                long emailId = IDGeneratorFactory.getIDGenerator("EMAIL_SEQ").getNextID();
+                //long emailId = IDGeneratorFactory.getIDGenerator("EMAIL_SEQ").getNextID();
 
                 logger.debug("getting email id HERE 2");
                 String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary_ind, email_type_id)" +
@@ -245,7 +245,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
                 //long addressId = localIdGen.nextId("ADDRESS_SEQ");
-                long addressId = IDGeneratorFactory.getIDGenerator("ADDRESS_SEQ").getNextID();
+                //long addressId = IDGeneratorFactory.getIDGenerator("ADDRESS_SEQ").getNextID();
                 String addressQuery = " INSERT INTO common_oltp:address (address_id, address_type_id, address1, address2, city, state_code, zip, country_code)" +
                         " VALUES (?,?, ?,?, ?, ?,?,?)";
                 ps2 = conn.prepareStatement(addressQuery);
@@ -269,7 +269,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 logger.debug("address xref done");
 
                 //long phoneId = localIdGen.nextId("PHONE_SEQ");
-                long phoneId = IDGeneratorFactory.getIDGenerator("PHONE_SEQ").getNextID();
+                //long phoneId = IDGeneratorFactory.getIDGenerator("PHONE_SEQ").getNextID();
                 String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary_ind) VALUES(?,?,?,1)";
                 ps4 = conn.prepareStatement(phoneQuery);
                 ps4.setLong(1, userId);
@@ -280,7 +280,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
                 //long companyId = localIdGen.nextId("COMPANY_SEQ");
-                long companyId = IDGeneratorFactory.getIDGenerator("COMPANY_SEQ").getNextID();
+                //long companyId = IDGeneratorFactory.getIDGenerator("COMPANY_SEQ").getNextID();
                 ps5 = conn.prepareStatement("INSERT INTO common_oltp:company (company_id, primary_contact_id, company_name) " +
                         "VALUES (?,?,?)");
                 ps5.setLong(1, companyId);
@@ -307,8 +307,6 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 */
             } catch (NamingException e) {
                 throw new EJBException("" + e);
-            } catch (IDGenerationException e) {
-                throw new DDEException("could not generate id" + e);
             } finally {
                 if (ps != null) try {
                     ps.close();
@@ -401,9 +399,6 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             throw new DDEException("" + e);
         } catch (GeneralSecurityException e) {
             throw new DDEException("" + e);
-        } catch (IDGenerationException e) {
-            throw new DDEException("could not generate id" + e);
-        }
     }
 
 

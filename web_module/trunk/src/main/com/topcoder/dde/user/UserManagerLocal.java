@@ -8,7 +8,7 @@ import javax.ejb.EJBException;
 
 public interface UserManagerLocal extends javax.ejb.EJBLocalObject {
 
-    public User register(RegistrationInfo info)
+    public User register(RegistrationInfo info, long userId, long emailId, long phoneId, long addressId, long companyId)
             throws EJBException, DDEException, DuplicateUsernameException,
             InvalidRegistrationException;
 

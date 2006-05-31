@@ -14,11 +14,11 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
             throws RemoteException, EJBException;
 
 
-    User register(RegistrationInfo info)
+    User register(RegistrationInfo info, long userId, long emailId, long phoneId, long addressId, long companyId)
             throws RemoteException, DDEException, DuplicateUsernameException,
             InvalidRegistrationException, EJBException;
 
-    User register(RegistrationInfo info, boolean sendActivationCode)
+    User register(RegistrationInfo info, boolean sendActivationCode, long userId, long emailId, long phoneId, long addressId, long companyId)
             throws RemoteException, DDEException, DuplicateUsernameException,
             InvalidRegistrationException, EJBException;
 
