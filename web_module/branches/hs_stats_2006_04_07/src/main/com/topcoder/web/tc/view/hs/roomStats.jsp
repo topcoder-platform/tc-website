@@ -301,7 +301,7 @@ z-index: 2;
       <td class="header">Status</td>
       <td class="headerR">Points</td>
    </tr>
-   <% even = false; %>
+   <% even = true; %>
     <rsc:iterator list="<%= rscProblems %>" id="resultRow">
    <% even = !even; %>
        <tr class="<%=even?"dark":"light"%>">
@@ -331,7 +331,7 @@ z-index: 2;
               <td class="headerR">Points</td>
               <td class="headerC">&#160;</td>
            </tr>
-           <% even = false; %>
+           <% even = true; %>
            <rsc:iterator list="<%= rscChallenge %>" id="resultRow">
                <% even = !even; %>
                <tr class="<%=even?"dark":"light"%>">
