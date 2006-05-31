@@ -40,6 +40,14 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.2.0 - 2006.05.30
+        <ul>
+            <li>Digital Run Stats Site</li>
+            <li>Correct spelling error in the component registration process.</li>
+            <li>Added referrals to registration process</li>
+        </ul>
+    </p>
+    <p>
         5.1.1 - 2006.05.25
         <ul>
             <li>Bugfix for PACTS due to schema change</li>
