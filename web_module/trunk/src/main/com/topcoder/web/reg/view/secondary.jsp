@@ -20,6 +20,7 @@
     <c:set value="<%=Constants.REFERRAL%>" var="referral"/>
     <c:set value="<%=Constants.REFERRAL_CODER%>" var="referralCoder"/>
     <c:set value="<%=Constants.REFERRAL_OTHER%>" var="referralOther"/>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
         function referralSelection() {
