@@ -103,8 +103,7 @@
 </div>
 
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm"
-        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
 <table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
@@ -293,7 +292,7 @@
 <br><br>
 
 <div align="center">
-    <a href="Javascript:document.secondaryForm.submit();">Submit</a>
+    <a href="#" onclick="Javascript:document.secondaryForm.submit();">Submit</a>
 </div>
 
 </form>
