@@ -194,7 +194,7 @@ public class Confirm extends Base {
             cr.setCoder(u.getCoder());
             cr.setReferral(getFactory().getReferralDAO().find(new Integer((String)params.get(Constants.REFERRAL))));
             if (fields.contains(Constants.REFERRAL_CODER) && hasParameter(params, Constants.REFERRAL_CODER)) {
-                    cr.setReferenceCoder(getFactory().getUserDAO().find((String)params.get(Constants.REFERRAL_CODER), true).getCoder());
+                    cr.setReferenceCoder(getFactory().getUserDAO().find((String)params.get(Constants.REFERRAL_CODER), true, true).getCoder());
             }
             if (fields.contains(Constants.REFERRAL_OTHER) && hasParameter(params, Constants.REFERRAL_OTHER)) {
                 cr.setOther((String)params.get(Constants.REFERRAL_OTHER));
