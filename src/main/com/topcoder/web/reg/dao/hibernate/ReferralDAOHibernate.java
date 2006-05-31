@@ -31,9 +31,9 @@ public class ReferralDAOHibernate extends Base implements ReferralDAO {
 
     public Referral findDecline() {
         StringBuffer query = new StringBuffer(100);
-        query.append("from Referral r WHERE r.description = ?");
+        query.append("from Referral r WHERE r.id= ?");
         Query q = session.createQuery(query.toString());
-        q.setString(0, Referral.DECLINE);
+        q.setInteger(0, Referral.DECLINE.intValue());
         return (Referral) q.uniqueResult();
     }
 

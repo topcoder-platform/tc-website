@@ -30,11 +30,12 @@
                 if (selection == <%=Referral.MEMBER_REFERRAL.toString()%>) {
                     document.getElementById('${referralCoder}_div').style.display = 'block';
                     document.getElementById('${referralOther}_div').style.display = 'none';
-                } else if (selection == <%=Referral.OTHER.toString()%>) {
+                } else if (selection == <%=Referral.DECLINE.toString()%>){
+                    hide();
+                } else {
                     document.getElementById('${referralCoder}_div').style.display = 'none';
                     document.getElementById('${referralOther}_div').style.display = 'block';
-                } else {
-                    hide();
+
                 }
             } else {
                 hide();
