@@ -566,10 +566,11 @@ abstract class Base extends HibernateProcessor {
             setDefault(Constants.FILE_NAME, ((Resume) it.next()).getFileName());
         }
 
-        if (u.getCoder()!=null&& u.getCoder().getCoderReferral()!=null&&u.getCoder().getCoderReferral().getReferral()!=null) {
+        if (u.isNew() && u.getCoder()!=null&& u.getCoder().getCoderReferral()!=null&&u.getCoder().getCoderReferral().getReferral()!=null) {
             setDefault(Constants.REFERRAL, u.getCoder().getCoderReferral().getReferral().getId());
             if (u.getCoder().getCoderReferral().getReferenceCoder()!=null) {
-                setDefault(Constants.REFERRAL_CODER, u.getCoder().getCoderReferral().getReferenceCoder().getUser().getHandle());
+                setDefault(Constants.REFERRAL_CODER,
+                        getFactory().getUserDAO().find(u.getCoder().getCoderReferral().getReferenceCoder().getId()).getHandle());
             }
             setDefault(Constants.REFERRAL_OTHER, u.getCoder().getCoderReferral().getOther());
         }
