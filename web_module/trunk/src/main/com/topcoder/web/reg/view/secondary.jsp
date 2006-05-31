@@ -46,8 +46,7 @@
     </script>
 </head>
 
-<%---- THIS FUNCTION SETS WHAT IS VISIBLE ON A PAGE LOAD -----%>
-<body>
+<body onLoad="hide()">
 
 <div align="center" style="padding:6px 0px 6px; 0px;">
     <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
@@ -272,11 +271,7 @@
             <div id="${referralOther}_div">
                 <span class="bigRed">Details:</span><br>
                 <tc-webtag:textInput name="${referralCoder}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
-                <input type="text" size="25" maxlength="255" name="refer_member" value=""/>
             </div>
-            <script type="text/javascript"><!--
-              hide();
-            --></script>
         </td>
     </tr>
 
