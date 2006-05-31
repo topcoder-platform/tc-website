@@ -24,12 +24,13 @@
     <script language="javascript" type="text/javascript">
         <!--
         function referralSelection() {
-            var selection = getSelectedOption('document.secondaryForm', '${referral}');
-            if (selection && selection.value) {
-                    if (selection.value == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
+            //var selection = getSelectedOption('document.secondaryForm', '${referral}');
+            var selection = getValue('document.secondaryForm', '${referral}');
+            if (selection) {
+                    if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
                         document.getElementById('${referralCoder}_div').style.display = 'block';
                         document.getElementById('${referralOther}_div').style.display = 'none';
-                    } else if (selection.value == '<%=Referral.OTHER.toString()%>') {
+                    } else if (selection == '<%=Referral.OTHER.toString()%>') {
                         document.getElementById('${referralCoder}_div').style.display = 'none';
                         document.getElementById('${referralOther}_div').style.display = 'block';
                     } else {
