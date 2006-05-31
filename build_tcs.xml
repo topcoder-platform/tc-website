@@ -296,6 +296,7 @@
                 <include name="com/topcoder/dde/user/activationEmail.xsl"/>
                 <include name="com/topcoder/dde/user/passwordEmail.xsl"/>
                 <include name="com/topcoder/dde/user/UserManagerBean.properties"/>
+                <include name="com/topcoder/db/connectionfactory/DBConnectionFactory.xml"/>
                 <include name="mail_templates/*.xsl"/>
             </fileset>
             <fileset dir="${resources.dir}">
