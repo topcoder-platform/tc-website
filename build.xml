@@ -675,6 +675,7 @@
         <antcall target="expand-corp"/>
         <antcall target="expand-privatelabel"/>
         <antcall target="expand-longcontest"/>
+        <antcall target="expand-reg"/>
 
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
