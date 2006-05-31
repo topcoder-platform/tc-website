@@ -19,6 +19,10 @@
 
 <% // PAGE SPECIFIC DECLARATIONS %>
 <%@ page import="com.topcoder.dde.catalog.*" %>
+<%@ page import="com.topcoder.util.idgenerator.IDGeneratorFactory"%>
+<%@ page import="com.topcoder.dde.user.DuplicateUsernameException"%>
+<%@ page import="com.topcoder.dde.user.User"%>
+<%@ page import="com.topcoder.util.idgenerator.IDGenerationException"%>
 <%
 
     Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
@@ -210,7 +214,14 @@
                 debug.addMsg("registration", "registering user");
 
                 try {
-                    User user = USER_MANAGER.register(ri);
+
+                    long userId = IDGeneratorFactory.getIDGenerator("main_sequence").getNextID();
+                    long emailId = IDGeneratorFactory.getIDGenerator("EMAIL_SEQ").getNextID();
+                    long phoneId = IDGeneratorFactory.getIDGenerator("PHONE_SEQ").getNextID();
+                    long addressId = IDGeneratorFactory.getIDGenerator("ADDRESS_SEQ").getNextID();
+                    long companyId = IDGeneratorFactory.getIDGenerator("COMPANY_SEQ").getNextID();
+
+                    User user = USER_MANAGER.register(ri, userId, emailId, phoneId, addressId, companyId);
                     debug.addMsg("registration", "registered user");
 
                     // REDIRECT SOMEWHERE if session requires it
