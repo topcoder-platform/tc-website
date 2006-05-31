@@ -136,16 +136,25 @@ if (highSchool) {
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
+<span class="bigTitle">Season Something > <A href="LINK TO MATCH OVERVIEW" class="bcLink">Round Something</A></span><br>
+<span class="bodySubtitle">Room: <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A></span><br>
+<% if(forumId > 0) { %>
+<A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
+<% } %>
+<br><br>
+
+
+<%--
+<strong>Match:</strong> <A href="<%= roundOverviewLink %>" class="bcLink"><%=sHeader%></A><br>
 <span class="bodySubtitle"><%= highSchool? "High School" : "Algorithm" %> Statistics > <A href="<%= roundOverviewLink %>" class="bcLink">Match Overview</A> >
 <A href="<%= roomStatsLink%>" class="bcLink">Room Statistics</A> > Problem Solution</span>
 <br><br>
-<strong>Match:</strong> <A href="<%= roundOverviewLink %>" class="bcLink"><%=sHeader%></A><br>
-<strong>Room:</strong> <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A><br>
 <strong>Coder:</strong> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>' /><br>
 <% if(forumId > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
 <% } %>
 <br><br>
+--%>
 
 
 <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
