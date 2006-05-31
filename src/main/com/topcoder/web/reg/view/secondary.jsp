@@ -21,39 +21,41 @@
     <c:set value="<%=Constants.REFERRAL_CODER%>" var="referralCoder"/>
     <c:set value="<%=Constants.REFERRAL_OTHER%>" var="referralOther"/>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
-    <script language="javascript" type="text/javascript">
-        <!--
-        function referralSelection() {
-            //var selection = getSelectedOption('document.secondaryForm', '${referral}');
-            var selection = getValue('document.secondaryForm', '${referral}');
-            if (selection) {
-                if (selection == <%=Referral.MEMBER_REFERRAL.toString()%>) {
-                    document.getElementById('${referralCoder}_div').style.display = 'block';
-                    document.getElementById('${referralOther}_div').style.display = 'none';
-                    putValue("document.secondaryForm", "${referralOther}", null);
-                } else if (selection == <%=Referral.DECLINE.toString()%>){
-                    putValue("document.secondaryForm", "${referralOther}", null);
-                    putValue("document.secondaryForm", "${referralCoder}", null);
-                    hide();
-                } else {
-                    document.getElementById('${referralCoder}_div').style.display = 'none';
-                    document.getElementById('${referralOther}_div').style.display = 'block';
-                    putValue("document.secondaryForm", "${referralCoder}", null);
+    <c:if test="${cf:contains(fields, referral)}">
+        <script language="javascript" type="text/javascript">
+            <!--
+            function referralSelection() {
+                //var selection = getSelectedOption('document.secondaryForm', '${referral}');
+                var selection = getValue('document.secondaryForm', '${referral}');
+                if (selection) {
+                    if (selection == <%=Referral.MEMBER_REFERRAL.toString()%>) {
+                        document.getElementById('${referralCoder}_div').style.display = 'block';
+                        document.getElementById('${referralOther}_div').style.display = 'none';
+                        putValue("document.secondaryForm", "${referralOther}", null);
+                    } else if (selection == <%=Referral.DECLINE.toString()%>){
+                        putValue("document.secondaryForm", "${referralOther}", null);
+                        putValue("document.secondaryForm", "${referralCoder}", null);
+                        hide();
+                    } else {
+                        document.getElementById('${referralCoder}_div').style.display = 'none';
+                        document.getElementById('${referralOther}_div').style.display = 'block';
+                        putValue("document.secondaryForm", "${referralCoder}", null);
 
+                    }
+                } else {
+                    hide();
                 }
-            } else {
-                hide();
             }
-        }
-        function hide() {
-            document.getElementById('${referralCoder}_div').style.display = 'none';
-            document.getElementById('${referralOther}_div').style.display = 'none';
-        }
-        // -->
-    </script>
+            function hide() {
+                document.getElementById('${referralCoder}_div').style.display = 'none';
+                document.getElementById('${referralOther}_div').style.display = 'none';
+            }
+            // -->
+        </script>
+    </c:if>
 </head>
 
-<body onLoad="referralSelection()">
+<body <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>>
 
 <div align="center" style="padding:6px 0px 6px; 0px;">
     <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
