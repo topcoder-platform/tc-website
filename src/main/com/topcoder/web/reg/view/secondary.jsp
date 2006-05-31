@@ -292,7 +292,7 @@
 <br><br>
 
 <div align="center">
-    <a href="#" onclick="document.secondaryForm.submit()">Submit</a>
+    <a href="#" onclick="document.secondaryForm.submit();return false;">Submit</a>
 </div>
 
 </form>
