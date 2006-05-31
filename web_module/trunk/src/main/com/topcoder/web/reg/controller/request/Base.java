@@ -391,7 +391,6 @@ abstract class Base extends HibernateProcessor {
                 simpleValidation(CityValidator.class, fields, params, Constants.SCHOOL_CITY);
                 simpleValidation(ProvinceValidator.class, fields, params, Constants.SCHOOL_PROVINCE);
                 simpleValidation(CountryValidator.class, fields, params, Constants.SCHOOL_COUNTRY);
-                simpleValidation(SchoolTypeValidator.class, fields, params, Constants.SCHOOL_TYPE);
 
                 if (!hasError(Constants.SCHOOL_COUNTRY)) {
                     if (fields.contains(Constants.SCHOOL_STATE)) {
