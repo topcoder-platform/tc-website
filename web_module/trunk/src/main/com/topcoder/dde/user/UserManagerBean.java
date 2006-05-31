@@ -3,8 +3,8 @@ package com.topcoder.dde.user;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.dde.DDEException;
-import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.Forum;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.util.Constants;
@@ -18,12 +18,13 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
-import com.topcoder.util.config.*;
-import com.topcoder.util.idgenerator.bean.IdGen;
-import com.topcoder.util.idgenerator.bean.IdGenException;
-import com.topcoder.util.idgenerator.bean.IdGenHome;
-import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.config.ConfigManager;
+import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.util.config.ConfigManagerInterface;
+import com.topcoder.util.errorhandling.BaseException;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -158,7 +159,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             }
             String activationCode = generateActivationCode();
 
-            UserPrincipal up = principalMgr.createUser(info.getUsername(), info.getPassword(), tcs);
+            long userId = IDGeneratorFactory.getIDGenerator("main_sequence").getNextID();
+            UserPrincipal up = principalMgr.createUser(userId, info.getUsername(), info.getPassword(), tcs);
             //GroupPrincipal gp = new GroupPrincipal(groupName, groupId);
             //principalMgr.addUserToGroup(gp, up, tcs);
 
@@ -181,36 +183,13 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             principalMgr.addUserToGroup(userGroup, up, tcs);
 
 
-            long userId = up.getId();
+            //long userId = up.getId();
             logger.debug("up: " + up);
             LocalDDEUserMasterHome userMasterHome = (LocalDDEUserMasterHome) context.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
             LocalDDEUserMaster userMaster = userMasterHome.create(userId, lastLoginTime, numLogins);
             logger.debug("userMaster");
 
-            LocalDDECountryCodesHome countryCodesHome = (LocalDDECountryCodesHome) context.lookup(LocalDDECountryCodesHome.EJB_REF_NAME);
-            logger.debug("countries2");
-            LocalDDECountryCodes countryCodes = countryCodesHome.findByPrimaryKey(new Long(info.getCountryCode()));
-            logger.debug("countries");
-            //logger.debug("countryCodes");
-            //LocalDDECompanySizeHome companySizeHome = (LocalDDECompanySizeHome) context.lookup(LocalDDECompanySizeHome.EJB_REF_NAME);
-            //LocalDDECompanySize companySize = companySizeHome.findByPrimaryKey(new Long(info.getCompanySize()));
-            //logger.debug("companySize");
-            //LocalDDEPriceTiersHome priceTiersHome = (LocalDDEPriceTiersHome) context.lookup(LocalDDEPriceTiersHome.EJB_REF_NAME);
-            //LocalDDEPriceTiers priceTiers = priceTiersHome.findByPrimaryKey(new Long(info.getPricingTier().getId()));
-            //logger.debug("priceTiers");
-            //logger.debug(info.getPhoneArea());
 
-
-/*
-            LocalDDEUserCustomerHome userCustomerHome = (LocalDDEUserCustomerHome) context.lookup(LocalDDEUserCustomerHome.EJB_REF_NAME);
-            userCustomerHome.create(info.getFirstName(), info.getLastName(), info.getCompany(),
-                                                                        info.getAddress(), info.getCity(), info.getPostalcode(),
-                                                                        info.getPhoneCountry(), info.getPhoneArea(),
-                                                                        info.getPhoneNumber(), info.getUseComponents(),
-                                                                        info.getUseConsultants(), info.getReceiveNews(),
-                                                                        info.getNewsInHtml(), activationCode, info.getEmail(), userMaster, countryCodes,
-                                                                        companySize, priceTiers);
-                                                                        */
             Connection conn = null;
             PreparedStatement ps = null;
             PreparedStatement ps1 = null;
@@ -229,22 +208,10 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 logger.debug("id gen a");
                 //LocalIdGen localIdGen=localIdGenHome.create();
 
-                IdGenHome idGenHome = (IdGenHome) context.lookup("idgenerator/IdGenEJB");
-                IdGen localIdGen = idGenHome.create();
-                /*
-                if (!IdGenerator.isInitialized()) {
-                    IdGenerator.init(
-                            new SimpleDB(),
-                            datasource,
-                            "sequence_object",
-                            "name",
-                            "current_value",
-                            9999999999L,
-                            1,
-                            false
-                    );
-                }
-                */
+/*                IdGenHome idGenHome = (IdGenHome) context.lookup("idgenerator/IdGenEJB");
+                IdGen localIdGen = idGenHome.create();*/
+
+
                 logger.debug("user");
                 String query = " INSERT INTO  common_oltp:user (user_id,handle,status, first_name, last_name, activation_code)" +
                         " VALUES (?,?,?,?,?,?)";
@@ -259,7 +226,10 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
                 logger.debug("user done");
 
+/*
                 long emailId = localIdGen.nextId("EMAIL_SEQ");
+*/
+                long emailId = IDGeneratorFactory.getIDGenerator("EMAIL_SEQ").getNextID();
 
                 logger.debug("getting email id HERE 2");
                 String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary_ind, email_type_id)" +
@@ -274,7 +244,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 logger.debug("email done");
 
 
-                long addressId = localIdGen.nextId("ADDRESS_SEQ");
+                //long addressId = localIdGen.nextId("ADDRESS_SEQ");
+                long addressId = IDGeneratorFactory.getIDGenerator("ADDRESS_SEQ").getNextID();
                 String addressQuery = " INSERT INTO common_oltp:address (address_id, address_type_id, address1, address2, city, state_code, zip, country_code)" +
                         " VALUES (?,?, ?,?, ?, ?,?,?)";
                 ps2 = conn.prepareStatement(addressQuery);
@@ -297,7 +268,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 ps3.execute();
                 logger.debug("address xref done");
 
-                long phoneId = localIdGen.nextId("PHONE_SEQ");
+                //long phoneId = localIdGen.nextId("PHONE_SEQ");
+                long phoneId = IDGeneratorFactory.getIDGenerator("PHONE_SEQ").getNextID();
                 String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary_ind) VALUES(?,?,?,1)";
                 ps4 = conn.prepareStatement(phoneQuery);
                 ps4.setLong(1, userId);
@@ -307,7 +279,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 logger.debug("phone done");
 
 
-                long companyId = localIdGen.nextId("COMPANY_SEQ");
+                //long companyId = localIdGen.nextId("COMPANY_SEQ");
+                long companyId = IDGeneratorFactory.getIDGenerator("COMPANY_SEQ").getNextID();
                 ps5 = conn.prepareStatement("INSERT INTO common_oltp:company (company_id, primary_contact_id, company_name) " +
                         "VALUES (?,?,?)");
                 ps5.setLong(1, companyId);
@@ -328,10 +301,14 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             } catch (SQLException sqle) {
                 throw new DDEException("" + sqle);
+/*
             } catch (IdGenException sqle) {
                 throw new DDEException("could not generate id" + sqle);
+*/
             } catch (NamingException e) {
                 throw new EJBException("" + e);
+            } catch (IDGenerationException e) {
+                throw new DDEException("could not generate id" + e);
             } finally {
                 if (ps != null) try {
                     ps.close();
@@ -416,12 +393,16 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             throw new EJBException("" + e);
         } catch (NamingException e) {
             throw new EJBException("" + e);
+/*
         } catch (FinderException e) {
             throw new DDEException("" + e);
+*/
         } catch (CreateException e) {
             throw new DDEException("" + e);
         } catch (GeneralSecurityException e) {
             throw new DDEException("" + e);
+        } catch (IDGenerationException e) {
+            throw new DDEException("could not generate id" + e);
         }
     }
 
