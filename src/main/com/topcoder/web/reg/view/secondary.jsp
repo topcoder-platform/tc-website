@@ -30,15 +30,15 @@
                 if (selection == <%=Referral.MEMBER_REFERRAL.toString()%>) {
                     document.getElementById('${referralCoder}_div').style.display = 'block';
                     document.getElementById('${referralOther}_div').style.display = 'none';
-                    document.getElementById('${referralOther}').value = null;
+                    putValue("document.secondaryForm", "${referralOther}", null);
                 } else if (selection == <%=Referral.DECLINE.toString()%>){
-                    document.getElementById('${referralOther}').value = null;
-                    document.getElementById('${referralCoder}').value = null;
+                    putValue("document.secondaryForm", "${referralOther}", null);
+                    putValue("document.secondaryForm", "${referralCoder}", null);
                     hide();
                 } else {
                     document.getElementById('${referralCoder}_div').style.display = 'none';
                     document.getElementById('${referralOther}_div').style.display = 'block';
-                    document.getElementById('${referralCoder}').value = null;
+                    putValue("document.secondaryForm", "${referralCoder}", null);
 
                 }
             } else {
