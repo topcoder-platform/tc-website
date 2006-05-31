@@ -136,6 +136,9 @@ if (highSchool) {
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
+<span class="bigTitle">Season > <A href="MATCH OVERVIEW">Round 4</A></span><br>
+
+<%--
 <span class="bodySubtitle"><%= highSchool? "High School" : "Algorithm" %> Statistics > <A href="<%= roundOverviewLink %>" class="bcLink">Match Overview</A> >
 <A href="<%= roomStatsLink%>" class="bcLink">Room Statistics</A> > Problem Solution</span>
 <br><br>
@@ -146,7 +149,7 @@ if (highSchool) {
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=forumId %>" class="bcLink">Discuss this contest</a>
 <% } %>
 <br><br>
-
+--%>
 
 <table cellpadding="0" cellspacing="0" border="0" class="stat" width="100%">
    <tr>
@@ -206,7 +209,7 @@ if (highSchool) {
 <br><br>
 
 <div style="float:right;"><A href="/tc?module=HSProblemStatement&pm=<%=sProblemId%>&rd=<%=sRoundId%>">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>'/>'s solution to <%=sClassName%></span>
+<span class="title"><tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>'/>'s solution to <%=sClassName%></span>
 <br><br>
 
 <pre>
