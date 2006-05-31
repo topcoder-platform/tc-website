@@ -151,7 +151,7 @@ z-index: 2;
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="high_school"/>
-<jsp:param name="title" value="Match Results"/>
+<jsp:param name="title" value="Room Statistics"/>
 </jsp:include>
 
 
@@ -173,6 +173,7 @@ z-index: 2;
 
 <span class="bigTitle"><%= round.getRoundName() %></span><br>
 <span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<span class="bodySubtitle">Room: 1</span><br>
 <% if(round.getForumId() > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
 <% } %>

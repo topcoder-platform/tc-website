@@ -206,7 +206,7 @@ if (highSchool) {
 <br><br>
 
 <div style="float:right;"><A href="/tc?module=HSProblemStatement&pm=<%=sProblemId%>&rd=<%=sRoundId%>">view problem statement</A></div>
-<span class="title">> <tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>'/>'s solution to <%=sClassName%></span>
+<span class="title"><tc-webtag:handle coderId="<%= sCoderId %>" context='<%=context%>'/>'s solution to <%=sClassName%></span>
 <br><br>
 
 <pre>
