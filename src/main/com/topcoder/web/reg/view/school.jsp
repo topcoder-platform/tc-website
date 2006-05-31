@@ -44,7 +44,7 @@
             <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
-            <A href="#" onclick="Javascript:document.schoolSearchForm.submit();">Search</A>
+            <A href="#" onclick="document.schoolSearchForm.submit()">Search</A>
             <br>
             Use * for a wildcard character
             <br><br>

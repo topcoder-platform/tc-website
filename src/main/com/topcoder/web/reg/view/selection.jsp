@@ -111,7 +111,7 @@ function popHide(){
           </div>
         </c:if>
         <div align="center">
-            <a href="#" onclick="Javascript:document.selectionForm.submit();">Submit</a>
+            <a href="#" onclick="document.selectionForm.submit()">Submit</a>
         </div>
 
 
