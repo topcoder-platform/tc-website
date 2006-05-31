@@ -97,7 +97,7 @@ function submitEnter(e) {
                     <span class="errorText">*</span> Handle
                 </td>
                 <td align="left" width="50%">
-                    <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/>
+                    <tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=String.valueOf(regInfo.isNew())%>"/>
                 </td>
             </tr>
 
