@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.rboard.RBoardApplication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 import com.topcoder.web.common.StringUtils;
