@@ -136,7 +136,9 @@ function submitForm(){
              <%= teamResult.getItem(i, "team_points").toString() %>
              </td>
       <% } else { %>
-          <td class="valueC" colspan="3">
+          <td class="valueC" colspan="1">&nbsp;
+          </td>
+          <td class="valueR" colspan="2">&nbsp;
           </td>
       <% } %>
 
