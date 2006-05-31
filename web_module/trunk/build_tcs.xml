@@ -447,9 +447,6 @@
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/id_generator/3.0/">
-                <include name="id_generator.jar"/>
-            </fileset>
             <fileset dir="${jars.dir}/tcs">
                 <include name="forum.jar"/>
             </fileset>
