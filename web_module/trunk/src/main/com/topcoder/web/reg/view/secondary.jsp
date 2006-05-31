@@ -25,16 +25,18 @@
         <!--
         function referralSelection() {
             var selection = getSelectedOption('document.secondaryForm', '${referral}');
-            if (selection == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
-                document.getElementById('${referralCoder}_div').style.display = 'block';
-                document.getElementById('${referralOther}_div').style.display = 'none';
-            } else if (selection == '<%=Referral.OTHER.toString()%>') {
-                document.getElementById('${referralCoder}_div').style.display = 'none';
-                document.getElementById('${referralOther}_div').style.display = 'block';
-            } else {
-                document.getElementById('${referralCoder}_div').style.display = 'none';
-                document.getElementById('${referralOther}_div').style.display = 'none';
-            }
+            if (selection && selection.value) {
+                    if (selection.value == '<%=Referral.MEMBER_REFERRAL.toString()%>') {
+                        document.getElementById('${referralCoder}_div').style.display = 'block';
+                        document.getElementById('${referralOther}_div').style.display = 'none';
+                    } else if (selection.value == '<%=Referral.OTHER.toString()%>') {
+                        document.getElementById('${referralCoder}_div').style.display = 'none';
+                        document.getElementById('${referralOther}_div').style.display = 'block';
+                    } else {
+                        document.getElementById('${referralCoder}_div').style.display = 'none';
+                        document.getElementById('${referralOther}_div').style.display = 'none';
+                    }
+                }
         }
         // -->
     </script>
