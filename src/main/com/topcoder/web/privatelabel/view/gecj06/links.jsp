@@ -74,4 +74,4 @@
 
 <br><br>
 
-<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advQual" class="bigRed">Click here</A> for the results of the Qualification Round!</span>
+<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advRound1" class="bigRed">Click here</A> for the results of the Round 1!</span>
