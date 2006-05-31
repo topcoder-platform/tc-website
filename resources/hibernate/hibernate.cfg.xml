@@ -43,6 +43,7 @@
         <mapping resource="com/topcoder/web/reg/model/AlgoRatingType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CoderImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/CoderReferral.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/CoderType.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Company.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Contact.hbm.xml"/>
@@ -59,6 +60,7 @@
         <mapping resource="com/topcoder/web/reg/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/RegistrationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/reg/model/Referral.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/Resume.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/School.hbm.xml"/>
         <mapping resource="com/topcoder/web/reg/model/SchoolType.hbm.xml"/>

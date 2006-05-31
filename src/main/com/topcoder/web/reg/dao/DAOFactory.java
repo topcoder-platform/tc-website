@@ -18,6 +18,7 @@ public interface DAOFactory {
     FileTypeDAO getFileTypeDAO();
     NotificationDAO getNotificationDAO();
     RegistrationTypeDAO getRegistrationTypeDAO();
+    ReferralDAO getReferralDAO();
     SchoolDAO getSchoolDAO();
     SchoolTypeDAO getSchoolTypeDAO();
     SecurityGroupDAO getSecurityGroupDAO();

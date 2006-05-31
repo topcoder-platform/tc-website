@@ -341,8 +341,9 @@
 <c:set value="<%=Constants.GPA%>" var="gpa"/>
 <c:set value="<%=Constants.GPA_SCALE%>" var="gpaScale"/>
 <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
+<c:set value="<%=Constants.REFERRAL%>" var="referral"/>
 
-<c:if test="${cf:contains(fields, demogPrefix)||cf:contains(fields, resume)||(cf:contains(fields, gpa)&&cf:contains(fields, gpaScale))||cf:contains(fields, schoolName)}">
+<c:if test="${cf:contains(fields, demogPrefix)||cf:contains(fields, resume)||(cf:contains(fields, gpa)&&cf:contains(fields, gpaScale))||cf:contains(fields, schoolName)||cf:contains(fields, referral)}">
     <%--Demographics--%>
     <tr>
         <td class="name">
@@ -403,6 +404,17 @@
         </td>
         <td class="value">
                 ${regUser.coder.currentSchool.school.name}
+        </td>
+    </tr>
+</c:if>
+
+<c:if test="${cf:contains(fields, referral)}">
+    <tr>
+        <td class="name">
+            How did you hear<br>about TopCoder?:
+        </td>
+        <td class="value">
+                ${regUser.coder.coderReferral.referral.description} ${regUser.coder.coderReferral.referenceCoder.user.handle} ${regUser.coder.coderReferral.other} 
         </td>
     </tr>
 </c:if>

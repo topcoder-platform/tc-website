@@ -37,6 +37,7 @@ public class Confirm extends Base {
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
                 getRequest().setAttribute("demographicAssignments",getAssignments(u));
+                getRequest().setAttribute("referrals",(u));
                 setNextPage("/secondary.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -187,6 +188,20 @@ public class Confirm extends Base {
             u.getCoder().getCurrentSchool().setGPA(new Float((String)params.get(Constants.GPA)));
             u.getCoder().getCurrentSchool().setGPAScale(new Float((String)params.get(Constants.GPA_SCALE)));
         }
+
+        if (fields.contains(Constants.REFERRAL)) {
+            CoderReferral cr = new CoderReferral();
+            cr.setCoder(u.getCoder());
+            cr.setReferral(getFactory().getReferralDAO().find(new Integer((String)params.get(Constants.REFERRAL))));
+            if (fields.contains(Constants.REFERRAL_CODER) && hasParameter(params, Constants.REFERRAL_CODER)) {
+                    cr.setReferenceCoder(getFactory().getUserDAO().find((String)params.get(Constants.REFERRAL_CODER), true).getCoder());
+            }
+            if (fields.contains(Constants.REFERRAL_OTHER) && hasParameter(params, Constants.REFERRAL_OTHER)) {
+                cr.setOther((String)params.get(Constants.REFERRAL_OTHER));
+            }
+
+        }
+
         setRegUser(u);
     }
 

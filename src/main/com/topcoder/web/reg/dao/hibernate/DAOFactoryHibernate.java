@@ -56,6 +56,10 @@ public class DAOFactoryHibernate implements DAOFactory  {
         return new RegistrationTypeDAOHibernate();
     }
 
+    public ReferralDAO getReferralDAO() {
+        return new ReferralDAOHibernate();
+    }
+
     public SchoolDAO getSchoolDAO() {
         return new SchoolDAOHibernate();
     }

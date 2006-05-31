@@ -1,6 +1,6 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.UserDAOTestCase;
+import com.topcoder.web.reg.validation.ReferralValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -19,7 +19,6 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(NotificationDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
-        suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(FileTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(RegistrationTypeDAOTestCase.class));
@@ -31,8 +30,10 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
         suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(TermsOfUseDAOTestCase.class));
-*/
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+        suite.addTest(new TestSuite(CoderDAOTestCase.class));
+        suite.addTest(new TestSuite(ReferralDAOTestCase.class));
+*/
 /*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
@@ -70,10 +71,11 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(GPAValidatorTestCase.class));
         suite.addTest(new TestSuite(GPAScaleValidatorTestCase.class));
         suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
-        suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
+        suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
 */
+        suite.addTest(new TestSuite(ReferralValidatorTestCase.class));
 
 //        suite.addTest(new TestSuite(DetachedTestCase.class));
 
