@@ -181,10 +181,6 @@ public class    ProfileSearch extends Base {
         if ("on".equals(request.getParameter("resume"))) {
             query.append("    resume res,\n");
         }
-        String[] notify = request.getParameterValues("notifications");
-        if (notify != null && notify.length > 0) {
-            query.append("    user_notify_xref cn,\n");
-        }
 
         for (int i = 0; i < tables.size(); i++) {
             String tab = (String) tables.get(i);
@@ -227,15 +223,16 @@ public class    ProfileSearch extends Base {
         if ("on".equals(request.getParameter("resume"))) {
             query.append("    AND res.coder_id = c.coder_id\n");
         }
+        String[] notify = request.getParameterValues("notifications");
         if (notify != null && notify.length > 0) {
-            query.append("    AND cn.user_id = c.coder_id\n");
+            query.append("    and exists (select 1 from user_notify_xref cn where cn.user_id = u.user_id and \n");
             query.append("    AND cn.notify_id in (");
             query.append(notify[0]);
             for (int i = 1; i < notify.length; i++) {
                 query.append(',');
                 query.append(notify[i]);
             }
-            query.append(")\n");
+            query.append("))\n");
         }
 
         for (int i = 0; i < constraints.size(); i++) {
