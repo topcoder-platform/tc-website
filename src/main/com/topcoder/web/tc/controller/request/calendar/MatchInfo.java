@@ -19,6 +19,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 
 import javax.naming.Context;
 import java.util.Map;
@@ -28,7 +29,7 @@ import java.util.Map;
  */
 public abstract class MatchInfo extends Base {
     private static Logger log = Logger.getLogger(MatchInfo.class);
-    protected abstract void setForwardPage();  // defined by subclasses
+    protected abstract void setForwardPage(boolean isHSMatch);  // defined by subclasses
     
     protected void businessProcessing() throws TCWebException {
         String result = null;
@@ -46,6 +47,9 @@ public abstract class MatchInfo extends Base {
             dataRequest.setProperty("rd", rd.trim());
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Schedule_SRMS");
+            if (rsc.isEmpty()) {
+                throw new NavigationException("Sorry, we could not find any information about the match specified.");
+            }
             getRequest().setAttribute("rsc", rsc);
 
             ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)rsc.get(0);
@@ -58,27 +62,7 @@ public abstract class MatchInfo extends Base {
             time += "&sec=0";
             getRequest().setAttribute("time", time);
             
-            /*
-            getRequest().setAttribute("contest_name", rsr.getStringItem("contest_name"));
-            getRequest().setAttribute("round_id", new Integer(rsr.getIntItem("round_id")));
-            getRequest().setAttribute("path",  rsr.getStringItem("path"));
-            getRequest().setAttribute("link",  rsr.getStringItem("link"));
-            getRequest().setAttribute("width", new Integer(rsr.getIntItem("width")));
-            getRequest().setAttribute("height", new Integer(rsr.getIntItem("height")));
-            getRequest().setAttribute("time", time);
-            getRequest().setAttribute("reg_begin", rsr.getStringItem("reg_begin"));
-            getRequest().setAttribute("date", rsr.getStringItem("date"));
-            getRequest().setAttribute("coding_begin", rsr.getStringItem("coding_begin"));
-            getRequest().setAttribute("forum_id", new Integer(rsr.getIntItem("forum_id")));
-            getRequest().setAttribute("reg_date", rsr.getStringItem("reg_date"));
-            */
-            
-            /*ArrayList contests = dcHome.getAdContests();
-            if (contests != null && contests.size() > 0) {
-                schedTag.addTag(Data.getDynamicContestInfo(contests));
-            }*/
-
-            setForwardPage();
+            setForwardPage(rsc.getIntItem(0, "round_type_di")==17);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
