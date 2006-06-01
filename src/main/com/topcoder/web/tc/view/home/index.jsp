@@ -193,21 +193,10 @@ margin:0px auto;
       <table border="0" cellpadding="0" cellspacing="0">
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0" /></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">May Events:</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">June Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
-            <td class="homeText"><br>
-            <b>05/03 - 05/05</b> - TCO06 Semis and Finals<br><br>
-            <b>05/09</b> - SRM 301 - 9 PM<br><br>
-            <b>05/10</b> - Marathon Match 1 - 12 NOON<br><br>
-            <b>05/11</b> - SRM 302 - 7 AM<br><br>
-            <b>05/17</b> - Intel Multi-Threading Competition 5 - 12 NOON<br><br>
-            <b>05/18</b> - SRM 303 - 11 AM<br><br>
-            <b>05/27</b> - SRM 304 - 12 NOON - AMD<br><br>
-            <b>05/31</b> - SRM 305 - 9 PM - VeriSign<br><br>
-            </td>
-            <%--CHANGE MONTH NAME
             <td class="homeText"><br>
             <b>06/05</b> - HS SRM 1 - 7 PM<br><br>
             <b>06/07</b> - Marathon Match 2 - 12 NOON<br><br>
@@ -219,8 +208,7 @@ margin:0px auto;
             <b>06/24</b> - SRM 308 - 12 NOON<br><br>
             <b>06/26</b> - HS SRM 4 - 6 AM<br><br>
             <b>06/28</b> - SRM 309 - 11 AM<br><br>
-            </td>--%>
-
+            </td>
          </tr>
          
 <%-- Press Room --%>
