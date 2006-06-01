@@ -259,9 +259,11 @@ public class User extends Base {
         Set ret = new HashSet();
         for (Iterator it = securityGroups.iterator(); it.hasNext();) {
             g = (UserGroup)it.next();
-            for (Iterator it1 = g.getSecurityGroup().getRegistrationTypes().iterator(); it1.hasNext();) {
-                RegistrationType o = (RegistrationType)it1.next();
-                ret.add(o);
+            if (SecurityGroup.ACTIVE.equals(g.getSecurityStatusId())) {
+                for (Iterator it1 = g.getSecurityGroup().getRegistrationTypes().iterator(); it1.hasNext();) {
+                    RegistrationType o = (RegistrationType)it1.next();
+                    ret.add(o);
+                }
             }
         }
         return Collections.unmodifiableSet(ret);
