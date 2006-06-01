@@ -46,11 +46,15 @@ ResultSetContainer image = (ResultSetContainer) queryEntries.get("Round_Sponsor_
 ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
 
 String sHeader = "";
+String sSeason = "";
+String sMatch = "";
 String sRoomName = "";
 
 if (resultRowHdr != null) {
  highSchool = resultRowHdr.getIntItem("algo_rating_type_id") == 2;
  sHeader = (highSchool? seasonName + "&nbsp;&gt;&nbsp;" : "") + resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
+ sSeason = (highSchool? seasonName: "");
+ sMatch = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
  sRoomName = resultRowHdr.getItem(2).toString() ;
  forumId =resultRowHdr.getIntItem("forum_id");
 }
@@ -136,8 +140,8 @@ if (highSchool) {
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="subtitle">Season > <A href="MATCH OVERVIEW">Round 4</A></span><br>
-
+<span class="subtitle"><%=sSeason%> > <A href="<%= roundOverviewLink %>" class="bcLink"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A></span><br>
+<br><br>
 <%--
 <span class="bodySubtitle"><%= highSchool? "High School" : "Algorithm" %> Statistics > <A href="<%= roundOverviewLink %>" class="bcLink">Match Overview</A> >
 <A href="<%= roomStatsLink%>" class="bcLink">Room Statistics</A> > Problem Solution</span>

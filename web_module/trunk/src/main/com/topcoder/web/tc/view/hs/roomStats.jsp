@@ -171,7 +171,7 @@ z-index: 2;
 </div>
 
 
-<span class="subtitle"><%= round.getSeasonName() %> > <A href="MATCH OVERVIEW" class="bcLink"><%= round.getRoundName() %></A></span><br>
+<span class="subtitle"><%= round.getSeasonName() %> > <A href="MATCH OVERVIEW" class="bcLink"><%= round.getRoundName() %></A> > <%= roomName %></span><br>
 <% if(round.getForumId() > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
 <% } %>
@@ -179,7 +179,7 @@ z-index: 2;
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="18"><%= round.getRoundName() %> > <%= roomName %> Results</td></tr>
+   <tr><td class="title" colspan="18">Room Statistics</td></tr>
    <tr>
       <td class="headerC" colspan="3">&#160;</td>
       <td class="headerR" colspan="2">Submissions</td>
