@@ -206,7 +206,7 @@ z-index: 2;
 <% } %>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="16"><%= round.getRoundName() %> > Individual Results</td></tr>
+   <tr><td class="title" colspan="16">Match Results - Individual</td></tr>
    <tr>
       <td class="header" colspan="2" rowspan="2"><A href="javascript:clickColumn(0)">Coder</A></td>
       <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Placement<br>Points</td>

@@ -135,8 +135,8 @@ function clickColumn(n)
 <% }  %>
 </div>
 
-<span class="bodySubtitle">Top Ranked > High School Competitions</span><br>
-<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<span class="subtitle">Top Ranked > High School Competitions</span><br>
+<span class="subtitle">Season: <%= round.getSeasonName() %></span><br>
 
 <span class="bc">
 Coders |
