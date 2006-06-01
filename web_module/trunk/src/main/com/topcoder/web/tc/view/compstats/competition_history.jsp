@@ -143,7 +143,7 @@ z-index: 1;
            <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
            <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
               <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                 <tr><td class="title" colspan="9">
+                 <tr><td class="title" colspan="10">
                  <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
                     Development
                  <% } else { %>
