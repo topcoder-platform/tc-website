@@ -1,5 +1,7 @@
 package com.topcoder.web.reg.dao;
 
+import com.topcoder.web.reg.model.User;
+
 import java.util.Set;
 import java.util.List;
 
@@ -10,4 +12,5 @@ import java.util.List;
  */
 public interface SecurityGroupDAO {
     List getSecurityGroups(Set registrationTypes);
+    public boolean hasInactiveHSGroup(User u);
 }
