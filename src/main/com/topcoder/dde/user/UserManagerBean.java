@@ -306,7 +306,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 throw new DDEException("could not generate id" + sqle);
 */
             } catch (NamingException e) {
-                throw new EJBException("" + e);
+                throw new EJBException(e);
             } finally {
                 if (ps != null) try {
                     ps.close();
@@ -388,17 +388,18 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             return user;
         } catch (RemoteException e) {
-            throw new EJBException("" + e);
+            throw new EJBException(e);
         } catch (NamingException e) {
-            throw new EJBException("" + e);
+            throw new EJBException(e);
 /*
         } catch (FinderException e) {
             throw new DDEException("" + e);
 */
         } catch (CreateException e) {
-            throw new DDEException("" + e);
+            throw new DDEException(e.getMessage());
         } catch (GeneralSecurityException e) {
-            throw new DDEException("" + e);
+            e.printStackTrace();
+            throw new DDEException(e.getMessage());
         }
     }
 
