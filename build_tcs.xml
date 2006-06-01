@@ -246,7 +246,7 @@
         <jar jarfile="${ejb.jars.dir}/security.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/**"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources.dir}/security/conf" includes="*.xml"/>
+            <metainf dir="${resources.dir}/security/conf" includes="*.xml" excludes="application.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
