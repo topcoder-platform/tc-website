@@ -100,7 +100,7 @@ function toggleTabs(id) {
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
-<table cellpadding="0" cellspacing="0" border="0" class="tabTable">
+<table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
   <tr>
       <td id="tabGen1" width="0%" class="tabLeftOn">&#160;</td>
       <td id="tabGen2" width="20%" class="tabTextOn"><A href="javascript:void(0)" onclick="toggleTabs('gen')" class="tabLink">General Settings</A></td>
