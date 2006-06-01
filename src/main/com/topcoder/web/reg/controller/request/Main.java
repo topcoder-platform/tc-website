@@ -78,7 +78,7 @@ public class Main extends Base {
             if (!u.isNew()&&requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
-                } else if (CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType())) {
+                } else if (CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
                 }
 
