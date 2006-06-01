@@ -62,7 +62,7 @@ public abstract class MatchInfo extends Base {
             time += "&sec=0";
             getRequest().setAttribute("time", time);
             
-            setForwardPage(rsc.getIntItem(0, "round_type_di")==17);
+            setForwardPage(rsc.getIntItem(0, "round_type_id")==17);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
