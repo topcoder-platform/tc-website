@@ -43,8 +43,8 @@
  | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes">Prizes</A>
  | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_roty">Rookie of the Year</A>
  | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2006_des_rules">Rules</A><br>
-<A class="bcLink" href="/tc?&ph=113&module=LeaderBoard">Current leaderboard</A> | 
-<A class="bcLink" href="/tc?module=RookieBoard&ph=113">Current ROTY leaderboard</A>
+<A class="bcLink" href="/tc?&ph=112&module=LeaderBoard">Current leaderboard</A> | 
+<A class="bcLink" href="/tc?module=RookieBoard&ph=112">Current ROTY leaderboard</A>
 </div>
 <span class="title">Schedule</span>
 <br><br>
