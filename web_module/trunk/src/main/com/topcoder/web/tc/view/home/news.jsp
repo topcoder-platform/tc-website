@@ -9,6 +9,29 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.01.06<br>1:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm305">SRM 305 - Problem Set & Analysis</A></span><br><br>
+      An unusually tricky Division 2 Medium/Division 1 Easy kept scores generally 
+low.  At the end of the coding phase, 
+<tc-webtag:handle coderId="8394868" context="algorithm"/>
+led by 60 points over 
+<tc-webtag:handle coderId="10574855" context="algorithm"/> and
+<tc-webtag:handle coderId="7462740" context="algorithm"/>, who were neck
+and neck.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/vorthys_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="299177" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm305">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505871" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.30.06<br>3:50 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -175,20 +198,6 @@
        <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506015" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>05.15.05<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06</A> [MOVIE]</span><br><br>
-      Featuring members antimatter, John Dethridge, tomek and Ken Vogel.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/movies/press/cnbc_051506.mov">watch movie</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506016" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-         
    </td></tr>
 
 
