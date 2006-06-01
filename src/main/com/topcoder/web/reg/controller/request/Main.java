@@ -75,10 +75,9 @@ public class Main extends Base {
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question, professionals,
                //people whose current school is a college (questionable),
-            if (!u.isNew()) {
-                if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
+            if (!u.isNew()&&requestedTypes.contains(regTypeDAO.getHighSchoolType()) &&
+                getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
-                }
             }
 
             if (hasErrors()) {
