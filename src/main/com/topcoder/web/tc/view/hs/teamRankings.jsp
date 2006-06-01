@@ -132,6 +132,10 @@ function submitEnter(e)
 Teams |
 <a href="/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>" class="bcLink">Countries</a>
 </span>
+
+<% if (result.isEmpty()) { %>
+<center><span class="bigTitle">There are no rated teams</span></center>
+<% } else { %>
 <div class="pagingBox">
 <%=(result.croppedDataBefore()? ("<a href='Javascript:showRows(" + (li.getStartRow() - li.getNumberOfRows()) + "," +  li.getNumberOfRows() + ", true)'>&lt;&lt; prev</a>") :"&lt;&lt; prev")%>
 | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
@@ -172,6 +176,7 @@ View &nbsp;
 <a href="Javascript:showRows(document.pagingForm.sr.value, document.pagingForm.nr.value, false)" class="bcLink">&nbsp;[ submit ]</a>
 </form>
 
+<% } %>
 <br><br>
 </div>
 </td>
