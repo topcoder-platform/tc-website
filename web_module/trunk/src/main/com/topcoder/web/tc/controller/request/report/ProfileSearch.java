@@ -206,7 +206,7 @@ public class    ProfileSearch extends Base {
         query.append("    and x.user_id = u.user_id \n");
         query.append("    and x.address_id = a.address_id \n");
         query.append("    and a.address_type_id = 2 \n");
-        query.append("    AND a.state_code = st.state_code,'')\n");
+        query.append("    AND a.state_code = st.state_code\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
         if (comp != null && comp.length() > 0) {
