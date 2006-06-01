@@ -17,7 +17,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <HEAD>
-        <TITLE>Single Round Match (SRM) Schedule at TopCoder</TITLE>
+        <TITLE>TopCoder - High School Competitions</TITLE>
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_stats"/>
         </jsp:include>
@@ -35,29 +35,23 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                 <!-- Left Column Begins -->
                 <TD WIDTH="180" VALIGN="top">
                     <jsp:include page="../includes/global_left.jsp">
-                        <jsp:param name="node" value="m_algo_competitions"/>
+                        <jsp:param name="node" value="m_hs_competitions"/>
                     </jsp:include>
                 </TD>
                 <!-- Left Column Ends -->
 
-                <!-- Gutter Begins -->
-                <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="5" BORDER="0"/></TD>
-                <!-- Gutter Ends -->
 
                 <!-- Center Column Begins -->
-                <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
-                    <jsp:include page="../page_title.jsp" >
-                        <jsp:param name="image" value="schedule"/>
-                        <jsp:param name="title" value="Contest"/>
-                    </jsp:include>
+<td width="100%" align="center" class="bodyColumn">
 
-                    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-                        <TR>
-                            <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-                            <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
-                                <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+<div class="fixedWidthBody">
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="high_school"/>
+    <jsp:param name="title" value="SRM Details"/>
+</jsp:include>
 
-                                <TABLE WIDTH="428" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
+<div align="center">
+                                <TABLE WIDTH="428" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                                     <TR><TD COLSPAN="3" ALIGN="center"><IMG SRC="/i/clear.gif" ALT="" WIDTH="428" HEIGHT="10" BORDER="0" /></TD></TR>
 
                                     <TR>
@@ -131,7 +125,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
 
 
                                     <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                                        <b>Single Round Match (SRM) Description</b>
+                                        <b>TCHS SRM Description</b>
 
                                         <ul>
                                             <li>Maximum of 25 coders per room</li>
@@ -147,7 +141,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             </p>
 
                                         <b>Structure & Scoring</b><br />
-                                        <p>
+                                        <p style="padding-left:20px;">
                                             <b>Teams</b><br />
                                             A team is defined as a group of at least three (3) students from the same school.
                                             All students registered from a particular school will be on the same team.
@@ -156,7 +150,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             best team score will be declared the winner during each SRM.
                                             </p>
 
-                                        <p>
+                                        <p style="padding-left:40px;">
                                             <b>Scoring</b><br/>
                                         TopCoder High School team scoring is different from scoring in most other team sports,
                                             in that the lowest score wins. Although more than three (3) members may compete
@@ -165,20 +159,20 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
                                             score of 54.
                                         </p>
-                                        <p>
+                                        <p style="padding-left:40px;">
                                             <b>Coaches</b><br />
                                         Those teams wishing to use a coach to prepare for any SRM may do so, but the use of
                                         coaches is not mandatory.  Coaches should be a Computer Science, Math, or other
                                         teacher from the team's school.
                                             </p>
 
-                                        <p>
+                                        <p style="padding-left:20px;">
                                         Teams must compete in rated events prior to the start of the 2007 TopCoder High School
                                         tournament.  In order to be eligible for the tournament, a team must have competed in
                                         at least four (4) rated events prior to the start of the tournament.
                                         </p>
 
-                                        <p>
+                                        <p style="padding-left:20px;">
                                             <b>Individuals</b><br />
                                             There will also be an individual track of competition for those students who cannot
                                             assemble a team and/or who wish to participate as an individual, separate from
@@ -194,10 +188,10 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         regions will be as follows:
                                             </p>
                                         <ul>
-                                            <li>Alpha Region - Time zones that fall within GMT -12 through GMT -5</li>
-                                            <li>Beta Region - Time zones that fall within GMT -4 through GMT +2</li>
-                                            <li>Gamma Region - Time zones that fall within GMT +3 through GMT +7</li>
-                                            <li>Delta Region - Time zones that fall within GMT +8 through GMT +12</li>
+                                            <li>Alpha Region - Time zones that fall within <strong>GMT -12 through GMT -5</strong></li>
+                                            <li>Beta Region - Time zones that fall within <strong>GMT -4 through GMT +2</strong></li>
+                                            <li>Gamma Region - Time zones that fall within <strong>GMT +3 through GMT +7</strong></li>
+                                            <li>Delta Region - Time zones that fall within <strong>GMT +8 through GMT +12</strong></li>
                                         </ul>
 
                                         <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
@@ -214,21 +208,15 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             inclusive, pursuing a secondary school education and who is not matriculated full time
                                             at a college or university may compete in any Single Round Match.</p>
 
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations.</B></A>
+                                        <A HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations.</B></A>
                                     </TD></TR>
                                 </TABLE>
 
-                                <P><BR/></P>
-
-                            </TD>
-                        </TR>
-                    </TABLE>
+                  </div>
+                  </div>
                 </TD>
                 <!-- Center Column Ends -->
 
-                <!-- Gutter -->
-                <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-                <!-- Gutter Ends -->
 
                 <!-- Right Column Begins -->
                 <TD WIDTH="170"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>

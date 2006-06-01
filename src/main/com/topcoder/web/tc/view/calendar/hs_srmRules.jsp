@@ -12,7 +12,7 @@
 <html>
 
 <HEAD>
-    <TITLE>TopCoder :: Schedule</TITLE>
+    <TITLE>TopCoder - Schedule</TITLE>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
@@ -30,27 +30,25 @@
 <!-- Left Column Begins-->
 <td width="180">
     <jsp:include page="../includes/global_left.jsp">
-        <jsp:param name="node" value="m_algo_competitions"/>
+        <jsp:param name="node" value="m_hs_competitions"/>
     </jsp:include>
 </td>
 <!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
 <jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="schedule"/>
-    <jsp:param name="title" value="SRM Official Rules & Qualification"/>
+    <jsp:param name="image" value="high_school"/>
+    <jsp:param name="title" value="SRM Official Rules & Regulationss"/>
 </jsp:include>
 
 
 
 
-   <span class="bigRed">
-       <b>
-           <rsc:item name="contest_name" row="<%=rsr%>"/>
-           <br>
-           Official Rules and Regulations
-       </b>
-   </span>
-<br>
+<span class="title">TopCoder High School <rsc:item name="contest_name" row="<%=rsr%>"/></span>
+<br><br>
+<span class="subtitle">Official Rules and Regulations</span>
+<br><br>
 No purchase necessary to enter or win. Void where prohibited.
 <br/><br/>
 
@@ -61,16 +59,16 @@ No purchase necessary to enter or win. Void where prohibited.
     rooms.</p>
 
 
-<b>About the Single Round Match</b><br/>
+<b>About the TCHS SRM</b><br/>
 <ul>
     <li><b>When to start the Single Round Match (SRM)</b><br/>
         TopCoder High School (TCHS) members must register for the SRM. Registration is from <rsc:item name="reg_begin"
                                                                                                       row="<%=rsr%>"/>
         to <rsc:item name="reg_end" row="<%=rsr%>"/>. To register, login
         to the TopCoder High School Arena application, click on the 'Active Contests' menu, choose the SRM to
-        register for, and select the 'Register' option. TCHS members from all over the world may be participating in
+        register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be participating in
         this SRM, but all start times will be communicated as Eastern Time, so contestants in different time zones must
-        adjust accordingly. All competitors who have registered for the competition will be assigned to a specific
+        adjust accordingly.</em></strong> All competitors who have registered for the competition will be assigned to a specific
         competition room. TopCoder will perform the room assignments prior to the start of the competition.
     </li>
     <li>
@@ -108,12 +106,12 @@ No purchase necessary to enter or win. Void where prohibited.
 By participating in the SRM, you agree to be bound by these rules and to all decisions of TopCoder, which are final,
 binding and conclusive in all matters.
 
-<p class="bigReg">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's
+<p><span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's
     alone. TopCoder
-    uses the word "cheat" to mean collaboration of any sort – including, but not limited to, working with another
+    uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another
     competitor, submitting code that was not fully authored by you, and using resources, software, etc. that
     are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any
-    competitor from the tournament who it suspects has cheated.</p>
+    competitor from the tournament who it suspects has cheated.</span></p>
 
 <p>All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining
     to
@@ -160,6 +158,7 @@ education and not matriculated full time at a college or university.
 <p>This SRM is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.</p>
 
 
+</div>
 </TD>
 <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br>
     <jsp:include page="/public_right.jsp">
