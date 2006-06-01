@@ -32,3 +32,10 @@
 <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/" />
 </map>
 <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
+
+<%-- TCCC06 logo contest
+<map name="logo">
+<area shape="rect" alt="" coords="460,126 498,146" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview" />
+</map>
+<img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest" usemap="#logo" />
+ --%>
