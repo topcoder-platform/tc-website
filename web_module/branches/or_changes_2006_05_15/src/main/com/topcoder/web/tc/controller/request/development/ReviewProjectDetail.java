@@ -146,7 +146,7 @@ public class ReviewProjectDetail extends Base {
         try {
             InitialContext context = new InitialContext();
 
-            Object o = context.lookup("RBoardApplicationHome");
+            Object o = context.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome r = (RBoardApplicationHome) PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
             return r.create();
 
