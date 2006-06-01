@@ -497,7 +497,7 @@ public class    ProfileSearch extends Base {
         boolean revise = "on".equals(request.getParameter("revise"));
         for (int i = 0; !revise && i < languages.getRowCount(); i++) {
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
-            setDefault("lang_" + lang.getIntItem("language_id"), "true");
+            setDefault("lang_" + lang.getIntItem("language_id"), String.valueOf(false));
         }
         for (int i = 0; i < textFields.length; i++) {
             setDefault(textFields[i], request.getParameter(textFields[i]));
