@@ -2,9 +2,13 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
+import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.NavigationException;
@@ -143,8 +147,20 @@ public class ReviewProjectDetail extends Base {
     }
     
     private RBoardApplication createRBoardApplication() throws Exception {
-       // try {
-            InitialContext context = new InitialContext();
+        InitialContext ctx = null;
+
+        ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+        log.info("context: " + ctx.getEnvironment().toString());
+
+        Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
+        RBoardApplicationHome rBoardApplicationHome =
+                (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
+        RBoardApplication rBoardApplication = rBoardApplicationHome.create();
+        
+        return rBoardApplication;
+
+        // try {
+         /*   InitialContext context = new InitialContext();
 
             log.info(RBoardApplicationHome.class);
             log.info(RBoardApplicationHome.class.getName());
@@ -163,7 +179,7 @@ public class ReviewProjectDetail extends Base {
 
             RBoardApplicationHome r = (RBoardApplicationHome) o2;
             
-            return r.create();
+            return r.create();*/
 
             /*
         } catch (Exception e) {
