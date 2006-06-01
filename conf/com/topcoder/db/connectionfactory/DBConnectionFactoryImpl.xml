@@ -80,7 +80,7 @@
             </Property>
             <Property name="parameters">
                 <Property name="jndi_name">
-                    <Value>java:InformixDS</Value>
+                    <Value>java:OLTP</Value>
                 </Property>
             </Property>
         </Property>
