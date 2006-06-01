@@ -37,7 +37,7 @@ public class HandleTag extends TagSupport {
     private static final String[] darkStyles =
             {"coderTextOrange", "coderTextBlack", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
-
+ 
     public void setCoderId(long coderId) {
         //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
