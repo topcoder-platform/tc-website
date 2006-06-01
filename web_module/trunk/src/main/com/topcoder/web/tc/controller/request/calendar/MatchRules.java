@@ -21,7 +21,11 @@ public class MatchRules extends MatchInfo {
         super.businessProcessing();
     }
 
-    protected void setForwardPage() {
-        setNextPage("/calendar/srmRules.jsp");
+    protected void setForwardPage(boolean isHSMatch) {
+        if (isHSMatch) {
+            setNextPage("/calendar/hs_srmRules.jsp");
+        } else {
+            setNextPage("/calendar/srmRules.jsp");
+        }
     }
 }
