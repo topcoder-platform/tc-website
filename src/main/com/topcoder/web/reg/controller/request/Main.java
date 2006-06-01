@@ -32,36 +32,10 @@ public class Main extends Base {
                 }
             }
 
-
             User u = getRegUser();
 
             requestedTypes.addAll(u.getRegistrationTypes());
             setRequestedTypes(requestedTypes);
-
-            if (u.getContact() == null && (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())))
-            {
-                Contact c = new Contact();
-                u.setContact(c);
-                c.setUser(u);
-            }
-            if (u.getCoder() == null && requestedTypes.contains(regTypeDAO.getCompetitionType())) {
-                Coder c = new Coder();
-                u.setCoder(c);
-                c.setUser(u);
-            }
-            if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
-                Coder c;
-                if (u.getCoder() == null) {
-                    c = new Coder();
-                    c.setUser(u);
-                    u.setCoder(c);
-                } else {
-                    c = u.getCoder();
-                }
-                c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
-            }
-
-            setRegUser(u);
 
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
@@ -75,17 +49,10 @@ public class Main extends Base {
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question,
                //people whose current school is a college (questionable),
-            log.debug("coder type id: " + u.getCoder().getCoderType().getId());
-            log.debug("pro: " + CoderType.PROFESSIONAL);
-            log.debug("user is currently " + u.getId());
-            log.debug("coder is currently " + u.getCoder().getId());
             if (!u.isNew()&&requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
-                log.debug("not new and trying to get hs");
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
-                    log.debug("inactive hs");
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
-                } else if (CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
-                    log.debug("pro");
+                } else if (u.getCoder()!=null&&CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
                 }
 
@@ -108,6 +75,31 @@ public class Main extends Base {
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
             } else {
+                if (u.getContact() == null &&
+                        (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType()))) {
+                    Contact c = new Contact();
+                    u.setContact(c);
+                    c.setUser(u);
+                }
+                if (u.getCoder() == null && requestedTypes.contains(regTypeDAO.getCompetitionType())) {
+                    Coder c = new Coder();
+                    u.setCoder(c);
+                    c.setUser(u);
+                }
+                if (requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+                    Coder c;
+                    if (u.getCoder() == null) {
+                        c = new Coder();
+                        c.setUser(u);
+                        u.setCoder(c);
+                    } else {
+                        c = u.getCoder();
+                    }
+                    c.setCoderType(getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+                }
+
+                setRegUser(u);
+
                 setMainDefaults(u);
 
                 u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
