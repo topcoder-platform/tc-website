@@ -8,18 +8,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%
-/*
-String contest_name = (String)request.getAttribute("contest_name");
-String path = StringUtils.checkNull((String)request.getAttribute("path"));
-String link = StringUtils.checkNull((String)request.getAttribute("link"));
-int width = ((Integer)request.getAttribute("width")).intValue();
-int height = ((Integer)request.getAttribute("height")).intValue();
-String date = StringUtils.checkNull((String)request.getAttribute("date"));
-String reg_begin = StringUtils.checkNull((String)request.getAttribute("reg_begin"));
-String reg_end = StringUtils.checkNull((String)request.getAttribute("reg_end"));
-String coding_begin = StringUtils.checkNull((String)request.getAttribute("coding_begin"));
-int forum_id = ((Integer)request.getAttribute("forum_id")).intValue();
-*/
 
 ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)(((ResultSetContainer)request.getAttribute("rsc")).get(0));
 int round_id = rsr.getIntItem("round_id");
@@ -109,14 +97,6 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                     </TR>
 
 
-<%--
-                                    <% if (round_id == 4365) { %>
-                                    <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
-                                        <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
-                                    </TD></TR>
-                                    <% } %>
---%>
-
                                     <TR>
                                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
 
@@ -127,124 +107,6 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             to see when coding begins in other time zones.<br/></center>
                                             <% if (rsr.getItem("forum_id").getResultData()!=null && rsr.getIntItem("forum_id") != 0) { %>
                                             <center><strong><tc-webtag:forumLink forumID="<%=rsr.getIntItem("forum_id")%>" message="Discuss This Match" /></strong><br/><br/></center>
-                                            <% } %>
-                                            <% if (round_id == 8075) { %>
-                                            <br/>
-                                            TopCoder Employment Services is placing members in the Tampa Bay, FL area.  <A HREF="/tc?module=ContractingPreferences">Click here to register.</A><br/><br/>
-                                            <% } else if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
-                                            <br/>
-                                            <b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part in <rsc:item name="contest_name" row="<%=rsr%>"/>, you'll be eligible for a chance to win one 60GB Apple iPod!</b><br/><br/>
-                                            <table width="428" border="0" cellpadding="6" cellspacing="2" >
-                                                <tr valign="top">
-                                                    <td align="center" valign="middle">
-                                                        <img src="http://www.topcoder.com/i/sponsor/sap_ipod.jpg" />
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <br/><br/>
-                                            For Official Contest Rules on how to win a 60GB Apple iPod click <A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/><br/>
-                                            <% } else if (round_id == 4710) { %>
-                                            <b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
-                                            <% } else if (round_id == 5856) { %>
-                                            <p>
-                                                If you're a member of <a href="/?t=sponsor&amp;c=link&amp;link=http://www.intel.com/IDS&amp;refer=srm_details" target="_blank">Intel Developer Services</a> AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174; Centrino(TM) mobile technology-based notebook!
-                                            </p>
-                                            <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                                                <tr>
-                                                    <td align="left" valign="middle">
-                                                    </td>
-                                                </tr>
-                                                <tr valign="top">
-                                                    <td align="left" valign="middle">
-                                                        <h2>Intel<sup>&#174;</sup><br/>Centrino(TM)<br/>Mobile<br/>Technology-<br/>based Tablet<br/>PC Quick<br/>Specs</h2>
-                                                    </td>
-                                                    <td align="left" valign="middle">
-                                                        <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0"/>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                                                <tr valign="top">
-                                                    <td class="sidebarTitle">Configuration Details:</td>
-                                                    <td class="sidebarText">1 Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M PROCESSOR 1.0GHz, Intel<sup>&#174;</sup>
-                                                    855GM CHIPSET, OEM BASEBOARD, DDR266 512MB (1x512MB) MEMORY, INTEGRATED GRAPHICS, TABLET FORM FACTOR CHASSIS, WINDOWS
-                                                    XP TABLET PC OS, CALEXICO 802.11b (Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection)</td>
-                                                </tr>
-
-                                                <tr valign="top">
-                                                    <td class="sidebarTitle">Description:</td>
-                                                    <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M based Centrino(TM) Tablet Platform</td>
-                                                </tr>
-
-                                                <tr valign="top">
-                                                    <td class="sidebarTitle">Functionality:</td>
-                                                    <td class="sidebarText">Production-level</td>
-                                                </tr>
-
-                                                <tr valign="top">
-                                                    <td class="sidebarTitle">New Technologies:</td>
-                                                    <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M processor, Intel<sup>&#174;</sup> 855
-                                                    Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino(TM) Mobile Technology)</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>For Official Contest Rules on how to win an Intel&#174; Centrino(TM) Mobile Technology-based Tablet PC click <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b></p><br/>
-                                            <% } else if (round_id == 5075) { %>
-                                            In celebration of SRM 200, TopCoder will hold 10 random drawings at the conclusion of the challenge phase.  In order to be eligible to be randomly chosen for a prize, you must both register for SRM 200 during the registration period and participate in the match.<br/>
-                                            <br/>
-                                            The prizes to be given away are: <br/>
-                                            <br/>
-                                            (3) TopCoder Hooded Jackets<br/>
-                                            (3) TopCoder Backpacks<br/>
-                                            (4) TopCoder Polo Shirts<br/>
-                                            <br/>
-                                            A given competitor will only be eligible to win, at most, one random drawing.
-                                            <br/>
-                                            <br/>
-                                            <% } else if (round_id == 5849) { %>
-                                            <table>
-                                                <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
-                                                <tr><td class="bodyText"></td></tr>
-                                                <tr><td class="bodyText">August 10:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                                <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                                <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                            </table>
-                                            <br/>
-                                            <% } else if (round_id == 5853) { %>
-                                            <table>
-                                                <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
-                                                <tr><td class="bodyText"></td></tr>
-                                                <tr><td class="bodyText">September 14:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                                <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                            </table>
-                                            <br/>
-                                            <% } else if (round_id == 5857) { %>
-                                            <table>
-                                                <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
-                                                <tr><td class="bodyText"></td></tr>
-                                                <tr><td class="bodyText">October 4:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                                <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                            </table>
-                                            <br/>
-                                            <% } else if (round_id == 5860) { %>
-                                            <table>
-                                                <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
-                                                <tr><td class="bodyText"></td></tr>
-                                                <tr><td class="bodyText">November 4:</td><td class="bodyText">Register - 6:00AM ET </td><td class="bodyText">Compete - 9:00AM ET</td></tr>
-                                                <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                            </table>
-                                            <br/>
-                                            <% } else if (round_id == 5864) { %>
-                                            <table>
-                                                <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
-                                                <tr><td class="bodyText"></td></tr>
-                                                <tr><td class="bodyText">December 7:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
-                                            </table>
-                                            <br/>
                                             <% } %>
                                         </TD>
                                     </TR>
@@ -266,65 +128,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         </TD>
                                     </TR>
 
-                                    <% if (round_id == 8070 || round_id == 8073 || round_id == 8076) { %>
-                                    <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                                        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP.  There will also be a raffle for an iPod during each match.***</b></font><br/><br/>
-                                        <B>Single Round Match Description</B>
-                                        <UL>
-                                            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
-                                            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all rooms in each division.</li>
-                                            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.</li>
-                                            <li>Approximately 20 competitors will be assigned to each room.</li>
-                                            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the room award, respectively.</li>
-                                            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award, respectively.</li>
-                                            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
-                                            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
-                                            <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-                                        </UL>
-                                        <B>Eligibility:</B>
-                                        <UL>
-                                            <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
-                                            <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes in this competition and are ineligible to donate any prize to charity.  If any such employee finishes in a prize-winning position in the competition, the next-best competitor will either receive the prize or be able to donate the applicable prize to a charity.</li>
-                                            <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle.  Go here to register:  <a href="http://www.topcoder.com/?t=sponsor&amp;c=link&amp;link=http://sdn.sap.com">http://sdn.sap.com</a> and use “TopCoder” as a referral.</li>
-                                        </UL>
-                                        <BR/><BR/>
 
-                                        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=round_id%>&c=rules"><B>Click here for complete rules &amp; regulations</B></A>
-                                    </TD></TR>
 
-                                    <% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822) { %>
-                                    <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                                        <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
-                                        <B>Single Round Match Description</B>
-                                        <UL>
-                                            <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one room. All other competitors, including non-rated competitors, will be placed into a division two room.</li>
-                                            <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all rooms in each division.</li>
-                                            <li>70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.</li>
-                                            <li>Approximately 20 competitors will be assigned to each room.</li>
-                                            <li>The first, second, and third place coders in each division one room will receive 50%, 30%, and 20% of the room award, respectively.</li>
-                                            <li>The first and second place competitors in each division two room will receive 60% and 40% of the room award, respectively.</li>
-                                            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will be distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive (30%+20%)/5 or 10% of the room award.)</li>
-                                            <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated rated event</li>
-                                            <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-                                        </UL>
-                                        <B>Eligibility:</B>
-                                        <UL>
-                                            <li>Any TopCoder member in good standing, who is at least 13 years of age, may compete in this competition.</li>
-                                            <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
-                                            <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
-                                        </UL>
-                                        <BR/><BR/>
-
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
-                                    </TD></TR>
-
-                                    <% } else { %>
                                     <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                                         <B>Single Round Match Description</B>
                                         <UL>
@@ -332,19 +137,92 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <LI>Ratings will be adjusted post-match</LI>
                                             <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
                                         </UL>
-                                        The match will feature a mixed programming language format.  For each individual problem, the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174; .NET to code the solution.  Syntactical knowledge of all four languages will be helpful during the challenge phase of each round of competition.<BR/><BR/>
-                                        <B>Divisions and Room Assignments:</B>
-                                        <UL>
-                                        <LI>Members rated 1200 or better compete in Division-I</LI>
-                                        <LI>Members rated 1199 or lower compete in Division-II</LI>
-                                        <LI>Members not yet rated compete in Division-II</LI>
-                                        <LI>Room assignments place members of like divisions together</LI>
-                                        <LI>Rating changes go into effect in next participated match</LI></UL>
-                                        <B>Eligibility:</B><BR/><BR/>
-                                        Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
-                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations</B></A>
+
+
+                                        <b>Single Round Match (SRM) Description</b>
+
+                                        <ul>
+                                            <li>Maximum of 25 coders per room</li>
+                                            <li>Ratings will be adjusted post-match for individuals and team members</li>
+                                            <li>Members will be emailed prior to the match with date and time (opt-in)</li>
+                                        </ul>
+
+                                        <p>
+                                        The match will feature a mixed programming language format. For each individual problem,
+                                        the coder will have the option of using either Java, C++, Microsoft® Visual C#® .NET
+                                        or Microsoft® Visual Basic® .NET to code the solution. Syntactical knowledge of all
+                                        four languages will be helpful during the challenge phase of each match.
+                                            </p>
+
+                                        <b>Structure & Scoring</b><br />
+                                        <b>Teams</b><br />
+                                        <p>
+                                            A team is defined as a group of at least three (3) students from the same school.
+                                            All students registered from a particular school will be on the same team.
+                                            Each person on the team will participate individually and the team score will be
+                                            calculated by adding the placement of the top three (3) team scorers.  The
+                                            best team score will be declared the winner during each SRM.
+                                            </p>
+
+                                        <b>Scoring</b><br/>
+                                        <p>
+                                        TopCoder High School team scoring is different from scoring in most other team sports,
+                                            in that the lowest score wins. Although more than three (3) members may compete
+                                            in each SRM, the placement of the first three (3) members for each team are
+                                            added together to determine the team score.  For example, a finish of 1, 3,
+                                            and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
+                                            score of 54.
+                                        </p>
+                                        <b>Coaches</b><br />
+                                        <p>
+                                        Those teams wishing to use a coach to prepare for any SRM may do so, but the use of
+                                        coaches is not mandatory.  Coaches should be a Computer Science, Math, or other
+                                        teacher from the team's school.
+                                            </p>
+
+                                        <p>
+                                        Teams must compete in rated events prior to the start of the 2007 TopCoder High School
+                                        tournament.  In order to be eligible for the tournament, a team must have competed in
+                                        at least four (4) rated events prior to the start of the tournament.
+                                        </p>
+
+                                        <b>Individuals</b><br />
+                                        <p>There will also be an individual track of competition for those students who cannot
+                                            assemble a team and/or who wish to participate as an individual, separate from
+                                            their team.  As with the teams, in order to be eligible for the
+                                            2007 TopCoder High School tournament, individuals must have competed in at
+                                            least four (4) rated events prior to the start of the tournament.
+                                            </p>
+
+                                        <b>Regions</b><br />
+                                        <p>
+                                        In order to best accommodate students from across the globe competing at times
+                                        that are convenient, SRMs will take place according to regions.  The
+                                        regions will be as follows:
+                                            </p>
+                                        <ul>
+                                            <li>Alpha Region – Time zones that fall within GMT -12 through GMT -5</li>
+                                            <li>Beta Region – Time zones that fall within GMT -4 through GMT +2</li>
+                                            <li>Gamma Region – Time zones that fall within GMT +3 through GMT +7</li>
+                                            <li>Delta Region – Time zones that fall within GMT +8 through GMT +12</li>
+                                        </ul>
+
+                                        <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
+
+                                        <p>Each week there will be one (1) SRM that will take place during a time that is convenient
+                                            for a particular region.  Each region will have approximately one (1) SRM each month
+                                            that is intended for their region.  Teams and individuals may compete in any SRM, regardless
+                                            of the SRM time and their region.  However, each team and individual wishing to be
+                                            eligible for the 2007 TopCoder High School tournament must compete in at least four (4)
+                                            SRMs intended for their region prior to the start of the tournament.</p>
+
+                                        <b>Eligibility</b><br />
+                                        <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20,
+                                            inclusive, pursuing a secondary school education and who is not matriculated full time
+                                            at a college or university may compete in any Single Round Match.</p>
+
+                                        <A CLASS="bodyText" HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations.</B></A>
                                     </TD></TR>
-                                    <% } %>
                                 </TABLE>
 
                                 <P><BR/></P>
