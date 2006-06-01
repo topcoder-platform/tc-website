@@ -12,6 +12,9 @@ import java.util.Set;
  */
 public class SecurityGroup extends Base {
 
+    public static final Integer ACTIVE = new Integer(1);
+    public static final Integer INACTIVE = new Integer(2);
+
     private Long groupId;
     private String description;
     private Long createUserId;
