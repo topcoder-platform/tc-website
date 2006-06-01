@@ -225,7 +225,7 @@ public class    ProfileSearch extends Base {
         }
         String[] notify = request.getParameterValues("notifications");
         if (notify != null && notify.length > 0) {
-            query.append("    and exists (select 1 from user_notify_xref cn where cn.user_id = u.user_id and \n");
+            query.append("    and exists (select 1 from user_notify_xref cn where cn.user_id = u.user_id \n");
             query.append("    AND cn.notify_id in (");
             query.append(notify[0]);
             for (int i = 1; i < notify.length; i++) {
