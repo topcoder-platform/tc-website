@@ -33,11 +33,11 @@ public class SecurityGroupDAOHibernate extends Base implements SecurityGroupDAO 
     public boolean hasInactiveHSGroup(User u) {
         StringBuffer query = new StringBuffer(100);
         query.append("FROM UserGroup ug ");
-        query.append(" WHERE ug.securityGroup.registrationTypes.id = ? AND ug.securityStatus_id = ? AND ug.user.id = ?");
+        query.append(" WHERE ug.securityGroup.registrationTypes.id = ? AND ug.securityStatusId = ? AND ug.user.id = ?");
         Query q = session.createQuery(query.toString());
         q.setInteger(0, RegistrationType.HIGH_SCHOOL_ID.intValue());
         q.setInteger(1, SecurityGroup.INACTIVE.intValue());
         q.setLong(2, u.getId().longValue());
-        return q.list().isEmpty();
+        return !q.list().isEmpty();
     }
 }
