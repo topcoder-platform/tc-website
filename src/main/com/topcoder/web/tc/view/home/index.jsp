@@ -198,15 +198,15 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>06/05</b> - HS SRM 1 - 7 PM<br><br>
+            <b>06/05</b> - TCHS SRM 1 - 7 PM<br><br>
             <b>06/07</b> - Marathon Match 2 - 12 NOON<br><br>
             <b>06/08</b> - SRM 306 - 7 AM<br><br>
-            <b>06/12</b> - HS SRM 2 - 2 PM<br><br>
+            <b>06/12</b> - TCHS SRM 2 - 2 PM<br><br>
             <b>06/14</b> - Intel Multi-Threading Competition 6 - 12 NOON<br><br>
             <b>06/14</b> - SRM 307 - 9 PM<br><br>
-            <b>06/19</b> - HS SRM 3 - 10 AM<br><br>
+            <b>06/19</b> - TCHS SRM 3 - 10 AM<br><br>
             <b>06/24</b> - SRM 308 - 12 NOON<br><br>
-            <b>06/26</b> - HS SRM 4 - 6 AM<br><br>
+            <b>06/26</b> - TCHS SRM 4 - 6 AM<br><br>
             <b>06/28</b> - SRM 309 - 11 AM<br><br>
             </td>
          </tr>
