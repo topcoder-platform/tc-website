@@ -136,7 +136,7 @@ if (highSchool) {
 <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="bigTitle">Season > <A href="MATCH OVERVIEW">Round 4</A></span><br>
+<span class="subtitle">Season > <A href="MATCH OVERVIEW">Round 4</A></span><br>
 
 <%--
 <span class="bodySubtitle"><%= highSchool? "High School" : "Algorithm" %> Statistics > <A href="<%= roundOverviewLink %>" class="bcLink">Match Overview</A> >

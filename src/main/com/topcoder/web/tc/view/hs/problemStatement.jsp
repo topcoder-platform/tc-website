@@ -78,7 +78,7 @@ if (rsc!=null && !rsc.isEmpty()) {
 
 
 
-<span class="bigTitle"><%= sClassName==null? "" : sClassName %></span>
+<span class="subtitle"><%= sClassName==null? "" : sClassName %></span>
 <br><br>
                  <% if (problem!=null) {
                    ProblemRenderer pr = new ProblemRenderer(problem);
