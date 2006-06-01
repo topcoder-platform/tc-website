@@ -142,17 +142,33 @@ public class ReviewProjectDetail extends Base {
 
     }
     
-    private RBoardApplication createRBoardApplication() throws CreateException {
-        try {
+    private RBoardApplication createRBoardApplication() throws Exception {
+       // try {
             InitialContext context = new InitialContext();
 
+            log.info(RBoardApplicationHome.class);
+            log.info(RBoardApplicationHome.class.getName());
+            
             Object o = context.lookup(RBoardApplicationHome.class.getName());
-            RBoardApplicationHome r = (RBoardApplicationHome) PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
+
+            log.info(o.getClass());
+            log.info(o.getClass().getName());
+                        
+            Object o2 = PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
+            
+            log.info(o2.getClass());
+            log.info(o2.getClass().getName());
+                           
+            //RBoardApplicationHome r = (RBoardApplicationHome) PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
+
+            RBoardApplicationHome r = (RBoardApplicationHome) o2;
+            
             return r.create();
 
+            /*
         } catch (Exception e) {
             throw new CreateException("Could not find bean!" + e);
-        }
+        }*/
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
