@@ -15,4 +15,9 @@ public class SecurityGroupDAOTestCase extends TCHibernateTestCase {
         HashSet s = new HashSet(Util.getFactory().getRegistrationTypeDAO().getRegistrationTypes());
         assertFalse("couldn't find the security groups", Util.getFactory().getSecurityGroupDAO().getSecurityGroups(s).isEmpty());
     }
+
+    public void testHasInactiveHSGroup() {
+        assertTrue("didn't find inactive group for SnapDragon",
+                Util.getFactory().getSecurityGroupDAO().hasInactiveHSGroup(Util.getFactory().getUserDAO().find("SnapDragon", false)));
+    }
 }
