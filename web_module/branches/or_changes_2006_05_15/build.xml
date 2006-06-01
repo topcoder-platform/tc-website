@@ -1363,8 +1363,6 @@
                 <include name="public_right.jsp"/>
             </fileset>
             <classes dir="${classes}">
-                <include name="com/topcoder/apps/review/rboard/RBoardApplicationHome.class"/>
-                <include name="com/topcoder/apps/review/rboard/RBoardApplication.class"/>
                 <include name="com/topcoder/common/**/*.class"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/web/tc/**/*.class"/>
