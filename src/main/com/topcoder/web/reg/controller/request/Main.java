@@ -92,6 +92,9 @@ public class Main extends Base {
             } else {
                 //todo if they are attempting to register for high school, and they are not eligible,
                 //todo give them a message saying they are not eligible to register for highschool
+                //todo those that are ineligable: big age demographic question, professionals,
+                   //people whose current school is a college (questionable),
+                   // those with an inactive user_group_xref entry for hs 
                 setMainDefaults(u);
 
                 u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
