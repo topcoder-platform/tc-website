@@ -21,7 +21,11 @@ public class MatchDetails extends MatchInfo {
         super.businessProcessing();
     }
 
-    protected void setForwardPage() {
-        setNextPage("/calendar/srm.jsp");
+    protected void setForwardPage(boolean isHSMatch) {
+        if (isHSMatch) {
+            setNextPage("/calendar/hs_srm.jsp");
+        } else {
+            setNextPage("/calendar/srm.jsp");
+        }
     }
 }
