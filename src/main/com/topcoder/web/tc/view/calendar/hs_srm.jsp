@@ -131,14 +131,6 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
 
 
                                     <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-                                        <B>Single Round Match Description</B>
-                                        <UL>
-                                            <LI>Maximum of 20 coders per room</LI>
-                                            <LI>Ratings will be adjusted post-match</LI>
-                                            <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
-                                        </UL>
-
-
                                         <b>Single Round Match (SRM) Description</b>
 
                                         <ul>
@@ -155,8 +147,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             </p>
 
                                         <b>Structure & Scoring</b><br />
-                                        <b>Teams</b><br />
                                         <p>
+                                            <b>Teams</b><br />
                                             A team is defined as a group of at least three (3) students from the same school.
                                             All students registered from a particular school will be on the same team.
                                             Each person on the team will participate individually and the team score will be
@@ -164,8 +156,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             best team score will be declared the winner during each SRM.
                                             </p>
 
-                                        <b>Scoring</b><br/>
                                         <p>
+                                            <b>Scoring</b><br/>
                                         TopCoder High School team scoring is different from scoring in most other team sports,
                                             in that the lowest score wins. Although more than three (3) members may compete
                                             in each SRM, the placement of the first three (3) members for each team are
@@ -173,8 +165,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
                                             score of 54.
                                         </p>
-                                        <b>Coaches</b><br />
                                         <p>
+                                            <b>Coaches</b><br />
                                         Those teams wishing to use a coach to prepare for any SRM may do so, but the use of
                                         coaches is not mandatory.  Coaches should be a Computer Science, Math, or other
                                         teacher from the team's school.
@@ -186,8 +178,9 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         at least four (4) rated events prior to the start of the tournament.
                                         </p>
 
-                                        <b>Individuals</b><br />
-                                        <p>There will also be an individual track of competition for those students who cannot
+                                        <p>
+                                            <b>Individuals</b><br />
+                                            There will also be an individual track of competition for those students who cannot
                                             assemble a team and/or who wish to participate as an individual, separate from
                                             their team.  As with the teams, in order to be eligible for the
                                             2007 TopCoder High School tournament, individuals must have competed in at
@@ -201,10 +194,10 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         regions will be as follows:
                                             </p>
                                         <ul>
-                                            <li>Alpha Region – Time zones that fall within GMT -12 through GMT -5</li>
-                                            <li>Beta Region – Time zones that fall within GMT -4 through GMT +2</li>
-                                            <li>Gamma Region – Time zones that fall within GMT +3 through GMT +7</li>
-                                            <li>Delta Region – Time zones that fall within GMT +8 through GMT +12</li>
+                                            <li>Alpha Region - Time zones that fall within GMT -12 through GMT -5</li>
+                                            <li>Beta Region - Time zones that fall within GMT -4 through GMT +2</li>
+                                            <li>Gamma Region - Time zones that fall within GMT +3 through GMT +7</li>
+                                            <li>Delta Region - Time zones that fall within GMT +8 through GMT +12</li>
                                         </ul>
 
                                         <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
