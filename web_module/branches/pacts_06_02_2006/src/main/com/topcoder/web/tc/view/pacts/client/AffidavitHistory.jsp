@@ -23,7 +23,7 @@ function goTo(selection){
 </script>
  </HEAD>
  <BODY>
-   <jsp:include page="../../top.jsp" />
+
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="170" VALIGN="top">
@@ -71,7 +71,7 @@ function goTo(selection){
 
    // build the table
    PactsMemberTableModel tableData = new PactsMemberTableModel(
-                                           affidavits.length+1,5);
+                                           affidavits.length+1,6);
 
    //set up the table title row
    tableData.setElement(0,0,"Description");
@@ -79,6 +79,7 @@ function goTo(selection){
    tableData.setElement(0,2,"Net Payment Amount");
    tableData.setElement(0,3,"Notarized");
    tableData.setElement(0,4,"Status");
+   tableData.setElement(0,5,"Date Paid");
 
    // fill in the data
    for(int i=1;i<=affidavits.length;i++) {
@@ -129,6 +130,8 @@ function goTo(selection){
        // status
        tableData.setElement(i,4,affidavits[i-1].getHeader().getStatusDesc());
 
+	   // date paid
+	   tableData.setElement(i,5,affidavits[i-1].getPayDate());
    }
 
    PactsHtmlTable table = new PactsHtmlTable(tableData);

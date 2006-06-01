@@ -6,8 +6,8 @@
 <%
 	ResultSetContainer statusList = (ResultSetContainer)
 		request.getAttribute(PactsConstants.PROJECT_TERMINATION_STATUS_LIST);
-	String projID = StringUtils.checkNull((String)request.getAttribute(PactsConstants.PROJECT_ID)).trim();
-	String projTermStatus = StringUtils.checkNull((String)request.getAttribute(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
+	String projID = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_ID)).trim();
+	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 %>
 <html>
     <head>
@@ -31,7 +31,7 @@
                     					<font color="red"><%=errStr%></font>
                     			<% 	} else if (errStr.indexOf("Success:") != -1) { %>
                     					<font color="green"><%=errStr%>
-                    					<a href="/PactsInternalServlet?<%=PactsConstants.PROJECT_ID%>=<%=projID%>&c=payment&t=list">view</a></font>
+                    					(<a href="/PactsInternalServlet?<%=PactsConstants.PROJECT_ID%>=<%=projID%>&c=payment&t=list">view</a>)</font>
                     			<% 	} %>
                     			<% 	if (err!=null && !err.equals("")) { errCount++; } %>
                     		</tc-webtag:errorIterator>

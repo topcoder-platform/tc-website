@@ -19,8 +19,6 @@ public class ViewGenerateComponentPayments extends BaseProcessor implements Pact
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
-            getRequest().setAttribute(PROJECT_ID, getRequest().getAttribute(PROJECT_ID));
-            getRequest().setAttribute(PROJECT_TERMINATION_STATUS, getRequest().getAttribute(PROJECT_TERMINATION_STATUS));
             setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {
