@@ -1,9 +1,12 @@
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.apps.review.rboard.RBoardApplication;
+import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.idgenerator.bean.IdGen;
+import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -16,6 +19,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 
 /**
  * @author dok
@@ -115,7 +122,8 @@ public class ReviewProjectDetail extends Base {
 
                 getRequest().setAttribute("reviewerList", reviewerList);
 
-                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+//                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+                RBoardApplication rba = createRBoardApplication();
                 Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                 if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
@@ -132,6 +140,19 @@ public class ReviewProjectDetail extends Base {
         setNextPage(Constants.REVIEW_PROJECT_DETAIL);
         setIsNextPageInContext(true);
 
+    }
+    
+    private RBoardApplication createRBoardApplication() throws CreateException {
+        try {
+            InitialContext context = new InitialContext();
+
+            Object o = context.lookup("RBoardApplicationHome");
+            RBoardApplicationHome r = (RBoardApplicationHome) PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
+            return r.create();
+
+        } catch (Exception e) {
+            throw new CreateException("Could not find bean!" + e);
+        }
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
