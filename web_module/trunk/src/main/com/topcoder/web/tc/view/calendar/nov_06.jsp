@@ -85,7 +85,7 @@
       </td>
       <td class="value">6
          <div class="hs">
-         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 19</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">TCHS SRM 19</A></strong><br>
          10:00 AM
          </div>
       </td>
@@ -139,7 +139,7 @@
       </td>
       <td class="value">20
          <div class="hs">
-         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 20</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">TCHS SRM 20</A></strong><br>
          6:00 AM
          </div>
       </td>
@@ -168,7 +168,7 @@
       </td>
       <td class="value">27
          <div class="hs">
-         <strong><A href="/tc?module=Static&d1=hs&d2=home">HS SRM 21</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=hs&d2=home">TCHS SRM 21</A></strong><br>
          7:00 PM
          </div>
       </td>
