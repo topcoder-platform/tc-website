@@ -110,7 +110,6 @@ function popHide(){
 // -->
 </script>
 
-</script>
 
 <STYLE TYPE="text/css">
 #popBox{ position: relative; }
