@@ -67,6 +67,7 @@ public class HandleTag extends TagSupport {
     }
 
     public void setContext(String s) {
+        log.debug("context=" + s);
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
         if (s.toLowerCase().trim().equals(HS_ALGORITHM)) hsAlgorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
@@ -76,7 +77,7 @@ public class HandleTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         log.debug("HandleTag- NEW VERSION with coderid " + coderId);
-
+if (hsAlgorithm) log.debug("CONTEXT HS");
         try {
             //lookup ratings from cache
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -95,7 +96,7 @@ public class HandleTag extends TagSupport {
             if (cssclass != null && !cssclass.equals("")) {
                 bCSSOverride = true;
             }
-
+log.debug("hs_algo_ratin="+rsc.getIntItem(0, "hs_algorithm_rating"));
             StringBuffer output = new StringBuffer();
             output.append("<a href=\"");
             if (link.equals("")) {
@@ -105,6 +106,7 @@ public class HandleTag extends TagSupport {
             if (algorithm && rsc.getIntItem(0, "algorithm_rating")>0) {
                 output.append("&tab=alg");
             } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating")>0) {
+                log.debug("setting tab");
                 output.append("&tab=hs");
             } else if (design && rsc.getIntItem(0, "design_rating")>0) {
                 output.append("&tab=des");
@@ -130,6 +132,7 @@ public class HandleTag extends TagSupport {
                 if (algorithm) {
                     rating = rsc.getIntItem(0, "algorithm_rating");
                 } else if (hsAlgorithm) {
+                    log.debug("using hs algorithm rating");
                     rating = rsc.getIntItem(0, "hs_algorithm_rating");
                 } else if (design) {
                     rating = rsc.getIntItem(0, "design_rating");
