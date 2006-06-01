@@ -8,9 +8,7 @@ import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.*;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author dok
@@ -73,6 +71,15 @@ public class Main extends Base {
                     addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
                 }
             }
+            //todo if they are attempting to register for high school, and they are not eligible,
+            //todo give them a message saying they are not eligible to register for highschool
+            //todo those that are ineligable: big age demographic question, professionals,
+               //people whose current school is a college (questionable),
+            if (!u.isNew()) {
+                if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
+                    addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
+                }
+            }
 
             if (hasErrors()) {
 
@@ -90,11 +97,6 @@ public class Main extends Base {
                 setNextPage("/selection.jsp");
                 setIsNextPageInContext(true);
             } else {
-                //todo if they are attempting to register for high school, and they are not eligible,
-                //todo give them a message saying they are not eligible to register for highschool
-                //todo those that are ineligable: big age demographic question, professionals,
-                   //people whose current school is a college (questionable),
-                   // those with an inactive user_group_xref entry for hs 
                 setMainDefaults(u);
 
                 u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
@@ -119,4 +121,5 @@ public class Main extends Base {
 
 
     }
+
 }
