@@ -105,7 +105,7 @@ function submitForm(){
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="7"><%= round.getRoundName() %> Leaders</td></tr>
+   <tr><td class="title" colspan="7">Individual and Team Leaders</td></tr>
    <tr>
       <td class="header">&#160;</td>
       <td class="header" nowrap="nowrap" width="50%">Top Teams</td>
