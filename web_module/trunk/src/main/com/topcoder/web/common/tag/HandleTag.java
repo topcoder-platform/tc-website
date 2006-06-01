@@ -75,7 +75,7 @@ public class HandleTag extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
-        //log.debug("doStartTag with coderid " + coderId);
+        log.debug("HandleTag- NEW VERSION with coderid " + coderId);
 
         try {
             //lookup ratings from cache
