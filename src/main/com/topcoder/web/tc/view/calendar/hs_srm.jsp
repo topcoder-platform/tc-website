@@ -204,9 +204,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             SRMs intended for their region prior to the start of the tournament.</p>
 
                                         <b>Eligibility</b><br />
-                                        <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20,
-                                            inclusive, pursuing a secondary school education and who is not matriculated full time
-                                            at a college or university may compete in any Single Round Match.</p>
+                                        <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20, inclusive, who is pursuing a secondary school education through at least May 2007 and who is not matriculated full time at a college or university may compete in any Single Round Match and the TopCoder High School tournament.</p>
 
                                         <A HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules &amp; regulations.</B></A>
                                     </TD></TR>
