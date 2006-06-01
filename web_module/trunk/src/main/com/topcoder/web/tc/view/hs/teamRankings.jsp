@@ -124,8 +124,8 @@ function submitEnter(e)
 <% }  %>
 </div>
 
-<span class="bodySubtitle">Top Ranked > High School Competitions</span><br>
-<span class="bodySubtitle">Season: <%= round.getSeasonName() %></span><br>
+<span class="subtitle">Top Ranked > High School Competitions</span><br>
+<span class="subtitle">Season: <%= round.getSeasonName() %></span><br>
 
 <span class="bc">
 <a href="/tc?module=HSRank&snid=<%= round.getSeasonId() %>" class="bcLink">Coders</a> |
