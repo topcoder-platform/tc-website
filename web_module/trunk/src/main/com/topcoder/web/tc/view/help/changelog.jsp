@@ -40,11 +40,15 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        xxxxxxxxxxxxxxxxxxxxxxxx
+        5.3.0 - 2006.06.01
         <ul>
             <li>Allow for the ability to hide some schools in the registration process school search</li>
             <li>Only count active members in school registered member counts.</li>
             <li>Add final score to the marathon match site</li>
+            <li>TopCoder High School Statistics</li>
+            <li>Add SRM Details and SRM Rules pages for High School</li>
+            <li>Only show active registrations as checked on registration selection page</li>
+            <li>Don't allow professionals or those that have been unregistered from TCHS to register for TCHS</li>
         </ul>
     </p>
     <p>
