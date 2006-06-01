@@ -77,6 +77,8 @@ public class Main extends Base {
                //people whose current school is a college (questionable),
             log.debug("coder type id: " + u.getCoder().getCoderType().getId());
             log.debug("pro: " + CoderType.PROFESSIONAL);
+            log.debug("user is currently " + u.getId());
+            log.debug("coder is currently " + u.getCoder().getId());
             if (!u.isNew()&&requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
                 log.debug("not new and trying to get hs");
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
