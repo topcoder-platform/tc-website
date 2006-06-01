@@ -18,7 +18,7 @@ import java.util.*;
 /**
  * User: lars
  */
-public class ProfileSearch extends Base {
+public class    ProfileSearch extends Base {
 
     protected void businessProcessing() throws TCWebException {
         log.debug("process called....");
@@ -193,7 +193,7 @@ public class ProfileSearch extends Base {
             query.append(", \n");
         }
         query.append("    country cry,\n");
-        query.append("    state st\n");
+        query.append("    outer state st\n");
         query.append("  WHERE 1 = 1\n");
         if (containsDesRating) {
             query.append("    AND desr.user_id = c.coder_id\n");
@@ -210,7 +210,7 @@ public class ProfileSearch extends Base {
         query.append("    and x.user_id = u.user_id \n");
         query.append("    and x.address_id = a.address_id \n");
         query.append("    and a.address_type_id = 2 \n");
-        query.append("    AND st.state_code = NVL(a.state_code,'')\n");
+        query.append("    AND a.state_code = st.state_code,'')\n");
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
         if (comp != null && comp.length() > 0) {
