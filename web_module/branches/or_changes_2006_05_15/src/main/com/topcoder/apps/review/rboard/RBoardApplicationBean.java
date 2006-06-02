@@ -211,7 +211,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 createPermission(conn, "View Project " + projectId, prefix,
                         rUserRoleId, userId);
                 createPermission(conn, "ForumUser "
-                        + String.valueOf(projectInfo.get("forumId")), prefix,
+                        + String.valueOf(projectInfo.get("forumId")), "",
                         rUserRoleId, userId);
             } else {
                 throw (new EJBException("Couldn't find UserRole rows for pid:"
@@ -219,8 +219,8 @@ public class RBoardApplicationBean extends BaseEJB {
             }
             System.out.println("Commit Transaction");
             conn.commit();
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
         } catch (Exception e) {
             if (conn != null) {
                 try {
@@ -236,25 +236,6 @@ public class RBoardApplicationBean extends BaseEJB {
             close(conn);
         }
     }
-
-   /* private int getReviewRespId(Connection conn, long userId, long projectId,
-            int phaseId) {
-        return selectInt(conn,
-                "rboard_application",
-                "review_resp_id",
-                new String[] { "user_id", "project_id", "phase_id" },
-                new String[] { String.valueOf(userId),
-                        String.valueOf(projectId), String.valueOf(phaseId) }).intValue();
-    }*/
-
-/*    private boolean isPrimary(Connection conn, long userId, long projectId,
-            int phaseId) {
-        Integer ret = selectInt(conn, "rboard_application",
-                "primary_ind",
-                new String[]{"user_id", "project_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
-        return (ret != null && ret.intValue() == 1);
-    }*/
 
     private boolean exists(Connection conn, long userId, long projectId,
             int phaseId) {
@@ -405,8 +386,8 @@ public class RBoardApplicationBean extends BaseEJB {
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
             System.out.println("Commit Transaction b");
             conn.commit();
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
         } catch (Exception e) {
             if (conn != null) {
                 try {
@@ -575,119 +556,4 @@ public class RBoardApplicationBean extends BaseEJB {
                 new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
 
     }
-    
-    
-
-    /*        
-    private boolean hasContract(String dataSource, long userId, int phaseId) {
-        return selectInt("rboard_user",
-            "contract_ind",
-            new String[]{"user_id", "phase_id"},
-            new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-            dataSource).intValue() == 1;
-    }
-    
-    private void createRBoardUser(String dataSource, long userId, int phaseId, int statusId,
-                                 boolean hasContract, boolean canReviewJava,
-                                 boolean canReviewDotNet, boolean canReviewFlash) {
-        int ret = insert("rboard_user",
-                new String[]{"user_id", "phase_id", "status_id", "contract_ind", "java_ind", "net_ind", "flash_ind"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId), String.valueOf(statusId),
-                             hasContract ? "1" : "0", canReviewJava ? "1" : "0", canReviewDotNet ? "1" : "0",
-                             canReviewFlash ? "1" : "0"},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows inserted into " +
-                    "'rboard_user'. Inserted " + ret + ", " +
-                    "should have inserted 1."));
-        }
-    }
-    
-    private void setStatus(String dataSource, long userId, int phaseId, int statusId) {
-        int ret = update("rboard_user",
-                new String[]{"status_id"},
-                new String[]{String.valueOf(statusId)},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    }
-    
-    private void setHasContract(String dataSource, long userId, int phaseId, boolean hasContract) {
-        int ret = update("rboard_user",
-                new String[]{"contract_ind"},
-                new String[]{hasContract ? "1" : "0"},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    }
-    
-    private void setCanReviewJava(String dataSource, long userId, int phaseId, boolean canReviewJava) {
-        int ret = update("rboard_user",
-                new String[]{"java_ind"},
-                new String[]{canReviewJava ? "1" : "0"},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    
-    }
-    
-    private void setCanReviewDotNet(String dataSource, long userId, int phaseId, boolean canReviewDotNet) {
-        int ret = update("rboard_user",
-                new String[]{"net_ind"},
-                new String[]{canReviewDotNet ? "1" : "0"},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    
-    }
-    
-    private void setCanReviewFlash(String dataSource, long userId, int phaseId, boolean canReviewFlash) {
-        int ret = update("rboard_user",
-                new String[]{"flash_ind"},
-                new String[]{canReviewFlash ? "1" : "0"},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    
-    }
-    
-    private void setCanReviewApplication(String dataSource, long userId, int phaseId, boolean canReviewApplication) {
-        int ret = update("rboard_user",
-                new String[]{"application_ind"},
-                new String[]{canReviewApplication ? "1" : "0"},
-                new String[]{"user_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
-                dataSource);
-        if (ret != 1) {
-            throw(new EJBException("Wrong number of rows updated in " +
-                    "'rboard_user'. Updated " + ret + ", " +
-                    "should have updated 1."));
-        }
-    
-    }*/
 }
