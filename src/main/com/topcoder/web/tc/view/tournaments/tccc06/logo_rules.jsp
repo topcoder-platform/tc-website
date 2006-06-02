@@ -100,8 +100,9 @@ The logo must adhere to the following strict guidelines*. Any deviation from the
 <br><br>
 <b>Colors:</b>
 <br>
+<div align="center"><img src="/i/tournament/tccc06/logo_colors.gif" alt="" border="0"/></div>
 <ul>
-<li>The main colors for the TCCC06 will be [ TBD ] and [ TBD ], and your submission <span class="bigRed">MUST</span> use these colors. White, black and grays can be used as compliments. Other colors can be used, but may detract from the "focus" of the two required colors.</li>
+<li>The main colors for the TCCC06 will be RGB: A0DA1E and 117575 and your submission <span class="bigRed">MUST</span> use these colors. White, black and grays can be used as compliments. Other colors can be used, but may detract from the "focus" of the two required colors.</li>
 <li>While gradients (gradual color changes) may look appealing in your logo, they can often be a problem in print (t-shirts, tournament programs, etc.) and might keep your submission from being considered as a finalist.</li>
 </ul>
 <br>
