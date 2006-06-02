@@ -130,7 +130,7 @@ public class RBoardApplicationBean extends BaseEJB {
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
         long paymentInfoId) throws SQLException, RemoteException {
         insert(conn, "r_user_role",
-            new String[]{"r_user_role_v_id", "r_user_role_v_id", "r_role_id", "project_id",
+            new String[]{"r_user_role_v_id", "r_user_role_id", "r_role_id", "project_id",
             "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
             new String[]{String.valueOf(idGen.nextId()), String.valueOf(rUserRoleId), 
             String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId), 
