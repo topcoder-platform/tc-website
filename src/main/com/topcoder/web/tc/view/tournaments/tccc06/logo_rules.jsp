@@ -64,7 +64,7 @@
 
              <c:import url="${sessionInfo.servletPath}">
                  <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
-                 <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=Constants.TCCC06_LOGO_TERMS_ID%>"/>
+                 <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=String.valueOf(Constants.TCCC06_LOGO_TERMS_ID)%>"/>
              </c:import>
              <%
 /*        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCCC06_LOGO_TERMS_ID);
