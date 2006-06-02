@@ -63,7 +63,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
         close(ps);
         try {
-            System.out.println(user_role_xref)
             selectLong(conn, "user_role_xref",
                     "user_role_id",
                     new String[]{"user_role_id", "login_id", "role_id"},
