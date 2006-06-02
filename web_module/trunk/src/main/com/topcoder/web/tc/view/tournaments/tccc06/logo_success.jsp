@@ -13,7 +13,7 @@
 .pageSpacer
 {
    width: 510px;
-	padding: 15px 0px 10px 0px;
+   padding: 15px 0px 10px 0px;
    text-align: left;
 }
 .logoBox {
@@ -48,11 +48,11 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div><br>
             <div align="center">
-   			<jsp:include page="logo_links.jsp" >
-   			<jsp:param name="selectedTab" value="submit"/>
-   			</jsp:include>
+            <jsp:include page="logo_links.jsp" >
+            <jsp:param name="selectedTab" value="submit"/>
+            </jsp:include>
             </div>
 
             <br><br>

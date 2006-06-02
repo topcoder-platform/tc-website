@@ -16,7 +16,7 @@
 .pageSpacer
 {
    width: 510px;
-	padding: 15px 0px 10px 0px;
+   padding: 15px 0px 10px 0px;
    text-align: left;
 }
 .logoBox {
