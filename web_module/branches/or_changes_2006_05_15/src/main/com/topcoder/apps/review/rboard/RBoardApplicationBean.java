@@ -181,6 +181,8 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = ps.executeQuery();
 
             // starts transaction
+            System.out.println("Begin Transaction");
+
             conn.setAutoCommit(false);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
 
@@ -216,10 +218,12 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw (new EJBException("Couldn't find UserRole rows for pid:"
                         + projectId));
             }
+            System.out.println("Commit Transaction");
             conn.commit();
         } catch (SQLException e) {
             if (conn != null) {
                 try {
+                    System.out.println("Rollback Transaction");
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
@@ -398,12 +402,15 @@ public class RBoardApplicationBean extends BaseEJB {
 
         try {
             conn = DBMS.getConnection(dataSource);
+            System.out.println("Begin Transaction");
             conn.setAutoCommit(false);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+            System.out.println("Commit Transaction");
             conn.commit();
         } catch (SQLException e) {
             if (conn != null) {
                 try {
+                    System.out.println("Rollback Transaction");
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
