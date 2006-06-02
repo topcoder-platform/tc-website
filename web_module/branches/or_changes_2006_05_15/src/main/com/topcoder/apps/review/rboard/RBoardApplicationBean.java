@@ -1,31 +1,30 @@
 package com.topcoder.apps.review.rboard;
 
-import com.topcoder.apps.review.persistence.Common;
+import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.tc.Constants;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-
 import java.rmi.RemoteException;
 import java.sql.*;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.HashMap;
-
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 
+
 /**
- * @author dok
- * Date: Feb 12, 2004
+ * @author dok Date: Feb 12, 2004
  */
 public class RBoardApplicationBean extends BaseEJB {
 
-    private static final int PRIMARY_ROLE_ID = 2;
     private static final int INTERNAL_ADMIN_USER = 100129;
 
     private IdGen createIDGen(String dataSource) throws CreateException {
@@ -33,37 +32,34 @@ public class RBoardApplicationBean extends BaseEJB {
             InitialContext context = new InitialContext();
 
             Object o = context.lookup("idgenerator/IdGenEJB");
-            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o, IdGenHome.class);
+            IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o,
+                    IdGenHome.class);
             return idGenHome.create();
 
         } catch (Exception e) {
             throw new CreateException("Could not find bean!" + e);
         }
     }
-    
-    private void createPermission(Connection conn, String permissionName, String prefix, long rUserRoleId, long userId) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement(
-            "SELECT role_id, description FROM security_roles "
-            + "WHERE description = ?");
+
+    private void createPermission(Connection conn, String permissionName,
+            String prefix, long rUserRoleId, long userId) throws SQLException {
+        PreparedStatement ps = conn
+                .prepareStatement("SELECT role_id, description FROM security_roles "
+                        + "WHERE description = ?");
         ps.setString(1, prefix + permissionName);
         ResultSet rs = ps.executeQuery();
         long roleId = 0;
         if (rs.next()) {
             roleId = rs.getLong("role_id");
         } else {
-            throw(new EJBException("Couldn't find security_roles row for: " + prefix + permissionName));
+            throw (new EJBException("Couldn't find security_roles row for: "
+                    + prefix + permissionName));
         }
-        Common.close(ps);
-        ps = null;
-    
-        ps = conn.prepareStatement(
-            "INSERT INTO user_role_xref (user_role_id, login_id, role_id) " +
-            "VALUES ( ?, ?, ?)");
-        ps.setLong(1, rUserRoleId);
-        ps.setLong(2, userId);
-        ps.setLong(3, roleId);
-        ps.executeUpdate();
-        Common.close(ps);
+        close(ps);
+        insert(conn, "user_role_xref",
+            new String[]{"user_role_id", "login_id", "role_id"},
+            new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
+            String.valueOf(roleId)});
     }
 
     /**
@@ -73,15 +69,16 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return
      * @throws SQLException
      */
-    private Map getProjectInfo(long projectId, Connection conn) throws SQLException {
+    private Map getProjectInfo(long projectId, Connection conn)
+            throws SQLException {
         Map returnMap = new HashMap();
-        PreparedStatement ps = conn.prepareStatement(
-            "select p.project_id, cc.component_name, cv.version, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
-            + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
-            + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
-            + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 and "
-            + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 and "
-            + "p.project_id = ?");
+        PreparedStatement ps = conn
+                .prepareStatement("select p.project_id, cc.component_name, cv.version, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
+                        + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
+                        + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
+                        + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 and "
+                        + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 and "
+                        + "p.project_id = ?");
         ps.setLong(1, projectId);
 
         ResultSet rs = ps.executeQuery();
@@ -91,9 +88,10 @@ public class RBoardApplicationBean extends BaseEJB {
             returnMap.put("projectType", rs.getString("pt.project_type_name"));
             returnMap.put("forumId", rs.getString("cfx.forum_id"));
         } else {
-            throw(new EJBException("Couldn't find project info for pid: " + projectId));
+            throw (new EJBException("Couldn't find project info for pid: "
+                    + projectId));
         }
-        Common.close(ps);
+        close(ps);
 
         return returnMap;
     }
@@ -103,9 +101,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return
      */
     private String buildPrefix(Map projectInfo) {
-        String prefix = String.valueOf(projectInfo.get("projectName")) + " " + 
-            String.valueOf(projectInfo.get("projectVersion")) + " " + 
-            String.valueOf(projectInfo.get("projectType")) + " ";
+        String prefix = String.valueOf(projectInfo.get("projectName")) + " "
+                + String.valueOf(projectInfo.get("projectVersion")) + " "
+                + String.valueOf(projectInfo.get("projectType")) + " ";
         return prefix;
     }
 
@@ -122,27 +120,16 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws SQLException
      * @throws RemoteException
      */
-    private void insertUserRole(Connection conn, IdGen idGen, long userId, 
-            long projectId, int reviewRespId, long rUserRoleId, long rRoleId, 
-            long paymentInfoId) throws SQLException, RemoteException {
-        PreparedStatement ps;
-        ps = conn.prepareStatement(
-            "INSERT INTO r_user_role "
-            + "(r_user_role_v_id, r_user_role_id, "
-            + "r_role_id, project_id, "
-            + "login_id, payment_info_id, "
-            + "r_resp_id, modify_user, "
-            + "cur_version) VALUES "
-            + "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
-        ps.setLong(1, idGen.nextId());
-        ps.setLong(2, rUserRoleId);
-        ps.setLong(3, rRoleId);
-        ps.setLong(4, projectId);
-        ps.setLong(5, userId);
-        ps.setLong(6, paymentInfoId);
-        ps.setLong(7, reviewRespId);
-        ps.setLong(8, INTERNAL_ADMIN_USER); // admin user
-        ps.executeUpdate();
+    private void insertUserRole(Connection conn, IdGen idGen, long userId,
+        long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
+        long paymentInfoId) throws SQLException, RemoteException {
+        insert(conn, "r_user_role",
+            new String[]{"r_user_role_v_id", "r_user_role_v_id", "r_role_id", "project_id",
+            "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
+            new String[]{String.valueOf(idGen.nextId()), String.valueOf(rUserRoleId), 
+            String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId), 
+            String.valueOf(paymentInfoId), String.valueOf(reviewRespId), 
+            String.valueOf(INTERNAL_ADMIN_USER), "1"});
     }
 
     /**
@@ -151,72 +138,82 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return
      * @throws SQLException
      */
-    private void resetCurrentVersion(Connection conn, long rUserRoleVId) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement(
-            "UPDATE r_user_role SET cur_version = 0 "
-            + "WHERE r_user_role_v_id = ?");
-        ps.setLong(1, rUserRoleVId);
-        ps.executeUpdate();
-        Common.close(ps);
+    private void resetCurrentVersion(Connection conn, long rUserRoleVId)
+        throws SQLException {
+        update(conn, "r_user_role",
+            new String[]{"cur_version"}, new String[]{"0"},
+            new String[]{"r_user_role_v_id"},
+            new String[]{String.valueOf(rUserRoleVId)});
     }
 
-    public void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId) {
+    public void createRBoardApplication(String dataSource, long userId,
+            long projectId, int reviewRespId, int phaseId, boolean primary) {
         IdGen idGen = null;
         try {
             idGen = createIDGen(dataSource);
         } catch (Exception e) {
-            throw(new EJBException("Couldn't create IDGenerator"));
+            throw (new EJBException("Couldn't create IDGenerator"));
         }
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         try {
             conn = DBMS.getConnection(dataSource);
-
+            
+            insert(conn, "rboard_application",
+                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
+                    new String[]{String.valueOf(userId), String.valueOf(projectId), 
+                        String.valueOf(phaseId), String.valueOf(reviewRespId), 
+                        String.valueOf(primary ? 1 : 0)});
+            
             // gets project info
             Map projectInfo = getProjectInfo(projectId, conn);
 
             // gets UserRole info
-            ps = conn.prepareStatement(
-                "SELECT * FROM r_user_role "
-                + "WHERE project_id = ? and r_resp_id = ? "
-                + "and cur_version = 1");
+            ps = conn.prepareStatement("SELECT * FROM r_user_role "
+                    + "WHERE project_id = ? and r_resp_id = ? "
+                    + "and cur_version = 1");
             ps.setLong(1, projectId);
             ps.setLong(2, reviewRespId);
             rs = ps.executeQuery();
-            
+
             // starts transaction
-            conn.setAutoCommit(false);
+            //conn.setAutoCommit(false);
             if (rs.next()) {
                 long rUserRoleVId = rs.getLong("r_user_role_v_id");
                 long rUserRoleId = rs.getLong("r_user_role_id");
                 long rRoleId = rs.getLong("r_role_id");
                 long paymentInfoId = rs.getLong("payment_info_id");
-                
+
                 // Resets current version
                 resetCurrentVersion(conn, rUserRoleVId);
 
                 // insert new UserRole
-                insertUserRole(conn, idGen, userId, projectId, reviewRespId, 
+                insertUserRole(conn, idGen, userId, projectId, reviewRespId,
                         rUserRoleId, rRoleId, paymentInfoId);
 
                 // create permissions.
                 String prefix = buildPrefix(projectInfo);
-                createPermission(conn, "Review " + projectId, prefix, rUserRoleId, userId);
-                createPermission(conn, "View Project " + projectId, prefix, rUserRoleId, userId);
-                createPermission(conn, "ForumUser " + String.valueOf(projectInfo.get("forumId")), prefix, rUserRoleId, userId);
+                createPermission(conn, "Review " + projectId, prefix,
+                        rUserRoleId, userId);
+                createPermission(conn, "View Project " + projectId, prefix,
+                        rUserRoleId, userId);
+                createPermission(conn, "ForumUser "
+                        + String.valueOf(projectInfo.get("forumId")), prefix,
+                        rUserRoleId, userId);
             } else {
-                throw(new EJBException("Couldn't find UserRole rows for pid:" + projectId));
+                throw (new EJBException("Couldn't find UserRole rows for pid:"
+                        + projectId));
             }
-            conn.commit();
+            //conn.commit();
         } catch (SQLException e) {
-            if (conn != null) {
+        /*    if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
-            }
+            }*/
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
         } catch (Exception e) {
@@ -228,47 +225,55 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    public int getReviewRespId(String dataSource, long userId, long projectId, int phaseId) {
-        return selectInt("rboard_application",
+    public int getReviewRespId(String dataSource, long userId, long projectId,
+            int phaseId) {
+        return selectInt(
+                "rboard_application",
                 "review_resp_id",
-                new String[]{"user_id", "project_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
+                new String[] { "user_id", "project_id", "phase_id" },
+                new String[] { String.valueOf(userId),
+                        String.valueOf(projectId), String.valueOf(phaseId) },
                 dataSource).intValue();
     }
 
-    public boolean isPrimary(String dataSource, long userId, long projectId, int phaseId) {
-        Integer ret = selectInt("r_user_role rur, project p",
-                "rur.r_role_id",
-                new String[]{"rur.login_id", "p.project_id", "p.project_type_id", "rur.cur_version"},
-                new String[]{String.valueOf(userId), String.valueOf(projectId), phaseId == 112 ? "1" : "2", "1"},
+    public boolean isPrimary(String dataSource, long userId, long projectId,
+            int phaseId) {
+        Integer ret = selectInt("rboard_application",
+                "primary_ind",
+                new String[]{"user_id", "project_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
                 dataSource);
-        return (ret != null && ret.intValue() == PRIMARY_ROLE_ID);
+        return (ret != null && ret.intValue() == 1);
     }
 
-    public boolean exists(String dataSource, long userId, long projectId, int phaseId) {
+    public boolean exists(String dataSource, long userId, long projectId,
+            int phaseId) {
         try {
-            selectLong("r_user_role rur, project p",
-                    "rur.login_id",
-                    new String[]{"rur.login_id", "p.project_id", "p.project_type_id", "rur.cur_version"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId), phaseId == 112 ? "1" : "2", "1"},
+            selectLong("rboard_application",
+                    "user_id",
+                    new String[]{"user_id", "project_id", "phase_id"},
+                    new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
                     dataSource);
         } catch (RowNotFoundException e) {
             return false;
         }
-        return true;        
+        return true;
     }
 
-    public ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) {
-        return selectSet("r_user_role",
-                new String[]{"login_id", "r_resp_id", "r_role_id", "modify_date"},
-                new String[]{"project_id", "cur_version"},
-                new String[]{String.valueOf(projectId), "1"},
+    public ResultSetContainer getReviewers(String dataSource, long projectId,
+            int phaseId) {
+        return selectSet("rboard_application",
+                new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
+                new String[]{"project_id"},
+                new String[]{String.valueOf(projectId)},
                 dataSource);
     }
 
-    public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
+    public Timestamp getLatestReviewApplicationTimestamp(String dataSource,
+            long userId) {
         StringBuffer query = new StringBuffer(200);
-        query.append("select max(modify_date) last_date from r_user_role where login_id = ? and modify_user = 289824");
+        query.append("select create_date from rboard_application where user_id = ?");
+        query.append(" order by create_date desc");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -282,7 +287,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                ret = rs.getTimestamp("last_date");
+                ret = rs.getTimestamp("create_date");
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
@@ -295,4 +300,340 @@ public class RBoardApplicationBean extends BaseEJB {
         }
         return ret;
     }
+
+    /**
+     * @param catalog
+     * @param reviewTypeId
+     * @throws RemoteException
+     */
+    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, 
+            int phaseId) throws RemoteException {
+        Map reviewRespMap = null;
+        try {
+            reviewRespMap = getReviewRespInfo(dataSource);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        }
+
+        int status = 0;
+        try {
+            status = getStatus(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, phaseId);
+        } catch (RowNotFoundException rnfe) {
+            throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+        }
+
+        if (status != Constants.ACTIVE_REVIEWER) {
+            throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
+        }
+
+        if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
+                !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+            throw new RemoteException("Invalid request, incorrect review position specified.");
+        }
+
+        try {
+            if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
+                if (!canReviewJava(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
+                    throw new RemoteException("Sorry, you can not review this project because " +
+                            "you are not a Java reviewer");
+                }
+            } else if (catalog == Constants.DOT_NET_CATALOG_ID || catalog == Constants.CUSTOM_DOT_NET_CATALOG_ID) {
+                if (!canReviewDotNet(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
+                    throw new RemoteException("Sorry, you can not review this project because " +
+                            "you are not a .Net reviewer");
+                }
+            } else if (catalog == Constants.FLASH_CATALOG_ID) {
+                if (!canReviewFlash(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
+                    throw new RemoteException("Sorry, you can not review this project because " +
+                            "you are not a Flash reviewer");
+                }
+            } else if (catalog == Constants.APPLICATIONS_CATALOG_ID) {
+                if (!canReviewApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
+                    throw new RemoteException("Sorry, you can not review this project because " +
+                            "you are not a Application reviewer");
+                }
+            } else {
+                throw new RemoteException("unknown catalog found " + catalog);
+            }
+        } catch (RowNotFoundException enfe) {
+            throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+        }
+    }
+
+    /**
+     * @param opensOn
+     * @param reviewTypeId
+     * @throws RemoteException
+     */
+    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
+
+        if (exists(dataSource, userId, projectId, phaseId)) {
+            throw new RemoteException("You have already applied to review this project.");
+        }
+
+        if (opensOn.getTime() > System.currentTimeMillis()) {
+            throw new RemoteException("Sorry, this project is not open for review yet.  "
+                    + "You will need to wait until "
+                    + DateTime.timeStampToString(opensOn));
+        }
+
+        Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME,
+                userId);
+        if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)
+        {
+            throw new RemoteException("Sorry, you can not apply for a new review yet.  "
+                    + "You will need to wait until "
+                    + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
+        }
+
+        ResultSetContainer reviewers = getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+
+        if (reviewers.size() == 3) {
+            throw new RemoteException("Sorry, the project's review positions are already full.");
+        }
+
+        if (primary) {
+            for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getIntItem("primary_ind") == 1) {
+                    throw new RemoteException("Sorry, this review position is already taken.");
+                }
+            }
+        }
+
+        if (phaseId == SoftwareComponent.DEV_PHASE) {
+            for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getIntItem("review_resp_id") == reviewTypeId) {
+                    throw new RemoteException("Sorry, this review position is already taken.");
+                }
+            }
+            // If somebody came in by constructing the URL, make sure this is consistent too.
+            if (primary != (reviewTypeId == 2)) {
+                throw new RemoteException("Sorry, there was an error in the application"
+                        + " (primary reviewers must be failure reviewers, and vice versa).");
+            }
+        } else {
+            // Design.
+            for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getIntItem("review_resp_id") == reviewTypeId) {
+                    throw new RemoteException("Sorry, this review position is already taken.");
+                }
+            }
+            // If somebody came in by constructing the URL, make sure this is consistent too.
+            if (primary != (reviewTypeId == 4)) {
+                throw new RemoteException("Sorry, there was an error in the application");
+            }
+        }
+        // If somebody came in by constructing the URL, make sure that there is at least one
+        // primary before we run out of spots.
+        if (!primary && reviewers.size() == 2) {
+            boolean alreadyHasPrimary = false;
+            for (Iterator it = reviewers.iterator(); it.hasNext() && !alreadyHasPrimary;) {
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getIntItem("primary_ind") == 1) {
+                    alreadyHasPrimary = true;
+                }
+            }
+            if (!alreadyHasPrimary) {
+                throw new RemoteException("Sorry, at least one reviewer must be the primary.");
+            }
+        }
+    }
+    
+    /**
+     * @param projectId
+     * @param conn
+     * @param ps
+     * @return
+     * @throws SQLException
+     */
+    private Map getReviewRespInfo(String dataSource) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Map returnMap = new HashMap();
+
+        conn = DBMS.getConnection(dataSource);
+        ps = conn.prepareStatement("select review_resp_id, review_resp_name, phase_id " +
+                "from review_resp");
+        rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            returnMap.put(new Integer(rs.getInt("review_resp_id")), 
+                new Integer(rs.getInt("phase_id")));
+        }
+        close(rs);
+        close(ps);
+        close(conn);
+
+        return returnMap;
+    }
+    
+    
+    private int getStatus(String dataSource, long userId, int phaseId) {
+        return selectInt(
+                "rboard_user",
+                "status_id",
+                new String[] { "user_id", "phase_id" },
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
+                dataSource).intValue();
+    }
+
+    private boolean canReviewJava(String dataSource, long userId, int phaseId) {
+        return selectInt(
+                "rboard_user",
+                "java_ind",
+                new String[] { "user_id", "phase_id" },
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
+                dataSource).intValue() == 1;
+    }
+
+    private boolean canReviewDotNet(String dataSource, long userId, int phaseId) {
+        return selectInt(
+                "rboard_user",
+                "net_ind",
+                new String[] { "user_id", "phase_id" },
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
+                dataSource).intValue() == 1;
+
+    }
+
+    private boolean canReviewFlash(String dataSource, long userId, int phaseId) {
+        return selectInt(
+                "rboard_user",
+                "flash_ind",
+                new String[] { "user_id", "phase_id" },
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
+                dataSource).intValue() == 1;
+
+    }
+
+    private boolean canReviewApplication(String dataSource, long userId,
+            int phaseId) {
+        return selectInt(
+                "rboard_user",
+                "application_ind",
+                new String[] { "user_id", "phase_id" },
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
+                dataSource).intValue() == 1;
+
+    }
+    
+    
+
+    /*        
+    private boolean hasContract(String dataSource, long userId, int phaseId) {
+        return selectInt("rboard_user",
+            "contract_ind",
+            new String[]{"user_id", "phase_id"},
+            new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+            dataSource).intValue() == 1;
+    }
+    
+    private void createRBoardUser(String dataSource, long userId, int phaseId, int statusId,
+                                 boolean hasContract, boolean canReviewJava,
+                                 boolean canReviewDotNet, boolean canReviewFlash) {
+        int ret = insert("rboard_user",
+                new String[]{"user_id", "phase_id", "status_id", "contract_ind", "java_ind", "net_ind", "flash_ind"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId), String.valueOf(statusId),
+                             hasContract ? "1" : "0", canReviewJava ? "1" : "0", canReviewDotNet ? "1" : "0",
+                             canReviewFlash ? "1" : "0"},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows inserted into " +
+                    "'rboard_user'. Inserted " + ret + ", " +
+                    "should have inserted 1."));
+        }
+    }
+    
+    private void setStatus(String dataSource, long userId, int phaseId, int statusId) {
+        int ret = update("rboard_user",
+                new String[]{"status_id"},
+                new String[]{String.valueOf(statusId)},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    }
+    
+    private void setHasContract(String dataSource, long userId, int phaseId, boolean hasContract) {
+        int ret = update("rboard_user",
+                new String[]{"contract_ind"},
+                new String[]{hasContract ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    }
+    
+    private void setCanReviewJava(String dataSource, long userId, int phaseId, boolean canReviewJava) {
+        int ret = update("rboard_user",
+                new String[]{"java_ind"},
+                new String[]{canReviewJava ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    
+    }
+    
+    private void setCanReviewDotNet(String dataSource, long userId, int phaseId, boolean canReviewDotNet) {
+        int ret = update("rboard_user",
+                new String[]{"net_ind"},
+                new String[]{canReviewDotNet ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    
+    }
+    
+    private void setCanReviewFlash(String dataSource, long userId, int phaseId, boolean canReviewFlash) {
+        int ret = update("rboard_user",
+                new String[]{"flash_ind"},
+                new String[]{canReviewFlash ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    
+    }
+    
+    private void setCanReviewApplication(String dataSource, long userId, int phaseId, boolean canReviewApplication) {
+        int ret = update("rboard_user",
+                new String[]{"application_ind"},
+                new String[]{canReviewApplication ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    
+    }*/
 }
