@@ -63,7 +63,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(", ");
             }
             query.append(")");
-            log.debug(query);
+            log.info(query);
 
             PreparedStatement ps = null;
             InitialContext ctx = null;
@@ -107,7 +107,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             PreparedStatement ps = null;
             InitialContext ctx = null;
@@ -149,7 +149,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -192,7 +192,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -258,7 +258,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             PreparedStatement ps = null;
             ResultSet rs = null;
@@ -300,7 +300,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -347,7 +347,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -403,7 +403,7 @@ public abstract class BaseEJB implements SessionBean {
                     query.append(" and ");
             }
 
-            log.debug(query);
+            log.info(query);
 
             Connection conn = null;
             PreparedStatement ps = null;
