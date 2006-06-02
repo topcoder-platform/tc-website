@@ -77,7 +77,7 @@ To be eligible for the contest, you must be:
 Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCCC06 sponsoring company are allowed to compete in the 2006 TopCoder Collegiate Challenge Logo Design Contest. All federal, state and local laws and regulations apply. Void where prohibited. 
 <br><br>
 <b>TO ENTER</b><br>
-If not already a member, <A href="/reg/">register</A> electronically for TopCoder. Once registered at TopCoder, submit designs using the submission functionality at <A href="http://www.topcoder.com/">www.topcoder.com</A> (**need new shortcut**).  The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00 PM EDT (GMT -4) on Friday, June 23, 2006.  Submissions received after 5:00 PM EDT on Friday, June 23, 2006 or by any other method will not be considered. 
+If not already a member, <A href="/reg/">register</A> electronically for TopCoder. Once registered at TopCoder, click <a href="/tc?module=tccc06LogoTerms">here</A> to submit your designs.  The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00 PM EDT (GMT -4) on Friday, June 23, 2006.  Submissions received after 5:00 PM EDT on Friday, June 23, 2006 or by any other method will not be considered. 
 <br><br>
 <span class="BigRed">TopCoder will only accept the first three (3) designs submitted by each registrant.</span>
 <br><br>
