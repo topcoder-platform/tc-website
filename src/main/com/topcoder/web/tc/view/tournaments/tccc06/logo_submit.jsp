@@ -51,7 +51,7 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div>
+            <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div><br>
             <div align="center">
             <jsp:include page="logo_links.jsp" >
             <jsp:param name="selectedTab" value="submit"/>
