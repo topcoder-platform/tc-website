@@ -5,8 +5,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
-//import com.topcoder.web.tc.Constants;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -84,9 +82,9 @@ public class RBoardApplicationBean extends BaseEJB {
                 .prepareStatement("select p.project_id, cc.component_name, cv.version, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
                         + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
                         + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
-                        + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 and "
-                        + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 and "
-                        + "p.project_id = ?");
+                        + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 "
+                        + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 "
+                        + "and p.project_id = ?");
         ps.setLong(1, projectId);
 
         ResultSet rs = ps.executeQuery();
