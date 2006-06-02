@@ -46,7 +46,9 @@ Given the competitive technological nature of today's world, we believe it is mo
 <br><br>
 <span class="subtitle">Overview</span><br>
 Starting on June 5, 2006, TopCoder will hold weekly events, called Single Round Matches (SRMs), which will be available only to high school students. The SRMs will allow students to demonstrate their problem-solving skills by unraveling complex word problems through the use of a computer language - either Java, C++, C# or VB.Net.  The worldwide TopCoder High School tournament will begin in February 2007 and will culminate in a large onsite final event at <A href="http://www.cs.purdue.edu/" target="_blank">Purdue University</A> in May 2007. 
-<br><br>
+<br/><br/>
+TCHS SRMs cycle through times that are best for one of four regions, Alpha, Beta, Gamma, Delta. View the countries in each region <A href="/tc?module=Static&d1=hs&d2=regions">here</A>.
+<br/><br/>
 <span class="subtitle">Prizes</span><br>
 Based on support from local, national and international sponsors, prizes will take the form of scholarships, hardware, software and educational materials awarded to individuals and schools. We will be enlisting the support of students to help spread the word and engage sponsors at the local level. 
 <br><br>

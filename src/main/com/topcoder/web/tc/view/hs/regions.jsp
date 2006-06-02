@@ -25,7 +25,7 @@
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitions"/>
+            <jsp:param name="node" value="hs_overview"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
@@ -38,8 +38,9 @@
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
                 <p>
-                <h2>TopCoder High School Regions</h2>
-                <A href="#alpha">Alpha</A>&#160;|&#160;<A href="#beta">Beta</A>&#160;|&#160;<A href="#gamma">Gamma</A>&#160;|&#160;<A href="#delta">Delta</A>
+                <span class="title">TopCoder High School Regions</span>
+<br/><br/>
+<A href="#alpha">Alpha</A>&#160;|&#160;<A href="#beta">Beta</A>&#160;|&#160;<A href="#gamma">Gamma</A>&#160;|&#160;<A href="#delta">Delta</A>
 <br/><br/>
 <a name="alpha"></a>
 <span class="bodySubtitle">Alpha</span><br/>
