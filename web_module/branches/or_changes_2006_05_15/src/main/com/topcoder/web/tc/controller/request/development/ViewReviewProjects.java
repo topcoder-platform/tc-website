@@ -17,7 +17,7 @@ import java.util.Iterator;
 
 /**
  * @author dok
- * Date: Feb 10, 2004
+ * Date: Feb 10, 2004 
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
     
@@ -53,12 +53,13 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             }
             getRequest().setAttribute("prices", prices);
             
-            RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+            RBoardApplication rba = createRBoardApplication();
+            //RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
             Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-            if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
+            if (ts != null && System.currentTimeMillis() < ts.getTime() + RBoardApplication.APPLICATION_DELAY) {
                 getRequest().setAttribute("waitingToReview", Boolean.TRUE);
                 getRequest().setAttribute("waitingUntil",
-                        DateTime.timeStampToString(new Timestamp(ts.getTime() + ProjectReviewApply.APPLICATION_DELAY)));
+                        DateTime.timeStampToString(new Timestamp(ts.getTime() + RBoardApplication.APPLICATION_DELAY)));
             } else {
                 getRequest().setAttribute("waitingToReview", Boolean.FALSE);
                 getRequest().setAttribute("waitingUntil", new String(""));

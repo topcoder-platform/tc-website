@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -59,10 +58,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
-        long userId = getUser().getId();
-        RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
-
-        rba.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, reviewTypeId, phaseId, new Boolean(primary).booleanValue());
 /*        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
 

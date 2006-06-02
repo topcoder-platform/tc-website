@@ -2,15 +2,11 @@ package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
-import com.topcoder.dde.catalog.ComponentManager;
-import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.util.idgenerator.bean.IdGen;
-import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -33,7 +29,6 @@ import javax.rmi.PortableRemoteObject;
  * Date: Feb 11, 2004
  */
 public class ReviewProjectDetail extends Base {
-
     protected void developmentProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -121,15 +116,14 @@ public class ReviewProjectDetail extends Base {
                             }
                         }
                     }
-
                 }
 
                 getRequest().setAttribute("reviewerList", reviewerList);
 
-//                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+                //RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
                 RBoardApplication rba = createRBoardApplication();
                 Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-                if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
+                if (ts != null && System.currentTimeMillis() < ts.getTime() + RBoardApplication.APPLICATION_DELAY) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
@@ -146,45 +140,25 @@ public class ReviewProjectDetail extends Base {
 
     }
     
-    private RBoardApplication createRBoardApplication() throws Exception {
+    protected RBoardApplication createRBoardApplication() throws CreateException {
         InitialContext ctx = null;
-
-        ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-        log.info("context: " + ctx.getEnvironment().toString());
-
-        Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
-        RBoardApplicationHome rBoardApplicationHome =
-                (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
-        RBoardApplication rBoardApplication = rBoardApplicationHome.create();
-        
-        return rBoardApplication;
-
-        // try {
-         /*   InitialContext context = new InitialContext();
-
-            log.info(RBoardApplicationHome.class);
-            log.info(RBoardApplicationHome.class.getName());
+        RBoardApplication rBoardApplication = null;
+        try {
+    
+            ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.info("context: " + ctx.getEnvironment().toString());
+    
+            Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
+            RBoardApplicationHome rBoardApplicationHome =
+                    (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
             
-            Object o = context.lookup(RBoardApplicationHome.class.getName());
-
-            log.info(o.getClass());
-            log.info(o.getClass().getName());
-                        
-            Object o2 = PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
-            
-            log.info(o2.getClass());
-            log.info(o2.getClass().getName());
-                           
-            //RBoardApplicationHome r = (RBoardApplicationHome) PortableRemoteObject.narrow(o, RBoardApplicationHome.class);
-
-            RBoardApplicationHome r = (RBoardApplicationHome) o2;
-            
-            return r.create();*/
-
-            /*
+             rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
-            throw new CreateException("Could not find bean!" + e);
-        }*/
+            try {ctx.close();} catch (Exception ex) {}
+            throw new CreateException("Could not find bean!" + e);            
+        }
+        try {ctx.close();} catch (Exception ex) {}
+        return rBoardApplication;
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
