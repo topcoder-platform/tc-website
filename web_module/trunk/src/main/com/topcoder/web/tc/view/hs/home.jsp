@@ -38,8 +38,6 @@
                     <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
                 </div>
                 <p>
-                <h2>TopCoder High School</h2>
-
 <span class="title">TopCoder High School</span>
 <br><br>
 We are excited to announce the addition of a new level of competition at TopCoder - the TopCoder High School tournament. In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide. 
@@ -55,24 +53,6 @@ Based on support from local, national and international sponsors, prizes will ta
 <span class="subtitle">Who can Compete</span><br>
 Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves.  In order to be eligible to compete in TCHS competitions, students must be between the ages of 13 and 20 (inclusive) and must not yet be enrolled at a college or university.  All students who register from a school will be part of that school's team.  Eligible students who do not attend a school can register to compete as an individual.  In order to be eligible for participation in the TopCoder High School tournament, teams and individuals must participate in at least four (4) of the rated events for their region between June 2006 and February 2007.  Registration for TopCoder High School is simple, so <A href="/reg/">start now</A>.
 <br><br>
-
-We are excited to announce the addition of a new level of competition at TopCoder &ndash; the TopCoder High School tournament. In the spirit of all other TopCoder competitions, TopCoder High School seeks to be the premier computer programming tournament for high school-aged math and science students enrolled in secondary schools or equivalent programs world-wide.
-<br/><br/>
-Given the competitive technological nature of today's world, we believe it is more important than ever to encourage, reward and recognize those who possess the skills to shape tomorrow's surroundings. By adding a tournament for high school-aged students, TopCoder is doing its part to ensure that there is a fun and competitive learning environment where students from around the world can build and showcase their talent.
-<br/><br/>
-<span class="bodySubtitle">Overview</span><br/>
-Beginning in June 2006, TopCoder will hold weekly events, called Single Round Matches (SRMs), which will be available only to high school students. The SRMs will allow students to demonstrate their problem-solving skills by unraveling complex word problems through the use of a computer language &ndash; either Java, C++, C# or VB.Net. Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves. The worldwide TopCoder High School tournament will begin in early 2007 and will culminate in a large onsite final event on a U.S. college or university campus in May 2007.
-<br/><br/>
-<span class="bodySubtitle">Prizes</span><br/>
-Based on support from local, national and international sponsors (see below) prizes will take the form of scholarships, hardware, software and educational materials awarded to individuals and schools. We will be enlisting the support of students to help spread the word and engage sponsors at the local level.
-<br/><br/>
-<span class="bodySubtitle">Your Support</span><br/>
-TopCoder does NOT intend to make a profit on its high school offerings. Any proceeds through sponsorship will be used to defray costs. Funds in excess of costs for the program will be contributed to prize offerings. TopCoder is looking to the community at the local, national and international level for financial support. There are a variety of sponsorship opportunities available for anyone &ndash; parents, teachers, community members, local businesses, multi-national corporations &ndash; who is interested in supporting a team, individual or the entire tournament. Sponsorship proceeds will be used for prizes as well as to cover team and individual expenses for travel. Please <a href="mailto:sponsortchs@topcoder.com">contact us</a> to learn more.
-<br/><br/>
-<span class="bodySubtitle">Stay Tuned</span><br/>
-As we firm up the structure of the tournament, we will post changes to the TopCoder web site and will contact those interested by email. So, start practicing and, as always, good luck to you in the arena!
-<br/><br/>
-
 <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=509013">Discuss TopCoder High School</a>
 <br/><br/>
                 </p>
