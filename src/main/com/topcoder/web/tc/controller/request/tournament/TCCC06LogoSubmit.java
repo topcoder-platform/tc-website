@@ -33,7 +33,7 @@ public class TCCC06LogoSubmit extends BaseLogoSubmit {
         return "TCCC06LogoTerms";
     }
 
-    protected int getMaxSubmissions() {
+    public int getMaxSubmissions() {
         return 3;
     }
 
