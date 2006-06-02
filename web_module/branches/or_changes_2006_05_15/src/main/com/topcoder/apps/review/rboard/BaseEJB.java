@@ -71,6 +71,7 @@ public abstract class BaseEJB implements SessionBean {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
+                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
 
                 int rc = ps.executeUpdate();
@@ -116,9 +117,11 @@ public abstract class BaseEJB implements SessionBean {
                 int i = 0;
                 for (; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
+                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
                 for (int j = 0; j < constraintNames.length; j++, i++) {
                     ps.setString(i + 1, constraintValues[j]);
+                    System.out.println(constraintNames[i] + " - " + constraintValues[i]);
                 }
                 int rc = ps.executeUpdate();
                 return rc;
@@ -267,6 +270,7 @@ public abstract class BaseEJB implements SessionBean {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
+                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
 
                 rs = ps.executeQuery();
@@ -312,6 +316,7 @@ public abstract class BaseEJB implements SessionBean {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
+                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
 
                 rs = ps.executeQuery();
@@ -359,6 +364,7 @@ public abstract class BaseEJB implements SessionBean {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
+                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
 
                 rs = ps.executeQuery();
@@ -415,6 +421,7 @@ public abstract class BaseEJB implements SessionBean {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < constraintColNames.length; i++) {
                     ps.setString(i + 1, constraintColValues[i]);
+                    System.out.println(constraintColNames[i] + " - " + constraintColValues[i]);
                 }
                 rs = ps.executeQuery();
                 return new ResultSetContainer(rs);
