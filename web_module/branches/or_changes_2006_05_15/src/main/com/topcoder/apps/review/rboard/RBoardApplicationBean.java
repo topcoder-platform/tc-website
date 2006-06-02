@@ -174,7 +174,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             // gets UserRole info
             ps = conn.prepareStatement("SELECT * FROM r_user_role "
-                    + "WHERE project_id = ? and r_resp_id = ? "
+                    + "WHERE project_id = ? and login_id is null "
                     + "and cur_version = 1");
             ps.setLong(1, projectId);
             ps.setLong(2, reviewRespId);
