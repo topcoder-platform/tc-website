@@ -244,7 +244,7 @@ public class RBoardApplicationBean extends BaseEJB {
             close(conn);
         }
     }
-s
+
    /* private int getReviewRespId(Connection conn, long userId, long projectId,
             int phaseId) {
         return selectInt(conn,
