@@ -57,13 +57,8 @@
 
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
-            Please read through the following terms and then click "Accept" when you're done.
-            <br><br>
-            <div align="center"><form name="terms">
-            <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_accept_content"></iframe>
-            <br><br>
-            <A href="/tc?module=TCCC06LogoTermsAgree"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
-            </form></div>
+            Your logo design has been successfully sent to TopCoder, thank you.
+
          </div>
 
          <p><br/></p>
