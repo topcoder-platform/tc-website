@@ -76,7 +76,7 @@
       </td>
       <td class="value">5
        <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10022">TCHS SRM 1</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10022">TCHS SRM 1 - Alpha</A></strong><br>
          7:00 PM
          </div>
       </td>
@@ -109,7 +109,7 @@
       </td>
       <td class="value">12
       <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10024">TCHS SRM 2</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10024">TCHS SRM 2 - Beta</A></strong><br>
          2:00 PM
          </div>
       </td>
@@ -142,7 +142,7 @@
       </td>
       <td class="value">19
       <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10021">TCHS SRM 3</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10021">TCHS SRM 3 - Gamma</A></strong><br>
          10:00 AM
          </div>
       </td>
@@ -171,7 +171,7 @@
       </td>
       <td class="value">26
      <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10023">TCHS SRM 4</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10023">TCHS SRM 4 - Delta</A></strong><br>
          6:00 AM
          </div>
       </td>
