@@ -31,7 +31,7 @@ abstract class BaseLogoSubmit extends Base {
     protected abstract int getTermsId();
     protected abstract String getSuccessPage();
     protected abstract String getTermsProcessor();
-    protected abstract int getMaxSubmissions();
+    public abstract int getMaxSubmissions();
     //todo this can be done better, figure out the path from the db.
     protected abstract String getPath();
 
