@@ -60,7 +60,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             String path = StringUtils.checkNull(rsr.getStringItem("path"));
                                             String link = StringUtils.checkNull(rsr.getStringItem("link"));
                                             if (path.equals("")) { %>
-                                            <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                                            <IMG SRC="/i/srm_tchs_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                             <% } else { %>
                                             <% if (link.equals("")) { %>
                                             <IMG ALT="" BORDER="0" SRC="<rsc:item name="path" row="<%=rsr%>"/>" WIDTH="<rsc:item name="width" row="<%=rsr%>"/>" HEIGHT="<rsc:item name="height" row="<%=rsr%>"/>"/>

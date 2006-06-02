@@ -14,24 +14,28 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
          <tc-webtag:handle coderId="16056363" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
-         SRM 301: 2647
+         <span class="small">SRM 301: 2647
          <br>TCO06 Finals: 2525
          <br>TCO06 Semi: 2427
-         <br><br>
+         </span><br><br>
       </td>
    </tr>
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/aubergineanode_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</A></strong><br>
-         <tc-webtag:handle coderId="11797255" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br>Finished 5th at the TCO06, gained 329 rating points and became red<br><br>
+         <tc-webtag:handle coderId="11797255" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br>
+         <span class="small">Finished 5th at the TCO06, gained 329 rating points and became red
+         </span><br><br>
       </td>
    </tr>
    <tr>
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br>
-         <tc-webtag:handle coderId="20188980" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br>$1600 in winnings and 3 wins in 4 submissions<br><br>
+         <tc-webtag:handle coderId="20188980" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br>
+         <span class="small">$1600 in winnings and 3 wins in 4 submissions
+         </span><br><br>
       </td>
    </tr>
    </table>
