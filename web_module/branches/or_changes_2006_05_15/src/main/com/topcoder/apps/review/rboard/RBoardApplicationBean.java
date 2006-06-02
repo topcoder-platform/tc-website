@@ -177,7 +177,6 @@ public class RBoardApplicationBean extends BaseEJB {
                     + "WHERE project_id = ? and login_id is null "
                     + "and cur_version = 1");
             ps.setLong(1, projectId);
-            ps.setLong(2, reviewRespId);
             rs = ps.executeQuery();
 
             // starts transaction
