@@ -5,7 +5,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
-import com.topcoder.web.tc.Constants;
+//import com.topcoder.web.tc.Constants;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -26,6 +26,14 @@ import com.topcoder.util.idgenerator.bean.IdGenHome;
 public class RBoardApplicationBean extends BaseEJB {
 
     private static final int INTERNAL_ADMIN_USER = 100129;
+    
+    public static final int JAVA_CATALOG_ID = 5801776;
+    public static final int DOT_NET_CATALOG_ID = 5801777;
+    public static final int CUSTOM_JAVA_CATALOG_ID = 5801778;
+    public static final int CUSTOM_DOT_NET_CATALOG_ID = 5801779;
+    public static final int FLASH_CATALOG_ID = 8459260;
+    public static final int APPLICATIONS_CATALOG_ID = 9926572;
+    public static final int ACTIVE_REVIEWER = 100;    
 
     private IdGen createIDGen(String dataSource) throws CreateException {
         try {
@@ -323,7 +331,7 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
         }
 
-        if (status != Constants.ACTIVE_REVIEWER) {
+        if (status != RBoardApplication.ACTIVE_REVIEWER) {
             throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
         }
 
@@ -333,22 +341,22 @@ public class RBoardApplicationBean extends BaseEJB {
         }
 
         try {
-            if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
+            if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
                 if (!canReviewJava(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
                     throw new RemoteException("Sorry, you can not review this project because " +
                             "you are not a Java reviewer");
                 }
-            } else if (catalog == Constants.DOT_NET_CATALOG_ID || catalog == Constants.CUSTOM_DOT_NET_CATALOG_ID) {
+            } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
                 if (!canReviewDotNet(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
                     throw new RemoteException("Sorry, you can not review this project because " +
                             "you are not a .Net reviewer");
                 }
-            } else if (catalog == Constants.FLASH_CATALOG_ID) {
+            } else if (catalog == FLASH_CATALOG_ID) {
                 if (!canReviewFlash(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
                     throw new RemoteException("Sorry, you can not review this project because " +
                             "you are not a Flash reviewer");
                 }
-            } else if (catalog == Constants.APPLICATIONS_CATALOG_ID) {
+            } else if (catalog == APPLICATIONS_CATALOG_ID) {
                 if (!canReviewApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
                     throw new RemoteException("Sorry, you can not review this project because " +
                             "you are not a Application reviewer");
