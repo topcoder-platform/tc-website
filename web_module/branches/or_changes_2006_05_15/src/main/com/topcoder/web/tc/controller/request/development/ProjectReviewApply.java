@@ -56,6 +56,7 @@ public class ProjectReviewApply extends Base {
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
                 try {
+                    log.info("Begin transaction");
                     tm.begin();
                     //we're doing this so that we can have something to sync on.  if we don't lock
                     //project, then people get register while we're still doing the selects to determine
@@ -66,12 +67,14 @@ public class ProjectReviewApply extends Base {
                     transactionalValidation((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
                     applicationProcessing();
                     tm.commit();
-
+                    log.info("Commit transaction");
                     // Put the terms text in the request.
                     TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                     setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
                 } catch (Exception e) {
+                    log.info("Error transaction");
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                        log.info("Rollback Transaction");
                         tm.rollback();
                     }
                     throw e;

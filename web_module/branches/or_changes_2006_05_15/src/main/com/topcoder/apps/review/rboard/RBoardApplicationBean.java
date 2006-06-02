@@ -89,10 +89,10 @@ public class RBoardApplicationBean extends BaseEJB {
 
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
-            returnMap.put("projectName", rs.getString("cc.component_name"));
-            returnMap.put("projectVersion", rs.getString("cv.version"));
-            returnMap.put("projectType", rs.getString("pt.project_type_name"));
-            returnMap.put("forumId", rs.getString("cfx.forum_id"));
+            returnMap.put("projectName", rs.getString("component_name"));
+            returnMap.put("projectVersion", rs.getString("version"));
+            returnMap.put("projectType", rs.getString("project_type_name"));
+            returnMap.put("forumId", rs.getString("forum_id"));
         } else {
             throw (new EJBException("Couldn't find project info for pid: "
                     + projectId));
