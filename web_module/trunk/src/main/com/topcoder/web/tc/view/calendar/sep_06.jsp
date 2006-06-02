@@ -96,7 +96,7 @@
       </td>
       <td class="value">11
          <div class="hs">
-         <strong><A href="/tc?module=Static&d1=hs&d2=home">TCHS SRM 14</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10066">TCHS SRM 14</A></strong><br>
          2:00 PM
          </div>
       </td>
@@ -150,7 +150,7 @@
       </td>
       <td class="value">25
          <div class="hs">
-         <strong><A href="/tc?module=Static&d1=hs&d2=home">TCHS SRM 15</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10067">TCHS SRM 15</A></strong><br>
          10:00 AM
          </div>
       </td>
