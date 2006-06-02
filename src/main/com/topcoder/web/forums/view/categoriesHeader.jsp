@@ -4,6 +4,7 @@
 
 <A class="<%=(unreadCategories.indexOf("roundtables")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=13">Round Tables</A><br>
 <A class="<%=(unreadCategories.indexOf("matches")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">Algorithm Matches</A><br>
+<A class="<%=(unreadCategories.indexOf("hs")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=14">High School Matches</A><br>
 <A class="<%=(unreadCategories.indexOf("assembly")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">Assembly Contests</A><br>
 <A class="<%=(unreadCategories.indexOf("longcontests")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=17">Marathon Matches</A><br>
 <A class="<%=(unreadCategories.indexOf("news")<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=8">News Discussions</A><br>
