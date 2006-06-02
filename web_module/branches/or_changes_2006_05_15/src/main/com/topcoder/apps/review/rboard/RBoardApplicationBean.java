@@ -47,8 +47,8 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    private void createPermission(Connection conn, String permissionName,
-            String prefix, long rUserRoleId, long userId) throws SQLException {
+    private void createPermission(Connection conn, IdGen idGen, String permissionName,
+            String prefix, long userId) throws SQLException, RemoteException {
         PreparedStatement ps = conn
                 .prepareStatement("SELECT role_id, description FROM security_roles "
                         + "WHERE description = ?");
@@ -62,18 +62,10 @@ public class RBoardApplicationBean extends BaseEJB {
                     + prefix + permissionName));
         }
         close(ps);
-        try {
-            selectLong(conn, "user_role_xref",
-                    "user_role_id",
-                    new String[]{"user_role_id", "login_id", "role_id"},
-                    new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
-                    String.valueOf(roleId)});
-        } catch (RowNotFoundException e) {
-            insert(conn, "user_role_xref",
-                new String[]{"user_role_id", "login_id", "role_id"},
-                new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
-                String.valueOf(roleId)});
-        }
+        insert(conn, "user_role_xref",
+            new String[]{"user_role_id", "login_id", "role_id"},
+            new String[]{String.valueOf(idGen.nextId()), String.valueOf(userId), 
+            String.valueOf(roleId)});
     }
 
     /**
@@ -219,13 +211,10 @@ public class RBoardApplicationBean extends BaseEJB {
 
                 // create permissions.
                 String prefix = buildPrefix(projectInfo);
-                createPermission(conn, "Review " + projectId, prefix,
-                        rUserRoleId, userId);
-                createPermission(conn, "View Project " + projectId, prefix,
-                        rUserRoleId, userId);
-                createPermission(conn, "ForumUser "
-                        + String.valueOf(projectInfo.get("forumId")), "",
-                        rUserRoleId, userId);
+                createPermission(conn, idGen, "Review " + projectId, prefix, userId);
+                createPermission(conn, idGen, "View Project " + projectId, prefix, userId);
+                createPermission(conn, idGen, "ForumUser "
+                        + String.valueOf(projectInfo.get("forumId")), "", userId);
             } else {
                 throw (new EJBException("Couldn't find UserRole rows for pid:"
                         + projectId));
