@@ -90,7 +90,7 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             returnMap.put("projectName", rs.getString("component_name"));
-            returnMap.put("projectVersion", rs.getString("version_text"));
+            returnMap.put("projectVersion", rs.getString("version_text").trim());
             returnMap.put("projectType", rs.getString("project_type_name"));
             returnMap.put("forumId", rs.getString("forum_id"));
         } else {
@@ -220,15 +220,7 @@ public class RBoardApplicationBean extends BaseEJB {
             System.out.println("Commit Transaction");
             conn.commit();
         } catch (SQLException e) {
-            if (conn != null) {
-                try {
-                    System.out.println("Rollback Transaction");
-                    conn.rollback();
-                } catch (SQLException sqle) {
-                }
-            }
             DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
         } catch (Exception e) {
             if (conn != null) {
                 try {
@@ -414,15 +406,7 @@ public class RBoardApplicationBean extends BaseEJB {
             System.out.println("Commit Transaction b");
             conn.commit();
         } catch (SQLException e) {
-            if (conn != null) {
-                try {
-                    System.out.println("Rollback Transaction b");
-                    conn.rollback();
-                } catch (SQLException sqle) {
-                }
-            }
             DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
         } catch (Exception e) {
             if (conn != null) {
                 try {
@@ -431,6 +415,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 } catch (SQLException sqle) {
                 }
             }
+            throw new EJBException(e.getMessage());
         } finally {
             close(conn);
         }
