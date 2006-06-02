@@ -64,8 +64,7 @@ public class ProjectReviewApply extends Base {
                     //end up with more than one person in the same slot.
                     ProjectLocal project = (ProjectLocal)createLocalEJB(getInitialContext(), Project.class);
                     project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-                    transactionalValidation((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
-                    applicationProcessing();
+                    applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
                     tm.commit();
                     log.info("Commit transaction");
                     // Put the terms text in the request.
@@ -110,8 +109,11 @@ public class ProjectReviewApply extends Base {
         return rBoardApplication;
     }
     
-    protected void applicationProcessing() throws TCWebException {
+    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws TCWebException {
         try {
+            boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
+            rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
+     
             UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
@@ -133,10 +135,5 @@ public class ProjectReviewApply extends Base {
 
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
-    }
-
-    protected void transactionalValidation(Timestamp opensOn, int reviewTypeId) throws Exception {
-        boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
-        rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
     }
 }

@@ -12,6 +12,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
+import java.sql.Timestamp;
 import java.util.Map;
 
 /**
@@ -22,7 +23,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     private static Logger log = Logger.getLogger(ProjectReviewTermsAgree.class);
 
-    protected void applicationProcessing() throws TCWebException {
+    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws TCWebException {
         try {
             if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                 UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
@@ -32,7 +33,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                             Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                 }
 
-                apply();
+                apply(opensOn, reviewTypeId);
                 setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
                         Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
                 setIsNextPageInContext(false);
@@ -51,14 +52,13 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
     }
 
-    private void apply() throws Exception {
+    private void apply(Timestamp opensOn, int reviewTypeId) throws Exception {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
-        int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
 
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
-        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, reviewTypeId, phaseId, new Boolean(primary).booleanValue());
+        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
 /*        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
 

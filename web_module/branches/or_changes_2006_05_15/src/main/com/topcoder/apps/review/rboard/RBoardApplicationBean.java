@@ -153,7 +153,9 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     public void createRBoardApplication(String dataSource, long userId,
-            long projectId, int reviewRespId, int phaseId, boolean primary) {
+            long projectId, int reviewRespId, int phaseId, Timestamp opensOn, 
+            int reviewTypeId, boolean primary) throws RemoteException{
+        
         IdGen idGen = null;
         try {
             idGen = createIDGen(dataSource);
@@ -167,12 +169,6 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
             
-            insert(conn, "rboard_application",
-                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId), 
-                        String.valueOf(phaseId), String.valueOf(reviewRespId), 
-                        String.valueOf(primary ? 1 : 0)});
-            
             // gets project info
             Map projectInfo = getProjectInfo(projectId, conn);
 
@@ -185,7 +181,15 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = ps.executeQuery();
 
             // starts transaction
-            //conn.setAutoCommit(false);
+            conn.setAutoCommit(false);
+            validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+
+            insert(conn, "rboard_application",
+                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
+                    new String[]{String.valueOf(userId), String.valueOf(projectId), 
+                        String.valueOf(phaseId), String.valueOf(reviewRespId), 
+                        String.valueOf(primary ? 1 : 0)});
+
             if (rs.next()) {
                 long rUserRoleVId = rs.getLong("r_user_role_v_id");
                 long rUserRoleId = rs.getLong("r_user_role_id");
@@ -212,14 +216,14 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw (new EJBException("Couldn't find UserRole rows for pid:"
                         + projectId));
             }
-            //conn.commit();
+            conn.commit();
         } catch (SQLException e) {
-        /*    if (conn != null) {
+            if (conn != null) {
                 try {
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
-            }*/
+            }
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
         } catch (Exception e) {
@@ -231,42 +235,39 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    public int getReviewRespId(String dataSource, long userId, long projectId,
+   /* private int getReviewRespId(Connection conn, long userId, long projectId,
             int phaseId) {
-        return selectInt(
+        return selectInt(conn,
                 "rboard_application",
                 "review_resp_id",
                 new String[] { "user_id", "project_id", "phase_id" },
                 new String[] { String.valueOf(userId),
-                        String.valueOf(projectId), String.valueOf(phaseId) },
-                dataSource).intValue();
-    }
+                        String.valueOf(projectId), String.valueOf(phaseId) }).intValue();
+    }*/
 
-    public boolean isPrimary(String dataSource, long userId, long projectId,
+/*    private boolean isPrimary(Connection conn, long userId, long projectId,
             int phaseId) {
-        Integer ret = selectInt("rboard_application",
+        Integer ret = selectInt(conn, "rboard_application",
                 "primary_ind",
                 new String[]{"user_id", "project_id", "phase_id"},
-                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
-                dataSource);
+                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
         return (ret != null && ret.intValue() == 1);
-    }
+    }*/
 
-    public boolean exists(String dataSource, long userId, long projectId,
+    private boolean exists(Connection conn, long userId, long projectId,
             int phaseId) {
         try {
-            selectLong("rboard_application",
+            selectLong(conn, "rboard_application",
                     "user_id",
                     new String[]{"user_id", "project_id", "phase_id"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
-                    dataSource);
+                    new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
         } catch (RowNotFoundException e) {
             return false;
         }
         return true;
     }
 
-    public ResultSetContainer getReviewers(String dataSource, long projectId,
+    private ResultSetContainer getReviewers(String dataSource, long projectId,
             int phaseId) {
         return selectSet("rboard_application",
                 new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
@@ -274,20 +275,17 @@ public class RBoardApplicationBean extends BaseEJB {
                 new String[]{String.valueOf(projectId)},
                 dataSource);
     }
-
-    public Timestamp getLatestReviewApplicationTimestamp(String dataSource,
-            long userId) {
+    
+    public Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
         StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
         query.append(" order by create_date desc");
 
-        Connection conn = null;
         PreparedStatement ps = null;
         InitialContext ctx = null;
         ResultSet rs = null;
         Timestamp ret = null;
         try {
-            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
@@ -301,10 +299,22 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(rs);
             close(ps);
-            close(conn);
             close(ctx);
         }
         return ret;
+    }
+
+    public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            return getLatestReviewApplicationTimestamp(conn, userId);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(conn);
+        }
     }
 
     /**
@@ -314,56 +324,67 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, 
             int phaseId) throws RemoteException {
-        Map reviewRespMap = null;
+        Connection conn = null;
+
         try {
-            reviewRespMap = getReviewRespInfo(dataSource);
+            conn = DBMS.getConnection(dataSource);
+        
+            Map reviewRespMap = null;
+            try {
+                reviewRespMap = getReviewRespInfo(dataSource);
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw new EJBException(e.getMessage());
+            }
+    
+            int status = 0;
+            try {
+                status = getStatus(conn, userId, phaseId);
+            } catch (RowNotFoundException rnfe) {
+                throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+            }
+    
+            if (status != ACTIVE_REVIEWER) {
+                throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
+            }
+    
+            if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
+                    !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+                throw new RemoteException("Invalid request, incorrect review position specified.");
+            }
+    
+            try {
+                if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
+                    if (!canReviewJava(conn, userId, phaseId)) {
+                        throw new RemoteException("Sorry, you can not review this project because " +
+                                "you are not a Java reviewer");
+                    }
+                } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
+                    if (!canReviewDotNet(conn, userId, phaseId)) {
+                        throw new RemoteException("Sorry, you can not review this project because " +
+                                "you are not a .Net reviewer");
+                    }
+                } else if (catalog == FLASH_CATALOG_ID) {
+                    if (!canReviewFlash(conn, userId, phaseId)) {
+                        throw new RemoteException("Sorry, you can not review this project because " +
+                                "you are not a Flash reviewer");
+                    }
+                } else if (catalog == APPLICATIONS_CATALOG_ID) {
+                    if (!canReviewApplication(conn, userId, phaseId)) {
+                        throw new RemoteException("Sorry, you can not review this project because " +
+                                "you are not a Application reviewer");
+                    }
+                } else {
+                    throw new RemoteException("unknown catalog found " + catalog);
+                }
+            } catch (RowNotFoundException enfe) {
+                throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+            }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
-        }
-
-        int status = 0;
-        try {
-            status = getStatus(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, phaseId);
-        } catch (RowNotFoundException rnfe) {
-            throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
-        }
-
-        if (status != ACTIVE_REVIEWER) {
-            throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
-        }
-
-        if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
-                !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
-            throw new RemoteException("Invalid request, incorrect review position specified.");
-        }
-
-        try {
-            if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
-                if (!canReviewJava(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
-                    throw new RemoteException("Sorry, you can not review this project because " +
-                            "you are not a Java reviewer");
-                }
-            } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
-                if (!canReviewDotNet(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
-                    throw new RemoteException("Sorry, you can not review this project because " +
-                            "you are not a .Net reviewer");
-                }
-            } else if (catalog == FLASH_CATALOG_ID) {
-                if (!canReviewFlash(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
-                    throw new RemoteException("Sorry, you can not review this project because " +
-                            "you are not a Flash reviewer");
-                }
-            } else if (catalog == APPLICATIONS_CATALOG_ID) {
-                if (!canReviewApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, phaseId)) {
-                    throw new RemoteException("Sorry, you can not review this project because " +
-                            "you are not a Application reviewer");
-                }
-            } else {
-                throw new RemoteException("unknown catalog found " + catalog);
-            }
-        } catch (RowNotFoundException enfe) {
-            throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+        } finally {
+            close(conn);
         }
     }
 
@@ -373,8 +394,35 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RemoteException
      */
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
+        Connection conn = null;
 
-        if (exists(dataSource, userId, projectId, phaseId)) {
+        try {
+            conn = DBMS.getConnection(dataSource);
+            conn.setAutoCommit(false);
+            validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+            conn.commit();
+        } catch (SQLException e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException sqle) {
+                }
+            }
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(conn);
+        }
+    }
+    
+    /**
+     * @param opensOn
+     * @param reviewTypeId
+     * @throws RemoteException
+     */
+    private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
+        
+        if (exists(conn, userId, projectId, phaseId)) {
             throw new RemoteException("You have already applied to review this project.");
         }
 
@@ -384,8 +432,7 @@ public class RBoardApplicationBean extends BaseEJB {
                     + DateTime.timeStampToString(opensOn));
         }
 
-        Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME,
-                userId);
+        Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(conn, userId);
         if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)
         {
             throw new RemoteException("Sorry, you can not apply for a new review yet.  "
@@ -479,52 +526,47 @@ public class RBoardApplicationBean extends BaseEJB {
     }
     
     
-    private int getStatus(String dataSource, long userId, int phaseId) {
-        return selectInt(
+    private int getStatus(Connection conn, long userId, int phaseId) {
+        return selectInt(conn,
                 "rboard_user",
                 "status_id",
                 new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
-                dataSource).intValue();
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
     }
 
-    private boolean canReviewJava(String dataSource, long userId, int phaseId) {
-        return selectInt(
+    private boolean canReviewJava(Connection conn, long userId, int phaseId) {
+        return selectInt(conn,
                 "rboard_user",
                 "java_ind",
                 new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
-                dataSource).intValue() == 1;
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
     }
 
-    private boolean canReviewDotNet(String dataSource, long userId, int phaseId) {
-        return selectInt(
+    private boolean canReviewDotNet(Connection conn, long userId, int phaseId) {
+        return selectInt(conn,
                 "rboard_user",
                 "net_ind",
                 new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
-                dataSource).intValue() == 1;
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
 
     }
 
-    private boolean canReviewFlash(String dataSource, long userId, int phaseId) {
-        return selectInt(
+    private boolean canReviewFlash(Connection conn, long userId, int phaseId) {
+        return selectInt(conn,
                 "rboard_user",
                 "flash_ind",
                 new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
-                dataSource).intValue() == 1;
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
 
     }
 
-    private boolean canReviewApplication(String dataSource, long userId,
+    private boolean canReviewApplication(Connection conn, long userId,
             int phaseId) {
-        return selectInt(
+        return selectInt(conn,
                 "rboard_user",
                 "application_ind",
                 new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) },
-                dataSource).intValue() == 1;
+                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
 
     }
     

@@ -219,9 +219,8 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-
-    protected Integer selectInt(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException {
-        String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
+    protected Integer selectInt(Connection conn, String tableName, String colName, String[] colNames, String[] colValues) throws RowNotFoundException {
+        String sRet = selectString(conn, tableName, colName, colNames, colValues);
         Integer ret = null;
         if (!(sRet == null || sRet.trim().equals(""))) {
             ret = new Integer(sRet);
@@ -229,8 +228,8 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected Double selectDouble(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException {
-        String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
+    protected Double selectDouble(Connection conn, String tableName, String colName, String[] colNames, String[] colValues) throws RowNotFoundException {
+        String sRet = selectString(conn, tableName, colName, colNames, colValues);
         Double ret = null;
         if (!(sRet == null || sRet.trim().equals(""))) {
             ret = new Double(sRet);
@@ -238,8 +237,8 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected Long selectLong(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException{
-        String sRet = selectString(tableName, colName, colNames, colValues, dataSource);
+    protected Long selectLong(Connection conn, String tableName, String colName, String[] colNames, String[] colValues) throws RowNotFoundException{
+        String sRet = selectString(conn, tableName, colName, colNames, colValues);
         Long ret = null;
         if (!(sRet == null || sRet.trim().equals(""))) {
             ret = new Long(sRet);
@@ -247,7 +246,7 @@ public abstract class BaseEJB implements SessionBean {
         return ret;
     }
 
-    protected String selectString(String tableName, String colName, String[] colNames, String[] colValues, String dataSource) throws RowNotFoundException {
+    protected String selectString(Connection conn, String tableName, String colName, String[] colNames, String[] colValues) throws RowNotFoundException {
         if (colNames.length != colValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -261,13 +260,10 @@ public abstract class BaseEJB implements SessionBean {
 
             log.debug(query);
 
-            Connection conn = null;
             PreparedStatement ps = null;
-            InitialContext ctx = null;
             ResultSet rs = null;
             try {
 
-                conn = DBMS.getConnection(dataSource);
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
@@ -287,10 +283,7 @@ public abstract class BaseEJB implements SessionBean {
             } finally {
                 close(rs);
                 close(ps);
-                close(conn);
-                close(ctx);
             }
-
         }
     }
 
