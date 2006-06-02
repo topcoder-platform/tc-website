@@ -28,7 +28,7 @@
             <% if (selectedTab.equals("submit")) {%>
                  Submit Your Design&#160;|&#160;
             <% } else { %>
-                  <a href="/tc?module=tccc06LogoTerms">Submit Your Design</a>&#160;|&#160;
+                  <a href="/tc?module=TCCC06LogoTerms">Submit Your Design</a>&#160;|&#160;
             <% } %>
 
 <!-- View Submissions tab -->

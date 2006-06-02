@@ -1,13 +1,9 @@
-<%@ page import="java.io.InputStream"%>
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page import="java.net.URL"%>
-<%@ page language="java"  %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
-<title>2006 TopCoder Collegiate Challenge - Logo Design Contest</title>
+<title>2006 TopCoder Open - Logo Design Contest</title>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_main"/>
@@ -17,7 +13,7 @@
 .pageSpacer
 {
    width: 510px;
-   padding: 15px 0px 10px 0px;
+	padding: 15px 0px 10px 0px;
    text-align: left;
 }
 .logoBox {
@@ -52,27 +48,22 @@
 
          <div class="pageSpacer">
 
-            <div class="logoBox"><img src="/i/tournament/tccc06/logo_logo.gif" alt="TCCC06 Logo Contest" border="0"/></div><br>
+            <div class="logoBox"><img src="/i/tournament/tco06/logo_logo.gif" alt="TCO06 Logo Contest" border="0"/></div>
             <div align="center">
-            <jsp:include page="logo_links.jsp" >
-            <jsp:param name="selectedTab" value="rules"/>
-            </jsp:include>
+   			<jsp:include page="logo_links.jsp" >
+   			<jsp:param name="selectedTab" value="submit"/>
+   			</jsp:include>
             </div>
 
             <br><br>
-
-             <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCCC06_LOGO_TERMS_ID);
-        InputStream is = termsURL.openStream();
-        int count = is.available();
-        while (count > 0) {
-            for (int i=0; i<count; i++) {
-                out.write(is.read());
-            }
-            count = is.available();
-        }
-        is.close();
-%>
+            <span class="bodySubtitle">Logo submission</span><br>
+            Please read through the following terms and then click "Accept" when you're done.
+            <br><br>
+            <div align="center"><form name="terms">
+            <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_accept_content"></iframe>
+            <br><br>
+            <A href="/tc?module=TCCC06LogoTermsAgree"><img src="/i/accept.gif" alt="Accept" border="0" /></A>
+            </form></div>
          </div>
 
          <p><br/></p>
