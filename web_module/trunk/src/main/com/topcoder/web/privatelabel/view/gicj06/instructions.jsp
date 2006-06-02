@@ -58,7 +58,7 @@ Once the Competition Arena launches, you will be presented with a login screen.
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena1.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena1.gif" width="495" height="372" alt="" border="0"/></div>
 <br><br>
 
 From here, you need simply type in your handle and the password that you chose during the registration process. Once you
@@ -66,7 +66,7 @@ log in, you will initially be placed in the main chat lobby.
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena2.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena2.gif" width="495" height="372" alt="" border="0"/></div>
 <br><br>
 
 Move to your assigned competition room as follows:
@@ -82,7 +82,7 @@ Coding Phase.
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena3.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena3.gif" width="495" height="372" alt="" border="0"/></div>
 <br><br>
 
 <span class="greenSubtitle">Coding Phase</span><br>
@@ -121,7 +121,7 @@ statement is shown, and the solutions are coded, compiled, tested, and submitted
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena4.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena4.gif" width="510" height="462" alt="" border="0"/></div>
 <br><br>
 
 <blockquote>
@@ -185,7 +185,7 @@ most recent successfully compiled code. The following is an example of an unsucc
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena5.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena5.gif" width="510" height="327" alt="" border="0"/></div>
 <br><br>
 
 <strong>User Testing</strong><br>
@@ -216,7 +216,7 @@ When you click on the "Test" button from within the coding window, the "Problem 
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena6.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena6.gif" width="348" height="368" alt="" border="0"/></div>
 <br><br>
 
 The problem arguments window is where you will create the test case with which you wish to use to test your code. You
@@ -301,7 +301,7 @@ To challenge a competitor's submission, open the summary window in the competiti
 
 <br><br>
 
-<div align="center"><img src="/i/events/gicj06/arena7.gif" alt="" border="0"/></div>
+<div align="center"><img src="/i/events/gicj06/arena7.gif" width="510" height="344" alt="" border="0"/></div>
 <br><br>
 
 Double click on any of the point values (shown in green) to view the source code for that submission. When viewing the
