@@ -73,6 +73,7 @@ public class Constants implements WebConstants {
     public static String SCHOOL_NAME;
     public static int TCO05_LOGO_TERMS_ID;
     public static int TCO06_LOGO_TERMS_ID;
+    public static int TCCC06_LOGO_TERMS_ID;
     public static String LOGO;
     public static int TCO05_SPONSOR_TERMS_ID;
 
