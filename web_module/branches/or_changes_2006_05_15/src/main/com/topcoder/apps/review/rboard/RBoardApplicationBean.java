@@ -331,7 +331,7 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
         }
 
-        if (status != RBoardApplication.ACTIVE_REVIEWER) {
+        if (status != ACTIVE_REVIEWER) {
             throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
         }
 
