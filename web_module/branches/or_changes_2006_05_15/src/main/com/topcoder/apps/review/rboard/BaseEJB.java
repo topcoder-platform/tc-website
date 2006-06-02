@@ -117,11 +117,9 @@ public abstract class BaseEJB implements SessionBean {
                 int i = 0;
                 for (; i < colNames.length; i++) {
                     ps.setString(i + 1, colValues[i]);
-                    System.out.println(colNames[i] + " - " + colValues[i]);
                 }
                 for (int j = 0; j < constraintNames.length; j++, i++) {
                     ps.setString(i + 1, constraintValues[j]);
-                    System.out.println(constraintNames[i] + " - " + constraintValues[i]);
                 }
                 int rc = ps.executeUpdate();
                 return rc;

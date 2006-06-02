@@ -63,6 +63,7 @@ public class RBoardApplicationBean extends BaseEJB {
         }
         close(ps);
         try {
+            System.out.println(user_role_xref)
             selectLong(conn, "user_role_xref",
                     "user_role_id",
                     new String[]{"user_role_id", "login_id", "role_id"},
@@ -152,12 +153,17 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return
      * @throws SQLException
      */
-    private void resetCurrentVersion(Connection conn, long rUserRoleVId)
-        throws SQLException {
-        update(conn, "r_user_role",
-            new String[]{"cur_version"}, new String[]{"0"},
-            new String[]{"r_user_role_v_id"},
-            new String[]{String.valueOf(rUserRoleVId)});
+    private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
+        try {
+            
+            System.out.println("update r_user_role : " + rUserRoleVId);
+            
+            update(conn, "r_user_role",
+                new String[]{"cur_version"}, new String[]{"0"},
+                new String[]{"r_user_role_v_id"},
+                new String[]{String.valueOf(rUserRoleVId)});
+        } catch (Exception e) {
+        }
     }
 
     public void createRBoardApplication(String dataSource, long userId,
