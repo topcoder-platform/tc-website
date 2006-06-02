@@ -44,15 +44,13 @@
          <td width="100%">
          <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge</span>
          <br><br>
-         November 12-18<br>
+         November 14-18<br>
          San Diego, CA, USA<br>
-         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about">Details</A>
-         <br>
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Contest</A>
          </td>
       </tr>
-   </table>--%>
-
+   </table>
+--%>
    <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
