@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="java.net.URL"%>
 <%@ page language="java"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -61,8 +62,12 @@
 
             <br><br>
 
+             <c:import url="">
+                 <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
+                 <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=Constants.TCCC06_LOGO_TERMS_ID%>"/>
+             </c:import>
              <%
-        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCCC06_LOGO_TERMS_ID);
+/*        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+ Constants.TERMS_OF_USE_ID+"="+Constants.TCCC06_LOGO_TERMS_ID);
         InputStream is = termsURL.openStream();
         int count = is.available();
         while (count > 0) {
@@ -71,7 +76,7 @@
             }
             count = is.available();
         }
-        is.close();
+        is.close();*/
 %>
          </div>
 
