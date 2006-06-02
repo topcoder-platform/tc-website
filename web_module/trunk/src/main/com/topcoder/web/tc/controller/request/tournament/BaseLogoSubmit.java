@@ -61,8 +61,8 @@ abstract class BaseLogoSubmit extends Base {
                     fileName.append(cal.get(Calendar.HOUR_OF_DAY)).append("_");
                     fileName.append(cal.get(Calendar.MINUTE)).append("_");
                     fileName.append(cal.get(Calendar.SECOND)).append("_");
-                    fileName.append(cal.get(Calendar.MILLISECOND)).append("_s");
-                    fileName.append(submissionCount+1);
+                    //fileName.append(cal.get(Calendar.MILLISECOND)).append("_");
+                    fileName.append("s").append(submissionCount+1);
                     int idx = file.getRemoteFileName().lastIndexOf('.');
                     if (idx >= 0) {
                         fileName.append(file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.')));
