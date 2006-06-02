@@ -962,6 +962,11 @@
             <fileset dir="${java}/com/topcoder/web/corp/view">
                 <include name="**/*"/>
             </fileset>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+
 
         </war>
         <unwar src="${war.dir}/corp.war" dest="${jboss_deploy}/corp.war/" overwrite="yes"/>
@@ -1364,6 +1369,11 @@
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
             </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+
         </war>
         <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
@@ -1416,6 +1426,11 @@
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+
         </war>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
@@ -1665,6 +1680,11 @@
                 <lib dir="${struts.dir}">
                     <include name="*.jar"/>
                 </lib>
+                <lib dir="${jars.dir}">
+                    <include name="jstl.jar"/>
+                    <include name="standard.jar"/>
+                </lib>
+                
                 <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
                     <include name="**/*.jsp"/>
                 </fileset>
