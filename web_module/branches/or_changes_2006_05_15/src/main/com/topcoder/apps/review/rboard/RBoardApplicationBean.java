@@ -62,10 +62,18 @@ public class RBoardApplicationBean extends BaseEJB {
                     + prefix + permissionName));
         }
         close(ps);
-        insert(conn, "user_role_xref",
-            new String[]{"user_role_id", "login_id", "role_id"},
-            new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
-            String.valueOf(roleId)});
+        try {
+            selectLong(conn, "user_role_xref",
+                    "user_role_id",
+                    new String[]{"user_role_id", "login_id", "role_id"},
+                    new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
+                    String.valueOf(roleId)});
+        } catch (RowNotFoundException e) {
+            insert(conn, "user_role_xref",
+                new String[]{"user_role_id", "login_id", "role_id"},
+                new String[]{String.valueOf(rUserRoleId), String.valueOf(userId), 
+                String.valueOf(roleId)});
+        }
     }
 
     /**
