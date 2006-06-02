@@ -79,7 +79,7 @@ public class RBoardApplicationBean extends BaseEJB {
             throws SQLException {
         Map returnMap = new HashMap();
         PreparedStatement ps = conn
-                .prepareStatement("select p.project_id, cc.component_name, cv.version, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
+                .prepareStatement("select p.project_id, cc.component_name, cv.version_text, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
                         + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
                         + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
                         + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 "
@@ -90,7 +90,7 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             returnMap.put("projectName", rs.getString("component_name"));
-            returnMap.put("projectVersion", rs.getString("version"));
+            returnMap.put("projectVersion", rs.getString("version_text"));
             returnMap.put("projectType", rs.getString("project_type_name"));
             returnMap.put("forumId", rs.getString("forum_id"));
         } else {
@@ -230,6 +230,13 @@ public class RBoardApplicationBean extends BaseEJB {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
         } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    System.out.println("Rollback Transaction2");
+                    conn.rollback();
+                } catch (SQLException sqle) {
+                }
+            }
             throw new EJBException(e.getMessage());
         } finally {
             close(rs);
@@ -237,7 +244,7 @@ public class RBoardApplicationBean extends BaseEJB {
             close(conn);
         }
     }
-
+s
    /* private int getReviewRespId(Connection conn, long userId, long projectId,
             int phaseId) {
         return selectInt(conn,
@@ -401,21 +408,29 @@ public class RBoardApplicationBean extends BaseEJB {
 
         try {
             conn = DBMS.getConnection(dataSource);
-            System.out.println("Begin Transaction");
+            System.out.println("Begin Transaction b");
             conn.setAutoCommit(false);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
-            System.out.println("Commit Transaction");
+            System.out.println("Commit Transaction b");
             conn.commit();
         } catch (SQLException e) {
             if (conn != null) {
                 try {
-                    System.out.println("Rollback Transaction");
+                    System.out.println("Rollback Transaction b");
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
             }
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    System.out.println("Rollback Transaction b2");
+                    conn.rollback();
+                } catch (SQLException sqle) {
+                }
+            }
         } finally {
             close(conn);
         }
