@@ -8,6 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -44,12 +45,10 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 setIsNextPageInContext(true);
 
             }
+        } catch (RBoardRegistrationException rbre) {
+            throw new NavigationException(rbre.getMessage());
         } catch (Exception e) {
-            if (e instanceof RBoardRegistrationException) {
-                throw (RBoardRegistrationException) e;
-            } else {
-                throw new TCWebException(e.getMessage());
-            }
+            throw new TCWebException(e.getMessage());
         }
     }
 

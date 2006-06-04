@@ -14,9 +14,9 @@ public interface RBoardApplication extends EJBObject {
     void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException;
 
     Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
-    
-    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RemoteException;
 
-    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException;
+    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
+
+    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException;
 }
 

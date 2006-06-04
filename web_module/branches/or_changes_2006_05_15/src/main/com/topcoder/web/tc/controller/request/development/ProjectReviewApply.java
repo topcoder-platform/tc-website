@@ -84,14 +84,10 @@ public class ProjectReviewApply extends Base {
             }
         } catch (TCWebException e) {
             throw e;
-        } catch (Exception e) {
-            RBoardRegistrationException rbre = null;
-            try {
-                rbre = (RBoardRegistrationException) e;
-            } catch (Exception e2){
-                throw new TCWebException(e.getMessage());
-            }
+        } catch (RBoardRegistrationException rbre) {
             throw new NavigationException(rbre.getMessage());
+        } catch (Exception e) {
+            throw new TCWebException(e.getMessage());
         }
     }
 

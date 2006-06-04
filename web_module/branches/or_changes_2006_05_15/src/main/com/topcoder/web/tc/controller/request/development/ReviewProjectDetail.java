@@ -12,7 +12,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
 
 import java.sql.Timestamp;
@@ -139,23 +138,23 @@ public class ReviewProjectDetail extends Base {
         setIsNextPageInContext(true);
 
     }
-    
+
     protected RBoardApplication createRBoardApplication() throws CreateException {
         InitialContext ctx = null;
         RBoardApplication rBoardApplication = null;
         try {
-    
+
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.info("context: " + ctx.getEnvironment().toString());
-    
+
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
                     (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
-            
+
              rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
             try {ctx.close();} catch (Exception ex) {}
-            throw new CreateException("Could not find bean!" + e);            
+            throw new CreateException("Could not find bean!" + e);
         }
         try {ctx.close();} catch (Exception ex) {}
         return rBoardApplication;

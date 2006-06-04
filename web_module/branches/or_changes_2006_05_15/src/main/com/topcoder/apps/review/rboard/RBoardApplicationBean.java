@@ -1,45 +1,45 @@
 package com.topcoder.apps.review.rboard;
 
-import com.topcoder.common.web.util.DateTime;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.common.model.SoftwareComponent;
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import java.rmi.RemoteException;
-import java.sql.*;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.HashMap;
+
+import com.topcoder.common.web.util.DateTime;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.model.SoftwareComponent;
 
 
 /**
  * @author dok Date: Feb 12, 2004
  */
 public class RBoardApplicationBean extends BaseEJB {
-
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
-
     private static final int AGGREGATOR_ROLE_ID = 4;
-
     private static final int PRIMARY_SCREENER_ROLE_ID = 2;
-
     private static final int REVIEWER_ROLE_ID = 3;
-
     private static final int INTERNAL_ADMIN_USER = 100129;
-
-    public static final int JAVA_CATALOG_ID = 5801776;
-    public static final int DOT_NET_CATALOG_ID = 5801777;
-    public static final int CUSTOM_JAVA_CATALOG_ID = 5801778;
-    public static final int CUSTOM_DOT_NET_CATALOG_ID = 5801779;
-    public static final int FLASH_CATALOG_ID = 8459260;
-    public static final int APPLICATIONS_CATALOG_ID = 9926572;
-    public static final int ACTIVE_REVIEWER = 100;
+    private static final int JAVA_CATALOG_ID = 5801776;
+    private static final int DOT_NET_CATALOG_ID = 5801777;
+    private static final int CUSTOM_JAVA_CATALOG_ID = 5801778;
+    private static final int CUSTOM_DOT_NET_CATALOG_ID = 5801779;
+    private static final int FLASH_CATALOG_ID = 8459260;
+    private static final int APPLICATIONS_CATALOG_ID = 9926572;
+    private static final int ACTIVE_REVIEWER = 100;
 
     private IdGen createIDGen(String dataSource) throws CreateException {
         try {
@@ -164,7 +164,6 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
         try {
-
             System.out.println("update r_user_role : " + rUserRoleVId);
 
             update(conn, "r_user_role",
@@ -333,7 +332,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RemoteException
      */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
-            int phaseId) throws RemoteException {
+            int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
 
         try {
@@ -434,7 +433,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param reviewTypeId
      * @throws RemoteException
      */
-    private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
+    private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
