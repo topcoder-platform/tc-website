@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.apps.review.rboard;
 
 import javax.ejb.EJBObject;
@@ -5,8 +9,19 @@ import java.rmi.RemoteException;
 import java.sql.Timestamp;
 
 /**
- * @author dok
- * Date: Feb 12, 2004
+ * RBoard EJB remote interface.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public interface RBoardApplication extends EJBObject {
     public static final int APPLICATION_DELAY = 6 * 60 * 60 * 1000;

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.apps.review.rboard;
 
 import java.rmi.RemoteException;
@@ -23,6 +27,21 @@ import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
 
+/**
+ * Implementation of the RBoard EJB.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
+ */
 
 public class RBoardApplicationBean extends BaseEJB {
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
@@ -38,6 +57,13 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int APPLICATIONS_CATALOG_ID = 9926572;
     private static final int ACTIVE_REVIEWER = 100;
 
+    /**
+     * Creates IdGenerator EJB
+     *
+     * @param dataSource the current datasource
+     * @return the IdGenerator
+     * @throws CreateException if bean creation fails.
+     */
     private IdGen createIDGen(String dataSource) throws CreateException {
         try {
             InitialContext context = new InitialContext();
@@ -52,6 +78,17 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Creates a specific permission for a specific user
+     *
+     * @param conn the connection being used
+     * @param idGen the idGenerator for the ids
+     * @param permissionName the permission name to create
+     * @param prefix the prefix of the permission
+     * @param userId the user id to assign permission
+     * @throws SQLException when DB operations fails
+     * @throws RemoteException if security_roles cannot be found
+     */
     private void createPermission(Connection conn, IdGen idGen, String permissionName,
             String prefix, long userId) throws SQLException, RemoteException {
         PreparedStatement ps = conn
@@ -80,6 +117,14 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Gets specific project information
+     *
+     * @param projectId the project id being inquired
+     * @param conn the connection being used
+     * @return Map with the project information
+     * @throws SQLException when DB operations fails
+     */
     private Map getProjectInfo(long projectId, Connection conn)
             throws SQLException {
         Map returnMap = new HashMap();
@@ -107,6 +152,12 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
+    /**
+     * Builds the prefix for the permissions
+     *
+     * @param projectInfo the Map containing project's information.
+     * @return the prefix's string
+     */
     private String buildPrefix(Map projectInfo) {
         String prefix = String.valueOf(projectInfo.get("projectName")) + " "
                 + String.valueOf(projectInfo.get("projectVersion")) + " "
@@ -114,6 +165,21 @@ public class RBoardApplicationBean extends BaseEJB {
         return prefix;
     }
 
+    /**
+     * Inserts a specified user role
+     *
+     * @param conn the connection being used
+     * @param idGen the idGenerator for the ids
+     * @param rUserRoleVId the existing userRoleVId
+     * @param userId the user to insert
+     * @param projectId the related project Id
+     * @param reviewRespId the reviewer's responsibility
+     * @param rUserRoleId the user role Id to insert
+     * @param rRoleId the role Id to insert
+     * @param paymentInfoId the payment information Id to insert
+     * @throws SQLException when DB operations fails
+     * @throws RemoteException if ID generator fails to generate the Id
+     */
     private void insertUserRole(Connection conn, IdGen idGen, long rUserRoleVId, long userId,
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
         long paymentInfoId) throws SQLException, RemoteException {
@@ -129,6 +195,12 @@ public class RBoardApplicationBean extends BaseEJB {
             String.valueOf(INTERNAL_ADMIN_USER), "1"});
     }
 
+    /**
+     * Resets cur_version for the specified user role version Id
+     *
+     * @param conn the connection being used
+     * @param rUserRoleVId the user role version id to reset.
+     */
     private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
         try {
             System.out.println("update r_user_role : " + rUserRoleVId);
@@ -141,6 +213,20 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Creates the rboard_application and user_roles rows and insert permissions for the
+     * reviewers singing up.
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to insert
+     * @param projectId the project id to insert
+     * @param reviewRespId the review responsibility id to insert
+     * @param phaseId the phase id
+     * @param opensOn timestamp when the positions opens on
+     * @param reviewTypeId the type of the review
+     * @param primary true if the reviewer is signing up for primary reviewer position
+     * @throws RemoteException if the IDgenerator can't be created or the UserRole rows are not found
+     */
     public void createRBoardApplication(String dataSource, long userId,
             long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
             int reviewTypeId, boolean primary) throws RemoteException{
@@ -230,6 +316,15 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Searches for existence of a particular row in rboard_application
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param projectId the project id to inspect
+     * @param phaseId the phase id to inspect
+     * @return true if row exists
+     */
     private boolean exists(Connection conn, long userId, long projectId,
             int phaseId) {
         try {
@@ -243,6 +338,14 @@ public class RBoardApplicationBean extends BaseEJB {
         return true;
     }
 
+    /**
+     * Retrieves reviewers for a particular project
+     *
+     * @param dataSource the datasource being used
+     * @param projectId the project id to inspect
+     * @param phaseId the phase id to inspect
+     * @return ResultSetContainer with the retrieved reviewers
+     */
     private ResultSetContainer getReviewers(String dataSource, long projectId,
             int phaseId) {
         return selectSet("rboard_application",
@@ -252,6 +355,13 @@ public class RBoardApplicationBean extends BaseEJB {
                 dataSource);
     }
 
+    /**
+     * Retrieves the last timestamp when a reviewer signed up for a review position
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @return the timestamp of the last sign up
+     */
     public Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
         StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
@@ -280,6 +390,13 @@ public class RBoardApplicationBean extends BaseEJB {
         return ret;
     }
 
+    /**
+     * Retrieves the last timestamp when a reviewer signed up for a review position
+     *
+     * @param dataSource the datasuorce being used
+     * @param userId the user id to inspect
+     * @return the timestamp for the last signup
+     */
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
         Connection conn = null;
         try {
@@ -293,6 +410,17 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Validates some non-transacional constraints for the review signup
+     *
+     * @param dataSource the datasource being used
+     * @param catalog the catalog id of the project
+     * @param reviewTypeId the review type selected
+     * @param userId the user id signing in
+     * @param phaseId the type of the project
+     * @throws RBoardRegistrationException when validations fails
+     * @throws RemoteException for unknown catalogs
+     */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
             int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
@@ -308,7 +436,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw new EJBException(e.getMessage());
             }
 
-            int status = 0;
+            long status = 0;
             try {
                 status = getStatus(conn, userId, phaseId);
             } catch (RowNotFoundException rnfe) {
@@ -359,7 +487,20 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
+    /**
+     * Validates some transacional constraints for the review signup
+     *
+     * @param dataSource the datasource being used
+     * @param projectId the project id to validate
+     * @param phaseId the project type
+     * @param userId the user id to validate
+     * @param opensOn the timestamp when the position opnens
+     * @param reviewTypeId the review type
+     * @param primary true if the position if for primary reviewer
+     * @throws RemoteException
+     */
+    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
+        throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
 
         try {
@@ -379,12 +520,29 @@ public class RBoardApplicationBean extends BaseEJB {
                 } catch (SQLException sqle) {
                 }
             }
-            throw new EJBException(e.getMessage());
+            if (e instanceof RBoardRegistrationException) {
+                throw new RBoardRegistrationException(e.getMessage());
+            } else {
+                throw new EJBException(e.getMessage());
+            }
         } finally {
             close(conn);
         }
     }
 
+    /**
+     * Validates some transacional constraints for the review signup
+     *
+     * @param conn the connection being used
+     * @param dataSource the datasource being used
+     * @param projectId the project id to validate
+     * @param phaseId the project type
+     * @param userId the user id to validate
+     * @param opensOn the timestamp when the position opnens
+     * @param reviewTypeId the review type
+     * @param primary true if the position if for primary reviewer
+     * @throws RemoteException
+     */
     private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException, RemoteException {
 
@@ -462,6 +620,13 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
+    /**
+     * Gets reviewers responsibility information
+     *
+     * @param dataSource the datasource being used
+     * @return a map with the reviewers responsibility information
+     * @throws SQLException if DB operation fails
+     */
     private Map getReviewRespInfo(String dataSource) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -484,24 +649,48 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
-    private int getStatus(Connection conn, long userId, int phaseId) {
-        return selectInt(conn,
+    /**
+     * Retrieves the reviewer status of a particular user
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param phaseId the project type to inspect
+     * @return the status of the reviewer
+     */
+    private long getStatus(Connection conn, long userId, int phaseId) {
+        return selectLong(conn,
                 "rboard_user",
                 "status_id",
                 new String[] { "user_id", "phase_id" },
                 new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
     }
 
+    /**
+     * Retrieves if a particular user can review Java
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param phaseId the project type to inspect
+     * @return true if the user can review Java
+     */
     private boolean canReviewJava(Connection conn, long userId, int phaseId) {
-        return selectInt(conn,
+        return selectLong(conn,
                 "rboard_user",
                 "java_ind",
                 new String[] { "user_id", "phase_id" },
                 new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
     }
 
+    /**
+     * Retrieves if a particular user can review DotNet
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param phaseId the project type to inspect
+     * @return true if the user can review DotNet
+     */
     private boolean canReviewDotNet(Connection conn, long userId, int phaseId) {
-        return selectInt(conn,
+        return selectLong(conn,
                 "rboard_user",
                 "net_ind",
                 new String[] { "user_id", "phase_id" },
@@ -509,8 +698,16 @@ public class RBoardApplicationBean extends BaseEJB {
 
     }
 
+    /**
+     * Retrieves if a particular user can review Flash
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param phaseId the project type to inspect
+     * @return true if the user can review Flash
+     */
     private boolean canReviewFlash(Connection conn, long userId, int phaseId) {
-        return selectInt(conn,
+        return selectLong(conn,
                 "rboard_user",
                 "flash_ind",
                 new String[] { "user_id", "phase_id" },
@@ -518,9 +715,17 @@ public class RBoardApplicationBean extends BaseEJB {
 
     }
 
+    /**
+     * Retrieves if a particular user can review applications
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @param phaseId the project type to inspect
+     * @return true if the user can review applications
+     */
     private boolean canReviewApplication(Connection conn, long userId,
             int phaseId) {
-        return selectInt(conn,
+        return selectLong(conn,
                 "rboard_user",
                 "application_ind",
                 new String[] { "user_id", "phase_id" },
