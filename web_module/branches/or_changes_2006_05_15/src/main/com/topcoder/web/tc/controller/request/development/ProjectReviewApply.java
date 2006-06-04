@@ -51,15 +51,7 @@ public class ProjectReviewApply extends Base {
                 int catalog = detail.getIntItem(0, "category_id");
 
                 rBoardApplication = createRBoardApplication();
-                try {
-                    nonTransactionalValidation(catalog, reviewTypeId);
-                } catch (Exception e) {
-                    if (e instanceof RBoardRegistrationException) {
-                        throw new NavigationException(e.getMessage());
-                    } else {
-                        throw new TCWebException(e.getMessage());
-                    }
-                }
+                nonTransactionalValidation(catalog, reviewTypeId);
 
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 

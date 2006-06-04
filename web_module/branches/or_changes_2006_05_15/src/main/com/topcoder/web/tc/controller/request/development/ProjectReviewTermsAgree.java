@@ -13,6 +13,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
+import java.rmi.RemoteException;
 
 import java.sql.Timestamp;
 import java.util.Map;
@@ -46,12 +47,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 setIsNextPageInContext(true);
 
             }
-
-        } catch (TCWebException e) {
-            throw e;
         } catch (Exception e) {
             if (e instanceof RBoardRegistrationException) {
-                throw new NavigationException(e.getMessage());
+                throw (RBoardRegistrationException) e;
             } else {
                 throw new TCWebException(e.getMessage());
             }
