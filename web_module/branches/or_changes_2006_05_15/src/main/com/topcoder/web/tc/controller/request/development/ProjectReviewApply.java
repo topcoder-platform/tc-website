@@ -84,6 +84,7 @@ public class ProjectReviewApply extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
+            System.out.println("Exception: " + e.getClass().getName());
             if (e instanceof RBoardRegistrationException) {
                 throw new NavigationException(e.getMessage());
             } else {
