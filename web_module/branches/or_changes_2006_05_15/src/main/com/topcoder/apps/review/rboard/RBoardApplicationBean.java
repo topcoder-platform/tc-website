@@ -73,15 +73,13 @@ public class RBoardApplicationBean extends BaseEJB {
         long userRoleId = idGen.nextId();
         try {
             selectLong(conn, "user_role_xref",
-                    "user_role_id",
-                    new String[]{"user_role_id", "login_id", "role_id"},
-                    new String[]{String.valueOf(userRoleId), String.valueOf(userId),
-                    String.valueOf(roleId)});
+                "user_role_id", new String[]{"login_id", "role_id"},
+                new String[]{String.valueOf(userId), String.valueOf(roleId)});
         } catch (RowNotFoundException e) {
             insert(conn, "user_role_xref",
-                new String[]{"user_role_id", "login_id", "role_id"},
+                new String[]{"user_role_id", "login_id", "role_id", "create_user_id"},
                 new String[]{String.valueOf(userRoleId), String.valueOf(userId),
-                String.valueOf(roleId)});
+                String.valueOf(roleId), String.valueOf(INTERNAL_ADMIN_USER)});
         }
     }
 
