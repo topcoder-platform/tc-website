@@ -53,55 +53,105 @@
 <td class="advancersRound" width="50%">Handle</td>
 <td class="advancersRound" width="50%" align="right">Score</td>
 </tr>
-<tr class="sidebarText"><td>-oo-</td><td align="right">1380.31</td></tr>
-<tr class="sidebarText"><td>ACRush</td><td align="right">1216.25</td></tr>
-<tr class="sidebarText"><td>along</td><td align="right">1414.94</td></tr>
-<tr class="sidebarText"><td>b285714</td><td align="right">1579.91</td></tr>
-<tr class="sidebarText"><td>benetin</td><td align="right">1571.99</td></tr>
-<tr class="sidebarText"><td>bug27</td><td align="right">1327.97</td></tr>
-<tr class="sidebarText"><td>cax</td><td align="right">1362.58</td></tr>
-<tr class="sidebarText"><td>cheapwine</td><td align="right">1317.05</td></tr>
-<tr class="sidebarText"><td>cmax</td><td align="right">1181.42</td></tr>
-<tr class="sidebarText"><td>crazyCoderPK</td><td align="right">1377.55</td></tr>
-<tr class="sidebarText"><td>daofeng</td><td align="right">1499.06</td></tr>
-<tr class="sidebarText"><td>dmks</td><td align="right">1231.46</td></tr>
-<tr class="sidebarText"><td>Dysentery</td><td align="right">1145.95</td></tr>
-<tr class="sidebarText"><td>Eonian</td><td align="right">1371.72</td></tr>
-<tr class="sidebarText"><td>FreePeter</td><td align="right">1302.35</td></tr>
-<tr class="sidebarText"><td>fuwenjie</td><td align="right">1396.18</td></tr>
-<tr class="sidebarText"><td>iceland</td><td align="right">1483.34</td></tr>
-<tr class="sidebarText"><td>Ikki</td><td align="right">1569.00</td></tr>
-<tr class="sidebarText"><td>imawake</td><td align="right">1311.28</td></tr>
-<tr class="sidebarText"><td>javacp</td><td align="right">1339.95</td></tr>
-<tr class="sidebarText"><td>KelvinYe</td><td align="right">1493.92</td></tr>
-<tr class="sidebarText"><td>kinfkong</td><td align="right">1153.77</td></tr>
-<tr class="sidebarText"><td>King_Bette</td><td align="right">1149.82</td></tr>
-<tr class="sidebarText"><td>LemonTree</td><td align="right">1610.07</td></tr>
-<tr class="sidebarText"><td>lhcs</td><td align="right">1349.39</td></tr>
-<tr class="sidebarText"><td>liux0229</td><td align="right">1236.86</td></tr>
-<tr class="sidebarText"><td>liympanda</td><td align="right">1622.21</td></tr>
-<tr class="sidebarText"><td>lvhao</td><td align="right">1285.89</td></tr>
-<tr class="sidebarText"><td>Macsy</td><td align="right">1501.12</td></tr>
-<tr class="sidebarText"><td>nhzp339</td><td align="right">1161.33</td></tr>
-<tr class="sidebarText"><td>oldbig</td><td align="right">1325.64</td></tr>
-<tr class="sidebarText"><td>panzhangsheng</td><td align="right">1168.65</td></tr>
-<tr class="sidebarText"><td>pashanhu</td><td align="right">1370.08</td></tr>
-<tr class="sidebarText"><td>priest_zhou</td><td align="right">1407.74</td></tr>
-<tr class="sidebarText"><td>qwj</td><td align="right">1465.92</td></tr>
-<tr class="sidebarText"><td>roba269</td><td align="right">1264.62</td></tr>
-<tr class="sidebarText"><td>Rocking</td><td align="right">1446.44</td></tr>
-<tr class="sidebarText"><td>Savior</td><td align="right">1664.61</td></tr>
-<tr class="sidebarText"><td>sltz</td><td align="right">1270.90</td></tr>
-<tr class="sidebarText"><td>tankbattle</td><td align="right">1163.64</td></tr>
-<tr class="sidebarText"><td>tension</td><td align="right">1250.23</td></tr>
-<tr class="sidebarText"><td>TN_BDFZ</td><td align="right">1425.66</td></tr>
-<tr class="sidebarText"><td>TopKiller</td><td align="right">1543.29</td></tr>
-<tr class="sidebarText"><td>wansha</td><td align="right">1251.07</td></tr>
-<tr class="sidebarText"><td>wshtb</td><td align="right">1175.87</td></tr>
-<tr class="sidebarText"><td>wujunjie0774</td><td align="right">1684.77</td></tr>
-<tr class="sidebarText"><td>XuChuan</td><td align="right">1473.58</td></tr>
-<tr class="sidebarText"><td>zig2</td><td align="right">1320.21</td></tr>
-<tr class="sidebarText"><td>zwdant</td><td align="right">1286.22</td></tr>
+<tr class="sidebarText"><td>lovro</td><td align="right">655.36</td></tr>
+
+<tr class="sidebarText"><td>gawry</td><td align="right">626.07</td></tr>
+
+<tr class="sidebarText"><td>tomek</td><td align="right">601.12</td></tr>
+
+<tr class="sidebarText"><td>Petr</td><td align="right">588.28</td></tr>
+
+<tr class="sidebarText"><td>overwise</td><td align="right">578.78</td></tr>
+
+<tr class="sidebarText"><td>krijgertje</td><td align="right">562.34</td></tr>
+
+<tr class="sidebarText"><td>Yarin</td><td align="right">522.05</td></tr>
+
+<tr class="sidebarText"><td>Snail</td><td align="right">510.83</td></tr>
+
+<tr class="sidebarText"><td>andrewzta</td><td align="right">506.83</td></tr>
+
+<tr class="sidebarText"><td>benrg</td><td align="right">500.80</td></tr>
+
+<tr class="sidebarText"><td>Krzysan</td><td align="right">490.37</td></tr>
+
+<tr class="sidebarText"><td>Jan_Kuipers</td><td align="right">484.60</td></tr>
+
+<tr class="sidebarText"><td>bolu</td><td align="right">482.23</td></tr>
+
+<tr class="sidebarText"><td>marian</td><td align="right">481.63</td></tr>
+
+<tr class="sidebarText"><td>asaveljevs</td><td align="right">481.44</td></tr>
+
+<tr class="sidebarText"><td>athenachu71</td><td align="right">481.03</td></tr>
+
+<tr class="sidebarText"><td>pashka</td><td align="right">474.83</td></tr>
+
+<tr class="sidebarText"><td>gepa</td><td align="right">472.18</td></tr>
+
+<tr class="sidebarText"><td>MikeMirzayanov</td><td align="right">471.14</td></tr>
+
+<tr class="sidebarText"><td>embe</td><td align="right">469.88</td></tr>
+
+<tr class="sidebarText"><td>misof</td><td align="right">469.47</td></tr>
+
+<tr class="sidebarText"><td>Per</td><td align="right">465.31</td></tr>
+
+<tr class="sidebarText"><td>VitalyGoldstein</td><td align="right">462.95</td></tr>
+
+<tr class="sidebarText"><td>elizarov</td><td align="right">455.22</td></tr>
+
+<tr class="sidebarText"><td>Maris</td><td align="right">453.71</td></tr>
+
+<tr class="sidebarText"><td>darnley</td><td align="right">443.94</td></tr>
+
+<tr class="sidebarText"><td>BjarkeDahlEbert</td><td align="right">440.76</td></tr>
+
+<tr class="sidebarText"><td>w_</td><td align="right">439.52</td></tr>
+
+<tr class="sidebarText"><td>sephiroth79</td><td align="right">437.67</td></tr>
+
+<tr class="sidebarText"><td>roma</td><td align="right">433.34</td></tr>
+
+<tr class="sidebarText"><td>mathijs</td><td align="right">428.25</td></tr>
+
+<tr class="sidebarText"><td>lukasP</td><td align="right">423.94</td></tr>
+
+<tr class="sidebarText"><td>Swetko</td><td align="right">422.27</td></tr>
+
+<tr class="sidebarText"><td>marek.cygan</td><td align="right">419.88</td></tr>
+
+<tr class="sidebarText"><td>AdrianKuegel</td><td align="right">419.10</td></tr>
+
+<tr class="sidebarText"><td>pparys</td><td align="right">414.06</td></tr>
+
+<tr class="sidebarText"><td>ivan_metelsky</td><td align="right">409.91</td></tr>
+
+<tr class="sidebarText"><td>gooroo</td><td align="right">400.66</td></tr>
+
+<tr class="sidebarText"><td>martinp534</td><td align="right">399.57</td></tr>
+
+<tr class="sidebarText"><td>Eryx</td><td align="right">393.83</td></tr>
+
+<tr class="sidebarText"><td>nicka81</td><td align="right">392.28</td></tr>
+
+<tr class="sidebarText"><td>Klinck</td><td align="right">388.06</td></tr>
+
+<tr class="sidebarText"><td>WSX</td><td align="right">381.63</td></tr>
+
+<tr class="sidebarText"><td>marijnk</td><td align="right">380.79</td></tr>
+
+<tr class="sidebarText"><td>NSI</td><td align="right">377.55</td></tr>
+
+<tr class="sidebarText"><td>kp7</td><td align="right">377.18</td></tr>
+
+<tr class="sidebarText"><td>goo</td><td align="right">376.54</td></tr>
+
+<tr class="sidebarText"><td>polchawa</td><td align="right">376.11</td></tr>
+
+<tr class="sidebarText"><td>gunnark</td><td align="right">373.85</td></tr>
+
+<tr class="sidebarText"><td>HiltonLange</td><td align="right">372.49</td></tr>
 </table>
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam Europe, including a list of the prizes, please read the

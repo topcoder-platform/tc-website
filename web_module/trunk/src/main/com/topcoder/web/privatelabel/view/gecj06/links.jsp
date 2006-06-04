@@ -71,4 +71,4 @@
 
 <br><br>
 
-<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advRound1" class="bigRed">Click here</A> for the results of the Round 1!</span>
+<span class="bigRed"><A href="/pl/?module=Static&d1=gecj06&d2=advRound2" class="bigRed">Click here</A> for the results of the Round 2!</span>

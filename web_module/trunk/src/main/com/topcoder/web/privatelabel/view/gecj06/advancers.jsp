@@ -57,11 +57,11 @@
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gecj06&d2=advRound1" class="topLink">Round 1</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gecj06&d2=advRound1">254</a></td>
                     </tr>
-                    <%--<tr valign="top">
+                    <tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gecj06&d2=advRound2" class="topLink">Round 2</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gecj06&d2=advRound2">50</a></td>
                     </tr>
-                    <tr valign="top">
+                    <%--<tr valign="top">
                         <td class="advancersRound"><a href="/pl/?module=Static&d1=gecj06&d2=advFinal" class="topLink">Onsite Finals</a></td>
                         <td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gecj06&d2=advFinal">Winners</a>
                         </td>
