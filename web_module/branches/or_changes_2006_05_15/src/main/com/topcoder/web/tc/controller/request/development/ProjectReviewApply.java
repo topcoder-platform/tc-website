@@ -1,27 +1,31 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import java.sql.Timestamp;
+import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+import com.topcoder.apps.review.rboard.RBoardApplication;
+import com.topcoder.apps.review.rboard.RBoardApplicationHome;
+import com.topcoder.apps.review.rboard.RBoardRegistrationException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.project.ProjectLocal;
-import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.apps.review.rboard.RBoardApplication;
-import com.topcoder.apps.review.rboard.RBoardApplicationHome;
-import com.topcoder.apps.review.rboard.RBoardRegistrationException;
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import java.util.Map;
-import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -39,7 +43,6 @@ public class ProjectReviewApply extends Base {
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
 
             if (userIdentified()) {
-
                 //we'll use the existing command, it's overkill, but we're probably not
                 //talking high volume here
                 Request r = new Request();
@@ -52,11 +55,9 @@ public class ProjectReviewApply extends Base {
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
-
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-
                 try {
-                    log.info("Begin transaction");
+                    log.debug("Begin transaction");
                     tm.begin();
                     //we're doing this so that we can have something to sync on.  if we don't lock
                     //project, then people get register while we're still doing the selects to determine
@@ -66,14 +67,14 @@ public class ProjectReviewApply extends Base {
                     project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
                     tm.commit();
-                    log.info("Commit transaction");
+                    log.debug("Commit transaction");
                     // Put the terms text in the request.
                     TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                     setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
                 } catch (Exception e) {
-                    log.info("Error transaction");
+                    log.debug("Error transaction");
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                        log.info("Rollback Transaction");
+                        log.debug("Rollback Transaction");
                         tm.rollback();
                     }
                     throw e;
@@ -84,12 +85,13 @@ public class ProjectReviewApply extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            System.out.println("Exception: " + e.getClass().getName());
-            if (e instanceof RBoardRegistrationException) {
-                throw new NavigationException(e.getMessage());
-            } else {
+            RBoardRegistrationException rbre = null;
+            try {
+                rbre = (RBoardRegistrationException) e;
+            } catch (Exception e2){
                 throw new TCWebException(e.getMessage());
             }
+            throw new NavigationException(rbre.getMessage());
         }
     }
 
@@ -97,7 +99,6 @@ public class ProjectReviewApply extends Base {
         InitialContext ctx = null;
         RBoardApplication rBoardApplication = null;
         try {
-
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.info("context: " + ctx.getEnvironment().toString());
 
