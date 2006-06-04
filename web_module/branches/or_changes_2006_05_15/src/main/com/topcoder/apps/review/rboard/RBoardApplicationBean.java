@@ -24,9 +24,6 @@ import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
 
 
-/**
- * @author dok Date: Feb 12, 2004
- */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
     private static final int AGGREGATOR_ROLE_ID = 4;
@@ -83,13 +80,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    /**
-     * @param projectId
-     * @param conn
-     * @param ps
-     * @return
-     * @throws SQLException
-     */
     private Map getProjectInfo(long projectId, Connection conn)
             throws SQLException {
         Map returnMap = new HashMap();
@@ -117,10 +107,6 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
-    /**
-     * @param projectInfo
-     * @return
-     */
     private String buildPrefix(Map projectInfo) {
         String prefix = String.valueOf(projectInfo.get("projectName")) + " "
                 + String.valueOf(projectInfo.get("projectVersion")) + " "
@@ -128,19 +114,6 @@ public class RBoardApplicationBean extends BaseEJB {
         return prefix;
     }
 
-    /**
-     * @param userId
-     * @param projectId
-     * @param reviewRespId
-     * @param idGen
-     * @param conn
-     * @param rUserRoleId
-     * @param rRoleId
-     * @param paymentInfoId
-     * @return
-     * @throws SQLException
-     * @throws RemoteException
-     */
     private void insertUserRole(Connection conn, IdGen idGen, long rUserRoleVId, long userId,
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
         long paymentInfoId) throws SQLException, RemoteException {
@@ -156,12 +129,6 @@ public class RBoardApplicationBean extends BaseEJB {
             String.valueOf(INTERNAL_ADMIN_USER), "1"});
     }
 
-    /**
-     * @param conn
-     * @param rUserRoleVId
-     * @return
-     * @throws SQLException
-     */
     private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
         try {
             System.out.println("update r_user_role : " + rUserRoleVId);
@@ -326,11 +293,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    /**
-     * @param catalog
-     * @param reviewTypeId
-     * @throws RemoteException
-     */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
             int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
@@ -397,11 +359,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    /**
-     * @param opensOn
-     * @param reviewTypeId
-     * @throws RemoteException
-     */
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
         Connection conn = null;
 
@@ -428,12 +385,8 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    /**
-     * @param opensOn
-     * @param reviewTypeId
-     * @throws RemoteException
-     */
-    private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException {
+    private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
+        throws RBoardRegistrationException, RemoteException {
 
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
@@ -509,13 +462,6 @@ public class RBoardApplicationBean extends BaseEJB {
         }
     }
 
-    /**
-     * @param projectId
-     * @param conn
-     * @param ps
-     * @return
-     * @throws SQLException
-     */
     private Map getReviewRespInfo(String dataSource) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -537,7 +483,6 @@ public class RBoardApplicationBean extends BaseEJB {
 
         return returnMap;
     }
-
 
     private int getStatus(Connection conn, long userId, int phaseId) {
         return selectInt(conn,
