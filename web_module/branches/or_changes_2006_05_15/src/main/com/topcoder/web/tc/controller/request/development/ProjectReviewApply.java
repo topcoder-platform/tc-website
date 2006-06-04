@@ -14,6 +14,7 @@ import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
+import com.topcoder.apps.review.rboard.RBoardRegistrationException;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -50,8 +51,15 @@ public class ProjectReviewApply extends Base {
                 int catalog = detail.getIntItem(0, "category_id");
 
                 rBoardApplication = createRBoardApplication();
-                
-                nonTransactionalValidation(catalog, reviewTypeId);
+                try {
+                    nonTransactionalValidation(catalog, reviewTypeId);
+                } catch (Exception e) {
+                    if (e instanceof RBoardRegistrationException) {
+                        throw new NavigationException(e.getMessage());
+                    } else {
+                        throw new TCWebException(e.getMessage());
+                    }
+                }
 
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
@@ -84,7 +92,11 @@ public class ProjectReviewApply extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            throw new TCWebException(e);
+            if (e instanceof RBoardRegistrationException) {
+                throw new NavigationException(e.getMessage());
+            } else {
+                throw new TCWebException(e.getMessage());
+            }
         }
     }
 
@@ -92,28 +104,28 @@ public class ProjectReviewApply extends Base {
         InitialContext ctx = null;
         RBoardApplication rBoardApplication = null;
         try {
-    
+
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.info("context: " + ctx.getEnvironment().toString());
-    
+
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
                     (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
-            
+
              rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
             try {ctx.close();} catch (Exception ex) {}
-            throw new CreateException("Could not find bean!" + e);            
+            throw new CreateException("Could not find bean!" + e);
         }
         try {ctx.close();} catch (Exception ex) {}
         return rBoardApplication;
     }
-    
+
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws TCWebException {
         try {
             boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
             rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
-     
+
             UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),

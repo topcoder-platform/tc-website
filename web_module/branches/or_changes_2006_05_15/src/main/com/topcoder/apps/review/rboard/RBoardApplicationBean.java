@@ -351,44 +351,44 @@ public class RBoardApplicationBean extends BaseEJB {
             try {
                 status = getStatus(conn, userId, phaseId);
             } catch (RowNotFoundException rnfe) {
-                throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
             }
 
             if (status != ACTIVE_REVIEWER) {
-                throw new RemoteException("Sorry, you are not authorized to perform reviews at this time.");
+                throw new RBoardRegistrationException("Sorry, you are not authorized to perform reviews at this time.");
             }
 
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
                     !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
-                throw new RemoteException("Invalid request, incorrect review position specified.");
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
             }
 
             try {
                 if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
                     if (!canReviewJava(conn, userId, phaseId)) {
-                        throw new RemoteException("Sorry, you can not review this project because " +
+                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
                                 "you are not a Java reviewer");
                     }
                 } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
                     if (!canReviewDotNet(conn, userId, phaseId)) {
-                        throw new RemoteException("Sorry, you can not review this project because " +
+                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
                                 "you are not a .Net reviewer");
                     }
                 } else if (catalog == FLASH_CATALOG_ID) {
                     if (!canReviewFlash(conn, userId, phaseId)) {
-                        throw new RemoteException("Sorry, you can not review this project because " +
+                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
                                 "you are not a Flash reviewer");
                     }
                 } else if (catalog == APPLICATIONS_CATALOG_ID) {
                     if (!canReviewApplication(conn, userId, phaseId)) {
-                        throw new RemoteException("Sorry, you can not review this project because " +
+                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
                                 "you are not a Application reviewer");
                     }
                 } else {
                     throw new RemoteException("unknown catalog found " + catalog);
                 }
             } catch (RowNotFoundException enfe) {
-                throw new RemoteException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
@@ -437,11 +437,11 @@ public class RBoardApplicationBean extends BaseEJB {
     private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException {
 
         if (exists(conn, userId, projectId, phaseId)) {
-            throw new RemoteException("You have already applied to review this project.");
+            throw new RBoardRegistrationException("You have already applied to review this project.");
         }
 
         if (opensOn.getTime() > System.currentTimeMillis()) {
-            throw new RemoteException("Sorry, this project is not open for review yet.  "
+            throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                     + "You will need to wait until "
                     + DateTime.timeStampToString(opensOn));
         }
@@ -449,7 +449,7 @@ public class RBoardApplicationBean extends BaseEJB {
         Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(conn, userId);
         if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)
         {
-            throw new RemoteException("Sorry, you can not apply for a new review yet.  "
+            throw new RBoardRegistrationException("Sorry, you can not apply for a new review yet.  "
                     + "You will need to wait until "
                     + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
         }
@@ -457,14 +457,14 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSetContainer reviewers = getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
 
         if (reviewers.size() == 3) {
-            throw new RemoteException("Sorry, the project's review positions are already full.");
+            throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
         }
 
         if (primary) {
             for (Iterator it = reviewers.iterator(); it.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                 if (row.getIntItem("primary_ind") == 1) {
-                    throw new RemoteException("Sorry, this review position is already taken.");
+                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
                 }
             }
         }
@@ -473,12 +473,12 @@ public class RBoardApplicationBean extends BaseEJB {
             for (Iterator it = reviewers.iterator(); it.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                 if (row.getIntItem("review_resp_id") == reviewTypeId) {
-                    throw new RemoteException("Sorry, this review position is already taken.");
+                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
                 }
             }
             // If somebody came in by constructing the URL, make sure this is consistent too.
             if (primary != (reviewTypeId == 2)) {
-                throw new RemoteException("Sorry, there was an error in the application"
+                throw new RBoardRegistrationException("Sorry, there was an error in the application"
                         + " (primary reviewers must be failure reviewers, and vice versa).");
             }
         } else {
@@ -486,12 +486,12 @@ public class RBoardApplicationBean extends BaseEJB {
             for (Iterator it = reviewers.iterator(); it.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                 if (row.getIntItem("review_resp_id") == reviewTypeId) {
-                    throw new RemoteException("Sorry, this review position is already taken.");
+                    throw new RBoardRegistrationException("Sorry, this review position is already taken.");
                 }
             }
             // If somebody came in by constructing the URL, make sure this is consistent too.
             if (primary != (reviewTypeId == 4)) {
-                throw new RemoteException("Sorry, there was an error in the application");
+                throw new RBoardRegistrationException("Sorry, there was an error in the application");
             }
         }
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -505,7 +505,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 }
             }
             if (!alreadyHasPrimary) {
-                throw new RemoteException("Sorry, at least one reviewer must be the primary.");
+                throw new RBoardRegistrationException("Sorry, at least one reviewer must be the primary.");
             }
         }
     }

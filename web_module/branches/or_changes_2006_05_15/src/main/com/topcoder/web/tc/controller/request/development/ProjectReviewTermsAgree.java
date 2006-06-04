@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.apps.review.rboard.RBoardRegistrationException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -7,6 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -48,7 +50,11 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
-            throw new TCWebException(e);
+            if (e instanceof RBoardRegistrationException) {
+                throw new NavigationException(e.getMessage());
+            } else {
+                throw new TCWebException(e.getMessage());
+            }
         }
     }
 
@@ -59,10 +65,6 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
         rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
-/*        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
-                projectId, phaseId, new Boolean(primary).booleanValue());
-
-        rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);*/
 
         //send email
         Request r = new Request();
