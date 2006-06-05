@@ -37,7 +37,7 @@ public class Secondary extends Base {
                             if (((String)me.getKey()).equals(Constants.NOTIFICATION)) {
                                 List a = (List)me.getValue();
                                 for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION+it.next(), String.valueOf(true));
+                                    setDefault(Constants.NOTIFICATION+it1.next(), String.valueOf(true));
                                 }
                             } else {
                                 setDefault((String) me.getKey(), me.getValue());
