@@ -47,6 +47,7 @@
             <li>Make UI adjustments for home schoolers in registration process</li>
             <li>Fix country ranking tables in database to use floating point ratings rather than integer</li>
             <li>Removed the region information from the round loading</li>
+            <li>Make the country to represent be the school's country for high school competitors</li>
         </ul>
     </p>
     <p>
