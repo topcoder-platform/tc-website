@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>06.05.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"> 
+      <A href="/longcontest/?module=ViewOverview&rd=10019">Intel&#174; Multi-Threading Competition 5 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="7504863" />.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/longcontest/?module=ViewOverview&rd=10019">results</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506010" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.05.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">TCCC06 Logo Design Contest</A>
@@ -181,22 +196,6 @@ and neck.
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505967" message="discuss this" />&#160;|&#160;
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.16.06<br>5:35 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">Gartner cites TopCoder as model for "Web 2.0" community</A>
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="88" height="20" alt="Gartner" News border="0" /></div>
-       A press release from the Gartner Symposium/ITxpo cited TopCoder as a model for a "Web Community," one of the "three key focal points" for understanding Web 2.0.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506017" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 
