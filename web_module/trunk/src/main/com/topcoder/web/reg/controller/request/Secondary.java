@@ -34,10 +34,10 @@ public class Secondary extends Base {
                         Map.Entry me;
                         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
                             me = (Map.Entry) it.next();
-                            if (((String)me.getKey()).equals(Constants.NOTIFICATION)) {
+                            if (me.getKey().equals(Constants.NOTIFICATION)) {
                                 List a = (List)me.getValue();
                                 for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION+it1.next(), String.valueOf(true));
+                                    setDefault(Constants.NOTIFICATION+((Notification)it1.next()).getId(), String.valueOf(true));
                                 }
                             } else {
                                 setDefault((String) me.getKey(), me.getValue());
