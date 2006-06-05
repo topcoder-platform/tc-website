@@ -169,14 +169,14 @@ function clickColumn(n)
 
 
 <div style="float:right; padding-left:10px;" align="right">
-   <% if(seasons.getRowCount() > 1) { %>
-   <div style="padding-bottom:5px;">View another <strong>season</strong>:
-       <tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
-   </div>
-   <% }  %>
-   <div style="padding-bottom:5px;">View another <strong>match</strong>:
-       <tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
-   </div>
+<% if(seasons.getRowCount() > 1) { %>
+<div style="padding-bottom:5px;">View another <strong>season</strong>:
+<tc-webtag:rscSelect name="snid" list="<%=seasons%>" fieldText="name" fieldValue="season_id" selectedValue="<%= round.getSeasonId() + "" %>" useTopValue="false" onChange="selectSeason(this)"/>
+</div>
+<% }  %>
+<div style="padding-bottom:5px;">View another <strong>match</strong>:
+<tc-webtag:rscSelect name="rd" list="<%=rounds%>" fieldText="name" fieldValue="round_id" selectedValue="<%=  round.getRoundId() + "" %>" useTopValue="false" onChange="selectRound(this)"/>
+</div>
 </div>
 
 <span class="subtitle"><%= round.getSeasonName() %> > <A href="/tc?Module=HSRoundOverview&rd=<%= round.getRoundId() %>&snid=<%= round.getSeasonId() %>" class="bcLink"><%= round.getRoundName() %></A></span><br>
@@ -192,14 +192,14 @@ function clickColumn(n)
    <tr><td class="title" colspan="17">Match Results - Team</td></tr>
    <tr>
       <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement Points</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement<br>Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge Phase</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge<br>Phase</td>
       <td class="headerR">+</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System Tests</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System<br>Tests</td>
       <td class="headerR">=</td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point Total</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point<br>Total</td>
    </tr>
    <% boolean even = true; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">
