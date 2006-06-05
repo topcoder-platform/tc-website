@@ -61,7 +61,7 @@ This member has not yet been rated in a competition.
          <table cellpadding="0" cellspacing="0" border="0" class="statTable">
             <tr><td class="handleCell" colspan="2"><tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Algorithm Rating:</td><td class="stat" align="right">
-            <%if(rscCoderData.getIntItem(0, "rating") != 0) {%>
+            <%if(rscCoderData.getStringItem(0, "rating") != null && rscCoderData.getIntItem(0, "rating") != 0) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
                 not rated
@@ -92,7 +92,7 @@ This member has not yet been rated in a competition.
             <%}%>
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
-<% if (!registeredHS || (rscCoderData.getIntItem(0, "rating") != 0) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
+<% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
 <% } %>
