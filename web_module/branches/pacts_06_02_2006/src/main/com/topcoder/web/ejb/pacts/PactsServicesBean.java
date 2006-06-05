@@ -2153,10 +2153,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function that calculates the payment net amount if necessary
     private void fillPaymentNetAmount(Connection c, Payment p) throws SQLException {
         // If the net amount is zero, fill in the appropriate net amount based on the
-        // withholdings specified in the user_tax_form_xref for the payee and the default
-        // tax form for the payee's country.  If that isn't available we use the withholdings
-        // specified in the default tax form for the payee's country.  If that isn't available
-        // we just set net amount = gross amount.
+        // withholdings specified in the user_tax_form_xref for the payee.  If that isn't available,
+    	// we use the withholdings specified in the default tax form for the payee's country.  
+    	// If that isn't available, we just set net amount = gross amount.
 
         if (p.getNetAmount() != 0)
             return;
@@ -2176,7 +2175,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getUserWithholding.append("AND a.country_code = country.country_code ");
         getUserWithholding.append("and a.address_id = x.address_id ");
         getUserWithholding.append("and a.address_type_id = 2 ");
-        getUserWithholding.append("AND country.default_taxform_id = utf.tax_form_id ");
         getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
         ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
         if (rsc.getRowCount() > 0) {
@@ -4543,7 +4541,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
-            getReviewers.append("select ur.login_id as user_id, pi.payment as paid, pt.project_type_name ");
+            getReviewers.append("select ur.login_id as user_id, sum(pi.payment as paid), pt.project_type_name ");
             getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, ");
             getReviewers.append("tcs_catalog:project p, tcs_catalog:project_type pt, tcs_catalog:review_role rr ");
             getReviewers.append("where ur.project_id = " + projectId + " ");
@@ -4557,7 +4555,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getReviewers.append("and ps.payment_stat_id = 2 ");
             getReviewers.append("and pi.cur_version = 1 ");
             getReviewers.append("and ur.cur_version = 1 ");
-            getReviewers.append("order by pi.payment_info_id");
+            getReviewers.append("group by login_id, pt.project_type_name");
             winners[1] = runSelectQuery(c, getReviewers.toString(), false);
             numWinners[1] = winners[1].getRowCount();
             

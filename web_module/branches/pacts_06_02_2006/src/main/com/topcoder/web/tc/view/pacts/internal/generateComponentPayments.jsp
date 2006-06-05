@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>PACTS</h1>
-        <h2 align="center">Generate Component Affidavits</h2>
+        <h2 align="center">Generate Component Payments</h2>
         <center>
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td align="center" colspan="2">
-                            <a href="JavaScript:document.paymentForm.submit();">Generate Component Affidavits</a><br/>
+                            <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
                         </td>
                     </tr>
                 </table>

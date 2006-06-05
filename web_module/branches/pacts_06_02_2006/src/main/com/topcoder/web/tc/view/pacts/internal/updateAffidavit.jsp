@@ -42,6 +42,13 @@
 		out.println("no affidavit!!!<br>");
 		affidavit = new Affidavit();
 	}
+	
+   String dob = request.getParameter("date_of_birth");
+   String fn = request.getParameter("family_name");
+   String a = request.getParameter("aged");
+   if (dob == null) dob = "";
+   if (fn == null) fn = "";
+   if (a == null) a = "";
 %>
 
 <h1>PACTS</h1>
@@ -149,6 +156,20 @@
 		}
 %>
 		</select></td></tr>
+		
+		<tr></tr>
+		<tr><td colspan="2"><b>Required for an affirmed affidavit:</b></td></tr>
+		
+		<tr><td><b>Date of Birth:</b></td><td>
+		<% out.print("<input type=\"text\" name=\"date_of_birth\" value=\""+dob+"\">"); %>
+		</td></tr>
+		<tr><td><b>Family Name (India Only):</b></td><td>
+		<% out.print("<input type=\"text\" name=\"family_name\" value=\""+fn+"\">"); %>
+		</td></tr>
+		<tr><td><b>Aged (India Only):</b></td><td>
+		<% out.print("<input type=\"text\" name=\"aged\" value=\""+a+"\">"); %>
+		</td></tr>
+
 </table>
 
 <input type=submit>

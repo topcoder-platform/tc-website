@@ -2005,7 +2005,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         affidavit.setRoundId(round_id < 0 ? null : new Long(round_id));
         affidavit.getHeader().setStatusId(Integer.parseInt(request.getParameter("affidavit_status_id")));
-        //affidavit._description = request.getParameter("affidavit_desc");
         affidavit.getHeader().setDescription(request.getParameter("affidavit_desc"));
         affidavit.getHeader().setTypeId(Integer.parseInt(request.getParameter("affidavit_type_id")));
         affidavit.getHeader().setNotarized(makeBoolean(request.getParameter(IS_NOTARIZED)));
@@ -2013,18 +2012,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateAffidavit(affidavit);
 
-        affidavit = bean.get();
-
-        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
-
-        InternalDispatchNoteList notes =
-                new InternalDispatchNoteList(request, response);
-        Map search = new HashMap();
-        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
-        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
-
-        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
-
+        if (!affidavit.getHeader().isAffirmed() && 
+        		affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
+        	doAffirmAffidavitPost(request, response);
+        } else {        
+	        affidavit = bean.get();
+	
+	        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+	
+	        InternalDispatchNoteList notes =
+	                new InternalDispatchNoteList(request, response);
+	        Map search = new HashMap();
+	        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
+	        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+	        
+	        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        }
     }
 
 

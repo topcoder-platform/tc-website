@@ -249,6 +249,11 @@ public interface PactsConstants {
 
     /* We get a "canceled" status when old affidavits expire */
     public static final int PAYMENT_CANCELED_STATUS = 65;
+    
+    /* We get an "expired" status when algorithm payments lapse 60 days without 
+     * receiving the necessary paperwork 
+     */
+    public static final int PAYMENT_EXPIRED_STATUS = 68;
 
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
