@@ -115,6 +115,8 @@ function popHide(){
 #popBox{ position: relative; }
 #popBox div
 {
+float:left;
+width:150px;
 position: absolute;
 font-size: 11px;
 font-weight: bold;
@@ -122,9 +124,11 @@ background-color: #FFFFCC;
 visibility: hidden;
 padding: 3px;
 border: 1px solid #000000;
-white-space: nowrap;
 z-index: 2;
+white-space:normal;
 }
+/* table cells were wrapping after minus sign */
+table.stat td.value, table.stat td.valueC, table.stat td.valueR { white-space:nowrap; }
 </STYLE>
 
 </head>
