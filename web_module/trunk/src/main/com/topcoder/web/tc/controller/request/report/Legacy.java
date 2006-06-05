@@ -1146,9 +1146,9 @@ public class Legacy extends Base {
             " FROM demographic_response dr " +
             " WHERE dr.user_id = u.user_id " +
             " AND dr.demographic_question_id = 15) as company " +
-            " ,(SELECT dr.demographic_response " +
-            " FROM demographic_response dr " +
-            " WHERE dr.user_id = u.user_id " +
+            " ,(SELECT da.demographic_answer_text " +
+            " FROM demographic_response dr, demographic_answer da " +
+            " WHERE dr.user_id = u.user_id and dr.demographic_answer_id = da.demographic_answer_id " +
             " AND dr.demographic_question_id = 8) as title " +
             " ,u.first_name " +
             " ,u.last_name " +
