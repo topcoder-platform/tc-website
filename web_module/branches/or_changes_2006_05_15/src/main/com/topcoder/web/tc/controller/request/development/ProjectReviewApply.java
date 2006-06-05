@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import java.sql.Timestamp;
@@ -29,8 +32,19 @@ import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
 /**
- * @author dok
- *         Date: Feb 12, 2004
+ * Process the user request to review a component.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * RBoard related tasks were moved to a tcs bean.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -85,8 +99,6 @@ public class ProjectReviewApply extends Base {
             }
         } catch (TCWebException e) {
             throw e;
-        } catch (RBoardRegistrationException rbre) {
-            throw new NavigationException(rbre.getMessage());
         } catch (ServerException se) {
             Throwable t = se.getCause();
             System.out.println(t.getClass());

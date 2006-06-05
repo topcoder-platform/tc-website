@@ -42,7 +42,6 @@ import com.topcoder.web.common.model.SoftwareComponent;
  * @author dok, pulky
  * @version 1.0.1
  */
-
 public class RBoardApplicationBean extends BaseEJB {
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
     private static final int AGGREGATOR_ROLE_ID = 4;

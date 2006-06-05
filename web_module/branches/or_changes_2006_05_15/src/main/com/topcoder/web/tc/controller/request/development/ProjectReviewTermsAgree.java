@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.shared.dataAccess.Request;
@@ -14,8 +17,19 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 /**
- * @author dok
- * Date: Mar 24, 2004
+ * Process the user request to review a component when agreed.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * RBoard related tasks were moved to a tcs bean.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 

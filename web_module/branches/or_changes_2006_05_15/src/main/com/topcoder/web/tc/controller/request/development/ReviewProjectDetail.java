@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.apps.review.rboard.RBoardApplication;
@@ -24,8 +27,19 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
 /**
- * @author dok
- * Date: Feb 11, 2004
+ * Shows project review details.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * RBoard related tasks were moved to a tcs bean.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class ReviewProjectDetail extends Base {
     protected void developmentProcessing() throws TCWebException {
@@ -119,7 +133,6 @@ public class ReviewProjectDetail extends Base {
 
                 getRequest().setAttribute("reviewerList", reviewerList);
 
-                //RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
                 RBoardApplication rba = createRBoardApplication();
                 Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                 if (ts != null && System.currentTimeMillis() < ts.getTime() + RBoardApplication.APPLICATION_DELAY) {
