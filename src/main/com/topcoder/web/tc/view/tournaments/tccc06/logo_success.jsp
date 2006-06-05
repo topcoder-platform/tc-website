@@ -3,7 +3,7 @@
 <html>
 <head>
 
-<title>2006 TopCoder Open - Logo Design Contest</title>
+<title>2006 TopCoder Collegiate Challenge - Logo Design Contest</title>
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
 <jsp:param name="key" value="tc_main"/>
