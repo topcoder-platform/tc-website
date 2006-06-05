@@ -2821,8 +2821,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     okToUpdate = true;
                 } else {
                     long statusIdValue = paymentStatusId.longValue();
-                    if (statusIdValue != PAYMENT_ON_HOLD_STATUS &&
-                            statusIdValue != PAYMENT_CANCELED_STATUS) {
+                    if (statusIdValue != PAYMENT_CANCELED_STATUS) {
                         okToUpdate = true;
                     }
                 }

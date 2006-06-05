@@ -99,9 +99,12 @@
 			rowCount = stati.getRowCount();
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
-				out.print("<option value=");
 				code = TCData.getTCInt(rsr,"status_id",0,true);
-				out.print(""+code);
+				if (affidavit.getHeader().getStatusId() == PactsConstants.AFFIDAVIT_AFFIRMED_STATUS &&
+					code != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) {
+					continue;
+				}
+				out.print("<option value="+code);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
 				if (code == affidavit.getHeader().getStatusId()) {
 					out.print(" selected");
@@ -157,6 +160,7 @@
 %>
 		</select></td></tr>
 		
+		<%	if (affidavit.getHeader().getStatusId() != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) { %>
 		<tr></tr>
 		<tr><td colspan="2"><b>Required for an affirmed affidavit:</b></td></tr>
 		
@@ -169,6 +173,7 @@
 		<tr><td><b>Aged (India Only):</b></td><td>
 		<% out.print("<input type=\"text\" name=\"aged\" value=\""+a+"\">"); %>
 		</td></tr>
+		<%	} %>
 
 </table>
 
