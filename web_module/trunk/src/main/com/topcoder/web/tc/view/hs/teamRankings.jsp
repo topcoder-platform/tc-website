@@ -102,7 +102,7 @@ function submitEnter(e)
         <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitions"/>
+            <jsp:param name="node" value="top_rated_hs"/>
          </jsp:include>
         </td>
         <!-- Left Column Ends -->
