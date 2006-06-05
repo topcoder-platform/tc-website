@@ -13,7 +13,7 @@ public interface ComponentRegistrationServicesLocal extends EJBLocalObject {
 
     boolean isUserRegistered(long projectId, long userId, String dataSource);
 
-    boolean isRegClosed(long projectId, String dataSource);
+    boolean isRegOpen(long projectId, String dataSource);
 
     boolean hasUserReviewedProject(long projectId, long userId, String dataSource);
 

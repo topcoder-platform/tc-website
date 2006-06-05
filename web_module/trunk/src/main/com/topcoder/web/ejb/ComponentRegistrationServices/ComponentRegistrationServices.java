@@ -20,7 +20,7 @@ public interface ComponentRegistrationServices extends EJBObject {
 
     boolean isUserRegistered(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
 
-    boolean isRegClosed(long projectId, String dataSource) throws RemoteException, EJBException;
+    boolean isRegOpen(long projectId, String dataSource) throws RemoteException, EJBException;
 
     boolean hasUserReviewedProject(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
 

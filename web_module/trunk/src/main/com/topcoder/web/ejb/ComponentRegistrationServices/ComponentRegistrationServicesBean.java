@@ -166,12 +166,12 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         return isWinningDesigner;
     }
 
-    public boolean isRegClosed(long projectId, String dataSource) throws EJBException {
+    public boolean isRegOpen(long projectId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
 
-        boolean regClosed = false;
+        boolean regOpen = false;
 
         InitialContext ctx = null;
 
@@ -192,13 +192,14 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("and pi1.cur_version = 1 ");
             query.append("and pi1.start_date + ");
             query.append(ComponentRegistrationServices.COMPONENT_REGISTRATION_LENGTH);
-            query.append(" units day < current");
+            query.append(" units day > current ");
+            query.append("and pi1.start_date < current) ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
 
             rs = ps.executeQuery();
-            regClosed = rs.next();
+            regOpen = rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
@@ -209,7 +210,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             close(ctx);
         }
 
-        return regClosed;
+        return regOpen;
     }
 
     public int getMaxUnratedRegistrants(long projectId, String dataSource) throws EJBException {
