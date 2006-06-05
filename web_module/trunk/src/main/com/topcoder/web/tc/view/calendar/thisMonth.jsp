@@ -79,6 +79,10 @@
          <strong><A href="/tc?module=MatchDetails&rd=10022">TCHS SRM 1 - Alpha</A></strong><br>
          7:00 PM
          </div>
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">TCCC06 Logo Design Contest</A></strong><br>
+         9:00 AM
+         </div>
       </td>
       <td class="value">6
       </td>
