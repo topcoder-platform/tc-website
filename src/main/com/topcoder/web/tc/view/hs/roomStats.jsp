@@ -150,7 +150,7 @@ z-index: 2;
 
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="high_school"/>
-<jsp:param name="title" value="Match Results"/>
+<jsp:param name="title" value="Room Statistics"/>
 </jsp:include>
 
 
