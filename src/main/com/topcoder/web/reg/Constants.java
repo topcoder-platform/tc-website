@@ -57,7 +57,7 @@ public class Constants implements WebConstants {
     public static final String REFERRAL_CODER = "refidc";
     public static final String REFERRAL_OTHER = "refido";
 
-    public static final String HOME_SCHOOLED = "home schooled";
+    public static final String HOME_SCHOOLED = "Home School";
 
 
 
