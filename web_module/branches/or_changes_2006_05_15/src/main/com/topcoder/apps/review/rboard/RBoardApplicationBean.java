@@ -284,7 +284,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
                         rRoleId == AGGREGATOR_ROLE_ID || rRoleId == FINAL_REVIEWER_ROLE_ID)) {
                     // insert new UserRole
-                    insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, reviewRespId,
+                    insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, -1,
                         rUserRoleId, rRoleId, paymentInfoId);
                 }
             }

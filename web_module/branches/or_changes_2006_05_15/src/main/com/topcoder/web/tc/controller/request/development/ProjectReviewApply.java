@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
+import java.rmi.ServerException;
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
 import com.topcoder.apps.review.rboard.RBoardApplication;
@@ -84,8 +85,12 @@ public class ProjectReviewApply extends Base {
             }
         } catch (TCWebException e) {
             throw e;
-        } catch (RBoardRegistrationException rbre) {
-            throw new NavigationException(rbre.getMessage());
+        } catch (ServerException se) {
+            Throwable t = se.detail;
+            System.out.println(t.getClass());
+             if (t != null && t instanceof RBoardRegistrationException) {
+               throw new NavigationException(((Exception) se.detail).getMessage());
+             }
         } catch (Exception e) {
             throw new TCWebException(e.getMessage());
         }
