@@ -119,7 +119,7 @@ function clickColumn(n)
 <div class="pagingBox" style="clear:both;">&#160;</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="15"><%= round.getRoundName() %> > <%= teamName %> Results</td></tr>
+   <tr><td class="title" colspan="15">Team Results</td></tr>
    <tr>
       <td class="headerC" colspan="3">&#160;</td>
       <td class="headerR" colspan="2">Submissions</td>
