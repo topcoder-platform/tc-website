@@ -138,7 +138,7 @@ create table season_country_rank (
   country_code VARCHAR(3),
   season_id decimal(6,0),
   member_count DECIMAL(7,0), 
-  rating DECIMAL(5,0),
+  rating DECIMAL(9,4),
   rank DECIMAL(7,0),
   percentile DECIMAL(7,4)
 )
@@ -169,7 +169,7 @@ create table season_country_rank_history (
   season_id decimal(6,0),
   round_id decimal(10,0),
   member_count DECIMAL(7,0), 
-  rating DECIMAL(5,0),
+  rating DECIMAL(9,4),
   rank DECIMAL(7,0),
   percentile DECIMAL(7,4)
 )
