@@ -48,7 +48,6 @@
                 putValue("document.schoolAddForm", "${province}", "${regUser.homeAddress.province}");
                 putValue("document.schoolAddForm", "${city}", "${regUser.homeAddress.city}");
             }
-}
         -->
      </script>
 </head>
