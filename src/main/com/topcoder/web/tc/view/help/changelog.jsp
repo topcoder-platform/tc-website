@@ -40,10 +40,20 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.3.2 - 2006.06.05
+        <ul>
+            <li>Fix professional registration report so that it displays title correctly</li>
+            <li>Fix first page of registration so that if an existing user updates and gets an error, defaults for notifications and handle are populated correctly.</li>
+            <li>Make UI adjustments for home schoolers in registration process</li>
+            
+        </ul>
+    </p>
+    <p>
         5.3.1 - 2006.06.04
         <ul>
             <li>Add TCCC06 Logo Site</li>
             <li>In reg, on school search results, show country name not code</li>
+            <li>Make schools added via the registration process be available to others for selection</li>
         </ul>
     </p>
     <p>
