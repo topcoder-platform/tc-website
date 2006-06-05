@@ -35,7 +35,7 @@
         <jsp:param name="image" value="tc_tournaments"/>
         <jsp:param name="title" value="TopCoder Tournaments"/>
     </jsp:include>
-<%--
+
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -50,7 +50,7 @@
          </td>
       </tr>
    </table>
---%>
+
    <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
