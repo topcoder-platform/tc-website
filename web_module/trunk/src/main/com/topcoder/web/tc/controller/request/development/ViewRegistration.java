@@ -108,7 +108,7 @@ public class ViewRegistration extends Base {
 
         if (isSuspended(getUser().getId())) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, you are not eligible to participate because you are suspended.");
-        } else if (getRegEJB().isRegClosed(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+        } else if (!getRegEJB().isRegOpen(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, registration is not currently open.");
         } else if (getRegEJB().isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "You have already registered for this contest.");
