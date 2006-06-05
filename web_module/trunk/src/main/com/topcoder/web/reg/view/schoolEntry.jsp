@@ -41,6 +41,14 @@
                 updateDivOrSpan(window.opener.document, "schoolName", getValue("document.schoolAddForm", "${schoolName}"));
                 window.close();
             }
+            function homeSchooled() {
+                putValue("document.schoolAddForm", "${schoolName}", "<%=Constants.HOME_SCHOOLED%>");
+                putValue("document.schoolAddForm", "${countryCode}", "${regUser.homeAddress.country.name}");
+                putValue("document.schoolAddForm", "${stateCode}", "${regUser.homeAddress.state.code}");
+                putValue("document.schoolAddForm", "${province}", "${regUser.homeAddress.province}");
+                putValue("document.schoolAddForm", "${city}", "${regUser.homeAddress.city}");
+            }
+}
         -->
      </script>
 </head>
@@ -55,6 +63,7 @@
         </jsp:include>
 
         <form action="" method="POST" name="schoolAddForm">
+            <p>If you are being home schooled, please click <a href="#" onClick="homeSchooled();return false;">here</a></p>
             <span class="subtitle">School Search</span>
             <br><br>
             <strong>School Name:</strong><br>

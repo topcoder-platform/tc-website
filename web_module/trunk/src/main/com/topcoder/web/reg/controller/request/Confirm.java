@@ -116,7 +116,7 @@ public class Confirm extends Base {
                 cs.setSchool(getFactory().getSchoolDAO().find(new Long((String)params.get(Constants.SCHOOL_ID))));
             } else {
                 School s = new School();
-                s.setViewable(Boolean.TRUE);
+                s.setViewable(Boolean.valueOf(Constants.HOME_SCHOOLED.equalsIgnoreCase((String)params.get(Constants.SCHOOL_NAME))));
                 s.setCoder(u.getCoder());
                 u.getCoder().addCreatedSchool(s);
                 s.setName((String)params.get(Constants.SCHOOL_NAME));
