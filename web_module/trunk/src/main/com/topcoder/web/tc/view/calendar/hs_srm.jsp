@@ -130,7 +130,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <li>Maximum of 25 coders per room</li>
                                             <li>Ratings will be adjusted post-match for individuals and team members</li>
                                             <li>Members will be emailed prior to the match with date and time (opt-in)</li>
-                                            <li>This SRM is for the <rsc:item name="region_name" row="<%=rsr%>"/>"> region</li>
+                                            <li>This SRM is for the <rsc:item name="region_name" row="<%=rsr%>"/> region</li>
                                         </ul>
 
                                         <p>
