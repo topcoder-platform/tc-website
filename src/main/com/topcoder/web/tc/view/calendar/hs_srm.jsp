@@ -10,7 +10,6 @@
 <%
 
 ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)(((ResultSetContainer)request.getAttribute("rsc")).get(0));
-int round_id = rsr.getIntItem("round_id");
 String time = StringUtils.checkNull((String)request.getAttribute("time"));
 %>
 
@@ -131,6 +130,7 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                             <li>Maximum of 25 coders per room</li>
                                             <li>Ratings will be adjusted post-match for individuals and team members</li>
                                             <li>Members will be emailed prior to the match with date and time (opt-in)</li>
+                                            <li>This SRM is for the <rsc:item name="region_name" row="<%=rsr%>"/>"> region</li>
                                         </ul>
 
                                         <p>
@@ -153,8 +153,8 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         <p style="padding-left:40px;">
                                             <b>Scoring</b><br/>
                                         TopCoder High School team scoring is different from scoring in most other team sports,
-                                            in that the lowest score wins. Although more than three (3) members may compete in 
-                                             each SRM, the placement (excluding competitors from outside the region) of the first 
+                                            in that the lowest score wins. Although more than three (3) members may compete in
+                                             each SRM, the placement (excluding competitors from outside the region) of the first
                                              three (3) members for each team are added together to determine the team score.  For example, a finish of 1, 3,
                                             and 51 - a score of 55 - will lose to a team finishing 17, 18 and 19 - with a
                                             score of 54.
