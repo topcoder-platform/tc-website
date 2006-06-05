@@ -66,11 +66,11 @@
             <p>If you are being home schooled, please click <a href="#" onClick="homeSchooled();return false;">here</a></p>
             <span class="subtitle">School Search</span>
             <br><br>
-            <strong>School Name:</strong><br>
+            <strong>* School Name:</strong><br>
             <tc-webtag:errorIterator id="err" name="${schoolName}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${schoolName}" size="50" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="true"/>
             <br><br>
-            <strong>Country:</strong><br>
+            <strong>* Country:</strong><br>
             <tc-webtag:errorIterator id="err" name="${countryCode}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
             <br><br>
@@ -82,7 +82,7 @@
             <tc-webtag:errorIterator id="err" name="${province}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${province}" size="36" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
             <br><br>
-            <strong>City:</strong><br>
+            <strong>* City:</strong><br>
             <tc-webtag:errorIterator id="err" name="${city}"><%=err%><br/></tc-webtag:errorIterator>
             <tc-webtag:textInput name="${city}" size="36" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/>
             <br><br>
@@ -90,7 +90,7 @@
 
 
             <br><br>
-             School Type:
+             * School Type:
              <tc-webtag:errorIterator id="err" name="${schoolType}"><%=err%><br/></tc-webtag:errorIterator>
              <tc-webtag:objectSelect name="${schoolType}" list="${schoolTypes}" valueField="id" textField="description"/>
 
@@ -102,7 +102,7 @@
 
         </form>
 
-
+* = required
     </div>
 </div>
 </body>
