@@ -201,7 +201,7 @@ table.stat td.value, table.stat td.valueC, table.stat td.valueR { white-space:no
       <td class="headerR" width="16%"><A href="javascript:clickColumn(5)">Qnty</A></td>
       <td class="headerR"><A href="javascript:clickColumn(6)">Points</A></td>
       <td class="headerR" width="16%"><A href="javascript:clickColumn(7)">System<br>Tests</A></td>
-      <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(8)">Point Total</A></td>
+      <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(8)">Point<br>Total</A></td>
       <td class="headerR"><A href="javascript:clickColumn(9)">Old</A></td>
       <td class="headerR"><A href="javascript:clickColumn(10)">New</A></td>
       <td class="headerR">&#160;</td>
