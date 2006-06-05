@@ -33,12 +33,6 @@ margin:0px auto;
 
 <body>
 
-<%--
-<div style="position:absolute; left:120px; top:120px;">
-<A href="/?t=sponsor&c=link&link=http://www.equitrader.com" target="_blank"><img src="/i/interface/dot.gif" alt="" /></A>
-</div>
---%>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
        <td class="homeTopBar" align=left>
@@ -73,7 +67,7 @@ margin:0px auto;
 <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/" />
 </map>
       <td class="BIGPromoBox" align="center">
-      <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview"><img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest" /></A>
       </td>
       <td width="50%" class="homeLogo" align="right">&#160;</td>
    </tr>

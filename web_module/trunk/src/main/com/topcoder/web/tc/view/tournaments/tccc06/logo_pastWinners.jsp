@@ -56,14 +56,6 @@
             </div>
             
             <br><br>
-            <span class="bodySubtitle">Helpful Logo Design Hints</span><br>
-            You may find the information at the sites below helpful when starting your logo design.
-            <br><br>
-            <A href="/?t=sponsor&c=link&link=http://www.fizbang.com/1-3-06.php" target="blank">http://www.fizbang.com/1-3-06.php</A><br>
-            <A href="/?t=sponsor&c=link&link=http://www.mymarkets.com/lm/01.htm" target="blank">http://www.mymarkets.com/lm/01.htm</A><br>
-            <A href="/?t=sponsor&c=link&link=http://www.attitudedesign.co.uk/journal/?p=41" target="blank">http://www.attitudedesign.co.uk/journal/?p=41</A>
-            <br><br>
-            
             <span class="bodySubtitle">Past Winners</span><br>
             Here are the winners of the last two Logo Design Contests to further inspire your creativity:<br><br>
             

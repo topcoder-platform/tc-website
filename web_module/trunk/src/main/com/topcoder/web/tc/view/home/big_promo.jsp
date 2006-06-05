@@ -26,13 +26,12 @@
 <%-- Emp Referrals 
 <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><IMG SRC="/i/home/empReferrals.jpg" border="0" ALT="TopCoder Employee Referral Program"/></A>
 --%>
-<%-- TCHS --%>
+<%-- TCHS 
 <map name="tchs">
 <area shape="rect" alt="" coords="19,8, 211,57" href="/tc?module=Static&d1=hs&d2=home" />
 <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/" />
 </map>
 <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
-
-<%-- TCCC06 logo contest 
-<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview"><img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest" /></A>
 --%>
+<%-- TCCC06 logo contest --%>
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview"><img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest" /></A>
