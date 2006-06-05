@@ -1,0 +1,161 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navAbout.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="aboutIndex.shtml" class="breadcrumbLinks">About Us</a> > <strong>Resources</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- About Us Catagories -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2"></td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutIndex.shtml">How software will be built</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutProductivity.shtml">Productivity</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutStandards.shtml">Standards</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutReuse.shtml">Re-use</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutQuality.shtml">Quality</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutResources.shtml">Resources</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr>  -->
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead">Coders from around the world</td></tr>
+				<tr><td class="normal">
+						<p>TopCoder Software does not have a large development staff.  Instead we partner TopCoder Software Product Managers 
+						with development teams from our distributed member base.  These teams work together utilizing the TopCoder Software 
+						Distributed Development Methodology to create high quality software components.</p>
+						
+						<p><strong>What is TopCoder?</strong><br/>
+						TopCoder hosts online programming competitions every week. Coders sign up and become members in order to compete 
+						against other coders from around the world to demonstrate and build their skills. In addition to building their skills, 
+						these coders are building a rating.</p>
+
+						<p>The TopCoder rating is used to statistically position a developer amidst the field of competing coders. Ratings are also 
+						a determining factor for coders to be invited to compete in either (or both) of two yearly tournaments. Ratings are also 
+						used to select team members for development projects to build TopCoder Software components.</p>
+
+						<p><strong>Selecting Members</strong><br/>
+						Based upon requirements gained through the collaboration efforts of companies, TopCoder Software creates a Requirements 
+						Specification that is then promoted to the TopCoder membership. Members request to take part in the various roles of the 
+						development process (architect, developer, QA developer). TopCoder Software makes selections of coders based on the 
+						member's rating as well as other factors (i.e. background or specific skill set).</p>
+
+						<p>With a team in hand, the TopCoder Software Product Manager assumes control of the project and is responsible for 
+						managing all aspects of the methodology to create a high quality software component.</p>
+
+						<p><strong>Working with Members</strong><br/>
+						A TopCoder Software team consists of a TopCoder Software Product Manager, an architect, a developer and a Quality 
+						Assurance developer.  The TopCoder Software Product Manager has overall responsibility for delivery of the component 
+						as well as specific responsibility for collaboration and specification.  The architect has day to day responsibility for the 
+						developers as well as specific responsibilities for the component design.  The developer is primarily responsible for 
+						delivering efficient unit tested code.  The QA developer is responsible for building and executing test plans to insure 
+						software quality.</p>
+
+						<p>This TopCoder Software team of high quality software developers works together to deliver the highest quality 
+						software components on the market at a reasonable cost.</p>
+				</tr>
+				<tr><td><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
