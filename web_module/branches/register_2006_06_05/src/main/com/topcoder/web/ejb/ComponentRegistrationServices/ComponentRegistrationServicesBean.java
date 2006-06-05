@@ -167,6 +167,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
     }
 
     public boolean isRegClosed(long projectId, String dataSource) throws EJBException {
+		log.debug("isRegClosed - new Version! pj = " + projectId);
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -200,6 +201,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
 
             rs = ps.executeQuery();
             regClosed = rs.next();
+            log.debug("regClosed= " + regClosed);
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
