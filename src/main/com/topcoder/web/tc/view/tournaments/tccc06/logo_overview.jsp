@@ -68,6 +68,14 @@
             <br><br>
             <b>Make sure you read the contest rules:</b><br>
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Read the rules</A>
+            <br><br>
+            <b>Helpful Logo Design Hints</b><br>
+            You may find the information at the sites below helpful when starting your logo design.
+            <br>
+            <A href="/?t=sponsor&c=link&link=http://www.fizbang.com/1-3-06.php" target="blank">http://www.fizbang.com/1-3-06.php</A><br>
+            <A href="/?t=sponsor&c=link&link=http://www.mymarkets.com/lm/01.htm" target="blank">http://www.mymarkets.com/lm/01.htm</A><br>
+            <A href="/?t=sponsor&c=link&link=http://www.attitudedesign.co.uk/journal/?p=41" target="blank">http://www.attitudedesign.co.uk/journal/?p=41</A>
+            
          </div>
 
          <p><br/></p>

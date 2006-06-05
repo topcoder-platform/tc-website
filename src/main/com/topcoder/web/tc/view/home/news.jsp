@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.05.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">TCCC06 Logo Design Contest</A>
+      </span><br><br>
+      $5000 in prizes. Submit your 3 best designs.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.01.06<br>1:50 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,22 +196,6 @@ and neck.
    <tr><td class="newsLinksCell">
        <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506017" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.15.06<br>2:00 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-      <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">Idol or idle: which one are you?</A>
-      </span><br><br>
-       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" News border="0" /></div>
-       "Which nation produces the cleverest programmers in the world? According to the finals of the latest TopCoder global programming competition, held in Las Vegas recently, you should pick from Russia, Poland, Australia, China, Japan and Slovakia."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506015" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
