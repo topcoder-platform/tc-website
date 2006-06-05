@@ -34,7 +34,11 @@ public class Secondary extends Base {
                         Map.Entry me;
                         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
                             me = (Map.Entry) it.next();
-                            setDefault((String) me.getKey(), me.getValue());
+                            if (((String)me.getKey()).startsWith(Constants.NOTIFICATION)) {
+                                setDefault((String) me.getKey(), String.valueOf(true));
+                            } else {
+                                setDefault((String) me.getKey(), me.getValue());
+                            }
                         }
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
