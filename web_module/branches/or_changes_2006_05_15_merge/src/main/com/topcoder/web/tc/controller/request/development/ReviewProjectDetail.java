@@ -1,28 +1,47 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.apps.review.rboard.RBoardApplication;
+import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.rboard.RBoardApplication;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.development.ProjectReviewApply;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
-import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
 /**
- * @author dok
- * Date: Feb 11, 2004
+ * Shows project review details.
+ *
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * RBoard related tasks were moved to a tcs bean.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class ReviewProjectDetail extends Base {
-
     protected void developmentProcessing() throws TCWebException {
         try {
             Request r = new Request();
@@ -110,14 +129,13 @@ public class ReviewProjectDetail extends Base {
                             }
                         }
                     }
-
                 }
 
                 getRequest().setAttribute("reviewerList", reviewerList);
 
-                RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
+                RBoardApplication rba = createRBoardApplication();
                 Timestamp ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-                if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
+                if (ts != null && System.currentTimeMillis() < ts.getTime() + RBoardApplication.APPLICATION_DELAY) {
                     getRequest().setAttribute("waitingToReview", Boolean.TRUE);
                 } else {
                     getRequest().setAttribute("waitingToReview", Boolean.FALSE);
@@ -132,6 +150,27 @@ public class ReviewProjectDetail extends Base {
         setNextPage(Constants.REVIEW_PROJECT_DETAIL);
         setIsNextPageInContext(true);
 
+    }
+
+    protected RBoardApplication createRBoardApplication() throws CreateException {
+        InitialContext ctx = null;
+        RBoardApplication rBoardApplication = null;
+        try {
+
+            ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.info("context: " + ctx.getEnvironment().toString());
+
+            Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
+            RBoardApplicationHome rBoardApplicationHome =
+                    (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
+
+             rBoardApplication = rBoardApplicationHome.create();
+        } catch (Exception e) {
+            try {ctx.close();} catch (Exception ex) {}
+            throw new CreateException("Could not find bean!" + e);
+        }
+        try {ctx.close();} catch (Exception ex) {}
+        return rBoardApplication;
     }
 
     protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,

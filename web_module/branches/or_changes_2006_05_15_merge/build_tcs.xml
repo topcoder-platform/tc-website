@@ -165,6 +165,7 @@
                 <include name="com/topcoder/project/phases/TCPhase.class"/>
                 <include name="com/topcoder/dde/util/ApplicationServer.class"/>
                 <include name="com/topcoder/dde/util/Cookies.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
 
             <webinf dir="${struts.lib.dir}">
@@ -257,6 +258,22 @@
             <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
 
+        <antcall target="package-EJB-RBoard"/>
+
+    </target>
+
+    <target name="package-EJB-RBoard" depends="compile">
+        <jar jarfile="${ejb.jars.dir}/RBoard.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>                
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
+        </jar>
     </target>
 
     <target name="build-sars" depends="compile">

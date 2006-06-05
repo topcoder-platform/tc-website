@@ -7,7 +7,7 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
-<%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%> <head>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%> <head>
     <title>TopCoder - Message</title>
     <jsp:include page="../script.jsp"/>
     <jsp:include page="/style.jsp">

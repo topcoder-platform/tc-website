@@ -5,8 +5,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.tc.controller.legacy.TaskDevelopment;
 
 import java.util.Map;
 

@@ -474,15 +474,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-RBoard" depends="compile">
-        <jar jarfile="${ejb_jars}/RBoard.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rboard/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/rboard" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-PhoneBean" depends="compile">
         <jar jarfile="${ejb_jars}/Phone.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -1463,14 +1454,12 @@
         <antcall target="package-EJB-PreferenceLevelBean"/>
         <antcall target="package-EJB-ProblemRatingBean"/>
         <antcall target="package-EJB-ProjectBean"/>
-        <antcall target="package-EJB-RBoard"/>
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
    <!--
         <antcall target="package-EJB-SoftwareUser"/>
    -->
         <antcall target="package-EJB-SurveyBean"/>
-        <antcall target="package-EJB-RBoard"/>
         <!--
                  <antcall target="package-EJB-RequestServicesBean"/>
         -->
@@ -1511,7 +1500,6 @@
                 <include name="PreferenceLevel.jar"/>
                 <include name="ProblemRatingServices.jar"/>
                 <include name="Project.jar"/>
-                <include name="RBoard.jar"/>
                 <include name="Reporting.jar"/>
                 <include name="ResumeServices.jar"/>
                 <include name="Survey.jar"/>
