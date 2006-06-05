@@ -61,7 +61,7 @@ public class MemberProfile extends Base {
             
             if(rsc.size() != 0) {
             
-                if(rsc.getIntItem(0, "rating") != 0) {
+                if((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {                    
                     hasAlg = true;
                     algRating = rsc.getIntItem(0, "rating");
                 }
