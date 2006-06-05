@@ -191,7 +191,7 @@ public class RBoardApplicationBean extends BaseEJB {
             "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
             new String[]{String.valueOf(idGen.nextId()), String.valueOf(rUserRoleId),
             String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId),
-            String.valueOf(paymentInfoId), String.valueOf(reviewRespId),
+            String.valueOf(paymentInfoId), (reviewRespId != -1) ? String.valueOf(reviewRespId) : null,
             String.valueOf(INTERNAL_ADMIN_USER), "1"});
     }
 

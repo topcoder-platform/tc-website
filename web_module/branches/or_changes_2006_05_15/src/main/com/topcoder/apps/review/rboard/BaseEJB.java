@@ -66,10 +66,13 @@ public abstract class BaseEJB implements SessionBean {
             try {
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < colNames.length; i++) {
-                    ps.setString(i + 1, colValues[i]);
-                    log.debug(colNames[i] + " - " + colValues[i]);
+                    if (colValues[i] != null) {
+                        ps.setString(i + 1, colValues[i]);
+                        log.debug(colNames[i] + " - " + colValues[i]);
+                    } else {
+                        ps.setNull(i + 1, Types.OTHER);
+                    }
                 }
-
                 int rc = ps.executeUpdate();
                 return rc;
             } catch (SQLException e) {
