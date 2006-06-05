@@ -46,6 +46,7 @@
             <li>Fix first page of registration so that if an existing user updates and gets an error, defaults for notifications and handle are populated correctly.</li>
             <li>Make UI adjustments for home schoolers in registration process</li>
             <li>Fix country ranking tables in database to use floating point ratings rather than integer</li>
+            <li>Removed the region information from the round loading</li>
         </ul>
     </p>
     <p>
