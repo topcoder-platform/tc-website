@@ -135,6 +135,12 @@ public class ProjectReviewApply extends Base {
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
+        } catch (ServerException se) {
+            Throwable t = se.getCause();
+            System.out.println(t.getClass());
+             if (t != null && t instanceof RBoardRegistrationException) {
+               throw new NavigationException(((Exception) se.detail).getMessage());
+             }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
