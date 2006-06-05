@@ -203,12 +203,15 @@ white-space:normal;
 | <%=(result.croppedDataAfter()? ("<a href='Javascript:showRows(" + (li.getStartRow() + li.getNumberOfRows()) + "," +  li.getNumberOfRows() +  ", true)'>next &gt;&gt;</a>") :"next &gt;&gt;")%>
 </div>
 
-<% if (!groupByRoom) { %>
-    <a href="/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>">Group by room</a>
-<% } %>
-
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="16">Match Results - Individual</td></tr>
+   <tr><td class="title" colspan="16">
+      <div style="float:right;">
+      <% if (!groupByRoom) { %>
+          <a href="/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>">Group by room</a>
+      <% } %>
+      </div>
+      Match Results - Individual
+   </td></tr>
    <tr>
       <td class="header" colspan="2" rowspan="2"><A href="javascript:clickColumn(0)">Coder</A></td>
       <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Placement<br>Points</td>
