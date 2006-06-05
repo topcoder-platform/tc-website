@@ -58,6 +58,13 @@ function getSelectedOption(root, name) {
     return null;
 }
 
+function setSelectedOption(root, name) {
+    for (var i = getLength(root, name + ".options") - 1; i >= 0; i--) {
+        if (getSelected(root, name, i)) {
+            getOption(root, name, i).selected=true;
+        }
+    }
+}
 
 function getSelected(root, name, option) {
     return getAttrib(root, name, "options[" + option + "].selected");
