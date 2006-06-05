@@ -40,6 +40,13 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
+        5.3.1 - 2006.06.04
+        <ul>
+            <li>Add TCCC06 Logo Site</li>
+            <li>In reg, on school search results, show country name not code</li>
+        </ul>
+    </p>
+    <p>
         5.3.0 - 2006.06.01
         <ul>
             <li>Allow for the ability to hide some schools in the registration process school search</li>
