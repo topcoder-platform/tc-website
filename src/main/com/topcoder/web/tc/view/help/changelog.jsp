@@ -23,7 +23,7 @@
 <td width="180">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="m_support"/>
-         </jsp:include>
+         </jsp:include
 </td>
 <!-- Left Column Ends -->
 
@@ -45,7 +45,7 @@
             <li>Fix professional registration report so that it displays title correctly</li>
             <li>Fix first page of registration so that if an existing user updates and gets an error, defaults for notifications and handle are populated correctly.</li>
             <li>Make UI adjustments for home schoolers in registration process</li>
-            
+            <li>Fix country ranking tables in database to use floating point ratings rather than integer</li>
         </ul>
     </p>
     <p>
