@@ -45,8 +45,10 @@
             <li>Fix professional registration report so that it displays title correctly</li>
             <li>Fix first page of registration so that if an existing user updates and gets an error, defaults for notifications and handle are populated correctly.</li>
             <li>Make UI adjustments for home schoolers in registration process</li>
+<%--  a bit too technical, don't show on site
             <li>Fix country ranking tables in database to use floating point ratings rather than integer</li>
             <li>Removed the region information from the round loading</li>
+--%>
             <li>Make the country to represent be the school's country for high school competitors</li>
         </ul>
     </p>
