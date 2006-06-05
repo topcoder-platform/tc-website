@@ -203,8 +203,6 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
         try {
-            System.out.println("update r_user_role : " + rUserRoleVId);
-
             update(conn, "r_user_role",
                 new String[]{"cur_version"}, new String[]{"0"},
                 new String[]{"r_user_role_v_id"},
@@ -255,9 +253,6 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
 
-            // starts transaction
-            System.out.println("Begin Transaction");
-
             conn.setAutoCommit(false);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
 
@@ -296,14 +291,12 @@ public class RBoardApplicationBean extends BaseEJB {
             if (!reviewerInserted) {
                 throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
             }
-            System.out.println("Commit Transaction");
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
         } catch (Exception e) {
             if (conn != null) {
                 try {
-                    System.out.println("Rollback Transaction2");
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
