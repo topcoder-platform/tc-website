@@ -85,6 +85,8 @@ public class ProjectReviewApply extends Base {
             }
         } catch (TCWebException e) {
             throw e;
+        } catch (RBoardRegistrationException rbre) {
+            throw new NavigationException(rbre.getMessage());
         } catch (ServerException se) {
             Throwable t = se.getCause();
             System.out.println(t.getClass());
@@ -116,34 +118,22 @@ public class ProjectReviewApply extends Base {
         return rBoardApplication;
     }
 
-    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws TCWebException {
-        try {
-            boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
-            rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
+    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
+        boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
+        rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(), opensOn, reviewTypeId, primary);
 
-            UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
+        UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
-            boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
-                    Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+        boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
+                Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
-            int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
-            getRequest().setAttribute("phase_id", new Integer(phase_id));
+        int phase_id = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+        getRequest().setAttribute("phase_id", new Integer(phase_id));
 
-            setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
+        setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
-            setNextPage(Constants.REVIEWER_TERMS);
-            setIsNextPageInContext(true);
-        } catch (TCWebException e) {
-            throw e;
-        } catch (ServerException se) {
-            Throwable t = se.getCause();
-            System.out.println(t.getClass());
-             if (t != null && t instanceof RBoardRegistrationException) {
-               throw new NavigationException(((Exception) se.detail).getMessage());
-             }
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
+        setNextPage(Constants.REVIEWER_TERMS);
+        setIsNextPageInContext(true);
     }
 
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {

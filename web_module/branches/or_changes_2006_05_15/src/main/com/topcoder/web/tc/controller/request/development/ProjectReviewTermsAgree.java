@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.apps.review.rboard.RBoardRegistrationException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -8,9 +7,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import java.sql.Timestamp;
@@ -24,31 +21,24 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     private static Logger log = Logger.getLogger(ProjectReviewTermsAgree.class);
 
-    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws TCWebException {
-        try {
-            if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
-                UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
-                if (!userTerms.hasTermsOfUse(getUser().getId(),
-                        Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
-                    userTerms.createUserTermsOfUse(getUser().getId(),
-                            Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-                }
-
-                apply(opensOn, reviewTypeId);
-                setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
-                        Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
-                setIsNextPageInContext(false);
-            } else {
-                //back to terms page with error message
-                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-                setNextPage(Constants.REVIEWER_TERMS);
-                setIsNextPageInContext(true);
-
+    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
+        if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
+            UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
+            if (!userTerms.hasTermsOfUse(getUser().getId(),
+                    Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME)) {
+                userTerms.createUserTermsOfUse(getUser().getId(),
+                        Constants.REVIEWER_TERMS_ID, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
             }
-        } catch (RBoardRegistrationException rbre) {
-            throw new NavigationException(rbre.getMessage());
-        } catch (Exception e) {
-            throw new TCWebException(e.getMessage());
+            apply(opensOn, reviewTypeId);
+            setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" +
+                    Constants.PROJECT_ID + "=" + projectId + "&" + Constants.PHASE_ID + "=" + phaseId);
+            setIsNextPageInContext(false);
+        } else {
+            //back to terms page with error message
+            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
+            setNextPage(Constants.REVIEWER_TERMS);
+            setIsNextPageInContext(true);
+
         }
     }
 
