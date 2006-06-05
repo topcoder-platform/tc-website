@@ -36,6 +36,13 @@ public class Secondary extends Base {
                             me = (Map.Entry) it.next();
                             setDefault((String) me.getKey(), me.getValue());
                         }
+                        if (!u.isNew()) {
+                            setDefault(Constants.HANDLE, u.getHandle());
+                        }
+                        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
+                        if (nots != null) {
+                            getRequest().setAttribute("notifications", nots);
+                        }
                         getRequest().setAttribute(Constants.FIELDS, fields);
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
