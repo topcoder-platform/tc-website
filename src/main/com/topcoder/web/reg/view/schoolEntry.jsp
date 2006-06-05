@@ -43,7 +43,7 @@
             }
             function homeSchooled() {
                 putValue("document.schoolAddForm", "${schoolName}", "<%=Constants.HOME_SCHOOLED%>");
-                putValue("document.schoolAddForm", "${countryCode}", "${regUser.homeAddress.country.name}");
+                setSelected("document.schoolAddForm", "${countryCode}", "${regUser.homeAddress.country.code}");
                 putValue("document.schoolAddForm", "${stateCode}", "${regUser.homeAddress.state.code}");
                 putValue("document.schoolAddForm", "${province}", "${regUser.homeAddress.province}");
                 putValue("document.schoolAddForm", "${city}", "${regUser.homeAddress.city}");
