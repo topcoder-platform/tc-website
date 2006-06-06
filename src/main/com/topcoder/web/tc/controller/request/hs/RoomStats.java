@@ -16,26 +16,26 @@ import com.topcoder.web.tc.Constants;
  *
  * @author cucu
  */
-public class RoomStats extends Base { 
+public class RoomStats extends Base {
 
     class RoomFilter implements ResultFilter {
 
         private int room;
-        
+
         public RoomFilter(int room) {
             this.room = room;
         }
-        
-        public boolean include(ResultSetRow rsr) { 
+
+        public boolean include(ResultSetRow rsr) {
             return rsr.getIntItem("room_id") == room;
         }
-        
+
     }
-    
+
     /**
-     * Column names used for sorting. 
+     * Column names used for sorting.
      */
-    private static String columnNames[] = {"handle", "problems_submitted", "submission_points", 
+    private static String columnNames[] = {"handle", "problems_submitted", "submission_points",
         "challenge_attempts_received", "defense_points", "challenge_attempts_made",
         "challenge_points", "system_test_points", "final_points", "old_rating", "new_rating"};
 
@@ -47,45 +47,49 @@ public class RoomStats extends Base {
 
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             ListInfo li = new ListInfo(getRequest(), 9, "DESC", columnNames);
-            
+
             int cr = -1;
             if (hasParameter("cr")) {
-                cr = Integer.parseInt(getRequest().getParameter("cr"));                
-            } 
-            
+                cr = Integer.parseInt(getRequest().getParameter("cr"));
+            }
+
             Request r = new Request();
             r.setContentHandle("hs_room_stats");
             r.setProperty("rd", round.getRoundId() + "");
             r.setProperty("snid", round.getSeasonId() + "");
             r.setProperty("sntid", HS_SNTID + "");
             r.setProperty("cr", cr + "");
-            
+
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
 
             ResultSetContainer indResult = (ResultSetContainer) result.get("hs_ind_result");
-            
+
             int rm = -1;
             if (hasParameter("rm")) {
                 rm = Integer.parseInt(getRequest().getParameter("rm"));
-            } else {                
-                if (indResult.getRowCount() > 0) { 
-                    rm = indResult.getIntItem(0, "room_id");
-                } 
+            } else {
+				for (int i = 0; i < indResult.getRowCount(); i++)
+				{
+                	if (indResult.getIntItem(i, "coder_id") == cr) {
+                	    rm = indResult.getIntItem(i, "room_id");
+                	    break;
+					}
+                }
             }
-            
+
 
             fillRoundAndSeasonNames (round, result);
 
             ResultSetContainer roomResult = new ResultSetContainer(indResult, new RoomFilter(rm));
             result.put("room_result", roomResult);
-            
-            sortAndCrop(result, "room_result", li);                        
+
+            sortAndCrop(result, "room_result", li);
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("roundInfo", round);
             getRequest().setAttribute("listInfo", li);
             getRequest().setAttribute("cr", cr + "");
-            
+
             setNextPage(Constants.HS_ROOM_STATS);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
