@@ -99,6 +99,9 @@ public class ProjectReviewApply extends Base {
             }
         } catch (TCWebException e) {
             throw e;
+        } catch (RBoardRegistrationException rbre) {
+            log.debug("EJB returned RBoardRegistrationException");
+            throw new NavigationException(rbre.getMessage());
         } catch (ServerException se) {
             se.printStackTrace();
             Throwable t = se.getCause();
