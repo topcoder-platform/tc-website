@@ -6,29 +6,29 @@
 
 <!-- Overview tab -->
             <% if (selectedTab.equals("overview")) {%>
-                 Overview&#160;|&#160;
+                 Overview | 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">Overview</a>&#160;|&#160;
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">Overview</a> | 
             <% } %>
 <!-- Rules tab -->
             <% if (selectedTab.equals("rules")) {%>
-                 Rules&#160;|&#160;
+                 Rules | 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Rules</a>&#160;|&#160;
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_rules">Rules</a> | 
             <% } %>
 
 <!-- Past Winners tab -->
             <% if (selectedTab.equals("past")) {%>
-                 Past Winners&#160;|&#160;
+                 Past Winners | 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_pastWinners">Past Winners</a>&#160;|&#160;
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_pastWinners">Past Winners</a> | 
             <% } %>
 
 <!-- Registration tab -->
             <% if (selectedTab.equals("submit")) {%>
-                 Submit Your Design&#160;|&#160;
+                 Submit Your Design | 
             <% } else { %>
-                  <a href="/tc?module=TCCC06LogoTerms">Submit Your Design</a>&#160;|&#160;
+                  <a href="/tc?module=TCCC06LogoTerms">Submit Your Design</a> | 
             <% } %>
 
 <!-- View Submissions tab -->
@@ -39,7 +39,7 @@
             <% } %>
 
 <%-- 
-&#160;|&#160;
+ | 
 
 <!-- Finalists tab -->
             <% if (selectedTab.equals("finalists")) {%>
@@ -48,7 +48,7 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_finalists">Finalists</a>
             <% } %>
 
-&#160;|&#160;
+ | 
 <!-- Winners tab -->
             <% if (selectedTab.equals("winner")) {%>
                  Winner
