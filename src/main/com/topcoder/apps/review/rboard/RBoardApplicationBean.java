@@ -417,7 +417,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RBoardRegistrationException when validations fails
      * @throws RemoteException for unknown catalogs
      */
-    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) {
+    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
 //    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
 //            int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
