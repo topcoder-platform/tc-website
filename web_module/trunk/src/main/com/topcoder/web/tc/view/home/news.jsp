@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.06.06<br>1:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Sponsors of 2006 TCCC</A></span><br><br>
+      AOL and Bloomberg will join returning TopCoder premier sponsors UBS and National Security Agency.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506050" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -178,24 +191,6 @@ and neck.
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506018" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.17.06<br>10:50 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">Intel Multi-Threading Competition 4 - Analysis</A></span><br><br>
- Thirty-nine coders tied for first place in the Intel&#174; Software Network
- Multi-Threading Competition Series Marathon Match #4 with perfect
- scores.      </td>
-      <td class="newsPhoto"><img src="/i/m/Rustyoldman_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="282718" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505967" message="discuss this" />&#160;|&#160;
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
