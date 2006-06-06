@@ -289,7 +289,7 @@ public class User extends Base {
         demographicResponses.clear();
     }
 
-    public Set getTransientResponses() {
+    public List getTransientResponses() {
         return transientResponses;
     }
 
@@ -297,7 +297,7 @@ public class User extends Base {
         transientResponses.remove(r);
     }
 
-    public void setTransientResponses(Set transientResponses) {
+    public void setTransientResponses(List transientResponses) {
         this.transientResponses = transientResponses;
     }
 
