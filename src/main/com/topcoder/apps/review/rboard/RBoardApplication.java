@@ -26,12 +26,11 @@ import java.sql.Timestamp;
 public interface RBoardApplication extends EJBObject {
     public static final int APPLICATION_DELAY = 6 * 60 * 60 * 1000;
 
-    void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RemoteException;
+    void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 
     Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
 
-//    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
-    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RemoteException;
+    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
 
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 }
