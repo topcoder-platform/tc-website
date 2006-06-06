@@ -132,14 +132,14 @@ function submitForm(){
              <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
              </td>
              <td class="valueR" style="border-right:1px solid #999999;">
-             <%= teamResult.getItem(i, "team_points").toString() %>&#160;
+             <%= teamResult.getItem(i, "team_points").toString() %>
              </td>
       <% } else { %>
           <td class="valueC" >&nbsp;
           </td>
           <td class="value" >&nbsp;
           </td>
-          <td class="valueR" >&nbsp;
+          <td class="valueR" style="border-right:1px solid #999999;">&nbsp;
           </td>
       <% } %>
 
