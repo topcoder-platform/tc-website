@@ -43,7 +43,7 @@
                <td class="smallText">
                <span class=bodySubtitle>Leverage your Skills to Earn Cash and Recognition</span>
                <br><br>
-               If you're a TopCoder member, you can submit <a href="/tc?module=ViewActiveContests">design and development solutions</a> for these projects. You will
+               If you're a TopCoder member, you can submit <a href="/tc?module=ViewActiveContests&amp;ph=112">design</a> and <a href="/tc?module=ViewActiveContests&amp;ph=113">development</a> solutions for these projects. You will
 					be paid cash for each winning solution you submit. Every solution becomes part of a TopCoder Software Catalog,
 					now available for sale online. For every commercial sale of a catalog, TopCoder will pay the members who designed
 					and developed the components in that catalog a percentage of the sale.<br/>

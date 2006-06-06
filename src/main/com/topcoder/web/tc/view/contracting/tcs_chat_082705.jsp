@@ -168,7 +168,7 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>sql_lall</b></td><td class="light">mmorris: ok..doesn't matter too much, just thought it'd be cool to say: "hey, ESPN uses code i designed"</td></tr>
 <tr><td class="dark"><span class="bigRed">bwright</span></td><td class="dark"><span class="bigRed">shoaib.soomro: tech mgrs & archs dont get to code much, it at all, at most messing around with SQL or front end code</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: They will participated in your area</td></tr>
-<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">itsp: great!  once registered with TopCoder, you and they can register for component projects at this URL: http://www.topcoder.com/tc?module=ViewActiveContests</span></td></tr>
+<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">itsp: great!  once registered with TopCoder, you and they can register for component projects at this URL: http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112</span></td></tr>
 <tr><td class="light"><b>itsp</b></td><td class="light">AdamSelene: Yes</td></tr>
 <tr><td class="dark"><b>shoaib.soomro</b></td><td class="dark">AdamSelene: i heard one arch said; the less u code the more its good for u</td></tr>
 <tr><td class="light"><span class="bigRed">AdamSelene</span></td><td class="light"><span class="bigRed">shoaib.soomro: Depends on your outlook, I suppose =)</span></td></tr>
@@ -246,8 +246,8 @@ Take a look at <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at 
 <tr><td class="light"><b>Lefty</b></td><td class="light">pretty weird</td></tr>
 <tr><td class="dark"><b>saringopalan</b></td><td class="dark">mmorris: Where do I get to see the stuff to be made in dot net? Plz gimme the link</td></tr>
 <tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">TopCoder Software puts the power of the member base to use through the Component Competitions and building large scale enterprise applications with those components.</span></td></tr>
-<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">saringopalan: All available projects (including .NET) are at this link: http://www.topcoder.com/tc?module=ViewActiveContests</span></td></tr>
-<tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">saringopalan: http://www.topcoder.com/tc?module=ViewActiveContests has current projects available</span></td></tr>
+<tr><td class="dark"><span class="bigRed">AdamSelene</span></td><td class="dark"><span class="bigRed">saringopalan: All available projects (including .NET) are at this link: http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112</span></td></tr>
+<tr><td class="light"><span class="bigRed">mmorris</span></td><td class="light"><span class="bigRed">saringopalan: http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112 has current projects available</span></td></tr>
 <tr><td class="dark"><b>cptnInsaneno</b></td><td class="dark">AdamSelene: whichever it is, as long as it's professional project development i'm all for it</td></tr>
 <tr><td class="light"><b>wilq</b></td><td class="light">bwright:  there isnt any problem? do i have to make account in U.S. or something ? i heard that is a problem when u are out of U.S. (mabe it was a lie)</td></tr>
 <tr><td class="dark"><b>gt494</b></td><td class="dark">bwright: do you have any stats on the reuse metrics?</td></tr>
