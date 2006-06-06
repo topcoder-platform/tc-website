@@ -102,6 +102,9 @@ public class ProjectReviewApply extends Base {
         } catch (ServerException se) {
             se.printStackTrace();
             Throwable t = se.getCause();
+            log.debug(t.getClass().getName());
+            Exception e = (Exception) t;
+            log.debug(e.getCause().getClass().getName());            
             if (t != null && t instanceof RBoardRegistrationException) {
                 throw new NavigationException(((Exception) se.detail).getMessage());
             }
@@ -124,10 +127,10 @@ public class ProjectReviewApply extends Base {
 
              rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
-            try {close(ctx);} catch (Exception ex) {}
+            close(ctx);
             throw new CreateException("Could not find bean!" + e);
         }
-        try {close(ctx);} catch (Exception ex) {}
+        close(ctx);
         return rBoardApplication;
     }
 
