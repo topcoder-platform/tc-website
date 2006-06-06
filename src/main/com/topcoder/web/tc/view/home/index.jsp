@@ -213,6 +213,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            AOL, Bloomberg, UBS and NSA Announced as Sponsors of 2006 TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
+
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0" /></div>
             Gartner cites TopCoder as model for "Web 2.0" community <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May 16]<br><br>
 
@@ -228,9 +230,6 @@ margin:0px auto;
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="The Wall Street Journal" border="0" /></div>
             Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">...more</A><br>[May 12]<br><br>
             
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
-            Java Posse - Live at the TopCoder Open [PODCAST] <A href="http://media32b.libsyn.com/a3edeJR1nnyUeGx8bXttpWytZHKZ/podcasts/dickwall/JavaPosse054.mp3" target="_blank">...more</A><br>[May 11]<br><br>
-
             </td>
          </tr>
       </table>
