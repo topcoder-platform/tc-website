@@ -484,7 +484,7 @@
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
-                <include name="rboard.jar"/>
+                <include name="RBoard.jar"/>
             </fileset>
         </copy>
 
