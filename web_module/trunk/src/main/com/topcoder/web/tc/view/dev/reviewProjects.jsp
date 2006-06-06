@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.model.SoftwareComponent,
+                 com.topcoder.web.common.model.SoftwareComponent,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  java.sql.Timestamp,
                  java.util.List"%>

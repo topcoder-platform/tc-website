@@ -17,7 +17,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
-import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.common.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:

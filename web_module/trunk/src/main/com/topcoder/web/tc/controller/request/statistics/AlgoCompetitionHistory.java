@@ -19,7 +19,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.common.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:

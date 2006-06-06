@@ -13,6 +13,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -22,7 +23,6 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
-import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.util.*;
 

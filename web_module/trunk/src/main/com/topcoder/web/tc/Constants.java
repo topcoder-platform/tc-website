@@ -194,7 +194,7 @@ public class Constants implements WebConstants {
     public static int REVIEWER_TERMS_ID;
     public static int PROJECT_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
-    public static int ACTIVE_REVIEWER;
+    //public static int ACTIVE_REVIEWER;
 
     /* job posting stuff */
     public static String JOB_HIT_TYPE_PARAM;

@@ -1,5 +1,9 @@
 package com.topcoder.web.tc.model;
 
+import com.topcoder.web.common.model.CustomPriceComponent;
+import com.topcoder.web.common.model.DefaultPriceComponent;
+import com.topcoder.web.common.model.SoftwareComponent;
+
 /**
  * @author dok
  * Date: Feb 11, 2004

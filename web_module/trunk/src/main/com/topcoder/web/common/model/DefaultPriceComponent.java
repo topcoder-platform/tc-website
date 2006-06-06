@@ -1,10 +1,23 @@
-package com.topcoder.web.tc.model;
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+package com.topcoder.web.common.model;
 
 import com.topcoder.shared.util.logging.Logger;
 
 /**
- * @author dok
- * Date: Apr 8, 2004
+ * <strong>Purpose</strong>:
+ * Calculates Reviewers tasks costs
+ *
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added some overloads to for design and development task costs.
+ * </li>
+ * </ol>
+ *
+ * @author dok, pulky
+ * @version 1.0.1
  */
 public class DefaultPriceComponent implements SoftwareComponent {
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
@@ -175,7 +188,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
         return finalReviewCost;
     }
 
-
     /**
      * Return the base design review cost, this is a number that both
      * primary and regular reviewers start with.
@@ -187,6 +199,78 @@ public class DefaultPriceComponent implements SoftwareComponent {
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
         return reviewCost + startupCost;
+    }
+
+    /**
+     * Return aggregation task's cost
+     * 
+     * @since 1.0.1
+     * @return The cost of the aggregation task
+     */
+    public float getAggregationCost() {
+        float ret = 0.0f;
+        if (phaseId == DEV_PHASE) {
+            ret = getDevAggregationCost();
+        } else if (phaseId == DESIGN_PHASE) {
+            ret = getDesignAggregationCost();
+        } else {
+            throw new RuntimeException("invalid phaseId " + phaseId);
+        }
+        return Math.round(ret);
+    }
+
+    /**
+     * Return screening task's cost
+     * 
+     * @since 1.0.1
+     * @return The cost of the screening task
+     */
+    public float getScreeningCost() {
+        float ret = 0.0f;
+        if (phaseId == DEV_PHASE) {
+            ret = getScreeningPrimaryDevReviewCost();
+        } else if (phaseId == DESIGN_PHASE) {
+            ret = getDesignScreeningCost();
+        } else {
+            throw new RuntimeException("invalid phaseId " + phaseId);
+        }
+        return Math.round(ret);
+    }
+
+    /**
+     * Return final review task's cost
+     * 
+     * @since 1.0.1
+     * @return The cost of the final review task
+     */
+    public float getFinalReviewCost() {
+        float ret = 0.0f;
+        if (phaseId == DEV_PHASE) {
+            ret = getDevFinalReviewCost();
+        } else if (phaseId == DESIGN_PHASE) {
+            ret = getDesignFinalReviewCost();
+        } else {
+            throw new RuntimeException("invalid phaseId " + phaseId);
+        }
+        return Math.round(ret);
+    }
+
+    /**
+     * Return core review cost
+     * 
+     * @since 1.0.1
+     * @return The cost of the core review
+     */
+    public float getCoreReviewCost() {
+        float ret = 0.0f;
+        if (phaseId == DEV_PHASE) {
+            ret = getDevCoreReviewCost();
+        } else if (phaseId == DESIGN_PHASE) {
+            ret = getCoreDesignReviewCost();
+        } else {
+            throw new RuntimeException("invalid phaseId " + phaseId);
+        }
+        return Math.round(ret);
     }
 
     public int getPhaseId() {

@@ -5,7 +5,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
