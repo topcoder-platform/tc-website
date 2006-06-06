@@ -35,7 +35,7 @@
         <jsp:param name="image" value="tc_tournaments"/>
         <jsp:param name="title" value="TopCoder Tournaments"/>
     </jsp:include>
-
+<!--
    <div class="sectionHeader">Current Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -51,6 +51,24 @@
       </tr>
    </table>
 
+   <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/tournament/photo_tco06.jpg" alt="2006 TopCoder Open" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2006 TopCoder&#174; Open Sponsored by AMD</span>
+         <br><br>
+         <div style="float: right;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about"><img src="/i/pressroom/tco06_logo.gif" alt="" border="0" /></A></div>
+         May 3-5<br>
+         Aladdin Resort and Casino<br/>
+         Las Vegas, NV, USA<br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=about">Details</A>
+         <br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco06&amp;d3=logo_overview">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+-->
    <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">

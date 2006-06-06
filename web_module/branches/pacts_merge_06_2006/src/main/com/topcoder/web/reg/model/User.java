@@ -36,7 +36,7 @@ public class User extends Base {
     /**
      * hoke: used for making changes
      */
-    private List transientResponses;
+    private Set transientResponses;
 
     /**
      * doing this weirdness to allow the EL to work with this
@@ -289,7 +289,7 @@ public class User extends Base {
         demographicResponses.clear();
     }
 
-    public List getTransientResponses() {
+    public Set getTransientResponses() {
         return transientResponses;
     }
 
@@ -297,7 +297,7 @@ public class User extends Base {
         transientResponses.remove(r);
     }
 
-    public void setTransientResponses(List transientResponses) {
+    public void setTransientResponses(Set transientResponses) {
         this.transientResponses = transientResponses;
     }
 

@@ -400,7 +400,31 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getPaymentTypes();
     }
+    
+    /**
+     * Returns the list of all payment methods.
+     *
+     * @return  The list of payment methods
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getPaymentMethods() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getPaymentMethods();
+    }
 
+    /**
+     * Returns the list of all project termination status types.
+     *
+     * @return  The list of project termination status types
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getProjectTerminationStatusTypes() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getProjectTerminationStatusTypes();
+    }
+    
     /**
      * Returns the list of all payment modification rationales.
      *
@@ -731,7 +755,9 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
                     key.equals(STATUS_CODE) ||
-                    key.equals(TYPE_CODE))
+                    key.equals(TYPE_CODE) || 
+                    key.equals(METHOD_CODE) ||
+                    key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
                     key.equals(HIGHEST_NET_AMOUNT))
@@ -1332,6 +1358,25 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
     }
 
+    
+    /**
+     * Generates all the payments for the people who won money for the given project (designers, developers,
+     * and review board members). Returns the number of payments generated.
+     *
+     * @param projectId The ID of the project
+     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param makeChanges If true, updates the database; if false, logs
+     * the changes that would have been made had this parameter been true.
+     * @return The number of component payments generated, followed by the number of review board payments generated.
+     * @throws IllegalUpdateException If the affidavit/payment information
+     * has already been generated for this round.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
+		throws IllegalUpdateException, RemoteException, SQLException {
+    	PactsServices ps = getEjbHandle();
+        return ps.generateComponentPayments(projectId, status, makeChanges);
+    }
 
     /**
      * Sets the status on all affidavits older than a specified time

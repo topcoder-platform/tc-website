@@ -25,7 +25,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
                 u.getHomeAddress().getState(), h);
         DemographicAssignment da;
         DemographicResponse dr;
-        ArrayList responses = new ArrayList();
+        HashSet responses = new HashSet();
         log.debug("found " + assignments.size() + " assignments");
         for (Iterator it = assignments.iterator(); it.hasNext();) {
             da = (DemographicAssignment)it.next();
