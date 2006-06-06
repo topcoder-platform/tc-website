@@ -151,7 +151,7 @@ function clickColumn(n)
       </td>
 
           <td class="valueR">
-          <rsc:item name="division_placed" row="<%=resultRow%>"/>
+          <rsc:item name="team_points" row="<%=resultRow%>" ifNull=""/>
           </td>
           <td class="valueR">
           <rsc:item name="problems_submitted" row="<%=resultRow%>"/>
