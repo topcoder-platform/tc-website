@@ -30,14 +30,14 @@
             <% } else { %>
                   <a href="/tc?module=TCCC06LogoTerms">Submit Your Design</a><%--&#160;|&#160;--%>
             <% } %>
-<%--
+
 <!-- View Submissions tab -->
             <% if (selectedTab.equals("submissions")) {%>
                  View Submissions
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions">View Submissions</a>
             <% } %>
---%>
+
 <%-- 
 &#160;|&#160;
 
