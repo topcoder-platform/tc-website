@@ -66,23 +66,22 @@
 --%>
 </p>
 
-<table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>0025<br><img src="/i/tournament/tccc06/logo_submissions/0025.jpg" alt="" border="0" /></td></tr>   <%--7223199--%>
-<tr><td>0024<br><img src="/i/tournament/tccc06/logo_submissions/0024.jpg" alt="" border="0" /></td></tr>   <%--9998261--%>
-<tr><td>0023<br><img src="/i/tournament/tccc06/logo_submissions/0023.jpg" alt="" border="0" /></td></tr>   <%--10482608--%>
+<table cellpadding="15" cellspacing="0" align="center" border="0">
+<tr><td>0024<br><img src="/i/tournament/tccc06/logo_submissions/0024.jpg" alt="" border="0" /></td></tr>   <%--7223199--%>
+<tr><td>0023<br><img src="/i/tournament/tccc06/logo_submissions/0023.jpg" alt="" border="0" /></td></tr>   <%--9998261--%>
 <tr><td>0022<br><img src="/i/tournament/tccc06/logo_submissions/0022.jpg" alt="" border="0" /></td></tr>   <%--10482608--%>
-<tr><td>0021<br><img src="/i/tournament/tccc06/logo_submissions/0021.jpg" alt="" border="0" /></td></tr>   <%--11932285--%>
-<tr><td>0020<br><img src="/i/tournament/tccc06/logo_submissions/0020.jpg" alt="" border="0" /></td></tr>   <%--16066466--%>
+<tr><td>0021<br><img src="/i/tournament/tccc06/logo_submissions/0021.jpg" alt="" border="0" /></td></tr>   <%--10482608--%>
+<tr><td>0020<br><img src="/i/tournament/tccc06/logo_submissions/0020.jpg" alt="" border="0" /></td></tr>   <%--11932285--%>
 <tr><td>0019<br><img src="/i/tournament/tccc06/logo_submissions/0019.jpg" alt="" border="0" /></td></tr>   <%--16066466--%>
 <tr><td>0018<br><img src="/i/tournament/tccc06/logo_submissions/0018.jpg" alt="" border="0" /></td></tr>   <%--16066466--%>
-<tr><td>0017<br><img src="/i/tournament/tccc06/logo_submissions/0017.jpg" alt="" border="0" /></td></tr>   <%--16212307--%>
-<tr><td>0016<br><img src="/i/tournament/tccc06/logo_submissions/0016.jpg" alt="" border="0" /></td></tr>   <%--19988155--%>
-<tr><td>0015<br><img src="/i/tournament/tccc06/logo_submissions/0015.jpg" alt="" border="0" /></td></tr>   <%--21507385--%>
-<tr><td>0014<br><img src="/i/tournament/tccc06/logo_submissions/0014.jpg" alt="" border="0" /></td></tr>   <%--20330724--%>
-<tr><td>0013<br><img src="/i/tournament/tccc06/logo_submissions/0013.jpg" alt="" border="0" /></td></tr>   <%--19988155--%>
-<tr><td>0012<br><img src="/i/tournament/tccc06/logo_submissions/0012.jpg" alt="" border="0" /></td></tr>   <%--20328745--%>
-<tr><td>0011<br><img src="/i/tournament/tccc06/logo_submissions/0011.jpg" alt="" border="0" /></td></tr>   <%--20394129--%>
-<tr><td>0010<br><img src="/i/tournament/tccc06/logo_submissions/0010.jpg" alt="" border="0" /></td></tr>   <%--20955067--%>
+<tr><td>0017<br><img src="/i/tournament/tccc06/logo_submissions/0017.jpg" alt="" border="0" /></td></tr>   <%--16066466--%>
+<tr><td>0016<br><img src="/i/tournament/tccc06/logo_submissions/0016.jpg" alt="" border="0" /></td></tr>   <%--16212307--%>
+<tr><td>0015<br><img src="/i/tournament/tccc06/logo_submissions/0015.jpg" alt="" border="0" /></td></tr>   <%--19988155--%>
+<tr><td>0014<br><img src="/i/tournament/tccc06/logo_submissions/0014.jpg" alt="" border="0" /></td></tr>   <%--21507385--%>
+<tr><td>0013<br><img src="/i/tournament/tccc06/logo_submissions/0013.jpg" alt="" border="0" /></td></tr>   <%--20330724--%>
+<tr><td>0012<br><img src="/i/tournament/tccc06/logo_submissions/0012.jpg" alt="" border="0" /></td></tr>   <%--19988155--%>
+<tr><td>0011<br><img src="/i/tournament/tccc06/logo_submissions/0011.jpg" alt="" border="0" /></td></tr>   <%--20328745--%>
+<tr><td>0010<br><img src="/i/tournament/tccc06/logo_submissions/0010.jpg" alt="" border="0" /></td></tr>   <%--20394129--%>
 <tr><td>0009<br><img src="/i/tournament/tccc06/logo_submissions/0009.jpg" alt="" border="0" /></td></tr>   <%--20955067--%>
 <tr><td>0008<br><img src="/i/tournament/tccc06/logo_submissions/0008.jpg" alt="" border="0" /></td></tr>   <%--21168001--%>
 <tr><td>0007<br><img src="/i/tournament/tccc06/logo_submissions/0007.jpg" alt="" border="0" /></td></tr>   <%--21645408--%>
