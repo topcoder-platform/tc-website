@@ -193,7 +193,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             query.append("and pi1.start_date + ");
             query.append(ComponentRegistrationServices.COMPONENT_REGISTRATION_LENGTH);
             query.append(" units day > current ");
-            query.append("and pi1.start_date < current) ");
+            query.append("and pi1.start_date < current ");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, projectId);
