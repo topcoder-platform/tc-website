@@ -100,13 +100,14 @@ public class ProjectReviewApply extends Base {
         } catch (TCWebException e) {
             throw e;
         } catch (ServerException se) {
+            se.printStackTrace();
             Throwable t = se.getCause();
-            System.out.println(t.getClass());
-             if (t != null && t instanceof RBoardRegistrationException) {
-               throw new NavigationException(((Exception) se.detail).getMessage());
-             }
+            if (t != null && t instanceof RBoardRegistrationException) {
+                throw new NavigationException(((Exception) se.detail).getMessage());
+            }
+            throw new TCWebException(se);
         } catch (Exception e) {
-            throw new TCWebException(e.getMessage());
+            throw new TCWebException(e);
         }
     }
 
@@ -123,10 +124,10 @@ public class ProjectReviewApply extends Base {
 
              rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
-            try {ctx.close();} catch (Exception ex) {}
+            try {close(ctx);} catch (Exception ex) {}
             throw new CreateException("Could not find bean!" + e);
         }
-        try {ctx.close();} catch (Exception ex) {}
+        try {close(ctx);} catch (Exception ex) {}
         return rBoardApplication;
     }
 
