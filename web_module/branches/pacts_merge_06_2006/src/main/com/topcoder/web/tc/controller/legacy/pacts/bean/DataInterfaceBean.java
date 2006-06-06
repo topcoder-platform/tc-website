@@ -1254,26 +1254,6 @@ public class DataInterfaceBean implements PactsConstants {
         ps.reviewPayments(paymentId);
     }
 
-    /**
-     * Marks the given payments as paid.  Specifically, for each payment, this function
-     * searches through all its detail records, and marks the most recent record with a
-     * status of "Printed" as having been paid - this is done by changing the status to
-     * "Paid" and filling in the date_paid field with the current date and time.  This method
-     * will throw an IllegalUpdateException if it finds any of the given payments has already
-     * been paid or lacks a detail record with the status of "Printed".
-     *
-     * @param   paymentId The payments to update
-     * @throws  NoObjectFoundException If any payment does not exist
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If any payment could not be marked as paid
-     * @throws  SQLException If there is some other problem updating the data
-     */
-    public void markPaymentsPaid(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServices ps = getEjbHandle();
-        ps.markPaymentsPaid(paymentId);
-    }
-
     /*****************************************************
      * Utility functions
      *****************************************************/

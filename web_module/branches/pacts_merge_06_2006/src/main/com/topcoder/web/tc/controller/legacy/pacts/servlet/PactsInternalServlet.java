@@ -498,14 +498,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                     throw new NavigationException("Invalid command " + command);
                 } else if (task.equals(PAYMENT_TASK)) {
-                    if (command.equals(PAID_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPayPayments(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
-                        return;
-                    }
                     if (command.equals(PRINT_CMD)) {
                         doPrintPayments(request, response);
                         return;
@@ -2475,31 +2467,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         request.setAttribute(PACTS_INTERNAL_RESULT, bean.get());
 
         forward(INTERNAL_NOTE_JSP, request, response);
-    }
-
-    private void doPayPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
-            log.debug("doPayPayments<br>");
-
-            String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
-            for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
-            }
-
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            dib.markPaymentsPaid(payments);
-
-            request.setAttribute("message", "Payments have been marked as Paid");
-            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
-                forward(request.getParameter("query"), request, response);
-            else
-                throw new NavigationException("Payments have been marked as Paid");
-
-        } catch (NumberFormatException e) {
-            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-        }
     }
 
     private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {

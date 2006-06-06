@@ -13,7 +13,6 @@ import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
-import java.rmi.RemoteException;
 
 import java.sql.*;
 import java.text.DecimalFormat;
@@ -4369,7 +4368,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
-			throws IllegalUpdateException, RemoteException, SQLException {
+			throws IllegalUpdateException, SQLException {
     	log.debug("generateComponentPayments called...");
         int i;
         Connection c = null;
