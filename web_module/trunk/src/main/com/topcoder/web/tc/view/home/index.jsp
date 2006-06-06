@@ -213,6 +213,8 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+           <%-- Science Museum of Minnesota Partners with TopCoder High School Competitions <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>--%>
+
             AOL, Bloomberg, UBS and NSA Announced as Sponsors of 2006 TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0" /></div>

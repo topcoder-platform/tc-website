@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- SMM Partners with TCHS 
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_060706"><img src="/i/pressroom/smm_logo.gif" alt="Science Museum of Minnesota logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TopCoder High School Competitions</A></strong></font><br />
+                        Launch of Worldwide Computer Contest for High School-Age Students Promotes Problem Solving Skills in Math and Science.<span class="prHead"> [June 7]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+--%>
 <%-- TCCC Sponsors --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
