@@ -86,10 +86,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param prefix the prefix of the permission
      * @param userId the user id to assign permission
      * @throws SQLException when DB operations fails
-     * @throws RemoteException if security_roles cannot be found
      */
     private void createPermission(Connection conn, IdGen idGen, String permissionName,
-            String prefix, long userId) throws SQLException, RemoteException {
+            String prefix, long userId) throws SQLException {
         PreparedStatement ps = conn
                 .prepareStatement("SELECT role_id, description FROM security_roles "
                         + "WHERE description = ?");
@@ -177,11 +176,10 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param rRoleId the role Id to insert
      * @param paymentInfoId the payment information Id to insert
      * @throws SQLException when DB operations fails
-     * @throws RemoteException if ID generator fails to generate the Id
      */
     private void insertUserRole(Connection conn, IdGen idGen, long rUserRoleVId, long userId,
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
-        long paymentInfoId) throws SQLException, RemoteException {
+        long paymentInfoId) throws SQLException {
         // Resets current version
         resetCurrentVersion(conn, rUserRoleVId);
 
@@ -222,11 +220,10 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
-     * @throws RemoteException if the IDgenerator can't be created or the UserRole rows are not found
      */
     public void createRBoardApplication(String dataSource, long userId,
             long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
-            int reviewTypeId, boolean primary) throws RemoteException{
+            int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
         IdGen idGen = null;
         try {
@@ -415,7 +412,6 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId the user id signing in
      * @param phaseId the type of the project
      * @throws RBoardRegistrationException when validations fails
-     * @throws RemoteException for unknown catalogs
      */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
 //    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
@@ -495,10 +491,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn the timestamp when the position opnens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
-     * @throws RemoteException
      */
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
-        throws RBoardRegistrationException, RemoteException {
+        throws RBoardRegistrationException {
         Connection conn = null;
 
         try {
@@ -536,10 +531,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn the timestamp when the position opnens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
-     * @throws RemoteException
      */
     private void validateUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
-        throws RBoardRegistrationException, RemoteException {
+        throws RBoardRegistrationException {
 
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
