@@ -9,6 +9,25 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.06.06<br>2:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm1">TCHS SRM 1 - Problem Set & Analysis</A></span><br><br>
+In a close race, <b>Burunduk1</b> from the Russian Federation won the match, thanks to
+fast submissions (that took him to the third place after Coding Phase) and to two successful challenges that
+gave him the points he needed to overtake the other top scorers.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm1">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506023" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.06.06<br>1:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Sponsors of 2006 TCCC</A></span><br><br>
       AOL and Bloomberg will join returning TopCoder premier sponsors UBS and National Security Agency.
@@ -178,19 +197,6 @@ and neck.
        <A href="/tc?module=Static&d1=match_editorials&d2=srm303">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505869" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.19.06<br>1:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Downtime for scheduled maintenance: 05.21
-      </span><br><br>
-      We've scheduled downtime for all TopCoder systems this Sunday 05.21 at 8:00 PM EDT while we run some general maintenance.  The downtime should last for about 2 hours.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506018" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
