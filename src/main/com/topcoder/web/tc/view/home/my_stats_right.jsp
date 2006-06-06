@@ -22,7 +22,7 @@
 
     <tr>
         <td class="formHandleEven">Rating</td>
-        <td class="formHandleEven" align="right"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
+        <td class="formHandleEven" align="right"><% if (coderInfo.getItem(0, "rating").getResultData()==null||coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
     </tr>
     <tr>
         <td class="formHandleEven">Earnings</td>
