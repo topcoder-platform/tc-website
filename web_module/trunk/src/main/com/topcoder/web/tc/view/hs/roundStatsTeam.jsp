@@ -192,7 +192,7 @@ function clickColumn(n)
    <tr><td class="title" colspan="17">Match Results - Team</td></tr>
    <tr>
       <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
-      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Placement<br>Points</td>
+      <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Team<br>Points</td>
       <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
       <td class="headerR">+</td>
       <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge<br>Phase</td>
