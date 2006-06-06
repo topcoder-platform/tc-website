@@ -174,7 +174,7 @@ table.stat td.value, table.stat td.valueC, table.stat td.valueR { white-space:no
 </div>
 
 
-<span class="subtitle"><%= round.getSeasonName() %> > <A href="/tc?Module=HSRoundOverview&rd=<%= round.getRoundId() %>&snid=<%= round.getSeasonId() %>" class="bcLink"><%= round.getRoundName() %></A> > <%= roomName %></span><br>
+<span class="subtitle"><%= round.getSeasonName() %> > <A href="/tc?<%=Constants.MODULE_KEY%>=HSRoundOverview&rd=<%= round.getRoundId() %>&snid=<%= round.getSeasonId() %>" class="bcLink"><%= round.getRoundName() %></A> > <%= roomName %></span><br>
 <% if(round.getForumId() > 0) { %>
 <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=<%=round.getForumId() %>" class="bcLink">Discuss this contest</a>
 <% } %>
