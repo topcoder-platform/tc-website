@@ -668,8 +668,6 @@ public class Legacy extends Base {
             " ,coder c" +
             " ,rating cr" +
             " ,state s" +
-            " ,region_state rs" +
-            " ,region r" +
              ", user_address_xref x " +
              ", address a " +
             " WHERE u.user_id = c.coder_id" +
@@ -678,9 +676,6 @@ public class Legacy extends Base {
             " and x.address_id = a.address_id" +
             " and a.address_type_id = 2 " +
             " and x.user_id = u.user_id " +
-            " AND s.state_code = rs.state_code" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -703,8 +698,6 @@ public class Legacy extends Base {
             " ,coder c" +
             " ,rating cr" +
             " ,state s" +
-            " ,region_state rs" +
-            " ,region r" +
             " ,user_address_xref x" +
             " ,address a " +
             " WHERE u.user_id = c.coder_id" +
@@ -714,9 +707,6 @@ public class Legacy extends Base {
                     " and a.address_type_id = 2 " +
                     " and x.user_id = u.user_id " +
 
-            " AND s.state_code = rs.state_code" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -742,16 +732,11 @@ public class Legacy extends Base {
             " ,rating cr" +
             " ,state s" +
             " ,school sc" +
-            " ,region_state rs" +
-            " ,region r" +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
             " AND cs.coder_id = c.coder_id" +
             " AND cs.school_id = sc.school_id" +
             " AND sc.state_code = s.state_code" +
-            " AND s.state_code = rs.state_code" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'" +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -776,17 +761,12 @@ public class Legacy extends Base {
             " ,rating cr" +
             " ,state s" +
             " ,school sc" +
-            " ,region_state rs" +
-            " ,region r" +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
             " AND cs.coder_id = c.coder_id" +
             " AND cs.school_id = sc.school_id" +
             " AND sc.state_code = s.state_code" +
-            " AND s.state_code = rs.state_code" +
             " AND LOWER(s.state_code) = LOWER('?')" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -812,17 +792,12 @@ public class Legacy extends Base {
             " ,rating cr" +
             " ,state s" +
             " ,school sc" +
-            " ,region_state rs" +
-            " ,region r" +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
             " AND cs.coder_id = c.coder_id" +
             " AND cs.school_id = sc.school_id" +
             " AND sc.state_code = s.state_code" +
-            " AND s.state_code = rs.state_code" +
             " AND LOWER(r.region_name) = LOWER('?')" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
@@ -848,16 +823,11 @@ public class Legacy extends Base {
             " ,rating cr" +
             " ,state s" +
             " ,school sc" +
-            " ,region_state rs" +
-            " ,region r" +
             " WHERE u.user_id = c.coder_id" +
             " AND cr.coder_id = c.coder_id" +
             " AND cs.coder_id = c.coder_id" +
             " AND cs.school_id = sc.school_id" +
             " AND sc.state_code = s.state_code" +
-            " AND s.state_code = rs.state_code" +
-            " AND rs.region_code = r.region_code" +
-            " AND rs.user_type_id = 1" +
             " AND u.status = 'A'  " +
             " AND u.user_id NOT IN (SELECT user_id" +
             " FROM group_user" +
