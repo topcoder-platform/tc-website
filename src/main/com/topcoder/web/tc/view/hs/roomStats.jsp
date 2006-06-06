@@ -192,7 +192,7 @@ table.stat td.value, table.stat td.valueC, table.stat td.valueR { white-space:no
       <td class="headerC" colspan="3">Rating</td>
    </tr>
    <tr>
-      <td class="header">&#160;</td>
+      <td class="header" width="1%">&#160;</td>
       <td class="header" width="16%" colspan="2"><A href="javascript:clickColumn(0)">Coders</A></td>
       <td class="headerR" width="16%"><A href="javascript:clickColumn(1)">Qnty</A></td>
       <td class="headerR"><A href="javascript:clickColumn(2)">Points</A></td>
