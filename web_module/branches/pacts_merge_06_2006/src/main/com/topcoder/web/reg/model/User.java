@@ -36,7 +36,7 @@ public class User extends Base {
     /**
      * hoke: used for making changes
      */
-    private Set transientResponses;
+    private List transientResponses;
 
     /**
      * doing this weirdness to allow the EL to work with this
