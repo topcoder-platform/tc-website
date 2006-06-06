@@ -17,7 +17,7 @@ public class CoderRankings extends Base {
     /**
      * Column names used for sorting. 
      */
-    private static String columnNames[] = {"handle", "team", "rating"};
+    private static String columnNames[] = {"handle", "name", "rating"};
 
     protected void businessProcessing() throws TCWebException {
         try {            
