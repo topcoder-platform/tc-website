@@ -4,15 +4,13 @@
 
 package com.topcoder.apps.review.rboard;
 
-import javax.ejb.EJBException;
-
 /**
  * Custom Exception for RBoard registration.
  *
  * @author pulky
  * @version 1.0.0
  */
-public class RBoardRegistrationException extends EJBException {
+public class RBoardRegistrationException extends Exception {
     /**
      * Constructor with no arguments
      */
