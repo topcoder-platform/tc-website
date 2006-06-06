@@ -30,7 +30,8 @@ public interface RBoardApplication extends EJBObject {
 
     Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
 
-    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
+//    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException, RemoteException;
+    void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RemoteException;
 
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 }

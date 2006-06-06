@@ -417,8 +417,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RBoardRegistrationException when validations fails
      * @throws RemoteException for unknown catalogs
      */
-    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
-            int phaseId) throws RBoardRegistrationException, RemoteException {
+    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) {
+//    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
+//            int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
 
         try {
@@ -470,7 +471,8 @@ public class RBoardApplicationBean extends BaseEJB {
                                 "you are not a Application reviewer");
                     }
                 } else {
-                    throw new RemoteException("unknown catalog found " + catalog);
+//                    throw new RemoteException("unknown catalog found " + catalog);
+                    throw new EJBException("unknown catalog found " + catalog);
                 }
             } catch (RowNotFoundException enfe) {
                 throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
