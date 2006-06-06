@@ -6,11 +6,11 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
-import com.topcoder.web.tc.model.SoftwareComponent;
 import java.util.Map;
 
 public class ComponentRecordbook extends Static {

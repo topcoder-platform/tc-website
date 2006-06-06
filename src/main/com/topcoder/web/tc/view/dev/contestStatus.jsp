@@ -3,7 +3,7 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.model.SoftwareComponent"%>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

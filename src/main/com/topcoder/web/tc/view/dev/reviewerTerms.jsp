@@ -1,10 +1,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.corp.controller.TransactionServlet"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>

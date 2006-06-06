@@ -51,12 +51,19 @@ import java.util.*;
  * Version 1.0.3 Change notes:
  * <ol>
  * <li>
- * added successful flag to appeals.
+ * Added successful flag to appeals.
+ * </li>
+ * </ol>
+ *
+ * Version 1.0.4 Change notes:
+ * <ol>
+ * <li>
+ * Added save and finish later functionality.
  * </li>
  * </ol>
  *
  * @author FatClimber, pulky
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class DocumentManagerBean implements SessionBean {
     private Logger log = null;
@@ -2965,13 +2972,13 @@ public class DocumentManagerBean implements SessionBean {
     /**
      * Get a FinalReview for the given project from the database.
      *
-     * @param project
-     * @param retrieveFull
-     * @param requestor
+     * @param project The required final review's project 
+     * @param retrieveFull Flag wheter or not retrieve FixItems
+     * @param requestor Requestor of this operation
      *
-     * @return FinalReview
+     * @return FinalReview the corresponding FinalReview
      *
-     * @throws RuntimeException DOCUMENT ME!
+     * @throws RuntimeException
      */
     public FinalReview getFinalReview(Project project, boolean retrieveFull, TCSubject requestor) {
         log.debug("DM.getFinalReview(), projectId: " + project.getId() +
@@ -2991,32 +2998,35 @@ public class DocumentManagerBean implements SessionBean {
             // Do not retrieve aggregation responses.
             AggregationWorksheet aggWorksheet = getAggregation(project, requestor, false);
 
+            long finalReviewId = -1;
+            boolean isCompleted = false;
+            long reviewVersionId = -1;
+            boolean isApproved = false;
+            String comments = null;
+                
+            // the final review common data will be always returned
+            ps = conn.prepareStatement(
+                    "SELECT fr.final_review_id, " +
+                    "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
+                    "FROM final_review fr, agg_worksheet aw " +
+                    "WHERE fr.cur_version = 1 AND " +
+                    "aw.cur_version = 1 AND " +
+                    "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
+                    "aw.project_id = ?");
+            ps.setLong(1, project.getId());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                finalReviewId = rs.getLong(1);
+                isCompleted = rs.getBoolean(2);
+                reviewVersionId = rs.getLong(3);
+                isApproved = rs.getBoolean(4);
+                comments = rs.getString(5);
+            }
+            
             if (!retrieveFull) {
-                ps = conn.prepareStatement(
-                        "SELECT fr.final_review_id, " +
-                        "fr.is_completed, fr.final_review_v_id, fr.is_approved, fr.comments " +
-                        "FROM final_review fr, agg_worksheet aw " +
-                        "WHERE fr.cur_version = 1 AND " +
-                        "aw.cur_version = 1 AND " +
-                        "fr.agg_worksheet_id = aw.agg_worksheet_id AND " +
-                        "aw.project_id = ?");
-                ps.setLong(1, project.getId());
-                rs = ps.executeQuery();
-
-                if (rs.next()) {
-                    //info("Found fixItem");
-                    long finalReviewId = rs.getLong(1);
-                    boolean isCompleted = rs.getBoolean(2);
-                    long reviewVersionId = rs.getLong(3);
-                    boolean isApproved = rs.getBoolean(4);
-                    String comments = rs.getString(5);
-
-                    finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, isApproved, comments);
-                } else {
-                    finalReview = new FinalReview(-1, null, aggWorksheet,
-                            false, requestor.getUserId(), -1, false, null);
-                }
+                finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
+                        reviewVersionId, isApproved, comments);
             } else {
                 ps = conn.prepareStatement(
                         "SELECT fr.final_review_id, fi.fix_item_id, " +
@@ -3035,23 +3045,11 @@ public class DocumentManagerBean implements SessionBean {
 
                 List fixItemList = new LinkedList();
 
-                long finalReviewId = 0;
-                long reviewVersionId = 0;
-                boolean isCompleted = false;
-                boolean isApproved = false;
-                String comments = null;
-
                 while (rs.next()) {
-                    //info("Found fixItem");
-                    finalReviewId = rs.getLong(1);
                     long fixItemId = rs.getLong(2);
                     long finalFixStatusId = rs.getLong(3);
                     long aggResponseId = rs.getLong(4);
-                    isCompleted = rs.getBoolean(5);
-                    reviewVersionId = rs.getLong(6);
                     long fixItemVid = rs.getLong(7);
-                    isApproved = rs.getBoolean(8);
-                    comments = rs.getString(9);
 
                     FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
                             "FinalFixStatusManager");
@@ -3062,33 +3060,40 @@ public class DocumentManagerBean implements SessionBean {
                     FixItem fixItem = new FixItem(fixItemId, finalFixStatus, aggResp, fixItemVid);
                     fixItemList.add(fixItem);
                 }
-                if (fixItemList.size() > 0) {
-                    FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
-                    finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
-                            reviewVersionId, isApproved, comments);
-                } else {
-                    if (Common.isRole(project, requestor.getUserId(), Role.ID_FINAL_REVIEWER) &&
-                            project.getCurrentPhase().getId() == Phase.ID_FINAL_REVIEW) {
-                        // Create new FinalReview
+                
+                // Retrieve aggregation responses.
+                aggWorksheet = getAggregation(project, requestor, true);
+                AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
+                List aggItemList = new LinkedList();
 
-                        // Retrieve aggregation responses.
-                        aggWorksheet = getAggregation(project, requestor, true);
-                        AggregationResponse[] aggRespArr = aggWorksheet.getAggregationResponses();
+                for (int i = 0; i < aggRespArr.length; i++) {
+                    if (aggRespArr[i].getAggregationResponseStatus().getId() ==
+                            AggregationResponseStatus.ID_ACCEPTED) {
+                        // Only include accepted aggregation responses
+                        if (fixItemList.size() > 0) {
+                            // Get FixItem if it exists
+                            int j = 0;
+                            for (; j < fixItemList.size() && aggRespArr[i].getId() != 
+                                ((FixItem)fixItemList.get(j)).getAggregationResponse().getId(); j++);
 
-                        for (int i = 0; i < aggRespArr.length; i++) {
-                            if (aggRespArr[i].getAggregationResponseStatus().getId() ==
-                                    AggregationResponseStatus.ID_ACCEPTED) {
-                                // Only include accepted aggregation responses
-                                FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
-                                fixItemList.add(fixItem);
+                            if (j < fixItemList.size()) {
+                                // adds the FixItem
+                                aggItemList.add((FixItem)fixItemList.get(j));    
+                            } else {
+                                // adds the aggregation item
+                                aggItemList.add(new FixItem(-1, null, aggRespArr[i], -1));
                             }
+                        } else {
+                            FixItem fixItem = new FixItem(-1, null, aggRespArr[i], -1);
+                            aggItemList.add(fixItem);
                         }
-                        FixItem[] fixItemArr = (FixItem[]) fixItemList.toArray(new FixItem[fixItemList.size()]);
-                        finalReview = new FinalReview(-1, fixItemArr, aggWorksheet,
-                                isCompleted, requestor.getUserId(), -1, isApproved, comments);
                     }
                 }
+                FixItem[] fixItemArr = (FixItem[]) aggItemList.toArray(new FixItem[aggItemList.size()]);
+                finalReview = new FinalReview(finalReviewId, fixItemArr, aggWorksheet, isCompleted, requestor.getUserId(),
+                        reviewVersionId, isApproved, comments);
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -3398,12 +3403,13 @@ public class DocumentManagerBean implements SessionBean {
     /**
      * Save a FinalReview to the database.
      *
-     * @param finalReview
+     * @param finalReview The final review to be saved
+     * @param requestor Requestor of this operation
      *
      * @throws InvalidEditException
      * @throws DocumentAlreadySubmittedException
      * @throws IncorrectProjectStateException
-     * @throws RuntimeException DOCUMENT ME!
+     * @throws RuntimeException
      */
     public void saveFinalReview(FinalReview finalReview, TCSubject requestor)
             throws InvalidEditException,
@@ -3627,24 +3633,24 @@ public class DocumentManagerBean implements SessionBean {
                         }
 
                         // If the final fix status is null, we don't need to save it yet.
-                        //if (fixItemArr[i].getFinalFixStatus() != null) {
-                        psIns.setLong(1, fixItemArr[i].getId());
-                        psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
-                        psIns.setLong(3, fixItemArr[i].getAggregationResponse().getId());
-                        psIns.setLong(4, finalReview.getId());
-                        psIns.setLong(5, requestorId);
-
-                        int nr = psIns.executeUpdate();
-
-                        if (nr != 1) {
-                            String errorMsg =
-                                    "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: "
-                                    + fixItemArr[i].getId();
-                            log.error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                        if (fixItemArr[i].getFinalFixStatus() != null) {
+                            psIns.setLong(1, fixItemArr[i].getId());
+                            psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
+                            psIns.setLong(3, fixItemArr[i].getAggregationResponse().getId());
+                            psIns.setLong(4, finalReview.getId());
+                            psIns.setLong(5, requestorId);
+    
+                            int nr = psIns.executeUpdate();
+    
+                            if (nr != 1) {
+                                String errorMsg =
+                                        "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: "
+                                        + fixItemArr[i].getId();
+                                log.error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new InvalidEditException(errorMsg);
+                            }
                         }
-                        //}
                     }
                 }
             } finally {

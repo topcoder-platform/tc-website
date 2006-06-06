@@ -5,7 +5,7 @@
          com.topcoder.shared.dataAccess.*,
          com.topcoder.web.common.BaseServlet,
          com.topcoder.web.tc.Constants,
-         com.topcoder.web.tc.model.SoftwareComponent" %>
+         com.topcoder.web.common.model.SoftwareComponent" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

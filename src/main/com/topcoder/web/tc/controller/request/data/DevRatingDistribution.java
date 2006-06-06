@@ -2,7 +2,7 @@ package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 
 /**

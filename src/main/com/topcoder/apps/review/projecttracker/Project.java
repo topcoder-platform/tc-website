@@ -140,7 +140,7 @@ public class Project implements Serializable {
         this.autopilot = autopilot;
     }
 
-    protected long getLevelId() {
+    public long getLevelId() {
         return levelId;
     }
 

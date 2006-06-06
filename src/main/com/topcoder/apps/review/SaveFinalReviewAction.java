@@ -1,7 +1,6 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.FixItem;
@@ -12,12 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <p>
+ * <strong>Purpose</strong>:
  * Extends from <strong>ReviewAction</strong> that saves the final review.
- * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Added save and finish later functionality.
+ * </li>
+ * </ol>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
 public final class SaveFinalReviewAction extends ReviewAction {
 
@@ -66,22 +71,24 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
-                // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
-                if (data.getFinalReview().isApproved()) {
-                    AutoPilot.finalReviewEmail(data);
-                //} else if (data.getFinalReview().isCompleted()) {
-                } else {
-                    // Count how many not fixed items are
-                    FixItem[] items = data.getFinalReview().getFixCheckList();
-
-                    int notFixedItems = 0;
-
-                    for (int i = 0; i < items.length; i++)
-                        if (items[i].getFinalFixStatus().getId() == 1) { // fix constant!
-                            notFixedItems++;
-                        }
-
-                    AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
+                // only continues process when the worksheet is completed
+                if (data.getFinalReview().isCompleted()) {
+                    // If final fixes are not approved, mails will be sent and the project will go back to final fixes
+                    if (data.getFinalReview().isApproved()) {
+                        AutoPilot.finalReviewEmail(data);
+                    } else {
+                        // Count how many not fixed items are
+                        FixItem[] items = data.getFinalReview().getFixCheckList();
+    
+                        int notFixedItems = 0;
+    
+                        for (int i = 0; i < items.length; i++)
+                            if (items[i].getFinalFixStatus().getId() == 1) { // fix constant!
+                                notFixedItems++;
+                            }
+    
+                        AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
+                    }
                 }
             }
             

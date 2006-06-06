@@ -27,6 +27,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.render.DataTypeRenderer;
 import com.topcoder.web.common.render.NodeElementRenderer;
 import com.topcoder.web.common.render.UserConstraintRenderer;
@@ -307,7 +308,7 @@ public class PDFGenerator extends BaseProcessor {
                 if (documentation.getItem(0, "document_id").getResultData() != null) {
                     int documentId = documentation.getIntItem(0, "document_id");
                     String documentUrl = "http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/catalog/document?id=" + documentId;
-//    				String documentUrl = "http://software.topcoder.com/catalog/document?id=" + documentId;
+//                  String documentUrl = "http://software.topcoder.com/catalog/document?id=" + documentId;
                     result.setDocumentUrl(documentUrl);
                 }
             }
@@ -1432,10 +1433,10 @@ public class PDFGenerator extends BaseProcessor {
 
             cell.setPhrase(new Phrase(detail.getHandle(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
             coders.addCell(cell);
-//	        cell.setPhrase(new Phrase(detail.getDateInquired(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-//	        coders.addCell(cell);
-//	        cell.setPhrase(new Phrase(detail.getDateSubmitted(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
-//	        coders.addCell(cell);
+//          cell.setPhrase(new Phrase(detail.getDateInquired(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+//          coders.addCell(cell);
+//          cell.setPhrase(new Phrase(detail.getDateSubmitted(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
+//          coders.addCell(cell);
             cell.setPhrase(new Phrase(detail.getScreeningScore(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
             coders.addCell(cell);
             cell.setPhrase(new Phrase(detail.getInitialScore(), FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, Color.black)));
@@ -1464,7 +1465,7 @@ public class PDFGenerator extends BaseProcessor {
 //                page.addCell(cell);
 //
 //                cell = new PdfPCell(Image.getInstance(contest.getDocumentUrl()));
-////    	        cell = new PdfPCell(Image.getInstance("http://www.dev.topcoder.com/i/home/TC_homeLogo.gif"));
+////                cell = new PdfPCell(Image.getInstance("http://www.dev.topcoder.com/i/home/TC_homeLogo.gif"));
 //                cell.setBorderWidth(0);
 //                page.addCell(cell);
 //            }

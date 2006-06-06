@@ -11,7 +11,7 @@ import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.date.workdays.WorkdaysUnitOfTime;
-import java.util.Calendar;
+import com.topcoder.web.common.model.DefaultPriceComponent;
 import java.util.Date;
 
 /**
@@ -45,8 +45,15 @@ import java.util.Date;
  * </li>
  * </ol>
  *
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
+ * Added automated payment calculation when moving from screening to review phase.
+ * </li>
+ * </ol>
+ *
  * @author rfairfax, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class AutoPilot {
 
@@ -71,7 +78,6 @@ public class AutoPilot {
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
             UserManagerLocal userManager = EJBHelper.getUserManager();
-            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
 
             SecurityEnabledUser user = userManager.getUser(subject);
@@ -528,10 +534,9 @@ public class AutoPilot {
             if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
-            boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
-
             int count = 0;
+            int passedCount = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
                 if (!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
@@ -542,25 +547,64 @@ public class AutoPilot {
                 count++;
 
                 if (scorecard[i].getScore() >= minscore) {
-                    passed = true;
+                    passedCount++;
                 }
             }
 
-            if (!passed)
+            if (passedCount == 0)
                 return new SuccessResult();
 
             //get submission count
             if (count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
                 return new SuccessResult();
 
-            //check project for reviewers
+            // only permitted levels
+            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ? 
+                    DefaultPriceComponent.LEVEL2 : DefaultPriceComponent.LEVEL1;
+                        
+            DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
+                    levelId, count, passedCount, 
+                            project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
+            
+            // check project for reviewers
             UserRole[] participants = project.getParticipants();
+            
+            // get primary screener ID
+            long primaryScreenerId = -1;
+            for (int i = 0; i < participants.length && primaryScreenerId == -1; i++) {
+                if (participants[i].getRole().getId() == Role.ID_PRIMARY_SCREENER) {
+                    primaryScreenerId = participants[i].getUser().getId();
+                }
+            }
+            
             for (int i = 0; i < participants.length; i++) {
-                if (participants[i].getRole().getId() == Role.ID_REVIEWER) {
+                long roleId = participants[i].getRole().getId();
+                if (roleId == Role.ID_REVIEWER) {
                     if (participants[i].getUser() == null) {
                         //nothing to do, need to fill reviewer spots
                         return new SuccessResult();
                     }
+                }
+                
+                // calculate payment for reviewers tasks. If the primary screener is also a reviewer, 
+                // he only gets CoreCost for the review since startup time is already calculated
+                // for the screening.
+                float amountToPay = 0;
+                if (roleId == Role.ID_AGGREGATOR)
+                    amountToPay = defaultPriceComponent.getAggregationCost();
+                else if (roleId == Role.ID_PRIMARY_SCREENER)
+                    amountToPay = defaultPriceComponent.getScreeningCost();
+                else if (roleId == Role.ID_FINAL_REVIEWER)
+                    amountToPay = defaultPriceComponent.getFinalReviewCost();
+                else if (roleId == Role.ID_REVIEWER)
+                    amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ? 
+                            defaultPriceComponent.getCoreReviewCost() : 
+                                defaultPriceComponent.getReviewPrice();
+
+                // update payment info.
+                if (amountToPay > 0) {
+                    PaymentInfo paymentInfo = participants[i].getPaymentInfo();
+                    paymentInfo.setPayment(amountToPay);
                 }
             }
 
