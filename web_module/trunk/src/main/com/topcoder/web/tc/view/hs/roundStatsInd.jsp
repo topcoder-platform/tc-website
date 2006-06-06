@@ -204,7 +204,7 @@ white-space:normal;
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="16">
+   <tr><td class="title" colspan="17">
       <div style="float:right;">
       <% if (!groupByRoom) { %>
           <a href="/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>">Group by room</a>
@@ -213,6 +213,7 @@ white-space:normal;
       Match Results - Individual
    </td></tr>
    <tr>
+      <td class="header" rowspan="2" width="1%">&#160;</td>
       <td class="header" colspan="2" rowspan="2"><A href="javascript:clickColumn(0)">Coder</A></td>
       <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Team<br>Points</td>
       <td class="headerR" rowspan="2"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
@@ -244,12 +245,15 @@ white-space:normal;
            even = !even;
            if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
            %>
-                 <tr><td class="title" colspan="16" style="border-top:1px solid #999999;"><A href='/tc?module=HSRoomStats&rm=<%=resultRow.getIntItem("room_id")%>&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>'><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
+                 <tr><td class="title" colspan="17" style="border-top:1px solid #999999;"><A href='/tc?module=HSRoomStats&rm=<%=resultRow.getIntItem("room_id")%>&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>'><rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
            <%
                  lastRoom = resultRow.getIntItem("room_id");
            }
            %>
            <tr class="<%=even?"dark":"light"%>">
+               <td class="value" style="vertical-align: middle;">
+               <a href=""><img src="/i/interface/exp_w.gif" alt=""></a>
+               </td>
               <td class="value" nowrap="nowrap">
                  <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
               </td>
