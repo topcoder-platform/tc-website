@@ -37,8 +37,8 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions">View Submissions</a>
             <% } %>
-
-
+--%>
+<%-- 
 &#160;|&#160;
 
 <!-- Finalists tab -->
