@@ -102,7 +102,14 @@ public class RBoardApplicationBean extends BaseEJB {
                     + prefix + permissionName));
         }
         close(ps);
-        long userRoleId = idGen.nextId();
+        
+        long userRoleId = -1;
+        try {
+            userRoleId = idGen.nextId();
+        } catch (Exception e) {
+            throw new EJBException("idGen.nextId() failed" + e.getMessage());
+        }
+
         try {
             selectLong(conn, "user_role_xref",
                 "user_role_id", new String[]{"login_id", "role_id"},
@@ -183,10 +190,17 @@ public class RBoardApplicationBean extends BaseEJB {
         // Resets current version
         resetCurrentVersion(conn, rUserRoleVId);
 
+        long newRUserRoleVId = -1;
+        try {
+            newRUserRoleVId = idGen.nextId();
+        } catch (Exception e) {
+            throw new EJBException("idGen.nextId() failed" + e.getMessage());
+        }
+
         insert(conn, "r_user_role",
             new String[]{"r_user_role_v_id", "r_user_role_id", "r_role_id", "project_id",
             "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
-            new String[]{String.valueOf(idGen.nextId()), String.valueOf(rUserRoleId),
+            new String[]{String.valueOf(newRUserRoleVId), String.valueOf(rUserRoleId),
             String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId),
             String.valueOf(paymentInfoId), (reviewRespId != -1) ? String.valueOf(reviewRespId) : null,
             String.valueOf(INTERNAL_ADMIN_USER), "1"});
