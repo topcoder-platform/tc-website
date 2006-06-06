@@ -87,11 +87,6 @@
 <%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
 %>
 		</tr>
-		<tr>
-		<td><b>Date Printed:</b></td>
-<%			out.print("<td>"+payment.getPrintDate()+"</td>\n");
-%>
-		</tr>
 
 		<tr>
 		<td><b>Date Paid:</b></td>

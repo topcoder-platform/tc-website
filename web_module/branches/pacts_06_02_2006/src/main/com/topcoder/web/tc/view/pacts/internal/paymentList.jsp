@@ -134,7 +134,6 @@
 <table>
 <%
 out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.REVIEW_CMD+"\"></td></tr>\n");
-out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.PAID_CMD+"\"></td></tr>\n");
 out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.STATUS_CMD+"\"></td>\n");
 out.print("<td><select name=\"status_id\">");
 
