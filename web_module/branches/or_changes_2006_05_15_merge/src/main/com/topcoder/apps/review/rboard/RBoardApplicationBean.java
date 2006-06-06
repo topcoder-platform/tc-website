@@ -300,7 +300,11 @@ public class RBoardApplicationBean extends BaseEJB {
                 } catch (SQLException sqle) {
                 }
             }
-            throw new EJBException(e.getMessage());
+            if (e instanceof RBoardRegistrationException) {
+                throw ((RBoardRegistrationException) e);
+            } else {
+                throw new EJBException(e.getMessage());
+            }
         } finally {
             close(rs);
             close(ps);
@@ -497,23 +501,20 @@ public class RBoardApplicationBean extends BaseEJB {
 
         try {
             conn = DBMS.getConnection(dataSource);
-            System.out.println("Begin Transaction b");
             conn.setAutoCommit(false);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
-            System.out.println("Commit Transaction b");
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
         } catch (Exception e) {
             if (conn != null) {
                 try {
-                    System.out.println("Rollback Transaction b2");
                     conn.rollback();
                 } catch (SQLException sqle) {
                 }
             }
             if (e instanceof RBoardRegistrationException) {
-                throw new RBoardRegistrationException(e.getMessage());
+                throw ((RBoardRegistrationException) e);
             } else {
                 throw new EJBException(e.getMessage());
             }
