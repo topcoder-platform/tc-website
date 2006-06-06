@@ -214,7 +214,7 @@ white-space:normal;
    </td></tr>
    <tr>
       <td class="header" colspan="2" rowspan="2"><A href="javascript:clickColumn(0)">Coder</A></td>
-      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Placement<br>Points</td>
+      <td class="headerR" rowspan="2"><A href="javascript:clickColumn(1)">Team<br>Points</td>
       <td class="headerR" rowspan="2"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
 
       <td class="headerR" rowspan="2">+</td>
