@@ -220,8 +220,9 @@ public interface PactsConstants {
 
     /* We get a "printed" status once a payment has been printed to a file
      * for use in importing into quick books
+     * (Deactivated since 6/6/06 - mktong)
      */
-    public static final int PRINTED_STATUS = 52;
+    //public static final int PRINTED_STATUS = 52;
 
     /* We get a "paid" status once the checks are in the mail.  A TC rep.
      * marks payments as having been paid

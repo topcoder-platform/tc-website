@@ -153,10 +153,7 @@ public interface PactsServices extends EJBObject {
 
     void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
-
-    void markPaymentsPaid(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
-
+    
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;

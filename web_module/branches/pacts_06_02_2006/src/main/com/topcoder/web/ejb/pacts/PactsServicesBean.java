@@ -2110,8 +2110,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, PaymentPaidException, SQLException {
         // Not allowed to manually set status to Printed or Paid.  This can only be done
         // by the system.
-        if (p.getStatusId() == PRINTED_STATUS || p.getStatusId() == PAID_STATUS) {
-            throw new IllegalUpdateException("Payment status cannot be manually set to printed or paid");
+        if (p.getStatusId() == PAID_STATUS) {
+            throw new IllegalUpdateException("Payment status cannot be manually set to paid");
         }
 
         // Can't have net amount > gross amount
@@ -3675,8 +3675,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // Not allowed to manually set status to Printed or Paid.  This can only be done
             // by the system.
-            if (statusId == PRINTED_STATUS || statusId == PAID_STATUS) {
-                throw new IllegalUpdateException("Payment status cannot be manually set to printed or paid");
+            if (statusId == PAID_STATUS) {
+                throw new IllegalUpdateException("Payment status cannot be manually set to paid");
             }
 
             HashMap properties = new HashMap();
@@ -3748,107 +3748,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (NoObjectFoundException) e;
             else if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
-            throw new SQLException(e.getMessage());
-        }
-    }
-
-    /**
-     * Marks the given payments as paid.  Specifically, for each payment, this function
-     * searches through all its detail records, and marks the most recent record with a
-     * status of "Printed" as having been paid - this is done by changing the status to
-     * "Paid" and filling in the date_paid field with the current date and time.  This method
-     * will throw an IllegalUpdateException if it finds any of the given payments has already
-     * been paid or lacks a detail record with the status of "Printed".
-     *
-     * @param   paymentId The payments to update
-     * @throws  NoObjectFoundException If any payment does not exist
-     * @throws  IllegalUpdateException If any payment could not be marked as paid
-     * @throws  SQLException If there is some other problem updating the data
-     */
-    public void markPaymentsPaid(long paymentId[]) throws NoObjectFoundException, IllegalUpdateException, SQLException {
-        Connection c = null;
-        PreparedStatement ps = null;
-
-        try {
-            c = DBMS.getConnection();
-            setLockTimeout(c);
-
-            // Check for payment existence
-            Arrays.sort(paymentId);
-            String idList = makeList(paymentId);
-
-            ResultSetContainer rsc = runSelectQuery(c, "SELECT COUNT(*) FROM payment WHERE payment_id IN(" + idList + ")", false);
-            int paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
-            if (paymentCount != paymentId.length) {
-                throw new NoObjectFoundException("Some of the payments to update could not be found");
-            }
-
-            // Check the payments are not already paid
-            StringBuffer checkPaid = new StringBuffer(300);
-            checkPaid.append("SELECT COUNT(*) FROM payment p, payment_detail pd, payment_detail_xref pdx ");
-            checkPaid.append("WHERE p.payment_id = pdx.payment_id ");
-            checkPaid.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
-            checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
-            checkPaid.append("AND p.payment_id IN (" + idList + ")");
-            rsc = runSelectQuery(c, checkPaid.toString(), false);
-            paymentCount = Integer.parseInt(rsc.getItem(0, 0).toString());
-            if (paymentCount > 0) {
-                throw new IllegalUpdateException("Some of the payments to mark as paid have already been paid");
-            }
-
-            // Get the ID numbers of the detail records
-            StringBuffer checkPrinted = new StringBuffer(300);
-            checkPrinted.append("SELECT p.payment_id, MAX(pd.payment_detail_id) ");
-            checkPrinted.append("FROM payment p, payment_detail pd, payment_detail_xref pdx ");
-            checkPrinted.append("WHERE p.payment_id = pdx.payment_id ");
-            checkPrinted.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
-            checkPrinted.append("AND pd.status_id = " + PRINTED_STATUS + " ");
-            checkPrinted.append("AND p.payment_id IN (" + idList + ") ");
-            checkPrinted.append("GROUP BY 1 ");
-            checkPrinted.append("ORDER BY 2");
-            rsc = runSelectQuery(c, checkPrinted.toString(), false);
-            int detailRowCount = rsc.getRowCount();
-            if (detailRowCount != paymentId.length) {
-                throw new IllegalUpdateException("Some of the payments to mark as paid have not been printed");
-            }
-
-            StringBuffer idListBuffer = new StringBuffer(300);
-            for (int i = 0; i < detailRowCount; i++) {
-                if (i > 0)
-                    idListBuffer.append(",");
-                idListBuffer.append(Long.parseLong(rsc.getItem(i, 1).toString()));
-            }
-
-            // Run the update
-            StringBuffer runUpdate = new StringBuffer(300);
-            runUpdate.append("UPDATE payment_detail SET status_id = " + PAID_STATUS);
-            runUpdate.append(" ,date_paid = ? WHERE payment_detail_id IN(" + idListBuffer.toString() + ")");
-            ps = c.prepareStatement(runUpdate.toString());
-            ps.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
-            ps.executeUpdate();
-            ps.close();
-            ps = null;
-
-            c.close();
-            c = null;
-        } catch (Exception e) {
-            printException(e);
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            if (e instanceof IllegalUpdateException)
-                throw (IllegalUpdateException) e;
-            else if (e instanceof NoObjectFoundException)
-                throw (NoObjectFoundException) e;
             throw new SQLException(e.getMessage());
         }
     }
@@ -3957,8 +3856,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Prints the payments that have status of "Ready to Print" to an external location.
-     * For each payment, updates the status to "Printed", updates the print count, sets
-     * the review field to zero, and sets the date printed to the current date and time.
+     * For each payment, updates the status to "Paid", updates the print count, sets
+     * the review field to zero, and sets the date paid to the current date and time.
      * The payment information, and the separate payee or "vendor" information, are returned
      * in a two-element string array, the payment information coming first.
      *
@@ -4223,10 +4122,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
             ps = null;
 
-            // Update date_printed and status in payment detail records
+            // Update date_paid and status in payment detail records
             StringBuffer updateDetails = new StringBuffer(300);
-            updateDetails.append("UPDATE payment_detail SET date_printed = ?, ");
-            updateDetails.append("status_id = " + PRINTED_STATUS + " ");
+            updateDetails.append("UPDATE payment_detail SET date_paid = ?, ");
+            updateDetails.append("status_id = " + PAID_STATUS + " ");
             updateDetails.append("WHERE status_id = " + READY_TO_PRINT_STATUS + " ");
             updateDetails.append("AND payment_detail_id IN ");
             updateDetails.append(" (SELECT most_recent_detail_id FROM payment) ");

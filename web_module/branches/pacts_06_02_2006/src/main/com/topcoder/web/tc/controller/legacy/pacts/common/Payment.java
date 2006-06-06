@@ -110,7 +110,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
                 header = new PaymentHeader();
 
 
-            if ((statusId != PAID_STATUS) && (statusId != PRINTED_STATUS)) {
+            if ((statusId != PAID_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
                 if (rsc != null) rRow = rsc.getRow(0);
             }

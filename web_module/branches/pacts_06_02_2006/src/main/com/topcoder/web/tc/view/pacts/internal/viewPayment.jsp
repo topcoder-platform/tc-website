@@ -161,19 +161,6 @@
    out.print(PactsConstants.PAYMENT_ID+"%3D"+payment.getHeader().getId()+"%26");
    out.print("individual_payment%3D1");
    out.println("\">Review Payment</a><br>");
-
-   if (payment.getHeader().getRecentStatusId() == PactsConstants.PRINTED_STATUS) {
-   	out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
-   	out.print(PactsConstants.CMD_STRING+"="+PactsConstants.PAID_CMD+"&");
-   	out.print(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId()+"&");
-   	out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
-   	out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
-   	out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_CMD+"%26");
-   	out.print(PactsConstants.PAYMENT_ID+"%3D"+payment.getHeader().getId()+"%26");
-   	out.print("individual_payment%3D1");
-   	out.println("\">Mark Payment as Paid</a><br>");
-   }
 %>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
