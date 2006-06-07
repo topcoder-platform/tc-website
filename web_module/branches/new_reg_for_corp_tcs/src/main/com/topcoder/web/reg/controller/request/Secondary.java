@@ -23,6 +23,7 @@ public class Secondary extends Base {
         if (u == null) {
             throw new NavigationException("Sorry, your session has timed out.");
         } else {
+
             if ("POST".equals(getRequest().getMethod())) {
                 if (u.isNew() || userLoggedIn()) {
                     Map params = getMainUserInput();
@@ -35,9 +36,9 @@ public class Secondary extends Base {
                         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
                             me = (Map.Entry) it.next();
                             if (me.getKey().equals(Constants.NOTIFICATION)) {
-                                List a = (List)me.getValue();
+                                List a = (List) me.getValue();
                                 for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION+((Notification)it1.next()).getId(), String.valueOf(true));
+                                    setDefault(Constants.NOTIFICATION + ((Notification) it1.next()).getId(), String.valueOf(true));
                                 }
                             } else {
                                 setDefault((String) me.getKey(), me.getValue());
@@ -57,33 +58,45 @@ public class Secondary extends Base {
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
-                        //set the fields in the user object
-                        loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
-                        getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                        getRequest().setAttribute("referrals",getReferrals(u));
-                        setSecondaryDefaults(u);
-                        getRequest().setAttribute(Constants.FIELDS, secondaryFields);
-                        setNextPage("/secondary.jsp");
-                        setIsNextPageInContext(true);
+
+                        if (secondaryFields.isEmpty()) {
+                            loadFieldsIntoUserObject(fields, params);
+                            getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                            setNextPage("/confirm.jsp");
+                            setIsNextPageInContext(true);
+                        } else {
+                            //set the fields in the user object
+                            loadFieldsIntoUserObject(fields, params);
+                            getRequest().setAttribute("demographicAssignments", getAssignments(u));
+                            getRequest().setAttribute("referrals", getReferrals(u));
+                            setSecondaryDefaults(u);
+                            getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                            setNextPage("/secondary.jsp");
+                            setIsNextPageInContext(true);
+                        }
+
+
                     }
                 } else {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
             } else {
                 Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
-                getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                getRequest().setAttribute("referrals",getReferrals(u));
-                setSecondaryDefaults(u);
-                getRequest().setAttribute(Constants.FIELDS, secondaryFields);
-                setNextPage("/secondary.jsp");
-                setIsNextPageInContext(true);
+                if (secondaryFields.isEmpty()) {
+                    getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                    setNextPage("/confirm.jsp");
+                    setIsNextPageInContext(true);
+                } else {
+                    getRequest().setAttribute("demographicAssignments", getAssignments(u));
+                    getRequest().setAttribute("referrals", getReferrals(u));
+                    setSecondaryDefaults(u);
+                    getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                    setNextPage("/secondary.jsp");
+                    setIsNextPageInContext(true);
+                }
             }
-
         }
-
-
-
     }
 
 
