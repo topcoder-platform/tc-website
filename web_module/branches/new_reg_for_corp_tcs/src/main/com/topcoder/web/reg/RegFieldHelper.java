@@ -1,11 +1,11 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.reg.dao.RegistrationTypeDAO;
+import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.shared.util.logging.Logger;
 
 import java.util.*;
 
@@ -125,7 +125,6 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.TITLE);
         mainCorpFields.add(Constants.COMPANY_NAME);
 
-        secondaryCorpFields.add(Constants.DEMOG_PREFIX);
     }
 
     static {
@@ -168,18 +167,19 @@ public class RegFieldHelper {
     /**
      * Figure out what registration fields are relevant for the given set of registration types
      * and whether or not they're updating information, or creating it.
+     *
      * @param regTypes all the types the user is attempting to register/update for
-     * @param user the user attempting to register/update their information
+     * @param user     the user attempting to register/update their information
      * @return all the fields that should be presented to the user on the "main" page of registration
      */
     public static Set getMainFieldSet(Set regTypes, User user) {
         Set ret = new HashSet();
 
         Set currentTypes;
-        if (user==null || user.isNew()) {
+        if (user == null || user.isNew()) {
             currentTypes = Collections.EMPTY_SET;
         } else {
-            currentTypes =user.getRegistrationTypes();
+            currentTypes = user.getRegistrationTypes();
         }
 
         RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
@@ -187,9 +187,9 @@ public class RegFieldHelper {
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
-            curr = (RegistrationType)it.next();
+            curr = (RegistrationType) it.next();
             log.debug("curr reg type: " + curr.getName());
-            if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
+            if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
                     log.debug("update: adding the competition ones");
@@ -205,7 +205,7 @@ public class RegFieldHelper {
                 } else if (curr.getId().equals(RegistrationType.SOFTWARE_ID)) {
                     ret.addAll(mainSoftwareFields);
                 }
-            } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
+            } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
                     log.debug("insert: adding the competition ones");
@@ -223,7 +223,7 @@ public class RegFieldHelper {
             }
         }
         RegistrationType hs = dao.getHighSchoolType();
-        if (currentTypes.contains(hs)||regTypes.contains(hs)) {
+        if (currentTypes.contains(hs) || regTypes.contains(hs)) {
             //high school people have to be students
             ret.remove(Constants.CODER_TYPE);
         }
@@ -240,17 +240,20 @@ public class RegFieldHelper {
         RegistrationType curr;
         CoderType ct;
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
-            curr = (RegistrationType)it.next();
-            if (regTypes.contains(curr)&&currentTypes.contains(curr)) {
+            curr = (RegistrationType) it.next();
+            if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL))) {
+                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
+                    {
                         ret.addAll(secondaryCompProFields);
                         ret.add(Constants.PHOTO);
                         ret.remove(Constants.REFERRAL);
                         ret.remove(Constants.REFERRAL_CODER);
                         ret.remove(Constants.REFERRAL_OTHER);
-                    } else if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT))) {
+                    } else
+                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
+                    {
                         ret.addAll(secondaryCompStudentFields);
                         ret.add(Constants.PHOTO);
                         ret.remove(Constants.REFERRAL);
@@ -270,11 +273,11 @@ public class RegFieldHelper {
                     ret.addAll(secondarySoftwareFields);
                 }
 
-            } else if (regTypes.contains(curr)&&!currentTypes.contains(curr)) {
+            } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
                     ct = user.getCoder().getCoderType();
-                    if (ct==null) {
+                    if (ct == null) {
                         throw new RuntimeException("User had no coder type");
                     } else {
                         if (ct.getId().equals(CoderType.PROFESSIONAL)) {
@@ -297,7 +300,7 @@ public class RegFieldHelper {
             }
         }
         RegistrationType hs = dao.getHighSchoolType();
-        if (currentTypes.contains(hs)||regTypes.contains(hs)) {
+        if (currentTypes.contains(hs) || regTypes.contains(hs)) {
             //high school people have to show their school
             ret.remove(Constants.VISIBLE_SCHOOL);
         }
