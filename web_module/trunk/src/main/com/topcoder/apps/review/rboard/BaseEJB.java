@@ -282,5 +282,14 @@ public abstract class BaseEJB implements SessionBean {
         }
 
     }
+    
+    protected void rollback(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.rollback();
+            } catch (Exception e) {
+            }
+        }
+    }
 
 }
