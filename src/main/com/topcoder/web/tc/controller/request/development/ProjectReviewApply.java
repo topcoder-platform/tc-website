@@ -96,6 +96,8 @@ public class ProjectReviewApply extends Base {
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (RBoardRegistrationException rbre) {
             throw new NavigationException(rbre.getMessage());
         } catch (Exception e) {
