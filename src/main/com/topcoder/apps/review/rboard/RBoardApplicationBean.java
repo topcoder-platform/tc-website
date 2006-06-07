@@ -26,6 +26,8 @@ import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * Implementation of the RBoard EJB.
  *
@@ -54,6 +56,8 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int FLASH_CATALOG_ID = 8459260;
     private static final int APPLICATIONS_CATALOG_ID = 9926572;
     private static final int ACTIVE_REVIEWER = 100;
+
+    private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
      * Creates IdGenerator EJB
@@ -253,8 +257,10 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     public void createRBoardApplication(String dataSource, long userId,
         long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
-        int reviewTypeId, boolean primary) throws RBoardRegistrationException {
+            int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
+        log.debug("createRBoardApplications called...");
+        
         IdGen idGen = null;
         try {
             idGen = createIDGen(dataSource);
@@ -381,7 +387,10 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId the user id to inspect
      * @return the timestamp of the last sign up
      */
-    public Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
+    private Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
+
+        log.debug("getLatestReviewApplicationTimestamp called...");
+        
         StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
         query.append(" order by create_date desc");
@@ -415,6 +424,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @return the timestamp for the last signup
      */
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
+
+        log.debug("getLatestReviewApplicationTimestamp called...");
+        
         Connection conn = null;
         try {
             conn = DBMS.getConnection(dataSource);
@@ -438,6 +450,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RBoardRegistrationException when validations fails
      */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
+
+        log.debug("validateUser called...");
+        
         Connection conn = null;
 
         try {
@@ -509,6 +524,9 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException {
+
+        log.debug("validateUser called...");
+        
         Connection conn = null;
         try {
             conn = DBMS.getConnection(dataSource);
