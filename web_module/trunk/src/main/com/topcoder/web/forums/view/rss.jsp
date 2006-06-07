@@ -34,7 +34,7 @@
            <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>
            <description><![CDATA[<%= message.getBody() %>]]></description>
            <dc:creator><%= message.getUser().getUsername() %></dc:creator>
-           <category><%= message.getForum().getName() %></category>
+           <category><![CDATA[<%= message.getForum().getName() %>]]></category>
            <pubDate><%= formatter.format(message.getCreationDate()) %></pubDate>
            <jf:creationDate><%= formatter.format(message.getCreationDate()) %></jf:creationDate>
            <jf:modificationDate><%= formatter.format(message.getModificationDate()) %></jf:modificationDate>
