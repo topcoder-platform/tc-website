@@ -1,4 +1,4 @@
-<%@ page language="java"%>
+  <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
@@ -115,7 +115,7 @@
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=alg_index", "Algorithm Tutorials", "algo_tutorials"));
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutorials&d2=comp_index", "Component Tutorials", "comp_tutorials"));
          nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=features&d2=archive", "Features", "features"));
-         nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=tutor_transcripts&d2=index", "Tutor Transcripts", "tutor_trans"));
+         nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=help&d2=writeForTC", "Write for TopCoder", "write_for_tc"));
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/", "Forums", "forums"));
 
