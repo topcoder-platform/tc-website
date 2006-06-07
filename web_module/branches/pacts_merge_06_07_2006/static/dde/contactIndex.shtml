@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navContact.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Contact Us</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headContactUs.gif" alt="Contact Us" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead">&nbsp;</td></tr>
+			</table>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr valign="top">
+					<td class="normal">
+						<p><strong>General questions or concerns</strong><br />
+						<a href="mailto:info@topcoder.com">TopCoder Software, Inc.</a><br />
+						703 Hebron Avenue<br />
+						Glastonbury, CT 06033<br />
+						ph: 860.633.5540<br />
+						fx: 860.657.4276</p>
+					</td>
+				</tr>
+			</table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+			</table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr valign="top">
+					<td width="33%" class="normal">
+						<p><strong>Sales</strong><br />
+						<a href="mailto:sales@topcoder.com">Dave Tanacea</a><br />
+						TopCoder Software, Inc.<br />
+						703 Hebron Avenue<br />
+						Glastonbury, CT 06033<br />
+						ph: 860.633.5540</p>
+					</td>
+						
+					<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+					
+					<td width="33%" class="normal">
+						<p><strong>Service</strong><br />
+						<a href="mailto:service@topcoder.com">Mike Morris</a><br />
+						TopCoder Software, Inc.<br />
+						703 Hebron Avenue<br />
+						Glastonbury, CT 06033<br />
+						ph: 860.633.5540</p>
+					</td>
+						
+					<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+					
+					<td width="33%" class="normal">
+						<p>&nbsp;</p>
+					</td>
+				</tr>
+			</table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="40"><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</form>
+</body>
+</html>
