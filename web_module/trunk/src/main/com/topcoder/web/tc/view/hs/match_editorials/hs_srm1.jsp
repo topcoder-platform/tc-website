@@ -67,9 +67,9 @@ There's a lot to learn and explore while you wait for the next contest:
 </p>
 
 <ul>
-<li> Use the <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Main">Forums</a> to learn from other coders, discuss solutions, and ask for advice. 
+<li> Use the Forums <a href="http://forums.topcoder.com/?module=Main"></a> to learn from other coders, discuss solutions, and ask for advice. 
 There are always active members willing to help, and you can learn a lot quickly.</li>
-<li> There are several <a href="/tc?module=Static&d1=tutorials&d2=alg_index">Educational Articles</a>
+<li> There are several <a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index">Educational Articles</a>
   that will help you learn techniques and concepts that you can 
   apply in the next contest and in your educational or professional life.</li>
 <li> The advice you will hear most often, of course, is: <b>practice</b>! You can log in to the Arena practice rooms anytime. 
@@ -77,25 +77,6 @@ There are always active members willing to help, and you can learn a lot quickly
 </ul>
 <p>
 Now, let us discuss the match problems:</p>
-<p>
-And TC is not limited to Algorithm Contests! There are several different competitions being run. 
-In <a href="/longcontest/?module=Static&d1=instructions">Marathon Matches</a> you are given an extended timeline with problems different in nature than those you find in Algorithm Contests.
-You can compete in the sponsored competitions like Intel's <a href="/longcontest/?module=Static&d1=intel_overview">Multithreading Competition Series</a>, programming to run solutions in high-end multicore processors.
-There are also <a href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Design</a> 
-and <a href="/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted">Development</a> 
-contests where your can work on software and be paid good money. 
-
-In Software <a href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Testing</a> 
-and <a href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">Assembly</a> 
-competitions you can compete tying the components together, doing or testing real world applications.
-There are job offers from sponsors trusting TopCoder to find skilled people to work with, or from TopCoder itself.
-Be warned, you can get addicted to TC.
-</p>
-
-<p>
-Just stay tuned!
-Now, let us discuss the match problems:
-</p>
 
  
 
@@ -220,18 +201,21 @@ The following Java code implements this idea:
 <pre>
   int inf = 0, sum = 0;
   for (int i=0; i<readings.length; i++ ){
-    if (readings[i]>=minLimit && readings[i]<=maxLimit) // within legal limits
+    // within legal limits
+    if (readings[i]&#8805;minLimit &amp;&amp; readings[i]&#8804;maxLimit) 
       sum += readings[i];
     else // infringement
       inf++;
   }
-  if (inf>readings.length/10) // over 10% of readings are speed infringements
+  // over 10% of readings are speed infringements
+  if (inf>readings.length/10) 
     return 0.0;
-  else // return the average of non-infringing readings
+  // return the average of non-infringing readings
+  else 
     return (double)sum/(readings.length-inf);
 </pre>
 
-<p>Almost all possible errors (like checking for "<" instead of "<=" in the speed limits, or
+<p>Almost all possible errors (like checking for "<" instead of "&#8804;" in the speed limits, or
   the opposite with respect to the 10% of non-infringing readings) were shown in at least 
   one example. 
   Coders that failed this solution might want to test all given examples before submitting their
@@ -349,7 +333,7 @@ First, reading the text counting the number of occurrences of each letter:
   for (int i=0; i&lt;text.length; i++) {
     for (int j=0; j&lt;text[i].length(); j++) {
       char c = text[i].charAt(j); 
-      if (c>='a' && c<='z') {
+      if (c&#8805;'a' &amp;&amp; c&#8804;'z') {
         cnt[c-'a']++;
         total++;
       }
@@ -542,7 +526,7 @@ Declaring:
 as instance variables in our class, we can define the function the search function:
 <pre>
   void dfs(int x, int y) {
-    if (x < 0 || y < 0 || x >= rows || y >= cols || data[x][y] || visited[x][y]) return;
+    if (x &lt; 0 || y &lt; 0 || x &#8805; rows || y &#8805; cols || data[x][y] || visited[x][y]) return;
     visited[x][y] = true;
     dfs(x + 1, y); dfs(x - 1, y); dfs(x, y - 1); dfs(x, y + 1);
   }
@@ -557,18 +541,18 @@ the number of 'visible' walls:
     data = new boolean[rows][cols]; 
     visited = new boolean[rows][cols];
     // construct a new maze with an added empty border
-    for (int i = 0; i < rows - 2; i++) 
-      for (int j = 0; j < cols - 2; j++) 
+    for (int i = 0; i &lt; rows - 2; i++) 
+      for (int j = 0; j &lt; cols - 2; j++) 
         data[i + 1][j + 1] = (maze[i].charAt(j) == '#');
     dfs(0, 0); // will mark reachable floor spaces
     // now if two neighboring cells have different visited[][] value, one
     // if a wall block and the other a reachable floor: count as a wall to paint
     int ans = 0;
-    for (int i = 0; i < rows; i++) 
-      for (int j = 0; j < cols - 1; j++) 
+    for (int i = 0; i &lt; rows; i++) 
+      for (int j = 0; j &lt; cols - 1; j++) 
         if (visited[i][j] ^ visited[i][j + 1]) ans++;
-    for (int i = 0; i < rows - 1; i++) 
-      for (int j = 0; j < cols; j++) 
+    for (int i = 0; i &lt; rows - 1; i++) 
+      for (int j = 0; j &lt; cols; j++) 
         if (visited[i][j] ^ visited[i + 1][j]) ans++;
     return ans;
   }
