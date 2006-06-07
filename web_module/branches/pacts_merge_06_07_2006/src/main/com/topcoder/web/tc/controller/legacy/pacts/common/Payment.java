@@ -28,6 +28,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private long id;
     private int typeId;
     private String type;
+    private int methodId;
+    private String method;
     private String description;
     private int statusId;
     private String statusDesc;
@@ -98,6 +100,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
             dueDate = TCData.getTCDate(rRow, "date_due");
             type = TCData.getTCString(rRow, "payment_type_desc");
             typeId = TCData.getTCInt(rRow, "payment_type_id");
+            method = TCData.getTCString(rRow, "payment_method_desc");
+            methodId = TCData.getTCInt(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
             modifiedDate = TCData.getTCDate(rRow, "date_modified");
             if (row == 0)
@@ -106,7 +110,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
                 header = new PaymentHeader();
 
 
-            if ((statusId != PAID_STATUS) && (statusId != PRINTED_STATUS)) {
+            if ((statusId != PAID_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
                 if (rsc != null) rRow = rsc.getRow(0);
             }
@@ -182,7 +186,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
      *
      *
      */
-    public Payment(long user, String desc, int type,
+    public Payment(long user, String desc, int type, int method,
                    double net_amount, double gross_amount, int status) {
 
         header = new PaymentHeader();
@@ -190,6 +194,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         grossAmount = gross_amount;
         statusId = status;
         header.setTypeId(type);
+        header.setMethodId(method);
         header.getUser().setId(user);
         header.setDescription(desc);
     }
@@ -214,6 +219,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
     public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
+    
+    public int getMethodId() {
+        return methodId;
+    }
+
+    public void setMethodId(int methodId) {
+        this.methodId = methodId;
+    }
 
     public String getType() {
         return type;
@@ -221,6 +234,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 
     public String getDescription() {
