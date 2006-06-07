@@ -719,7 +719,12 @@ public class PrincipalMgrBean extends BaseEJB {
         }
     }
 
-    public void assignRole(UserPrincipal user, RolePrincipal role, TCSubject requestor)
+    public void assignRole(UserPrincipal user, RolePrincipal role,
+            TCSubject requestor) throws GeneralSecurityException {
+        assignRole(user, role, requestor, DATA_SOURCE);
+    }
+
+    public void assignRole(UserPrincipal user, RolePrincipal role, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         long userId = user.getId();
         long roleId = role.getId();
@@ -731,7 +736,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
 
             IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
             long user_role_xrefid = gen.getNextID();
