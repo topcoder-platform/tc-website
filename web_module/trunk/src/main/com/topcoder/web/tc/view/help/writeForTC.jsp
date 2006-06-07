@@ -52,7 +52,7 @@
 
 <span class="title">Write for TopCoder</span>
 <br><br>
-By writing for TopCoder, you can demonstrate your skills and share your hard-earned knowledge with other members Ð and get paid for it. TopCoder is currently looking for content in the following areas:
+By writing for TopCoder, you can demonstrate your skills and share your hard-earned knowledge with other members - and get paid for it. TopCoder is currently looking for content in the following areas:
 <br><br>
 <span class="bodySubtitle">Feature Articles</span><br/>
 Features are generally the shortest and least technical of TopCoder articles, ranging from "tips and tricks" articles to interviews with well-known members. Whatever its content, the focus of a feature article should be engaging members and building a sense of community. 
