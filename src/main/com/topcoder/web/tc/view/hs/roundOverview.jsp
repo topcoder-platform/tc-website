@@ -126,7 +126,7 @@ function submitForm(){
    <tr class="<%=even?"dark":"light"%>">
       <% if (teamResult.isValidRow(i)) {             %>
              <td class="valueC">
-             <%= i + 1 %>
+             <%= teamResult.getItem(i, "team_placed").toString() %>
              </td>
              <td class="value">
              <A href='/tc?module=HSTeamResults&rd=<%= round.getRoundId() %>&tmid=<%= teamResult.getItem(i, "team_id") %>' ><%= teamResult.getStringItem(i, "name") %></A>
@@ -146,7 +146,7 @@ function submitForm(){
       <% if (leaders.isValidRow(i)) {            %>
 
       <td class="valueC">
-      <%= i + 1 %>
+      	<%= leaders.getStringItem(i, "division_placed") %>
       </td>
       <td class="value">
       <tc-webtag:handle coderId='<%= leaders.getIntItem(i, "coder_id") %>' context='hs_algorithm' />
