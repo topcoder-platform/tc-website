@@ -9,6 +9,21 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.07.06<br>12:55 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=help&d2=writeForTC">Calling all writers!</A></span><br><br>
+       TopCoder has increased its payment rates for content to $200 for a feature, $400 for educational content, and $450 for interactive component tutorials.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=help&d2=writeForTC">learn more</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506053" message="discuss this" />
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TCHS Competitions</A></span><br><br>
       TopCoder today announced a partnership with the renowned Science Museum of Minnesota to promote the new TopCoder High School (TCHS) tournament to its members and high school students statewide.
