@@ -45,6 +45,7 @@
             <li>Fix a bug in HS room stats: it wasn't looking up correctly the room for a coder</li>
             <li>Fix HS team result page: it was displaying division placed instead of team points</li>
             <li>If there is an error on the name of the school entered, show it.</li>
+            <li>Fix admin search to work with the new way of finding last rated event</li>
         </ul>
     </p>
     <p>
