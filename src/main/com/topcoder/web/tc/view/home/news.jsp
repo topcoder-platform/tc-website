@@ -197,37 +197,6 @@ and neck.
    </td></tr>
 
 <%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>05.23.06<br>1:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"> 
-      <A href="/longcontest/?module=ViewOverview&rd=10015">Marathon Match 1 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="16064986" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/longcontest/?module=ViewOverview&rd=10015">results</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505971" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.22.06<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm303">SRM 303 - Problem Set & Analysis</A></span><br><br>
-      With 843 registrants, this single round match again had a healthy amount of participants, even though no money prizes were at stake.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/mathijs_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="262056" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm303">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505869" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
