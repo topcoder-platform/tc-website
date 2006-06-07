@@ -9,7 +9,6 @@ import java.util.Map;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-import java.rmi.ServerException;
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
 import com.topcoder.apps.review.rboard.RBoardApplication;
@@ -97,21 +96,8 @@ public class ProjectReviewApply extends Base {
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
-        } catch (TCWebException e) {
-            throw e;
         } catch (RBoardRegistrationException rbre) {
-            log.debug("EJB returned RBoardRegistrationException");
             throw new NavigationException(rbre.getMessage());
-        } catch (ServerException se) {
-            se.printStackTrace();
-            Throwable t = se.getCause();
-            log.debug(t.getClass().getName());
-            Exception e = (Exception) t;
-            log.debug(e.getCause().getClass().getName());            
-            if (t != null && t instanceof RBoardRegistrationException) {
-                throw new NavigationException(((Exception) se.detail).getMessage());
-            }
-            throw new TCWebException(se);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
@@ -130,10 +116,10 @@ public class ProjectReviewApply extends Base {
 
              rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
-            close(ctx);
             throw new CreateException("Could not find bean!" + e);
+        } finally {
+            close(ctx);
         }
-        close(ctx);
         return rBoardApplication;
     }
 

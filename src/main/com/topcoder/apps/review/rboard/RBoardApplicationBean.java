@@ -4,7 +4,6 @@
 
 package com.topcoder.apps.review.rboard;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,26 +87,34 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws SQLException when DB operations fails
      */
     private void createPermission(Connection conn, IdGen idGen, String permissionName,
-            String prefix, long userId) throws SQLException {
-        PreparedStatement ps = conn
-                .prepareStatement("SELECT role_id, description FROM security_roles "
-                        + "WHERE description = ?");
-        ps.setString(1, prefix + permissionName);
-        ResultSet rs = ps.executeQuery();
+            String prefix, long userId) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         long roleId = 0;
-        if (rs.next()) {
-            roleId = rs.getLong("role_id");
-        } else {
-            throw (new EJBException("Couldn't find security_roles row for: "
-                    + prefix + permissionName));
+        try {
+            ps = conn.prepareStatement("SELECT role_id, description FROM security_roles WHERE description = ?");
+            ps.setString(1, prefix + permissionName);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                roleId = rs.getLong("role_id");
+            } else {
+                throw (new EJBException("Couldn't find security_roles row for: " + 
+                    prefix + permissionName));
+            }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw (new EJBException("Permission creation failed", sqle));
+        } finally {
+            close(rs);
+            close(ps);
         }
-        close(ps);
         
         long userRoleId = -1;
         try {
             userRoleId = idGen.nextId();
         } catch (Exception e) {
-            throw new EJBException("idGen.nextId() failed" + e.getMessage());
+            throw new EJBException("idGen.nextId() failed", e);
         }
 
         try {
@@ -133,26 +140,36 @@ public class RBoardApplicationBean extends BaseEJB {
     private Map getProjectInfo(long projectId, Connection conn)
             throws SQLException {
         Map returnMap = new HashMap();
-        PreparedStatement ps = conn
-                .prepareStatement("select p.project_id, cc.component_name, cv.version_text, pt.project_type_name, cfx.forum_id, p.cur_version, cfx.forum_type "
-                        + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
-                        + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
-                        + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 "
-                        + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 "
-                        + "and p.project_id = ?");
-        ps.setLong(1, projectId);
-
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            returnMap.put("projectName", rs.getString("component_name"));
-            returnMap.put("projectVersion", rs.getString("version_text").trim());
-            returnMap.put("projectType", rs.getString("project_type_name"));
-            returnMap.put("forumId", rs.getString("forum_id"));
-        } else {
-            throw (new EJBException("Couldn't find project info for pid: "
-                    + projectId));
+        
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement("select p.project_id, cc.component_name, cv.version_text, pt.project_type_name, "
+                + "cfx.forum_id, p.cur_version, cfx.forum_type "
+                + "from project p, comp_catalog cc, comp_versions cv, project_type pt, comp_forum_xref cfx "
+                + "where cv.component_id = cc.component_id and p.comp_vers_id = cv.comp_vers_id "
+                + "and pt.project_type_id = p.project_type_id and p.cur_version = 1 "
+                + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 "
+                + "and p.project_id = ?");
+            ps.setLong(1, projectId);
+    
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                returnMap.put("projectName", rs.getString("component_name"));
+                returnMap.put("projectVersion", rs.getString("version_text").trim());
+                returnMap.put("projectType", rs.getString("project_type_name"));
+                returnMap.put("forumId", rs.getString("forum_id"));
+            } else {
+                throw (new EJBException("Couldn't find project info for pid: " + projectId));
+            }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw (new EJBException("Getting project info failed", sqle));
+        } finally {
+            close(rs);
+            close(ps);
         }
-        close(ps);
 
         return returnMap;
     }
@@ -165,8 +182,8 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private String buildPrefix(Map projectInfo) {
         String prefix = String.valueOf(projectInfo.get("projectName")) + " "
-                + String.valueOf(projectInfo.get("projectVersion")) + " "
-                + String.valueOf(projectInfo.get("projectType")) + " ";
+            + String.valueOf(projectInfo.get("projectVersion")) + " "
+            + String.valueOf(projectInfo.get("projectType")) + " ";
         return prefix;
     }
 
@@ -182,11 +199,10 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param rUserRoleId the user role Id to insert
      * @param rRoleId the role Id to insert
      * @param paymentInfoId the payment information Id to insert
-     * @throws SQLException when DB operations fails
      */
     private void insertUserRole(Connection conn, IdGen idGen, long rUserRoleVId, long userId,
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
-        long paymentInfoId) throws SQLException {
+        long paymentInfoId) {
         // Resets current version
         resetCurrentVersion(conn, rUserRoleVId);
 
@@ -194,7 +210,7 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             newRUserRoleVId = idGen.nextId();
         } catch (Exception e) {
-            throw new EJBException("idGen.nextId() failed" + e.getMessage());
+            throw new EJBException("idGen.nextId() failed", e);
         }
 
         insert(conn, "r_user_role",
@@ -236,15 +252,16 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param primary true if the reviewer is signing up for primary reviewer position
      */
     public void createRBoardApplication(String dataSource, long userId,
-            long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
-            int reviewTypeId, boolean primary) throws RBoardRegistrationException {
+        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+        int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
         IdGen idGen = null;
         try {
             idGen = createIDGen(dataSource);
-        } catch (Exception e) {
-            throw (new EJBException("Couldn't create IDGenerator"));
+        } catch (CreateException e) {
+            throw (new EJBException("Couldn't create IDGenerator", e));
         }
+        
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -304,18 +321,14 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
+            rollback(conn);
+            throw new EJBException(sqle);
+        } catch (RBoardRegistrationException rbre) {
+            rollback(conn);
+            throw rbre;
         } catch (Exception e) {
-            if (conn != null) {
-                try {
-                    conn.rollback();
-                } catch (SQLException sqle) {
-                }
-            }
-            if (e instanceof RBoardRegistrationException) {
-                throw ((RBoardRegistrationException) e);
-            } else {
-                throw new EJBException(e.getMessage());
-            }
+            rollback(conn);
+            throw new EJBException(e);
         } finally {
             close(rs);
             close(ps);
@@ -335,10 +348,9 @@ public class RBoardApplicationBean extends BaseEJB {
     private boolean exists(Connection conn, long userId, long projectId,
             int phaseId) {
         try {
-            selectLong(conn, "rboard_application",
-                    "user_id",
-                    new String[]{"user_id", "project_id", "phase_id"},
-                    new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
+            selectLong(conn, "rboard_application", "user_id",
+                new String[]{"user_id", "project_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)});
         } catch (RowNotFoundException e) {
             return false;
         }
@@ -356,10 +368,10 @@ public class RBoardApplicationBean extends BaseEJB {
     private ResultSetContainer getReviewers(String dataSource, long projectId,
             int phaseId) {
         return selectSet("rboard_application",
-                new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
-                new String[]{"project_id"},
-                new String[]{String.valueOf(projectId)},
-                dataSource);
+            new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
+            new String[]{"project_id"},
+            new String[]{String.valueOf(projectId)},
+            dataSource);
     }
 
     /**
@@ -375,7 +387,6 @@ public class RBoardApplicationBean extends BaseEJB {
         query.append(" order by create_date desc");
 
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         ResultSet rs = null;
         Timestamp ret = null;
         try {
@@ -388,11 +399,10 @@ public class RBoardApplicationBean extends BaseEJB {
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
+            throw new EJBException(e);
         } finally {
             close(rs);
             close(ps);
-            close(ctx);
         }
         return ret;
     }
@@ -411,7 +421,7 @@ public class RBoardApplicationBean extends BaseEJB {
             return getLatestReviewApplicationTimestamp(conn, userId);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
+            throw new EJBException(e);
         } finally {
             close(conn);
         }
@@ -428,20 +438,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RBoardRegistrationException when validations fails
      */
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
-//    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId,
-//            int phaseId) throws RBoardRegistrationException, RemoteException {
         Connection conn = null;
 
         try {
             conn = DBMS.getConnection(dataSource);
 
             Map reviewRespMap = null;
-            try {
-                reviewRespMap = getReviewRespInfo(dataSource);
-            } catch (SQLException e) {
-                DBMS.printSqlException(true, e);
-                throw new EJBException(e.getMessage());
-            }
+            reviewRespMap = getReviewRespInfo(conn);
 
             long status = 0;
             try {
@@ -481,15 +484,13 @@ public class RBoardApplicationBean extends BaseEJB {
                                 "you are not a Application reviewer");
                     }
                 } else {
-//                    throw new RemoteException("unknown catalog found " + catalog);
                     throw new EJBException("unknown catalog found " + catalog);
                 }
             } catch (RowNotFoundException enfe) {
                 throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
             }
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
+        } catch (SQLException sqle) {
+            throw (new EJBException(sqle));
         } finally {
             close(conn);
         }
@@ -509,7 +510,6 @@ public class RBoardApplicationBean extends BaseEJB {
     public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException {
         Connection conn = null;
-
         try {
             conn = DBMS.getConnection(dataSource);
             conn.setAutoCommit(false);
@@ -517,18 +517,13 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
+            rollback(conn);
+            throw new EJBException(sqle);
+        } catch (RBoardRegistrationException rbre) {
+            rollback(conn);
+            throw rbre;
         } catch (Exception e) {
-            if (conn != null) {
-                try {
-                    conn.rollback();
-                } catch (SQLException sqle) {
-                }
-            }
-            if (e instanceof RBoardRegistrationException) {
-                throw ((RBoardRegistrationException) e);
-            } else {
-                throw new EJBException(e.getMessage());
-            }
+            throw new EJBException(e.getMessage());
         } finally {
             close(conn);
         }
@@ -555,19 +550,24 @@ public class RBoardApplicationBean extends BaseEJB {
 
         if (opensOn.getTime() > System.currentTimeMillis()) {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
-                    + "You will need to wait until "
-                    + DateTime.timeStampToString(opensOn));
+                + "You will need to wait until "
+                + DateTime.timeStampToString(opensOn));
         }
 
         Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(conn, userId);
         if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)
         {
             throw new RBoardRegistrationException("Sorry, you can not apply for a new review yet.  "
-                    + "You will need to wait until "
-                    + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
+                + "You will need to wait until "
+                + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
         }
 
-        ResultSetContainer reviewers = getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+        ResultSetContainer reviewers = null;
+        try {
+            reviewers = getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+        } catch (RowNotFoundException rnfe) {
+            throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
+        }
 
         if (reviewers.size() == 3) {
             throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
@@ -626,28 +626,29 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * Gets reviewers responsibility information
      *
-     * @param dataSource the datasource being used
+     * @param conn the connection being used
      * @return a map with the reviewers responsibility information
-     * @throws SQLException if DB operation fails
      */
-    private Map getReviewRespInfo(String dataSource) throws SQLException {
-        Connection conn = null;
+    private Map getReviewRespInfo(Connection conn) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Map returnMap = new HashMap();
 
-        conn = DBMS.getConnection(dataSource);
-        ps = conn.prepareStatement("select review_resp_id, review_resp_name, phase_id " +
-                "from review_resp");
-        rs = ps.executeQuery();
-
-        while (rs.next()) {
-            returnMap.put(new Integer(rs.getInt("review_resp_id")),
-                new Integer(rs.getInt("phase_id")));
+        try {
+            ps = conn.prepareStatement("select review_resp_id, review_resp_name, phase_id " +
+                    "from review_resp");
+            rs = ps.executeQuery();
+    
+            while (rs.next()) {
+                returnMap.put(new Integer(rs.getInt("review_resp_id")),
+                    new Integer(rs.getInt("phase_id")));
+            }
+        } catch (SQLException sqle) {
+            throw (new EJBException("Getting review responsibilities failed", sqle));
+        } finally {
+            close(rs);
+            close(ps);
         }
-        close(rs);
-        close(ps);
-        close(conn);
 
         return returnMap;
     }
@@ -662,10 +663,10 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private long getStatus(Connection conn, long userId, int phaseId) {
         return selectLong(conn,
-                "rboard_user",
-                "status_id",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
+            "rboard_user",
+            "status_id",
+            new String[] { "user_id", "phase_id" },
+            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
     }
 
     /**
@@ -678,10 +679,10 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private boolean canReviewJava(Connection conn, long userId, int phaseId) {
         return selectLong(conn,
-                "rboard_user",
-                "java_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
+            "rboard_user",
+            "java_ind",
+            new String[] { "user_id", "phase_id" },
+            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
     }
 
     /**
