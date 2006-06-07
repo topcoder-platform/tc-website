@@ -45,6 +45,8 @@
             <li>Fix a bug in HS room stats: it wasn't looking up correctly the room for a coder</li>
             <li>Fix HS team result page: it was displaying division placed instead of team points</li>
         </ul>
+    </p>
+    <p>
         5.3.2 - 2006.06.05
         <ul>
             <li>Fix professional registration report so that it displays title correctly</li>
