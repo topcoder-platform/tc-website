@@ -213,7 +213,7 @@ margin:0px auto;
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-           <%-- Science Museum of Minnesota Partners with TopCoder High School Competitions <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>--%>
+            Science Museum of Minnesota Partners with TopCoder High School Competitions <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>
 
             AOL, Bloomberg, UBS and NSA Announced as Sponsors of 2006 TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
 
@@ -229,9 +229,6 @@ margin:0px auto;
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0" /></div>
             Java Posse - Listener Feedback and TopCoder Interviews [PODCAST] <A href="http://media41b.libsyn.com/andueJx1nXycfJd1Z3lvpGqtZXqZ/podcasts/dickwall/JavaPosse053.mp3" target="_blank">...more</A><br>[May 15]<br><br>
 
-            <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/wsjreprint_logo.gif" width="70" height="29" alt="The Wall Street Journal" border="0" /></div>
-            Cause for Concern? Americans Are Scarce In Top Tech Contest <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank">...more</A><br>[May 12]<br><br>
-            
             </td>
          </tr>
       </table>
