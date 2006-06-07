@@ -123,10 +123,6 @@
 <% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment.getPrintDate()+"\">"); %>
 		</td></tr>
 		<tr>
-		<td><b>Date Printed:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_printed\" value=\""+payment.getPayDate()+"\">"); %>
-		</td></tr>
-		<tr>
 		<td><b>Date Due:</b></td><td>
 <% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment.getDueDate()+"\">"); %>
 		</td></tr>
