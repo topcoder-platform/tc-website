@@ -252,7 +252,8 @@ white-space:normal;
            %>
            <tr class="<%=even?"dark":"light"%>">
                <td class="value" style="vertical-align: middle;">
-               <a href=""><img src="/i/interface/exp_w.gif" alt=""></a>
+               <A href="/tc?module=HSRoomStats&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&cr=<%= resultRow.getItem("coder_id") %>&rm=<%= resultRow.getItem("room_id") %>"><img src="/i/interface/exp_w.gif" alt="" /></A>
+               
                </td>
               <td class="value" nowrap="nowrap">
                  <tc-webtag:handle coderId='<%= resultRow.getItem("coder_id").toString() %>' context='hs_algorithm'/>
