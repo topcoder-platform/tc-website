@@ -43,12 +43,15 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" align="center">
+<td width="100%" align="left" class="bodyColumn">
 
-         <div class="tutorBodyFull">
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="educational"/>
+<jsp:param name="title" value="Write for TopCoder"/>
+</jsp:include>
 
-            <h2>Write for TopCoder</h2>
-
+<span class="title">Write for TopCoder</span>
+<br><br>
 By writing for TopCoder, you can demonstrate your skills and share your hard-earned knowledge with other members Ð and get paid for it. TopCoder is currently looking for content in the following areas:
 <br><br>
 <span class="bodySubtitle">Feature Articles</span><br/>
@@ -106,15 +109,13 @@ If you've created a article that you would like published on <A href="/">www.top
 To write for TopCoder, you must be a TopCoder member, at least 18 years of age, and be either (i) a citizen or lawful permanent resident of the U.S. (including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands); (ii) currently residing in the U.S. with valid employment authorization; or (iii) a non-U.S. citizen writing within your country of residence. 
 
 
-        </div>
-        <p><br/></p>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="defaults"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
