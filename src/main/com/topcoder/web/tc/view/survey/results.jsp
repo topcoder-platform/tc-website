@@ -98,9 +98,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         </td>
                         <td class="value" valign="top">
                             <%
-                                double d = answer.getDoubleItem("percentage")*100;
+                                double d = answer.getDoubleItem("percentage");
                                 long percentage = 1;
-                                if (d>1) {
+                                if (d>1d) {
                                     percentage=Math.round(d);
                                 }
                             %>
