@@ -82,7 +82,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 	try {
                 		log.info("Expiring old payments");
                 		dib.expireOldPayments();
-                		sleep(60000);
+                		sleep(86400000);
                 	} catch (Exception e) {
                 		e.printStackTrace();
                 	}

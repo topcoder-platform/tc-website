@@ -249,8 +249,10 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
             PaymentBean paymentBean = new PaymentBean();
             for (int i=0; i<affidavits.length; i++) {
-            	Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
-            	affidavits[i].setPayDate(payment.getPayDate());
+            	if (affidavits[i].getPayment().getId() > 0) {
+            		Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
+            		affidavits[i].setPayDate(payment.getPayDate());
+            	}
             }
         }
 
