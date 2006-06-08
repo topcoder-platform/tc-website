@@ -97,24 +97,15 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%
                         </td>
                         <td class="value" valign="top">
-<%--
+                            <%
+                                double d = answer.getDoubleItem("percentage");
+                                long percentage = 1;
+                                if (d>1) {
+                                    percentage=Math.round(d);
+                                }
+                            %>
 
-currently I'm using the same DB reference in
-the <div style="width="> below that we were using
-in the Flash version.
-
-Pseudocode:
-
-myPercent = get percentage from DB 
-if(myPercent < .5)
-   myPercent = 1
-else
-   myPercent = round to nearest integer (myPercent)
-reference myPercent in the div in the next line down
-
---%>
-
-                           <div class="resultsBar" style="width:<rsc:item row="<%=answer%>" name="percentage" format="#"/>px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
+                           <div class="resultsBar" style="width:${percentage}px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
                         </td>
                      </tr>
                      <% even = !even; %>
@@ -122,20 +113,6 @@ reference myPercent in the div in the next line down
                   </table>
                   <p><br/></p>
              </tc:questionIterator>
-                  <table width="100%" border="0" cellpadding="3" cellspacing="0" class="bodyText">
-                     <tr>
-                        <td>
-                            <SCRIPT LANGUAGE="JavaScript">
-                            <!--
-                            if (flashinstalled<2){
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0" hspace="2"></a>To view the graphical analysis, please install the latest Macromedia Flash <a href="http://www.macromedia.com/go/getflashplayer">plugin</a>.');
-                            }
-                            // -->
-                            </SCRIPT>
-                            <br/><br/>
-                        </td>
-                    </tr>
-                  </table>
          </div>
          </div>
 
