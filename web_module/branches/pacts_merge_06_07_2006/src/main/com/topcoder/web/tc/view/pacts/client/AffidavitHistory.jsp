@@ -131,7 +131,9 @@ function goTo(selection){
        tableData.setElement(i,4,affidavits[i-1].getHeader().getStatusDesc());
 
 	   // date paid
-	   tableData.setElement(i,5,affidavits[i-1].getPayDate());
+	   if (affidavits[i-1].getPayDate() != null) {
+	   		tableData.setElement(i,5,affidavits[i-1].getPayDate());
+	   }
    }
 
    PactsHtmlTable table = new PactsHtmlTable(tableData);
