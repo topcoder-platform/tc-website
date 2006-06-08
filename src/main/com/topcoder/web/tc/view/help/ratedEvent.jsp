@@ -44,7 +44,7 @@
       <p><span class="bodySubtitle">1 When are the Rated Events?</span><br />
       TopCoder holds two types of rated events.  Single Round Matches (SRMs) are held weekly.  The day and time of SRMs varies from week-to-week.  See the <A href="/tc?module=Static&d1=calendar&d2=thisMonth">event schedule</A> on the TopCoder's web site for the dates and times of future SRMs.  Please keep in mind that all times on TopCoder's web site are communicated in either Eastern Standard Time (EST / GMT -5) or Eastern Daylight Time (EDT / GMT-4) depending on the time of the year.  The web site will specify for which time zone the time for each match is specified.  In addition, you may elect to receive a reminder email preceding each SRM.  To do so, select to "Next Competition" box under the "Email Notification" heading in your TopCoder profile information.  By checking this option, you will also receive emails regarding upcoming TopCoder tournaments and events.
       <br /><br />
-      In addition to SRMs, TopCoder holds two advancement tournaments (the TopCoder Open and the TopCoder Collegiate Challenge) each year. Advancement tournaments are elimination tournaments and generally have a substantial prize purse involved. Each round of a tournament will affect the ratings of all participants, so they are also considered "rated events".  The details on each of these events are posted to TopCoder's site as they are finalized.  You can also view the information and details of most <A href="/?t=tournaments&c=tourny_index">past tournaments</A>.
+      In addition to SRMs, TopCoder holds two advancement tournaments (the TopCoder Open and the TopCoder Collegiate Challenge) each year. Advancement tournaments are elimination tournaments and generally have a substantial prize purse involved. Each round of a tournament will affect the ratings of all participants, so they are also considered "rated events".  The details on each of these events are posted to TopCoder's site as they are finalized.  You can also view the information and details of most <A href="/tc?module=Static&d1=tournaments&d2=home">past tournaments</A>.
       </p>
 
       <a name="differ"></a>
@@ -215,7 +215,7 @@
 
       <a name="ratingchanges"></a>
       <p><span class="bodySubtitle">13 Rating Changes</span><br />
-      At the conclusion of the system-testing phase, TopCoder will recalculate the TopCoder ratings of all match participations based on our <A href="/?t=support&c=ratings_cal">rating formula</A>.  If you did not open any problem during the coding phase, you will not have your rating adjusted.  Once the rating adjustments are completed, it will be announced via an administrative broadcast message.
+      At the conclusion of the system-testing phase, TopCoder will recalculate the TopCoder ratings of all match participations based on our <A href="/tc?module=Static&d1=help&d2=ratings">rating formula</A>.  If you did not open any problem during the coding phase, you will not have your rating adjusted.  Once the rating adjustments are completed, it will be announced via an administrative broadcast message.
       <br /><br />
       Your rating change is essentially a measure of how well you performed compared to others in your division - given how well you were expected to perform based on your previous rating.  Your rating increases when your performance exceeds expectations!
       <br /><br />
