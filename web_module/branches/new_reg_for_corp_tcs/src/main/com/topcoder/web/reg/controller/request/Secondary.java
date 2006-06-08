@@ -24,14 +24,11 @@ public class Secondary extends Base {
             throw new NavigationException("Sorry, your session has timed out.");
         } else {
 
+            Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
             if ("POST".equals(getRequest().getMethod())) {
                 if (u.isNew() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
-
-                    Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
-                    log.debug("fields: " + fields.toString());
-                    log.debug("params: " + params.toString());
 
                     if (hasErrors()) {
                         Map.Entry me;
@@ -64,7 +61,7 @@ public class Secondary extends Base {
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
                         if (secondaryFields.isEmpty()) {
                             loadFieldsIntoUserObject(fields, params);
-                            getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                            getRequest().setAttribute(Constants.FIELDS, fields);
                             setNextPage("/confirm.jsp");
                             setIsNextPageInContext(true);
                         } else {
@@ -86,7 +83,7 @@ public class Secondary extends Base {
             } else {
                 Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                 if (secondaryFields.isEmpty()) {
-                    getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                    getRequest().setAttribute(Constants.FIELDS, fields);
                     setNextPage("/confirm.jsp");
                     setIsNextPageInContext(true);
                 } else {
