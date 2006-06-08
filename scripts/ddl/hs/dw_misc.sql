@@ -17,6 +17,19 @@ alter table round_type_lu add constraint foreign key (algo_rating_type_id)
 
 
 
+alter table coder_division add algo_rating_type_id DECIMAL(3,0);
+
+alter table coder_division add constraint foreign key (algo_rating_type_id) 
+        references algo_rating_type_lu (algo_rating_type_id)
+        constraint coder_division_algo_rating_type_fk;
+
+alter table coder_division drop constraint coder_division_pk;
+
+alter table coder_division add constraint primary key 
+	(coder_id, division_id, algo_rating_type_id)
+	constraint coder_division_pk;        
+
+
 -- *** This view gives the total points for a team in a round
 create view view_team_points(team_id, round_id, total_team_points) as
 select team_id,  round_id, sum(team_points)  
