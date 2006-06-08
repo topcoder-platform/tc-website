@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-<%-------------------------------post monday june 12
+<%-------------------------------POST MONDAY JUNE 12
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.12.06<br>9:00 AM</td>
       <td class="newsTextCell">
