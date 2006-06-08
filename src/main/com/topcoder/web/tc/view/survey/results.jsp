@@ -101,7 +101,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                                 double d = answer.getDoubleItem("percentage");
                                 long percentage = 1;
                                 if (d>1) {
-                                    percentage=Math.round(d);
+                                    percentage=Math.round(d*100);
                                 }
                             %>
 
