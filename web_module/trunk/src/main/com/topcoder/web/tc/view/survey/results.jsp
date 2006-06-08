@@ -97,21 +97,24 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                            <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%
                         </td>
                         <td class="value" valign="top">
-                           <div class="resultsBar" style="width:<rsc:item row="<%=answer%>" name="percentage" format="#"/>px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
 <%--
-                            <SCRIPT LANGUAGE="JavaScript">
-                            <!--
-                            if (flashinstalled>1){
-                               document.write('<object type="application/x-shockwave-flash" data="/i/barGraph.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width=200 height=15 border="0" id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >');
-                               document.write('<PARAM  NAME=movie  VALUE="/i/barGraph.swf?percentage=<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>">');
-                               document.write('<PARAM NAME=quality VALUE="high">');
-                               document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
-                               document.write('<embed src="/i/barGraph.swf?percentage=<rsc:item row="<%=answer%>" name="percentage" format="#.##"/>&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=200 height=15 border="0" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" swLiveConnect="true" ></embed>');
-                               document.write('</object>');
-                            }
-                            // -->
-                            </SCRIPT>
+
+currently I'm using the same DB reference in
+the <div style="width="> below that we were using
+in the Flash version.
+
+Pseudocode:
+
+myPercent = get percentage from DB 
+if(myPercent < .5)
+   myPercent = 1
+else
+   myPercent = round to nearest integer (myPercent)
+reference myPercent in the div in the next line down
+
 --%>
+
+                           <div class="resultsBar" style="width:<rsc:item row="<%=answer%>" name="percentage" format="#"/>px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
                         </td>
                      </tr>
                      <% even = !even; %>
