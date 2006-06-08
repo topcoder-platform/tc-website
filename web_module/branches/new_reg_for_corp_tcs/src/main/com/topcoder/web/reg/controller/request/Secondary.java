@@ -59,7 +59,7 @@ public class Secondary extends Base {
                         setIsNextPageInContext(true);
                     } else {
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
-
+                        log.debug("we have " + secondaryFields.size() + " secondary fields");
                         if (secondaryFields.isEmpty()) {
                             loadFieldsIntoUserObject(fields, params);
                             getRequest().setAttribute(Constants.FIELDS, secondaryFields);
