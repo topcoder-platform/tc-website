@@ -190,7 +190,7 @@ if (highSchool) {
 <br><br>
 
 <pre>
-<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode("following rn \r\n following \n #include <cstdlib> #include </pre>  #include <queue> #include <vector> #include ") %>
+<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode(<%= sSolutionText %>) %>
 </pre>
 
              <a name="Defenses"></a>
