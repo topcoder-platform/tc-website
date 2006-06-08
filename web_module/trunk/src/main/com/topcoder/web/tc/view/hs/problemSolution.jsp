@@ -215,7 +215,7 @@ if (highSchool) {
 <br><br>
 
 <pre>
-<%= sSolutionText.trim().length()==0?"Solution Not Available":addSpace(sSolutionText) %>
+<%= sSolutionText.trim().length()==0?"Solution Not Available":addSpace("following rn \r\n following \n #include <cstdlib> #include <cstring>  #include <queue> #include <vector> #include ") %>
 </pre>
 
              <a name="Defenses"></a>
