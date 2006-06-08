@@ -149,12 +149,10 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * Creates a specific permission for a specific user
      *
-     * @param conn the connection being used
      * @param idGen the idGenerator for the ids
      * @param permissionName the permission name to create
      * @param prefix the prefix of the permission
      * @param userId the user id to assign permission
-     * @throws SQLException when DB operations fails
      */
     private void createPermission(String dataSource, IdGen idGen, String permissionName,
         String prefix, long userId) {
@@ -232,7 +230,6 @@ public class RBoardApplicationBean extends BaseEJB {
      * Inserts a specified user role
      *
      * @param conn the connection being used
-     * @param idGen the idGenerator for the ids
      * @param rUserRoleVId the existing userRoleVId
      * @param userId the user to insert
      * @param projectId the related project Id
@@ -241,23 +238,16 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param rRoleId the role Id to insert
      * @param paymentInfoId the payment information Id to insert
      */
-    private void insertUserRole(Connection conn, IdGen idGen, long rUserRoleVId, long userId,
+    private void insertUserRole(Connection conn, long rUserRoleVId, long userId,
         long projectId, int reviewRespId, long rUserRoleId, long rRoleId,
         long paymentInfoId) {
         // Resets current version
         resetCurrentVersion(conn, rUserRoleVId);
 
-        long newRUserRoleVId = -1;
-        try {
-            newRUserRoleVId = idGen.nextId();
-        } catch (Exception e) {
-            throw new EJBException("idGen.nextId() failed", e);
-        }
-
         insert(conn, "r_user_role",
             new String[]{"r_user_role_v_id", "r_user_role_id", "r_role_id", "project_id",
             "login_id", "payment_info_id", "r_resp_id", "modify_user", "cur_version"},
-            new String[]{String.valueOf(newRUserRoleVId), String.valueOf(rUserRoleId),
+            new String[]{String.valueOf(0), String.valueOf(rUserRoleId),
             String.valueOf(rRoleId), String.valueOf(projectId), String.valueOf(userId),
             String.valueOf(paymentInfoId), (reviewRespId != -1) ? String.valueOf(reviewRespId) : null,
             String.valueOf(INTERNAL_ADMIN_USER), "1"});
@@ -337,7 +327,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
                 if (rRoleId == REVIEWER_ROLE_ID && !reviewerInserted) {
                     // insert new UserRole
-                    insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, reviewRespId,
+                    insertUserRole(conn, rUserRoleVId, userId, projectId, reviewRespId,
                             rUserRoleId, rRoleId, paymentInfoId);
 
                     // create permissions.
@@ -350,7 +340,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
                         rRoleId == AGGREGATOR_ROLE_ID || rRoleId == FINAL_REVIEWER_ROLE_ID)) {
                     // insert new UserRole
-                    insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, -1,
+                    insertUserRole(conn, rUserRoleVId, userId, projectId, -1,
                         rUserRoleId, rRoleId, paymentInfoId);
                 }
             }
@@ -584,7 +574,6 @@ public class RBoardApplicationBean extends BaseEJB {
      * Validates some transacional constraints for the review signup
      *
      * @param conn the connection being used
-     * @param dataSource the datasource being used
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
