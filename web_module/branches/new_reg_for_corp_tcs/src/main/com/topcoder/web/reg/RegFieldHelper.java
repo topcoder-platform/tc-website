@@ -211,6 +211,7 @@ public class RegFieldHelper {
                     log.debug("insert: adding the competition ones");
                     ret.addAll(mainCompFields);
                 } else if (curr.getId().equals(RegistrationType.CORPORATE_ID)) {
+                    log.debug("insert: adding the corp ones");
                     ret.addAll(mainCorpFields);
                 } else if (curr.getId().equals(RegistrationType.HIGH_SCHOOL_ID)) {
                     log.debug("insert: adding the hs ones");
@@ -218,6 +219,7 @@ public class RegFieldHelper {
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
                     ret.addAll(mainMinFields);
                 } else if (curr.getId().equals(RegistrationType.SOFTWARE_ID)) {
+                    log.debug("insert: adding the tcs ones");
                     ret.addAll(mainSoftwareFields);
                 }
             }

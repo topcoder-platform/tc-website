@@ -30,6 +30,8 @@ public class Secondary extends Base {
                     checkMainFields(params);
 
                     Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
+                    log.debug("fields: " + fields.toString());
+                    log.debug("params: " + params.toString());
 
                     if (hasErrors()) {
                         Map.Entry me;
