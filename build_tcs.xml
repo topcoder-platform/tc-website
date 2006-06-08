@@ -268,6 +268,7 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/GeneralSecurityException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/admin/PrincipalMgrRemoteHome.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/admin/PrincipalMgrRemote.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>                
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
