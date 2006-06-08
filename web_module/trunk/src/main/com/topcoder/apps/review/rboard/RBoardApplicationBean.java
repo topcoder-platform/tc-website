@@ -95,6 +95,7 @@ public class RBoardApplicationBean extends BaseEJB {
     /**
      * Get the security manager role principal corresponding to a role name.
      *
+     * @param principalMgr the principal manager to use
      * @param roleName the role name
      * @param requestor the user making the request
      *
@@ -121,12 +122,16 @@ public class RBoardApplicationBean extends BaseEJB {
         return result;
     }
 
+    /**
+     * Creates Principal Manager EJB
+     *
+     * @return PrincipalMgrRemote the ejb instance
+     */
     protected PrincipalMgrRemote createPrincipalMgr() throws CreateException {
         InitialContext ctx = null;
         PrincipalMgrRemote principalMgr = null;
         try {
             ctx = new InitialContext();
-            //ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             log.info("context: " + ctx.getEnvironment().toString());
 
             Object objPrincipalMgr = ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
@@ -151,9 +156,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId the user id to assign permission
      * @throws SQLException when DB operations fails
      */
-//    private void createPermission(Connection conn, IdGen idGen, String permissionName,
-        private void createPermission(String dataSource, IdGen idGen, String permissionName,
-            String prefix, long userId) {
+    private void createPermission(String dataSource, IdGen idGen, String permissionName,
+        String prefix, long userId) {
 
         try {
             PrincipalMgrRemote principalMgr = createPrincipalMgr();
@@ -164,45 +168,6 @@ public class RBoardApplicationBean extends BaseEJB {
         } catch (Exception e) {
             throw (new EJBException("Permission creation failed", e));
         }
-
-/*        PreparedStatement ps = null;
-        ResultSet rs = null;
-        long roleId = 0;
-        try {
-            ps = conn.prepareStatement("SELECT role_id, description FROM security_roles WHERE description = ?");
-            ps.setString(1, prefix + permissionName);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                roleId = rs.getLong("role_id");
-            } else {
-                throw (new EJBException("Couldn't find security_roles row for: " +
-                    prefix + permissionName));
-            }
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw (new EJBException("Permission creation failed", sqle));
-        } finally {
-            close(rs);
-            close(ps);
-        }
-
-        long userRoleId = -1;
-        try {
-            userRoleId = idGen.nextId();
-        } catch (Exception e) {
-            throw new EJBException("idGen.nextId() failed", e);
-        }
-
-        try {
-            selectLong(conn, "user_role_xref",
-                "user_role_id", new String[]{"login_id", "role_id"},
-                new String[]{String.valueOf(userId), String.valueOf(roleId)});
-        } catch (RowNotFoundException e) {
-            insert(conn, "user_role_xref",
-                new String[]{"user_role_id", "login_id", "role_id", "create_user_id"},
-                new String[]{String.valueOf(userRoleId), String.valueOf(userId),
-                String.valueOf(roleId), String.valueOf(INTERNAL_ADMIN_USER)});
-        }*/
     }
 
     /**
@@ -375,11 +340,6 @@ public class RBoardApplicationBean extends BaseEJB {
                     insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, reviewRespId,
                             rUserRoleId, rRoleId, paymentInfoId);
 
-/*                    createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
-                    createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
-                    createPermission(dataSource, idGen, "ForumUser "
-                            + String.valueOf(projectInfo.get("forumId")), "", userId);
-*/
                     // create permissions.
                     createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
                     createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
