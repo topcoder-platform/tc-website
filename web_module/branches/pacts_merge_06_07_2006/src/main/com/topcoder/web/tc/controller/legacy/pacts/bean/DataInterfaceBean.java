@@ -1357,6 +1357,19 @@ public class DataInterfaceBean implements PactsConstants {
     	PactsServices ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, makeChanges);
     }
+    
+    /**
+     * Sets the status on all payments with Pending or On Hold status older than a specified time
+     * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
+     * and is currently set to 60 days.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldPayments() throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.expireOldPayments();
+    }
 
     /**
      * Sets the status on all affidavits older than a specified time

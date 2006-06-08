@@ -71,9 +71,12 @@ public interface PactsConstants {
 
     // How long before a contest affidavit expires, in days
     public static final int AFFIDAVIT_EXPIRE_TIME = 60;
-
+    
     // How long before a contest payment comes due, in days
     public static final int DUE_DATE_INTERVAL = 28;
+    
+    // How long before a contest payment expires after the due date, in days
+    public static final int PAYMENT_EXPIRE_TIME = 32;
     
 //  How long before a component payment comes due, in days
     public static final int COMPONENT_DUE_DATE_INTERVAL = 14;

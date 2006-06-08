@@ -24,6 +24,7 @@ function goTo(selection){
 </script>
  </HEAD>
  <BODY>
+   <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" >
      <TR>
        <TD WIDTH="170" VALIGN="top">

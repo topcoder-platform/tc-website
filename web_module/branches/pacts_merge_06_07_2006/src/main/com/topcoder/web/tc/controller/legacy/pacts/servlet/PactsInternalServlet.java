@@ -70,10 +70,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         };
         t.start();
+        
+        // Thread for expiring old payments
+        Thread tExpired = new Thread() {
+            public void run() {
+                DataInterfaceBean dib = new DataInterfaceBean();
+                while (true) {
+                	try {
+                		log.info("Expiring old payments");
+                		dib.expireOldPayments();
+                		sleep(60000);
+                	} catch (Exception e) {
+                		e.printStackTrace();
+                	}
+                }
+            }
+        };
+        tExpired.start();
     }
 
     public void trace(HttpServletRequest request, HttpServletResponse response) throws Exception {

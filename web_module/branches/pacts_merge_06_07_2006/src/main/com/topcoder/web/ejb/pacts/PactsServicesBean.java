@@ -4535,6 +4535,58 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    
+    /**
+     * Sets the status on all payments with Pending or On Hold status older than a specified time
+     * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
+     * and is currently set to 60 days.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldPayments() throws SQLException {
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            StringBuffer updatePayments = new StringBuffer(300);
+            updatePayments.append("update payment_detail "); 
+            updatePayments.append("set status_id = " + PAYMENT_EXPIRED_STATUS + " ");
+            updatePayments.append("where payment_type_id = 1 and status_id IN (" + 
+            		PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            updatePayments.append("and today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
+            int rowsUpdated = runUpdateQuery(c, updatePayments.toString(), false);
+
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+            return rowsUpdated;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+    
 
     /**
      * Sets the status on all affidavits older than a specified time
