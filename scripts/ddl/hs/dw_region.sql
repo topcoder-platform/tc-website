@@ -27,3 +27,5 @@ alter table round add constraint foreign key
       
       
 alter table room_result add region_placed DECIMAL(5,0);  
+
+alter table coder drop coder_region_code;
