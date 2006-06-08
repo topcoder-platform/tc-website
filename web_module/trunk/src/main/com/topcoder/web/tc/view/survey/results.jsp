@@ -15,67 +15,17 @@
 
 <jsp:include page="/script.jsp"/>
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
+<jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-                            <SCRIPT LANGUAGE="JavaScript">
-                            <!--
-                            var flashinstalled = 0;
-                            var flashversion = 0;
-                            MSDetect = "false";
-                            if (navigator.plugins && navigator.plugins.length)
-                            {
-                                x = navigator.plugins["Shockwave Flash"];
-                                if (x)
-                                {
-                                    flashinstalled = 2;
-                                    if (x.description)
-                                    {
-                                        y = x.description;
-                                        flashversion = y.charAt(y.indexOf('.')-1);
-                                    }
-                                }
-                                else
-                                    flashinstalled = 1;
-                                if (navigator.plugins["Shockwave Flash 2.0"])
-                                {
-                                    flashinstalled = 2;
-                                    flashversion = 2;
-                                }
-                            }
-                            else if (navigator.mimeTypes && navigator.mimeTypes.length)
-                            {
-                                x = navigator.mimeTypes['application/x-shockwave-flash'];
-                                if (x && x.enabledPlugin)
-                                    flashinstalled = 2;
-                                else
-                                    flashinstalled = 1;
-                            }
-                            else
-                                MSDetect = "true";
 
-                            // -->
-                            </SCRIPT>
-
-                            <SCRIPT LANGUAGE="VBScript">
-
-                            on error resume next
-
-                            If MSDetect = "true" Then
-                                For i = 2 to 6
-                                    If Not(IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & i))) Then
-
-                                    Else
-                                        flashinstalled = 2
-                                        flashversion = i
-                                    End If
-                                Next
-                            End If
-
-                            If flashinstalled = 0 Then
-                                flashinstalled = 1
-                            End If
-
-                            </SCRIPT>
+<style type="text/css">
+div.resultsBar{
+float:left;
+margin: 4px 0px 4px 0px;
+padding:0px;
+background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
+}
+</style>
 
 </head>
 
@@ -100,50 +50,55 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" class="bodyText" valign="top">
-                  <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
-                     <tr>
-                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
-                        <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
-                     </tr>
-                  </table>
+<td width="100%" align="center" class="bodyColumn">
+
+<div class="fixedWidthBody">
+
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="surveys"/>
+<jsp:param name="title" value="Results"/>
+</jsp:include>
+
+<div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
+
              <% if (surveyInfo.getText()!=null) { %>
              <p><jsp:getProperty name="surveyInfo" property="text"/></p>
              <% } %>
 
+            <div align="center">
                <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                     <tr>
-                        <td class="bodySubtitle" valign="top" align = "center"colspan="4">
+                  <table width="510" border="0" cellpadding="5" cellspacing="0" class="stat">
+                     <tr class="light">
+                        <td class="value" valign="top" align = "center"colspan="4">
                         <tc:sponsorImage src="<%=question.getImagePath()%>" href="<%=question.getLink()%>" alt="survey logo" width="160" height="95" align="center" border="0"/>
                         </td>
                      </tr>
-                     <tr>
-                        <td colspan="4" class="bodySubtitle" valign="top" width="100%">
-                           <jsp:getProperty name="question" property="text"/><br/><br/>
+                     <tr class="light">
+                        <td colspan="4" class="light" valign="top" width="100%">
+                           <span class="subtitle"><jsp:getProperty name="question" property="text"/></span><br/><br/>
                         </td>
                      </tr>
                      <tr>
                         <td class="header">Answer</td>
-                        <td class="header" align="right">Responses</td>
-                        <td class="header" align="right">Percentage</td>
-                        <td class="header"></td>
+                        <td class="headerR">Responses</td>
+                        <td class="headerR">Percentage</td>
+                        <td class="header"><div style="width:100px;">&#160;</div></td>
                      </tr>
                      <% boolean even = false; %>
                         <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
-                     <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                        <td width="100%">
+                     <tr class="<%=even?"dark":"light"%>">
+                        <td class="value" style="padding-bottom: 10px;">
                            <rsc:item row="<%=answer%>" name="answer_text"/>
                         </td>
-                        <td align="right">
-                          <rsc:item row="<%=answer%>" name="count"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td class="valueR">
+                          <rsc:item row="<%=answer%>" name="count"/>
                         </td>
-                        <td align="right">
-                           <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td class="valueR">
+                           <rsc:item row="<%=answer%>" name="percentage" format="0.00"/>%
                         </td>
-                        <td bgcolor="#FFFFFF" valign="top" nowrap>
-                            <p align="center">
-
+                        <td class="value" valign="top">
+                           <div class="resultsBar" style="width:<rsc:item row="<%=answer%>" name="percentage" format="#"/>px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
+<%--
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
                             if (flashinstalled>1){
@@ -156,7 +111,7 @@
                             }
                             // -->
                             </SCRIPT>
-                            </p>
+--%>
                         </td>
                      </tr>
                      <% even = !even; %>
@@ -178,6 +133,8 @@
                         </td>
                     </tr>
                   </table>
+         </div>
+         </div>
 
          </td>
 <!-- Center Column Ends -->
