@@ -190,7 +190,7 @@ if (highSchool) {
 <br><br>
 
 <pre>
-<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode(<%= sSolutionText %>) %>
+<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode(sSolutionText) %>
 </pre>
 
              <a name="Defenses"></a>
