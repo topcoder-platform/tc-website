@@ -286,7 +286,7 @@ z-index: 1;
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
                                                                ifNull="unknown*"/></b></TD>
                 <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points" 
-                                                               ifNull="unknown*"/>
+                                                               ifNull="N/A"/>
                     <% if (resultRow.getItem("final_points").getResultData() != null && 
                         resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
                     **
