@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class CoderSessionInfo extends SessionInfo {
+    //todo add hs rating
     private int rating;
     private int devRating;
     private int designRating;
