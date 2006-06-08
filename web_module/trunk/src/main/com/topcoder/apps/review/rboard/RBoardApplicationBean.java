@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -19,6 +20,12 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.common.web.util.DateTime;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.RolePrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.bean.IdGen;
@@ -81,6 +88,60 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
+     * Cache for the roles obtained by the expensive PrincipalMgr getRoles method.
+     */
+    private static Map rolesCache = Collections.synchronizedMap(new HashMap());
+
+    /**
+     * Get the security manager role principal corresponding to a role name.
+     *
+     * @param roleName the role name
+     * @param requestor the user making the request
+     *
+     * @return the role principal
+     *
+     * @exception Exception remoting and EJB related
+     */
+    private RolePrincipal getRolePrincipal(PrincipalMgrRemote principalMgr, String roleName, TCSubject requestor) throws Exception {
+        RolePrincipal result = (RolePrincipal) rolesCache.get(roleName);
+        if (result == null) {
+            for (Iterator it = principalMgr.getRoles(requestor).iterator(); it.hasNext();) {
+                RolePrincipal rolePrincipal = (RolePrincipal) it.next();
+                rolesCache.put(rolePrincipal.getName(), rolePrincipal);
+            }
+            result = (RolePrincipal) rolesCache.get(roleName);
+            if (result == null) {
+                log.debug("Role cache contents:");
+                for (Iterator it = rolesCache.keySet().iterator(); it.hasNext();) {
+                    System.err.println((String) it.next());
+                }
+                throw new GeneralSecurityException("Cannot find role " + roleName);
+            }
+        }
+        return result;
+    }
+
+    protected PrincipalMgrRemote createPrincipalMgr() throws CreateException {
+        InitialContext ctx = null;
+        PrincipalMgrRemote principalMgr = null;
+        try {
+            ctx = new InitialContext();
+            //ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            log.info("context: " + ctx.getEnvironment().toString());
+
+            Object objPrincipalMgr = ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemoteHome home =
+                (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalMgr, PrincipalMgrRemoteHome.class);
+            principalMgr = home.create();
+        } catch (Exception e) {
+            throw new CreateException("Could not find bean!" + e);
+        } finally {
+            close(ctx);
+        }
+        return principalMgr;
+    }
+
+    /**
      * Creates a specific permission for a specific user
      *
      * @param conn the connection being used
@@ -90,10 +151,21 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param userId the user id to assign permission
      * @throws SQLException when DB operations fails
      */
-    private void createPermission(Connection conn, IdGen idGen, String permissionName,
+//    private void createPermission(Connection conn, IdGen idGen, String permissionName,
+        private void createPermission(String dataSource, IdGen idGen, String permissionName,
             String prefix, long userId) {
 
-        PreparedStatement ps = null;
+        try {
+            PrincipalMgrRemote principalMgr = createPrincipalMgr();
+
+            UserPrincipal userPrincipal = principalMgr.getUser(userId);
+            RolePrincipal rolePrincipal = getRolePrincipal(principalMgr, prefix + permissionName, new TCSubject(INTERNAL_ADMIN_USER));
+            principalMgr.assignRole(userPrincipal, rolePrincipal, new TCSubject(INTERNAL_ADMIN_USER), dataSource);
+        } catch (Exception e) {
+            throw (new EJBException("Permission creation failed", e));
+        }
+
+/*        PreparedStatement ps = null;
         ResultSet rs = null;
         long roleId = 0;
         try {
@@ -103,7 +175,7 @@ public class RBoardApplicationBean extends BaseEJB {
             if (rs.next()) {
                 roleId = rs.getLong("role_id");
             } else {
-                throw (new EJBException("Couldn't find security_roles row for: " + 
+                throw (new EJBException("Couldn't find security_roles row for: " +
                     prefix + permissionName));
             }
         } catch (SQLException sqle) {
@@ -113,7 +185,7 @@ public class RBoardApplicationBean extends BaseEJB {
             close(rs);
             close(ps);
         }
-        
+
         long userRoleId = -1;
         try {
             userRoleId = idGen.nextId();
@@ -130,7 +202,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 new String[]{"user_role_id", "login_id", "role_id", "create_user_id"},
                 new String[]{String.valueOf(userRoleId), String.valueOf(userId),
                 String.valueOf(roleId), String.valueOf(INTERNAL_ADMIN_USER)});
-        }
+        }*/
     }
 
     /**
@@ -144,8 +216,8 @@ public class RBoardApplicationBean extends BaseEJB {
     private Map getProjectInfo(long projectId, Connection conn)
             throws SQLException {
         Map returnMap = new HashMap();
-        
-        
+
+
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -157,7 +229,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 + "and cfx.comp_vers_id = p.comp_vers_id and cfx.forum_type = 2 "
                 + "and p.project_id = ?");
             ps.setLong(1, projectId);
-    
+
             rs = ps.executeQuery();
             if (rs.next()) {
                 returnMap.put("projectName", rs.getString("component_name"));
@@ -233,13 +305,10 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param rUserRoleVId the user role version id to reset.
      */
     private void resetCurrentVersion(Connection conn, long rUserRoleVId) {
-        try {
-            update(conn, "r_user_role",
-                new String[]{"cur_version"}, new String[]{"0"},
-                new String[]{"r_user_role_v_id"},
-                new String[]{String.valueOf(rUserRoleVId)});
-        } catch (Exception e) {
-        }
+        update(conn, "r_user_role",
+            new String[]{"cur_version"}, new String[]{"0"},
+            new String[]{"r_user_role_v_id"},
+            new String[]{String.valueOf(rUserRoleVId)});
     }
 
     /**
@@ -260,14 +329,14 @@ public class RBoardApplicationBean extends BaseEJB {
             int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
         log.debug("createRBoardApplications called...");
-        
+
         IdGen idGen = null;
         try {
             idGen = createIDGen(dataSource);
         } catch (CreateException e) {
             throw (new EJBException("Couldn't create IDGenerator", e));
         }
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -280,9 +349,8 @@ public class RBoardApplicationBean extends BaseEJB {
             String prefix = buildPrefix(projectInfo);
 
             // gets UserRole info (First reviewer)
-            ps = conn.prepareStatement("SELECT * FROM r_user_role "
-                    + "WHERE project_id = ? and login_id is null "
-                    + "and cur_version = 1");
+            ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
+                    + "FROM r_user_role WHERE project_id = ? and login_id is null and cur_version = 1");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
 
@@ -307,11 +375,16 @@ public class RBoardApplicationBean extends BaseEJB {
                     insertUserRole(conn, idGen, rUserRoleVId, userId, projectId, reviewRespId,
                             rUserRoleId, rRoleId, paymentInfoId);
 
-                    // create permissions.
-                    createPermission(conn, idGen, "Review " + projectId, prefix, userId);
-                    createPermission(conn, idGen, "View Project " + projectId, prefix, userId);
-                    createPermission(conn, idGen, "ForumUser "
+/*                    createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
+                    createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
+                    createPermission(dataSource, idGen, "ForumUser "
                             + String.valueOf(projectInfo.get("forumId")), "", userId);
+*/
+                    // create permissions.
+                    createPermission(dataSource, idGen, "Review " + projectId, prefix, userId);
+                    createPermission(dataSource, idGen, "View Project " + projectId, prefix, userId);
+                    createPermission(dataSource, idGen, "ForumUser "
+                        + String.valueOf(projectInfo.get("forumId")), "", userId);
 
                     reviewerInserted = true;
                 } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
@@ -390,7 +463,7 @@ public class RBoardApplicationBean extends BaseEJB {
     private Timestamp getLatestReviewApplicationTimestamp(Connection conn, long userId) {
 
         log.debug("getLatestReviewApplicationTimestamp called...");
-        
+
         StringBuffer query = new StringBuffer(200);
         query.append("select create_date from rboard_application where user_id = ?");
         query.append(" order by create_date desc");
@@ -426,7 +499,7 @@ public class RBoardApplicationBean extends BaseEJB {
     public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
 
         log.debug("getLatestReviewApplicationTimestamp called...");
-        
+
         Connection conn = null;
         try {
             conn = DBMS.getConnection(dataSource);
@@ -452,7 +525,7 @@ public class RBoardApplicationBean extends BaseEJB {
     public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
 
         log.debug("validateUser called...");
-        
+
         Connection conn = null;
 
         try {
@@ -526,7 +599,7 @@ public class RBoardApplicationBean extends BaseEJB {
         throws RBoardRegistrationException {
 
         log.debug("validateUser called...");
-        
+
         Connection conn = null;
         try {
             conn = DBMS.getConnection(dataSource);
@@ -656,7 +729,7 @@ public class RBoardApplicationBean extends BaseEJB {
             ps = conn.prepareStatement("select review_resp_id, review_resp_name, phase_id " +
                     "from review_resp");
             rs = ps.executeQuery();
-    
+
             while (rs.next()) {
                 returnMap.put(new Integer(rs.getInt("review_resp_id")),
                     new Integer(rs.getInt("phase_id")));

@@ -62,7 +62,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
-        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, 
+            reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
 
         //send email
         Request r = new Request();
