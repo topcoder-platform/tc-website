@@ -61,7 +61,7 @@ Each Testing Competition will coincide with an Assembly Competition.  TopCoder w
 <br><br>
 <A name="registration"></A>
 <span class="bodySubtitle">Registration</span><br>
-To register for the Testing Competition, a member should email TopCoder at <A href="mailto:TestingCompetitions@topcoder.com">TestingCompetitions@topcoder.com</A>.  Registration will remain open until either the competition deadline has passed or there have been the requisite number of submissions that pass screening, whichever comes first.
+Click <A href="/tc?module=Static&d1=dev&d2=testing&d3=instructions">here</A> for details about registering for a Testing Competition.  Registration will remain open until either the competition deadline has passed or there have been the requisite number of submissions that pass screening, whichever comes first.
 <br><br>
 <A name="competition"></A>
 <span class="bodySubtitle">Competition</span><br>
