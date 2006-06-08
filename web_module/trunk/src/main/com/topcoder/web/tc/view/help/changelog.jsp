@@ -59,6 +59,7 @@
             <li>Removed the region information from the round loading</li>
 --%>
             <li>Make the country to represent be the school's country for high school competitors</li>
+            <li>Make it so that one can not register for a component before the registration period starts</li>
         </ul>
     </p>
     <p>
