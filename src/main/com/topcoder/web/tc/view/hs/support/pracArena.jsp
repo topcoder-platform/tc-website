@@ -56,7 +56,7 @@
       <li>
         <a name="selectingproblems"></a>
          <p><span class="bodySubtitle">1.2 Selecting a Problem</span><br/>
-         Once in a practice room, you will need to select a problem before you can begin coding.  To select a problem, click on the "Select One" drop-down box.  In the list you will see point values that correspond to the difficulty of the problem - the higher the value, the more difficult the problem will be.  Problems with higher point values have the potential to yield higher points for a successful submission.  Once a problem is selected, TopCoder's server will begin keeping track of how long the problem has been open.  The elapsed time between opening a problem and submitting a solution for that problem is the biggest factor in determining how many points are received upon submission of a solution.  You may open more than one problem at a time - but keep in mind that the clock will be ticking for each problem, independent of one another.  Once a problem is selected, the <A href="/tc?module=Static&d1=help&d2=codingWindow">Coding Window</A> will appear.
+         Once in a practice room, you will need to select a problem before you can begin coding.  To select a problem, click on the "Select One" drop-down box.  In the list you will see point values that correspond to the difficulty of the problem - the higher the value, the more difficult the problem will be.  Problems with higher point values have the potential to yield higher points for a successful submission.  Once a problem is selected, TopCoder's server will begin keeping track of how long the problem has been open.  The elapsed time between opening a problem and submitting a solution for that problem is the biggest factor in determining how many points are received upon submission of a solution.  You may open more than one problem at a time - but keep in mind that the clock will be ticking for each problem, independent of one another.  Once a problem is selected, the <A href="/tc?module=Static&d1=hs&d2=support&d3=codingWindow">Coding Window</A> will appear.
       </li>
       <li>
         <a name="systemtesting"></a>
@@ -66,14 +66,14 @@
       <li>
         <a name="roomsummary"></a>
          <p><span class="bodySubtitle">1.4 The Room Summary</span><br/>
-         The room summary window allows you to view information about other competitors and is also the interface for the challenge functionality.  Check here for a detailed description of the <A href="/tc?module=Static&d1=help&d2=roomSummary">Room Summary Window</A>.
+         The room summary window allows you to view information about other competitors and is also the interface for the challenge functionality.  Check here for a detailed description of the <A href="/tc?module=Static&d1=hs&d2=support&d3=roomSummary">Room Summary Window</A>.
       </li>
       <li>
         <a name="challenging"></a>
          <p><span class="bodySubtitle">1.5 Challenging</span><br/>
          When you are in a practice room, the phases behave as if the coding phase and the challenge phase are running simultaneously and perpetually.  At any time, you may view the source code of any other competitors in a practice room - and you have the option to challenge any of the submissions.  The challenge restrictions that are regularly in place during a rated event have been lifted for the practice rooms.  Therefore, you may challenge regardless of your current point total and you may challenge any submission at any time, regardless of its status.
          <br/><br/>
-         Here's a link for a description of the <A href="/tc?module=Static&d1=help&d2=ratedEvent#challenge">Challenge Phase</A> during a rated event.
+         Here's a link for a description of the <A href="/tc?module=Static&d1=hs&d2=support&d3=ratedEvent#challenge">Challenge Phase</A> during a rated event.
       </li>
       <li>
         <a name="clearingproblems"></a>

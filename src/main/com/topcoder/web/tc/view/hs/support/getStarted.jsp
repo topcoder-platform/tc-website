@@ -165,9 +165,9 @@
       <p><span class="bodySubtitle">9 The Leader Board</span><br/>
       During times when there is at least one TopCoder event taking place in the Arena, you can get an overview of the action by clicking on the "Leader Board" button on the left side of the Arena.  The leader board window contains a list of all rooms for a given event along with the current leader in each room.  Additional information for each room includes 1) the room number, 2) the seed (expected room placement) of the current leader, and 3) the current point total for the leader.  If there are multiple events taking place, you can switch the leader board to a different event using the "Rounds" drop-down list at the bottom of the leader board window.  Clicking on any of the column headings in the leader board will sort the list by the information in the column that was clicked.  
       <br/><br/>
-      In addition, you have the option of "drilling in" to any of the rooms by double clicking on any of the individual rooms listed in the leader board.  Drilling into a room will open the <A href="/tc?module=Static&d1=help&d2=roomSummary">Room Summary Window</A>, which will display each member who is competing in that room, along with their current point totals and status for each of the problems.  
+      In addition, you have the option of "drilling in" to any of the rooms by double clicking on any of the individual rooms listed in the leader board.  Drilling into a room will open the <A href="/tc?module=Static&d1=hs&d2=support&d3=roomSummary">Room Summary Window</A>, which will display each member who is competing in that room, along with their current point totals and status for each of the problems.  
       <br/><br/>
-      Click here for additional information on the functionality in the <A href="/tc?module=Static&d1=help&d2=roomSummary">Room Summary Window</A>.
+      Click here for additional information on the functionality in the <A href="/tc?module=Static&d1=hs&d2=support&d3=roomSummary">Room Summary Window</A>.
       </p>
 
          <p><br/></p>
