@@ -105,7 +105,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                                 }
                             %>
 
-                           <div class="resultsBar" style="width:${percentage}px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
+                           <div class="resultsBar" style="width:<%=percentage%>px;"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
                         </td>
                      </tr>
                      <% even = !even; %>
