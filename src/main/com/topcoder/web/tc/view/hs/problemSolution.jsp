@@ -88,31 +88,6 @@ if (highSchool) {
 %>
 
 
-<%!
-  private String addSpace(String text) {
-      int i=-1;
-      text = JSPUtils.htmlEncode(text);
-      while((i = text.indexOf("\n\n"))>=0){
-        text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
-
-      }
-
-    StringTokenizer strtok = new StringTokenizer(text,"\n");
-    StringBuffer stBuffer = new StringBuffer(text.length());
-    String sTemp = "";
-    while (strtok.hasMoreTokens()){
-      sTemp = strtok.nextToken();
-      for (i=0; i<sTemp.length(); i++){
-        if (sTemp.charAt(i)==' ')
-          stBuffer.append("&#160;");
-        else
-          stBuffer.append(sTemp.charAt(i));
-      }
-      stBuffer.append("<BR>");
-    }
-    return stBuffer.toString();
-  }
-%>
 
 <body>
 
@@ -215,7 +190,7 @@ if (highSchool) {
 <br><br>
 
 <pre>
-<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode("following rn \r\n following \n #include <cstdlib> #include <cstring>  #include <queue> #include <vector> #include ") %>
+<%= sSolutionText.trim().length()==0?"Solution Not Available":JSPUtils.htmlEncode("following rn \r\n following \n #include <cstdlib> #include </pre>  #include <queue> #include <vector> #include ") %>
 </pre>
 
              <a name="Defenses"></a>
