@@ -236,7 +236,7 @@
 
       <a name="problemanalysis"></a>
       <p><span class="bodySubtitle">16 Problem Set Analysis and Discussion</span><br />
-      Following each match, an overviw and analysis of each problem will be posted on TopCoder's site.  You can find an archive of these write-ups <A href="/tc?module=Static&d1=match_editorials&d2=archive">here</A>.  On many occasions, a further discussion will take place on TopCoder's forums (Round Tables), which you can find <A href="/rtables/index.jsp">here</A>.  The TopCoder Round Tables are a great place to get questions answered about algorithms, specific problems, Arena usage, and all other aspects of TopCoder.
+      Following each match, an overviw and analysis of each problem will be posted on TopCoder's site.  You can find an archive of these write-ups <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">here</A>.  On many occasions, a further discussion will take place on TopCoder's forums (Round Tables), which you can find <A href="/rtables/index.jsp">here</A>.  The TopCoder Round Tables are a great place to get questions answered about algorithms, specific problems, Arena usage, and all other aspects of TopCoder.
       </p>
 
       <a name="disconnected"></a>
