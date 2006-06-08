@@ -8,19 +8,18 @@ import com.topcoder.web.common.TCWebException;
 import java.util.Map;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Aug 5, 2005
+ * @author mktong
+ * Create Date: May 16, 2006
  */
-public class ViewCreateAffidavitTemplate extends BaseProcessor implements PactsConstants {
+public class ViewGenerateComponentPayments extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
 
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
-            Map map = dib.getAffidavitTypes();
-            getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
-            setNextPage(INTERNAL_CREATE_AFFIDAVIT);
+            Map map = dib.getProjectTerminationStatusTypes();
+            getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
+            setNextPage(INTERNAL_GENERATE_COMPONENT_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

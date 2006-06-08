@@ -62,9 +62,9 @@
 		<td><b>Description</b></td>
 		<td><b>Status</b></td>
 		<td><b>Type</b></td>
+		<td><b>Method</b></td>
 		<td><b>Net Amount</b></td>
 		<td><b>Gross Amount</b></td>
-		<td><b>Date Printed</b></td>
 		<td><b>Date Paid</b></td>
 		<td><b>Date Due</b></td>
 		<td><b>Modification Rationale</b></td>
@@ -76,13 +76,13 @@
 			out.print("<td>"+payments[n].getDescription()+"</td>\n");
 			out.print("<td>"+payments[n].getStatusDesc()+"</td>\n");
 			out.print("<td>"+payments[n].getType()+"</td>\n");
+			out.print("<td>"+payments[n].getMethod()+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getGrossAmount())+"</td>\n");
-			out.print("<td>"+payments[n].getPrintDate()+"</td>\n");
 			out.print("<td>"+payments[n].getPayDate()+"</td>\n");
 			out.print("<td>"+payments[n].getDueDate()+"</td>\n");
 			out.print("<td>"+payments[n].getRationale()+"</td>\n");
-			if (payments[n].getStatusId() == PactsConstants.PAID_STATUS || payments[n].getStatusId() == PactsConstants.PRINTED_STATUS) {
+			if (payments[n].getStatusId() == PactsConstants.PAID_STATUS) {
 				out.print("<td><pre>");
 				out.println(payments[n].getLastName()+", "+payments[n].getFirstName()+" "+payments[n].getMiddleName());
 				out.println(payments[n].getAddress1());
@@ -137,19 +137,6 @@
    out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
    out.print("individual_payment%3D1");
    out.println("\">Review Payment</a><br>");
-
-   if (payments.length > 0 && payments[payments.length-1].getStatusId() == PactsConstants.PRINTED_STATUS) {
-   	out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
-   	out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAID_CMD+"&");
-   	out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
-   	out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
-   	out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
-   	out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"%26");
-   	out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
-   	out.print("individual_payment%3D1");
-   	out.println("\">Mark Payment as Paid</a><br>");
-   }
 %>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />

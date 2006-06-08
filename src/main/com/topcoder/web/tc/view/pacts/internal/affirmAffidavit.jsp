@@ -11,7 +11,7 @@
    if (message == null) message = "";
    String id = request.getParameter(PactsConstants.AFFIDAVIT_ID);
    String dob = request.getParameter("date_of_birth");
-   String fn = request.getParameter("familiy_name");
+   String fn = request.getParameter("family_name");
    String a = request.getParameter("aged");
    if (dob == null) dob = "";
    if (fn == null) fn = "";

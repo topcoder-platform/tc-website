@@ -19,6 +19,8 @@
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
 	ResultSetContainer paymentTypes = (ResultSetContainer)
 		request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
+	ResultSetContainer paymentMethods = (ResultSetContainer)
+		request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
 	ResultSetContainer rationale = (ResultSetContainer)
 		request.getAttribute(PactsConstants.MODIFICATION_RATIONALE_LIST);
 	String message = (String)
@@ -39,6 +41,8 @@
 		if (param != null) payment.setDueDate(param);
 		param = request.getParameter("payment_type_id");
 		try { if (param != null) payment.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
+		param = request.getParameter("payment_method_id");
+		try { if (param != null) payment.getHeader().setMethodId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("net_amount");
 		try { if (param != null) payment.setNetAmount(Double.parseDouble(param)); } catch (Exception e) {}
 		param = request.getParameter("gross_amount");
@@ -119,33 +123,51 @@
 <% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment.getPrintDate()+"\">"); %>
 		</td></tr>
 		<tr>
-		<td><b>Date Printed:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_printed\" value=\""+payment.getPayDate()+"\">"); %>
-		</td></tr>
-		<tr>
 		<td><b>Date Due:</b></td><td>
 <% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment.getDueDate()+"\">"); %>
 		</td></tr>
 		<tr>
-		<td><b>Type:</b></td><td>
-		<select name="payment_type_id">
-<%		if (paymentTypes != null) {
-			rowCount = paymentTypes.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = paymentTypes.getRow(n);
-				out.print("<option value=");
-				code = TCData.getTCInt(rsr,"payment_type_id",0,true);
-				out.print("" + code);
-				s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-				if (code == payment.getHeader().getTypeId()) {
-					out.print(" selected");
+			<td><b>Type:</b></td><td>
+			<select name="payment_type_id">
+	<%		if (paymentTypes != null) {
+				rowCount = paymentTypes.getRowCount();
+				for (int n = 0; n < rowCount; n++) {
+					rsr = paymentTypes.getRow(n);
+					out.print("<option value=");
+					code = TCData.getTCInt(rsr,"payment_type_id",0,true);
+					out.print("" + code);
+					s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
+					if (code == payment.getHeader().getTypeId()) {
+						out.print(" selected");
+					}
+					out.print(">" + s + "</option>\n");
 				}
-				out.print(">" + s + "</option>\n");
 			}
-		}
-%>
-		</select>
-		</td></tr>
+	%>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Method:</b></td><td>
+			<select name="payment_method_id">
+	<%		if (paymentMethods != null) {
+				rowCount = paymentMethods.getRowCount();
+				for (int n = 0; n < rowCount; n++) {
+					rsr = paymentMethods.getRow(n);
+					out.print("<option value=");
+					code = TCData.getTCInt(rsr,"payment_method_id",0,true);
+					out.print("" + code);
+					s = TCData.getTCString(rsr,"payment_method_desc","default payment method",true);
+					if (code == payment.getHeader().getMethodId()) {
+						out.print(" selected");
+					}
+					out.print(">" + s + "</option>\n");
+				}
+			}
+	%>
+			</select>
+			</td>
+		</tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
 <% out.print("<input type=text width=25 name=\"net_amount\" value=\""+payment.getNetAmount()+"\">"); %>

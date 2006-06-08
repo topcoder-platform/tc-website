@@ -42,6 +42,13 @@
 		out.println("no affidavit!!!<br>");
 		affidavit = new Affidavit();
 	}
+	
+   String dob = request.getParameter("date_of_birth");
+   String fn = request.getParameter("family_name");
+   String a = request.getParameter("aged");
+   if (dob == null) dob = "";
+   if (fn == null) fn = "";
+   if (a == null) a = "";
 %>
 
 <h1>PACTS</h1>
@@ -92,9 +99,12 @@
 			rowCount = stati.getRowCount();
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
-				out.print("<option value=");
 				code = TCData.getTCInt(rsr,"status_id",0,true);
-				out.print(""+code);
+				if (affidavit.getHeader().getStatusId() == PactsConstants.AFFIDAVIT_AFFIRMED_STATUS &&
+					code != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) {
+					continue;
+				}
+				out.print("<option value="+code);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
 				if (code == affidavit.getHeader().getStatusId()) {
 					out.print(" selected");
@@ -149,6 +159,22 @@
 		}
 %>
 		</select></td></tr>
+		
+		<%	if (affidavit.getHeader().getStatusId() != PactsConstants.AFFIDAVIT_AFFIRMED_STATUS) { %>
+		<tr></tr>
+		<tr><td colspan="2"><b>Required for an affirmed affidavit:</b></td></tr>
+		
+		<tr><td><b>Date of Birth:</b></td><td>
+		<% out.print("<input type=\"text\" name=\"date_of_birth\" value=\""+dob+"\">"); %>
+		</td></tr>
+		<tr><td><b>Family Name (India Only):</b></td><td>
+		<% out.print("<input type=\"text\" name=\"family_name\" value=\""+fn+"\">"); %>
+		</td></tr>
+		<tr><td><b>Aged (India Only):</b></td><td>
+		<% out.print("<input type=\"text\" name=\"aged\" value=\""+a+"\">"); %>
+		</td></tr>
+		<%	} %>
+
 </table>
 
 <input type=submit>

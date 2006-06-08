@@ -54,56 +54,52 @@
 	tableData.setElement(3,1,aPay._payment._payDate);
 
 	//row 4
-	tableData.setElement(4,0,"Date Printed");
-	tableData.setElement(4,1,aPay._payment._printDate);
+	tableData.setElement(4,0,"Amount Awarded");
+	tableData.setElement(4,1,new String(aPay._payment._grossAmount+""));
 
 	//row 5
-	tableData.setElement(5,0,"Amount Awarded");
-	tableData.setElement(5,1,new String(aPay._payment._grossAmount+""));
+	tableData.setElement(5,0,"Amount Paid");
+	tableData.setElement(5,1,new String(aPay._payment._netAmount+""));
 
 	//row 6
-	tableData.setElement(6,0,"Amount Paid");
-	tableData.setElement(6,1,new String(aPay._payment._netAmount+""));
+	tableData.setElement(6,0,"Handle");
+	tableData.setElement(6,1,new String(aPay._affidavit._header._user._id+""));
 
 	//row 7
-	tableData.setElement(7,0,"Handle");
-	tableData.setElement(7,1,new String(aPay._affidavit._header._user._id+""));
+	tableData.setElement(7,0,"Last Name");
+	tableData.setElement(7,1,aPay._paymentAddress._lastName);
 
 	//row 8
-	tableData.setElement(8,0,"Last Name");
-	tableData.setElement(8,1,aPay._paymentAddress._lastName);
+	tableData.setElement(8,0,"First Name");
+	tableData.setElement(8,1,aPay._paymentAddress._firstName);
 
 	//row 9
-	tableData.setElement(9,0,"First Name");
-	tableData.setElement(9,1,aPay._paymentAddress._firstName);
-
-	//row 10
-	tableData.setElement(10,0,"Middle Name");
-	tableData.setElement(8,1,aPay._paymentAddress._middleName);
+	tableData.setElement(9,0,"Middle Name");
+	tableData.setElement(9,1,aPay._paymentAddress._middleName);
 	
+	//row 10
+	tableData.setElement(10,0,"Address 1");
+	tableData.setElement(10,1,aPay._paymentAddress._address1);
+
 	//row 11
-	tableData.setElement(11,0,"Address 1");
-	tableData.setElement(11,1,aPay._paymentAddress._address1);
+	tableData.setElement(11,0,"Address 2");
+	tableData.setElement(11,1,aPay._paymentAddress._address2);
 
 	//row 12
-	tableData.setElement(12,0,"Address 2");
-	tableData.setElement(12,1,aPay._paymentAddress._address2);
+	tableData.setElement(12,0,"City");
+	tableData.setElement(12,1,aPay._paymentAddress._city);
 
 	//row 13
-	tableData.setElement(13,0,"City");
-	tableData.setElement(13,1,aPay._paymentAddress._city);
+	tableData.setElement(13,0,"State");
+	tableData.setElement(13,1,aPay._paymentAddress._state);
 
 	//row 14
-	tableData.setElement(14,0,"State");
-	tableData.setElement(14,1,aPay._paymentAddress._state);
+	tableData.setElement(14,0,"Zip");
+	tableData.setElement(14,1,new String(aPay._paymentAddress._zip+""));
 
 	//row 15
-	tableData.setElement(15,0,"Zip");
-	tableData.setElement(15,1,new String(aPay._paymentAddress._zip+""));
-
-	//row 16
-	tableData.setElement(16,0,"Country");
-	tableData.setElement(16,1,aPay._paymentAddress._country);
+	tableData.setElement(15,0,"Country");
+	tableData.setElement(15,1,aPay._paymentAddress._country);
 
 	
 	PactsHtmlTable table = new PactsHtmlTable(tableData);

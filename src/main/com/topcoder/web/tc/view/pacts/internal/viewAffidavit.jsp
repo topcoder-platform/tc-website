@@ -144,14 +144,6 @@
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
    out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit.getHeader().getId());
    out.println("\">Update Affidavit</a><br>");
-
-   if (!affidavit.getHeader().isAffirmed()) {
-   	out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   	out.print(PactsConstants.TASK_STRING+"="+PactsConstants.AFFIRM_TASK+"&");
-   	out.println(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"&");
-   	out.println(PactsConstants.AFFIDAVIT_ID+"="+affidavit.getHeader().getId());
-   	out.println("\">Affirm Affidavit</a><br>");
-   }
 %>
 
 

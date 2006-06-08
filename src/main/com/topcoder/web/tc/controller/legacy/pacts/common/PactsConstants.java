@@ -48,6 +48,10 @@ public interface PactsConstants {
     public static final int CONTRACT_PAYMENT = 2;
     public static final int PROBLEM_PAYMENT = 3;
     public static final int CODER_REFERRAL_PAYMENT = 4;
+    public static final int CHARITY_PAYMENT = 5;
+    public static final int COMPONENT_PAYMENT = 6;
+    public static final int REVIEW_BOARD_PAYMENT = 7;
+    public static final int ONE_OFF_PAYMENT = 8;
 
     // Contract type codes
     public static final int DEVELOPMENT_CONTRACT = 1;
@@ -67,9 +71,15 @@ public interface PactsConstants {
 
     // How long before a contest affidavit expires, in days
     public static final int AFFIDAVIT_EXPIRE_TIME = 60;
-
+    
     // How long before a contest payment comes due, in days
     public static final int DUE_DATE_INTERVAL = 28;
+    
+    // How long before a contest payment expires after the due date, in days
+    public static final int PAYMENT_EXPIRE_TIME = 32;
+    
+//  How long before a component payment comes due, in days
+    public static final int COMPONENT_DUE_DATE_INTERVAL = 14;
 
     // Status of active coder in the user table
     public static final String ACTIVE_CODER_STATUS = "A";
@@ -153,6 +163,7 @@ public interface PactsConstants {
     public static final String PAYMENT_METHOD_LIST = "payment_method_list";
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
+    public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
@@ -212,8 +223,9 @@ public interface PactsConstants {
 
     /* We get a "printed" status once a payment has been printed to a file
      * for use in importing into quick books
+     * (Deactivated since 6/6/06 - mktong)
      */
-    public static final int PRINTED_STATUS = 52;
+    //public static final int PRINTED_STATUS = 52;
 
     /* We get a "paid" status once the checks are in the mail.  A TC rep.
      * marks payments as having been paid
@@ -241,6 +253,11 @@ public interface PactsConstants {
 
     /* We get a "canceled" status when old affidavits expire */
     public static final int PAYMENT_CANCELED_STATUS = 65;
+    
+    /* We get an "expired" status when algorithm payments lapse 60 days without 
+     * receiving the necessary paperwork 
+     */
+    public static final int PAYMENT_EXPIRED_STATUS = 68;
 
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;
@@ -261,6 +278,7 @@ public interface PactsConstants {
     public static final String TAX_FORM_ID = "tax_form_id";
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";
+    public static final String PROJECT_ID = "project_id";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -327,6 +345,7 @@ public interface PactsConstants {
     public static final String MODULE_KEY = "module";
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
+    public static final String PROJECT_TERMINATION_STATUS = "projts";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
@@ -350,7 +369,7 @@ public interface PactsConstants {
     public static final String UPDATE_USER_PROFILE_CMD = "update_profile";
 
     // payment member jsps
-    // NOTE: affidavidt and contracts have specialized payments
+    // NOTE: affidavits and contracts have specialized payments
     public static final String PAYMENT_TASK = "payments";
     public static final String PAYMENT_HISTORY_CMD = "payment_history";
     public static final String PAYMENT_DETAILS_CMD = "payment_details";
@@ -460,6 +479,7 @@ public interface PactsConstants {
     public static final String INTERNAL_AFFIRM_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/affirmAffidavit.jsp";
     public static final String INTERNAL_ERROR_JSP = INTERNAL_JSP_DIR + "/error.jsp";
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
+    public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
 
     /*
@@ -480,6 +500,7 @@ public interface PactsConstants {
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
     public static final String DEFAULT_PAYMENT_TYPE = "Problem Payment";
+    public static final String DEFAULT_PAYMENT_METHOD = "Check";
     //public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Inactive";
     //public static final String DEFAULT_PAYMENT_STATUS = "Inactive";
     public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Pending";

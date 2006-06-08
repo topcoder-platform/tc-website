@@ -24,6 +24,8 @@
 		request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST);
 	ResultSetContainer paymentTypes = (ResultSetContainer)
 		request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
+	ResultSetContainer paymentMethods = (ResultSetContainer)
+		request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
 	ResultSetContainer rounds = (ResultSetContainer)
 		request.getAttribute(PactsConstants.ROUND_LIST);
 	String message = (String)
@@ -45,6 +47,8 @@
 	try { atype = Integer.parseInt(request.getParameter("affidavit_type_id")); } catch (Exception e) {}
 	int ptype = -1;
 	try { ptype = Integer.parseInt(request.getParameter("payment_type_id")); } catch (Exception e) {}
+	int pmethod = -1;
+	try { pmethod = Integer.parseInt(request.getParameter("payment_method_id")); } catch (Exception e) {}
 	long round = -1;
 	try { round = Long.parseLong(request.getParameter("round_id")); } catch (Exception e) {}
 	String adesc = request.getParameter("affidavit_desc");
@@ -119,6 +123,10 @@
 		<tr>
 		<td><b>Type:</b></td><td>
             <tc-webtag:rscSelect name="payment_type_id" list='<%=paymentTypes%>' fieldText="payment_type_desc" fieldValue="payment_type_id" selectedValue="<%=String.valueOf(ptype)%>"/>
+		</td></tr>
+		<tr>
+		<td><b>Method:</b></td><td>
+            <tc-webtag:rscSelect name="payment_method_id" list='<%=paymentMethods%>' fieldText="payment_method_desc" fieldValue="payment_method_id" selectedValue="<%=String.valueOf(pmethod)%>"/>
 		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
