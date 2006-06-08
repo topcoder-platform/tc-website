@@ -98,7 +98,7 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
             throws GeneralSecurityException;
 
     public abstract void assignRole(UserPrincipal userprincipal, RolePrincipal roleprincipal, TCSubject tcsubject, String dataSource)
-            throws RemoteException, GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void unAssignRole(UserPrincipal userprincipal, RolePrincipal roleprincipal, TCSubject tcsubject)
             throws GeneralSecurityException;
