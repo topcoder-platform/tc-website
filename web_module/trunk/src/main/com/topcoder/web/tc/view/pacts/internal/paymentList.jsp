@@ -61,18 +61,25 @@
         </tr>
 		<tr>
 		<td></td>
-		<td><b>ID</b></td>
+		<td><b>First Name</b></td>
+		<td><b>Last Name</b></td>
 		<td><b>User</b></td>
 		<td><b>Description</b></td>
-		<td><b>Net Amount</b></td>
+		<td><b>Gross</b></td>
+		<td><b>Tax</b></td>
+		<td><b>Net</b></td>
 		<td><b>Type</b></td>
+		<td><b>Method</b></td>
 		<td><b>Status</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
 <%
   		for (int n = 0; n < paymentList.length; n++) {
-			out.print("<tr><td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n].getId()+"\" checked>\n");
-  			out.print("</td><td>" + paymentList[n].getId() + "</td>");
+			out.print("<tr>");
+			
+			out.print("<td><input type=checkbox name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+paymentList[n].getId()+"\" checked></td>\n");
+  			out.print("<td>"+paymentList[n].getUser().getFirst()+"</td>\n");
+  			out.print("<td>"+paymentList[n].getUser().getLast()+"</td>\n");
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
 			out.print("?"+PactsConstants.TASK_STRING+"=");
@@ -95,8 +102,12 @@
 
 			total_net += paymentList[n].getRecentNetAmount();
 
+			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount())+"</td>\n");
+			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
+				- paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+paymentList[n].getType()+"</td>\n");
+			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
 			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
@@ -123,7 +134,6 @@
 <table>
 <%
 out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.REVIEW_CMD+"\"></td></tr>\n");
-out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.PAID_CMD+"\"></td></tr>\n");
 out.print("<tr><td><input type=submit name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.STATUS_CMD+"\"></td>\n");
 out.print("<td><select name=\"status_id\">");
 

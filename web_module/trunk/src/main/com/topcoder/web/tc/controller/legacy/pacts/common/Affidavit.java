@@ -52,6 +52,7 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
     private String round;
     private String birthday;
     private long daysLeftToAffirm;
+    private String payDate;
 
     // DBP 6/6 - use the PactsConstants value
     public static final long DAYS_TO_AFFIRM = AFFIDAVIT_EXPIRE_TIME;
@@ -206,5 +207,11 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
         this.daysLeftToAffirm = daysLeftToAffirm;
     }
 
-
+    public String getPayDate() {
+    	return payDate;
+    }
+    
+    public void setPayDate(String payDate) {
+    	this.payDate = payDate;
+    }
 }

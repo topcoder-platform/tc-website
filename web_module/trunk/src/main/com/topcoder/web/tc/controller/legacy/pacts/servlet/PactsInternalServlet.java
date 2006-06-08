@@ -32,6 +32,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,10 +70,26 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         };
         t.start();
+        
+        // Thread for expiring old payments
+        Thread tExpired = new Thread() {
+            public void run() {
+                DataInterfaceBean dib = new DataInterfaceBean();
+                while (true) {
+                	try {
+                		log.info("Expiring old payments");
+                		dib.expireOldPayments();
+                		sleep(86400000);
+                	} catch (Exception e) {
+                		e.printStackTrace();
+                	}
+                }
+            }
+        };
+        tExpired.start();
     }
 
     public void trace(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -98,7 +115,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         loginfo.append(info.getRequestString());
         loginfo.append(" *]");
         log.info(loginfo);
-
     }
 
 
@@ -213,6 +229,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         if (
                                 checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
                                 && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(METHOD_CODE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
@@ -220,6 +237,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
@@ -496,14 +514,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                     throw new NavigationException("Invalid command " + command);
                 } else if (task.equals(PAYMENT_TASK)) {
-                    if (command.equals(PAID_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPayPayments(request, response);
-                        else {
-                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
-                        }
-                        return;
-                    }
                     if (command.equals(PRINT_CMD)) {
                         doPrintPayments(request, response);
                         return;
@@ -619,6 +629,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                 message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
                             if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                                 message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                            if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                                message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                             if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
                                 message += "Payment Description was invalid.<br>\n";
                             if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
@@ -700,6 +712,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                             message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                            message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                         if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
                             message += "Description was invalid.<br>\n";
                         if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
@@ -907,6 +921,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
                             message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_method_id"), true))
+                            message += "Invalid parameter payment_method_id = " + request.getParameter("payment_method_id") + ".<br>\n";
                         if (!checkParam(INT_TYPE, request.getParameter("modification_rationale_id"), true))
                             message += "Invalid parameter modification_rationale_id = " + request.getParameter("modification_rationale_id") + ".<br>\n";
                         if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
@@ -1180,14 +1196,19 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         // Give the JSP the list of Payment Types
         map = dib.getPaymentTypes();
         request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
-
-
+        
+        
+        // Give the JSP the list of Payment Methods
+        map = dib.getPaymentMethods();
+        request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
+        
+        
         // Give the JSP the list of Affidavit Statuss
         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
 
-        // Give the JSP the list of Payment Statuss
+        // Give the JSP the list of Payment Statuses
         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
         request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
 
@@ -1232,6 +1253,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     Long.parseLong(request.getParameter("user_id")),
                     request.getParameter("payment_desc"),
                     Integer.parseInt(request.getParameter("payment_type_id")),
+                    Integer.parseInt(request.getParameter("payment_method_id")),
                     // dpecora 05/03 - fix
                     // Double.parseDouble(request.getParameter(net)),
                     Double.parseDouble(net),
@@ -1347,6 +1369,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         Map map = dib.getPaymentTypes();
         request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
+        map = dib.getPaymentMethods();
+        request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
@@ -1370,6 +1394,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 Long.parseLong(request.getParameter("user_id")),
                 request.getParameter("payment_desc"),
                 Integer.parseInt(request.getParameter("payment_type_id")),
+                Integer.parseInt(request.getParameter("payment_method_id")),
                 Double.parseDouble(net),
                 Double.parseDouble(request.getParameter("gross_amount")),
                 Integer.parseInt(request.getParameter("status_id")));
@@ -1793,6 +1818,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
 
         forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
     }
@@ -1987,7 +2013,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         affidavit.setRoundId(round_id < 0 ? null : new Long(round_id));
         affidavit.getHeader().setStatusId(Integer.parseInt(request.getParameter("affidavit_status_id")));
-        //affidavit._description = request.getParameter("affidavit_desc");
         affidavit.getHeader().setDescription(request.getParameter("affidavit_desc"));
         affidavit.getHeader().setTypeId(Integer.parseInt(request.getParameter("affidavit_type_id")));
         affidavit.getHeader().setNotarized(makeBoolean(request.getParameter(IS_NOTARIZED)));
@@ -1995,18 +2020,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateAffidavit(affidavit);
 
-        affidavit = bean.get();
-
-        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
-
-        InternalDispatchNoteList notes =
-                new InternalDispatchNoteList(request, response);
-        Map search = new HashMap();
-        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
-        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
-
-        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
-
+        if (!affidavit.getHeader().isAffirmed() && 
+        		affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
+        	doAffirmAffidavitPost(request, response);
+        } else {        
+	        affidavit = bean.get();
+	
+	        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+	
+	        InternalDispatchNoteList notes =
+	                new InternalDispatchNoteList(request, response);
+	        Map search = new HashMap();
+	        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
+	        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+	        
+	        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        }
     }
 
 
@@ -2083,10 +2112,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         request.setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
+        request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
         request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
 
         forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
-
     }
 
 
@@ -2105,6 +2134,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         payment.getHeader().setDescription(request.getParameter("payment_desc"));
         payment.getHeader().setTypeId(Integer.parseInt(request.getParameter("payment_type_id")));
+        payment.getHeader().setMethodId(Integer.parseInt(request.getParameter("payment_method_id")));
         payment.setGrossAmount(Double.parseDouble(request.getParameter("gross_amount")));
         // dpecora 05/03 - fix
         // payment._netAmount = Double.parseDouble(request.getParameter(net));
@@ -2455,31 +2485,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         forward(INTERNAL_NOTE_JSP, request, response);
     }
 
-    private void doPayPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
-            log.debug("doPayPayments<br>");
-
-            String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = new long[values.length];
-            for (int n = 0; n < values.length; n++) {
-                payments[n] = Long.parseLong(values[n]);
-            }
-
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            dib.markPaymentsPaid(payments);
-
-            request.setAttribute("message", "Payments have been marked as Paid");
-            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
-                forward(request.getParameter("query"), request, response);
-            else
-                throw new NavigationException("Payments have been marked as Paid");
-
-        } catch (NumberFormatException e) {
-            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-        }
-    }
-
     private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doPrintPayments called...");
         HttpSession session = request.getSession(true);
@@ -2557,7 +2562,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
             else
-                throw new NavigationException("Payments Being Updatd in the Background");
+                throw new NavigationException("Payments Being Updated in the Background");
 
         } catch (NumberFormatException e) {
             throw new NavigationException("One or more of the Payment IDs specified is invalid.");
@@ -2701,13 +2706,18 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         Date d = null;
         if (birthday.trim().length()!=DATE_FORMAT_STRING.length()) {
-            throw new NavigationException("Invalid Date Format.");
+            throw new NavigationException("Invalid date format.");
         }
         try {
             d = dfmt.parse(birthday);
         } catch (Throwable e3) {
             handleException(request, response, e3);
             return;
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(d);
+        if (c.get(Calendar.YEAR) < 1900 || c.get(Calendar.YEAR) > 2099) {
+        	throw new NavigationException("Birth date must be between 01/01/1900 to 12/31/2099."); 
         }
 
         // if it is for india, replace the form text with what they enterd

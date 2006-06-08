@@ -247,6 +247,13 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             log.error("we got null from getAffidavitForUser");
         } else {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
+            PaymentBean paymentBean = new PaymentBean();
+            for (int i=0; i<affidavits.length; i++) {
+            	if (affidavits[i].getPayment().getId() > 0) {
+            		Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
+            		affidavits[i].setPayDate(payment.getPayDate());
+            	}
+            }
         }
 
         forward(AFFIDAVIT_HISTORY_JSP, request, response);

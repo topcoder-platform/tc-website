@@ -60,6 +60,8 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(STATUS_CODE, param);
         param = request.getParameter(TYPE_CODE);
         if (param != null && !param.equals("")) query.put(TYPE_CODE, param);
+        param = request.getParameter(METHOD_CODE);
+        if (param != null && !param.equals("")) query.put(METHOD_CODE, param);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);
@@ -88,6 +90,9 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(HANDLE, param);
         param = request.getParameter(IS_REVIEWED);
         if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
+        param = request.getParameter(PROJECT_ID);
+        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
+        
         DataInterfaceBean bean = new DataInterfaceBean();
 
         Map results = bean.findPayments(query);
