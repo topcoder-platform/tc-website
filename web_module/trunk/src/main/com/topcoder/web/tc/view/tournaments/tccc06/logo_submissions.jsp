@@ -83,7 +83,6 @@
 <tr><td>0036<br><img src="/i/tournament/tccc06/logo_submissions/0036.jpg" alt="" border="0" /></td></tr>   <%--22379981--%>
 <tr><td>0035<br><img src="/i/tournament/tccc06/logo_submissions/0035.jpg" alt="" border="0" /></td></tr>   <%--22391068--%>
 <tr><td>0034<br><img src="/i/tournament/tccc06/logo_submissions/0034.jpg" alt="" border="0" /></td></tr>   <%--22396706--%>
-
 <tr><td>0033<br><img src="/i/tournament/tccc06/logo_submissions/0033.jpg" alt="" border="0" /></td></tr>   <%--260408--%>
 <tr><td>0032<br><img src="/i/tournament/tccc06/logo_submissions/0032.jpg" alt="" border="0" /></td></tr>   <%--143008--%>
 <tr><td>0031<br><img src="/i/tournament/tccc06/logo_submissions/0031.jpg" alt="" border="0" /></td></tr>   <%--143008--%>
