@@ -40,12 +40,19 @@
         <jsp:param name="title" value="TopCoder Web Site Change Log"/>
     </jsp:include>
     <p>
-        5.3.3 - 2006.06.06
+        5.3.4 - 2006.06.xx
+        <ul>
+            <li>Fix component registration process so that newbies can't register for more than 2 projects</li>
+        </ul>
+    </p>
+    <p>
+        5.3.3 - 2006.06.08
         <ul>
             <li>Fix a bug in HS room stats: it wasn't looking up correctly the room for a coder</li>
             <li>Fix HS team result page: it was displaying division placed instead of team points</li>
             <li>If there is an error on the name of the school entered, show it.</li>
             <li>Fix admin search to work with the new way of finding last rated event</li>
+            <li>PACTS changes for component payments</li>
         </ul>
     </p>
     <p>
