@@ -45,7 +45,7 @@ abstract class BaseLogoSubmit extends Base {
 
     protected void businessProcessing() throws Exception {
 
-        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
         } else {
             //check if they agreed to terms, no back doors here buddy!

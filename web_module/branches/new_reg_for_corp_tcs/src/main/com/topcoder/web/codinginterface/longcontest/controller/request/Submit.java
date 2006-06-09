@@ -44,7 +44,7 @@ public class Submit extends Base {
         TCRequest request = getRequest();
 
         // The user must be signed in to submit code
-        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 

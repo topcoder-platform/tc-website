@@ -39,7 +39,7 @@ public class SubmitReg extends ViewReg {
         log.debug("SubmitReg called");
 
         // The user must be logged in to register for a round
-        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 

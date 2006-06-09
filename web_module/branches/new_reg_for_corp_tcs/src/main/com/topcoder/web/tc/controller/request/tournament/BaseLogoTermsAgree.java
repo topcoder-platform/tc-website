@@ -21,7 +21,7 @@ import javax.transaction.TransactionManager;
 abstract class BaseLogoTermsAgree extends Base {
 
     protected void businessProcessing() throws Exception {
-        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
         } else {
             UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);

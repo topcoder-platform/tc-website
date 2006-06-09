@@ -25,7 +25,7 @@ public class Submit extends PRBase {
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
     protected void businessProcessing() throws TCWebException {
-        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         long userID = getUser().getId();

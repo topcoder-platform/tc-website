@@ -40,7 +40,7 @@ public class JobHit extends Base {
 
 
         try {
-            if (!userIdentified() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+            if (!userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
 
