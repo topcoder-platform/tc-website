@@ -89,7 +89,9 @@ public class HandleTag extends TagSupport {
             StringBuffer output = new StringBuffer();
 
             ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-            if (rsc.getItem(0, "coder_id").getResultData() == null) {
+            if (rsc.isEmpty()) {
+                output.append("UNKNOWN USER");
+            } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
                 output.append(rsc.getStringItem(0, "handle"));
             } else {
 
