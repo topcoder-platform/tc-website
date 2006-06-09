@@ -13,13 +13,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.text.FieldPosition;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
-import com.topcoder.common.web.util.DateTime;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -63,6 +64,7 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int FLASH_CATALOG_ID = 8459260;
     private static final int APPLICATIONS_CATALOG_ID = 9926572;
     private static final int ACTIVE_REVIEWER = 100;
+    private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
 
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
@@ -591,7 +593,7 @@ public class RBoardApplicationBean extends BaseEJB {
         if (opensOn.getTime() > System.currentTimeMillis()) {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                 + "You will need to wait until "
-                + DateTime.timeStampToString(opensOn));
+                + timeStampToString(opensOn));
         }
 
         Timestamp lastReviewApp = getLatestReviewApplicationTimestamp(conn, userId);
@@ -599,7 +601,7 @@ public class RBoardApplicationBean extends BaseEJB {
         {
             throw new RBoardRegistrationException("Sorry, you can not apply for a new review yet.  "
                 + "You will need to wait until "
-                + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
+                + timeStampToString(new Timestamp(lastReviewApp.getTime() + RBoardApplication.APPLICATION_DELAY)));
         }
 
         ResultSetContainer reviewers = null;
@@ -775,5 +777,19 @@ public class RBoardApplicationBean extends BaseEJB {
                 new String[] { "user_id", "phase_id" },
                 new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
 
+    }
+
+    private static final String timeStampToString(java.sql.Timestamp timeStamp) {
+        String result = null;
+        if (timeStamp != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(LONG_DATE_FORMAT);
+            dateFormat.setLenient(false);
+            StringBuffer buffer = new StringBuffer(LONG_DATE_FORMAT.length());
+            buffer = dateFormat.format(timeStamp, buffer, new FieldPosition(0));
+            if (buffer != null) {
+                result = buffer.toString();
+            }
+        }
+        return result;
     }
 }
