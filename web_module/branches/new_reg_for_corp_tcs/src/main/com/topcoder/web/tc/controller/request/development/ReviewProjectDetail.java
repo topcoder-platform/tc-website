@@ -17,19 +17,18 @@ import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
 
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-
 /**
  * Shows project review details.
- *
- * <p>
+ * <p/>
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -158,18 +157,24 @@ public class ReviewProjectDetail extends Base {
         try {
 
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.info("context: " + ctx.getEnvironment().toString());
+            log.debug("context: " + ctx.getEnvironment().toString());
 
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
                     (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
 
-             rBoardApplication = rBoardApplicationHome.create();
+            rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
-            try {ctx.close();} catch (Exception ex) {}
+            try {
+                ctx.close();
+            } catch (Exception ex) {
+            }
             throw new CreateException("Could not find bean!" + e);
         }
-        try {ctx.close();} catch (Exception ex) {}
+        try {
+            ctx.close();
+        } catch (Exception ex) {
+        }
         return rBoardApplication;
     }
 
