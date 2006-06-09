@@ -489,7 +489,7 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             reliability = selectDouble("user_reliability", "rating", new String[] {"phase_id", "user_id"},
                 new String[]{String.valueOf(phaseId), String.valueOf(userId)}, dataSource);
         } catch (RowNotFoundException e) {
-            return true;
+            reliability = new Double(0d);
         }
         if (reliability.compareTo(new Double(ComponentRegistrationServices.MIN_RELIABLE_PERCENTAGE))<0) {
             PreparedStatement ps = null;
