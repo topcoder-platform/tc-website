@@ -779,6 +779,12 @@ public class RBoardApplicationBean extends BaseEJB {
 
     }
 
+    /**
+     * Retrieves SQL TimeStamp as a formatted string
+     *
+     * @param timeStamp the TimeStamp to format
+     * @return the formatted TimeStamp
+     */
     private static final String timeStampToString(java.sql.Timestamp timeStamp) {
         String result = null;
         if (timeStamp != null) {
