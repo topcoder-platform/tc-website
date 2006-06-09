@@ -51,6 +51,8 @@ public class Secondary extends Base {
                             getRequest().setAttribute("notifications", nots);
                         }
                         getRequest().setAttribute(Constants.FIELDS, fields);
+                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
@@ -71,6 +73,8 @@ public class Secondary extends Base {
                             getRequest().setAttribute("referrals", getReferrals(u));
                             setSecondaryDefaults(u);
                             getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                            getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                                    RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
                             setNextPage("/secondary.jsp");
                             setIsNextPageInContext(true);
                         }
@@ -91,6 +95,8 @@ public class Secondary extends Base {
                     getRequest().setAttribute("referrals", getReferrals(u));
                     setSecondaryDefaults(u);
                     getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                    getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                            RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
                     setNextPage("/secondary.jsp");
                     setIsNextPageInContext(true);
                 }

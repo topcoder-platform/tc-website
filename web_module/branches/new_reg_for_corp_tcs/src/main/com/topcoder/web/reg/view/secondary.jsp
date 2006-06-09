@@ -32,7 +32,7 @@
                         document.getElementById('${referralCoder}_div').style.display = 'block';
                         document.getElementById('${referralOther}_div').style.display = 'none';
                         putValue("document.secondaryForm", "${referralOther}", '');
-                    } else if (selection == <%=Referral.DECLINE.toString()%>){
+                    } else if (selection == <%=Referral.DECLINE.toString()%>) {
                         putValue("document.secondaryForm", "${referralOther}", '');
                         putValue("document.secondaryForm", "${referralCoder}", '');
                         hide();
@@ -103,7 +103,8 @@
 </div>
 
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm"
+        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
 <table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
@@ -178,7 +179,7 @@
     </tr>
     <tr>
         <td class="name">
-            * School:
+            <c:if test="${cf:contains(reqFields, schoolName)}">*</c:if> School:
         </td>
         <td class="value">
             <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
@@ -192,7 +193,7 @@
     <c:if test="${cf:contains(fields, visibleSchool)}">
         <tr>
             <td class="name">
-                Allow others to see my school:
+                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Allow others to see my school:
             </td>
             <td class="value">
                 <tc-webtag:chkBox name="${visibleSchool}"/>
@@ -213,7 +214,7 @@
 </tr>
 <tr>
     <td class="name">
-        GPA:
+        <c:if test="${cf:contains(reqFields, gpa)}">*</c:if> GPA:
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
@@ -230,7 +231,7 @@
     </tr>
     <tr>
         <td class="name">
-            GPA Scale:
+            <c:if test="${cf:contains(reqFields, gpaScale)}">*</c:if> GPA Scale:
         </td>
         <td class="value">
             <c:set value="<%=Constants.GPA_SCALES%>" var="scales"/>
@@ -248,7 +249,7 @@
     </tr>
     <tr>
         <td class="name">
-            Resume:
+            <c:if test="${cf:contains(reqFields, resume)}">*</c:if> Resume:
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.FILE_NAME%>" editable="false"/>
@@ -266,7 +267,7 @@
     </tr>
     <tr>
         <td class="name">
-            How did you hear<br>about TopCoder?:
+            <c:if test="${cf:contains(reqFields, referral)}">*</c:if> How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
             <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>
