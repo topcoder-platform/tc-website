@@ -215,7 +215,7 @@ margin:0px auto;
             <td class="homeText"><br>
             Science Museum of Minnesota Partners with TopCoder High School Competitions <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>
 
-            AOL, Bloomberg, UBS and NSA Announced as Sponsors of 2006 TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
+            AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
 
             <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0" /></div>
             Gartner cites TopCoder as model for "Web 2.0" community <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May 16]<br><br>

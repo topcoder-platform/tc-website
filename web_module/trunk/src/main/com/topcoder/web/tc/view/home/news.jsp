@@ -74,8 +74,8 @@ gave him the points he needed to overtake the other top scorers.
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.06.06<br>1:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Sponsors of 2006 TCCC</A></span><br><br>
-      AOL and Bloomberg will join returning TopCoder premier sponsors UBS and National Security Agency.
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Sponsors/Patrons of 2006 TCCC</A></span><br><br>
+      AOL and Bloomberg will join returning TopCoder premier sponsor UBS and patron National Security Agency.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
