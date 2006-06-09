@@ -280,7 +280,7 @@ public class Register extends ViewRegistration {
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName() +
-                    (phase == ComponentVersionInfo.SPECIFICATION ? "Design" : "Development");
+                    (phase == ComponentVersionInfo.SPECIFICATION ? " Design" : " Development");
             long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
 
             log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
