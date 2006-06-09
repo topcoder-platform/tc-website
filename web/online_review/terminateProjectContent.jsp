@@ -1,9 +1,12 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+
+<%	String projectId = (String)request.getParameter("id"); %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <html:form action="/terminateProject">
@@ -51,7 +54,10 @@
 					<td class="forumTextCenterOdd" align="center" colspan="2">
 					    <html:select property='projectStatus' styleClass="searchForm">
                             <html:options property="terminationTypes" />
-                        </html:select></td>
+                        </html:select>
+                        &nbsp;
+                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/PactsInternalServlet?module=ViewGenerateComponentPayments&project_id=<%=projectId%>" target="_blank">Generate Payments</a>
+                    </td>
 				</tr>
 				<tr>
 					<td class="forumTextCenterOdd" align="center" colspan="2">
