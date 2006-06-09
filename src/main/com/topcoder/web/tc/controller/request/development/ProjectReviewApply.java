@@ -110,7 +110,7 @@ public class ProjectReviewApply extends Base {
         RBoardApplication rBoardApplication = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.info("context: " + ctx.getEnvironment().toString());
+            log.debug("context: " + ctx.getEnvironment().toString());
 
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =
