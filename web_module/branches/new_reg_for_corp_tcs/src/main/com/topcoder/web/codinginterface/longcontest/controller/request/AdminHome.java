@@ -13,7 +13,7 @@ import com.topcoder.web.common.SecurityHelper;
 public class AdminHome extends Base {
 
     protected void longContestProcessing() throws Exception {
-        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             //get round list and put it in the request

@@ -41,7 +41,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            if (!userIdentified() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass())))
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass())))
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 
             p = new SessionPersistor(getRequest().getSession(true));

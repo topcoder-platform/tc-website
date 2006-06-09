@@ -20,7 +20,7 @@ import java.sql.Timestamp;
  */
 public class Register extends Base {
     protected void collegeTourProcessing() throws Exception {
-        if (userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             TransactionManager tm = null;
             try {
                 Timestamp now = new Timestamp(System.currentTimeMillis());
@@ -46,7 +46,7 @@ public class Register extends Base {
             setNextPage("/collegetour/success.jsp");
             setIsNextPageInContext(true);
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
 
     }

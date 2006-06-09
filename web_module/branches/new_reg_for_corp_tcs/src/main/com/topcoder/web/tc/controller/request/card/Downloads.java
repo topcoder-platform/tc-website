@@ -16,7 +16,7 @@ public class Downloads extends Preview {
 
     protected void businessProcessing() throws TCWebException {
 
-        if (userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             try {
                 if (isRated()) {
                     setNextPage(Constants.DOWNLOADS);
@@ -30,7 +30,7 @@ public class Downloads extends Preview {
                 throw new TCWebException(e);
             }
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
     }
 

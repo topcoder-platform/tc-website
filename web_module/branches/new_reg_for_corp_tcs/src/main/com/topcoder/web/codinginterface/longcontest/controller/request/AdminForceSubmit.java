@@ -27,7 +27,7 @@ public class AdminForceSubmit extends Base {
         //need to have: user id, component id, round_id, contest_id, language_id
         //then lookup the code, and submit it
 
-        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             String name;

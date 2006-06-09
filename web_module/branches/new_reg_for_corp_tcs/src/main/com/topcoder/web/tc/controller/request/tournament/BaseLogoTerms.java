@@ -18,8 +18,8 @@ import com.topcoder.web.tc.controller.request.Base;
 abstract class BaseLogoTerms extends Base {
 
     protected void businessProcessing() throws Exception {
-        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-            throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
+        if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+            throw new PermissionException(getLoggedInUser(), new SimpleResource(this.getClass().getName()));
         } else {
             UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
             if (ut.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME)) {

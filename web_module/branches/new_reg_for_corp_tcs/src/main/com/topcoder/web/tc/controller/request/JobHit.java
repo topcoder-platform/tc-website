@@ -40,8 +40,8 @@ public class JobHit extends Base {
 
 
         try {
-            if (!userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
 
             Enumeration parameterNames = getRequest().getParameterNames();

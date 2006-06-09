@@ -15,7 +15,7 @@ import com.topcoder.web.tc.controller.request.Base;
 public class ViewReferrals extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        if (userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             Request r = new Request();
             r.setContentHandle("referral_list");
             r.setProperty("uid", String.valueOf(getUser().getId()));

@@ -20,7 +20,7 @@ public class Instructions extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
-        if (userIdentified() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             try {
                 UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                 boolean cardUnlocked = false;
@@ -41,7 +41,7 @@ public class Instructions extends Base {
             setNextPage(Constants.CARD_INSTRUCTIONS);
             setIsNextPageInContext(true);
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
     }
 

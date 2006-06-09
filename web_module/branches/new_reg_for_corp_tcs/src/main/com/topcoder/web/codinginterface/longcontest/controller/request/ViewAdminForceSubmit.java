@@ -17,7 +17,7 @@ public class ViewAdminForceSubmit extends Base {
 
     protected void longContestProcessing() throws Exception {
         //get a list of the submissions and put them in the request for display
-        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             Request r = new Request();

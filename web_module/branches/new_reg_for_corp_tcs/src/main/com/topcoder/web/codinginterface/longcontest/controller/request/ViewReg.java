@@ -39,7 +39,7 @@ public class ViewReg extends Base {
     protected void longContestProcessing() throws TCWebException {
 
         // You need to be logged in before continuing...
-        if (getUser().isAnonymous() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 

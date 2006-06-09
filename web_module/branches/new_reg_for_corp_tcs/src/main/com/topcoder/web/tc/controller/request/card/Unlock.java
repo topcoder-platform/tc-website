@@ -21,7 +21,7 @@ public class Unlock extends Preview {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            if (userLoggedIn() && SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+            if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 if (isRated()) {
                     UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                     if (!isUnlocked()) {
@@ -49,7 +49,7 @@ public class Unlock extends Preview {
                 }
 
             } else {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
         } catch (TCWebException e) {
             throw e;

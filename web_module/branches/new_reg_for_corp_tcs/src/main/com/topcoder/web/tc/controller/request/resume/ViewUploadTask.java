@@ -14,7 +14,7 @@ public class ViewUploadTask extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            if (!userIdentified() || !SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
                 log.debug("User not logged in, can't download a file.");
                 throw new TCWebException("User not logged in, can't download a file.");
             }
