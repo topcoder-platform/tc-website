@@ -25,6 +25,24 @@
 -------------------------%>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.09.06<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm306">SRM 306 - Problem Set & Analysis</A></span><br><br>
+The problem set in both divisions was pretty difficult. In division 1, <tc-webtag:handle coderId="19786437" context="algorithm"/> took home the win
+while <tc-webtag:handle coderId="7442498" context="algorithm"/> got second, with the only 2 succesful submissions of the hard problem.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm306">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505871" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.07.06<br>12:55 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -199,20 +217,6 @@ and neck.
       <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>10:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Downtime for scheduled maintenance: 05.24
-      </span><br><br>
-      We've scheduled downtime for all TopCoder systems on 05.24 at 10:00 PM EDT while we run some general maintenance.  The downtime should last for about 2 hours.  As a result of the downtime, we'll be extending the deadline for the <A href="/longcontest/?module=ViewActiveContests&rt=15">Intel&#174; Multi-Threading Competition 5</A> by 24 hours.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506019" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
 
 </table>
 <br><br>
