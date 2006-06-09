@@ -134,7 +134,7 @@ public class RBoardApplicationBean extends BaseEJB {
         PrincipalMgrRemote principalMgr = null;
         try {
             ctx = new InitialContext();
-            log.info("context: " + ctx.getEnvironment().toString());
+            log.debug("context: " + ctx.getEnvironment().toString());
 
             Object objPrincipalMgr = ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemoteHome home =
