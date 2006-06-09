@@ -43,6 +43,7 @@
         5.3.4 - 2006.06.xx
         <ul>
             <li>Fix component registration process so that newbies can't register for more than 2 projects</li>
+            <li>Fix component registration email.</li>
         </ul>
     </p>
     <p>
