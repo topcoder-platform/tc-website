@@ -71,8 +71,8 @@
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606"><img src="/i/pressroom/tccc06_sponsor_logos.jpg" alt="2006 TCCC Sponsor Logos" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Announced as Sponsors of 2006 TopCoder Collegiate Challenge</A></strong></font><br />
-                        AOL&#174; and Bloomberg LP will join returning TopCoder premier sponsors UBS&#174; and National Security Agency (NSA). Thousands of students in computer science, mathematics, physics and other disciplines from universities around the world will begin registering in August to compete online with the goal of advancing to the world-renowned TCCC onsite finals being held in San Diego, CA this coming November.<span class="prHead"> [June 6]</span></p>
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge</A></strong></font><br />
+                        AOL&#174; and Bloomberg LP will join returning TopCoder premier sponsor UBS&#174; and patron National Security Agency (NSA). Thousands of students in computer science, mathematics, physics and other disciplines from universities around the world will begin registering in August to compete online with the goal of advancing to the world-renowned TCCC onsite finals being held in San Diego, CA this coming November.<span class="prHead"> [June 6]</span></p>
                     </td>
                 </tr>
             </table>
