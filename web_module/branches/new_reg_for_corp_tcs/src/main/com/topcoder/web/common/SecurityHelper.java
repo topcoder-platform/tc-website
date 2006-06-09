@@ -92,16 +92,28 @@ public class SecurityHelper {
         return getUserSubject(l, false, dataSource);
     }
 
-    public static boolean hasPermission(User u, Resource r) throws Exception {
-        return new TCSAuthorization(u).hasPermission(r);
+    public static boolean hasPermission(User u, Resource r) {
+        try {
+            return new TCSAuthorization(u).hasPermission(r);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static boolean hasPermission(long userId, Resource r) throws Exception {
-        return hasPermission(getUserSubject(userId), r);
+    public static boolean hasPermission(long userId, Resource r) {
+        try {
+            return hasPermission(getUserSubject(userId), r);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static boolean hasPermission(TCSubject u, Resource r) throws Exception {
-        return new TCSAuthorization(u).hasPermission(r);
+    public static boolean hasPermission(TCSubject u, Resource r) {
+        try {
+            return new TCSAuthorization(u).hasPermission(r);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
