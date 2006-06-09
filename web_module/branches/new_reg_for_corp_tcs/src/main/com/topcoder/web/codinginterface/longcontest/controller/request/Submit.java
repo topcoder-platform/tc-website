@@ -19,15 +19,12 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.render.DataTypeRenderer;
-import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.longcompresult.LongCompResult;
+import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
+import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
 import javax.naming.InitialContext;
 import java.io.StringReader;
@@ -47,7 +44,7 @@ public class Submit extends Base {
         TCRequest request = getRequest();
 
         // The user must be signed in to submit code
-        if (getUser().isAnonymous()) {
+        if (getUser().isAnonymous() || SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
@@ -206,16 +203,16 @@ public class Submit extends Base {
                 } else {
                     mess = getMessage(lastCompilation, false);
                 }
-                if (mess!=null) {
-                        request.setAttribute(Constants.CODE, code);
-                        if (language > 0) {
-                            setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
-                        }
-                        request.setAttribute(Constants.LANGUAGES, getLanguages());
-                        request.setAttribute(Constants.MESSAGE, mess);
-                        setNextPage(Constants.SUBMISSION_JSP);
-                        setIsNextPageInContext(true);
-                        return;
+                if (mess != null) {
+                    request.setAttribute(Constants.CODE, code);
+                    if (language > 0) {
+                        setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
+                    }
+                    request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    request.setAttribute(Constants.MESSAGE, mess);
+                    setNextPage(Constants.SUBMISSION_JSP);
+                    setIsNextPageInContext(true);
+                    return;
                 }
 
                 // The request info for the compiler
@@ -428,7 +425,7 @@ public class Submit extends Base {
                 }
             }
         }
-        if (buf==null) {
+        if (buf == null) {
             return null;
         } else {
             return buf.toString();
