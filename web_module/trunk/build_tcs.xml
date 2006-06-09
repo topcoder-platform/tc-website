@@ -264,6 +264,7 @@
 
     <target name="package-EJB-RBoard" depends="compile">
         <jar jarfile="${ejb.jars.dir}/RBoard.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/model/SoftwareComponent.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/GeneralSecurityException.class"/>
