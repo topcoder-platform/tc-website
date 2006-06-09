@@ -102,7 +102,7 @@ The article must contain original content written by the submitter of the articl
 <br><br>
 
 <span class="bodySubtitle">Submit your article:</span><br/>
-If you've created a article that you would like published on <A href="/">www.topcoder.com</A>, send your file (.doc, .txt, or .html) to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>
+If you've created an article that you would like published on <A href="/">www.topcoder.com</A>, send your file (.doc, .txt, or .html) to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>
 <br><br>
 
 <span class="bodySubtitle">Eligibility Criteria</span><br/>
