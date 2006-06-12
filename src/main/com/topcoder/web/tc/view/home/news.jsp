@@ -7,9 +7,9 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-<%-------------------------------POST MONDAY JUNE 12
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.12.06<br>9:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.12.06<br>9:35 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061206">Creating Use Case and Sequence Diagrams</A></span><br><br>
@@ -22,7 +22,7 @@
        <tc-webtag:forumLink forumID="506054" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
--------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.09.06<br>3:30 PM</td>
