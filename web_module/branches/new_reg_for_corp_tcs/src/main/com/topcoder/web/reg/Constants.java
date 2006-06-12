@@ -48,7 +48,7 @@ public class Constants implements WebConstants {
     public static final List GPA_SCALES = Arrays.asList(new String[]{"4.00", "5.00"});
 
     public static final String FIELDS = "fields";
-    public static final String REQUIRED_FIELDS = "reqfields";
+    public static final String REQUIRED_FIELDS = "reqFields";
 
     public static final String NEW_REG = "nrg";
 
