@@ -104,7 +104,7 @@
 
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
 <form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm"
-        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if> method="POST">
+        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if> method="post">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
