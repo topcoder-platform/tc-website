@@ -62,13 +62,11 @@
               <td width="20%" class="tableHeader">Author</td>
               <td width="60%" class="tableHeader">Feature</td>
           </tr>
-          <%--
           <tr>
               <td class="statDk">June 12</td>
               <td class="statDk"><tc-webtag:handle coderId="151743"/></td>
               <td class="statDk"><A href="/tc?module=Static&amp;d1=features&amp;d2=061206">Creating Use Case and Sequence Diagrams</A></td>
           </tr>
-          --%>
           <tr>
               <td class="statDk">February 20</td>
               <td class="statDk"><tc-webtag:handle coderId="251074"/></td>
