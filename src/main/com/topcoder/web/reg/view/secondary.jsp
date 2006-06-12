@@ -50,6 +50,10 @@
                 document.getElementById('${referralCoder}_div').style.display = 'none';
                 document.getElementById('${referralOther}_div').style.display = 'none';
             }
+            function submit() {
+                document.secondaryForm.submit();
+                return;
+            }
             // -->
         </script>
     </c:if>
@@ -293,7 +297,7 @@
 <br><br>
 
 <div align="center">
-    <a href="#" onclick="document.secondaryForm.submit();return false;">Submit</a>
+    <a href="#" onclick="submit();">Submit</a>
 </div>
 
 </form>
