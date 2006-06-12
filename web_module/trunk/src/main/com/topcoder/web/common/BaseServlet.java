@@ -6,7 +6,10 @@ import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.security.*;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -20,6 +23,7 @@ import java.util.Set;
 /**
  * A base implementation for TC servlets.  It should provide
  * all the basic functionality.
+ *
  * @author Greg Paul
  */
 public abstract class BaseServlet extends HttpServlet {
@@ -38,6 +42,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     /**
      * Initializes the servlet.
+     *
      * @throws javax.servlet.ServletException
      */
     public synchronized void init(ServletConfig config) throws ServletException {
@@ -120,30 +125,30 @@ public abstract class BaseServlet extends HttpServlet {
         try {
             try {
 
-            request.setCharacterEncoding("utf-8");
-            log.debug("content type: " + request.getContentType());
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
-            //set up security objects and session info
-            authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject user = getUser(authentication.getActiveUser().getId());
-            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //todo perhaps this should be configurable...so implementing classes
-            //todo don't have to do it if they don't want to
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+                request.setCharacterEncoding("utf-8");
+                log.debug("content type: " + request.getContentType());
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                //set up security objects and session info
+                authentication = createAuthentication(tcRequest, tcResponse);
+                TCSubject user = getUser(authentication.getActiveUser().getId());
+                info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                //todo perhaps this should be configurable...so implementing classes
+                //todo don't have to do it if they don't want to
+                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-            StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[* ");
-            loginfo.append(info.getHandle());
-            loginfo.append(" * ");
-            loginfo.append(request.getRemoteAddr());
-            loginfo.append(" * ");
-            loginfo.append(request.getMethod());
-            loginfo.append(" ");
-            loginfo.append(info.getRequestString());
-            loginfo.append(" *]");
-            log.info(loginfo);
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[* ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" * ");
+                loginfo.append(request.getRemoteAddr());
+                loginfo.append(" * ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" *]");
+                log.info(loginfo);
 
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
@@ -259,7 +264,7 @@ public abstract class BaseServlet extends HttpServlet {
         if (s.equals("")) return false;
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++)
-                //TODO make an init param?
+            //TODO make an init param?
             if (0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
                 return false;
         return true;
