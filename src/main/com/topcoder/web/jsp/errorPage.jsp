@@ -58,7 +58,7 @@ padding: 0px;
    <span class="homeText">
       <%=message==null?"Sorry, there was an error in your request.":"<b>"+message+"</b>"%>
       <br><br>
-      Please <a href="<%=url==null?"javascript:history.back();":url%>">go back</a> to the last page you were viewing.
+      You may click <a href="<%=url==null?"javascript:history.back();":url%>">here</a> to the last page you were viewing.
       <br><br>
       If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
