@@ -4437,7 +4437,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
-            getReviewers.append("select ur.login_id as user_id, sum(pi.payment as paid), pt.project_type_name ");
+            getReviewers.append("select ur.login_id as user_id, sum(pi.payment) as paid, pt.project_type_name ");
             getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, ");
             getReviewers.append("tcs_catalog:project p, tcs_catalog:project_type pt, tcs_catalog:review_role rr ");
             getReviewers.append("where ur.project_id = " + projectId + " ");
