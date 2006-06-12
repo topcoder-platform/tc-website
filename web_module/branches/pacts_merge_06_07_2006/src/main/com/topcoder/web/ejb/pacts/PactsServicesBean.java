@@ -894,7 +894,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of payments to the given user.
+     * Returns the list of component payments to the given user.
      *
      * @param   userId  The coder ID of the payments.
      * @param	pendingOnly  True if only pending/owed details should be returned.
@@ -902,23 +902,36 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws SQLException {
-        StringBuffer selectPaymentHeaders = new StringBuffer(300);
-        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
-        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
-        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-        selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
-        selectPaymentHeaders.append("status_lu s, user u ");
-        selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
-        selectPaymentHeaders.append("AND u.user_id = " + userId + " ");
-        selectPaymentHeaders.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-        selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
-        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
-        selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
-        selectPaymentHeaders.append("ORDER BY 1");
+        StringBuffer selectPaymentDetails = new StringBuffer(300);        
+        selectPaymentDetails.append("SELECT pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
+        selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
+        selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
+        selectPaymentDetails.append("pd.payment_type_id, pt.payment_type_desc, pd.payment_desc, ");
+        selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
+        selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
+        selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due ");
+        selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
+        selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
+        selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
+        selectPaymentDetails.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+        selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
+        selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
+        selectPaymentDetails.append("AND pa.payment_address_id = pd.payment_address_id ");
+        selectPaymentDetails.append("AND s.status_id = pd.status_id ");
+        selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
+        selectPaymentDetails.append("AND state.state_code = pa.state_code ");
+        selectPaymentDetails.append("AND country.country_code = pa.country_code");
 
-        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString(), true);
+        if (pendingOnly) {
+        	selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+        }
+        
+        ResultSetContainer rsc = runSelectQuery(selectPaymentDetails.toString(), true);
         HashMap hm = new HashMap();
-        hm.put(PAYMENT_HEADER_LIST, rsc);
+        hm.put(PAYMENT_DETAIL_LIST, rsc);
         return hm;
     }
 

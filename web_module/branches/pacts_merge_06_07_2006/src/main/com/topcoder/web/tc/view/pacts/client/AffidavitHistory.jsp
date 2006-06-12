@@ -195,6 +195,7 @@ function goTo(selection){
 	   table.setColumnWidth(0, "60%");
 	   table.setColumnWidth(1, "20%");
 	   table.setColumnWidth(2, "20%");
+	   out.print("<P></P>");
 	   out.print(table.getHtml());
 	}
 %>
