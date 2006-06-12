@@ -32,7 +32,7 @@
                         document.getElementById('${referralCoder}_div').style.display = 'block';
                         document.getElementById('${referralOther}_div').style.display = 'none';
                         putValue("document.secondaryForm", "${referralOther}", '');
-                    } else if (selection == <%=Referral.DECLINE.toString()%>){
+                    } else if (selection == <%=Referral.DECLINE.toString()%>) {
                         putValue("document.secondaryForm", "${referralOther}", '');
                         putValue("document.secondaryForm", "${referralCoder}", '');
                         hide();
@@ -103,7 +103,8 @@
 </div>
 
 <c:set value="<%=Constants.RESUME%>" var="resume"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="secondaryForm" <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if>>
+<form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm"
+        <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if> method="POST">
 <table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
 
