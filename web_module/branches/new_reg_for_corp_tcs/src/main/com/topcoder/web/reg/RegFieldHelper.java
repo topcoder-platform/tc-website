@@ -294,6 +294,7 @@ public class RegFieldHelper {
      * @return the fields
      */
     private static Set getMainFieldSet(Set regTypes, User user, boolean required) {
+        log.debug("getMainFieldSet called with required: " + required);
         Set ret = new HashSet();
 
         Set currentTypes;
@@ -309,6 +310,7 @@ public class RegFieldHelper {
         RegistrationType curr;
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
             curr = (RegistrationType) it.next();
+            log.debug("working on type: " + curr.getName());
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {

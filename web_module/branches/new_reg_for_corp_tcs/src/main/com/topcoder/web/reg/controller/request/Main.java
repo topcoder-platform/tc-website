@@ -11,6 +11,7 @@ import com.topcoder.web.reg.model.*;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -118,8 +119,9 @@ public class Main extends Base {
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
-                getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                        RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser()));
+                Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
+                log.debug("found " + reqFields.size() + " required fields");
+                getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }
