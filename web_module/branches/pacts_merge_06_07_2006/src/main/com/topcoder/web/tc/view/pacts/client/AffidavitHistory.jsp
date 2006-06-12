@@ -55,7 +55,7 @@ function goTo(selection){
        payments = (Payment[])
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
 
-    if(affidavits!=null && payments!=null) {
+    if(affidavits!=null || payments!=null) {
 	   String href;
 	   String str = new String("");
 	   java.util.Vector vec = new java.util.Vector();
