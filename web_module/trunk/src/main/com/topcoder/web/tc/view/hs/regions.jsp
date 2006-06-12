@@ -1,16 +1,17 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder High School Competitions</title>
+    <title>TopCoder High School Competitions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 
 </head>
 
@@ -21,26 +22,29 @@
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-        <!-- Left Column Begins-->
-        <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_hs_competitions"/>
-         </jsp:include>
-        </td>
-        <!-- Left Column Ends -->
+<tr valign="top">
+<!-- Left Column Begins-->
+<td width="180">
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="m_hs_competitions"/>
+    </jsp:include>
+</td>
+<!-- Left Column Ends -->
 
-        <!-- Center Column Begins -->
-        <td class="cardCell" width="100%" align="center" style="padding: 0px 0px 0px 0px;">
-            <div class="myTCBody">
+<!-- Center Column Begins -->
+<td class="cardCell" width="100%" align="center" style="padding: 0px 0px 0px 0px;">
+<div class="myTCBody">
 
-                <div align="center" style="margin-top: 15px;">
-                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
-                </div>
-                <p>
+<div align="center" style="margin-top: 15px;">
+    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
+</div>
+
+<p>
 
 <span class="title">TopCoder High School Regions</span>
-<p align="center"><A href="#alpha">Alpha</A>&#160;|&#160;<A href="#beta">Beta</A>&#160;|&#160;<A href="#gamma">Gamma</A>&#160;|&#160;<A href="#delta">Delta</A></p>
+
+<p align="center"><A href="#alpha">Alpha</A>&#160;|&#160;<A href="#beta">Beta</A>&#160;|&#160;<A href="#gamma">Gamma</A>&#160;|&#160;<A href="#delta">Delta</A>
+</p>
 
 <a name="alpha"></a>
 <span class="bodySubtitle">Alpha</span><br>
@@ -291,25 +295,25 @@ United States Minor Outlying Islands<br>
 Vanuatu<br>
 Wallis and Futuna Islands<br>
 <br><br>
-                </p>
+</p>
 
-            </div>
+</div>
 
-        </td>
-        <!-- Center Column Ends -->
+</td>
+<!-- Center Column Ends -->
 
-        <!-- Right Column Begins -->
-        <td width="170">
-            <jsp:include page="/public_right.jsp">
-                <jsp:param name="level1" value="default"/>
-            </jsp:include>
-        </td>
-        <!-- Right Column Ends -->
+<!-- Right Column Begins -->
+<td width="170">
+    <jsp:include page="/public_right.jsp">
+        <jsp:param name="level1" value="default"/>
+    </jsp:include>
+</td>
+<!-- Right Column Ends -->
 
-        <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-        <!-- Gutter Ends -->
-    </tr>
+<!-- Gutter -->
+<td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+</tr>
 </table>
 
 <jsp:include page="../foot.jsp"/>
