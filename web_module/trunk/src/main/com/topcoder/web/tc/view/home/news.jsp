@@ -202,21 +202,6 @@ and neck.
       <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.24.06<br>1:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=calendar&d2=jun_06">Events Calendar Updated for Marathon Matches</A>
-      </span><br><br>
-      We have added a Marathon Match to each month for the remainder of the year.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/tc?module=Static&d1=calendar&d2=jun_06">view</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506020" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
