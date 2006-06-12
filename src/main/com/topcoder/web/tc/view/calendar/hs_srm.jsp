@@ -188,10 +188,10 @@ String time = StringUtils.checkNull((String)request.getAttribute("time"));
                                         regions will be as follows:
                                             </p>
                                         <ul>
-                                            <li>Alpha Region - Time zones that fall within <strong>GMT -12 through GMT -5</strong></li>
-                                            <li>Beta Region - Time zones that fall within <strong>GMT -4 through GMT +2</strong></li>
-                                            <li>Gamma Region - Time zones that fall within <strong>GMT +3 through GMT +7</strong></li>
-                                            <li>Delta Region - Time zones that fall within <strong>GMT +8 through GMT +12</strong></li>
+                                            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#alpha">Alpha Region</a> - Time zones that fall within <strong>GMT -12 through GMT -5</strong></li>
+                                            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#beta">Beta Region</a> - Time zones that fall within <strong>GMT -4 through GMT +2</strong></li>
+                                            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#gamma">Gamma Region</a> - Time zones that fall within <strong>GMT +3 through GMT +7</strong></li>
+                                            <li><a href="/tc?module=Static&amp;d1=hs&amp;d2=regions#delta">Delta Region</a> - Time zones that fall within <strong>GMT +8 through GMT +12</strong></li>
                                         </ul>
 
                                         <p>If a country falls within two regions, TopCoder will assign that country to a particular region.</p>
