@@ -59,16 +59,15 @@ public class Secondary extends Base {
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
+                        loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
                         if (secondaryFields.isEmpty()) {
-                            loadFieldsIntoUserObject(fields, params);
                             getRequest().setAttribute(Constants.FIELDS, fields);
                             setNextPage("/confirm.jsp");
                             setIsNextPageInContext(true);
                         } else {
                             //set the fields in the user object
-                            loadFieldsIntoUserObject(fields, params);
                             getRequest().setAttribute("demographicAssignments", getAssignments(u));
                             getRequest().setAttribute("referrals", getReferrals(u));
                             setSecondaryDefaults(u);
