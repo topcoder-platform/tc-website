@@ -11,7 +11,6 @@ import java.util.Random;
  *
  * @author djFD molc@mail.ru
  * @version 1.02
- *
  */
 public final class StringUtils {
     public static final String ALPHABET_ALPHA_UPPER_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -20,7 +19,7 @@ public final class StringUtils {
 
     public static final String ALPHABET_ALPHA_EN =
             ALPHABET_ALPHA_LOWER_EN +
-            ALPHABET_ALPHA_UPPER_EN;
+                    ALPHABET_ALPHA_UPPER_EN;
 
     public static final String ALPHABET_DIGITS_EN = "0123456789";
     public static final String ALPHABET_ZIPCODE_EN = "0123456789-";
@@ -29,36 +28,36 @@ public final class StringUtils {
 
     public static final String ALPHABET_ALPHA_PUNCT_EN =
             ALPHABET_ALPHA_EN +
-            ALPHABET_PUNCTUATION_EN;
+                    ALPHABET_PUNCTUATION_EN;
 
     public static final String ALPHABET_WHITESPACE_EN = " \t\r\n";
 
     public static final String ALPHABET_ALPHA_NUM_EN =
             ALPHABET_ALPHA_UPPER_EN +
-            ALPHABET_ALPHA_LOWER_EN +
-            ALPHABET_DIGITS_EN +
-            ALPHABET_PUNCTUATION_EN;
+                    ALPHABET_ALPHA_LOWER_EN +
+                    ALPHABET_DIGITS_EN +
+                    ALPHABET_PUNCTUATION_EN;
 
     public static final String ALPHABET_ALPHA_NUM_PUNCT_EN =
             ALPHABET_ALPHA_NUM_EN +
-            ALPHABET_PUNCTUATION_EN;
+                    ALPHABET_PUNCTUATION_EN;
 
     public static final String ALPHABET_NUM_PUNCT_EN =
             ALPHABET_DIGITS_EN +
-            ALPHABET_PUNCTUATION_EN;
+                    ALPHABET_PUNCTUATION_EN;
 
     public static final String ALPHABET_HEX_UPPER = "0123456789ABCDEF";
     public static final String ALPHABET_PHONE_NUMBER = " -0123456789()+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.";
-    public static final String ALPHABET_USERNAME_EN = ALPHABET_ALPHA_NUM_EN+"!";
+    public static final String ALPHABET_USERNAME_EN = ALPHABET_ALPHA_NUM_EN + "!";
 
     /**
      * Checks if string has all its characters in alphabet given.
      *
-     * @param string String to be tested
-     * @param alphabet Alphabet to match
+     * @param string    String to be tested
+     * @param alphabet  Alphabet to match
      * @param wsAllowed specifies if whitespaces are allowed or not
      * @return boolean true if string supplied matches the rules and false
-     * otherwise
+     *         otherwise
      */
     public static boolean containsOnly(String string, String alphabet, boolean wsAllowed) {
         int n = string.length();
@@ -77,10 +76,11 @@ public final class StringUtils {
 
     /**
      * Checks if string has not more words than specified.
-     * @param string string to be checked
+     *
+     * @param string   string to be checked
      * @param maxWords max words allower
      * @return boolean true if string contains less (or equal) than
-     * maxWords and false otherwise.
+     *         maxWords and false otherwise.
      */
     public static boolean hasNotMoreWords(String string, int maxWords) {
         int wordCnt = 1;
@@ -124,6 +124,7 @@ public final class StringUtils {
     /**
      * Takes the given string and converts it so that it will maintain it's
      * format on an html page.
+     *
      * @return String
      */
     public static String htmlEncode(String s) {
@@ -141,11 +142,17 @@ public final class StringUtils {
                 sb.append("&quot;");
             } else if (ch == '&') {
                 sb.append("&amp;");
-            } else if (ch == 13 && s.length()>(i+1) && s.charAt(i + 1) == 10) {
+            } else if (ch == 13 && s.length() > (i + 1) && s.charAt(i + 1) == 10) {
                 sb.append("<br />");
                 i++;
             } else if (ch == 10 || ch == 13) {
                 sb.append("<br />");
+            } else if (ch == '\'') {
+                sb.append("&#039;");
+            } else if (ch == '\\') {
+                sb.append("&#092;");
+
+/*
             } else if (((int) ch) < 32) {
                 //anything less than a "space" character is technically unprintable
                 sb.append("[\\u" + (int) ch + "]");
@@ -160,8 +167,10 @@ public final class StringUtils {
                 //html4.0 has some support but it isn't worth picking out a few cases that
                 //some browsers won't display properly.
                 sb.append("[\\u" + (int) ch + "]");
-            } else
+*/
+            } else {
                 sb.append(ch);
+            }
         }
         return sb.toString();
     }
@@ -184,7 +193,8 @@ public final class StringUtils {
             if (idhash.length() % 2 != 0) return 0;
             String id = idhash.substring(0, idhash.length() / 2);
             String hash = idhash.substring(idhash.length() / 2);
-            if (new BigInteger(new BigInteger(id).bitLength(), new Random(Long.parseLong(id))).add(new BigInteger("TopCoder", 36)).toString().endsWith(hash)) {
+            if (new BigInteger(new BigInteger(id).bitLength(), new Random(Long.parseLong(id))).add(new BigInteger("TopCoder", 36)).toString().endsWith(hash))
+            {
                 return Integer.parseInt(id);
             } else {
                 return 0;
@@ -217,7 +227,9 @@ public final class StringUtils {
 
     }
 
-    /** Replaces null strings with "", others are returned untouched. */
+    /**
+     * Replaces null strings with "", others are returned untouched.
+     */
     public static String checkNull(String s) {
         return s == null ? "" : s;
     }
@@ -229,6 +241,7 @@ public final class StringUtils {
     /**
      * Change all occurrances of <code>changeFrom</code> in <code>original</code>
      * to <code>changeTo</code>
+     *
      * @param original
      * @param changeFrom
      * @param changeTo
@@ -249,7 +262,7 @@ public final class StringUtils {
 
     public static String getTrimmedParameter(TCRequest r, String param) {
         String val = r.getParameter(param);
-        if (val==null) {
+        if (val == null) {
             return null;
         } else {
             return val.trim();
