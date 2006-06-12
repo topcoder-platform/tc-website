@@ -255,7 +255,22 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             	}
             }
         }
-
+        
+        // add payment info to PaymentBean
+        PaymentBean paymentBean = new PaymentBean();
+        Payment[] payments;
+        
+        if (fullList != null) {
+            payments = paymentBean.getComponentDetailsForUser(getUserId(request), false);
+        } else {
+            payments = paymentBean.getComponentDetailsForUser(getUserId(request), true);
+        }
+        if (payments == null) {
+        	log.error("we got null from getComponentDetailsForUser");
+        } else {
+        	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
+        }
+ 
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
 

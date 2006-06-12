@@ -892,6 +892,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(PAYMENT_HEADER_LIST, rsc);
         return hm;
     }
+    
+    /**
+     * Returns the list of payments to the given user.
+     *
+     * @param   userId  The coder ID of the payments.
+     * @param	pendingOnly  True if only pending/owed details should be returned.
+     * @return  The payment header list.
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws SQLException {
+        StringBuffer selectPaymentHeaders = new StringBuffer(300);
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+        selectPaymentHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
+        selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
+        selectPaymentHeaders.append("status_lu s, user u ");
+        selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
+        selectPaymentHeaders.append("AND u.user_id = " + userId + " ");
+        selectPaymentHeaders.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
+        selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
+        selectPaymentHeaders.append("ORDER BY 1");
+
+        ResultSetContainer rsc = runSelectQuery(selectPaymentHeaders.toString(), true);
+        HashMap hm = new HashMap();
+        hm.put(PAYMENT_HEADER_LIST, rsc);
+        return hm;
+    }
 
     /**
      * Returns the list of tax forms for the given user.
@@ -4437,7 +4466,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
-            getReviewers.append("select ur.login_id as user_id, sum(pi.payment as paid), pt.project_type_name ");
+            getReviewers.append("select ur.login_id as user_id, sum(pi.payment) as paid, pt.project_type_name ");
             getReviewers.append("from tcs_catalog:payment_info pi, tcs_catalog:payment_status ps, tcs_catalog:r_user_role ur, ");
             getReviewers.append("tcs_catalog:project p, tcs_catalog:project_type pt, tcs_catalog:review_role rr ");
             getReviewers.append("where ur.project_id = " + projectId + " ");
@@ -4537,7 +4566,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     
     /**
-     * Sets the status on all payments with Pending or On Hold status older than a specified time
+     * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.
      *
@@ -4555,7 +4584,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer updatePayments = new StringBuffer(300);
             updatePayments.append("update payment_detail "); 
             updatePayments.append("set status_id = " + PAYMENT_EXPIRED_STATUS + " ");
-            updatePayments.append("where payment_type_id = 1 and status_id IN (" + 
+            updatePayments.append("where payment_type_id = " + CONTEST_PAYMENT + " and status_id IN (" + 
             		PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             updatePayments.append("and today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             int rowsUpdated = runUpdateQuery(c, updatePayments.toString(), false);

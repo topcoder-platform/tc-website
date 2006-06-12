@@ -13,6 +13,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
 
@@ -67,6 +68,30 @@ public class PaymentBean implements PactsConstants {
         }
 
         PaymentHeaderList plist = new PaymentHeaderList(reply);
+
+        return plist.getHeaderList();
+    }
+   
+    /**
+     * Obtains an array of component and review board payment details for the given user.
+     * 
+     * @param memberId the member id
+     * @param pendingOnly whether only pending/owed details should be returned
+     * @return the payment details, or null if the payment id is bad
+     */
+    public Payment[] getComponentDetailsForUser(long memberId, boolean pendingOnly) {
+    	log.debug("getComponentDetailsForUser, memberId = " + memberId);
+    	DataInterfaceBean bean = new DataInterfaceBean();
+        java.util.Map reply = null;
+        try {
+            reply = bean.getUserComponentDetailsList(memberId, pendingOnly);
+        } catch (Exception e1) {
+            log.error("did not get payment list in getComponentDetailsForUser");
+            e1.printStackTrace();
+            return null;
+        }
+
+        PaymentList plist = new PaymentList(reply);
 
         return plist.getHeaderList();
     }

@@ -278,6 +278,20 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserPaymentList(userId);
     }
+    
+    /**
+     * Returns the list of component payment details to the given user.
+     *
+     * @param   userId  The coder ID of the payments.
+     * @param 	pendingOnly  True if only pending/owed details should be returned.
+     * @return  The payment header list.
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getUserComponentDetailsList(userId, pendingOnly);
+    }
 
     /**
      * Returns the list of tax forms for the given user.
@@ -1359,7 +1373,7 @@ public class DataInterfaceBean implements PactsConstants {
     }
     
     /**
-     * Sets the status on all payments with Pending or On Hold status older than a specified time
+     * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.
      *
