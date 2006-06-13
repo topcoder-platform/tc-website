@@ -40,6 +40,14 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.3.5 - 2006.06.13
+    <ul>
+        <li>Fix so that registration process actually updates password.</li>
+        <li>Attempts to fix IE6 bug that does not allow it to upload a file across https</li>
+    </ul>
+</p>
+
+<p>
     5.3.4 - 2006.06.12
     <ul>
         <li>Fix component registration process so that newbies can't register for more than 2 projects</li>
