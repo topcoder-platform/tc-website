@@ -93,6 +93,9 @@ public class PaymentBean implements PactsConstants {
 
         PaymentList plist = new PaymentList(reply);
 
+        if (plist.getHeaderList().length == 0) {
+        	return null;
+        }
         return plist.getHeaderList();
     }
 

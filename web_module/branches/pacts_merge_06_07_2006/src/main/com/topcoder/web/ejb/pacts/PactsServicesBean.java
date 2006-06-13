@@ -894,7 +894,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of component payments to the given user.
+     * Returns the list of component and review board payments to the given user.
      *
      * @param   userId  The coder ID of the payments.
      * @param	pendingOnly  True if only pending/owed details should be returned.
@@ -915,7 +915,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
-        selectPaymentDetails.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+        selectPaymentDetails.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
@@ -4464,7 +4464,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Get winning designers/developers to be paid
             if (status == ProjectStatus.ID_COMPLETED) {
                 StringBuffer getWinners = new StringBuffer(300);        
-                getWinners.append("select pr.placed, pr.user_id, payment * (1 + tcs_catalog:proc_reliability_bonus(pr.old_reliability)) as paid, pt.project_type_name ");
+                getWinners.append("select pr.placed, pr.user_id, payment as paid, pt.project_type_name, pr.old_reliability as reliability ");
                 getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
                 getWinners.append("and pr.project_id = p.project_id ");
@@ -4505,6 +4505,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
 	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
 	                if (j == 0) {
+	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
+	                	p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
 	                	String projectType = winners[j].getItem(i, 3).toString();
 	                	String placed = winners[j].getItem(i, 0).toString();
 	                	if (placed.equals("1")) {
@@ -4577,6 +4579,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Helper function that calculates the component payment given the base payment and winner's reliability. 
+     *
+     * @return The payment for the winning component designer or developer.
+     * @throws SQLException If there was some error updating the data.
+     */
+    private double getReliabilityPayment(double payment, double reliability) {
+    	double bonus = 0;
+    	if (reliability >= .95) { 
+    		bonus = .2;
+    	} else if (reliability >= .9) { 
+    		bonus = .15;
+    	} else if (reliability >= .8) { 
+    		bonus = .1;
+    	}
+    	return payment * (1+bonus);
+    }
     
     /**
      * Sets the status on all contest payments with Pending or On Hold status older than a specified time

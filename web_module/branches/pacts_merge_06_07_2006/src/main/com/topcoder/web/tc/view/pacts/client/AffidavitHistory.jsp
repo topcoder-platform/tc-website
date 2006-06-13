@@ -55,22 +55,28 @@ function goTo(selection){
        payments = (Payment[])
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
 
-    if(affidavits!=null || payments!=null) {
-	   String href;
-	   String str = new String("");
-	   java.util.Vector vec = new java.util.Vector();
+	String href = new String("");
+	String desc = new String("");
+	String str = new String("");
+	java.util.Vector vec = new java.util.Vector();
 
+    if(affidavits!=null || payments!=null) {
 	   String fullList = request.getParameter("full_list");
 	   out.print("<p>");
-	   if(fullList == null) {
+	   if (fullList == null) {
+	   	  desc = "This page displays pending affidavits and payments. ";
+	   	  str = "(View all)";
 	      vec.add(new String("full_list=true"));
-	      str = "View all affidavits and payments";
-          href = PactsHtmlHelpers.createPactsHtmlHref(
+	   } else {
+	   	  desc = "This page displays all affidavits and payments. ";
+	   	  str = "(View pending)";
+	   }
+	   href = PactsHtmlHelpers.createPactsHtmlHref(
                PactsConstants.MEMBER_SERVLET_URL,
                vec, PactsConstants.AFFIDAVIT_TASK,
                PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "bodyText");
-	      out.print(href);
-	   }
+	   out.print(desc);
+	   out.print(href);
 	   out.print("</p>");
 	}
 	
@@ -175,7 +181,9 @@ function goTo(selection){
 	       tableData.setElement(i,0,payments[i-1].getDescription());
 	      
 	       // net amount
-	       tableData.setElement(i,1,String.valueOf(payments[i-1].getNetAmount()));
+	       DecimalFormat decf = new DecimalFormat("0.00");
+	       str = "$" + decf.format(payments[i-1].getNetAmount());
+	       tableData.setElement(i,1,str);
 	       
 	       // date paid
 		   if (payments[i-1].getPayDate() != null) {
