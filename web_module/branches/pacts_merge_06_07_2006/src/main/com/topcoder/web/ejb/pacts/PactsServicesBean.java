@@ -897,7 +897,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Returns the list of component and review board payments to the given user.
      *
      * @param   userId  The coder ID of the payments.
-     * @param	pendingOnly  True if only pending/owed details should be returned.
+     * @param	pendingOnly  True if only details which are pending, owed, or on hold should be returned.
      * @return  The payment header list.
      * @throws  SQLException If there is some problem retrieving the data
      */
@@ -926,7 +926,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND country.country_code = pa.country_code");
 
         if (pendingOnly) {
-        	selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+        	selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + 
+        			PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
         
         ResultSetContainer rsc = runSelectQuery(selectPaymentDetails.toString(), true);
