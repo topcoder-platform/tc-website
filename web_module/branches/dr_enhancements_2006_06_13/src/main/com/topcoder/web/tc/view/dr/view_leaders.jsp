@@ -149,7 +149,8 @@ Design Cup Series Leaderboard
       </td>
    </tr>
 
-   <c:forEach items="${testList}" var="boardRow">\
+   <c:forEach items="${testList}" var="boardRow">
+   		Hello!!
 	   <tr class="dark">
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
