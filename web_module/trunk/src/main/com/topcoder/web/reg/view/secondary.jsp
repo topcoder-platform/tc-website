@@ -49,13 +49,18 @@
                 document.getElementById('${referralCoder}_div').style.display = 'none';
                 document.getElementById('${referralOther}_div').style.display = 'none';
             }
-            function submitForm() {
-                document.secondaryForm.submit();
-            }
 
             // -->
         </script>
     </c:if>
+    <script language="javascript" type="text/javascript">
+        <!--
+        function submitForm() {
+            document.secondaryForm.submit();
+        }
+        // -->
+    </script>
+
 </head>
 
 <body <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>>
