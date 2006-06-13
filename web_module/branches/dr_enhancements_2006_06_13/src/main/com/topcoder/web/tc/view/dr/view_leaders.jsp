@@ -7,6 +7,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -147,6 +148,15 @@ Design Cup Series Leaderboard
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
       </td>
    </tr>
+
+   <c:forEach items="${testList}" var="boardRow">\
+	   <tr class="dark">
+	      <td class="valueC">${boardRow.rank}</td>
+	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
+	      <td class="valueR">${boardRow.points}</td>
+	   </tr>
+   </c:forEach>
+
    <%boolean even = false;%>
    <rsc:iterator list="<%=leaderBoard%>" id="resultRow">
    <tr class="<%=even?"dark":"light"%>">
@@ -160,7 +170,7 @@ Design Cup Series Leaderboard
 
 <div class="pagingBox" style="width:300px;">
 View <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-at a time starting with 
+at a time starting with
 <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
 <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
