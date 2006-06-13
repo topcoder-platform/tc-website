@@ -149,6 +149,9 @@ Design Cup Series Leaderboard
       </td>
    </tr>
 
+   TestList: <c:out value='${testList}'/>
+   TestList: <c:out value='${testList[1].rank}'/>
+
    <c:forEach items="${testList}" var="boardRow">
    		Hello!!
 	   <tr class="dark">
