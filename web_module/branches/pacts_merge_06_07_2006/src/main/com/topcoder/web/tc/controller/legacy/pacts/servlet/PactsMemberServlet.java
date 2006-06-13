@@ -244,7 +244,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         }
 
         if (affidavits == null) {
-            log.error("we got null from getAffidavitForUser");
+            log.debug("we got null from getAffidavitForUser");
         } else {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
             PaymentBean paymentBean = new PaymentBean();
@@ -266,7 +266,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             payments = paymentBean.getComponentDetailsForUser(getUserId(request), true);
         }
         if (payments == null) {
-        	log.error("we got null from getComponentDetailsForUser");
+        	log.debug("we got null from getComponentDetailsForUser");
         } else {
         	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
         }

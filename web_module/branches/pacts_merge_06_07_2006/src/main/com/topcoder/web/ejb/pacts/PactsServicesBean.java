@@ -903,7 +903,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws SQLException {
         StringBuffer selectPaymentDetails = new StringBuffer(300);        
-        selectPaymentDetails.append("SELECT pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
+        selectPaymentDetails.append("SELECT p.payment_id, pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
         selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
         selectPaymentDetails.append("pd.payment_type_id, pt.payment_type_desc, pd.payment_desc, ");
@@ -923,17 +923,90 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND s.status_id = pd.status_id ");
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
-        selectPaymentDetails.append("AND country.country_code = pa.country_code");
+        selectPaymentDetails.append("AND country.country_code = pa.country_code ");
 
         if (pendingOnly) {
         	selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + 
         			PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
         
-        ResultSetContainer rsc = runSelectQuery(selectPaymentDetails.toString(), true);
-        HashMap hm = new HashMap();
-        hm.put(PAYMENT_DETAIL_LIST, rsc);
-        return hm;
+        selectPaymentDetails.append("ORDER BY 1");
+        
+        return doUserComponentPayments(userId, selectPaymentDetails.toString(), pendingOnly);
+    }
+    
+    //  Helper function to retrieve component and review board payment information for a given user.
+    private Map doUserComponentPayments(long userId, String detailsQuery, boolean pendingOnly) throws SQLException {
+        log.debug("dopayment(long, String) called...");
+        StringBuffer selectPaymentHeaders = new StringBuffer(300);
+        selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
+        selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
+        selectPaymentHeaders.append("pd.net_amount, pd.status_id, s.status_desc, ");
+        selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
+        selectPaymentHeaders.append("FROM payment p, payment_detail pd, status_lu s, user u, ");
+        selectPaymentHeaders.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentHeaders.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
+        selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
+        selectPaymentHeaders.append("AND p.user_id = u.user_id ");
+        selectPaymentHeaders.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
+        selectPaymentHeaders.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
+        selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
+        selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
+        selectPaymentHeaders.append("AND pa.payment_address_id = pd.payment_address_id ");
+        selectPaymentHeaders.append("AND s.status_id = pd.status_id ");
+        selectPaymentHeaders.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
+        selectPaymentHeaders.append("AND state.state_code = pa.state_code ");
+        selectPaymentHeaders.append("AND country.country_code = pa.country_code ");
+
+        if (pendingOnly) {
+        	selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + 
+        			PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+        }
+        
+        selectPaymentHeaders.append("ORDER BY 1");
+
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            ResultSetContainer rsc = runSelectQuery(c, selectPaymentHeaders.toString(), true);
+            if (rsc.getRowCount() == 0) {
+                throw new NoObjectFoundException("Payments not found");
+            }
+
+            HashMap hm = new HashMap();
+            hm.put(PAYMENT_HEADER_LIST, rsc);
+
+            rsc = runSelectQuery(c, detailsQuery, false);
+            hm.put(PAYMENT_DETAIL_LIST, rsc);
+
+            StringBuffer selectCoderAddress = new StringBuffer(300);
+            selectCoderAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+            selectCoderAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+            selectCoderAddress.append("u.last_name, state.state_name, country.country_name ");
+            selectCoderAddress.append("FROM coder c, address a, user_address_xref x, OUTER state, OUTER country, user u ");
+            selectCoderAddress.append("WHERE c.coder_id = " + userId + " ");
+            selectCoderAddress.append("AND state.state_code = a.state_code ");
+            selectCoderAddress.append("and x.user_id = c.coder_id and x.address_id = a.address_id ");
+            selectCoderAddress.append("and a.address_type_id = 2 ");
+            selectCoderAddress.append("and u.user_id = c.coder_id ");
+            selectCoderAddress.append("AND country.country_code = a.country_code");
+
+            rsc = runSelectQuery(c, selectCoderAddress.toString(), false);
+            hm.put(CURRENT_CODER_ADDRESS, rsc);
+
+            c.close();
+            c = null;
+            return hm;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw new SQLException(e.getMessage());
+        }
     }
 
     /**

@@ -55,13 +55,13 @@ function goTo(selection){
        payments = (Payment[])
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
 
+	String fullList = request.getParameter("full_list");
 	String href = new String("");
 	String desc = new String("");
 	String str = new String("");
 	java.util.Vector vec = new java.util.Vector();
 
     if(affidavits!=null || payments!=null) {
-	   String fullList = request.getParameter("full_list");
 	   out.print("<p>");
 	   if (fullList == null) {
 	   	  desc = "This page displays pending affidavits and payments. ";
@@ -92,7 +92,9 @@ function goTo(selection){
 	   tableData.setElement(0,2,"Net Payment Amount");
 	   tableData.setElement(0,3,"Notarized");
 	   tableData.setElement(0,4,"Status");
-	   tableData.setElement(0,5,"Date Paid");
+	   if (fullList != null) {
+	   	   tableData.setElement(0,5,"Date Paid");
+	   }
 	
 	   // fill in the data
 	   for(int i=1;i<=affidavits.length;i++) {
@@ -144,7 +146,7 @@ function goTo(selection){
 	       tableData.setElement(i,4,affidavits[i-1].getHeader().getStatusDesc());
 	
 		   // date paid
-		   if (affidavits[i-1].getPayDate() != null) {
+		   if (fullList != null && affidavits[i-1].getPayDate() != null && !affidavits[i-1].getPayDate().equals("00/00/0000")) {
 		   		tableData.setElement(i,5,affidavits[i-1].getPayDate());
 		   }
 	   }
@@ -168,12 +170,15 @@ function goTo(selection){
     
     if(payments!=null) {
        // build the payment table
-	   tableData = new PactsMemberTableModel(payments.length+1,3);
+	   tableData = new PactsMemberTableModel(payments.length+1,4);
 	
 	   //set up the table title row
 	   tableData.setElement(0,0,"Payment Description");
 	   tableData.setElement(0,1,"Net Payment Amount");
-	   tableData.setElement(0,2,"Date Paid");
+	   tableData.setElement(0,2,"Status");
+	   if (fullList != null) {
+	   	   tableData.setElement(0,3,"Date Paid");
+	   }
 	   
 	   // fill in the data
 	   for(int i=1;i<=payments.length;i++) {
@@ -185,9 +190,12 @@ function goTo(selection){
 	       str = "$" + decf.format(payments[i-1].getNetAmount());
 	       tableData.setElement(i,1,str);
 	       
+	       // status
+	       tableData.setElement(i,2,payments[i-1].getStatusDesc());
+	       
 	       // date paid
-		   if (payments[i-1].getPayDate() != null) {
-		   		tableData.setElement(i,2,payments[i-1].getPayDate());
+		   if (fullList != null && payments[i-1].getPayDate() != null && !payments[i-1].getPayDate().equals("00/00/0000")) {
+		   		tableData.setElement(i,3,payments[i-1].getPayDate());
 		   }
 	   }
 	   
@@ -202,7 +210,8 @@ function goTo(selection){
 	   table.setWidth("100%");
 	   table.setColumnWidth(0, "60%");
 	   table.setColumnWidth(1, "20%");
-	   table.setColumnWidth(2, "20%");
+	   table.setColumnWidth(2, "10%");
+	   table.setColumnWidth(3, "10%");
 	   out.print("<P></P>");
 	   out.print(table.getHtml());
 	}
