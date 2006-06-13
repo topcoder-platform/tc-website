@@ -10,7 +10,6 @@
 
 <html>
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
     <jsp:include page="script.jsp"/>
