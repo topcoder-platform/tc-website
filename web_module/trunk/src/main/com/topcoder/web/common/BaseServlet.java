@@ -128,12 +128,17 @@ public abstract class BaseServlet extends HttpServlet {
                 request.setCharacterEncoding("utf-8");
                 log.debug("content type: " + request.getContentType());
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                //TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 //set up security objects and session info
                 authentication = createAuthentication(tcRequest, tcResponse);
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
+                log.debug("protocol: " + tcRequest.getProtocol());
+                if (!authentication.getActiveUser().isAnonymous() && !"https".equals(tcRequest.getProtocol())) {
+                    tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                }
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
                 //todo perhaps this should be configurable...so implementing classes
                 //todo don't have to do it if they don't want to
