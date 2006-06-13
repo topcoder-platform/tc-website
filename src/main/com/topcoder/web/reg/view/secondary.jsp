@@ -57,7 +57,8 @@
     <script language="javascript" type="text/javascript">
         <!--
         function submitForm() {
-            var val = document.secondaryForm.${resume}.value;
+            var resInput = document.secondaryForm.${resume};
+            var val = resInput.value;
         <%--
             we're doing this nastiness because of IE 6.  I would appear
             that there is a bug when you have a multipart form, being posted
@@ -66,12 +67,11 @@
             so that the form is not multipart when they are not submitting a resume.
         --%>
             if (val == null || trim(val) == "") {
-                var nodes = document.getElementsByName("secondaryForm");
-                if (nodes[0]) {
-                    nodes[0].removeAttribute("enctype");
-                }
+                document.secondaryForm.removeAttribute("enctype");
+                resInput.parentNode.removeChild(resInput);
             }
             document.secondaryForm.submit();
+
         }
         // -->
     </script>
