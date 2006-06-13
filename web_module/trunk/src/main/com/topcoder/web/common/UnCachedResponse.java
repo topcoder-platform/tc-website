@@ -11,7 +11,7 @@ public class UnCachedResponse extends SimpleResponse {
 
     /**
      * build the response object and set headers such that
-     * browsers/proxies will not cache this response. 
+     * browsers/proxies will not cache this response.
      *
      * @param response
      */
@@ -34,7 +34,6 @@ public class UnCachedResponse extends SimpleResponse {
             init();
         } else {
             if (!this.response.containsHeader("Cache-Control") &&
-                    !this.response.containsHeader("Pragma") &&
                     !this.response.containsHeader("Expires")) {
                 init();
             }
@@ -45,7 +44,6 @@ public class UnCachedResponse extends SimpleResponse {
     private void init() {
         this.response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         this.response.setHeader("Cache-Control", "pre-check=0, post-check=0");
-        this.response.setHeader("Pragma", "no-cache");
         this.response.setDateHeader("Expires", 0);
     }
 
