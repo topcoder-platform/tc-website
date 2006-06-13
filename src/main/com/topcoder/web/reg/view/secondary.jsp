@@ -19,6 +19,7 @@
     <c:set value="<%=Constants.REFERRAL%>" var="referral"/>
     <c:set value="<%=Constants.REFERRAL_CODER%>" var="referralCoder"/>
     <c:set value="<%=Constants.REFERRAL_OTHER%>" var="referralOther"/>
+    <c:set value="<%=Constants.RESUME%>" var="resume"/>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <c:if test="${cf:contains(fields, referral)}">
         <script language="javascript" type="text/javascript">
@@ -124,7 +125,6 @@
     </div>
 </div>
 
-<c:set value="<%=Constants.RESUME%>" var="resume"/>
 <form action="${sessionInfo.secureAbsoluteServletPath}" name="secondaryForm"
         <c:if test="${cf:contains(fields, resume)}">enctype="multipart/form-data"</c:if> method="post">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Confirm"/>
