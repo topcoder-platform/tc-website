@@ -1,5 +1,5 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -9,7 +9,6 @@
 
 <html>
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Registration</title>
     <jsp:include page="script.jsp"/>
@@ -33,24 +32,30 @@
 
 <div id="regBcContainer">
     <div class="regBc">
-         <div class="title">
-             <c:if test="${sessionInfo.loggedIn}">
-                 <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
-             </c:if>
-         Step <strong>4</strong> of
-             <c:choose>
-                 <c:when test="${regUser.new}">
-                     <strong>6</strong>
-                 </c:when>
-                 <c:otherwise>
-                     <strong>5</strong>
-                 </c:otherwise>
-             </c:choose>
-         </div>
+        <div class="title">
+            <c:if test="${sessionInfo.loggedIn}">
+                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
+                </div>
+            </c:if>
+            Step <strong>4</strong> of
+            <c:choose>
+                <c:when test="${regUser.new}">
+                    <strong>6</strong>
+                </c:when>
+                <c:otherwise>
+                    <strong>5</strong>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
         <div class="off">Select Your Registration</div>
+
         <div class="off">General</div>
+
         <div class="off">Demographics</div>
+
         <div class="on">Confirm</div>
+
         <div class="off">Success</div>
         <c:if test="${regUser.new}">
             <div class="off">Activation</div>
