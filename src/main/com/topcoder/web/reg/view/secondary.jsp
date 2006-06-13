@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>TopCoder Registration</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="style.jsp">
