@@ -135,8 +135,8 @@ public abstract class BaseServlet extends HttpServlet {
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                 //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
-                log.debug("uri: " + request.getRequestURI());
-                if (!authentication.getActiveUser().isAnonymous() && !request.getRequestURI().toLowerCase().startsWith("https"))
+                log.debug("uri: " + request.getRequestURL().toString());
+                if (!authentication.getActiveUser().isAnonymous() || request.getRequestURL().toString().toLowerCase().startsWith("https"))
                 {
                     tcResponse = HttpObjectFactory.createUnCachedResponse(response);
                 }
