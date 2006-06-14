@@ -539,6 +539,7 @@ public class RegFieldHelper {
                 ret.remove(Constants.VISIBLE_SCHOOL);
             }
         }
+        log.debug("returning " + ret.size() + " items " + ret.toString());
 
         return ret;
     }
