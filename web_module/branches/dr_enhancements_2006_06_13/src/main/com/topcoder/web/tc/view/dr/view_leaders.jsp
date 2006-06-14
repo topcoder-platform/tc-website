@@ -146,7 +146,7 @@ Design Cup Series Leaderboard<br>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
-      <td class="title" colspan="3">
+      <td class="title" colspan="8">
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
 Development Cup Series Leaderboard
 <% } else { %>
@@ -164,9 +164,9 @@ Design Cup Series Leaderboard
       <td class="headerR">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
       </td>
-      <td class="headerR">$ points</td>
-      <td class="headerR">$ placement</td>
-      <td class="headerR">$ total</td>
+      <td class="headerR">Points prize</td>
+      <td class="headerR">Placement prize</td>
+      <td class="headerR">Total prize</td>
       <td class="headerR">Top</td>
       <td class="headerR">trip</td>
    </tr>
@@ -177,9 +177,9 @@ Design Cup Series Leaderboard
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
 	      <td class="valueR">${boardRow.points}</td>
-	      <td class="valueR"><fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/></td>
-	      <td class="valueR"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></td>
-	      <td class="valueR"><fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/></td>
+	      <td class="valueR"><c:if test="${boardRow.pointsPrize>0}"><fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/></c:if></td>
+	      <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
+	      <td class="valueR"><c:if test="${boardRow.totalPrize>0}"><fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/></c:if></td>
 	      <td class="valueR">
 	      	<c:if test="${boardRow.topThird}">*</c:if>
 	      </td>
