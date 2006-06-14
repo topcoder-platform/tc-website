@@ -2,6 +2,7 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 import com.topcoder.web.reg.model.*;
@@ -56,7 +57,7 @@ public class Confirm extends Base {
     }
 
 
-    private void loadFieldsIntoUserObject(Set fields, Map params) {
+    private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
         User u = getRegUser();
 
         if (fields.contains(Constants.DEMOG_PREFIX)) {
@@ -210,6 +211,37 @@ public class Confirm extends Base {
                 cr.setOther((String) params.get(Constants.REFERRAL_OTHER));
             }
             u.getCoder().setCoderReferral(cr);
+        }
+
+        if ((fields.contains(Constants.COMPANY_NAME) || fields.contains(Constants.TITLE)) && u.getContact() == null) {
+            Contact c = new Contact();
+            u.setContact(c);
+            c.setUser(u);
+        }
+        if (fields.contains(Constants.COMPANY_NAME)) {
+            String name = (String) params.get(Constants.COMPANY_NAME);
+            if (u.getContact().isNew()) {
+                Company c = new Company();
+                c.setName(name);
+                c.setPrimaryContact(u.getContact());
+                u.getContact().setCompany(c);
+            } else {
+                if (u.getContact().getCompany() == null) {
+                    throw new TCWebException("Invalid state, user " + u.getId() + " missing company");
+                } else {
+                    //if they're changing their company, create a new company record
+                    if (!u.getContact().getCompany().getName().equals(name)) {
+                        Company c = new Company();
+                        c.setName(name);
+                        c.setPrimaryContact(u.getContact());
+                        u.getContact().setCompany(c);
+                    }
+                }
+            }
+        }
+
+        if (fields.contains(Constants.TITLE)) {
+            u.getContact().setTitle((String) params.get(Constants.TITLE));
         }
 
         setRegUser(u);
