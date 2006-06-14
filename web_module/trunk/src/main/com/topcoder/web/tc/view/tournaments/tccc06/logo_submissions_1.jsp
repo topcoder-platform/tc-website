@@ -65,7 +65,7 @@
 &#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_6">6</A>--%>
 </p>
 
-<table cellpadding="10" cellspacing="0" align="center" border="0">
+<table cellpadding="15" cellspacing="0" align="center" border="0">
 <tr><td>0130<br><img src="/i/tournament/tccc06/logo_submissions/0130.jpg" alt="" border="0" /></td></tr>   <%--10022398--%>
 <tr><td>0129<br><img src="/i/tournament/tccc06/logo_submissions/0129.jpg" alt="" border="0" /></td></tr>   <%--10022398--%>
 <tr><td>0128<br><img src="/i/tournament/tccc06/logo_submissions/0128.jpg" alt="" border="0" /></td></tr>   <%--14966002--%>
