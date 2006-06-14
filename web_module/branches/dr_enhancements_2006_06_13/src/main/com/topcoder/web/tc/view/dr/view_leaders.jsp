@@ -119,6 +119,7 @@ Design Cup Series Leaderboard<br>
                </rsc:iterator>
            </SELECT>
 
+<c:choose>
 <c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
@@ -168,7 +169,7 @@ at a time starting with
 <br><br>
 The selected stage is underway and results will start coming in soon.
 </c:otherwise>
-
+</c:choose>
    </div>
 </div>
        </TD>

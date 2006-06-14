@@ -117,7 +117,7 @@ Please select a <strong>season</strong><br>
  <% } %>
 </rsc:iterator>
 </SELECT>
-
+<c:choose>
 <c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
@@ -170,7 +170,7 @@ View &#160;
 <br><br>
 The selected season is underway and results will start coming in soon.
 </c:otherwise>
-
+</c:choose>
    </div>
 </div>
        </TD>
