@@ -1751,12 +1751,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(HANDLE)) {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
-                } else if (key.equals(STATUS_CODE)) {
-                    whereClauses.append(" AND pd.status_id = " + value);
+                } else if (key.equals(STATUS_CODE)) {	
+                	whereClauses.append(" AND pd.status_id IN (" + value + ")");
                 } else if (key.equals(TYPE_CODE)) {
-                    whereClauses.append(" AND pd.payment_type_id = " + value);
+                	whereClauses.append(" AND pd.p_id IN (" + value + ")");
                 } else if (key.equals(METHOD_CODE)) {
-                    whereClauses.append(" AND pm.payment_method_id = " + value);
+                	whereClauses.append(" AND pd.payment_method_id IN (" + value + ")");
                 } else if (key.equals(PROJECT_ID)) {
                     whereClauses.append(" AND pd.project_id = " + value);
                 } else if (key.equals(LOWEST_NET_AMOUNT)) {

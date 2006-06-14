@@ -226,10 +226,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(PAYMENT_CMD)) {
+                    	String[] statusValues = request.getParameterValues(STATUS_CODE);
+                    	String[] typeValues = request.getParameterValues(TYPE_CODE);
+                    	String[] methodValues = request.getParameterValues(METHOD_CODE);
+                    	
+                    	boolean checked = true;
+                    	for (int i=0; i<statusValues.length; i++) {
+                    		checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
+                    	}
+                    	for (int i=0; i<typeValues.length; i++) {
+                    		checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
+                    	}
+                    	for (int i=0; i<methodValues.length; i++) {
+                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
+                    	}
                         if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(METHOD_CODE), false, pp)
+                        		checked
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)

@@ -55,13 +55,13 @@ public class InternalDispatchPaymentList implements PactsConstants {
     public static final String EARLIEST_PAY_DATE = "earliest_pay_date";
     public static final String LATEST_PAY_DATE = "latest_pay_date";
 */
-
-        param = request.getParameter(STATUS_CODE);
-        if (param != null && !param.equals("")) query.put(STATUS_CODE, param);
-        param = request.getParameter(TYPE_CODE);
-        if (param != null && !param.equals("")) query.put(TYPE_CODE, param);
-        param = request.getParameter(METHOD_CODE);
-        if (param != null && !param.equals("")) query.put(METHOD_CODE, param);
+    	
+    	String statusValuesStr = createValuesStr(request.getParameterValues(STATUS_CODE));
+        if (!statusValuesStr.equals("")) query.put(STATUS_CODE, statusValuesStr);
+    	String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
+        if (!typeValuesStr.equals("")) query.put(TYPE_CODE, typeValuesStr);
+    	String methodValuesStr = createValuesStr(request.getParameterValues(METHOD_CODE));
+        if (!methodValuesStr.equals("")) query.put(METHOD_CODE, methodValuesStr);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);
@@ -102,6 +102,21 @@ public class InternalDispatchPaymentList implements PactsConstants {
         PaymentHeaderList phl = new PaymentHeaderList(results);
 
         return phl.getHeaderList();
+    }
+    
+    // Helper function generating a comma-separated list from an array of parameter values
+    private String createValuesStr(String[] values) {
+    	String valuesStr = "";
+    	for (int i=0; i<values.length; i++) {
+    		if (values[i].equals("")) {	// "Any" has been selected
+    			return "";
+    		}
+    		valuesStr += values[i];
+    		if (i < values.length-1) {
+    			valuesStr += ",";
+    		}
+    	}
+    	return valuesStr;
     }
 }
 

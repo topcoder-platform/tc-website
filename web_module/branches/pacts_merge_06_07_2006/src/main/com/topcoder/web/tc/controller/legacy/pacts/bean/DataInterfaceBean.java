@@ -525,7 +525,7 @@ public class DataInterfaceBean implements PactsConstants {
      * valid example of the specified input type.
      *
      * @param   input  The input in question.
-     * @param   inputType  Crtierion input type as specified in
+     * @param   inputType  Criterion input type as specified in
      * <tt>PactsConstants.java</tt>.  Currently integer, decimal,
      * boolean, and date inputs can be checked for compliance.
      * @return  Whether or not the given input is valid.
@@ -768,15 +768,15 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(AFFIDAVIT_ID) ||
                     key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
-                    key.equals(STATUS_CODE) ||
-                    key.equals(TYPE_CODE) || 
-                    key.equals(METHOD_CODE) ||
                     key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
                     key.equals(HIGHEST_NET_AMOUNT))
                 inputOk = validateInput(value, DECIMAL);
-            else if (key.equals(HANDLE))
+            else if (key.equals(STATUS_CODE) ||
+                    key.equals(TYPE_CODE) || 
+                    key.equals(METHOD_CODE) ||
+                    key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(IS_REVIEWED))
                 inputOk = validateInput(value, BOOLEAN);

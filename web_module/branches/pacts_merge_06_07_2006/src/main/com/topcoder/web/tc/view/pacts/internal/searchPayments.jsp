@@ -76,7 +76,7 @@
           </tr>
           <tr>
             <td>Status:</td>
-<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < statusRowCount; n++) {
       rsr = status.getRow(n);
@@ -86,7 +86,7 @@
           </tr>
           <tr>
             <td>Type:</td>
-<% out.println("            <td><select name=\""+PactsConstants.TYPE_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.TYPE_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < paymentTypeRowCount; n++) {
       rsr = paymentType.getRow(n);
@@ -96,7 +96,7 @@
           </tr>
           <tr>
             <td>Method:</td>
-<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < paymentMethodRowCount; n++) {
       rsr = paymentMethod.getRow(n);
