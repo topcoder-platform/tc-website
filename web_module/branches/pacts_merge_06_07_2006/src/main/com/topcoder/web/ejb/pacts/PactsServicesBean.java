@@ -1751,10 +1751,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(HANDLE)) {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
-                } else if (key.equals(STATUS_CODE)) {	
+                } else if (key.equals(STATUS_CODE)) {
                 	whereClauses.append(" AND pd.status_id IN (" + value + ")");
                 } else if (key.equals(TYPE_CODE)) {
-                	whereClauses.append(" AND pd.p_id IN (" + value + ")");
+                	whereClauses.append(" AND pd.payment_type_id IN (" + value + ")");
                 } else if (key.equals(METHOD_CODE)) {
                 	whereClauses.append(" AND pd.payment_method_id IN (" + value + ")");
                 } else if (key.equals(PROJECT_ID)) {
@@ -2281,41 +2281,44 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int usePercent = 0;
         boolean dataFound = false;
 
-        StringBuffer getUserWithholding = new StringBuffer(300);
-        getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
-        getUserWithholding.append("utf.use_percentage ");
-        getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
-        getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-        getUserWithholding.append("AND a.country_code = country.country_code ");
-        getUserWithholding.append("and a.address_id = x.address_id ");
-        getUserWithholding.append("and a.address_type_id = 2 ");
-        getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
-        ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
-        if (rsc.getRowCount() > 0) {
-            withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
-            withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
-            usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
-            dataFound = true;
-            log.debug("Got user withholding");
-        } else {
-            StringBuffer getWithholding = new StringBuffer(300);
-            getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
-            getWithholding.append("tf.use_percentage AS default_use_percentage ");
-            getWithholding.append("FROM tax_form tf, user_address_xref x, address a,  country ");
-            getWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
-            getWithholding.append("AND a.country_code = country.country_code ");
-            getWithholding.append("and x.address_id = a.address_id ");
-            getWithholding.append("and a.address_type_id = 2 ");
-            getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
-
-            rsc = runSelectQuery(c, getWithholding.toString(), false);
-            if (rsc.getRowCount() > 0) {
-                log.debug("Got country withholding");
-                withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
-                withholdPercent = TCData.getTCFloat(rsc.getRow(0), "default_withholding_percentage");
-                usePercent = TCData.getTCInt(rsc.getRow(0), "default_use_percentage");
-                dataFound = true;
-            }
+        if (p.getHeader().getTypeId() != COMPONENT_PAYMENT && 
+        		p.getHeader().getTypeId() != REVIEW_BOARD_PAYMENT) {        	
+	        StringBuffer getUserWithholding = new StringBuffer(300);
+	        getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
+	        getUserWithholding.append("utf.use_percentage ");
+	        getUserWithholding.append("FROM user_tax_form_xref utf, user_address_xref x, address a, country ");
+	        getUserWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+	        getUserWithholding.append("AND a.country_code = country.country_code ");
+	        getUserWithholding.append("and a.address_id = x.address_id ");
+	        getUserWithholding.append("and a.address_type_id = 2 ");
+	        getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
+	        ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString(), false);
+	        if (rsc.getRowCount() > 0) {
+	            withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
+	            withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
+	            usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
+	            dataFound = true;
+	            log.debug("Got user withholding");
+	        } else {
+	            StringBuffer getWithholding = new StringBuffer(300);
+	            getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
+	            getWithholding.append("tf.use_percentage AS default_use_percentage ");
+	            getWithholding.append("FROM tax_form tf, user_address_xref x, address a,  country ");
+	            getWithholding.append("WHERE x.user_id = " + p.getHeader().getUser().getId() + " ");
+	            getWithholding.append("AND a.country_code = country.country_code ");
+	            getWithholding.append("and x.address_id = a.address_id ");
+	            getWithholding.append("and a.address_type_id = 2 ");
+	            getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
+	
+	            rsc = runSelectQuery(c, getWithholding.toString(), false);
+	            if (rsc.getRowCount() > 0) {
+	                log.debug("Got country withholding");
+	                withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
+	                withholdPercent = TCData.getTCFloat(rsc.getRow(0), "default_withholding_percentage");
+	                usePercent = TCData.getTCInt(rsc.getRow(0), "default_use_percentage");
+	                dataFound = true;
+	            }
+	        }
         }
 
         // Calculate the amount
@@ -4494,17 +4497,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.setAutoCommit(false);
             }
             setLockTimeout(c);
-            
-            // Get list of users with taxforms
-            StringBuffer getUsers = new StringBuffer(300);
-            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-                    .append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
-                    .append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
-            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
-            HashSet userTaxFormSet = new HashSet();
-            for (i = 0; i < rscUser.getRowCount(); i++) {
-                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
-            }
 
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
@@ -4571,13 +4563,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             winners[1] = runSelectQuery(c, getReviewers.toString(), false);
             numWinners[1] = winners[1].getRowCount();
             
+            // Identify .NET/Java components
+            String techType = "";
+            StringBuffer getTechnologies = new StringBuffer(300);
+            getTechnologies.append("select p.project_id, tt.technology_name ");
+            getTechnologies.append("from tcs_catalog:comp_technology ct, tcs_catalog:project p, tcs_catalog:technology_types tt ");
+            getTechnologies.append("where p.comp_vers_id = ct.comp_vers_id ");
+            getTechnologies.append("and p.cur_version = 1 "); 
+            getTechnologies.append("and p.project_id = " + projectId + " "); 
+            getTechnologies.append("and ct.technology_type_id = tt.technology_type_id ");
+            getTechnologies.append("and technology_name IN ('.NET','Java')");
+            ResultSetContainer techRsc = runSelectQuery(c, getTechnologies.toString(), false);
+            if (techRsc.getRowCount() > 1) {
+                techType = "(.NET/Java) ";
+            } else if (techRsc.getRowCount() == 1) {
+                techType = "(" + techRsc.getItem(0, 1).toString() + ") ";	
+            }
+            
             for (int j = 0; j < numWinners.length; j++) {
 	            for (i = 0; i < numWinners[j]; i++) {
 	                long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
 	
 	                Payment p = new Payment();
 	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
-	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+	                p.setStatusId(PAYMENT_PENDING_STATUS);
 	                if (j == 0) {
 	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
 	                	p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
@@ -4588,12 +4597,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                	} else if (placed.equals("2")) {
 	                		placed = "2nd place";
 	                	}
-	                	String description = componentName + " winnings - " + projectType + ", " + placed;
+	                	String description = techType + componentName + " winnings - " + projectType + ", " + placed;
 	                	p.getHeader().setDescription(description);
 	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
 	                } else if (j == 1) {
 	                	String projectType = winners[j].getItem(i, 2).toString();
-	                	p.getHeader().setDescription(componentName + " - " + projectType + " review board");
+	                	String description = techType + componentName + " - " + projectType + " review board";
+	                	p.getHeader().setDescription(description);
 	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
 	                }
 	                p.setDueDate(dueDate);
