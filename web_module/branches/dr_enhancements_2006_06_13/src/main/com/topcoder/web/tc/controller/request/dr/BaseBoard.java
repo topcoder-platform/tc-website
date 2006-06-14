@@ -76,25 +76,6 @@ public abstract class BaseBoard extends BaseProcessor {
         }
         setDefault(period_id, period);
 
-        // Gets the rest of the optional parameters.
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-//        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-//        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-
-        // Normalizes optional parameters and sets defaults
-        if ("".equals(numRecords)) {
-            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
-        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
-            numRecords = String.valueOf(Constants.MAX_LEADERS);
-        }
-        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
-        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
-        }
-        setDefault(DataAccessConstants.START_RANK, startRank);
-
         // Prepare request for data retrieval
         Request r = new Request();
 /*        if (!(sortCol.equals("") || sortDir.equals(""))) {

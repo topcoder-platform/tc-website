@@ -4,10 +4,12 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -78,31 +80,55 @@ public class LeaderBoard extends BaseBoard {
             }
 
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
-                    row.getLongItem("user_id"),
-                    totalPoints,
-                    inTopThird, i <= 5, inTopThird ? totalPoints : 0,
+                    row.getLongItem("user_id"), row.getStringItem("handle_lower"),
+                    totalPoints, inTopThird, i <= 5, inTopThird ? totalPoints : 0,
                     i <= 5 ? placementPrize[i-1]: 0, 0));
             i++;
         }
 
         double prizePerPoint = 28000.0 / overallTopThirdPoints;
 
-        for (int j = 0; j < leaderBoardResult.size(); j++) {
-            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);
+        // sort
+
+        // crop
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+//        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+//        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        // Normalizes optional parameters and sets defaults
+        if ("".equals(numRecords)) {
+            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
+        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
+            numRecords = String.valueOf(Constants.MAX_LEADERS);
+        }
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
+
+        for (int j = 0; j < Integer.parseInt(numRecords); j++) {
+            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
+            resultBoard.add(leaderBoardRow);
         }
 
         log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
+        log.debug("resultBoard.size(): " + resultBoard.size());
         log.debug("topThirdAttempt: " + topThirdAttempt);
         log.debug("topThirdThreshold: " + topThirdThreshold);
         log.debug("totalPointsThreshold: " + totalPointsThreshold);
         log.debug("overallTopThirdPoints: " + overallTopThirdPoints);
         log.debug("prizePerPoint: " + prizePerPoint);
 
-        getRequest().setAttribute("testList", leaderBoardResult);
-        getRequest().setAttribute("croppedDataBefore", new Boolean(false));
-        getRequest().setAttribute("croppedDataAfter", new Boolean(true));
+        getRequest().setAttribute("testList", resultBoard);
+        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(leaderBoardResult.size() > Integer.parseInt(startRank) + resultBoard.size()));
 
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
