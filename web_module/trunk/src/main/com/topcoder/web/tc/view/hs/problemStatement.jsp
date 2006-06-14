@@ -25,62 +25,65 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-</script>
 </head>
+<%
+
+Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
+ResultSetContainer.ResultSetRow resultRow_0 = null;
+String sClassName = null;
+String sProblemText = null;
+Problem problem = null;
+int algoType = 1;
+if (rsc!=null && !rsc.isEmpty()) {
+  resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
+  sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
+  sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
+  algoType = resultRow_0!=null? resultRow_0.getIntItem("algo_rating_type_id") : 1;
+  // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
+  StringReader reader = new StringReader(sProblemText);
+  ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
+  arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+  problem = new Problem();
+  problem.setProblemComponents(arrProblemComponent);
+
+}
+
+
+%>
+
+<body>
+
+<jsp:include page="/top.jsp">
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+        <!-- Left Column Begins-->
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="<%= algoType == 2? "m_hs_stats" : "m_algo_stats"%>"/>
+            </jsp:include>
+            </td>
+            <!-- Left Column Ends -->
+
+            <!-- Center Column Begins -->
+        <td width="100%" align="left" class="bodyColumn">
+
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="statistics_w"/>
+                <jsp:param name="title" value="Problem Statement"/>
+            </jsp:include>
+
+
+        <span class="subtitle"><%= sClassName==null? "" : sClassName %> < /span>
+        <br> <br>
         <%
-        Map queryEntries = (Map) request.getAttribute("QUERY_RESPONSE");
-        ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
-        ResultSetContainer.ResultSetRow resultRow_0 = null;
-        String sClassName = null;
-        String sProblemText = null;
-        Problem problem = null;
-        int algoType = 1;
-        if (rsc!=null && !rsc.isEmpty()) {
-          resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
-          sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
-          sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
-          algoType = resultRow_0!=null? resultRow_0.getIntItem("algo_rating_type_id") : 1;
-          // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
-          StringReader reader = new StringReader(sProblemText);
-          ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
-          arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
-          problem = new Problem();
-          problem.setProblemComponents(arrProblemComponent);
-
-        }
-
-        %>
-
-        < body >
-
-        <jsp:include page="/top.jsp">
-        <jsp:param name="level1" value=""/>
-        </jsp:include>
-
-        < table width = "100%" border = "0" cellpadding = "0" cellspacing = "0" >
-        < tr valign = "top" >
-<!-- Left Column Begins-->
-        < td width = "180" >
-        <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="<%= algoType == 2? "m_hs_stats" : "m_algo_stats"%>"/>
-        </jsp:include>
-        < /td>
-<!-- Left Column Ends -->
-
-<!-- Center Column Begins -->
-        < td width = "100%" align = "left" class = "bodyColumn" >
-
-        <jsp:include page="/page_title.jsp" >
-        <jsp:param name="image" value="statistics_w"/>
-        <jsp:param name="title" value="Problem Statement"/>
-        </jsp:include>
-
-
-        < span class = "subtitle" ><%= sClassName==null? "" : sClassName %> < /span>
-        < br > < br >
-        <% if (problem!=null) {
+        if (problem!=null) {
         ProblemRenderer pr = new ProblemRenderer(problem);
-        pr.setTdClass("bodyIndented");%>
+        pr.setTdClass("bodyIndented");
+        %>
         <%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
         <% } else { %>
                        Problem Statement not available.
@@ -90,21 +93,21 @@
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-        < td width = "170" >
-        <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="default"/>
-        </jsp:include>
-        < /td>
-<!-- Right Column Ends -->
+        <td width="170">
+            <jsp:include page="/public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+            </td>
+            <!-- Right Column Ends -->
 
-<!-- Gutter -->
-        < td width = "10" > < img src = "/i/clear.gif" width = "10" height = "1" border = "0" > < /td>
-<!-- Gutter Ends -->
-        < /tr>
-        < /table>
+            <!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"> </td>
+            <!-- Gutter Ends -->
+            </tr>
+            </table>
 
-        <jsp:include page="/foot.jsp"/>
+            <jsp:include page="/foot.jsp"/>
 
-        < /body>
+            </body>
 
-        < /html>
+            </html>
