@@ -63,7 +63,7 @@
     </div>
 </div>
 
-<div style="width:400px;">
+<div style="width:400px; margin-right: 200px;">
     <strong>Is this information correct?</strong>
     <br><br>
     <span class="bigRed">NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.</span>
@@ -73,7 +73,7 @@
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 
-<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields" style="width:400px; margin-right: 200px;">
 
 
 <tr>

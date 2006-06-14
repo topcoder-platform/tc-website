@@ -56,7 +56,7 @@
     </div>
 </div>
 
-<div style="width:400px;">
+<div style="width:400px; margin-right: 200px;">
     <c:choose>
         <c:when test="${regUser.new}">
             <strong>Registration successful!</strong>
@@ -78,7 +78,7 @@
 <c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
 <c:if test="${cf:contains(requestScope[regTypes], competition)}">
     <div class="regHead">As a Registered Competitor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
                 <A href="/tc"><img src="/i/registration/competitor_howto.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
@@ -106,7 +106,7 @@
 <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="hs"/>
 <c:if test="${cf:contains(requestScope[regTypes], hs)}">
     <div class="regHead">As a Registered High School Competitor</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
                 <A href="/tc?module=Static&d1=hs&d2=support&d3=index"><img src="/i/registration/hs_howto.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
@@ -131,7 +131,7 @@
 <c:set value="<%=RegistrationType.SOFTWARE_ID%>" var="tcs"/>
 <c:if test="${cf:contains(requestScope[regTypes], tcs)}">
     <div class="regHead">As a Registered TopCoder Software Customer</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
                 <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/"><img src="/i/registration/tcs_info.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
@@ -151,7 +151,7 @@
 <c:set value="<%=RegistrationType.CORPORATE_ID%>" var="corp"/>
 <c:if test="${cf:contains(requestScope[regTypes], corp)}">
     <div class="regHead">As a Registered Corporate Services Member</div>
-    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
         <tr>
             <td class="image">
                 <A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
@@ -168,7 +168,7 @@
 </c:if>
 
 <div class="regHead">As a Registered TopCoder Member</div>
-<table cellpadding="0" cellspacing="0" border="0" class="whatToDo" width="400">
+<table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
     <tr>
         <td class="image">
             <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/minimal.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
