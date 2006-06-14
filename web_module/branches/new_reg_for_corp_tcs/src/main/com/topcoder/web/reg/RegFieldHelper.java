@@ -111,8 +111,12 @@ public class RegFieldHelper {
         secondaryCompProFields.add(Constants.REFERRAL);
         secondaryCompProFields.add(Constants.REFERRAL_CODER);
         secondaryCompProFields.add(Constants.REFERRAL_OTHER);
+        secondaryCompProFields.add(Constants.TITLE);
+        secondaryCompProFields.add(Constants.COMPANY_NAME);
 
         requiredSecondaryCompProFields.add(Constants.REFERRAL);
+        requiredSecondaryCompProFields.add(Constants.TITLE);
+        requiredSecondaryCompProFields.add(Constants.COMPANY_NAME);
     }
 
 
@@ -403,6 +407,8 @@ public class RegFieldHelper {
         RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
+        RegistrationType corp = dao.getCorporateType();
+        RegistrationType tcs = dao.getSoftwareType();
         RegistrationType curr;
         CoderType ct;
         for (Iterator it = allRegTypes.iterator(); it.hasNext();) {
@@ -421,6 +427,12 @@ public class RegFieldHelper {
                             ret.remove(Constants.REFERRAL);
                             ret.remove(Constants.REFERRAL_CODER);
                             ret.remove(Constants.REFERRAL_OTHER);
+                        }
+                        if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                            //remove these because if they are registering for competitions as a pro
+                            //and they are corporate, they answered these questions on the first page already
+                            ret.remove(Constants.COMPANY_NAME);
+                            ret.remove(Constants.TITLE);
                         }
                     } else
                     if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
@@ -476,6 +488,12 @@ public class RegFieldHelper {
                                 ret.addAll(requiredSecondaryCompProFields);
                             } else {
                                 ret.addAll(secondaryCompProFields);
+                            }
+                            if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                                //remove these because if they are registering for competitions as a pro
+                                //and they are corporate, they answered these questions on the first page already
+                                ret.remove(Constants.COMPANY_NAME);
+                                ret.remove(Constants.TITLE);
                             }
                         } else if (ct.getId().equals(CoderType.STUDENT)) {
                             if (required) {

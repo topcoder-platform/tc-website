@@ -165,6 +165,41 @@
     </rt:questionIterator>
 </c:if>
 
+<c:set value="<%=Constants.TITLE%>" var="title"/>
+<c:if test="${cf:contains(fields, title)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br></tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, title)}">*</c:if> Title:
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
+<c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
+<c:if test="${cf:contains(fields, companyName)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, companyName)}">*</c:if> Company:
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="15" maxlength="<%=Constants.MAX_COMPANY_NAME_LENGTH%>" editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
 
 <c:if test="${cf:contains(fields, schoolName)}">
     <tr>
