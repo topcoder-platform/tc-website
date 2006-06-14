@@ -14,7 +14,6 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer leaderBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
   ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
 %>
@@ -121,11 +120,7 @@ Design Cup Series Leaderboard<br>
 
 <% if(!leaderBoard.isEmpty()) { %>
 
-<div class="pagingBox" style="width:300px;">
-<%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-</div>
-
+<!-- crop -->
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
@@ -149,27 +144,15 @@ Design Cup Series Leaderboard
       </td>
    </tr>
 
-   TestList: <c:out value='${testList}'/>
-   TestList: <c:out value='${testList[1].rank}'/>
-
+   <%boolean even = false;%>
    <c:forEach items="${testList}" var="boardRow">
-   		Hello!!
-	   <tr class="dark">
+	   <tr class="<%=even?"dark":"light"%>">
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
 	      <td class="valueR">${boardRow.points}</td>
 	   </tr>
+	   <%even=!even;%>
    </c:forEach>
-
-   <%boolean even = false;%>
-   <rsc:iterator list="<%=leaderBoard%>" id="resultRow">
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-      <td class="value" width="100%"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' /></td>
-      <td class="valueR"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
-   </tr>
-   <%even=!even;%>
-   </rsc:iterator>
 </table>
 
 <div class="pagingBox" style="width:300px;">

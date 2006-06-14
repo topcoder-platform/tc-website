@@ -13,9 +13,11 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;;
 
 /**
  * <strong>Purpose</strong>:
@@ -47,16 +49,23 @@ public class LeaderBoard extends BaseBoard {
         log.debug("Got " +  stages.size() + " rows for stages");
         getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
 
-        List leaderBoardResult = new ArrayList();
-        leaderBoardResult.add(new LeaderBoardRow(1, 7548200, 1000, true, true, 10, 20, 30));
-        leaderBoardResult.add(new LeaderBoardRow(2, 11770376, 900, true, true, 5, 10, 13));
-        leaderBoardResult.add(new LeaderBoardRow(3, 8544935, 800, true, true, 1, 2, 3));
-        log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
+        log.debug("Getting Leader board coders...");
+        ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
+        List leaderBoardResult = new ArrayList(rsc.size());
+        ResultSetRow row = null;
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            row = (ResultSetRow) it.next();
+            leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
+                    row.getLongItem("user_id"),
+                    row.getLongItem("total_points"),
+                    true, true, 10, 20, 30));
+        }
+        log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
         getRequest().setAttribute("testList", leaderBoardResult);
 
-        log.debug("Getting Leader board coders...");
-        businessProcessing(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY,
-            Constants.VIEW_LEADER_BOARD_PAGE);
+        setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
+        setIsNextPageInContext(true);
+
     }
 }

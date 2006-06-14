@@ -13,7 +13,6 @@
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer rookieBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   ResultSetContainer seasons = (ResultSetContainer) request.getAttribute(Constants.SEASON_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
 %>
@@ -120,10 +119,7 @@ Please select a <strong>season</strong><br>
 
 <% if(!rookieBoard.isEmpty()) { %>
 
-<div class="pagingBox">
-<%=(rookieBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(rookieBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
-</div>
+<!-- crop -->
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
@@ -146,17 +142,16 @@ Design Cup Series Rookie of the Year Leaderboard
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
       </td>
    </tr>
+
    <%boolean even = false;%>
-   <rsc:iterator list="<%=rookieBoard%>" id="resultRow">
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-      <td class="value" width="100%">
-         <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' />
-         <%if (resultRow.getLongItem("confirmed_ind")== 0) {%>*<%}%></td>
-      <td class="valueR"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
-   </tr>
-   <%even=!even;%>
-   </rsc:iterator>
+   <c:forEach items="${testList}" var="boardRow">
+	   <tr class="<%=even?"dark":"light"%>">
+	      <td class="valueC">${boardRow.rank}</td>
+	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
+	      <td class="valueR">${boardRow.points}</td>
+	   </tr>
+	   <%even=!even;%>
+   </c:forEach>
 </table>
 
 <span class="small">* has not yet passed review enough times this season to qualify as a rookie</span>

@@ -22,7 +22,7 @@ import com.topcoder.web.common.model.SoftwareComponent;
 /**
  * <strong>Purpose</strong>:
  * A processor to retrieve dr coders board.
- * 
+ *
  * @author pulky
  * @version 1.0
  */
@@ -49,24 +49,24 @@ public abstract class BaseBoard extends BaseProcessor {
         ResultSetContainer currentPeriod = (ResultSetContainer)m.get(Constants.CURRENT_PERIOD_QUERY);
         return (String.valueOf(currentPeriod.getLongItem(0, period_id)));
     }
-     
+
     /**
      * Process the dr coders board request.
      * Retrieves coders list for development or design for a particular period.
      */
-    protected void businessProcessing(String period_id, String command, String query, String nextpage) throws Exception {
+    protected ResultSetContainer retrieveBoardData(String period_id, String command, String query) throws Exception {
         // Phase ID is required.
         if (!hasParameter(Constants.PHASE_ID)) {
             throw new TCWebException("parameter " + period_id + " expected.");
         }
 
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) && 
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
             !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
-        
+
         // if period is not available, get current one from DB.
         String period = null;
         if (!hasParameter(period_id)) {
@@ -74,13 +74,13 @@ public abstract class BaseBoard extends BaseProcessor {
         } else {
             period = getRequest().getParameter(period_id);
         }
-        setDefault(period_id, period);   
+        setDefault(period_id, period);
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+//        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+//        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
         // Normalizes optional parameters and sets defaults
         if ("".equals(numRecords)) {
@@ -93,17 +93,17 @@ public abstract class BaseBoard extends BaseProcessor {
         if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
             startRank = "1";
         }
-        setDefault(DataAccessConstants.START_RANK, startRank);   
+        setDefault(DataAccessConstants.START_RANK, startRank);
 
         // Prepare request for data retrieval
         Request r = new Request();
-        if (!(sortCol.equals("") || sortDir.equals(""))) {
+/*        if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, query);            
-            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);   
-            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);   
-        }
+            r.setProperty(DataAccessConstants.SORT_QUERY, query);
+            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
+            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
+        }*/
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(period_id, period);
         r.setContentHandle(command);
@@ -115,16 +115,18 @@ public abstract class BaseBoard extends BaseProcessor {
         log.debug("Got " +  board.size() + " rows for board");
 
         // crops data
-        ResultSetContainer rsc = new ResultSetContainer(board, Integer.parseInt(startRank), 
-            Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1);
-        
+        /*ResultSetContainer rsc = new ResultSetContainer(board, Integer.parseInt(startRank),
+            Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1);*/
+
         // sets attributes for the jsp
-        getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
-        getRequest().setAttribute(Constants.TYPE_KEY, 
-            (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ? 
+        //getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
+        getRequest().setAttribute(Constants.TYPE_KEY,
+            (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
-        
-        setNextPage(nextpage);
-        setIsNextPageInContext(true);
+
+        /*setNextPage(nextpage);
+        setIsNextPageInContext(true);*/
+
+        return board;
     }
 }
