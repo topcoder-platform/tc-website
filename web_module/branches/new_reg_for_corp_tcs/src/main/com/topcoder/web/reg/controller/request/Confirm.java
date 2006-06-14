@@ -36,8 +36,9 @@ public class Confirm extends Base {
                     setDefault((String) me.getKey(), me.getValue());
                 }
                 getRequest().setAttribute(Constants.FIELDS, fields);
-                getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                        RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
+                Set required = RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u);
+                log.debug("we have the required fields " + required);
+                getRequest().setAttribute(Constants.REQUIRED_FIELDS, required);
                 getRequest().setAttribute("demographicAssignments", getAssignments(u));
                 getRequest().setAttribute("referrals", getReferrals(u));
                 setNextPage("/secondary.jsp");
