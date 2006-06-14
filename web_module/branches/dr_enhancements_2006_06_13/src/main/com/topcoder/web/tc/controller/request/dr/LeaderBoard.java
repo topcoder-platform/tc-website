@@ -56,6 +56,10 @@ public class LeaderBoard extends BaseBoard {
 
         List leaderBoardResult = new ArrayList(rsc.size());
 
+        log.debug("14 / 3: " + 14 / 3);
+        log.debug("Math.ceil(14 / 3): " + Math.ceil(14 / 3));
+        log.debug("Math.round(Math.ceil(14 / 3)): " + Math.round(Math.ceil(14 / 3)));
+
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3));
         long topThirdThreshold = topThirdAttempt;
         long totalPoints = 0;
@@ -85,7 +89,7 @@ public class LeaderBoard extends BaseBoard {
             i++;
         }
 
-        double prizePerPoint = overallTopThirdPoints / topThirdThreshold;
+        double prizePerPoint = 28000 / overallTopThirdPoints;
 
         for (int j = 0; j < leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);

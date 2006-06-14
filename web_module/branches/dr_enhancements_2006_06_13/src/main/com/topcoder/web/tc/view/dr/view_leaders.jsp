@@ -123,6 +123,25 @@ Design Cup Series Leaderboard<br>
 <c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
+<div class="pagingBox" style="width:300px;">
+	<c:choose>
+	    <c:when test="${croppedDataBefore}">
+			<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>
+		</c:when>
+		<c:otherwise>
+			&lt;&lt; prev
+		</c:otherwise>
+	</c:choose>
+	|
+	<c:choose>
+	    <c:when test="${croppedDataBefore}">
+			<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>
+		</c:when>
+		<c:otherwise>
+			next &gt;&gt;
+		</c:otherwise>
+	</c:choose>
+</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
