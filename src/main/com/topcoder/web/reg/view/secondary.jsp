@@ -157,7 +157,7 @@
     <tc-webtag:hiddenInput name="${schoolType}"/>
 </c:if>
 
-<table cellpadding="0" cellspacing="0" border="0" class="regFields" width="400">
+<table cellpadding="0" cellspacing="0" border="0" class="regFields" style="width:400px; margin-right: 200px;">
 <tbody>
 
 
