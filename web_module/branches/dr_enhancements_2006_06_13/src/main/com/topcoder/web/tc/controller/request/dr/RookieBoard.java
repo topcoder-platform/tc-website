@@ -58,7 +58,7 @@ public class RookieBoard extends BaseBoard {
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
-                    row.getLongItem("user_id"),
+                    row.getLongItem("user_id"), row.getStringItem("handle_lower"),
                     row.getLongItem("total_points"),
                     true, true, 10, 20, 30));
         }
