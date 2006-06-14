@@ -111,7 +111,7 @@ public class LeaderBoard extends BaseBoard {
 
         List resultBoard = new ArrayList(Integer.parseInt(numRecords));
 
-        for (int j = 0; j < Integer.parseInt(numRecords); j++) {
+        for (int j = 0; j < Integer.parseInt(numRecords) && j < leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
