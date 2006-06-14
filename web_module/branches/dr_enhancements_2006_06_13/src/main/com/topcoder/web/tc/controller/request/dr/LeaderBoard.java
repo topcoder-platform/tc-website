@@ -56,8 +56,10 @@ public class LeaderBoard extends BaseBoard {
 
         List leaderBoardResult = new ArrayList(rsc.size());
 
-        log.debug("14 / 3: " + (new Double(14 / 3)).doubleValue());
-        log.debug("Math.ceil(14 / 3): " + Math.ceil((new Double(14 / 3)).doubleValue()));
+        log.debug("14 / 3: " + 14.0 / 3.0);
+        log.debug("14 / 3: " + 14 / 3.0);
+        log.debug("Math.ceil(14 / 3): " + Math.ceil(14.0 / 3.0));
+        log.debug("Math.ceil(14 / 3): " + Math.ceil(14 / 3.0));
         log.debug("Math.round(Math.ceil(14 / 3)): " + Math.round(Math.ceil(14 / 3)));
 
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3));
