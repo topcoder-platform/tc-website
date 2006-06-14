@@ -9,6 +9,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -180,9 +181,9 @@ Design Cup Series Leaderboard
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
 	      <td class="valueR">${boardRow.points}</td>
-	      <td class="valueR">${boardRow.pointsPrize}</td>
-	      <td class="valueR">${boardRow.placementPrize}</td>
-	      <td class="valueR">${boardRow.totalPrize}</td>
+	      <td class="valueR"><fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/></td>
+	      <td class="valueR"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></td>
+	      <td class="valueR"><fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/></td>
 	   </tr>
 	   <%even=!even;%>
    </c:forEach>
