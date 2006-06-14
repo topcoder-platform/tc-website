@@ -169,7 +169,7 @@
 <c:if test="${cf:contains(fields, title)}">
     <tr>
         <td colspan="2"><span class="bigRed">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.TITLE%>"><%=err%><br></tc-webtag:errorIterator></span>
+        <tc-webtag:errorIterator id="err" name="${title}">${err}<br></tc-webtag:errorIterator></span>
         </td>
     </tr>
     <tr>
@@ -177,7 +177,7 @@
             <c:if test="${cf:contains(reqFields, title)}">*</c:if> Title:
         </td>
         <td class="value">
-            <tc-webtag:textInput name="<%=Constants.TITLE%>" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
+            <tc-webtag:textInput name="${title}" size="15" maxlength="<%=Constants.MAX_TITLE_LENGTH%>" editable="true"/>
         </td>
     </tr>
 </c:if>
