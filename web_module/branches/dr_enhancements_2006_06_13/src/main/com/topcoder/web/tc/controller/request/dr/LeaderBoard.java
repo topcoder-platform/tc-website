@@ -33,6 +33,8 @@ public class LeaderBoard extends BaseBoard {
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
 
+    private static final double[] placementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+
     /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
@@ -53,16 +55,54 @@ public class LeaderBoard extends BaseBoard {
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
         List leaderBoardResult = new ArrayList(rsc.size());
+
+        long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3));
+        long topThirdThreshold = topThirdAttempt;
+        long totalPoints = 0;
+        long totalPointsThreshold = -1;
+        long overallTopThirdPoints = 0;
         ResultSetRow row = null;
+        int i = 1;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
+            totalPoints = row.getLongItem("total_points");
+
+            if (i == topThirdAttempt) {
+                totalPointsThreshold = totalPoints;
+            }
+            boolean inTopThird = false;
+            if (i <= topThirdAttempt || totalPoints == totalPointsThreshold) {
+                inTopThird = true;
+                topThirdThreshold = i;
+                overallTopThirdPoints += totalPoints;
+            }
+
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
                     row.getLongItem("user_id"),
-                    row.getLongItem("total_points"),
-                    true, true, 10, 20, 30));
+                    totalPoints,
+                    inTopThird, i <= 5, inTopThird ? totalPoints : 0,
+                    i <= 5 ? placementPrize[i-1]: 0, 0));
+            i++;
         }
+
+        double prizePerPoint = overallTopThirdPoints / topThirdThreshold;
+
+        for (int j = 0; j < leaderBoardResult.size(); j++) {
+            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);
+            leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
+            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
+        }
+
         log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
+        log.debug("topThirdAttempt: " + topThirdAttempt);
+        log.debug("topThirdThreshold: " + topThirdThreshold);
+        log.debug("totalPointsThreshold: " + totalPointsThreshold);
+        log.debug("overallTopThirdPoints: " + overallTopThirdPoints);
+        log.debug("prizePerPoint: " + prizePerPoint);
+
         getRequest().setAttribute("testList", leaderBoardResult);
+        getRequest().setAttribute("croppedDataBefore", new Boolean(false));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(true));
 
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);

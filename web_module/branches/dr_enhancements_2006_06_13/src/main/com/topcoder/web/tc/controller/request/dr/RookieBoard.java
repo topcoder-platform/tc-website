@@ -64,6 +64,8 @@ public class RookieBoard extends BaseBoard {
         }
         log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
         getRequest().setAttribute("testList", leaderBoardResult);
+        getRequest().setAttribute("croppedDataBefore", new Boolean(false));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(true));
 
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);

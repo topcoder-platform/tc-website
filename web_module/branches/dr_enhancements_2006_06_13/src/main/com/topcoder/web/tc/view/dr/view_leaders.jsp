@@ -144,6 +144,15 @@ Design Cup Series Leaderboard
       <td class="headerR">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
       </td>
+      <td class="headerR">
+         $ points
+      </td>
+      <td class="headerR">
+         $ placement
+      </td>
+      <td class="headerR">
+         $ total
+      </td>
    </tr>
 
    <%boolean even = false;%>
@@ -152,6 +161,9 @@ Design Cup Series Leaderboard
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
 	      <td class="valueR">${boardRow.points}</td>
+	      <td class="valueR">${boardRow.pointsPrize}</td>
+	      <td class="valueR">${boardRow.placementPrize}</td>
+	      <td class="valueR">${boardRow.totalPrize}</td>
 	   </tr>
 	   <%even=!even;%>
    </c:forEach>
