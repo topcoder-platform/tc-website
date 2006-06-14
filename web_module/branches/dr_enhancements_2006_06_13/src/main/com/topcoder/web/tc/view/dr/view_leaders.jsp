@@ -164,15 +164,11 @@ Design Cup Series Leaderboard
       <td class="headerR">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
       </td>
-      <td class="headerR">
-         $ points
-      </td>
-      <td class="headerR">
-         $ placement
-      </td>
-      <td class="headerR">
-         $ total
-      </td>
+      <td class="headerR">$ points</td>
+      <td class="headerR">$ placement</td>
+      <td class="headerR">$ total</td>
+      <td class="headerR">Top</td>
+      <td class="headerR">trip</td>
    </tr>
 
    <%boolean even = false;%>
@@ -184,6 +180,12 @@ Design Cup Series Leaderboard
 	      <td class="valueR"><fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/></td>
 	      <td class="valueR"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></td>
 	      <td class="valueR"><fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/></td>
+	      <td class="valueR">
+	      	<c:if test="${boardRow.topThird}">*</c:if>
+	      </td>
+	      <td class="valueR">
+	      	<c:if test="${boardRow.winTrip}">*</c:if>
+	      </td>
 	   </tr>
 	   <%even=!even;%>
    </c:forEach>
