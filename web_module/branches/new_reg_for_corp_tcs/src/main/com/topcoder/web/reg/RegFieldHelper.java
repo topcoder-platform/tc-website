@@ -79,6 +79,7 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.EMAIL_CONFIRM);
         requiredMainCompFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainCompFields.add(Constants.CODER_TYPE);
+        requiredMainCompFields.add(Constants.TIMEZONE);
 
         secondaryCompStudentFields.add(Constants.DEMOG_PREFIX);
         secondaryCompStudentFields.add(Constants.RESUME);
