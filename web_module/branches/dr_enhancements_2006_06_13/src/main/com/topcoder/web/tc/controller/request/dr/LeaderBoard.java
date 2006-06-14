@@ -85,7 +85,7 @@ public class LeaderBoard extends BaseBoard {
             i++;
         }
 
-        double prizePerPoint = 28000 / overallTopThirdPoints;
+        double prizePerPoint = 28000.0 / overallTopThirdPoints;
 
         for (int j = 0; j < leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);
