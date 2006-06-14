@@ -8,6 +8,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -118,7 +119,7 @@ Design Cup Series Leaderboard<br>
                </rsc:iterator>
            </SELECT>
 
-<% if(!leaderBoard.isEmpty()) { %>
+<c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
 
@@ -162,10 +163,11 @@ at a time starting with
 <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
 
-<% } else { %>
+ </c:when>
+<c:otherwise>
 <br><br>
 The selected stage is underway and results will start coming in soon.
-<% } %>
+</c:otherwise>
 
    </div>
 </div>

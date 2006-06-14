@@ -7,6 +7,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -117,7 +118,7 @@ Please select a <strong>season</strong><br>
 </rsc:iterator>
 </SELECT>
 
-<% if(!rookieBoard.isEmpty()) { %>
+<c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
 
@@ -164,10 +165,11 @@ View &#160;
 <a href="javascript:document.rookieBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
 </div>
 
-<% } else { %>
+ </c:when>
+<c:otherwise>
 <br><br>
 The selected season is underway and results will start coming in soon.
-<% } %>
+</c:otherwise>
 
    </div>
 </div>
