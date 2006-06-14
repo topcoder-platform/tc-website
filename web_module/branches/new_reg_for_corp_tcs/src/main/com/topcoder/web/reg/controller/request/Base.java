@@ -130,9 +130,9 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
-        ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
         ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
+        ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
         ret.put(Constants.PHONE_NUMBER, getTrimmedParameter(Constants.PHONE_NUMBER));
         ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
@@ -173,7 +173,6 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(Address2Validator.class, fields, params, Constants.ADDRESS2);
         simpleValidation(Address3Validator.class, fields, params, Constants.ADDRESS3);
         simpleValidation(CityValidator.class, fields, params, Constants.CITY);
-        simpleValidation(CompanyNameValidator.class, fields, params, Constants.COMPANY_NAME);
         simpleValidation(EmailValidator.class, fields, params, Constants.EMAIL);
         simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
         simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
@@ -183,6 +182,7 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
         simpleValidation(SurnameValidator.class, fields, params, Constants.SURNAME);
         simpleValidation(TitleValidator.class, fields, params, Constants.TITLE);
+        simpleValidation(CompanyNameValidator.class, fields, params, Constants.COMPANY_NAME);
         simpleValidation(CountryValidator.class, fields, params, Constants.COUNTRY_CODE);
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
@@ -287,6 +287,12 @@ abstract class Base extends HibernateProcessor {
         for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
+        if (u.getContact() != null) {
+            setDefault(Constants.TITLE, u.getContact().getTitle());
+            if (u.getContact().getCompany() != null) {
+                setDefault(Constants.COMPANY_NAME, u.getContact().getCompany().getName());
+            }
+        }
 
     }
 
@@ -317,6 +323,8 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.VISIBLE_SCHOOL, getTrimmedParameter(Constants.VISIBLE_SCHOOL));
         ret.put(Constants.GPA_SCALE, getTrimmedParameter(Constants.GPA_SCALE));
         ret.put(Constants.GPA, getTrimmedParameter(Constants.GPA));
+        ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
+        ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
 
 
         if (getRequest() instanceof MultipartRequest) {
@@ -455,6 +463,12 @@ abstract class Base extends HibernateProcessor {
             }
         }
 
+        if (fields.contains(Constants.COMPANY_NAME)) {
+            simpleValidation(CompanyNameValidator.class, fields, params, Constants.COMPANY_NAME);
+        }
+        if (fields.contains(Constants.TITLE)) {
+            simpleValidation(TitleValidator.class, fields, params, Constants.TITLE);
+        }
     }
 
 
@@ -567,14 +581,21 @@ abstract class Base extends HibernateProcessor {
             setDefault(Constants.FILE_NAME, ((Resume) it.next()).getFileName());
         }
 
-        if (u.isNew() && u.getCoder() != null && u.getCoder().getCoderReferral() != null && u.getCoder().getCoderReferral().getReferral() != null)
-        {
+        if (u.isNew() && u.getCoder() != null &&
+                u.getCoder().getCoderReferral() != null &&
+                u.getCoder().getCoderReferral().getReferral() != null) {
             setDefault(Constants.REFERRAL, u.getCoder().getCoderReferral().getReferral().getId());
             if (u.getCoder().getCoderReferral().getReferenceCoder() != null) {
                 setDefault(Constants.REFERRAL_CODER,
                         getFactory().getUserDAO().find(u.getCoder().getCoderReferral().getReferenceCoder().getId()).getHandle());
             }
             setDefault(Constants.REFERRAL_OTHER, u.getCoder().getCoderReferral().getOther());
+        }
+        if (u.getContact() != null) {
+            setDefault(Constants.TITLE, u.getContact().getTitle());
+            if (u.getContact().getCompany() != null) {
+                setDefault(Constants.COMPANY_NAME, u.getContact().getCompany().getName());
+            }
         }
 
 
