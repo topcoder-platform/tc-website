@@ -7,6 +7,7 @@ package com.topcoder.web.tc.controller.request.dr;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
+import com.topcoder.web.tc.model.dr.LeaderBoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -15,6 +16,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +81,17 @@ public class LeaderBoard extends BaseBoard {
                 overallTopThirdPoints += totalPoints;
             }
 
-            leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
+            long period = 0;
+            if (!hasParameter(Constants.STAGE_ID)) {
+                period = new Long(getCurrentPeriod(Constants.STAGE_ID)).longValue();
+            } else {
+                period = new Long(getRequest().getParameter(Constants.STAGE_ID)).longValue();
+            }
+
+            long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
+
+            leaderBoardResult.add(new LeaderBoardRow(period, phase,
+                    row.getLongItem("rank"),
                     row.getLongItem("user_id"), row.getStringItem("handle_lower"),
                     totalPoints, inTopThird, i <= 5, inTopThird ? totalPoints : 0,
                     i <= 5 ? placementPrize[i-1]: 0, 0));
@@ -87,6 +99,8 @@ public class LeaderBoard extends BaseBoard {
         }
 
         double prizePerPoint = 28000.0 / overallTopThirdPoints;
+
+        tieBreak(leaderBoardResult);
 
         // sort
 
@@ -136,5 +150,33 @@ public class LeaderBoard extends BaseBoard {
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
 
+    }
+
+    private void tieBreak(List leaderBoardResult) {
+        int prizes = 0;
+        List coderTie = new ArrayList();
+        long prevPoints = ((LeaderBoardRow)leaderBoardResult.get(0)).getPoints();
+        for (int i = 1; i < leaderBoardResult.size() && prizes < 5; i++) {
+            LeaderBoardRow leaderBoardRow = (LeaderBoardRow)leaderBoardResult.get(i);
+            if (prevPoints == (leaderBoardRow).getPoints()) {
+                coderTie.add(leaderBoardRow);
+            } else {
+                if (prizes == 0) {
+                    coderTie.add((LeaderBoardRow)leaderBoardResult.get(0));
+                }
+                prizes += 1 + coderTie.size();
+
+                log.debug("Sorting...");
+                for (int j = 0; j < coderTie.size(); j++)
+                    log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(i)).getUserName());
+                Arrays.sort(coderTie.toArray(), new LeaderBoardRowComparator());
+                log.debug("Sort result...");
+                for (int j = 0; j < coderTie.size(); j++)
+                    log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(i)).getUserName());
+
+                coderTie.clear();
+            }
+            prevPoints = leaderBoardRow.getPoints();
+        }
     }
 }

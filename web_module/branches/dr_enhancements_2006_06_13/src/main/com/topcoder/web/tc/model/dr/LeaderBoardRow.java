@@ -4,6 +4,8 @@ import com.topcoder.web.common.model.Base;
 
 public class LeaderBoardRow extends Base {
 
+    private long stage;
+    private long phase;
     private long rank;
     private long userId;
     private String userName;
@@ -34,10 +36,12 @@ public class LeaderBoardRow extends Base {
      * @param placementPrize The placementPrize to set.
      * @param totalPrize The totalPrize to set.
      */
-    public LeaderBoardRow(long rank, long userId, String userName, long points,
+    public LeaderBoardRow(long stage, long phase, long rank, long userId, String userName, long points,
         boolean topThird, boolean winTrip, double pointsPrize,
         double placementPrize, double totalPrize) {
         super();
+        this.stage = stage;
+        this.phase = phase;
         this.rank = rank;
         this.userId = userId;
         this.points = points;
@@ -46,6 +50,34 @@ public class LeaderBoardRow extends Base {
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
         this.totalPrize = totalPrize;
+    }
+
+    /**
+     * @return Returns the phase.
+     */
+    public long getPhase() {
+        return phase;
+    }
+
+    /**
+     * @param phase The phase to set.
+     */
+    public void setPhase(long phase) {
+        this.phase = phase;
+    }
+
+    /**
+     * @return Returns the stage.
+     */
+    public long getStage() {
+        return stage;
+    }
+
+    /**
+     * @param stage The stage to set.
+     */
+    public void setStage(long stage) {
+        this.stage = stage;
     }
 
     /**

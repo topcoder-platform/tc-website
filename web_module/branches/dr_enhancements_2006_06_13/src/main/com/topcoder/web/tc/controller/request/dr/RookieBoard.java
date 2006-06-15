@@ -53,11 +53,20 @@ public class RookieBoard extends BaseBoard {
         ResultSetContainer rsc = retrieveBoardData(Constants.SEASON_ID, Constants.ROOKIE_BOARD_COMMAND, Constants.ROOKIE_BOARD_QUERY);
 
         // for now
+        long period = 0;
+        if (!hasParameter(Constants.SEASON_ID)) {
+            period = new Long(getCurrentPeriod(Constants.SEASON_ID)).longValue();
+        } else {
+            period = new Long(getRequest().getParameter(Constants.SEASON_ID)).longValue();
+        }
+
+        long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
+
         List leaderBoardResult = new ArrayList(rsc.size());
         ResultSetRow row = null;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
-            leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("rank"),
+            leaderBoardResult.add(new LeaderBoardRow(period, phase, row.getLongItem("rank"),
                     row.getLongItem("user_id"), row.getStringItem("handle_lower"),
                     row.getLongItem("total_points"),
                     true, true, 10, 20, 30));
