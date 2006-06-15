@@ -1,6 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.web.reg.model.Referral" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -81,7 +80,8 @@
 <body <c:if test="${cf:contains(fields, referral)}">onLoad="referralSelection()"</c:if>>
 
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder"
+                                                             border="0"/></A>
 </div>
 
 <div align="center">
@@ -107,7 +107,7 @@
                 <c:otherwise>
                     <strong>5</strong>
                 </c:otherwise>
-            </c:choose>if they are
+            </c:choose>
         </div>
 
         <div class="off">Select Your Registration</div>
@@ -206,7 +206,9 @@
             * School:
         </td>
         <td class="value">
-            <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36" maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>" editable="false"/></span>
+            <span id="schoolName"><tc-webtag:textInput name="${schoolName}" size="36"
+                                                       maxlength="<%=Constants.MAX_SCHOOL_NAME_LENGTH%>"
+                                                       editable="false"/></span>
                 <%--School widget--%>
             <br>
             <a href="Javascript:openWin('${sessionInfo.secureAbsoluteServletPath}?<%=Constants.MODULE_KEY%>=ViewSchoolSearch','school',600,500);">Choose
@@ -241,7 +243,8 @@
         GPA:
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>" editable="true"/>
+        <tc-webtag:textInput name="<%=Constants.GPA%>" size="4" maxlength="<%=Constants.MAX_GPA_LENGTH%>"
+                             editable="true"/>
     </td>
     </c:if>
 
@@ -294,16 +297,19 @@
             How did you hear<br>about TopCoder?:
         </td>
         <td class="value">
-            <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description" onChange="referralSelection()"/>
+            <tc-webtag:objectSelect name="${referral}" list="${referrals}" valueField="id" textField="description"
+                                    onChange="referralSelection()"/>
 
             <div id="${referralCoder}_div">
                 <span class="bigRed">Referring member's handle:</span><br>
-                <tc-webtag:textInput name="${referralCoder}" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="${referralCoder}" size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>"
+                                     editable="true"/>
             </div>
 
             <div id="${referralOther}_div">
                 <span class="bigRed">Details:</span><br>
-                <tc-webtag:textInput name="${referralOther}" size="25" maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
+                <tc-webtag:textInput name="${referralOther}" size="25"
+                                     maxlength="<%=Constants.MAX_REFERRAL_OTHER_LENGTH%>" editable="true"/>
             </div>
         </td>
     </tr>
