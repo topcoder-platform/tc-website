@@ -18,7 +18,7 @@
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
 	ResultSetContainer stati = (ResultSetContainer)
 		request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-	String[] creationDateList = (String[])request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE);
+	String[] creationDateList = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
 	if (paymentList == null) {
 		out.println("no list!!!<br>");
 		paymentList = new PaymentHeader[0];

@@ -4586,22 +4586,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             winners[1] = runSelectQuery(c, getReviewers.toString(), false);
             numWinners[1] = winners[1].getRowCount();
             
-            // Identify .NET/Java components
-            String techType = "";
-            StringBuffer getTechnologies = new StringBuffer(300);
-            getTechnologies.append("select p.project_id, tt.technology_name ");
-            getTechnologies.append("from tcs_catalog:comp_technology ct, tcs_catalog:project p, tcs_catalog:technology_types tt ");
-            getTechnologies.append("where p.comp_vers_id = ct.comp_vers_id ");
-            getTechnologies.append("and p.cur_version = 1 "); 
-            getTechnologies.append("and p.project_id = " + projectId + " "); 
-            getTechnologies.append("and ct.technology_type_id = tt.technology_type_id ");
-            getTechnologies.append("and technology_name IN ('.NET','Java')");
-            ResultSetContainer techRsc = runSelectQuery(c, getTechnologies.toString(), false);
-            if (techRsc.getRowCount() > 1) {
-                techType = "(.NET/Java) ";
-            } else if (techRsc.getRowCount() == 1) {
-                techType = "(" + techRsc.getItem(0, 1).toString() + ") ";	
-            }
+            // Identify component categories            
+            String category = "";
+            StringBuffer getCategories = new StringBuffer(300);
+            getCategories.append("select p.project_id, cat.category_name ");
+            getCategories.append("from tcs_catalog:comp_catalog cc, tcs_catalog:project p, ");
+            getCategories.append("tcs_catalog:categories cat, tcs_catalog:comp_versions cv ");
+            getCategories.append("where p.comp_vers_id = cv.comp_vers_id ");
+            getCategories.append("and cv.component_id = cc.component_id ");
+            getCategories.append("and p.project_id = " + projectId + " ");
+            getCategories.append("and p.cur_version = 1 ");
+            getCategories.append("and cc.root_category_id = cat.category_id ");
+            getCategories.append("and cat.parent_category_id is null");
+            ResultSetContainer categoryRsc = runSelectQuery(c, getCategories.toString(), false);
+            category = "(" + categoryRsc.getItem(0, 1).toString() + ")";	
             
             for (int j = 0; j < numWinners.length; j++) {
 	            for (i = 0; i < numWinners[j]; i++) {
@@ -4620,12 +4618,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                	} else if (placed.equals("2")) {
 	                		placed = "2nd place";
 	                	}
-	                	String description = techType + componentName + " winnings - " + projectType + ", " + placed;
+	                	String description = category + " " + componentName + " winnings - " + projectType + ", " + placed;
 	                	p.getHeader().setDescription(description);
 	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
 	                } else if (j == 1) {
 	                	String projectType = winners[j].getItem(i, 2).toString();
-	                	String description = techType + componentName + " - " + projectType + " review board";
+	                	String description = category + " " + componentName + " - " + projectType + " review board";
 	                	p.getHeader().setDescription(description);
 	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
 	                }
