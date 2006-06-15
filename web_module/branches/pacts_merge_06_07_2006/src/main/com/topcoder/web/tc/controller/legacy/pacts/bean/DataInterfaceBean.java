@@ -515,6 +515,18 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getDemographicData(userId);
     }
+    
+    /**
+     * Returns the created dates for the given payments.
+     *
+     * @return  The created dates
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getCreationDates(String paymentIds) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getCreationDates(paymentIds);
+    }
 
     /*****************************************************
      * Search functions
@@ -757,8 +769,8 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_PRINT_DATE) ||
-                    key.equals(LATEST_PRINT_DATE) ||
+            if (key.equals(EARLIEST_CREATION_DATE) ||
+                    key.equals(LATEST_CREATION_DATE) ||
                     key.equals(EARLIEST_PAY_DATE) ||
                     key.equals(LATEST_PAY_DATE) ||
                     key.equals(EARLIEST_DUE_DATE) ||

@@ -13,6 +13,8 @@ import com.topcoder.util.idgenerator.IDGenerationException;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
+
+import java.rmi.RemoteException;
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
@@ -1376,6 +1378,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return hm;
     }
+    
+    /**
+     * Returns the created dates for the given payments.
+     *
+     * @return  The created dates
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getCreationDates(String paymentIds) throws RemoteException, SQLException {
+    	StringBuffer sb = new StringBuffer(300);
+    	sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
+    	sb.append("FROM payment_detail_xref pdx, payment_detail pd ");
+    	sb.append("WHERE payment_id IN (" + paymentIds + ") ");
+    	sb.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
+    	sb.append("GROUP BY 1 ");
+    	sb.append("ORDER BY 1 ");
+    	
+    	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        HashMap hm = new HashMap();
+        hm.put(CREATION_DATE_LIST, rsc);
+        return hm;
+    }
 
     /*****************************************************
      * Search functions
@@ -1718,11 +1741,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             while (i.hasNext()) {
                 String key = (String) i.next();
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
-                if (key.equals(EARLIEST_PRINT_DATE)) {
-                    whereClauses.append(" AND pd.date_printed >= ?");
+                if (key.equals(EARLIEST_CREATION_DATE)) {
+                    whereClauses.append(" AND pd.date_modified >= ?");
                     objects.add(makeTimestamp(value, false, false));
-                } else if (key.equals(LATEST_PRINT_DATE)) {
-                    whereClauses.append(" AND pd.date_printed <= ?");
+                } else if (key.equals(LATEST_CREATION_DATE)) {
+                    whereClauses.append(" AND pd.date_modified <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(EARLIEST_PAY_DATE)) {
                     whereClauses.append(" AND pd.date_paid >= ?");

@@ -231,21 +231,27 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     	String[] methodValues = request.getParameterValues(METHOD_CODE);
                     	
                     	boolean checked = true;
-                    	for (int i=0; i<statusValues.length; i++) {
-                    		checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
+                    	if (statusValues != null) {
+	                    	for (int i=0; i<statusValues.length; i++) {
+	                    		checked &= checkParam(LONG_TYPE, statusValues[i], true, pp);
+	                    	}
                     	}
-                    	for (int i=0; i<typeValues.length; i++) {
-                    		checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
+                    	if (typeValues != null) {
+	                    	for (int i=0; i<typeValues.length; i++) {
+	                    		checked &= checkParam(INT_TYPE, typeValues[i], true, pp);
+	                    	}
                     	}
-                    	for (int i=0; i<methodValues.length; i++) {
-                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
+                    	if (methodValues != null) {
+	                    	for (int i=0; i<methodValues.length; i++) {
+	                    		checked &= checkParam(INT_TYPE, methodValues[i], true, pp);
+	                    	}
                     	}
                         if (
                         		checked
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PRINT_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
                                 && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
                                 && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
@@ -1777,15 +1783,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         query = INTERNAL_SERVLET_URL + "?" + query;
         request.setAttribute("query", query);
 
-
         InternalDispatchPaymentList bean =
                 new InternalDispatchPaymentList(request, response);
         PaymentHeader[] results = bean.get();
+        String[] creationDates = bean.getCreationDates(results);
         if (results.length != 1) {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            request.setAttribute(CREATION_DATE_LIST, creationDates);
             forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
         } else {
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
@@ -1795,7 +1802,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
             request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
-
+            request.setAttribute(CREATION_DATE_LIST, creationDates[0]);
             forward(INTERNAL_PAYMENT_JSP, request, response);
         }
     }

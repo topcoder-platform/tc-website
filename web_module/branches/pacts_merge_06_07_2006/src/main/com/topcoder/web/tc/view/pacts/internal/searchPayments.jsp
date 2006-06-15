@@ -59,8 +59,8 @@
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
-            <td>Print Date:</td>
-<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_PRINT_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_PRINT_DATE+"\" size=\"10\"></td>"); %>
+            <td>Creation Date:</td>
+<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_CREATION_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_CREATION_DATE+"\" size=\"10\"></td>"); %>
           </tr>
           <tr>
             <td>Pay Date:</td>

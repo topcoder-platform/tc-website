@@ -82,6 +82,8 @@ public interface PactsServices extends EJBObject {
     Map getRounds() throws RemoteException, SQLException;
 
     Map getDemographicData(long userId) throws RemoteException, SQLException;
+    
+    Map getCreationDates(String paymentIds) throws RemoteException, SQLException;
 
     // Search routines
     Map findAffidavits(Map searchCriteria) throws RemoteException, SQLException;

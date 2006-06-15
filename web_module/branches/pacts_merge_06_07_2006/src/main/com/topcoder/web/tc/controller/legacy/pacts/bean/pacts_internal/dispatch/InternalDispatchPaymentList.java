@@ -14,6 +14,9 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
@@ -26,6 +29,8 @@ import java.util.Hashtable;
 import java.util.Map;
 
 public class InternalDispatchPaymentList implements PactsConstants {
+	private static Logger log = Logger.getLogger(InternalDispatchPaymentList.class);
+	
     HttpServletRequest request;
     HttpServletResponse response;
 
@@ -66,10 +71,10 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(LATEST_DUE_DATE, TCData.dateForm(param));
-        param = request.getParameter(EARLIEST_PRINT_DATE);
-        if (param != null && !param.equals("")) query.put(EARLIEST_PRINT_DATE, TCData.dateForm(param));
-        param = request.getParameter(LATEST_PRINT_DATE);
-        if (param != null && !param.equals("")) query.put(LATEST_PRINT_DATE, TCData.dateForm(param));
+        param = request.getParameter(EARLIEST_CREATION_DATE);
+        if (param != null && !param.equals("")) query.put(EARLIEST_CREATION_DATE, TCData.dateForm(param));
+        param = request.getParameter(LATEST_CREATION_DATE);
+        if (param != null && !param.equals("")) query.put(LATEST_CREATION_DATE, TCData.dateForm(param));
         param = request.getParameter(EARLIEST_PAY_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_PAY_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_PAY_DATE);
@@ -104,11 +109,48 @@ public class InternalDispatchPaymentList implements PactsConstants {
         return phl.getHeaderList();
     }
     
-    // Helper function generating a comma-separated list from an array of parameter values
+    /**
+    * This method returns an array of dates which the given payments were created on.
+    *
+    * @return - String[]
+    */
+    public String[] getCreationDates(PaymentHeader[] payments) throws Exception {
+    	if (payments.length == 0) return new String[0];
+    	DataInterfaceBean bean = new DataInterfaceBean();
+    	String[] paymentIds = new String[payments.length];
+    	for (int i=0; i<payments.length; i++) {
+    		paymentIds[i] = String.valueOf(payments[i].getProjectId());
+    	}
+    	Map results = bean.getCreationDates(createValuesStr(paymentIds));
+    	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
+    	
+    	if (rsc == null) {
+            log.error("There were no " + CREATION_DATE_LIST + " entries in the" +
+                    " result set map sent to InternalDispatchPaymentList.getCreatedDates()");
+            return null;
+        }
+
+        // see if there are any rows of data
+        int numRows = rsc.getRowCount();
+        if (numRows <= 0) {
+            log.debug("there were no rows of data in the result set sent\n" +
+                    "to InternalDispatchPaymentList.getCreatedDates()");
+            return new String[0];
+        }
+        
+        String[] creationDates = new String[numRows];
+        for (int i=0; i<numRows; i++) {
+        	ResultSetRow rRow = rsc.getRow(i);
+        	creationDates[i] = TCData.getTCDate(rRow, "date_created");
+        }
+        return creationDates;
+    }
+    
+    // Helper function generating a comma-separated list from an array of values
     private String createValuesStr(String[] values) {
     	String valuesStr = "";
     	for (int i=0; i<values.length; i++) {
-    		if (values[i].equals("")) {	// "Any" has been selected
+    		if (values[i].equals("")) {
     			return "";
     		}
     		valuesStr += values[i];

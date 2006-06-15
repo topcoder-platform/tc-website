@@ -65,6 +65,7 @@
 		<td><b>Method</b></td>
 		<td><b>Net Amount</b></td>
 		<td><b>Gross Amount</b></td>
+		<td><b>Date Modified</b></td>
 		<td><b>Date Paid</b></td>
 		<td><b>Date Due</b></td>
 		<td><b>Modification Rationale</b></td>
@@ -79,6 +80,7 @@
 			out.print("<td>"+payments[n].getMethod()+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getGrossAmount())+"</td>\n");
+			out.print("<td>"+payments[n].getModifiedDate()+"</td>\n");
 			out.print("<td>"+payments[n].getPayDate()+"</td>\n");
 			out.print("<td>"+payments[n].getDueDate()+"</td>\n");
 			out.print("<td>"+payments[n].getRationale()+"</td>\n");

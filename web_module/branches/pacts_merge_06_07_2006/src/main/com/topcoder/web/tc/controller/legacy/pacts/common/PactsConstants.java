@@ -164,6 +164,7 @@ public interface PactsConstants {
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
     public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
+    public static final String CREATION_DATE_LIST = "creation_date_list";
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
