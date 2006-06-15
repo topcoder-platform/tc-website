@@ -1,18 +1,18 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
-import com.topcoder.web.privatelabel.model.ResumeRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.ResumeRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author dok
@@ -30,6 +30,16 @@ public abstract class ResumeRegConfirm extends FullRegConfirm {
         MultipartRequest req = (MultipartRequest) getRequest();
         UploadedFile file = req.getUploadedFile(Constants.RESUME);
 
+        if (file != null) {
+            log.debug("got a file");
+            if (file.getContentType() != null) {
+                log.debug("got a contenttype");
+            } else {
+                log.debug("content type was null");
+            }
+        } else {
+            log.debug("didn't get a file");
+        }
         if (file != null && file.getContentType() != null) {
             log.debug("FOUND RESUME");
             byte[] fileBytes = new byte[(int) file.getSize()];
