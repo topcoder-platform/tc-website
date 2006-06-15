@@ -338,6 +338,12 @@ public class RBoardApplicationBean extends BaseEJB {
                     createPermission(dataSource, idGen, "ForumUser "
                         + String.valueOf(projectInfo.get("forumId")), "", userId);
 
+                    if (primary) {
+                        createPermission(dataSource, idGen, "Screen " + projectId, prefix, userId);
+                        createPermission(dataSource, idGen, "Aggregation " + projectId, prefix, userId);
+                        createPermission(dataSource, idGen, "Final Review " + projectId, prefix, userId);
+                    }
+            
                     reviewerInserted = true;
                 } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
                         rRoleId == AGGREGATOR_ROLE_ID || rRoleId == FINAL_REVIEWER_ROLE_ID)) {
