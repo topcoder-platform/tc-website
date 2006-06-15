@@ -233,19 +233,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     	boolean checked = true;
                     	if (statusValues != null) {
 	                    	for (int i=0; i<statusValues.length; i++) {
-	                    		checked &= checkParam(LONG_TYPE, statusValues[i], true, pp);
+	                    		checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
 	                    	}
                     	}
                     	if (typeValues != null) {
 	                    	for (int i=0; i<typeValues.length; i++) {
-	                    		checked &= checkParam(INT_TYPE, typeValues[i], true, pp);
+	                    		checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
 	                    	}
                     	}
                     	if (methodValues != null) {
 	                    	for (int i=0; i<methodValues.length; i++) {
-	                    		checked &= checkParam(INT_TYPE, methodValues[i], true, pp);
+	                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
 	                    	}
                     	}
+                    	
                         if (
                         		checked
                                 && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
