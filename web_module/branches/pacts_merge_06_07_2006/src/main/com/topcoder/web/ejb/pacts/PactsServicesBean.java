@@ -1393,6 +1393,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	sb.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
     	sb.append("GROUP BY 1 ");
     	sb.append("ORDER BY 1 ");
+        log.info("*** Query: " + sb.toString());
     	
     	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
