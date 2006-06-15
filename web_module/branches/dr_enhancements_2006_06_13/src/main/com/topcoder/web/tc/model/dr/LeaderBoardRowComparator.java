@@ -105,7 +105,7 @@ public class LeaderBoardRowComparator implements Comparator {
         it1 = rsc1.iterator();
         for (int i = 0; i < Math.min(rsc0.size(), rsc1.size()); i++) {
             ResultSetRow row0 = (ResultSetRow) it0.next();
-            ResultSetRow row1 = (ResultSetRow) it0.next();
+            ResultSetRow row1 = (ResultSetRow) it1.next();
 
             log.debug("Compare scores: final_score0 (" + row0.getLongItem("final_score") + ")");
             log.debug("Compare scores: final_score1 (" + row1.getLongItem("final_score") + ")");
