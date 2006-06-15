@@ -9,6 +9,40 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.15.06<br>4:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm307">SRM 307 - Problem Set & Analysis</A></span><br><br>
+The overall level of the problem set this time was a bit higher than usual. It led to an interesting challenge phase and unexpected results after system test.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Mike-Mirzayanov_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="308953" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm307">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505982" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.14.06<br>3:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm2">TCHS SRM 2 - Problem Set & Analysis</A></span><br><br>
+The second TopCoder High School Single Round Match, first one for the <a href="/tc?module=Static&d1=hs&d2=regions">Beta region</a>, attracted 109 registrants (59 of them newcomers) and proved to be quite eventful.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/ivankovic_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7396310" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm2">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506024" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.12.06<br>9:35 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -37,7 +71,7 @@ while <tc-webtag:handle coderId="7442498" context="algorithm"/> got second, with
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=match_editorials&d2=srm306">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505871" message="discuss this" />&#160;|&#160;
+       <tc-webtag:forumLink forumID="505981" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
@@ -86,7 +120,7 @@ gave him the points he needed to overtake the other top scorers.
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm1">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506023" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -170,36 +204,6 @@ and neck.
        <A href="/tc?module=Static&d1=match_editorials&d2=srm304">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505870" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.26.06<br>1:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New guidelines for component competitors and reviewers</span><br><br>
-      We've updated the component documentation with two new items - Competitor Guidelines, which addresses a number of common issues, and updated Reviewer Guidelines. The guidelines apply to both design and development competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=desDocumentation">design docs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=devDocumentation">development docs</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506022" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>05.25.06<br>2:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=hs&d2=home">High School Registration Open</A>
-      </span><br><br>
-      Beginning in June 2006, TopCoder will hold weekly SRMs, which will be available only to high school students. <A href="/reg/">Registration</A> is now open for <A href="/tc?module=Static&d1=hs&d2=home">TopCoder High School Competitions</A>.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/reg/">register</A>&#160;|&#160;
-      <A href="/tc?module=Static&d1=hs&d2=home">details</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506021" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
