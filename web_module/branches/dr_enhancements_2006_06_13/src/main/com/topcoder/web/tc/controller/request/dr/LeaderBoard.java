@@ -128,7 +128,6 @@ public class LeaderBoard extends BaseBoard {
 
         List resultBoard = new ArrayList(Integer.parseInt(numRecords));
         for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) < leaderBoardResult.size(); j++) {
-            log.debug("j: " + j);
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
@@ -161,24 +160,24 @@ public class LeaderBoard extends BaseBoard {
             if (prevPoints == (leaderBoardRow).getPoints()) {
                 log.debug("coderTie.add : " + leaderBoardRow.getUserId());
                 log.debug("coderTie.add : " + leaderBoardRow.getUserName());
-                coderTie.add(leaderBoardRow);
+                coderTie.add((LeaderBoardRow)leaderBoardResult.get(i-1));
             } else {
-                if (prizes == 0) {
-                    coderTie.add((LeaderBoardRow)leaderBoardResult.get(0));
+                if (coderTie.size() > 0) {
+                    coderTie.add(leaderBoardRow);
+                    prizes += 1 + coderTie.size();
+
+                    log.debug("Sorting...");
+                    for (int j = 0; j < coderTie.size(); j++)
+                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());
+
+                    Arrays.sort(coderTie.toArray(), new LeaderBoardRowComparator());
+
+                    log.debug("Sort result...");
+                    for (int j = 0; j < coderTie.size(); j++)
+                        log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(j)).getUserName());
+
+                    coderTie.clear();
                 }
-                prizes += 1 + coderTie.size();
-
-                log.debug("Sorting...");
-                for (int j = 0; j < coderTie.size(); j++)
-                    log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(j)).getUserName());
-
-                Arrays.sort(coderTie.toArray(), new LeaderBoardRowComparator());
-
-                log.debug("Sort result...");
-                for (int j = 0; j < coderTie.size(); j++)
-                    log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(j)).getUserName());
-
-                coderTie.clear();
             }
             prevPoints = leaderBoardRow.getPoints();
         }

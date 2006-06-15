@@ -33,6 +33,10 @@ public class LeaderBoardRowComparator implements Comparator {
         LeaderBoardRow lbr0 = (LeaderBoardRow) arg0;
         LeaderBoardRow lbr1 = (LeaderBoardRow) arg1;
 
+        log.debug("Compare points: stage0: " + lbr0.getStage());
+        log.debug("Compare points: stage1:" + lbr1.getStage());
+        log.debug("Compare points: phase0:" + lbr0.getPhase());
+        log.debug("Compare points: phase1:" + lbr1.getPhase());
         log.debug("Compare points: " + lbr0.getUserName() + "(" + lbr0.getPoints() + ")");
         log.debug("Compare points: " + lbr1.getUserName() + "(" + lbr1.getPoints() + ")");
 

@@ -44,6 +44,7 @@ public class LeaderBoardRow extends Base {
         this.phase = phase;
         this.rank = rank;
         this.userId = userId;
+        this.userName = userName;
         this.points = points;
         this.topThird = topThird;
         this.winTrip = winTrip;
