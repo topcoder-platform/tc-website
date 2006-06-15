@@ -120,9 +120,9 @@ public class InternalDispatchPaymentList implements PactsConstants {
     	DataInterfaceBean bean = new DataInterfaceBean();
     	String[] paymentIds = new String[payments.length];
     	for (int i=0; i<payments.length; i++) {
-    		paymentIds[i] = String.valueOf(payments[i].getProjectId());
+    		paymentIds[i] = String.valueOf(payments[i].getId());
     	}
-    	log.info("** calling bean.getCreationDates() with paymentIds: " + paymentIds);
+    	log.info("** calling bean.getCreationDates() with Ids: " + createValuesStr(paymentIds));   	
     	Map results = bean.getCreationDates(createValuesStr(paymentIds));
     	log.info("** finished calling bean.getCreationDates()");
     	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
