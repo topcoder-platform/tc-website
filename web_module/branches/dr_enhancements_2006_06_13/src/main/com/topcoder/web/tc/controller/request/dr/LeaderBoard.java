@@ -158,12 +158,13 @@ public class LeaderBoard extends BaseBoard {
         for (int i = 1; i < leaderBoardResult.size() && prizes < 5; i++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow)leaderBoardResult.get(i);
             if (prevPoints == (leaderBoardRow).getPoints()) {
-                log.debug("coderTie.add : " + leaderBoardRow.getUserId());
-                log.debug("coderTie.add : " + leaderBoardRow.getUserName());
+                log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserId());
+                log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserName());
                 coderTie.add((LeaderBoardRow)leaderBoardResult.get(i-1));
             } else {
                 if (coderTie.size() > 0) {
-                    coderTie.add(leaderBoardRow);
+                    log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserName());
+                    coderTie.add((LeaderBoardRow)leaderBoardResult.get(i-1));
                     prizes += 1 + coderTie.size();
 
                     log.debug("Sorting...");
