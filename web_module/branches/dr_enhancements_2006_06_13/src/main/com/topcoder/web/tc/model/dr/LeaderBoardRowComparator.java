@@ -59,7 +59,7 @@ public class LeaderBoardRowComparator implements Comparator {
         Iterator it1 = rsc1.iterator();
         while (it0.hasNext() && it1.hasNext()) {
             ResultSetRow row0 = (ResultSetRow) it0.next();
-            ResultSetRow row1 = (ResultSetRow) it0.next();
+            ResultSetRow row1 = (ResultSetRow) it1.next();
 
             log.debug("Compare placement: placed0 (" + row0.getLongItem("placed") + ")");
             log.debug("Compare placement: placed1 (" + row1.getLongItem("placed") + ")");
