@@ -109,9 +109,12 @@ public class LeaderBoard extends BaseBoard {
         }
         setDefault(DataAccessConstants.START_RANK, startRank);
 
-        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
+        log.debug("startRank: " + startRank);
+        log.debug("numRecords: " + numRecords);
 
+        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
         for (int j = 0; j < Integer.parseInt(numRecords) && j < leaderBoardResult.size(); j++) {
+            log.debug("j: " + j);
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
