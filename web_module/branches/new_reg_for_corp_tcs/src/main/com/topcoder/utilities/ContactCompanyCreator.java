@@ -73,7 +73,8 @@ public class ContactCompanyCreator {
                     "     , (select demographic_response from demographic_response dr where dr.demographic_question_id = 15 and dr.user_id = u.user_id) as company\n" +
                     "  from user u\n" +
                     " where u.user_id in (select user_id from demographic_response where demographic_question_id = 8 and demographic_answer_id is not null)\n" +
-                    "   and u.user_id in (select user_id from demographic_response where demographic_question_id = 15 and trim(demographic_response)!='')";
+                    "   and u.user_id in (select user_id from demographic_response where demographic_question_id = 15 and trim(demographic_response)!='')" +
+                    " and not exists (select 1 from contact where contact_id = user_id)";
 
     private static List getList() throws NamingException, SQLException {
 
