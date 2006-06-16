@@ -348,6 +348,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String PROJECT_TERMINATION_STATUS = "projts";
+    public static final String PROJECT_CLIENT = "client";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";

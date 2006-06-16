@@ -26,12 +26,13 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
+            String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT));
             if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts;
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
                 counts = bean.generateComponentPayments(Long.parseLong(projectID),
-                		Integer.parseInt(projectTermStatus), true);
+                		Integer.parseInt(projectTermStatus), client, true);
                 addError(PROJECT_ID, "Success: " + counts[0] + " design/dev payments generated, " + 
                 		counts[1] + " review board payments generated");
             } else {

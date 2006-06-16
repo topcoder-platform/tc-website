@@ -48,6 +48,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private long projectId;
+    private String client;
     private boolean reviewed;
 
     /**************\
@@ -136,6 +137,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         			TCData.getTCLong(rsr, "user_id", 0, true),
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
+        projectId = TCData.getTCLong(rsr, "project_id", 0, true);
+        client = TCData.getTCString(rsr, "client", "", true);
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
 
@@ -243,6 +246,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setProjectId(long projectId) {
         this.projectId = projectId;
+    }
+    
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
     }
 
     public boolean isReviewed() {

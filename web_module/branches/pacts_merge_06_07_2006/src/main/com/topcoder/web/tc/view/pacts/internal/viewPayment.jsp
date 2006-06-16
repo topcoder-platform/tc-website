@@ -94,13 +94,13 @@
 %>
 		</tr>
 		<tr>
-		<td><b>Date Paid:</b></td>
-<%			out.print("<td>"+payment.getPayDate()+"</td>\n");
+		<td><b>Date Due:</b></td>
+<%			out.print("<td>"+payment.getDueDate()+"</td>\n");
 %>
 		</tr>
 		<tr>
-		<td><b>Date Due:</b></td>
-<%			out.print("<td>"+payment.getDueDate()+"</td>\n");
+		<td><b>Date Paid:</b></td>
+<%			out.print("<td>"+payment.getPayDate()+"</td>\n");
 %>
 		</tr>
 		<tr>

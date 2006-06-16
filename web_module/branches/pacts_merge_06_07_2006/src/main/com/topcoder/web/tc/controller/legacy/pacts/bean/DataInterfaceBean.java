@@ -1378,10 +1378,10 @@ public class DataInterfaceBean implements PactsConstants {
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
+    public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
 		throws IllegalUpdateException, RemoteException, SQLException {
     	PactsServices ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, makeChanges);
+        return ps.generateComponentPayments(projectId, status, client, makeChanges);
     }
     
     /**
