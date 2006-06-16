@@ -171,7 +171,7 @@ public class LeaderBoard extends BaseBoard {
                     /*for (int j = 0; j < coderTie.size(); j++)
                         log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());*/
 
-                    LeaderBoardRow[] sortArray = (LeaderBoardRow[]) coderTie.toArray();
+                    LeaderBoardRow[] sortArray = (LeaderBoardRow[]) coderTie.toArray(new LeaderBoardRow[coderTie.size()]);
                     for (int j = 0; j < sortArray.length; j++)
                         log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
 
