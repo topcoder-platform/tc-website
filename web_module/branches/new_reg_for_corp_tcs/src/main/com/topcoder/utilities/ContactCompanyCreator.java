@@ -90,6 +90,7 @@ public class ContactCompanyCreator {
             int i = 0;
             while (rs.next()) {
                 ret.add(new thingy(rs.getLong("user_id"), rs.getString("title"), rs.getString("company")));
+                i++;
                 if (i % 25 == 0) {
                     log.debug("loaded " + i);
                 }
