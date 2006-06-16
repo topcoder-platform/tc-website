@@ -57,7 +57,7 @@ public class Submit extends Base {
                 String email = newUserObj.getPrimaryEmailAddress().getAddress();
 
                 RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
-                RegistrationType comp  =dao.getCompetitionType();
+                RegistrationType comp = dao.getCompetitionType();
                 RegistrationType tcs = dao.getSoftwareType();
                 RegistrationType hs = dao.getHighSchoolType();
                 RegistrationType corp = dao.getCorporateType();
@@ -75,7 +75,7 @@ public class Submit extends Base {
 
             HashSet h = new HashSet();
             for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
-                h.add(((RegistrationType)it.next()).getId());
+                h.add(((RegistrationType) it.next()).getId());
             }
 
             //set these in the request for the success page, cuz we're about to kill the session
@@ -91,7 +91,6 @@ public class Submit extends Base {
 
 
     }
-
 
 
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
@@ -110,7 +109,7 @@ public class Submit extends Base {
 
         List types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
         for (Iterator it = types.iterator(); it.hasNext();) {
-            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup)it.next()).getGroupId().longValue(),DBMS.JTS_OLTP_DATASOURCE_NAME),
+            pmr.addUserToGroup(pmr.getGroup(((SecurityGroup) it.next()).getGroupId().longValue(), DBMS.JTS_OLTP_DATASOURCE_NAME),
                     myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
         }
 
@@ -130,13 +129,12 @@ public class Submit extends Base {
                 break;
             }
         }
-        pmr.addUserToGroup(anonGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
-        pmr.addUserToGroup(userGroup, myPrincipal, tcs,DBMS.JTS_OLTP_DATASOURCE_NAME);
+        pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
         //refresh the cached object
         SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
     }
-
 
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
@@ -147,7 +145,6 @@ public class Submit extends Base {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("TopCoder Activation");
         StringBuffer msgText = new StringBuffer(3000);
-
 
 
         msgText.append("Thank you for registering with TopCoder!\n\n");
@@ -210,7 +207,11 @@ public class Submit extends Base {
         }
 
         msgText.append("If you have any questions about how to participate, please email them to service@topcoder.com.\n\n");
-        msgText.append("Thank you again for registering with TopCoder and we look forward to seeing you in the arena!");
+        if (regTypes.contains(hs) || regTypes.contains(comp)) {
+            msgText.append("Thank you again for registering with TopCoder and we look forward to seeing you in the arena!");
+        } else {
+            msgText.append("Thank you again for registering with TopCoder!");
+        }
 
 
         mail.setBody(msgText.toString());
