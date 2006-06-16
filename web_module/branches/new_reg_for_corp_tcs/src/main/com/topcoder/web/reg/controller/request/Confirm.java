@@ -50,6 +50,11 @@ public class Confirm extends Base {
                 Set allFields = new HashSet(RegFieldHelper.getMainFieldSet(getRequestedTypes(), u));
                 allFields.addAll(RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
                 getRequest().setAttribute(Constants.FIELDS, allFields);
+                HashSet h = new HashSet();
+                for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
+                    h.add(((RegistrationType) it.next()).getId());
+                }
+                getRequest().setAttribute(Constants.REG_TYPES, h);
                 setNextPage("/confirm.jsp");
                 setIsNextPageInContext(true);
             }
