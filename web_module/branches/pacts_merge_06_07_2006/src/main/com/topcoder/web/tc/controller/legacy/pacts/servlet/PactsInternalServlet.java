@@ -2157,12 +2157,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         payment.getHeader().setDescription(request.getParameter("payment_desc"));
         payment.getHeader().setTypeId(Integer.parseInt(request.getParameter("payment_type_id")));
         payment.getHeader().setMethodId(Integer.parseInt(request.getParameter("payment_method_id")));
+        payment.getHeader().setClient(request.getParameter("client"));
         payment.setGrossAmount(Double.parseDouble(request.getParameter("gross_amount")));
         // dpecora 05/03 - fix
         // payment._netAmount = Double.parseDouble(request.getParameter(net));
         payment.setNetAmount(Double.parseDouble(net));
         payment.setStatusId(Integer.parseInt(request.getParameter("status_id")));
-        payment.setPrintDate(TCData.dateForm(request.getParameter("date_printed")));
         payment.setPayDate(TCData.dateForm(request.getParameter("date_paid")));
         payment.setDueDate(TCData.dateForm(request.getParameter("date_due")));
         payment.setRationaleId(Integer.parseInt(request.getParameter("modification_rationale_id")));

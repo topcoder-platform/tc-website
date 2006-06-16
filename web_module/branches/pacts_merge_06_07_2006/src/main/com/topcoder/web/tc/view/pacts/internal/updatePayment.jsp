@@ -117,6 +117,10 @@
 <% out.print("<input type=text width=25 name=\"payment_desc\" value=\""+payment.getHeader().getDescription()+"\">"); %>
 		</td></tr>
 		<tr>
+		<td><b>Client:</b></td><td>
+<% out.print("<input type=text width=25 name=\"client\" value=\""+payment.getHeader().getClient()+"\">"); %>
+		</td></tr>
+		<tr>
 		<td><b>Date Due:</b></td><td>
 <% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment.getDueDate()+"\">"); %>
 		</td></tr>
