@@ -343,7 +343,7 @@ public class RBoardApplicationBean extends BaseEJB {
                         createPermission(dataSource, idGen, "Aggregation " + projectId, prefix, userId);
                         createPermission(dataSource, idGen, "Final Review " + projectId, prefix, userId);
                     }
-            
+
                     reviewerInserted = true;
                 } else if (primary && (rRoleId == PRIMARY_SCREENER_ROLE_ID ||
                         rRoleId == AGGREGATOR_ROLE_ID || rRoleId == FINAL_REVIEWER_ROLE_ID)) {
@@ -402,13 +402,12 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param phaseId the phase id to inspect
      * @return ResultSetContainer with the retrieved reviewers
      */
-    private ResultSetContainer getReviewers(String dataSource, long projectId,
-            int phaseId) {
+    private ResultSetContainer getReviewers(Connection conn, long projectId, int phaseId) {
         return selectSet("rboard_application",
             new String[]{"user_id", "review_resp_id", "primary_ind", "create_date"},
             new String[]{"project_id"},
             new String[]{String.valueOf(projectId)},
-            dataSource);
+            conn);
     }
 
     /**
@@ -612,7 +611,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
         ResultSetContainer reviewers = null;
         try {
-            reviewers = getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+            reviewers = getReviewers(conn, projectId, phaseId);
         } catch (RowNotFoundException rnfe) {
             throw new RBoardRegistrationException("Sorry, the project's review positions are already full.");
         }
