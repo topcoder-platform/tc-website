@@ -74,56 +74,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         reviewed = false;
     }
 
-/* This constructor makes the object out of raw data.
-*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
-*
-*  @ARGS
-*   o id          - the DB id of the payment details
-*   o userID      - the DB id of the TC member
-*   o handle      - the handle of the TC member
-*   o groupID[]    - the group number of the TC member
-*   o status      - the most recent status of the payment
-*   o netAmount   - the current net amount of the payment
-*   o description - the description of the payment
-*   o type        - type of the payment
-*	o method      - payment method
-*/
-    public PaymentHeader(long id, long userID, String handle, long groupID[],
-                         String status, double netAmount, String description, String type, String method) {
-
-        this.id = id;
-        user = new UserProfileHeader(userID, handle);
-        recentStatus = status;
-        recentNetAmount = netAmount;
-        this.description = description;
-        this.type = type;
-        this.method = method;
-    }
-
-/* This constructor makes the object out of raw data & headers.
-*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
-*
-*  @ARGS
-*   o id          - the DB id of the payment details
-*   o user        - UserProfileHeader
-*   o status      - the most recent status of the payment
-*   o netAmount   - the current net amount of the payment
-*   o description - the description of the payment
-*   o type        - type of the payment
-*	o method      - payment method
-*/
-    public PaymentHeader(long id, UserProfileHeader user,
-                         String status, double netAmount, String description, String type, String method) {
-
-        this.id = id;
-        this.user = user;
-        recentStatus = status;
-        recentNetAmount = netAmount;
-        this.description = description;
-        this.type = type;
-        this.method = method;
-    }
-
 /* This constructor makes the object out of the Map containing
 *  the ResultSetContainer with the constant name of PAYMENT_HEADER_LIST
 *

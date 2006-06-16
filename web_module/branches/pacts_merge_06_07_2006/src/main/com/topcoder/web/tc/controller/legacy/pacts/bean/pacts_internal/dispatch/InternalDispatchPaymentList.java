@@ -148,6 +148,7 @@ public class InternalDispatchPaymentList implements PactsConstants {
     
     // Helper function generating a comma-separated list from an array of values
     private String createValuesStr(String[] values) {
+    	if (values == null) return "";
     	String valuesStr = "";
     	for (int i=0; i<values.length; i++) {
     		if (values[i].equals("")) {
