@@ -183,7 +183,11 @@ function goTo(selection){
 	   // fill in the data
 	   for(int i=1;i<=payments.length;i++) {
 	       // the description
-	       tableData.setElement(i,0,payments[i-1].getDescription());
+	       String description = payments[i-1].getDescription();
+	       if (description.indexOf(")") > -1) {
+	       		description = description.substring(description.indexOf(")")+1).trim();
+	       }
+	       tableData.setElement(i,0,description);
 	      
 	       // net amount
 	       DecimalFormat decf = new DecimalFormat("0.00");
