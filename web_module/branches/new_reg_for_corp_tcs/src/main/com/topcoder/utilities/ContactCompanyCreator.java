@@ -3,6 +3,7 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.user.Contact;
@@ -22,6 +23,9 @@ import java.util.List;
  *          Create Date: Jun 16, 2006
  */
 public class ContactCompanyCreator {
+
+    private static Logger log = Logger.getLogger(ContactCompanyCreator.class);
+
     public static void main(String[] args) {
         try {
             doit(getList());
@@ -37,6 +41,7 @@ public class ContactCompanyCreator {
                 ApplicationServer.SECURITY_PROVIDER_URL);
         try {
             Contact contact = (Contact) BaseProcessor.createEJB(ctx, Contact.class);
+            log.debug("got contact bean");
             Company company = (Company) BaseProcessor.createEJB(ctx, Company.class);
             thingy curr;
             for (int i = 0; i < stuff.size(); i++) {
@@ -47,7 +52,7 @@ public class ContactCompanyCreator {
                 contact.createContact(companyId, curr.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
                 contact.setTitle(curr.getUserId(), curr.getTitle(), DBMS.OLTP_DATASOURCE_NAME);
                 if (i % 25 == 0) {
-                    System.out.println(i + " done so far");
+                    log.debug(i + " done so far");
                 }
             }
         } finally {
@@ -72,16 +77,22 @@ public class ContactCompanyCreator {
 
     private static List getList() throws NamingException, SQLException {
 
+        log.debug("in get list");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         ArrayList ret = new ArrayList(40000);
         try {
             conn = DBMS.getDirectConnection();
+            log.debug("got connection");
             ps = conn.prepareStatement(select);
             rs = ps.executeQuery();
+            int i = 0;
             while (rs.next()) {
                 ret.add(new thingy(rs.getLong("user_id"), rs.getString("title"), rs.getString("company")));
+                if (i % 25 == 0) {
+                    log.debug("loaded " + i);
+                }
             }
 
         } finally {
