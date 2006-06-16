@@ -185,7 +185,7 @@ public abstract class BaseEJB implements SessionBean {
     }
 
     protected ResultSetContainer selectSet(String tableName, String colNames[], String[] constraintColNames,
-                                           String[] constraintColValues, String dataSource) {
+                                           String[] constraintColValues, Connection conn) {
         if (constraintColNames.length != constraintColValues.length)
             throw new IllegalArgumentException("name and value arrays don't have the same number of elements.");
         else {
@@ -206,13 +206,10 @@ public abstract class BaseEJB implements SessionBean {
 
             log.debug(query);
 
-            Connection conn = null;
             PreparedStatement ps = null;
             InitialContext ctx = null;
             ResultSet rs = null;
             try {
-
-                conn = DBMS.getConnection(dataSource);
                 ps = conn.prepareStatement(query.toString());
                 for (int i = 0; i < constraintColNames.length; i++) {
                     ps.setString(i + 1, constraintColValues[i]);
@@ -220,7 +217,6 @@ public abstract class BaseEJB implements SessionBean {
                 }
                 rs = ps.executeQuery();
                 return new ResultSetContainer(rs);
-
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
                 throw new EJBException(e.getMessage());
@@ -229,7 +225,6 @@ public abstract class BaseEJB implements SessionBean {
             } finally {
                 close(rs);
                 close(ps);
-                close(conn);
                 close(ctx);
             }
 
@@ -282,7 +277,7 @@ public abstract class BaseEJB implements SessionBean {
         }
 
     }
-    
+
     protected void rollback(Connection conn) {
         if (conn != null) {
             try {
