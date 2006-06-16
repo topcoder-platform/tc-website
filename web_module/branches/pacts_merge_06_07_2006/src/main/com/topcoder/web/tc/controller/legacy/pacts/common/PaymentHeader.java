@@ -138,6 +138,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
         if (typeId == PactsConstants.COMPONENT_PAYMENT || typeId == PactsConstants.REVIEW_BOARD_PAYMENT) {
+        	log.info("*** typeId = " + typeId + ", id = " + id + ", row = " + row);
         	projectId = TCData.getTCLong(rsr, "project_id", 0, true);
         	client = TCData.getTCString(rsr, "client", "", true);
         }
