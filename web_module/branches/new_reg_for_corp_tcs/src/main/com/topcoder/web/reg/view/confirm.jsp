@@ -1,5 +1,6 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.reg.model.RegistrationType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -20,7 +21,8 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="http://www.topcoder.com/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="http://www.topcoder.com/i/registration/tc_logo.gif"
+                                                             alt="TopCoder" border="0"/></A>
 </div>
 
 <div align="center">
@@ -33,24 +35,30 @@
 
 <div id="regBcContainer">
     <div class="regBc">
-         <div class="title">
-             <c:if test="${sessionInfo.loggedIn}">
-                 <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A></div>
-             </c:if>
-         Step <strong>4</strong> of
-             <c:choose>
-                 <c:when test="${regUser.new}">
-                     <strong>6</strong>
-                 </c:when>
-                 <c:otherwise>
-                     <strong>5</strong>
-                 </c:otherwise>
-             </c:choose>
-         </div>
+        <div class="title">
+            <c:if test="${sessionInfo.loggedIn}">
+                <div style="float:left;"><A href="${sessionInfo.servletPath}?module=Logout" class="small">logout</A>
+                </div>
+            </c:if>
+            Step <strong>4</strong> of
+            <c:choose>
+                <c:when test="${regUser.new}">
+                    <strong>6</strong>
+                </c:when>
+                <c:otherwise>
+                    <strong>5</strong>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
         <div class="off">Select Your Registration</div>
+
         <div class="off">General</div>
+
         <div class="off">Demographics</div>
+
         <div class="on">Confirm</div>
+
         <div class="off">Success</div>
         <c:if test="${regUser.new}">
             <div class="off">Activation</div>
@@ -104,28 +112,32 @@
     </tr>
 </c:if>
 
-<c:set value="<%=Constants.TITLE%>" var="title"/>
-<c:if test="${cf:contains(fields, title)}">
-    <tr>
-        <td class="name">
-            Title:
-        </td>
-        <td class="value">
-                ${regUser.contact.title}
-        </td>
-    </tr>
-</c:if>
+<c:set value="<%=RegistrationType.COMPETITION_ID%>" var="competition"/>
+<c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
+<c:if test="${!cf:contains(requestScope[regTypes], competition)}">
+    <c:set value="<%=Constants.TITLE%>" var="title"/>
+    <c:if test="${cf:contains(fields, title)}">
+        <tr>
+            <td class="name">
+                Title:
+            </td>
+            <td class="value">
+                    ${regUser.contact.title}
+            </td>
+        </tr>
+    </c:if>
 
-<c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
-<c:if test="${cf:contains(fields, companyName)}">
-    <tr>
-        <td class="name">
-            Company:
-        </td>
-        <td class="value">
-                ${regUser.contact.company.name}
-        </td>
-    </tr>
+    <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
+    <c:if test="${cf:contains(fields, companyName)}">
+        <tr>
+            <td class="name">
+                Company:
+            </td>
+            <td class="value">
+                    ${regUser.contact.company.name}
+            </td>
+        </tr>
+    </c:if>
 </c:if>
 
 <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
@@ -407,6 +419,33 @@
         </td>
     </tr>
 </c:if>
+
+<c:if test="${cf:contains(requestScope[regTypes], competition)}">
+    <c:set value="<%=Constants.TITLE%>" var="title"/>
+    <c:if test="${cf:contains(fields, title)}">
+        <tr>
+            <td class="name">
+                Title:
+            </td>
+            <td class="value">
+                    ${regUser.contact.title}
+            </td>
+        </tr>
+    </c:if>
+
+    <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
+    <c:if test="${cf:contains(fields, companyName)}">
+        <tr>
+            <td class="name">
+                Company:
+            </td>
+            <td class="value">
+                    ${regUser.contact.company.name}
+            </td>
+        </tr>
+    </c:if>
+</c:if>
+
 
 <c:if test="${cf:contains(fields, referral)}">
     <tr>
