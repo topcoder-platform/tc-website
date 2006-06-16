@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.dde.user.User" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+
 <!--Header begins-->
 <table border="0" cellpadding="5" cellspacing="0" width="100%" class="search">
     <tr valign="middle">

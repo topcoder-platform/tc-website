@@ -30,7 +30,7 @@
             &#160;&#160;|&#160;&#160;<a href="/login.jsp?a=logout" class="loginLinks">Logout</a>
             <% } %>
 
-            &#160;&#160;|&#160;&#160;<a href="http://www.topcoder.com" class="loginLinks">Home</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>" class="loginLinks">Home</a>
         </td>
     </tr>
 </table>

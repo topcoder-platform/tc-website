@@ -1,6 +1,7 @@
 <%@ page import="javax.naming.*,
                  com.topcoder.dde.util.Cookies,
                  com.topcoder.dde.user.UserNotActivatedException" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
