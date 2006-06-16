@@ -273,6 +273,7 @@ public interface PactsConstants {
     public static final String METHOD_CODE = "method_code";
     public static final String EARLIEST_CREATION_DATE = "earliest_creation_date";
     public static final String LATEST_CREATION_DATE = "latest_creation_date";
+    public static final String CREATION_DATE = "creation_date";
     public static final String PAYMENT_ID = "payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";

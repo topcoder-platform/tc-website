@@ -62,8 +62,8 @@
         </tr>
 		<tr>
 		<td></td>
-		<td><b>First Name</b></td>
-		<td><b>Last Name</b></td>
+		<td><b>First</b></td>
+		<td><b>Last</b></td>
 		<td><b>User</b></td>
 		<td><b>Description</b></td>
 		<td><b>Gross</b></td>
@@ -72,7 +72,7 @@
 		<td><b>Type</b></td>
 		<td><b>Method</b></td>
 		<td><b>Status</b></td>
-		<td><b>Date Created</b></td>
+		<td><b>Created</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
 <%
@@ -108,7 +108,8 @@
 			out.print("<td>"+df.format(paymentList[n].getRecentGrossAmount()
 				- paymentList[n].getRecentNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(paymentList[n].getRecentNetAmount())+"</td>\n");
-			out.print("<td>"+paymentList[n].getType()+"</td>\n");
+			String type = paymentList[n].getType().substring(0,paymentList[n].getType().indexOf("Payment"));
+			out.print("<td>"+type+"</td>\n");
 			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
 			out.print("<td>"+creationDateList[n]+"</td>\n");
@@ -131,6 +132,7 @@
 %>
 
 </table>
+</font>
 
 <b>Total Net Amount: <% out.print(df.format(total_net)); %></b>
 

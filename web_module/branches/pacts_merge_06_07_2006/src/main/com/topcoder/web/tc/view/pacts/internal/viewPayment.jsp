@@ -17,6 +17,7 @@
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
 	NoteHeader[] notes = (NoteHeader[])
 		request.getAttribute(PactsConstants.NOTE_HEADER_LIST);
+	String creationDate = (String)request.getAttribute(PactsConstants.CREATION_DATE);
 	if (notes == null) {
 		notes = new NoteHeader[0];
 	}
@@ -87,7 +88,11 @@
 <%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
 %>
 		</tr>
-
+		<tr>
+		<td><b>Date Created:</b></td>
+<%			out.print("<td>"+creationDate+"</td>\n");
+%>
+		</tr>
 		<tr>
 		<td><b>Date Paid:</b></td>
 <%			out.print("<td>"+payment.getPayDate()+"</td>\n");
