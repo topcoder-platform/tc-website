@@ -197,24 +197,29 @@ public class Submit extends Base {
                 ResultSetContainer lastExampleCompilation =
                         (ResultSetContainer) m.get("long_contest_recent_example_compilation");
 
-                String mess;
+                ThrottleResult tRes;
                 if (examplesOnly) {
-                    mess = getMessage(lastExampleCompilation, true);
+                    tRes = getMessage(lastExampleCompilation, true);
                 } else {
-                    mess = getMessage(lastCompilation, false);
+                    tRes = getMessage(lastCompilation, false);
                 }
-                if (mess != null) {
+                if (tRes.isOnHold()) {
                     request.setAttribute(Constants.CODE, code);
                     if (language > 0) {
                         setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                     }
                     request.setAttribute(Constants.LANGUAGES, getLanguages());
-                    request.setAttribute(Constants.MESSAGE, mess);
+                    request.setAttribute(Constants.MESSAGE, tRes.getMessage());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
                 }
 
+                if (isNearEnd(rid)) {
+                    request.setAttribute(Constants.MESSAGE, "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
+                            "If you make a full submission at any point between now and the event of the event you will " +
+                            "not be able to make any further full subimssions for the duration of the event.");
+                }
                 // The request info for the compiler
                 if (code == null) {
                     log.debug("********************* code is null ***********************");
@@ -294,6 +299,11 @@ public class Submit extends Base {
             log.error("Unexpected error in code submit module.", e);
             throw new TCWebException("An error occurred while compiling your code", e);
         }
+    }
+
+    private boolean isNearEnd(long roundId) throws Exception {
+        ResultSetContainer rsc = getRoundInfo(roundId);
+        return ((rsc.getTimestampItem(0, "end_time").getTime() - System.currentTimeMillis()) < (Constants.SUBMISSION_RATE * 60 * 1000));
     }
 
     // Checks whether the specified field is null.
@@ -381,7 +391,7 @@ public class Submit extends Base {
         return !((ResultSetContainer) getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
     }
 
-    private String getMessage(ResultSetContainer lastCompilation, boolean examplesOnly) {
+    private ThrottleResult getMessage(ResultSetContainer lastCompilation, boolean examplesOnly) {
         StringBuffer buf = null;
         if (!lastCompilation.isEmpty()) {
             long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData() == null ? 0 : lastCompilation.getLongItem(0, "submit_time");
@@ -426,11 +436,36 @@ public class Submit extends Base {
             }
         }
         if (buf == null) {
-            return null;
+            return new ThrottleResult(false, null);
         } else {
-            return buf.toString();
+            return new ThrottleResult(true, buf.toString());
         }
     }
 
+    private static class ThrottleResult {
+        private boolean onHold;
+        private String message;
+
+        ThrottleResult(boolean onHold, String message) {
+            this.onHold = onHold;
+            this.message = message;
+        }
+
+        public boolean isOnHold() {
+            return onHold;
+        }
+
+        public void setOnHold(boolean onHold) {
+            this.onHold = onHold;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 
 }
