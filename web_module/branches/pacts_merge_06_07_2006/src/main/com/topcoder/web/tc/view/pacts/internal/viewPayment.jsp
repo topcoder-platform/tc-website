@@ -53,6 +53,12 @@
 <%			out.print(payment.getHeader().getDescription());
 %>
 		</td></tr>
+<%		if (payment.getHeader().getClient() != null && !payment.getHeader().getClient().equals("")) { %>
+			<tr>
+			<td><b>Client:</b></td><td>
+				<%	out.print(payment.getHeader().getClient()); %>
+			</td></tr>
+<%		} %>
 		<tr>
 		<td><b>Status:</b></td>
 <%			out.print("<td>"+payment.getStatusDesc()+"</td>\n");
