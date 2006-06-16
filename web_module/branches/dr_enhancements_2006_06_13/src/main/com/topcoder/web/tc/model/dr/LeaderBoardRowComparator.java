@@ -42,9 +42,11 @@ public class LeaderBoardRowComparator implements Comparator {
 
         // compares points
         if (lbr0.getPoints() < lbr1.getPoints()) {
+            log.debug("--1-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
         if (lbr0.getPoints() > lbr1.getPoints()) {
+            log.debug("--2-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
@@ -67,27 +69,33 @@ public class LeaderBoardRowComparator implements Comparator {
             log.debug("Compare placement: cnt1 (" + row1.getLongItem("cnt") + ")");
 
             if (row0.getLongItem("placed") < row1.getLongItem("placed")) {
+                log.debug("--3-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }
 
             if (row0.getLongItem("placed") < row1.getLongItem("placed")) {
+                log.debug("--4-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
                 return 1;
             }
 
             if (row0.getLongItem("cnt") > row1.getLongItem("cnt")) {
+                log.debug("--5-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }
 
             if (row0.getLongItem("cnt") > row1.getLongItem("cnt")) {
+                log.debug("--6-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
                 return 1;
             }
         }
 
         if (!it0.hasNext() && it1.hasNext()) {
+            log.debug("--7-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
 
         if (it0.hasNext() && it0.hasNext()) {
+            log.debug("--8-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
@@ -118,14 +126,17 @@ public class LeaderBoardRowComparator implements Comparator {
         }
 
         if (score0 < score1) {
+            log.debug("--9-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
 
         if (score0 > score1) {
+            log.debug("--10-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
         // tie
+        log.debug("--11-- Compare result: " + lbr0.getUserName() + " = " + lbr1.getUserName());
         return 0;
     }
 

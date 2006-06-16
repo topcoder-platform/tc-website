@@ -168,10 +168,20 @@ public class LeaderBoard extends BaseBoard {
                     prizes += 1 + coderTie.size();
 
                     log.debug("Sorting...");
-                    for (int j = 0; j < coderTie.size(); j++)
-                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());
+                    /*for (int j = 0; j < coderTie.size(); j++)
+                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());*/
 
-                    Arrays.sort(coderTie.toArray(), new LeaderBoardRowComparator());
+                    LeaderBoardRow[] sortArray = (LeaderBoardRow[]) coderTie.toArray();
+                    for (int j = 0; j < sortArray.length; j++)
+                        log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+
+                    Arrays.sort(sortArray, new LeaderBoardRowComparator());
+
+                    for (int j = 0; j < sortArray.length; j++)
+                        log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+
+                    /*for (int j = 0; j < coderTie.size(); j++)
+                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());*/
 
                     log.debug("Sort result...");
                     for (int j = 0; j < coderTie.size(); j++)
