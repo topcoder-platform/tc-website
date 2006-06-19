@@ -161,10 +161,11 @@ function goTo(selection){
 	   table.setRowBold(0,true);
 	   table.setWidth("100%");
 	   table.setColumnWidth(0, "35%");
-	   table.setColumnWidth(1, "25%");
-	   table.setColumnWidth(2, "20%");
+	   table.setColumnWidth(1, "20%");
+	   table.setColumnWidth(2, "15%");
 	   table.setColumnWidth(3, "10%");
 	   table.setColumnWidth(4, "10%");
+	   table.setColumnWidth(5, "10%");
 	   out.print(table.getHtml());
     }
     
