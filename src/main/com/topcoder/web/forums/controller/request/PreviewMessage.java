@@ -81,7 +81,7 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-        setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
+        setDefault(ForumConstants.MESSAGE_BODY, com.jivesoftware.util.StringUtils.escapeForXML(textareaBody));
         
         if (message != null && thread != null) {
             getRequest().setAttribute("thread", thread);
