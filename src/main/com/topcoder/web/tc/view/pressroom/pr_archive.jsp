@@ -46,6 +46,7 @@
 
 <!-- 2006 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge</A> [June 19]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TopCoder High School Competitions</A> [June 7]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606">AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge</A> [June 6]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_050806">Russian, US and Indonesian Programmers Win $150,000 TopCoder Open Sponsored By AMD in Las Vegas</A> [May 8]<br/></td></tr>

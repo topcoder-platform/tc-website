@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.19.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TCCC</A></span><br><br>
+      AOL Supports Global Student Programming Community in $200,000 Technical Software Contest.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506056" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -186,23 +199,6 @@ and neck.
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=match_editorials&d2=srm305">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505871" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.30.06<br>3:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm304">SRM 304 - Problem Set & Analysis</A></span><br><br>
-      This match was a popular one, with 965 members participating. One reasons for the high participation may have been that this was the last SRM before the upcoming Google Code Jam Europe.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303185" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm304">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505870" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
