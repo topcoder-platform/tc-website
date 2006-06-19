@@ -63,8 +63,7 @@ public class LeaderBoard extends BaseBoard {
         List leaderBoardResult = new ArrayList(rsc.size());
 
         // pre-process board for the prizes
-        double prizePerPoint = 0.0;
-        processBoard(rsc, designBoard, leaderBoardResult, prizePerPoint);
+        double prizePerPoint = processBoard(rsc, designBoard, leaderBoardResult);
         log.debug("prizePerPoint b : " + prizePerPoint);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -90,8 +89,7 @@ public class LeaderBoard extends BaseBoard {
 
     }
 
-    private void processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult,
-        double prizePerPoint) throws TCWebException {
+    private double processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult) throws TCWebException {
 
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
         long totalPoints = 0;
@@ -129,8 +127,9 @@ public class LeaderBoard extends BaseBoard {
             i++;
         }
 
-        prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+        double prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
         log.debug("prizePerPoint: " + prizePerPoint);
+        return prizePerPoint;
     }
 
     /**
