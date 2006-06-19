@@ -9,6 +9,25 @@
    
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.19.06<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">Intel&#174; Multi-Threading Competion 5 - Analysis</A></span><br><br>
+Clustering is a very common real-world data mining problem, and while the data
+for this match was artificial, many real-world graphs show strong natural
+clusters.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506010" message="discuss this" />&#160;|&#160;
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.19.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TCCC</A></span><br><br>
       AOL Supports Global Student Programming Community in $200,000 Technical Software Contest.
@@ -177,29 +196,6 @@ gave him the points he needed to overtake the other top scorers.
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.01.06<br>1:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm305">SRM 305 - Problem Set & Analysis</A></span><br><br>
-      An unusually tricky Division 2 Medium/Division 1 Easy kept scores generally 
-low.  At the end of the coding phase, 
-<tc-webtag:handle coderId="8394868" context="algorithm"/>
-led by 60 points over 
-<tc-webtag:handle coderId="10574855" context="algorithm"/> and
-<tc-webtag:handle coderId="7462740" context="algorithm"/>, who were neck
-and neck.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/vorthys_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="299177" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm305">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505871" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
