@@ -116,6 +116,14 @@
 
 <%
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
+   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
+   out.println(PactsConstants.PAYMENT_ID+"="+payments[0].getHeader().getId());
+   out.println("\">View Payment</a><br>");
+
+   out.print("<br>");
+
+   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
    out.println("object_id="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");

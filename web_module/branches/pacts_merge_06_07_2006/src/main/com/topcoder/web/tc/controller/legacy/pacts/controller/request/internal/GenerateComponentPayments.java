@@ -26,7 +26,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
             
             String projectID = StringUtils.checkNull(getRequest().getParameter(PROJECT_ID)).trim();
             String projectTermStatus = StringUtils.checkNull(getRequest().getParameter(PROJECT_TERMINATION_STATUS));
-            String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT));
+            String client = StringUtils.checkNull(getRequest().getParameter(PROJECT_CLIENT)).trim();
             if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int[] counts;

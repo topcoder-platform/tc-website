@@ -23,7 +23,7 @@
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
                 <table border="1" cellpadding="5" cellspacing="0">
                     <tr>
-                    	<td colspan="2" align="left">
+                    	<td colspan="3" align="left">
                     		<%	int errCount = 0; %>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_ID%>">
                     			<%	String errStr = (String)err; %>
@@ -52,11 +52,11 @@
                             Status: <tc-webtag:rscSelect name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>" list='<%=statusList%>' fieldText="project_stat_name" fieldValue="project_stat_id" selectedValue="<%=projTermStatus%>"/>
                         </td>
                         <td align="center">
-                            Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="10" size="10" value="<%=client%>"/>
+                            Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="100" size="25" value="<%=client%>"/>
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" colspan="2">
+                        <td align="center" colspan="3">
                             <a href="JavaScript:document.paymentForm.submit();">Generate Component Payments</a><br/>
                         </td>
                     </tr>

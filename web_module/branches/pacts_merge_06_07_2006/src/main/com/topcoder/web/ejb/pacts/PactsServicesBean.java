@@ -7,6 +7,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.util.idgenerator.IDGenerationException;
@@ -2487,7 +2488,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } else {
             	ps.setNull(11, Types.DECIMAL);
             }
-            if (!p.getHeader().getClient().equals("")) {
+            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
             	ps.setString(12, p.getHeader().getClient());
             } else {
             	ps.setNull(12, Types.VARCHAR);
@@ -3330,7 +3331,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } else {
             	ps.setNull(11, Types.DECIMAL);
             }
-            if (!p.getHeader().getClient().equals("")) {
+            if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
             	ps.setString(12, p.getHeader().getClient());
             } else {
             	ps.setNull(12, Types.VARCHAR);
@@ -4652,6 +4653,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                p.setDueDate(dueDate);
 	                p.getHeader().getUser().setId(userId);
 	                p.getHeader().setProjectId(projectId);
+	                p.getHeader().setClient(client);
 	
 	                if (makeChanges) {
 	                    makeNewPayment(c, p, false);
