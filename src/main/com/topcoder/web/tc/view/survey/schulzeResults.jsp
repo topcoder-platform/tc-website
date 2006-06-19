@@ -86,10 +86,13 @@
                                            toScope="page" property="candidate"/>
                         <td>
                             <div id="container">
-                                <img src="${candidate.name}" alt="" class="logoSmall" id="popper${candidate.id}"
-                                     onmouseover="popUp(this.id,'pop${candidate.id}')" onmouseout="popHide()"/>
+                                    ${candidate.name}
+                                    <%--
+                                                                    <img src="${candidate.name}" alt="" class="logoSmall" id="popper${candidate.id}"
+                                                                         onmouseover="popUp(this.id,'pop${candidate.id}')" onmouseout="popHide()"/>
 
-                                <div id="pop${candidate.id}" class="popUp"><img src="${candidate.name}"/></div>
+                                                                    <div id="pop${candidate.id}" class="popUp"><img src="${candidate.name}"/></div>
+                                    --%>
                             </div>
                         </td>
                     </tr>
