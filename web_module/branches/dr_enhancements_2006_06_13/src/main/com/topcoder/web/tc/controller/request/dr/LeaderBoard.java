@@ -9,20 +9,16 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import java.util.Comparator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * <strong>Purpose</strong>:
@@ -33,12 +29,21 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
  */
 public class LeaderBoard extends BaseBoard {
 
+    private static final int NUMBER_PLACEMENT_PRIZES = 5;
+
+    private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
+
+    private static final double DESIGN_POOL_PRIZE = 28000.0;
+
+    private static final String CODER_HANDLE_COLUMN = "2";
+
     /**
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
 
-    private static final double[] placementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+    private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+    private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
 
     /**
      * Process the dr rookie board request.
@@ -46,23 +51,48 @@ public class LeaderBoard extends BaseBoard {
      */
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
-        Request r = new Request();
-        r.setContentHandle(Constants.DR_STAGE_COMMAND);
-
-        // retrieves data from DB
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = dai.getData(r);
-        ResultSetContainer stages = (ResultSetContainer)m.get(Constants.DR_STAGE_QUERY);
+        ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
         log.debug("Got " +  stages.size() + " rows for stages");
         getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
+
+        boolean designBoard = getRequest().getParameter(Constants.PHASE_ID).equals("112");
 
         log.debug("Getting Leader board coders...");
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
         List leaderBoardResult = new ArrayList(rsc.size());
 
+        // pre-process board for the prizes
+        double prizePerPoint = 0.0;
+        processBoard(rsc, designBoard, leaderBoardResult, prizePerPoint);
+
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        boolean invert = sortDir.equals("asc");
+
+        // break prizes ties
+        if (designBoard) {
+            tieBreak(leaderBoardResult, designPlacementPrize, invert);
+        } else {
+            tieBreak(leaderBoardResult, developmentPlacementPrize, invert);
+        }
+
+        // sort
+        sortResult(leaderBoardResult, sortDir, invert);
+
+        // crop
+        List resultBoard = cropResult(leaderBoardResult, prizePerPoint);
+
+        getRequest().setAttribute("testList", resultBoard);
+
+        setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
+        setIsNextPageInContext(true);
+
+    }
+
+    private void processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult,
+        double prizePerPoint) throws TCWebException {
+
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
-        long topThirdThreshold = topThirdAttempt;
         long totalPoints = 0;
         long totalPointsThreshold = -1;
         long overallTopThirdPoints = 0;
@@ -79,7 +109,6 @@ public class LeaderBoard extends BaseBoard {
             boolean inTopThird = false;
             if (i <= topThirdAttempt || totalPoints == totalPointsThreshold) {
                 inTopThird = true;
-                topThirdThreshold = i;
                 overallTopThirdPoints += totalPoints;
             }
 
@@ -92,23 +121,64 @@ public class LeaderBoard extends BaseBoard {
 
             long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
 
-            leaderBoardResult.add(new LeaderBoardRow(period, phase,
-                    row.getLongItem("rank"),
-                    row.getLongItem("user_id"), row.getStringItem("handle_lower"),
-                    totalPoints, inTopThird, false, inTopThird ? totalPoints : 0,
-                    0, 0));
+            leaderBoardResult.add(new LeaderBoardRow(period, phase, row
+                .getLongItem("rank"), row.getLongItem("user_id"), row
+                .getStringItem("handle_lower"), totalPoints, inTopThird,
+                false, inTopThird ? totalPoints : 0, 0, 0));
             i++;
         }
 
-        double prizePerPoint = 28000.0 / overallTopThirdPoints;
+        prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+    }
 
-        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        boolean invert = sortDir.equals("asc");
-        tieBreak(leaderBoardResult, invert);
+    /**
+     * @param leaderBoardResult
+     * @param prizePerPoint
+     * @param startRank
+     * @param numRecords
+     * @return
+     * @throws NumberFormatException
+     */
+    private List cropResult(List leaderBoardResult, double prizePerPoint) throws NumberFormatException {
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
 
-        // sort
+        if ("".equals(numRecords)) {
+            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
+        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
+            numRecords = String.valueOf(Constants.MAX_LEADERS);
+        }
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
+        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= leaderBoardResult.size(); j++) {
+            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
+            leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
+            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
+            resultBoard.add(leaderBoardRow);
+        }
+
+        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
+        getRequest().setAttribute( "croppedDataAfter", new Boolean(leaderBoardResult.size() > Integer
+            .parseInt(startRank) + resultBoard.size()));
+
+        return resultBoard;
+    }
+
+    /**
+     * @param leaderBoardResult
+     * @param sortDir
+     * @param invert
+     */
+    private void sortResult(List leaderBoardResult, String sortDir, boolean invert) {
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        if (sortCol.equals("2")) {
+        // all other columns are sorted already (rank)
+        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
             LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
 
             Arrays.sort(sortArray, new Comparator() {
@@ -127,57 +197,10 @@ public class LeaderBoard extends BaseBoard {
             }
             log.debug("Sort by name - " + sortDir);
         }
-
-        // crop
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-        // Normalizes optional parameters and sets defaults
-        if ("".equals(numRecords)) {
-            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
-        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
-            numRecords = String.valueOf(Constants.MAX_LEADERS);
-        }
-        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
-        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
-        }
-        setDefault(DataAccessConstants.START_RANK, startRank);
-
-        log.debug("startRank: " + startRank);
-        log.debug("numRecords: " + numRecords);
-
-        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
-        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= leaderBoardResult.size(); j++) {
-            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
-            leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
-            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
-            resultBoard.add(leaderBoardRow);
-        }
-
-        log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
-        log.debug("resultBoard.size(): " + resultBoard.size());
-        log.debug("topThirdAttempt: " + topThirdAttempt);
-        log.debug("topThirdThreshold: " + topThirdThreshold);
-        log.debug("totalPointsThreshold: " + totalPointsThreshold);
-        log.debug("overallTopThirdPoints: " + overallTopThirdPoints);
-        log.debug("prizePerPoint: " + prizePerPoint);
-
-        getRequest().setAttribute("testList", resultBoard);
-        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
-        getRequest().setAttribute("croppedDataAfter", new Boolean(leaderBoardResult.size() > Integer.parseInt(startRank) + resultBoard.size()));
-
-        setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
-        setIsNextPageInContext(true);
-
     }
 
-    private void tieBreak(List leaderBoardResult, boolean invert) {
-        //log.debug("Original set...");
+    private void tieBreak(List leaderBoardResult, double[] placementPrize, boolean invert) {
         LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
-        /*for (int j = 0; j < sortArray.length; j++)
-            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());*/
 
         LeaderBoardRowComparator lbrc = new LeaderBoardRowComparator();
         Arrays.sort(sortArray, lbrc);
@@ -187,7 +210,7 @@ public class LeaderBoard extends BaseBoard {
         double prizePool = placementPrize[0];
         double poolCount = 1;
         int place = 1;
-        for (int j = sortArray.length - 2; prizes < 5 && j >= 0 ; j--) {
+        for (int j = sortArray.length - 2; prizes < NUMBER_PLACEMENT_PRIZES && j >= 0 ; j--) {
             if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
                 for (int k = 0; k < poolCount; k++) {
                     sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
@@ -199,15 +222,11 @@ public class LeaderBoard extends BaseBoard {
             } else {
                 poolCount++;
             }
-            if (place < 5) {
+            if (place < NUMBER_PLACEMENT_PRIZES) {
                 prizePool += placementPrize[place];
                 place++;
             }
         }
-
-        /*log.debug("Sort result...");
-        for (int j = 0; j < sortArray.length; j++)
-            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());*/
 
         leaderBoardResult.clear();
         if (invert) {
@@ -217,9 +236,5 @@ public class LeaderBoard extends BaseBoard {
             for (int j = sortArray.length - 1; j >= 0 ; j--)
                 leaderBoardResult.add(sortArray[j]);
         }
-
-        /*log.debug("Original sorted set...");
-        for (int j = 0; j < leaderBoardResult.size(); j++)
-            log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow) leaderBoardResult.get(j)).getUserName());*/
     }
 }

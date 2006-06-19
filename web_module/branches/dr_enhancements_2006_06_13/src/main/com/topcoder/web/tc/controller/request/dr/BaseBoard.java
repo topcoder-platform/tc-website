@@ -14,8 +14,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import java.util.Map;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.common.model.SoftwareComponent;
 
@@ -41,12 +39,8 @@ public abstract class BaseBoard extends BaseProcessor {
     /**
      * private method to retrieve from DB current periods ids.
      */
-    protected String getCurrentPeriod(String period_id) throws Exception {
-        Request r = new Request();
-        r.setContentHandle(Constants.CURRENT_PERIOD_COMMAND);
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = dai.getData(r);
-        ResultSetContainer currentPeriod = (ResultSetContainer)m.get(Constants.CURRENT_PERIOD_QUERY);
+    protected String getCurrentPeriod(String period_id) throws TCWebException {
+        ResultSetContainer currentPeriod = runQuery(Constants.CURRENT_PERIOD_COMMAND, Constants.CURRENT_PERIOD_QUERY);
         return (String.valueOf(currentPeriod.getLongItem(0, period_id)));
     }
 
@@ -78,13 +72,6 @@ public abstract class BaseBoard extends BaseProcessor {
 
         // Prepare request for data retrieval
         Request r = new Request();
-/*        if (!(sortCol.equals("") || sortDir.equals(""))) {
-            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
-            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, query);
-            setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
-            setDefault(DataAccessConstants.SORT_COLUMN, sortCol);
-        }*/
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(period_id, period);
         r.setContentHandle(command);
@@ -95,19 +82,24 @@ public abstract class BaseBoard extends BaseProcessor {
         ResultSetContainer board = (ResultSetContainer)m.get(query);
         log.debug("Got " +  board.size() + " rows for board");
 
-        // crops data
-        /*ResultSetContainer rsc = new ResultSetContainer(board, Integer.parseInt(startRank),
-            Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1);*/
-
         // sets attributes for the jsp
-        //getRequest().setAttribute(Constants.CODER_LIST_KEY, rsc);
         getRequest().setAttribute(Constants.TYPE_KEY,
             (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
 
-        /*setNextPage(nextpage);
-        setIsNextPageInContext(true);*/
-
         return board;
+    }
+
+    protected ResultSetContainer runQuery(String command, String query) throws TCWebException {
+        Request r = new Request();
+        r.setContentHandle(command);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
+        } catch (Exception e) {
+            throw new TCWebException("Command " + command + " failed.");
+        }
+        return (ResultSetContainer)m.get(query);
     }
 }
