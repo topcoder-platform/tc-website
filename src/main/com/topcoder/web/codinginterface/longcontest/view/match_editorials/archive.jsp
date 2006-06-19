@@ -39,12 +39,12 @@
 
 <table class="bodyText" cellpadding="3" cellspacing="0" border="0">
 <%--<tr><td>06.14.2006</td><td><strong>Marathon Match 2</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">Analysis</A></td></tr>--%>
-<tr><td>06.01.2006</td><td><strong>Intel Multi-Threading Competion 5</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">Analysis</A></td></tr>
+<tr><td>06.01.2006</td><td><strong>Intel&#174; Multi-Threading Competion 5</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">Analysis</A></td></tr>
 <tr><td>05.17.2006</td><td><strong>Marathon Match 1</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_1">Analysis</A></td></tr>
-<tr><td>05.03.2006</td><td><strong>Intel Multi-Threading Competion 4</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">Analysis</A></td></tr>
-<tr><td>04.06.2006</td><td><strong>Intel Multi-Threading Competion 3</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">Analysis</A></td></tr>
-<tr><td>03.08.2006</td><td><strong>Intel Multi-Threading Competion 2</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_2">Analysis</A></td></tr>
-<tr><td>02.15.2006</td><td><strong>Intel Multi-Threading Competion 1</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">Analysis</A></td></tr>
+<tr><td>05.03.2006</td><td><strong>Intel&#174; Multi-Threading Competion 4</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_4">Analysis</A></td></tr>
+<tr><td>04.06.2006</td><td><strong>Intel&#174; Multi-Threading Competion 3</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_3">Analysis</A></td></tr>
+<tr><td>03.08.2006</td><td><strong>Intel&#174; Multi-Threading Competion 2</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_2">Analysis</A></td></tr>
+<tr><td>02.15.2006</td><td><strong>Intel&#174; Multi-Threading Competion 1</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_1">Analysis</A></td></tr>
 <tr><td>12.22.2005</td><td><strong>Beta</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=beta">Analysis</A></td></tr>
 </table>
 
