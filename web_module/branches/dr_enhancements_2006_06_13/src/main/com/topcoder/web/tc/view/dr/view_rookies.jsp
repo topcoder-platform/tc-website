@@ -7,7 +7,9 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -121,10 +123,29 @@ Please select a <strong>season</strong><br>
 <c:when test="${fn:length(testList) > 0}">
 
 <!-- crop -->
+<div class="pagingBox" style="width:300px;">
+	<c:choose>
+	    <c:when test="${croppedDataBefore}">
+			<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>
+		</c:when>
+		<c:otherwise>
+			&lt;&lt; prev
+		</c:otherwise>
+	</c:choose>
+	|
+	<c:choose>
+	    <c:when test="${croppedDataAfter}">
+			<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>
+		</c:when>
+		<c:otherwise>
+			next &gt;&gt;
+		</c:otherwise>
+	</c:choose>
+</div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="500">
    <tr>
-      <td class="title" colspan="3">
+      <td class="title" colspan="5">
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
 Development Cup Series Rookie of the Year Leaderboard
 <% } else { %>
@@ -134,14 +155,18 @@ Design Cup Series Rookie of the Year Leaderboard
    </tr>
    <tr>
       <td class="headerC">
-         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rank</a>
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
       </td>
       <td class="header" width="100%">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
       </td>
       <td class="headerR">
-         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
       </td>
+      <td class="headerR">
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Placement prize</a>
+      </td>
+      <td class="headerR">Trip</td>
    </tr>
 
    <%boolean even = false;%>
@@ -150,6 +175,10 @@ Design Cup Series Rookie of the Year Leaderboard
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
 	      <td class="valueR">${boardRow.points}</td>
+	      <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
+	      <td class="valueR">
+	      	<c:if test="${boardRow.winTrip}">*</c:if>
+	      </td>
 	   </tr>
 	   <%even=!even;%>
    </c:forEach>

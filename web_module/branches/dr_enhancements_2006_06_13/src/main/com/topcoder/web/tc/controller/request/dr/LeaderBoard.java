@@ -111,16 +111,9 @@ public class LeaderBoard extends BaseBoard {
                 overallTopThirdPoints += totalPoints;
             }
 
-            long period = 0;
-            if (!hasParameter(Constants.STAGE_ID)) {
-                period = new Long(getCurrentPeriod(Constants.STAGE_ID)).longValue();
-            } else {
-                period = new Long(getRequest().getParameter(Constants.STAGE_ID)).longValue();
-            }
-
             long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
 
-            leaderBoardResult.add(new LeaderBoardRow(period, phase, row
+            leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("stage_id"), phase, row
                 .getLongItem("rank"), row.getLongItem("user_id"), row
                 .getStringItem("handle_lower"), totalPoints, inTopThird,
                 false, inTopThird ? totalPoints : 0, 0, 0));

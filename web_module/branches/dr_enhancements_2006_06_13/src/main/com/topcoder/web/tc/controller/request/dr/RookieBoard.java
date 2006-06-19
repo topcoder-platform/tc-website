@@ -4,18 +4,18 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.dr.LeaderBoardRow;
+import com.topcoder.web.tc.model.dr.RookieBoardRow;
+import com.topcoder.web.tc.model.dr.RookieBoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import java.util.Comparator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 
@@ -33,51 +33,165 @@ public class RookieBoard extends BaseBoard {
      */
     private static final Logger log = Logger.getLogger(RookieBoard.class);
 
+    private static final int NUMBER_PLACEMENT_PRIZES = 5;
+
+    private static final String CODER_HANDLE_COLUMN = "2";
+
+    private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+    private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
+
+
     /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
-        Request r = new Request();
-        r.setContentHandle(Constants.DR_SEASON_COMMAND);
-
-        // retrieves data from DB
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        Map m = dai.getData(r);
-        ResultSetContainer seasons = (ResultSetContainer)m.get(Constants.DR_SEASON_QUERY);
+        ResultSetContainer seasons = runQuery(Constants.DR_SEASON_COMMAND, Constants.DR_SEASON_QUERY);
         log.debug("Got " +  seasons.size() + " rows for seasons");
         getRequest().setAttribute(Constants.SEASON_LIST_KEY, seasons);
 
         log.debug("Getting rookie board coders...");
         ResultSetContainer rsc = retrieveBoardData(Constants.SEASON_ID, Constants.ROOKIE_BOARD_COMMAND, Constants.ROOKIE_BOARD_QUERY);
 
-        // for now
-        long period = 0;
-        if (!hasParameter(Constants.SEASON_ID)) {
-            period = new Long(getCurrentPeriod(Constants.SEASON_ID)).longValue();
-        } else {
-            period = new Long(getRequest().getParameter(Constants.SEASON_ID)).longValue();
-        }
-
         long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
 
-        List leaderBoardResult = new ArrayList(rsc.size());
+        List rookieBoardResult = new ArrayList(rsc.size());
         ResultSetRow row = null;
+        boolean firstRow = true;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
-            leaderBoardResult.add(new LeaderBoardRow(period, phase, row.getLongItem("rank"),
+            rookieBoardResult.add(new RookieBoardRow(row.getLongItem("season_id"), phase, row.getLongItem("rank"),
                     row.getLongItem("user_id"), row.getStringItem("handle_lower"),
                     row.getLongItem("total_points"),
-                    true, true, 10, 20, 30));
+                    firstRow, 0));
+            firstRow = false;
         }
-        log.debug("leaderBoardResult.size(): " + leaderBoardResult.size());
-        getRequest().setAttribute("testList", leaderBoardResult);
-        getRequest().setAttribute("croppedDataBefore", new Boolean(false));
-        getRequest().setAttribute("croppedDataAfter", new Boolean(true));
+
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        boolean invert = sortDir.equals("asc");
+
+        // break prizes ties
+        if (phase == 112) {
+            tieBreak(rookieBoardResult, designPlacementPrize, invert);
+        } else {
+            tieBreak(rookieBoardResult, developmentPlacementPrize, invert);
+        }
+
+        // sort
+        sortResult(rookieBoardResult, sortDir, invert);
+
+        // crop
+        List resultBoard = cropResult(rookieBoardResult);
+
+        getRequest().setAttribute("testList", resultBoard);
 
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
 
+    }
+
+    /**
+     * @param rookieBoardResult
+     * @param prizePerPoint
+     * @param startRank
+     * @param numRecords
+     * @return
+     * @throws NumberFormatException
+     */
+    private List cropResult(List rookieBoardResult) throws NumberFormatException {
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+        if ("".equals(numRecords)) {
+            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
+        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
+            numRecords = String.valueOf(Constants.MAX_LEADERS);
+        }
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
+        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= rookieBoardResult.size(); j++) {
+            RookieBoardRow rookieBoardRow = (RookieBoardRow) rookieBoardResult.get(Integer.parseInt(startRank) + j - 1);
+            resultBoard.add(rookieBoardRow);
+        }
+
+        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
+        getRequest().setAttribute( "croppedDataAfter", new Boolean(rookieBoardResult.size() > Integer
+            .parseInt(startRank) + resultBoard.size()));
+
+        return resultBoard;
+    }
+
+    /**
+     * @param rookieBoardResult
+     * @param sortDir
+     * @param invert
+     */
+    private void sortResult(List rookieBoardResult, String sortDir, boolean invert) {
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        // all other columns are sorted already (rank)
+        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
+            RookieBoardRow[] sortArray = (RookieBoardRow[]) rookieBoardResult.toArray(new RookieBoardRow[rookieBoardResult.size()]);
+
+            Arrays.sort(sortArray, new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                return ((RookieBoardRow) arg0).getUserName().compareTo(((RookieBoardRow) arg1).getUserName());
+                }
+            });
+
+            rookieBoardResult.clear();
+            if (invert) {
+                for (int j = 0; j < sortArray.length; j++)
+                    rookieBoardResult.add(sortArray[j]);
+            } else {
+                for (int j = sortArray.length - 1; j >= 0 ; j--)
+                    rookieBoardResult.add(sortArray[j]);
+            }
+            log.debug("Sort by name - " + sortDir);
+        }
+    }
+
+    private void tieBreak(List rookieBoardResult, double[] placementPrize, boolean invert) {
+        RookieBoardRow[] sortArray = (RookieBoardRow[]) rookieBoardResult.toArray(new RookieBoardRow[rookieBoardResult.size()]);
+
+        RookieBoardRowComparator lbrc = new RookieBoardRowComparator();
+        Arrays.sort(sortArray, lbrc);
+
+        // Calculates placement prizes. Shares prize pool in case of a tie.
+        int prizes = 0;
+        double prizePool = placementPrize[0];
+        double poolCount = 1;
+        int place = 1;
+        for (int j = sortArray.length - 2; prizes < NUMBER_PLACEMENT_PRIZES && j >= 0 ; j--) {
+            if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
+                for (int k = 0; k < poolCount; k++) {
+                    sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
+                }
+                prizes += poolCount;
+                prizePool = 0;
+                poolCount = 1;
+            } else {
+                poolCount++;
+            }
+            if (place < NUMBER_PLACEMENT_PRIZES) {
+                prizePool += placementPrize[place];
+                place++;
+            }
+        }
+
+        rookieBoardResult.clear();
+        if (invert) {
+            for (int j = 0; j < sortArray.length; j++)
+                rookieBoardResult.add(sortArray[j]);
+        } else {
+            for (int j = sortArray.length - 1; j >= 0 ; j--)
+                rookieBoardResult.add(sortArray[j]);
+        }
     }
 }
