@@ -24,8 +24,6 @@
 
     <STYLE TYPE="text/css">
         .logoSmall {
-            width: 60px;
-            height: 60px;
         }
 
         .popper {
