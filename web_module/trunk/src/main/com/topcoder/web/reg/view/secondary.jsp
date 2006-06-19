@@ -58,17 +58,19 @@
         <!--
         function submitForm() {
             var resInput = document.secondaryForm.${resume};
-            var val = resInput.value;
-        <%--
-            we're doing this nastiness because of IE 6.  I would appear
-            that there is a bug when you have a multipart form, being posted
-            via https and the user does not select a file.  The request either
-            dies client side, or spins indefinately.  This code will make it
-            so that the form is not multipart when they are not submitting a resume.
-        --%>
-            if (val == null || trim(val) == "") {
-                document.secondaryForm.removeAttribute("enctype");
-                resInput.parentNode.removeChild(resInput);
+            if (resInput) {
+                var val = resInput.value;
+            <%--
+                we're doing this nastiness because of IE 6.  I would appear
+                that there is a bug when you have a multipart form, being posted
+                via https and the user does not select a file.  The request either
+                dies client side, or spins indefinately.  This code will make it
+                so that the form is not multipart when they are not submitting a resume.
+            --%>
+                if (val == null || trim(val) == "") {
+                    document.secondaryForm.removeAttribute("enctype");
+                    resInput.parentNode.removeChild(resInput);
+                }
             }
             document.secondaryForm.submit();
 
