@@ -109,28 +109,32 @@
     </tr>
 </c:if>
 
-<c:set value="<%=Constants.TITLE%>" var="title"/>
-<c:if test="${cf:contains(fields, title)}">
-    <tr>
-        <td class="name">
-            Title:
-        </td>
-        <td class="value">
-                ${regUser.contact.title}
-        </td>
-    </tr>
-</c:if>
+<c:set value="<%=RegistrationType.COMPETITION_ID%>" var="competition"/>
+<c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
+<c:if test="${!cf:contains(requestScope[regTypes], competition)}">
+    <c:set value="<%=Constants.TITLE%>" var="title"/>
+    <c:if test="${cf:contains(fields, title)}">
+        <tr>
+            <td class="name">
+                Title:
+            </td>
+            <td class="value">
+                    ${regUser.contact.title}
+            </td>
+        </tr>
+    </c:if>
 
-<c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
-<c:if test="${cf:contains(fields, companyName)}">
-    <tr>
-        <td class="name">
-            Company:
-        </td>
-        <td class="value">
-                ${regUser.contact.company.name}
-        </td>
-    </tr>
+    <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
+    <c:if test="${cf:contains(fields, companyName)}">
+        <tr>
+            <td class="name">
+                Company:
+            </td>
+            <td class="value">
+                    ${regUser.contact.company.name}
+            </td>
+        </tr>
+    </c:if>
 </c:if>
 
 <c:set value="<%=Constants.ADDRESS1%>" var="address1"/>
@@ -413,6 +417,33 @@
     </tr>
 </c:if>
 
+<c:if test="${cf:contains(requestScope[regTypes], competition)}">
+    <c:set value="<%=Constants.TITLE%>" var="title"/>
+    <c:if test="${cf:contains(fields, title)}">
+        <tr>
+            <td class="name">
+                Title:
+            </td>
+            <td class="value">
+                    ${regUser.contact.title}
+            </td>
+        </tr>
+    </c:if>
+
+    <c:set value="<%=Constants.COMPANY_NAME%>" var="companyName"/>
+    <c:if test="${cf:contains(fields, companyName)}">
+        <tr>
+            <td class="name">
+                Company:
+            </td>
+            <td class="value">
+                    ${regUser.contact.company.name}
+            </td>
+        </tr>
+    </c:if>
+</c:if>
+
+
 <c:if test="${cf:contains(fields, referral)}">
     <tr>
         <td class="name">
@@ -439,4 +470,3 @@
 
 </body>
 </html>
-

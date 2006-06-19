@@ -3,18 +3,19 @@ package com.topcoder.web.tc.controller.request.util;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * @author dok
- * Date: May 6, 2004
+ *         Date: May 6, 2004
  */
 public class ViewReferrals extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        if (userIdentified()) {
+        if (SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             Request r = new Request();
             r.setContentHandle("referral_list");
             r.setProperty("uid", String.valueOf(getUser().getId()));

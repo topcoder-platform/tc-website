@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.dde.user.User" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+
 <!--Header begins-->
 <table border="0" cellpadding="5" cellspacing="0" width="100%" class="search">
     <tr valign="middle">
@@ -15,7 +18,7 @@
     <% if (page_name == "registration.jsp") { %>
             &#160;&#160;|&#160;&#160;<strong>Register</strong>
     <% } else { %>
-            &#160;&#160;|&#160;&#160;<a href="/registration/registration.jsp" class="loginLinks">Register</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="loginLinks">Register</a>
     <% } %>
 
 <% } else { %>

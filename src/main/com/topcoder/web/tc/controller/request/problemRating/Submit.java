@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.problemrating.ProblemRatingServices;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 
 /**
  * This puts the results of a problem rating into the DB
+ *
  * @author lbackstrom 07.08.2003
  */
 public class Submit extends PRBase {
@@ -23,7 +25,7 @@ public class Submit extends PRBase {
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
     protected void businessProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         long userID = getUser().getId();

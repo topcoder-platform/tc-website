@@ -9,6 +9,7 @@ import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
@@ -26,17 +27,15 @@ public class AdminForceSubmit extends Base {
         //need to have: user id, component id, round_id, contest_id, language_id
         //then lookup the code, and submit it
 
-        if (getUser().isAnonymous()) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else if (!getSessionInfo().isAdmin()) {
-            throw new NavigationException("Shame on you, you're no admin.");
         } else {
             String name;
             StringBuffer buf = new StringBuffer(1000);
             int count = 0;
             String message;
             for (Enumeration enum = getRequest().getParameterNames(); enum.hasMoreElements();) {
-                name = (String)enum.nextElement();
+                name = (String) enum.nextElement();
                 log.debug(name);
                 if (name.startsWith(Constants.SUBMISSION_PREFIX) && "on".equals(getRequest().getParameter(name))) {
                     String[] ids = name.substring(Constants.SUBMISSION_PREFIX.length()).split(",");
@@ -61,7 +60,7 @@ public class AdminForceSubmit extends Base {
                     buf.append(" ").append(message).append("\n");
                 }
             }
-            buf.insert(0, count+" submissions made\n\n");
+            buf.insert(0, count + " submissions made\n\n");
             getRequest().setAttribute(Constants.MESSAGE, buf.toString());
             setNextPage("/admin/results.jsp");
             setIsNextPageInContext(true);
@@ -69,19 +68,19 @@ public class AdminForceSubmit extends Base {
     }
 
     private String getCode(long coderId, long componentId, long roundId, int subNum) throws Exception {
-        Request r= new Request();
+        Request r = new Request();
         r.setContentHandle("long_contest_submission_text");
         r.setProperty(Constants.CODER_ID, String.valueOf(coderId));
         r.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
         r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
         r.setProperty(Constants.SUBMISSION_NUMBER, String.valueOf(subNum));
-        return ((ResultSetContainer)getDataAccess().getData(r).get("long_contest_submission_text")).getStringItem(0, "submission_text");
+        return ((ResultSetContainer) getDataAccess().getData(r).get("long_contest_submission_text")).getStringItem(0, "submission_text");
     }
 
     private void submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code) throws TCWebException {
         log.debug("submit: " + coderId + " " + componentId + " " + roundId + " " + contestId + " " + languageId);
         AdminSubmitRequest lcr = new AdminSubmitRequest(coderId, componentId, roundId, contestId,
-        languageId, ApplicationServer.WEB_SERVER_ID, code);
+                languageId, ApplicationServer.WEB_SERVER_ID, code);
 
         try {
             send(lcr, languageId);

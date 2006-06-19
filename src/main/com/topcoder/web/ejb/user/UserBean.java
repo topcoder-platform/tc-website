@@ -3,8 +3,8 @@ package com.topcoder.web.ejb.user;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -23,7 +23,7 @@ public class UserBean extends BaseEJB {
     public long createNewUser(String handle, char status, String dataSource, String idDataSource) throws EJBException {
         long ret = 0;
         try {
-            ret = IdGeneratorClient.getSeqId("main_sequence");
+            ret = IdGeneratorClient.getSeqId("USER_SEQ");
         } catch (IDGenerationException e) {
             throw new EJBException(e);
         }

@@ -7,16 +7,16 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
+import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.ejb.resume.ResumeServices;
-import com.topcoder.web.ejb.user.UserPreference;
+import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.ejb.phone.Phone;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.school.CurrentSchool;
+import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.JobHitData;
 
@@ -40,8 +40,8 @@ public class JobHit extends Base {
 
 
         try {
-            if (!userIdentified()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
 
             Enumeration parameterNames = getRequest().getParameterNames();
@@ -61,7 +61,6 @@ public class JobHit extends Base {
                     }
                 }
             }
-
 
 /*
             Navigation navigation = (Navigation) getRequest().getSession().getAttribute("navigation");
@@ -204,15 +203,15 @@ public class JobHit extends Base {
             ret.setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
         }
 
-        CoderSessionInfo info = (CoderSessionInfo)getSessionInfo();
+        CoderSessionInfo info = (CoderSessionInfo) getSessionInfo();
 
-        User userBean = (User)createEJB(getInitialContext(), User.class);
-        Email emailBean = (Email)createEJB(getInitialContext(), Email.class);
-        UserAddress userAddressBean = (UserAddress)createEJB(getInitialContext(), UserAddress.class);
-        Address addressBean = (Address)createEJB(getInitialContext(), Address.class);
-        Phone phoneBean = (Phone)createEJB(getInitialContext(), Phone.class);
-        Coder coderBean = (Coder)createEJB(getInitialContext(), Coder.class);
-        CurrentSchool csBean = (CurrentSchool)createEJB(getInitialContext(), CurrentSchool.class);
+        User userBean = (User) createEJB(getInitialContext(), User.class);
+        Email emailBean = (Email) createEJB(getInitialContext(), Email.class);
+        UserAddress userAddressBean = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
+        Address addressBean = (Address) createEJB(getInitialContext(), Address.class);
+        Phone phoneBean = (Phone) createEJB(getInitialContext(), Phone.class);
+        Coder coderBean = (Coder) createEJB(getInitialContext(), Coder.class);
+        CurrentSchool csBean = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
 
         ResultSetContainer addresses = userAddressBean.getUserAddresses(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
         long addressId = addresses.getLongItem(0, "address_id");
@@ -231,7 +230,7 @@ public class JobHit extends Base {
         ret.setHandle(info.getHandle());
         ret.setEmail(emailBean.getAddress(emailBean.getPrimaryEmailId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME), DBMS.JTS_OLTP_DATASOURCE_NAME));
         int coderTypeId = coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-        ret.setCoderType(coderTypeId==1?"Student":"Professional");
+        ret.setCoderType(coderTypeId == 1 ? "Student" : "Professional");
         ret.setCoderTypeId(String.valueOf(coderBean.getCoderTypeId(info.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME)));
         if (!profileInfo.isEmpty()) {
             ret.setSchool(profileInfo.getItem(0, "school_name").toString());

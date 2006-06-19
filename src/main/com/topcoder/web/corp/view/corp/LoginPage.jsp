@@ -2,6 +2,7 @@
          import="com.topcoder.web.corp.controller.request.Login,
                  com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.web.corp.Constants,
+				 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -52,9 +53,9 @@
 
                         <p><%= message %></p>
                         <% if (sessionInfo.isAnonymous()) { %>
-                            <p>New to TopCoder? <a href="<%=sessionInfo.getServletPath()%>?module=Registration" class="bodyText">Register</a> today!</p>
+                            <p>New to TopCoder? <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register</a> today!</p>
                         <% } else { %>
-                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="<%=sessionInfo.getServletPath()%>?module=Logout&<%=BaseServlet.NEXT_PAGE_KEY%>=<%=sessionInfo.getServletPath()%>?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
+                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">click here</a>.
                         <% } %>
 
                     </td>

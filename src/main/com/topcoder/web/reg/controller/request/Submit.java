@@ -208,7 +208,11 @@ public class Submit extends Base {
         }
 
         msgText.append("If you have any questions about how to participate, please email them to service@topcoder.com.\n\n");
-        msgText.append("Thank you again for registering with TopCoder and we look forward to seeing you in the arena!");
+        if (regTypes.contains(hs) || regTypes.contains(comp)) {
+            msgText.append("Thank you again for registering with TopCoder and we look forward to seeing you in the arena!");
+        } else {
+            msgText.append("Thank you again for registering with TopCoder!");
+        }
 
 
         mail.setBody(msgText.toString());

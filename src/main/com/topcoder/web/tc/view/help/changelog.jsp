@@ -39,6 +39,15 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
+<p>
+    5.3.x - 2006.06.xx
+    <ul>
+        <li>Add warning message for the case that there is less than the submission rate time left in a marathon
+            match</li>
+    </ul>
+</p>
+
 <p>
     5.3.5 - 2006.06.13
     <ul>

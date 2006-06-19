@@ -9,16 +9,19 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.sql.Timestamp;
 
 /**
  * Allows a coder to register for a round.
@@ -36,7 +39,7 @@ public class ViewReg extends Base {
     protected void longContestProcessing() throws TCWebException {
 
         // You need to be logged in before continuing...
-        if (getUser().isAnonymous()) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
@@ -47,9 +50,9 @@ public class ViewReg extends Base {
             long round = Long.parseLong(roundID);
             // Is the coder already registered for the round?
             if (isUserRegistered(getUser().getId(), round)) {
-                Integer type = (Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID);
+                Integer type = (Integer) getRequest().getAttribute(Constants.ROUND_TYPE_ID);
                 setNextPage(buildProcessorRequestString("ViewActiveContests",
-                        new String[] {Constants.ROUND_TYPE_ID}, new String[] {type.toString()}));
+                        new String[]{Constants.ROUND_TYPE_ID}, new String[]{type.toString()}));
                 setIsNextPageInContext(false);
             } else if (!isRegistrationOpen(round)) {
                 throw new NavigationException("Registration is not currently open");
@@ -124,8 +127,8 @@ public class ViewReg extends Base {
      *
      * @param dai     Data source
      * @param roundID The round id to which the survey question's will be retrieved for.
-     * @throws Exception Propagates unexpected exceptions
      * @return A list of survey questions for the given round
+     * @throws Exception Propagates unexpected exceptions
      */
     protected List getQuestionInfo(DataAccessInt dai, String roundID) throws Exception {
 
@@ -159,8 +162,8 @@ public class ViewReg extends Base {
      *
      * @param dai Data source
      * @param row A ResultSetRow representing a survey question
-     * @throws Exception Propagates unexpected exceptions
      * @return Q & A package
+     * @throws Exception Propagates unexpected exceptions
      */
     private Question makeQuestion(DataAccessInt dai, ResultSetRow row) throws Exception {
         Question q = new Question();
@@ -179,8 +182,8 @@ public class ViewReg extends Base {
      *
      * @param dai        Data source
      * @param questionId The survey question of interest
-     * @throws Exception Propagates unexpected exceptions
      * @return A list of possible answers to the survey question
+     * @throws Exception Propagates unexpected exceptions
      */
     private List makeAnswerInfo(DataAccessInt dai, long questionId) throws Exception {
         // Prepare database query request
@@ -223,8 +226,8 @@ public class ViewReg extends Base {
      *
      * @param userID  The coder's ID
      * @param roundID The round's ID
-     * @throws Exception Propagates unexpected exceptions
      * @return True is the user is registered for the specified round
+     * @throws Exception Propagates unexpected exceptions
      */
     protected boolean isUserRegistered(long userID, long roundID) throws Exception {
         boolean ret = false;
@@ -245,10 +248,10 @@ public class ViewReg extends Base {
         if (rsc.isEmpty()) {
             throw new Exception("Round doesn't exist " + roundId);
         } else {
-            Timestamp end = (Timestamp)rsc.getItem(0, "reg_end").getResultData();
-            Timestamp start = (Timestamp)rsc.getItem(0, "reg_start").getResultData();
+            Timestamp end = (Timestamp) rsc.getItem(0, "reg_end").getResultData();
+            Timestamp start = (Timestamp) rsc.getItem(0, "reg_start").getResultData();
             Timestamp now = new Timestamp(System.currentTimeMillis());
-            return now.before(end)&&now.after(start);
+            return now.before(end) && now.after(start);
         }
 
     }

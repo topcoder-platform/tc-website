@@ -80,6 +80,7 @@ public class PrincipalMgrBean extends BaseEJB {
             close(ctx);
         }
     }
+
     public UserPrincipal getUser(String username)
             throws GeneralSecurityException, NoSuchUserException {
         return getUser(username, DATA_SOURCE);
@@ -217,7 +218,6 @@ public class PrincipalMgrBean extends BaseEJB {
     }
 
 
-
     public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
@@ -272,7 +272,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("USER_SEQ");
             long userId = gen.getNextID();
             logger.debug("new login_id = " + userId);
             String query = "INSERT INTO security_user (login_id, user_id, password) VALUES (?, ?, ?)";
@@ -456,7 +456,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("SECURITY_SEQ");
             long groupId = gen.getNextID();
             logger.debug("createGroup: " + groupId);
             String query = "INSERT INTO security_groups (group_id, description) VALUES ( ?, ? )";
@@ -516,7 +516,7 @@ public class PrincipalMgrBean extends BaseEJB {
 
     public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
             throws GeneralSecurityException {
-            addUserToGroup(group, user, requestor, DATA_SOURCE);
+        addUserToGroup(group, user, requestor, DATA_SOURCE);
     }
 
     public void addUserToGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor, String dataSource)
@@ -527,7 +527,7 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("SECURITY_SEQ");
             long user_group_xrefid = gen.getNextID();
             long userId = user.getId();
             long groupId = group.getId();
@@ -654,7 +654,7 @@ public class PrincipalMgrBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("SECURITY_SEQ");
             long roleId = gen.getNextID();
             String query = "INSERT INTO security_roles (role_id, description) VALUES ( ?, ? )";
             ps = conn.prepareStatement(query);
@@ -738,7 +738,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, dataSource);
 
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("SECURITY_SEQ");
             long user_role_xrefid = gen.getNextID();
 
             ps2 = conn.prepareStatement(deleteQuery);
@@ -805,7 +805,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
 
-            IDGenerator gen = IDGeneratorFactory.getIDGenerator("main_sequence");
+            IDGenerator gen = IDGeneratorFactory.getIDGenerator("SECURITY_SEQ");
             long group_role_xrefid = gen.getNextID();
 
             ps2 = conn.prepareStatement(deleteQuery);

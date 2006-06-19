@@ -48,6 +48,7 @@ public class Constants implements WebConstants {
     public static final List GPA_SCALES = Arrays.asList(new String[]{"4.00", "5.00"});
 
     public static final String FIELDS = "fields";
+    public static final String REQUIRED_FIELDS = "reqFields";
 
     public static final String NEW_REG = "nrg";
 
@@ -60,9 +61,8 @@ public class Constants implements WebConstants {
     public static final String HOME_SCHOOLED = "Home School";
 
 
-
     public final static String PUNCTUATION = "-_.{}[]()";
-    public final static String HANDLE_ALPHABET =  StringUtils.ALPHABET_ALPHA_EN +
+    public final static String HANDLE_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
     public final static String PASSWORD_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;

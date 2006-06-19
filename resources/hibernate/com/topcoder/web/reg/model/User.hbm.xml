@@ -8,7 +8,7 @@
     <class name="User" table="user">
         <id name="id" column="user_id">
             <generator class="com.topcoder.web.reg.model.IdGenerator">
-                <param name="sequence_name">main_sequence</param>
+                <param name="sequence_name">USER_SEQ</param>
             </generator>
         </id>
         <property name="firstName" column="first_name" access="field"/>
@@ -42,7 +42,7 @@
             <key column="user_id" not-null="true"/>
             <many-to-many column="notify_id" class="Notification"/>
         </set>
-        <set name="demographicResponses" cascade="all-delete-orphan" inverse="true" access="field">  
+        <set name="demographicResponses" cascade="all-delete-orphan" inverse="true" access="field">
             <key column="user_id" not-null="true"/>
             <one-to-many class="DemographicResponse"/>
         </set>

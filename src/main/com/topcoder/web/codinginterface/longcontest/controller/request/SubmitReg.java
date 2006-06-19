@@ -14,10 +14,10 @@ import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.ejb.longcompresult.LongCompResult;
+import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
 import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.web.ejb.longcompresult.LongCompResultLocal;
-import com.topcoder.web.ejb.longcompresult.LongCompResult;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
@@ -39,7 +39,7 @@ public class SubmitReg extends ViewReg {
         log.debug("SubmitReg called");
 
         // The user must be logged in to register for a round
-        if (getUser().isAnonymous()) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
@@ -109,7 +109,7 @@ public class SubmitReg extends ViewReg {
                     r.setContentHandle("long_contest_find_room");
                     r.setProperty("rd", String.valueOf(roundID));
                     registerUser(userID, Long.parseLong(roundID),
-                            ((ResultSetContainer)getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id"));
+                            ((ResultSetContainer) getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id"));
 
                     tm.commit();
                 } catch (Exception e) {
@@ -125,9 +125,9 @@ public class SubmitReg extends ViewReg {
                 setNextPage(Constants.PAGE_VIEW_REG);
                 setIsNextPageInContext(true);
             } else { // go to active contest page
-                Integer type = (Integer)getRequest().getAttribute(Constants.ROUND_TYPE_ID);
+                Integer type = (Integer) getRequest().getAttribute(Constants.ROUND_TYPE_ID);
                 setNextPage(buildProcessorRequestString("ViewActiveContests",
-                        new String[] {Constants.ROUND_TYPE_ID}, new String[] {type.toString()}));
+                        new String[]{Constants.ROUND_TYPE_ID}, new String[]{type.toString()}));
                 setIsNextPageInContext(false);
             }
 
@@ -148,7 +148,7 @@ public class SubmitReg extends ViewReg {
     protected void registerUser(long userID, long roundID, long roomID) throws Exception {
         try {
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
-            LongCompResultLocal longCompResult = (LongCompResultLocal)createLocalEJB(getInitialContext(), LongCompResult.class);
+            LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
             reg.createRoundRegistration(userID, roundID);
             longCompResult.createLongCompResult(roundID, userID, DBMS.JTS_OLTP_DATASOURCE_NAME);
             longCompResult.setAttended(roundID, userID, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
