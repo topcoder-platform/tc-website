@@ -196,6 +196,8 @@ public class LeaderBoard extends BaseBoard {
         for (int j = 0; j < sortArray.length; j++)
             log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
 
+        leaderBoardResult = (ArrayList) Arrays.asList(sortArray);
+
         log.debug("Original sorted set...");
         for (int j = 0; j < leaderBoardResult.size(); j++)
             log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow) leaderBoardResult.get(j)).getUserName());
