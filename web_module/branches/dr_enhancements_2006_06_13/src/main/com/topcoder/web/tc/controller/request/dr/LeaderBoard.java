@@ -152,7 +152,7 @@ public class LeaderBoard extends BaseBoard {
     }
 
     private void tieBreak(List leaderBoardResult) {
-        int prizes = 0;
+        /*int prizes = 0;
         List coderTie = new ArrayList();
         long prevPoints = ((LeaderBoardRow)leaderBoardResult.get(0)).getPoints();
         for (int i = 1; i < leaderBoardResult.size() && prizes < 5; i++) {
@@ -168,8 +168,6 @@ public class LeaderBoard extends BaseBoard {
                     prizes += 1 + coderTie.size();
 
                     log.debug("Sorting...");
-                    /*for (int j = 0; j < coderTie.size(); j++)
-                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());*/
 
                     LeaderBoardRow[] sortArray = (LeaderBoardRow[]) coderTie.toArray(new LeaderBoardRow[coderTie.size()]);
                     for (int j = 0; j < sortArray.length; j++)
@@ -177,20 +175,30 @@ public class LeaderBoard extends BaseBoard {
 
                     Arrays.sort(sortArray, new LeaderBoardRowComparator());
 
+                    log.debug("Sort result...");
                     for (int j = 0; j < sortArray.length; j++)
                         log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
-
-                    /*for (int j = 0; j < coderTie.size(); j++)
-                        log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow)coderTie.get(j)).getUserName());*/
-
-                    log.debug("Sort result...");
-                    for (int j = 0; j < coderTie.size(); j++)
-                        log.debug(String.valueOf(j) + ((LeaderBoardRow)coderTie.get(j)).getUserName());
 
                     coderTie.clear();
                 }
             }
             prevPoints = leaderBoardRow.getPoints();
-        }
+        }*/
+
+        log.debug("Original set...");
+        LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
+        for (int j = 0; j < sortArray.length; j++)
+            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+
+        Arrays.sort(sortArray, new LeaderBoardRowComparator());
+
+        log.debug("Sort result...");
+        for (int j = 0; j < sortArray.length; j++)
+            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+
+        log.debug("Original sorted set...");
+        for (int j = 0; j < leaderBoardResult.size(); j++)
+            log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow) leaderBoardResult.get(j)).getUserName());
+
     }
 }
