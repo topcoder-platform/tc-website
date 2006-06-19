@@ -1,10 +1,9 @@
 <%@ page language="java"
-         import="com.topcoder.shared.dataAccess.*,
-                 com.topcoder.shared.dataAccess.resultSet.*,
-                 java.util.Map" %>
+         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.tc.Constants" %>
 
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.tc.Constants"%>
+<%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -12,47 +11,56 @@
 <html>
 <head>
     <title>TopCoder Statistics</title>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-<script language="javascript" type="text/javascript">
-<!--
-var objPopUp = null;
-function popUp(event,objectID){
-   objPopTrig = document.getElementById(event);
-   objPopUp = document.getElementById(objectID);
-   xPos = objPopTrig.offsetLeft+15;
-   yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
-   if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
-   if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
-   objPopUp.style.left = xPos + 'px';
-   objPopUp.style.top = yPos + 'px';
-   objPopUp.style.visibility = 'visible';
-}
-function popHide(){
-   objPopUp.style.visibility = 'hidden';
-   objPopUp = null;
-}
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <script language="javascript" type="text/javascript">
+        <!--
+        var objPopUp = null;
+        function popUp(event, objectID) {
+            objPopTrig = document.getElementById(event);
+            objPopUp = document.getElementById(objectID);
+            xPos = objPopTrig.offsetLeft + 15;
+            yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+            if (xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+            if (yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+            objPopUp.style.left = xPos + 'px';
+            objPopUp.style.top = yPos + 'px';
+            objPopUp.style.visibility = 'visible';
+        }
+        function popHide() {
+            objPopUp.style.visibility = 'hidden';
+            objPopUp = null;
+        }
 
-// -->
-</script>
-<STYLE TYPE="text/css">
-.popper{display:block; margin: 0px auto 0px auto;}
-#container{text-align:center;position:relative;margin:0px;padding:0px;}
-.popUp
-{
-font-size: 10px;
-text-align: center;
-background-color: #FFFFCC;
-visibility: hidden;
-margin: 10px;
-padding: 3px;
-position: absolute;
-white-space: nowrap;
-border: solid 1px black;
-z-index: 1;
-}
-</STYLE>
+        // -->
+    </script>
+    <STYLE TYPE="text/css">
+        .popper {
+            display: block;
+            margin: 0px auto 0px auto;
+        }
+
+        #container {
+            text-align: center;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .popUp {
+            font-size: 10px;
+            text-align: center;
+            background-color: #FFFFCC;
+            visibility: hidden;
+            margin: 10px;
+            padding: 3px;
+            position: absolute;
+            white-space: nowrap;
+            border: solid 1px black;
+            z-index: 1;
+        }
+    </STYLE>
 </head>
 
 <body>
@@ -92,9 +100,10 @@ z-index: 1;
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-<jsp:include page="/includes/global_left.jsp">
-   <jsp:param name="node" value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_stats":"dev_stats"%>'/>
-</jsp:include>
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node"
+                   value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_stats":"dev_stats"%>'/>
+    </jsp:include>
 </td>
 
 
@@ -109,7 +118,8 @@ z-index: 1;
 </jsp:include>
 
 <span class="bodySubtitle">Component Statistics >
-<a href='/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
+<a href='/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=<rsc:item set="<%=projectInfo%>" name="phase_id"/>'
+   class="statLink">
     <rsc:item set="<%=projectInfo%>" name="phase_desc"/> Contests</a>
  > Contest Details
 </span><br>
@@ -156,12 +166,13 @@ z-index: 1;
         </tr>
         <tr>
             <TD class="stat" colspan="2" align="left">
-                <% if (projectInfo.getIntItem(0, "viewable_category_ind")==1) { %>
-                <A href='http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink">
+                <% if (projectInfo.getIntItem(0, "viewable_category_ind") == 1) { %>
+                <A href='http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>'
+                   class="statLink">
                     <rsc:item set="<%=projectInfo%>" name="component_name"/>
                 </A>
                 <% } else { %>
-                    <rsc:item set="<%=projectInfo%>" name="component_name"/>
+                <rsc:item set="<%=projectInfo%>" name="component_name"/>
                 <% } %>
                 <br><br>
             </TD>
@@ -209,141 +220,145 @@ z-index: 1;
     </table>
 </td>
 <td width="75%" valign="top">
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="11">
-            Competitors
-        </td></tr>
-        <tr>
-            <TD CLASS="tableHeader" rowspan="2">Handle</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Date inquired</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Date submitted</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">
-               <div id="container">
-                  <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
-                  <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
-               </div>
-               Points
-            </TD>
-            <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
-        </tr>
-        <tr>
-            <%
-                if (reviewers.isEmpty()) {
-            %>
-            <TD CLASS="tableHeader" align="center">unknown *</TD>
-            <TD CLASS="tableHeader" align="center">unknown *</TD>
-            <TD CLASS="tableHeader" align="center">unknown *</TD>
-            <% } else if (reviewers.size() == 3) {
-            %>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle
-                    coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>'
-                    context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle
-                    coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>'
-                    context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle
-                    coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>'
-                    context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+<tr><td class="tableTitle" colspan="11">
+    Competitors
+</td></tr>
+<tr>
+    <TD CLASS="tableHeader" rowspan="2">Handle</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center">Date inquired</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center">Date submitted</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
+    <TD CLASS="tableHeader" rowspan="2" align="center">
+        <div id="container">
+            <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0"
+                 onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()"/>
+
+            <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
+        </div>
+        Points
+    </TD>
+    <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
+</tr>
+<tr>
+    <%
+        if (reviewers.isEmpty()) {
+    %>
+    <TD CLASS="tableHeader" align="center">unknown *</TD>
+    <TD CLASS="tableHeader" align="center">unknown *</TD>
+    <TD CLASS="tableHeader" align="center">unknown *</TD>
+    <% } else if (reviewers.size() == 3) {
+    %>
+    <TD CLASS="tableHeader" align="center"><tc-webtag:handle
+            coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>'
+            context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+    <TD CLASS="tableHeader" align="center"><tc-webtag:handle
+            coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>'
+            context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+    <TD CLASS="tableHeader" align="center"><tc-webtag:handle
+            coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>'
+            context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+    <% } %>
+
+</tr>
+
+<%boolean even = true;%>
+<rsc:iterator list="<%=submissions%>" id="resultRow">
+    <tr>
+        <TD class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'
+                                                                  context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
+
+        <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>"
+                                                                         format="MM.dd.yyyy" ifNull="unknown*"/></TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>"
+                                                                         format="MM.dd.yyyy" ifNull="unknown*"/></TD>
+
+        <TD class="<%=even?"statLt":"statDk"%>" align="right">
+            <% if (reviewers.isEmpty()) { %>
+            <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
+            <% } else { %>
+            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
+               class="bcLink">
+                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
+            </A>
+            <% } %>
+        </TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="left">
+            <% if (resultRow.getIntItem("passed_screening") == 1) { %>
+            <img src="/i/stats/pass.gif" alt="pass" border="0"/>
+            <% } else { %>
+            <img src="/i/stats/fail.gif" alt="fail" border="0"/>
             <% } %>
 
-        </tr>
+        </TD>
+        <% if (resultRow.getIntItem("passed_screening") == 1) { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score"
+                                                                         format="0.00"
+                                                                         ifNull="unknown*"/></TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score"
+                                                                            format="0.00"
+                                                                            ifNull="unknown*"/></b></TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points"
+                                                                            ifNull="N/A"/>
+            <% if (resultRow.getItem("final_points").getResultData() != null &&
+                    resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
+            **
+            <% } %>
+        </b></TD>
+        <% if (reviewers.isEmpty()) { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
+        </TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
+        </TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
+        </TD>
+        <% } else { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>'
+               class="bcLink">
+                <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
+            </A>
+        </TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(1, "reviewer_id")%>'
+               class="bcLink">
+                <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
+            </A>
+        </TD>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center">
+            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(2, "reviewer_id")%>'
+               class="bcLink">
+                <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
+            </A>
+        </TD>
+        <% } %>
 
-      <%boolean even = true;%>
-        <rsc:iterator list="<%=submissions%>" id="resultRow">
-            <tr>
-                <TD class="<%=even?"statLt":"statDk"%>"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>'
-                                                     context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></TD>
-
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>"
-                                                            format="MM.dd.yyyy" ifNull="unknown*"/></TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>"
-                                                            format="MM.dd.yyyy" ifNull="unknown*"/></TD>
-
-                <TD class="<%=even?"statLt":"statDk"%>" align="right">
-                    <% if (reviewers.isEmpty()) { %>
-                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="uknown*"/>
-                    <% } else { %>
-                    <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
-                       class="bcLink">
-                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="uknown*"/>
-                    </A>
-                    <% } %>
-                </TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="left">
-                    <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-                    <img src="/i/stats/pass.gif" alt="pass" border="0"/>
-                    <% } else { %>
-                    <img src="/i/stats/fail.gif" alt="fail" border="0"/>
-                    <% } %>
-
-                </TD>
-                <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00"
-                                                            ifNull="unknown*"/></TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00"
-                                                               ifNull="unknown*"/></b></TD>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center"><b><rsc:item row="<%=resultRow%>" name="final_points" 
-                                                               ifNull="N/A"/>
-                    <% if (resultRow.getItem("final_points").getResultData() != null && 
-                        resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
-                    **
-                    <% } %>                
-                </b></TD>
-                <% if(reviewers.isEmpty()) { %>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                            <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
-                    </TD>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                            <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
-                    </TD>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                            <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
-                    </TD>
-                <% } else { %>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                        <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(0, "reviewer_id")%>'
-                           class="bcLink">
-                            <rsc:item row="<%=resultRow%>" name="score1" format="0.00"/>
-                        </A>
-                    </TD>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                        <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(1, "reviewer_id")%>'
-                           class="bcLink">
-                            <rsc:item row="<%=resultRow%>" name="score2" format="0.00"/>
-                        </A>
-                    </TD>
-                    <TD class="<%=even?"statLt":"statDk"%>" align="center">
-                        <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(2, "reviewer_id")%>'
-                           class="bcLink">
-                            <rsc:item row="<%=resultRow%>" name="score3" format="0.00"/>
-                        </A>
-                    </TD>
-                <% } %>
-
-                <% } else { %>
-                <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
-                <% } %>
+        <% } else { %>
+        <TD class="<%=even?"statLt":"statDk"%>" align="center" colspan="5">&nbsp;</TD>
+        <% } %>
 
 
-            </tr>
-        <%even=!even;%>
-        </rsc:iterator>
-    </table>
+    </tr>
+    <%even = !even;%>
+</rsc:iterator>
+</table>
 </td>
 </tr>
 </table>
 
 * Some information may be unknown due to missing data from old projects
-<br>**  This score has been changed for missed deadlines and/or quality issues
+<br>** This score has been changed for missed deadlines and/or quality issues
 </td>
 <!-- Center Column Ends -->
 <td width="170">
-   <jsp:include page="../public_right.jsp">
-      <jsp:param name="level1" value="default"/>
-   </jsp:include>
+    <jsp:include page="../public_right.jsp">
+        <jsp:param name="level1" value="default"/>
+    </jsp:include>
 </td>
 
 <!-- Gutter -->
