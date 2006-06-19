@@ -76,6 +76,15 @@
                 <jsp:param name="title" value="Problem Statement"/>
             </jsp:include>
 
+            <span class="subtitle"><%= sClassName == null ? "" : sClassName %></span>
+            <br><br>
+            <% if (problem != null) {
+                ProblemRenderer pr = new ProblemRenderer(problem);
+                pr.setTdClass("bodyIndented");%>
+            <%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
+            <% } else { %>
+            Problem Statement not available.
+            <% } %>
 
             <span class="subtitle"><%= sClassName == null ? "" : sClassName %> </span>
             <br> <br>

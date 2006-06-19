@@ -4,10 +4,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RowNotFoundException;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
@@ -17,13 +14,13 @@ import java.rmi.RemoteException;
 
 /**
  * @author dok
- * Date: Mar 10, 2004
+ *         Date: Mar 10, 2004
  */
 public class Preview extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
-        if (userIdentified()) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             try {
                 if (isRated()) {
                     getRequest().setAttribute("cardUnlocked", new Boolean(isUnlocked()));
@@ -38,7 +35,7 @@ public class Preview extends Base {
                 throw new TCWebException(e);
             }
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
     }
 
@@ -52,7 +49,8 @@ public class Preview extends Base {
         boolean rated = false;
         if (!coderInfo.isEmpty() && (coderInfo.getIntItem(0, "rating") > 0 ||
                 (coderInfo.getItem(0, "design_rating").getResultData() != null && coderInfo.getIntItem(0, "design_rating") > 0) ||
-                (coderInfo.getItem(0, "development_rating").getResultData() != null && coderInfo.getIntItem(0, "development_rating") > 0))) {
+                (coderInfo.getItem(0, "development_rating").getResultData() != null && coderInfo.getIntItem(0, "development_rating") > 0)))
+        {
             rated = true;
         }
         return rated;

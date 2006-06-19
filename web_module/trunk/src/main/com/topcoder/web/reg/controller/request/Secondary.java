@@ -23,21 +23,21 @@ public class Secondary extends Base {
         if (u == null) {
             throw new NavigationException("Sorry, your session has timed out.");
         } else {
+
+            Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
             if ("POST".equals(getRequest().getMethod())) {
                 if (u.isNew() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
-
-                    Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
 
                     if (hasErrors()) {
                         Map.Entry me;
                         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
                             me = (Map.Entry) it.next();
                             if (me.getKey().equals(Constants.NOTIFICATION)) {
-                                List a = (List)me.getValue();
+                                List a = (List) me.getValue();
                                 for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION+((Notification)it1.next()).getId(), String.valueOf(true));
+                                    setDefault(Constants.NOTIFICATION + ((Notification) it1.next()).getId(), String.valueOf(true));
                                 }
                             } else {
                                 setDefault((String) me.getKey(), me.getValue());
@@ -51,39 +51,56 @@ public class Secondary extends Base {
                             getRequest().setAttribute("notifications", nots);
                         }
                         getRequest().setAttribute(Constants.FIELDS, fields);
+                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
-                        //set the fields in the user object
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
-                        getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                        getRequest().setAttribute("referrals",getReferrals(u));
-                        setSecondaryDefaults(u);
-                        getRequest().setAttribute(Constants.FIELDS, secondaryFields);
-                        setNextPage("/secondary.jsp");
-                        setIsNextPageInContext(true);
+                        log.debug("we have " + secondaryFields.size() + " secondary fields");
+                        if (secondaryFields.isEmpty()) {
+                            getRequest().setAttribute(Constants.FIELDS, fields);
+                            setNextPage("/confirm.jsp");
+                            setIsNextPageInContext(true);
+                        } else {
+                            //set the fields in the user object
+                            getRequest().setAttribute("demographicAssignments", getAssignments(u));
+                            getRequest().setAttribute("referrals", getReferrals(u));
+                            setSecondaryDefaults(u);
+                            getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                            getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                                    RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
+                            setNextPage("/secondary.jsp");
+                            setIsNextPageInContext(true);
+                        }
+
+
                     }
                 } else {
                     throw new PermissionException(getUser(), new ClassResource(this.getClass()));
                 }
             } else {
                 Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
-                getRequest().setAttribute("demographicAssignments",getAssignments(u));
-                getRequest().setAttribute("referrals",getReferrals(u));
-                setSecondaryDefaults(u);
-                getRequest().setAttribute(Constants.FIELDS, secondaryFields);
-                setNextPage("/secondary.jsp");
-                setIsNextPageInContext(true);
+                if (secondaryFields.isEmpty()) {
+                    getRequest().setAttribute(Constants.FIELDS, fields);
+                    setNextPage("/confirm.jsp");
+                    setIsNextPageInContext(true);
+                } else {
+                    getRequest().setAttribute("demographicAssignments", getAssignments(u));
+                    getRequest().setAttribute("referrals", getReferrals(u));
+                    setSecondaryDefaults(u);
+                    getRequest().setAttribute(Constants.FIELDS, secondaryFields);
+                    getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                            RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
+                    setNextPage("/secondary.jsp");
+                    setIsNextPageInContext(true);
+                }
             }
-
         }
-
-
-
     }
 
 

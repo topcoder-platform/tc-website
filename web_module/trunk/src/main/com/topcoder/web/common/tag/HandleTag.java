@@ -3,8 +3,8 @@ package com.topcoder.web.common.tag;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
@@ -32,12 +32,12 @@ public class HandleTag extends TagSupport {
 
     private static final String[] lightStyles =
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
-             "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+                    "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     private static final String[] darkStyles =
             {"coderTextOrange", "coderTextBlack", "coderTextGray",
-             "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
- 
+                    "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+
     public void setCoderId(long coderId) {
         //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
@@ -86,71 +86,78 @@ public class HandleTag extends TagSupport {
 
             Map m = da.getData(r);
 
-            ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
-
-            //check for css override
-            boolean bCSSOverride = false;
-            if (cssclass != null && !cssclass.equals("")) {
-                bCSSOverride = true;
-            }
             StringBuffer output = new StringBuffer();
-            output.append("<a href=\"");
-            if (link.equals("")) {
-                link = DEFAULT_LINK + coderId;
-            }
-            output.append(link);
-            if (algorithm && rsc.getIntItem(0, "algorithm_rating")>0) {
-                output.append("&tab=alg");
-            } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating")>0) {
-                output.append("&tab=hs");
-            } else if (design && rsc.getIntItem(0, "design_rating")>0) {
-                output.append("&tab=des");
-            } else if (development && rsc.getIntItem(0, "development_rating")>0) {
-                output.append("&tab=dev");
-            } else if (component) {
-                if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
-                    if (rsc.getIntItem(0, "design_rating")>0) {
-                        output.append("&tab=des");
-                    }
-                } else {
-                    if (rsc.getIntItem(0, "development_rating")>0) {
-                        output.append("&tab=dev");
-                    }
-                }
-            }
-            output.append("\" class=\"");
 
-            if (bCSSOverride) {
-                output.append(cssclass);
+            ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
+            if (rsc.isEmpty()) {
+                output.append("UNKNOWN USER");
+            } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
+                output.append(rsc.getStringItem(0, "handle"));
             } else {
-                int rating = 0;
-                if (algorithm) {
-                    rating = rsc.getIntItem(0, "algorithm_rating");
-                } else if (hsAlgorithm) {
-                    rating = rsc.getIntItem(0, "hs_algorithm_rating");
-                } else if (design) {
-                    rating = rsc.getIntItem(0, "design_rating");
-                } else if (development) {
-                    rating = rsc.getIntItem(0, "development_rating");
-                } else if (component) {
-                    rating = max(rsc.getIntItem(0, "design_rating"),
-                            rsc.getIntItem(0, "development_rating"));
-                } else {
-                    // special case for admins
-                    if (rsc.getIntItem(0, "algorithm_rating")<0) rating =rsc.getIntItem(0, "algorithm_rating");
-                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                            rsc.getIntItem(0, "hs_algorithm_rating"),
-                            rsc.getIntItem(0, "design_rating"),
-                            rsc.getIntItem(0, "development_rating"));
+
+                //check for css override
+                boolean bCSSOverride = false;
+                if (cssclass != null && !cssclass.equals("")) {
+                    bCSSOverride = true;
                 }
-                output.append(getRatingCSS(rating));
+                output.append("<a href=\"");
+                if (link.equals("")) {
+                    link = DEFAULT_LINK + coderId;
+                }
+                output.append(link);
+                if (algorithm && rsc.getIntItem(0, "algorithm_rating") > 0) {
+                    output.append("&tab=alg");
+                } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
+                    output.append("&tab=hs");
+                } else if (design && rsc.getIntItem(0, "design_rating") > 0) {
+                    output.append("&tab=des");
+                } else if (development && rsc.getIntItem(0, "development_rating") > 0) {
+                    output.append("&tab=dev");
+                } else if (component) {
+                    if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
+                        if (rsc.getIntItem(0, "design_rating") > 0) {
+                            output.append("&tab=des");
+                        }
+                    } else {
+                        if (rsc.getIntItem(0, "development_rating") > 0) {
+                            output.append("&tab=dev");
+                        }
+                    }
+                }
+                output.append("\" class=\"");
+
+                if (bCSSOverride) {
+                    output.append(cssclass);
+                } else {
+                    int rating = 0;
+                    if (algorithm) {
+                        rating = rsc.getIntItem(0, "algorithm_rating");
+                    } else if (hsAlgorithm) {
+                        rating = rsc.getIntItem(0, "hs_algorithm_rating");
+                    } else if (design) {
+                        rating = rsc.getIntItem(0, "design_rating");
+                    } else if (development) {
+                        rating = rsc.getIntItem(0, "development_rating");
+                    } else if (component) {
+                        rating = max(rsc.getIntItem(0, "design_rating"),
+                                rsc.getIntItem(0, "development_rating"));
+                    } else {
+                        // special case for admins
+                        if (rsc.getIntItem(0, "algorithm_rating") < 0) rating = rsc.getIntItem(0, "algorithm_rating");
+                        else rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                                rsc.getIntItem(0, "hs_algorithm_rating"),
+                                rsc.getIntItem(0, "design_rating"),
+                                rsc.getIntItem(0, "development_rating"));
+                    }
+                    output.append(getRatingCSS(rating));
+                }
+
+                output.append("\">");
+
+                output.append(rsc.getStringItem(0, "handle"));
+
+                output.append("</a>");
             }
-
-            output.append("\">");
-
-            output.append(rsc.getStringItem(0, "handle"));
-
-            output.append("</a>");
 
             pageContext.getOut().print(output.toString());
         } catch (Exception e) {
@@ -179,8 +186,9 @@ public class HandleTag extends TagSupport {
 
 
     private int max(int a, int b, int c, int d) {
-        return max(max(a,b), max(c,d));
+        return max(max(a, b), max(c, d));
     }
+
     private int max(int a, int b) {
         if (a >= b) return a;
         return b;

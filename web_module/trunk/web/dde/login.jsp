@@ -1,6 +1,7 @@
 <%@ page import="javax.naming.*,
                  com.topcoder.dde.util.Cookies,
                  com.topcoder.dde.user.UserNotActivatedException" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -161,11 +162,11 @@
                     <td class="bodyText" width="100%">
                         <img src="/images/clear.gif" alt="" width="380" height="1" border="0"/><br/>
                         <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/registration/forgot_password.jsp" class="bodyText">click here</A>
+                        If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click here</A>
                         and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder Software?</b><br/>
-                        <A href="/registration/registration.jsp" class="bodyText">Register now.</A>
+                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>

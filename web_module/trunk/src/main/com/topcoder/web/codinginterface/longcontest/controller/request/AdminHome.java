@@ -1,9 +1,9 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 
 /**
  * @author dok
@@ -13,10 +13,8 @@ import com.topcoder.shared.security.ClassResource;
 public class AdminHome extends Base {
 
     protected void longContestProcessing() throws Exception {
-        if (getUser().isAnonymous()) {
+        if (!SecurityHelper.hasPermission(getUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else if (!getSessionInfo().isAdmin()) {
-            throw new NavigationException("Shame on you, you're no admin.");
         } else {
             //get round list and put it in the request
             Request r = new Request();

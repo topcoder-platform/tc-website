@@ -17,18 +17,18 @@ public class ViewSchoolAdd extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
 
-        if (u!=null) {
-            if (u.getHomeAddress()!=null) {
-                if (u.getHomeAddress().getCountry()!=null) {
+        if (u != null) {
+            if (u.getHomeAddress() != null) {
+                if (u.getHomeAddress().getCountry() != null) {
                     setDefault(Constants.COUNTRY_CODE, u.getHomeAddress().getCountry().getCode());
                 }
-                if (u.getHomeAddress().getState()!=null) {
+                if (u.getHomeAddress().getState() != null) {
                     setDefault(Constants.STATE_CODE, u.getHomeAddress().getState().getCode());
                 }
-                if (u.getHomeAddress().getProvince()!=null) {
+                if (u.getHomeAddress().getProvince() != null) {
                     setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
                 }
-                if (u.getHomeAddress().getCity()!=null) {
+                if (u.getHomeAddress().getCity() != null) {
                     setDefault(Constants.CITY, u.getHomeAddress().getCity());
                 }
                 if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
@@ -39,6 +39,8 @@ public class ViewSchoolAdd extends Base {
 
         setDefault(Constants.VISIBLE_SCHOOL, String.valueOf("true"));
         getRequest().setAttribute(Constants.FIELDS, RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u));
+        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
+                RegFieldHelper.getSecondaryRequiredFieldSet(getRequestedTypes(), u));
         if (getRequestedTypes().contains(getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
             ArrayList a = new ArrayList();
             a.add(getFactory().getSchoolTypeDAO().find(SchoolType.HIGH_SCHOOL));

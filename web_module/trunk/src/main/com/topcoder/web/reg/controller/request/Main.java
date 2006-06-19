@@ -8,7 +8,10 @@ import com.topcoder.web.reg.dao.RegistrationTypeDAO;
 import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.reg.model.*;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -48,11 +51,11 @@ public class Main extends Base {
             //todo if they are attempting to register for high school, and they are not eligible,
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question,
-               //people whose current school is a college (questionable),
-            if (!u.isNew()&&requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
+            //people whose current school is a college (questionable),
+            if (!u.isNew() && requestedTypes.contains(regTypeDAO.getHighSchoolType())) {
                 if (getFactory().getSecurityGroupDAO().hasInactiveHSGroup(u)) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
-                } else if (u.getCoder()!=null&&CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
+                } else if (u.getCoder() != null && CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
                     addError(Constants.REGISTRATION_TYPE, "Sorry, you are not eligible for High School Competitions");
                 }
 
@@ -76,7 +79,8 @@ public class Main extends Base {
                 setIsNextPageInContext(true);
             } else {
                 if (u.getContact() == null &&
-                        (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType()))) {
+                        (requestedTypes.contains(regTypeDAO.getCorporateType()) || requestedTypes.contains(regTypeDAO.getSoftwareType())))
+                {
                     Contact c = new Contact();
                     u.setContact(c);
                     c.setUser(u);
@@ -115,6 +119,9 @@ public class Main extends Base {
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
+                Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
+                log.debug("found " + reqFields.size() + " required fields");
+                getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

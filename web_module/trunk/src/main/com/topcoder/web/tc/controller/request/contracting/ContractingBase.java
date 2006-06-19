@@ -15,10 +15,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.MultipartRequest;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.ContractingInfo;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
@@ -34,8 +31,7 @@ import java.util.StringTokenizer;
 
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 abstract public class ContractingBase extends BaseProcessor {
 
@@ -45,7 +41,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            if (!userIdentified())
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass())))
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
 
             p = new SessionPersistor(getRequest().getSession(true));
@@ -112,7 +108,8 @@ abstract public class ContractingBase extends BaseProcessor {
             //preference underneath it
             boolean good = false;
             if (info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)) != null &&
-                    info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)).equals(String.valueOf(Constants.PREFERENCE_CONTRACTING_TRUE))) {
+                    info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)).equals(String.valueOf(Constants.PREFERENCE_CONTRACTING_TRUE)))
+            {
                 good = true;
                 //ids to check are 3,4,5,6
                 for (int i = 0; i < contractingPreferences.length; i++) {
@@ -123,7 +120,8 @@ abstract public class ContractingBase extends BaseProcessor {
             }
 
             if (info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)) != null &&
-                    info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)).equals(String.valueOf(Constants.PREFERENCE_PERMANENT_TRUE))) {
+                    info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)).equals(String.valueOf(Constants.PREFERENCE_PERMANENT_TRUE)))
+            {
                 good = true;
                 //ids to check are 3,4,5,6
                 for (int i = 0; i < permanentPreferences.length; i++) {
@@ -145,7 +143,8 @@ abstract public class ContractingBase extends BaseProcessor {
 
             try {
                 ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                if ((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null)) {
+                if ((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null))
+                {
                     addError("Resume", "A resume is required.");
                 }
             } catch (Exception e) {
@@ -153,63 +152,60 @@ abstract public class ContractingBase extends BaseProcessor {
             }
 
             // user must select different priorities
-            int[] priority = new int[] {21,22,23};
+            int[] priority = new int[]{21, 22, 23};
             boolean[] error = new boolean[priority.length];
             int options = 8;
             for (int i = 0; i < priority.length; i++) {
-            	for (int j = i+1; j < priority.length; j++) {
-            		String p1 = info.getPreference(Integer.toString(priority[i]));
-            		String p2 = info.getPreference(Integer.toString(priority[j]));
-            		if (p1 == null || p2 == null) continue; // missing -- will get 'required' error
-            		int n1 = -1;
-            		int n2 = -1;
-            		try {
-						n1 = Integer.parseInt(p1);
-						n2 = Integer.parseInt(p2);
-					}
-					catch (NumberFormatException e) {
-						continue;
-					}
-            		if (Math.abs(n1-n2) % options == 0 && !error[j]) {
-            			addError(Constants.PREFERENCE_PREFIX + priority[j], "You may not select the same priority twice.");
-            			error[j] = true;
-            		}
-            	}
+                for (int j = i + 1; j < priority.length; j++) {
+                    String p1 = info.getPreference(Integer.toString(priority[i]));
+                    String p2 = info.getPreference(Integer.toString(priority[j]));
+                    if (p1 == null || p2 == null) continue; // missing -- will get 'required' error
+                    int n1 = -1;
+                    int n2 = -1;
+                    try {
+                        n1 = Integer.parseInt(p1);
+                        n2 = Integer.parseInt(p2);
+                    }
+                    catch (NumberFormatException e) {
+                        continue;
+                    }
+                    if (Math.abs(n1 - n2) % options == 0 && !error[j]) {
+                        addError(Constants.PREFERENCE_PREFIX + priority[j], "You may not select the same priority twice.");
+                        error[j] = true;
+                    }
+                }
             }
 
             // user must enter a valid date for starting - id=14
             String date = info.getPreference("14");
             if (date != null) {
-            	boolean valid = true;
-            	int field = 0;
-            	StringTokenizer tok = new StringTokenizer(date, "/");
-            	if (tok.countTokens() == 3) {
-            		while (tok.hasMoreTokens()) {
-            			String token = tok.nextToken();
-            			try {
-							int value = Integer.parseInt(token);
-							if (field == 0) {
-								if (value < 1 || value > 12) valid = false;
-							}
-							else if (field == 1) {
-								if (value < 1 || value > 31) valid = false;
-							}
-							else if (field == 2) {
-								if (value < 1900 || value > 2100) valid = false;
-							}
-						}
-						catch (NumberFormatException e) {
-							valid = false;
-						}
-						field++;
-            		}
-            	}
-            	else {
-            		valid = false;
-            	}
-            	if (!valid) {
-            		addError(Constants.PREFERENCE_PREFIX + "14", "Please enter a valid date in the format MM/DD/YYYY.");
-            	}
+                boolean valid = true;
+                int field = 0;
+                StringTokenizer tok = new StringTokenizer(date, "/");
+                if (tok.countTokens() == 3) {
+                    while (tok.hasMoreTokens()) {
+                        String token = tok.nextToken();
+                        try {
+                            int value = Integer.parseInt(token);
+                            if (field == 0) {
+                                if (value < 1 || value > 12) valid = false;
+                            } else if (field == 1) {
+                                if (value < 1 || value > 31) valid = false;
+                            } else if (field == 2) {
+                                if (value < 1900 || value > 2100) valid = false;
+                            }
+                        }
+                        catch (NumberFormatException e) {
+                            valid = false;
+                        }
+                        field++;
+                    }
+                } else {
+                    valid = false;
+                }
+                if (!valid) {
+                    addError(Constants.PREFERENCE_PREFIX + "14", "Please enter a valid date in the format MM/DD/YYYY.");
+                }
             }
 
         }
@@ -246,7 +242,9 @@ abstract public class ContractingBase extends BaseProcessor {
             String s = (String) i.next();
             setDefault(Constants.NOTE_PREFIX + s, info.getNote(s));
         }
-    };
+    }
+
+    ;
 
     protected abstract void setNextPage();
 
@@ -299,7 +297,8 @@ abstract public class ContractingBase extends BaseProcessor {
                     info.setResumeFileName(file.getRemoteFileName());
                 }
             }
-        } else if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
+        } else
+        if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
             //load skills
             log.debug("LOADING DATA FROM REQUEST");
             //info.clearSkills();

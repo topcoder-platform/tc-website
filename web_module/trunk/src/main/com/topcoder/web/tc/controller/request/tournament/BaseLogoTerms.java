@@ -1,8 +1,10 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.ejb.coder.CoderImage;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
@@ -16,12 +18,12 @@ import com.topcoder.web.tc.controller.request.Base;
 abstract class BaseLogoTerms extends Base {
 
     protected void businessProcessing() throws Exception {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
+        if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+            throw new PermissionException(getLoggedInUser(), new SimpleResource(this.getClass().getName()));
         } else {
-            UserTermsOfUse ut = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
+            UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
             if (ut.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME)) {
-                CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
+                CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
                 getRequest().setAttribute("submissionCount",
                         new Integer(coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size()));
                 setNextPage(true);
@@ -36,9 +38,10 @@ abstract class BaseLogoTerms extends Base {
     }
 
     protected abstract int getTermsId();
-    protected abstract int getImageTypeId();
-    protected abstract void setNextPage(boolean hasTerms);
 
+    protected abstract int getImageTypeId();
+
+    protected abstract void setNextPage(boolean hasTerms);
 
 
 }

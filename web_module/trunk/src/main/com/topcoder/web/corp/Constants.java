@@ -9,10 +9,9 @@ import javax.servlet.ServletConfig;
  *
  * @author djFD molc@mail.ru
  * @version 1.02
- *
  */
 public class Constants {
-    private static final TCResourceBundle store;
+    private static final TCResourceBundle store = new TCResourceBundle("CorpConstants");
 
     // keys.
     public static final String KEY_CCTX_SUM = "cctx-sum";
@@ -43,20 +42,8 @@ public class Constants {
 
     public static String JSP_ROOT = null;
 
-    public static String REGISTRATION_PAGE_SUCCESS = null;
-    public static String REGISTRATION_UPDATE_SUCCESS = null;
-    public static String REGISTRATION_PAGE_RETRY = null;
-    public static String USEREDIT_PAGE_SUCCESS = null;
-    public static String USEREDIT_PAGE_RETRY = null;
-    public static String USERLIST_PAGE = null;
     public static String LOGIN_PAGE = null;
     public static String WELCOME_PAGE = null;
-
-    public static String CORP_ADMIN_ROLE = null;
-    public static String CORP_GROUP = null;
-    public static String CORP_ANONYMOUS_GROUP = null;
-    public static String SOFTWARE_USER_GROUP = null;
-    public static int CORP_SITE_TERMS_ID = -1;
 
     public static final String KEY_TERMS = "terms";
     public static final String KEY_AGREE_TO_TERMS = "agree-to-terms";
@@ -65,20 +52,12 @@ public class Constants {
     public static void init(ServletConfig cfg) {
         JSP_ROOT = cfg.getInitParameter("jsp_root");
 
-        REGISTRATION_PAGE_SUCCESS = JSP_ROOT + cfg.getInitParameter("page-Registration-success");
-        REGISTRATION_UPDATE_SUCCESS = cfg.getInitParameter("page-Registration-update");
-        REGISTRATION_PAGE_RETRY = JSP_ROOT + cfg.getInitParameter("page-Registration-retry");
-        USEREDIT_PAGE_SUCCESS = JSP_ROOT + cfg.getInitParameter("page-UserEdit-success");
-        USEREDIT_PAGE_RETRY = JSP_ROOT + cfg.getInitParameter("page-UserEdit-retry");
-        USERLIST_PAGE = JSP_ROOT + cfg.getInitParameter("page-UserList");
         LOGIN_PAGE = JSP_ROOT + cfg.getInitParameter("page-login");
         WELCOME_PAGE = JSP_ROOT + cfg.getInitParameter("page-welcome");
 
     }
 
     static {
-
-        store = new TCResourceBundle("CorpConstants");
         CORP_PRINCIPAL = store.getProperty("security-corp-principal", "corp_user");
 
         CCTX_LOGIN = store.getProperty("cctx-login", null);
@@ -87,10 +66,5 @@ public class Constants {
         CCTX_URL = store.getProperty("cctx-payflow-url", null);
         CCTX_TYPE = store.getProperty("cctx-type", null);
 
-        CORP_ADMIN_ROLE = store.getProperty("security-corp-admin-role", "Account Administrator");
-        CORP_GROUP = store.getProperty("security-corp-group", "Corp User");
-        CORP_ANONYMOUS_GROUP = store.getProperty("security-anonymous-group", "Anonymous");
-        SOFTWARE_USER_GROUP = store.getProperty("security-software-user-group", "Users");
-        CORP_SITE_TERMS_ID = store.getIntProperty("corp-site-terms-id", 3);
     }
 }

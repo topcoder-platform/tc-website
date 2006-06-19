@@ -49,18 +49,6 @@
             <param-value>com.topcoder.web.corp.controller.request.Static</param-value>
         </init-param>
         <init-param>
-            <param-name>processor-Registration</param-name>
-            <param-value>com.topcoder.web.corp.controller.request.Registration</param-value>
-        </init-param>
-        <init-param>
-            <param-name>processor-UserList</param-name>
-            <param-value>com.topcoder.web.corp.controller.request.UserList</param-value>
-        </init-param>
-        <init-param>
-            <param-name>processor-UserEdit</param-name>
-            <param-value>com.topcoder.web.corp.controller.request.UserEdit</param-value>
-        </init-param>
-        <init-param>
             <param-name>processor-Login</param-name>
             <param-value>com.topcoder.web.corp.controller.request.Login</param-value>
         </init-param>
@@ -87,45 +75,6 @@
             <param-name>page-login</param-name>
             <param-value>LoginPage.jsp</param-value>
         </init-param>
-
-        <!--
-        |
-        |  Registration/UserEdit processors' pages set
-        |  (may depend on context path and/or servlet path. These must
-        |   be reviewed carefully upon redeployment)
-        |
-        -->
-        <init-param>
-            <param-name>page-Registration-success</param-name>
-            <param-value>reg/RegSuccess.jsp</param-value>
-        </init-param>
-        <init-param>
-            <param-name>page-Registration-update</param-name>
-            <param-value>/corp/</param-value>
-        </init-param>
-        <init-param>
-            <param-name>page-Registration-retry</param-name>
-            <param-value>reg/Registration.jsp</param-value>
-        </init-param>
-        <init-param>
-            <param-name>page-UserEdit-success</param-name>
-            <param-value>?module=UserList</param-value> <!-- redirect -->
-        </init-param>
-        <init-param>
-            <param-name>page-UserEdit-retry</param-name>
-            <param-value>acc_admin/AddUser.jsp</param-value>
-        </init-param>
-
-        <!--
-        |
-        |  UserList processor's set of pages
-        |
-        -->
-        <init-param>
-            <param-name>page-UserList</param-name>
-            <param-value>acc_admin/UserListView.jsp</param-value>
-        </init-param>
-
 
     </servlet>
 
@@ -191,8 +140,6 @@
             <param-value>/errorPage.jsp</param-value>
         </init-param>
         <!-- end  parameters required by BaseServlet -->
-
-
 
 
         <init-param>
@@ -1143,7 +1090,6 @@
         </init-param>
 
 
-
         <!-- Problem constants -->
         <init-param>
             <param-name>problem_list_page</param-name>
@@ -1469,7 +1415,6 @@
     </servlet>
 
 
-
     <filter>
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
@@ -1489,7 +1434,6 @@
         <servlet-name>screening</servlet-name>
     </filter-mapping>
 
-    
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
@@ -1522,9 +1466,9 @@
     </servlet-mapping>
 
 
-   <error-page>
+    <error-page>
         <error-code>404</error-code>
         <location>/errorPage.jsp</location>
-   </error-page>
+    </error-page>
 
 </web-app>

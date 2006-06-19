@@ -4,6 +4,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
@@ -13,13 +14,13 @@ import java.rmi.RemoteException;
 
 /**
  * @author dok
- * Date: Mar 10, 2004
+ *         Date: Mar 10, 2004
  */
 public class Instructions extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
-        if (userIdentified()) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             try {
                 UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                 boolean cardUnlocked = false;
@@ -40,7 +41,7 @@ public class Instructions extends Base {
             setNextPage(Constants.CARD_INSTRUCTIONS);
             setIsNextPageInContext(true);
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
     }
 

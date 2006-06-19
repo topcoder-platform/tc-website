@@ -5,6 +5,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.ejb.collegetour.Registration;
 import com.topcoder.web.ejb.collegetour.RegistrationLocal;
 
@@ -19,7 +20,7 @@ import java.sql.Timestamp;
  */
 public class Register extends Base {
     protected void collegeTourProcessing() throws Exception {
-        if (userIdentified()) {
+        if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             TransactionManager tm = null;
             try {
                 Timestamp now = new Timestamp(System.currentTimeMillis());
@@ -28,7 +29,7 @@ public class Register extends Base {
 
                     tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                     tm.begin();
-                    RegistrationLocal reg = (RegistrationLocal)createLocalEJB(getInitialContext(), Registration.class);
+                    RegistrationLocal reg = (RegistrationLocal) createLocalEJB(getInitialContext(), Registration.class);
                     if (!reg.exists(getEventId(), getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME)) {
                         reg.create(getEventId(), getUser().getId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
                     }
@@ -45,7 +46,7 @@ public class Register extends Base {
             setNextPage("/collegetour/success.jsp");
             setIsNextPageInContext(true);
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }
 
     }

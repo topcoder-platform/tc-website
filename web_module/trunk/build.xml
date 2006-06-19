@@ -37,7 +37,6 @@
     </target>
 
 
-
     <path id="class.path">
         <pathelement location="${classes}"/>
         <pathelement location="${testclasses}"/>
@@ -59,12 +58,12 @@
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
         <pathelement location="${jive.dir}/xwork.jar"/>
-	    <pathelement location="${jive.dir}/htmlparser.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
 
         <!-- TCS Components -->
-   <!--
-        <pathelement location="${jars.dir}/configmanager2.jar"/>
-   -->
+        <!--
+             <pathelement location="${jars.dir}/configmanager2.jar"/>
+        -->
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.3/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
@@ -72,7 +71,7 @@
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/upload.jar"/>
-<!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
+        <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
         <!-- TCS Other -->
@@ -94,27 +93,24 @@
         <pathelement location="${jars.dir}/hibernate-3.1/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.1/antlr-2.7.6rc1.jar"/>
 
-<!--
-        <pathelement location="${jars.dir}/render.jar"/>
-        <pathelement location="${jars.dir}/tcs/forum.jar"/>
-        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
-        <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
-        <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
-        <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
-        <pathelement location="${jars.dir}/searchengine.jar"/>
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-        <pathelement location="${jars.dir}/tcs/project_phases/1.0/project_phases.jar"/>
-        <pathelement location="${struts.dir}/struts.jar"/>
--->
-
+        <!--
+                <pathelement location="${jars.dir}/render.jar"/>
+                <pathelement location="${jars.dir}/tcs/forum.jar"/>
+                <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+                <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
+                <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
+                <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
+                <pathelement location="${jars.dir}/searchengine.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/project_phases/1.0/project_phases.jar"/>
+                <pathelement location="${struts.dir}/struts.jar"/>
+        -->
 
 
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
-
-
 
 
     </path>
@@ -130,31 +126,30 @@
 
     <target name="compile_shared" depends="init">
         <javac
-            srcdir="${shared}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-        >
+                srcdir="${shared}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
 
 
-
     <target name="compile_techassess" depends="init">
         <javac
-            srcdir="${java}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/common/**"/>
         </javac>
@@ -164,14 +159,14 @@
     <target name="compile" depends="init,jar_shared">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
-            srcdir="${java}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
@@ -181,95 +176,95 @@
     </target>
 
     <target name="compile_forums" depends="init,jar_shared">
-             <javac
-                 srcdir="${java}"
-                 destdir="${classes}"
-                 classpathref="class.path"
-                 deprecation="${deprecation}"
-                 debug="${debug}"
-                 source="1.4"
-                 target="1.4"
-                 >
-                 <include name="com/topcoder/web/forums/**"/>
-                 <include name="com/topcoder/web/common/**"/>
-                 <include name="com/topcoder/security/**"/>
-                 <include name="com/topcoder/common/web/data/**"/>
-                 <include name="com/topcoder/web/tc/**"/>
-                 <include name="com/topcoder/web/ejb/forums/**"/>
-                 <include name="com/topcoder/web/ejb/messagehistory/**"/>
-             </javac>
-         </target>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/forums/**"/>
+            <include name="com/topcoder/web/common/**"/>
+            <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/common/web/data/**"/>
+            <include name="com/topcoder/web/tc/**"/>
+            <include name="com/topcoder/web/ejb/forums/**"/>
+            <include name="com/topcoder/web/ejb/messagehistory/**"/>
+        </javac>
+    </target>
 
 
     <target name="compile_forumData" depends="init,jar_shared">
-                  <javac
-                      srcdir="${java}"
-                      destdir="${classes}"
-                      classpathref="class.path"
-                      deprecation="${deprecation}"
-                      debug="${debug}"
-                      source="1.4"
-                      target="1.4"
-                      >
-                      <include name="com/topcoder/utilities/forumConvert/**"/>
-                  </javac>
-              </target>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/utilities/forumConvert/**"/>
+        </javac>
+    </target>
 
     <target name="compile_TCUser" depends="init,jar_shared">
-                  <javac
-                      srcdir="${java}"
-                      destdir="${classes}"
-                      classpathref="class.path"
-                      deprecation="${deprecation}"
-                      debug="${debug}"
-                      source="1.4"
-                      target="1.4"
-                      >
-                      <include name="com/topcoder/web/forums/model/TCUser.java"/>
-                      <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
-                  </javac>
-              </target>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/forums/model/TCUser.java"/>
+            <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
+        </javac>
+    </target>
 
     <target name="compile_TCAuth" depends="init,jar_shared">
-                  <javac
-                       srcdir="${java}"
-                       destdir="${classes}"
-                       classpathref="class.path"
-                       deprecation="${deprecation}"
-                       debug="${debug}"
-                       source="1.4"
-                       target="1.4"
-                       >
-                       <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
-                       <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
-                   </javac>
-             </target>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
+            <include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
+        </javac>
+    </target>
 
     <target name="compile_TCFilters" depends="init,jar_shared">
-                       <javac
-                            srcdir="${java}"
-                            destdir="${classes}"
-                            classpathref="class.path"
-                            deprecation="${deprecation}"
-                            debug="${debug}"
-                            source="1.4"
-                            target="1.4"
-                            >
-                            <include name="com/topcoder/web/forums/util/filter/*.java"/>
-                        </javac>
-                  </target>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/forums/util/filter/*.java"/>
+        </javac>
+    </target>
 
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
-            packagenames="com.topcoder.common.*,com.topcoder.ejb.*,com.topcoder.security.*,com.topcoder.utilities.*,com.topcoder.web.*"
-            sourcepath="${java}"
-            classpathref="class.path"
-            destdir="${build.javadocs}"
-            windowtitle="${Name} API"
-            doctitle="${Name} API"
-            maxmemory="256M"
-            >
+                packagenames="com.topcoder.common.*,com.topcoder.ejb.*,com.topcoder.security.*,com.topcoder.utilities.*,com.topcoder.web.*"
+                sourcepath="${java}"
+                classpathref="class.path"
+                destdir="${build.javadocs}"
+                windowtitle="${Name} API"
+                doctitle="${Name} API"
+                maxmemory="256M"
+                >
         </javadoc>
     </target>
 
@@ -568,9 +563,9 @@
 
     <target name="package-EJB-PasswordBean" depends="compile">
         <jar
-            jarfile="${ejb_jars}/Password.jar"
-            basedir="${classes}"
-            includes="com/topcoder/web/ejb/password/**">
+                jarfile="${ejb_jars}/Password.jar"
+                basedir="${classes}"
+                includes="com/topcoder/web/ejb/password/**">
             <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
         </jar>
     </target>
@@ -619,23 +614,23 @@
     </target>
 
     <target name="package-EJB-ForumsBean" depends="compile_forums">
-             <jar jarfile="${ejb_jars}/forums.jar">
-                 <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-                 <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-                 <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
-                 <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
-             </jar>
+        <jar jarfile="${ejb_jars}/forums.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        </jar>
     </target>
 
     <target name="package-EJB-ContestAdminServices" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
-         </jar>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
+            <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
+        </jar>
     </target>
 
     <!-- ==============
@@ -728,13 +723,13 @@
         </copy>
     </target>
     <target name="move-libs" depends="">
-   <!--
-        <copy todir="${jboss_lib}">
-            <fileset dir="${bin}">
-                <include name="Jive.jar"/>
-            </fileset>
-        </copy>
-   -->
+        <!--
+             <copy todir="${jboss_lib}">
+                 <fileset dir="${bin}">
+                     <include name="Jive.jar"/>
+                 </fileset>
+             </copy>
+        -->
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="shared.jar"/>
@@ -864,7 +859,6 @@
         <unwar src="${war.dir}/chinaemail.war" dest="${jboss_deploy}/chinaemail.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/chinaemail.war/META-INF"/>
     </target>
-
 
 
     <target name="war-email" depends="compile">
@@ -1055,14 +1049,14 @@
 
     <target name="compile-reg" depends="jar_shared,init">
         <javac
-            srcdir="${java}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
             <include name="com/topcoder/web/reg/**"/>
             <include name="com/topcoder/web/common/**"/>
         </javac>
@@ -1118,42 +1112,41 @@
     </target>
 
 
-
     <target name="package-TCUser" depends="compile_TCUser">
-         <jar jarfile="${jars.dir}/tcuser.jar">
-             <fileset dir="${classes}/">
-                 <include name="com/topcoder/web/forums/model/TCUser.class"/>
-                 <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+        <jar jarfile="${jars.dir}/tcuser.jar">
+            <fileset dir="${classes}/">
+                <include name="com/topcoder/web/forums/model/TCUser.class"/>
+                <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
                 <include name="com/topcoder/web/forums/model/Common.class"/>
-             </fileset>
-         </jar>
-     </target>
+            </fileset>
+        </jar>
+    </target>
 
     <target name="package-TCAuth" depends="compile_TCAuth">
-          <jar jarfile="${jars.dir}/tcauth.jar">
-              <fileset dir="${classes}/">
-                  <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
-                  <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
-              </fileset>
-          </jar>
+        <jar jarfile="${jars.dir}/tcauth.jar">
+            <fileset dir="${classes}/">
+                <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+                <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+            </fileset>
+        </jar>
     </target>
 
     <target name="package-TCFilters" depends="compile_TCFilters">
-               <jar jarfile="${jars.dir}/tcfilters.jar">
-                   <fileset dir="${classes}/">
-                       <include name="com/topcoder/web/forums/util/filter/*.class"/>
-                   </fileset>
-                    <fileset dir="${resources}/forums/filter">
-                         <include name="**/*.properties"/>
-                    </fileset>
-               </jar>
-         </target>
+        <jar jarfile="${jars.dir}/tcfilters.jar">
+            <fileset dir="${classes}/">
+                <include name="com/topcoder/web/forums/util/filter/*.class"/>
+            </fileset>
+            <fileset dir="${resources}/forums/filter">
+                <include name="**/*.properties"/>
+            </fileset>
+        </jar>
+    </target>
 
     <target name="compile_tests" depends="compile">
         <javac srcdir="${testjava}" destdir="${testclasses}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}">
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
         </javac>
     </target>
 
@@ -1177,7 +1170,7 @@
     </target>
 
     <target name="run_reg_tests" depends="compile_tests" description="run junit tests">
-<!--        <junit printsummary="${junitsummary}" fork="yes">
+        <!--        <junit printsummary="${junitsummary}" fork="yes">
             <classpath refid="class.path"/>
             <formatter type="xml"/>
             <batchtest todir="${testclasses}">
@@ -1253,14 +1246,14 @@
 
     <target name="build-security" depends="compile_shared">
         <javac
-            srcdir="${java}"
-            destdir="${classes}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
             <include name="com/topcoder/security/**"/>
         </javac>
         <jar jarfile="${ejb_jars}/security.jar">
@@ -1397,11 +1390,11 @@
                 <include name="com/topcoder/web/tc/**/*.class"/>
                 <include name="com/fx4m/**/*.class"/>
             </classes>
-   <!--
-            <classes dir="${resources}">
-                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
-            </classes>
-   -->
+            <!--
+                     <classes dir="${resources}">
+                         <include name="com/topcoder/servlet/request/FileUpload.xml"/>
+                     </classes>
+            -->
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
                 <include name="rsc-taglib.tld"/>
@@ -1430,24 +1423,24 @@
 
     <target name="deploy-tc">
         <antcall target="package-EJB-AddressBean"/>
-   <!--
-        <antcall target="package-EJB-Catalog"/>
-   -->
+        <!--
+             <antcall target="package-EJB-Catalog"/>
+        -->
         <antcall target="package-EJB-CoderBean"/>
         <antcall target="package-EJB-CoderSkillBean"/>
         <antcall target="package-EJB-CollegeTourBean"/>
         <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
-   <!--
-        <antcall target="package-EJB-DDEPersistence"/>
-   -->
+        <!--
+             <antcall target="package-EJB-DDEPersistence"/>
+        -->
         <antcall target="package-EJB-EmailBean"/>
         <antcall target="package-EJB-FileConversionBean"/>
         <antcall target="package-EJB-ImageBean"/>
         <antcall target="package-EJB-JavaDocServicesBean"/>
         <antcall target="package-EJB-JobPostingServicesBean"/>
-   <!--
-        <antcall target="package-EJB-ORPersistence"/>
-   -->
+        <!--
+             <antcall target="package-EJB-ORPersistence"/>
+        -->
         <antcall target="package-EJB-PactsServicesBean"/>
         <antcall target="package-EJB-PasswordBean"/>
         <antcall target="package-EJB-PhoneBean"/>
@@ -1456,9 +1449,9 @@
         <antcall target="package-EJB-ProjectBean"/>
         <antcall target="package-EJB-ReportingBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
-   <!--
-        <antcall target="package-EJB-SoftwareUser"/>
-   -->
+        <!--
+             <antcall target="package-EJB-SoftwareUser"/>
+        -->
         <antcall target="package-EJB-SurveyBean"/>
         <!--
                  <antcall target="package-EJB-RequestServicesBean"/>
@@ -1491,9 +1484,9 @@
                 <include name="Image.jar"/>
                 <include name="JavaDocServices.jar"/>
                 <include name="JobPostingServices.jar"/>
-   <!--
-                <include name="orpersistence.jar"/>
-   -->
+                <!--
+                             <include name="orpersistence.jar"/>
+                -->
                 <include name="PactsServices.jar"/>
                 <include name="Password.jar"/>
                 <include name="Phone.jar"/>
@@ -1526,56 +1519,56 @@
     </target>
 
     <target name="war-forums" depends="compile_forums">
-                <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
-                    <fileset dir="${java}/com/topcoder/web/forums/view">
-                        <include name="*.*"/>
-                    </fileset>
-                    <fileset dir="${java}/com/topcoder/web/jsp">
-                        <include name="errorPage.jsp"/>
-                        <include name="top.jsp"/>
-                        <include name="foot.jsp"/>
-                        <include name="date_time.jsp"/>
-                        <include name="body_top.jsp"/>
-                        <include name="page_title.jsp"/>
-                        <include name="script.jsp"/>
-                        <include name="style.jsp"/>
-                        <include name="menu.jsp"/>
-                        <include name="calendar.jsp"/>
-                        <include name="public_right.jsp"/>
-                        <include name="includes/global_left.jsp"/>
-                        <include name="includes/modules/simpleSearch.jsp"/>
-                    </fileset>
-                    <classes dir="${classes}">
-                        <include name="com/topcoder/common/web/util/Conversion.class" />
-                        <include name="com/topcoder/common/web/error/TCException.class" />
-                        <include name="com/topcoder/common/web/data/Navigation.class" />
-                         <include name="com/topcoder/common/web/data/User.class" />
-                         <include name="com/topcoder/common/web/data/SecureObject.class" />
-                         <include name="com/topcoder/common/web/data/PermissionAssignee.class" />
-                         <include name="com/topcoder/common/web/data/UserType.class" />
-                         <include name="com/topcoder/common/web/data/Browser.class" />
-                         <include name="com/topcoder/common/web/data/Round.class" />
-                        <include name="com/topcoder/web/common/**/*.class" />
-                        <include name="com/topcoder/web/forums/**/*.class" />
-                        <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
-                    </classes>
-                    <webinf dir="${resources}/taglib">
-                        <include name="tc-webtags.tld"/>
-                        <include name="nav.tld"/>
-                    </webinf>
-                    <webinf dir="${resources}/forums">
-                        <include name="jboss-web.xml"/>
-                    </webinf>
-                    <lib dir="${jars.dir}">
-                        <include name="object_formatter.jar"/>
-                    </lib>
-                </war>
-           <antcall target="explode-forums"/>
-        </target>
+        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
+            <fileset dir="${java}/com/topcoder/web/forums/view">
+                <include name="*.*"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+                <include name="top.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="date_time.jsp"/>
+                <include name="body_top.jsp"/>
+                <include name="page_title.jsp"/>
+                <include name="script.jsp"/>
+                <include name="style.jsp"/>
+                <include name="menu.jsp"/>
+                <include name="calendar.jsp"/>
+                <include name="public_right.jsp"/>
+                <include name="includes/global_left.jsp"/>
+                <include name="includes/modules/simpleSearch.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/common/web/util/Conversion.class"/>
+                <include name="com/topcoder/common/web/error/TCException.class"/>
+                <include name="com/topcoder/common/web/data/Navigation.class"/>
+                <include name="com/topcoder/common/web/data/User.class"/>
+                <include name="com/topcoder/common/web/data/SecureObject.class"/>
+                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
+                <include name="com/topcoder/common/web/data/UserType.class"/>
+                <include name="com/topcoder/common/web/data/Browser.class"/>
+                <include name="com/topcoder/common/web/data/Round.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/web/forums/**/*.class"/>
+                <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="nav.tld"/>
+            </webinf>
+            <webinf dir="${resources}/forums">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="object_formatter.jar"/>
+            </lib>
+        </war>
+        <antcall target="explode-forums"/>
+    </target>
 
     <target name="explode-forums" depends="">
-       <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
-       <delete dir="${jboss_deploy}/forums.war/META-INF"/>
+        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/forums.war/META-INF"/>
     </target>
 
     <target name="deploy-forums" depends="">
@@ -1620,88 +1613,86 @@
     </target>
 
 
+    <target name="compile_longcontest" depends="init">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/codinginterface/**"/>
+            <include name="com/topcoder/web/common/**"/>
+        </javac>
+    </target>
 
-        <target name="compile_longcontest" depends="init">
-            <javac
-                    srcdir="${java}"
-                    destdir="${classes}"
-                    classpathref="class.path"
-                    deprecation="${deprecation}"
-                    debug="${debug}"
-                    source="1.4"
-                    target="1.4"
-                    >
-                <include name="com/topcoder/web/codinginterface/**"/>
+    <target name="war-longcontest" depends="jar_shared, compile_longcontest">
+        <jar jarfile="${long.jar}">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/common/web/data/*.class"/>
+                <include name="com/topcoder/common/web/error/*.class"/>
+                <include name="com/topcoder/common/web/util/*.class"/>
+                <include name="com/topcoder/web/tc/model/*.class"/>
                 <include name="com/topcoder/web/common/**"/>
-            </javac>
-        </target>
+            </fileset>
+        </jar>
+        <war warfile="${war.dir}/longcontest.war" webxml="${resources}/longcontest/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/codinginterface/longcontest/**"/>
+                <include name="com/topcoder/web/codinginterface/view/tag/**"/>
+                <include name="com/topcoder/web/codinginterface/*.class"/>
+                <include name="com/topcoder/web/codinginterface/messaging/**"/>
+                <include name="com/topcoder/web/codinginterface/model/**"/>
+                <include name="com/topcoder/web/common/**"/>
+                <include name="com/topcoder/common/web/render/**"/>
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+                <include name="codinginterface.tld"/>
+                <include name="rsc-taglib.tld"/>
+                <include name="nav.tld"/>
+            </webinf>
+            <webinf dir="${struts.dir}">
+                <include name="struts-logic.tld"/>
+            </webinf>
+            <lib dir="${struts.dir}">
+                <include name="*.jar"/>
+            </lib>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
 
-        <target name="war-longcontest" depends="jar_shared, compile_longcontest">
-            <jar jarfile="${long.jar}">
-                <fileset dir="${classes}">
-                    <include name="com/topcoder/common/web/data/*.class"/>
-                    <include name="com/topcoder/common/web/error/*.class"/>
-                    <include name="com/topcoder/common/web/util/*.class"/>
-                    <include name="com/topcoder/web/tc/model/*.class"/>
-                    <include name="com/topcoder/web/common/**"/>
-                </fileset>
-            </jar>
-            <war warfile="${war.dir}/longcontest.war" webxml="${resources}/longcontest/web.xml">
-                <classes dir="${classes}">
-                    <include name="com/topcoder/web/codinginterface/longcontest/**"/>
-                    <include name="com/topcoder/web/codinginterface/view/tag/**"/>
-                    <include name="com/topcoder/web/codinginterface/*.class"/>
-                    <include name="com/topcoder/web/codinginterface/messaging/**"/>
-                    <include name="com/topcoder/web/codinginterface/model/**"/>
-                    <include name="com/topcoder/web/common/**"/>
-                    <include name="com/topcoder/common/web/render/**"/>
-                </classes>
-                <webinf dir="${resources}/taglib">
-                    <include name="tc-webtags.tld"/>
-                    <include name="codinginterface.tld"/>
-                    <include name="rsc-taglib.tld"/>
-                    <include name="nav.tld"/>
-                </webinf>
-                <webinf dir="${struts.dir}">
-                    <include name="struts-logic.tld"/>
-                </webinf>
-                <lib dir="${struts.dir}">
-                    <include name="*.jar"/>
-                </lib>
-                <lib dir="${jars.dir}">
-                    <include name="jstl.jar"/>
-                    <include name="standard.jar"/>
-                </lib>
-                
-                <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
-                    <include name="**/*.jsp"/>
-                </fileset>
-                <fileset dir="${java}/com/topcoder/web/jsp">
-                    <include name="*.jsp"/>
-                    <include name="includes/**/*.jsp"/>
-                </fileset>
+            <fileset dir="${java}/com/topcoder/web/codinginterface/longcontest/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="*.jsp"/>
+                <include name="includes/**/*.jsp"/>
+            </fileset>
 
-            </war>
-        </target>
+        </war>
+    </target>
 
-        <target name="deploy-longcontest" depends="war-longcontest">
-            <antcall target="package-EJB-RoundRegistrationBean"/>
-            <antcall target="package-EJB-LongCompResultBean"/>
-            <antcall target="expand-longcontest"/>
-        </target>
+    <target name="deploy-longcontest" depends="war-longcontest">
+        <antcall target="package-EJB-RoundRegistrationBean"/>
+        <antcall target="package-EJB-LongCompResultBean"/>
+        <antcall target="expand-longcontest"/>
+    </target>
 
-        <target name="expand-longcontest" depends="">
-            <copy todir="${jboss_deploy}">
-                <fileset dir="${ejb_jars}">
-                    <include name="RoundRegistration.jar"/>
-                    <include name="LongCompResult.jar"/>
-                </fileset>
-            </copy>
-            <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
-                   overwrite="yes"/>
-            <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
-        </target>
-
+    <target name="expand-longcontest" depends="">
+        <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="RoundRegistration.jar"/>
+                <include name="LongCompResult.jar"/>
+            </fileset>
+        </copy>
+        <unwar src="${war.dir}/longcontest.war" dest="${jboss_home}/server/all/deploy/longcontest.war/"
+               overwrite="yes"/>
+        <delete dir="${jboss_home}/server/all/deploy/longcontest.war/META-INF"/>
+    </target>
 
 
     <target name="moveQueries" depends="compile">
@@ -1720,44 +1711,44 @@
     </target>
 
     <target name="run-ForumConverter" depends="compile_forumData">
-             <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
-                 <classpath>
-                      <pathelement location="${classes}"/>
-                      <pathelement location="${resources}"/>
-                      <fileset dir="${jars.dir}">
-                          <include name="**/*.jar"/>
-                      </fileset>
-                      <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-                 </classpath>
-             </java>
-         </target>
+        <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+            </classpath>
+        </java>
+    </target>
 
     <target name="run-ForumUserConverter" depends="compile_forumData">
-                  <java classname="com.topcoder.utilities.forumConvert.ForumUserConverter" fork="true">
-                      <classpath>
-                           <pathelement location="${classes}"/>
-                           <pathelement location="${resources}"/>
-                           <fileset dir="${jars.dir}">
-                               <include name="**/*.jar"/>
-                           </fileset>
-                           <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-                      </classpath>
-                  </java>
-              </target>
+        <java classname="com.topcoder.utilities.forumConvert.ForumUserConverter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+            </classpath>
+        </java>
+    </target>
 
 
     <target name="run-ForumUserPropertiesConverter" depends="compile_forumData">
-                       <java classname="com.topcoder.utilities.forumConvert.ForumUserPropertiesConverter" fork="true">
-                           <classpath>
-                                <pathelement location="${classes}"/>
-                                <pathelement location="${resources}"/>
-                                <fileset dir="${jars.dir}">
-                                    <include name="**/*.jar"/>
-                                </fileset>
-                                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-                           </classpath>
-                       </java>
-                   </target>
+        <java classname="com.topcoder.utilities.forumConvert.ForumUserPropertiesConverter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+            </classpath>
+        </java>
+    </target>
 
 
     <target name="comp_price" depends="compile">
@@ -1801,7 +1792,7 @@
         </java>
     </target>
 
-        <target name="placed-stuf" depends="compile">
+    <target name="placed-stuf" depends="compile">
         <java classname="com.topcoder.utilities.ProjectResultPlacedSetter" fork="true">
             <classpath>
                 <pathelement location="${classes}"/>
@@ -1813,18 +1804,32 @@
     </target>
 
     <target name="competition-security-groups" depends="compile">
-    <java classname="com.topcoder.utilities.AddTCUsersToGroup" fork="true">
-        <classpath>
-            <pathelement location="${classes}"/>
-            <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-            <pathelement location="${jars.dir}/ifxjdbc.jar"/>
-            <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
-            <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-            <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
-            <pathelement location="${resources}"/>
-        </classpath>
-    </java>
-</target>
+        <java classname="com.topcoder.utilities.AddTCUsersToGroup" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="contact_company_create" depends="compile">
+        <java classname="com.topcoder.utilities.ContactCompanyCreator" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
 
 
 </project>

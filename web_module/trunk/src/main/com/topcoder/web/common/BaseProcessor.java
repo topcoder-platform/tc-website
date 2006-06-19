@@ -68,6 +68,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         return user;
     }
 
+    protected User getLoggedInUser() {
+        return auth.getUser();
+    }
+
     /**
      * call this to send the browser a new cookie when the user updates their password;
      * probably ought to use auth.login() instead
@@ -132,7 +136,8 @@ public abstract class BaseProcessor implements RequestProcessor {
         nextPage = page;
     }
 
-    /** False if a redirect is necessary, ie you need the URL
+    /**
+     * False if a redirect is necessary, ie you need the URL
      * in the browser to change.  True otherwise.
      */
     protected void setIsNextPageInContext(boolean flag) {
@@ -141,6 +146,7 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     /**
      * Returns true iff the user has an active logged in session.
+     *
      * @return boolean
      */
     protected boolean userLoggedIn() {
@@ -150,6 +156,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Returns true iff we can identify the user.  Basically, if the user
      * has a cookie, or an active logged in session.
+     *
      * @return boolean
      */
     protected boolean userIdentified() {
@@ -239,12 +246,11 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Get a remote instance of the specified EJB.
      * Assumes the home class will have the same name plus "Home".
      *
-     * @param ctx the IntialContext to use on the lookup
+     * @param ctx         the IntialContext to use on the lookup
      * @param remoteclass The class of the interface which should be returned.
      * @throws NamingException if we can't find the get context
-     * @throws Exception if something goes wrong when creating or calling
-     * the method on the ejb.
-     *
+     * @throws Exception       if something goes wrong when creating or calling
+     *                         the method on the ejb.
      */
     public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
         Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
@@ -258,14 +264,13 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Assumes the home class will have the same name plus "Home".
      *
      * @param ctx the IntialContext to use on the lookup
-     * @param c The class of the interface which should be returned.
+     * @param c   The class of the interface which should be returned.
      * @throws NamingException if we can't find the get context
-     * @throws Exception if something goes wrong when creating or calling
-     * the method on the ejb.
-     *
+     * @throws Exception       if something goes wrong when creating or calling
+     *                         the method on the ejb.
      */
     public static Object createLocalEJB(InitialContext ctx, Class c) throws NamingException, Exception {
-        Object home = ctx.lookup("java:/"+c.getName() + "LocalHome");
+        Object home = ctx.lookup("java:/" + c.getName() + "LocalHome");
         Method createmethod = PortableRemoteObject.narrow(home,
                 home.getClass()).getClass().getMethod("create", null);
         return createmethod.invoke(home, null);
@@ -282,7 +287,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected SessionInfo getSessionInfo() {
-        return (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        return (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
     }
 
 

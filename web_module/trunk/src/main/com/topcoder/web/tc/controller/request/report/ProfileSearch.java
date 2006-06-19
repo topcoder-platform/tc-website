@@ -1,24 +1,23 @@
 package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.common.web.data.report.Constants;
-import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.dataAccess.QueryRequest;
-import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.QueryDataAccess;
+import com.topcoder.shared.dataAccess.QueryRequest;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.tag.ListSelectTag;
-
+import com.topcoder.web.tc.controller.request.Base;
 
 import java.util.*;
 
 /**
  * User: lars
  */
-public class    ProfileSearch extends Base {
+public class ProfileSearch extends Base {
 
     protected void businessProcessing() throws TCWebException {
         log.debug("process called....");
@@ -168,7 +167,7 @@ public class    ProfileSearch extends Base {
         query.append("    user_address_xref x,\n");
         query.append("    address a,\n");
         query.append("    rating r,\n");
-        query.append("     outer round_segment rs,\n");
+        query.append("    outer round_segment rs,\n");
         if (containsDesRating) {
             query.append(" tcs_catalog:user_rating desr,\n");
 
@@ -200,6 +199,8 @@ public class    ProfileSearch extends Base {
             query.append("    AND devr.user_id = c.coder_id\n");
             query.append("    AND devr.phase_id = 113\n");
         }
+        query.append("    AND r.round_id = rs.round_id\n");
+        query.append("    AND rs.segment_id = 2\n");
         query.append("    AND r.coder_id = c.coder_id\n");
         query.append("    and r.round_id = rs.round_id\n");
         query.append("    and rs.segment_id = 2\n");
@@ -425,7 +426,7 @@ public class    ProfileSearch extends Base {
             query.delete(query.length() - "    AND c.language_id IN ()\n".length(), query.length());
         }
         String[] bounds = {"maxdayssincerating", "mindays", "maxdays", "minevents", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
-        String[] value = {"current-rs.start_time<= \'", "current-c.member_since >= \'", "current-c.member_since <= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
+        String[] value = {"current-rs.start_time <= \'", "current-c.member_since >= \'", "current-c.member_since <= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for (int i = 0; i < bounds.length; i++) {
             String b = request.getParameter(bounds[i]);
             if (b == null || b.length() == 0) continue;
