@@ -547,6 +547,7 @@ public class AutoPilot {
                 count++;
 
                 if (scorecard[i].getPassed()) {
+                    System.out.println("passedCount: " + passedCount);
                     passedCount++;
                 }
 
