@@ -101,15 +101,19 @@ public class LeaderBoard extends BaseBoard {
 
         double prizePerPoint = 28000.0 / overallTopThirdPoints;
 
-        tieBreak(leaderBoardResult);
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        boolean invert = sortDir.equals("asc");
+        tieBreak(leaderBoardResult, invert);
 
         // sort
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        if (sortCol.equals("2")) {
+            log.debug("Sort by name - " + sortDir);
+        }
 
         // crop
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-//        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-//        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
         // Normalizes optional parameters and sets defaults
         if ("".equals(numRecords)) {
@@ -152,48 +156,16 @@ public class LeaderBoard extends BaseBoard {
 
     }
 
-    private void tieBreak(List leaderBoardResult) {
-        /*int prizes = 0;
-        List coderTie = new ArrayList();
-        long prevPoints = ((LeaderBoardRow)leaderBoardResult.get(0)).getPoints();
-        for (int i = 1; i < leaderBoardResult.size() && prizes < 5; i++) {
-            LeaderBoardRow leaderBoardRow = (LeaderBoardRow)leaderBoardResult.get(i);
-            if (prevPoints == (leaderBoardRow).getPoints()) {
-                log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserId());
-                log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserName());
-                coderTie.add((LeaderBoardRow)leaderBoardResult.get(i-1));
-            } else {
-                if (coderTie.size() > 0) {
-                    log.debug("coderTie.add : " + ((LeaderBoardRow)leaderBoardResult.get(i-1)).getUserName());
-                    coderTie.add((LeaderBoardRow)leaderBoardResult.get(i-1));
-                    prizes += 1 + coderTie.size();
-
-                    log.debug("Sorting...");
-
-                    LeaderBoardRow[] sortArray = (LeaderBoardRow[]) coderTie.toArray(new LeaderBoardRow[coderTie.size()]);
-                    for (int j = 0; j < sortArray.length; j++)
-                        log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
-
-                    Arrays.sort(sortArray, new LeaderBoardRowComparator());
-
-                    log.debug("Sort result...");
-                    for (int j = 0; j < sortArray.length; j++)
-                        log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
-
-                    coderTie.clear();
-                }
-            }
-            prevPoints = leaderBoardRow.getPoints();
-        }*/
-
-        log.debug("Original set...");
+    private void tieBreak(List leaderBoardResult, boolean invert) {
+        //log.debug("Original set...");
         LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
-        for (int j = 0; j < sortArray.length; j++)
-            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+        /*for (int j = 0; j < sortArray.length; j++)
+            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());*/
 
         LeaderBoardRowComparator lbrc = new LeaderBoardRowComparator();
         Arrays.sort(sortArray, lbrc);
 
+        // Calculates placement prizes. Shares prize pool in case of a tie.
         int prizes = 0;
         double prizePool = placementPrize[0];
         double poolCount = 1;
@@ -203,33 +175,35 @@ public class LeaderBoard extends BaseBoard {
                 for (int k = 0; k < poolCount; k++) {
                     sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
                     sortArray[j+k+1].setTotalPrize(sortArray[j+k+1].getPlacementPrize() + sortArray[j+k+1].getPointsPrize());
+                    sortArray[j+k+1].setWinTrip(true);
                 }
                 prizes += poolCount;
-                if (place < 5) {
-                    prizePool = placementPrize[place];
-                    place++;
-                }
+                prizePool = 0;
                 poolCount = 1;
             } else {
-                if (place < 5) {
-                    prizePool += placementPrize[place];
-                    place++;
-                }
                 poolCount++;
+            }
+            if (place < 5) {
+                prizePool += placementPrize[place];
+                place++;
             }
         }
 
-        log.debug("Sort result...");
+        /*log.debug("Sort result...");
         for (int j = 0; j < sortArray.length; j++)
-            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
+            log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());*/
 
         leaderBoardResult.clear();
-        for (int j = sortArray.length - 1; j >= 0 ; j--)
-            leaderBoardResult.add(sortArray[j]);
+        if (invert) {
+            for (int j = 0; j < sortArray.length; j++)
+                leaderBoardResult.add(sortArray[j]);
+        } else {
+            for (int j = sortArray.length - 1; j >= 0 ; j--)
+                leaderBoardResult.add(sortArray[j]);
+        }
 
-        log.debug("Original sorted set...");
+        /*log.debug("Original sorted set...");
         for (int j = 0; j < leaderBoardResult.size(); j++)
-            log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow) leaderBoardResult.get(j)).getUserName());
-
+            log.debug(String.valueOf(j) + " : " + ((LeaderBoardRow) leaderBoardResult.get(j)).getUserName());*/
     }
 }

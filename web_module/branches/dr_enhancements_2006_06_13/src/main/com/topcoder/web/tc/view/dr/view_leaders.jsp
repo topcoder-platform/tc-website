@@ -162,11 +162,11 @@ Design Cup Series Leaderboard
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
       </td>
       <td class="headerR">
-         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
       </td>
-      <td class="headerR">Points prize</td>
-      <td class="headerR">Placement prize</td>
-      <td class="headerR">Total prize</td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points prize</a></td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Placement prize</a></td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total prize</a></td>
       <td class="headerR">Top</td>
       <td class="headerR">trip</td>
    </tr>
