@@ -122,7 +122,7 @@ public class RookieBoardRowComparator implements Comparator {
     private ResultSetContainer retrieveInfo(String commandName, long seasonId, long phaseId, long userId) {
         Request r = new Request();
            r.setContentHandle(commandName);
-           r.setProperty(Constants.STAGE_ID, String.valueOf(seasonId));
+           r.setProperty(Constants.SEASON_ID, String.valueOf(seasonId));
            r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
            r.setProperty(Constants.CODER_ID, String.valueOf(userId));
 
