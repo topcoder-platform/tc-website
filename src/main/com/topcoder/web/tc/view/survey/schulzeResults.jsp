@@ -19,17 +19,6 @@
         <jsp:param name="key" value="tc_main"/>
     </jsp:include>
     <STYLE TYPE="text/css">
-        .logoBig {
-            width: 300px;
-            height: 300px;
-        }
-
-        .logoSmall {
-            width: 60px;
-            height: 60px;
-        }
-    </STYLE>
-    <STYLE TYPE="text/css">
         .logoSmall {
             width: 60px;
             height: 60px;
