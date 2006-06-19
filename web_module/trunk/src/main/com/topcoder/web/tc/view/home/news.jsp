@@ -6,7 +6,23 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-   
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.19.06<br>4:05 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061906">How to prepare for an Assembly Competition</A></span><br><br>
+       What does it take for you and your team to ace TopCoder's next Assembly Competition? The winner of the very first Assembly contest tells all&#8230;</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=features&d2=061906">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506057" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.19.06<br>3:30 PM</td>
@@ -184,22 +200,6 @@ gave him the points he needed to overtake the other top scorers.
        <tc-webtag:forumLink forumID="506050" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>06.05.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"> 
-      <A href="/longcontest/?module=ViewOverview&rd=10019">Intel&#174; Multi-Threading Competition 5 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="7504863" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-      <A href="/longcontest/?module=ViewOverview&rd=10019">results</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506010" message="discuss this" />&#160;|&#160;
-      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
