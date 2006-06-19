@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import java.util.Comparator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +109,22 @@ public class LeaderBoard extends BaseBoard {
         // sort
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         if (sortCol.equals("2")) {
+            LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
+
+            Arrays.sort(sortArray, new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                return ((LeaderBoardRow) arg0).getUserName().compareTo(((LeaderBoardRow) arg1).getUserName());
+                }
+            });
+
+            leaderBoardResult.clear();
+            if (invert) {
+                for (int j = 0; j < sortArray.length; j++)
+                    leaderBoardResult.add(sortArray[j]);
+            } else {
+                for (int j = sortArray.length - 1; j >= 0 ; j--)
+                    leaderBoardResult.add(sortArray[j]);
+            }
             log.debug("Sort by name - " + sortDir);
         }
 
@@ -132,7 +149,7 @@ public class LeaderBoard extends BaseBoard {
         log.debug("numRecords: " + numRecords);
 
         List resultBoard = new ArrayList(Integer.parseInt(numRecords));
-        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) < leaderBoardResult.size(); j++) {
+        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
@@ -174,7 +191,6 @@ public class LeaderBoard extends BaseBoard {
             if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
                 for (int k = 0; k < poolCount; k++) {
                     sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
-                    sortArray[j+k+1].setTotalPrize(sortArray[j+k+1].getPlacementPrize() + sortArray[j+k+1].getPointsPrize());
                     sortArray[j+k+1].setWinTrip(true);
                 }
                 prizes += poolCount;
