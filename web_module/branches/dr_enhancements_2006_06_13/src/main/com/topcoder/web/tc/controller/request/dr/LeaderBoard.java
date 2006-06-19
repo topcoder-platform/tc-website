@@ -67,6 +67,7 @@ public class LeaderBoard extends BaseBoard {
         long overallTopThirdPoints = 0;
         ResultSetRow row = null;
         int i = 1;
+
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
             totalPoints = row.getLongItem("total_points");
@@ -93,8 +94,8 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardResult.add(new LeaderBoardRow(period, phase,
                     row.getLongItem("rank"),
                     row.getLongItem("user_id"), row.getStringItem("handle_lower"),
-                    totalPoints, inTopThird, i <= 5, inTopThird ? totalPoints : 0,
-                    i <= 5 ? placementPrize[i-1]: 0, 0));
+                    totalPoints, inTopThird, false, inTopThird ? totalPoints : 0,
+                    0, 0));
             i++;
         }
 
@@ -190,14 +191,40 @@ public class LeaderBoard extends BaseBoard {
         for (int j = 0; j < sortArray.length; j++)
             log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
 
-        Arrays.sort(sortArray, new LeaderBoardRowComparator());
+        LeaderBoardRowComparator lbrc = new LeaderBoardRowComparator();
+        Arrays.sort(sortArray, lbrc);
+
+        int prizes = 0;
+        double prizePool = placementPrize[0];
+        double poolCount = 1;
+        int place = 1;
+        for (int j = sortArray.length - 2; prizes < 5 && j >= 0 ; j--) {
+            if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
+                for (int k = 0; k < poolCount; k++) {
+                    sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
+                    sortArray[j+k+1].setTotalPrize(sortArray[j+k+1].getPlacementPrize() + sortArray[j+k+1].getPointsPrize());
+                }
+                prizes += poolCount;
+                if (place < 5) {
+                    prizePool = placementPrize[place];
+                    place++;
+                }
+                poolCount = 1;
+            } else {
+                if (place < 5) {
+                    prizePool += placementPrize[place];
+                    place++;
+                }
+                poolCount++;
+            }
+        }
 
         log.debug("Sort result...");
         for (int j = 0; j < sortArray.length; j++)
             log.debug(String.valueOf(j) + " : " + sortArray[j].getUserName());
 
         leaderBoardResult.clear();
-        for (int j = 0; j < sortArray.length; j++)
+        for (int j = sortArray.length - 1; j >= 0 ; j--)
             leaderBoardResult.add(sortArray[j]);
 
         log.debug("Original sorted set...");
