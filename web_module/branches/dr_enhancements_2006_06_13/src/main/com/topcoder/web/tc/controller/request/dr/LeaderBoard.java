@@ -65,6 +65,7 @@ public class LeaderBoard extends BaseBoard {
         // pre-process board for the prizes
         double prizePerPoint = 0.0;
         processBoard(rsc, designBoard, leaderBoardResult, prizePerPoint);
+        log.debug("prizePerPoint b : " + prizePerPoint);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         boolean invert = sortDir.equals("asc");
@@ -129,6 +130,7 @@ public class LeaderBoard extends BaseBoard {
         }
 
         prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+        log.debug("prizePerPoint: " + prizePerPoint);
     }
 
     /**
@@ -161,6 +163,7 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
             resultBoard.add(leaderBoardRow);
+            log.debug("leaderBoardRow.getPointsPrize()" + leaderBoardRow.getPointsPrize());
         }
 
         getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
