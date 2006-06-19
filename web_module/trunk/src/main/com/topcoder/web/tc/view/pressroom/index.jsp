@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- AOL Title TCCC Sponsor --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_060606"><img src="/i/pressroom/aol_logo.jpg" alt="AOL logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge</A></strong></font><br />
+                        AOL Supports Global Student Programming Community in $200,000 Technical Software Contest.<span class="prHead"> [June 19]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- SMM Partners with TCHS --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
