@@ -33,12 +33,12 @@ public class RookieBoard extends BaseBoard {
      */
     private static final Logger log = Logger.getLogger(RookieBoard.class);
 
-    private static final int NUMBER_PLACEMENT_PRIZES = 5;
+    private static final int NUMBER_PLACEMENT_PRIZES = 10;
 
     private static final String CODER_HANDLE_COLUMN = "2";
 
-    private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
-    private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
+    private static final double[] designPlacementPrize = {10000.0, 7500.0, 5000.0, 2500.0, 1500.0, 1250.0, 750.0, 500.0, 500.0, 500.0};
+    private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
 
 
     /**
