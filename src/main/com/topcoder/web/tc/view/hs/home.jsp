@@ -83,7 +83,7 @@
                     for their region between June 2006 and February 2007. Registration for TopCoder High School is
                     simple, so <A href="/reg/">start now</A>.
                     <br><br>
-<span class="small">** Competing in TCHS SRMs is being used as eligibility criteria for participation in the TCHS Tournament. It is intended that high school or secondary school (we use the terms interchangeably) students will be competing for an entire season. Therefore, if you are currently in your last year of high school/secondary school and will graduate before May 2007, you are not eligible to compete in TCHS SRMs (or the TCHS tournament).
+<span class="small">** Competing in TCHS SRMs is being used as eligibility criteria for participation in the TCHS Tournament. It is intended that high school or secondary school (we use the terms interchangeably) students will be competing for an entire season. Therefore, if you are currently in your last year of high school/secondary school and will graduate before March 31. 2007, you are not eligible to compete in TCHS SRMs (or the TCHS tournament).
 <br><br>
 In other words, you must be actively pursuing your high school degree for the duration of the season in order to be eligible to compete in TCHS SRMs & the tournament.
 </span>
