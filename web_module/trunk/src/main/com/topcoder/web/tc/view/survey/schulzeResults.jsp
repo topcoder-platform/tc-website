@@ -29,6 +29,53 @@
             height: 60px;
         }
     </STYLE>
+    <STYLE TYPE="text/css">
+        .logoSmall {
+            width: 60px;
+            height: 60px;
+        }
+
+        .popper {
+            display: block;
+            margin: 0px auto 0px auto;
+        }
+
+        #container {
+            text-align: center;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .popUp {
+            font-size: 10px;
+            text-align: center;
+            background-color: #FFFFFF;
+            visibility: hidden;
+            margin: 0px;
+            padding: 3px;
+            position: absolute;
+            left: 65px;
+            top: 65px;
+            white-space: nowrap;
+            border: solid 1px black;
+            z-index: 1;
+        }
+    </STYLE>
+    <script type="text/javascript">
+        <!--
+    var objPopUp = null;
+    function popUp(event,objectID){
+    objPopTrig = document.getElementById(event);
+    objPopUp = document.getElementById(objectID);
+    objPopUp.style.visibility = 'visible';
+    }
+    function popHide(){
+    objPopUp.style.visibility = 'hidden';
+    objPopUp = null;
+    }
+        -->
+    </script>
 </head>
 
 <body>
