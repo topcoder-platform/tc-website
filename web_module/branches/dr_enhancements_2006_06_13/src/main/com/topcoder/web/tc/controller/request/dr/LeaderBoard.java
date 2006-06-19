@@ -222,7 +222,11 @@ public class LeaderBoard extends BaseBoard {
                 place++;
             }
         }
-
+        if (prizes < NUMBER_PLACEMENT_PRIZES) {
+            for (int k = 0; k < poolCount; k++) {
+                sortArray[k].setPlacementPrize(prizePool / poolCount);
+            }
+        }
         leaderBoardResult.clear();
         if (invert) {
             for (int j = 0; j < sortArray.length; j++)

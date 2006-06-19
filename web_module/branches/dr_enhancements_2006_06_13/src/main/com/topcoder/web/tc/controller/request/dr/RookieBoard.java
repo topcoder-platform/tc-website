@@ -184,6 +184,11 @@ public class RookieBoard extends BaseBoard {
                 place++;
             }
         }
+        if (prizes < NUMBER_PLACEMENT_PRIZES) {
+            for (int k = 0; k < poolCount; k++) {
+                sortArray[k].setPlacementPrize(prizePool / poolCount);
+            }
+        }
 
         rookieBoardResult.clear();
         if (invert) {
