@@ -534,7 +534,7 @@ public class AutoPilot {
             if (!project.getAutoPilot()) return new SuccessResult();
 
             //check if all screenings are done,check to see if something passes
-            double minscore = ConfigHelper.getMinimumScore();
+            //double minscore = ConfigHelper.getMinimumScore();
             int count = 0;
             int passedCount = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
@@ -546,9 +546,14 @@ public class AutoPilot {
 
                 count++;
 
-                if (scorecard[i].getScore() >= minscore) {
+                if (scorecard[i].getPassed()) {
                     passedCount++;
                 }
+
+                // Shouldn't take into consideration the score, only the pass mark.
+               /* if (scorecard[i].getScore() >= minscore) {
+                    passedCount++;
+                }*/
             }
 
             if (passedCount == 0)
@@ -559,16 +564,16 @@ public class AutoPilot {
                 return new SuccessResult();
 
             // only permitted levels
-            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ? 
+            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ?
                     DefaultPriceComponent.LEVEL2 : DefaultPriceComponent.LEVEL1;
-                        
+
             DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
-                    levelId, count, passedCount, 
+                    levelId, count, passedCount,
                             project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
-            
+
             // check project for reviewers
             UserRole[] participants = project.getParticipants();
-            
+
             // get primary screener ID
             long primaryScreenerId = -1;
             for (int i = 0; i < participants.length && primaryScreenerId == -1; i++) {
@@ -576,7 +581,7 @@ public class AutoPilot {
                     primaryScreenerId = participants[i].getUser().getId();
                 }
             }
-            
+
             for (int i = 0; i < participants.length; i++) {
                 long roleId = participants[i].getRole().getId();
                 if (roleId == Role.ID_REVIEWER) {
@@ -585,8 +590,8 @@ public class AutoPilot {
                         return new SuccessResult();
                     }
                 }
-                
-                // calculate payment for reviewers tasks. If the primary screener is also a reviewer, 
+
+                // calculate payment for reviewers tasks. If the primary screener is also a reviewer,
                 // he only gets CoreCost for the review since startup time is already calculated
                 // for the screening.
                 float amountToPay = 0;
@@ -597,8 +602,8 @@ public class AutoPilot {
                 else if (roleId == Role.ID_FINAL_REVIEWER)
                     amountToPay = defaultPriceComponent.getFinalReviewCost();
                 else if (roleId == Role.ID_REVIEWER)
-                    amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ? 
-                            defaultPriceComponent.getCoreReviewCost() : 
+                    amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ?
+                            defaultPriceComponent.getCoreReviewCost() :
                                 defaultPriceComponent.getReviewPrice();
 
                 // update payment info.
