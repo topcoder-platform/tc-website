@@ -546,9 +546,9 @@ public class AutoPilot {
 
                 count++;
 
-                if (scorecard[i].getPassed()) {
-                    System.out.println("passedCount: " + passedCount);
+                if (scorecard[i].getSubmission().isAdvancedToReview()) {
                     passedCount++;
+                    System.out.println("passedCount: " + passedCount);
                 }
 
                 // Shouldn't take into consideration the score, only the pass mark.
