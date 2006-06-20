@@ -151,7 +151,7 @@ Teams |
                         <td class="header"><A href="javascript:clickColumn(1)">Member Count</A></td>
                         <td class="header"><A href="javascript:clickColumn(2)">Team Points</A></td>
                     </tr>
-                    <% boolean even = false; %>
+                    <% boolean even = true; %>
                     <rsc:iterator list="<%= result%>" id="resultRow">
                         <% even = !even; %>
                         <tr class="<%=even?"dark":"light"%>">
