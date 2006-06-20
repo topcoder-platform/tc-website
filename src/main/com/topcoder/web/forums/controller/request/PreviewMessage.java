@@ -47,6 +47,10 @@ public class PreviewMessage extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
+        log.info("*** subject: " + subject);
+        log.info("*** body: " + body);
+        log.info("*** textareaBody: " + textareaBody);
+        
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
             forum = forumFactory.getForum(forumID);
@@ -81,7 +85,7 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-        setDefault(ForumConstants.MESSAGE_BODY, com.jivesoftware.util.StringUtils.escapeForXML(textareaBody));
+        setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
         
         if (message != null && thread != null) {
             getRequest().setAttribute("thread", thread);
