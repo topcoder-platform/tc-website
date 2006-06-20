@@ -103,18 +103,19 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td colspan="3" style="padding-bottom:3px;"><strong>
-   <a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) 
-   </td>
-   <td align="right" nowrap="nowrap" valign="top">
+   <div class="topLinksL">
+   <strong><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong> 
+   </div>
+   <div class="topLinksR">
    <%  if (user.getUsername() == historyUser.getUsername()) { %>
    <b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    <%  } else { %>
    <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    <%  } %>
-   </td>
+   </div>
 </tr>
 </table>
+<br>
 <% if (paginator.getNumPages() > 1) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -135,7 +136,7 @@
             <%  } %>
         <%  } %> ]
       <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT></A>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
         <%  } %>
    </b>
    </td>
