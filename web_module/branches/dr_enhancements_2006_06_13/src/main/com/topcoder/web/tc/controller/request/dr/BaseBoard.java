@@ -9,9 +9,14 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.tag.HandleTag;
@@ -88,6 +93,43 @@ public abstract class BaseBoard extends BaseProcessor {
                 HandleTag.DEVELOPMENT : HandleTag.DESIGN));
 
         return board;
+    }
+
+    /**
+     * @param rookieBoardResult
+     * @param prizePerPoint
+     * @param startRank
+     * @param numRecords
+     * @return
+     * @throws NumberFormatException
+     */
+    protected List cropResult(List boardResult) throws NumberFormatException {
+        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+        if ("".equals(numRecords)) {
+            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
+        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
+            numRecords = String.valueOf(Constants.MAX_LEADERS);
+        }
+        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
+
+        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
+            startRank = "1";
+        }
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
+        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
+        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= boardResult.size(); j++) {
+            Object rookieBoardRow =  boardResult.get(Integer.parseInt(startRank) + j - 1);
+            resultBoard.add(rookieBoardRow);
+        }
+
+        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
+        getRequest().setAttribute( "croppedDataAfter", new Boolean(boardResult.size() > Integer
+            .parseInt(startRank) + resultBoard.size()));
+
+        return resultBoard;
     }
 
     protected ResultSetContainer runQuery(String command, String query) throws TCWebException {

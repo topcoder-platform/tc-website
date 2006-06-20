@@ -93,43 +93,6 @@ public class RookieBoard extends BaseBoard {
 
     /**
      * @param rookieBoardResult
-     * @param prizePerPoint
-     * @param startRank
-     * @param numRecords
-     * @return
-     * @throws NumberFormatException
-     */
-    private List cropResult(List rookieBoardResult) throws NumberFormatException {
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-        if ("".equals(numRecords)) {
-            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
-        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
-            numRecords = String.valueOf(Constants.MAX_LEADERS);
-        }
-        setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
-        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
-        }
-        setDefault(DataAccessConstants.START_RANK, startRank);
-
-        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
-        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= rookieBoardResult.size(); j++) {
-            RookieBoardRow rookieBoardRow = (RookieBoardRow) rookieBoardResult.get(Integer.parseInt(startRank) + j - 1);
-            resultBoard.add(rookieBoardRow);
-        }
-
-        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
-        getRequest().setAttribute( "croppedDataAfter", new Boolean(rookieBoardResult.size() > Integer
-            .parseInt(startRank) + resultBoard.size()));
-
-        return resultBoard;
-    }
-
-    /**
-     * @param rookieBoardResult
      * @param sortDir
      * @param invert
      */

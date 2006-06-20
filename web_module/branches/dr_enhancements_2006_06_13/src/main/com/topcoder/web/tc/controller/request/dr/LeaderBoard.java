@@ -63,8 +63,7 @@ public class LeaderBoard extends BaseBoard {
         List leaderBoardResult = new ArrayList(rsc.size());
 
         // pre-process board for the prizes
-        double prizePerPoint = processBoard(rsc, designBoard, leaderBoardResult);
-        log.debug("prizePerPoint b : " + prizePerPoint);
+        processBoard(rsc, designBoard, leaderBoardResult);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         boolean invert = sortDir.equals("asc");
@@ -80,7 +79,7 @@ public class LeaderBoard extends BaseBoard {
         sortResult(leaderBoardResult, sortDir, invert);
 
         // crop
-        List resultBoard = cropResult(leaderBoardResult, prizePerPoint);
+        List resultBoard = cropResult(leaderBoardResult);
 
         getRequest().setAttribute("testList", resultBoard);
 
@@ -89,7 +88,7 @@ public class LeaderBoard extends BaseBoard {
 
     }
 
-    private double processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult) throws TCWebException {
+    private void processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult) throws TCWebException {
 
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
         long totalPoints = 0;
@@ -122,7 +121,12 @@ public class LeaderBoard extends BaseBoard {
 
         double prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
         log.debug("prizePerPoint: " + prizePerPoint);
-        return prizePerPoint;
+
+        for (int j = 0; j < leaderBoardResult.size(); j++) {
+            LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);
+            leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
+            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
+        }
     }
 
     /**
@@ -152,8 +156,6 @@ public class LeaderBoard extends BaseBoard {
         List resultBoard = new ArrayList(Integer.parseInt(numRecords));
         for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(Integer.parseInt(startRank) + j - 1);
-            leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
-            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
             resultBoard.add(leaderBoardRow);
             log.debug("leaderBoardRow.getPointsPrize()" + leaderBoardRow.getPointsPrize());
         }
