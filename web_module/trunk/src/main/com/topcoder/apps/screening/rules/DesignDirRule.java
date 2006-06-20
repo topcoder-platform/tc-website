@@ -7,7 +7,6 @@ import com.topcoder.apps.screening.*;
 import com.topcoder.file.directoryvalidator.DirectoryManager;
 import com.topcoder.file.directoryvalidator.XmlFileLoader;
 
-import javax.naming.spi.DirectoryManager;
 import java.io.File;
 
 /**
