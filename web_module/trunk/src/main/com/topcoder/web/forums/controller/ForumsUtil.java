@@ -274,7 +274,6 @@ public class ForumsUtil {
     }
 
     public static boolean displayMemberPhoto(User user, User author) {
-        boolean displayPhoto = true;
         if (user != null && "false".equals(user.getProperty("jiveDisplayAllMemberPhotos"))) {
             return false;
         }
@@ -285,7 +284,7 @@ public class ForumsUtil {
     }
 
     public static String createTextAreaBody(String body) {
-        body = StringUtils.escapeHTMLTags(body);
+        body = StringUtils.escapeForXML(body);
         body = StringUtils.replace(body, "\"", "&quot;");
         return body;
     }
