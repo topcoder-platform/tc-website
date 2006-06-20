@@ -111,6 +111,10 @@ public abstract class BaseBoard extends BaseProcessor {
      * @throws NumberFormatException
      */
     protected List cropResult(List boardResult) throws NumberFormatException {
+        if (boardResult.size() == 0) {
+            return boardResult;
+        }
+
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
 
@@ -145,6 +149,10 @@ public abstract class BaseBoard extends BaseProcessor {
      * @param invert
      */
     protected void sortResult(List boardResult, boolean invert) {
+        if (boardResult.size() == 0) {
+            return;
+        }
+
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         // all other columns are sorted already (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
@@ -161,6 +169,11 @@ public abstract class BaseBoard extends BaseProcessor {
 
     protected void tieBreak(List boardResult, double[] placementPrize,
             boolean invert, String placementCommand, String scoreCommand, String periodKey) {
+
+        if (boardResult.size() == 0) {
+            return;
+        }
+
         IBoardRow[] sortArray = (IBoardRow[]) boardResult.toArray(new IBoardRow[boardResult.size()]);
 
         BoardRowComparator brc = new BoardRowComparator(placementCommand, scoreCommand, periodKey);
