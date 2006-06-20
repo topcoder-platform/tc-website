@@ -299,7 +299,7 @@
                <td class="bodyText" nowrap=nowrap>Apr 24, 2002</td>
             </tr>
             <tr valign="top">
-               <td class="bodyText" colspan="3"><br><a href="/tc?module=Static&d1=features&d2=topics">Write feature articles for TopCoder.com</a></td>
+               <td class="bodyText" colspan="3"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write feature articles for TopCoder.com</a></td>
             </tr>
          </table>
          </div>
