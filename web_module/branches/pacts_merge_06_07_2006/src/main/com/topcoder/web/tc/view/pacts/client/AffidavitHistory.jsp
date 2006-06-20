@@ -44,7 +44,7 @@ function goTo(selection){
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
    <TR>
       <TD CLASS="affidavitText" COLSPAN="2">
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.util.*,java.text.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.util.*,java.text.*,com.topcoder.shared.util.ApplicationServer" %>
 
 <%
     Affidavit[] affidavits = null;
@@ -188,7 +188,8 @@ function goTo(selection){
 	       if (description.indexOf(")") > -1) {
 	       		description = description.substring(description.indexOf(")")+1).trim();
 	       }
-	       tableData.setElement(i,0,description);
+	       String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+payments[i-1].getHeader().getProjectId()+"&ver=1\">test</a>";
+	       tableData.setElement(i,0,description+" "+link);
 	      
 	       // net amount
 	       DecimalFormat decf = new DecimalFormat("0.00");

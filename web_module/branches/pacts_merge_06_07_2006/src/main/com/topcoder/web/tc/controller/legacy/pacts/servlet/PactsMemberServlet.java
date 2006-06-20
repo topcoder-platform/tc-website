@@ -268,6 +268,11 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         if (payments == null) {
         	log.debug("we got null from getComponentDetailsForUser");
         } else {
+        	for (int i=0; i<payments.length; i++) {
+        		log.info("*** PAYMENT HEADER: " + i);
+        		log.info("*** project id: " + payments[i].getHeader().getProjectId());
+        		log.info("*** client: " + payments[i].getHeader().getClient());
+        	}
         	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
         }
  
