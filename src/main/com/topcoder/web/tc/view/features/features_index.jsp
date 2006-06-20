@@ -39,9 +39,9 @@
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign="top">
-               <td class="bodyText" width="20%"><b>Author</b></td>
-               <td class="bodyText" width="68%"><b>Title</b></td>
-               <td class="bodyText" width="12%"><b>Date</b></td>
+               <td class="bodyText"><b>Author</b></td>
+               <td class="bodyText"><b>Title</b></td>
+               <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="16096823" /></td>

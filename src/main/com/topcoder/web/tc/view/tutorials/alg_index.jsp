@@ -127,6 +127,9 @@
                <tc-webtag:handle coderId="7390467" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=binarySearch"><strong>Binary Search</strong></a>
             </td></tr>
+            <tr valign="top">
+               <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
+            </tr>
          </table>
         </div>
         <p><br></p>
@@ -136,7 +139,7 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="defaults"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
