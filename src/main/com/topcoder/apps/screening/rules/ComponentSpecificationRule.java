@@ -6,7 +6,6 @@ package com.topcoder.apps.screening.rules;
 import com.topcoder.apps.screening.*;
 import com.topcoder.file.type.FileType;
 import com.topcoder.file.type.MagicNumbers;
-import sun.plugin.cache.FileType;
 
 import java.io.File;
 
