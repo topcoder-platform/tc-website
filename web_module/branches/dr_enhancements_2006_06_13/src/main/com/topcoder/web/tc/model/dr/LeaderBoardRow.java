@@ -4,7 +4,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
 
     private boolean topThird;
     private double pointsPrize;
-    private double totalPrize;
 
     /**
      * Default constructor
@@ -39,7 +38,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         this.topThird = topThird;
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
-        this.totalPrize = totalPrize;
     }
 
     /**
@@ -74,14 +72,7 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @return Returns the totalPrize.
      */
     public double getTotalPrize() {
-        return totalPrize;
-    }
-
-    /**
-     * @param totalPrize The totalPrize to set.
-     */
-    public void setTotalPrize(double totalPrize) {
-        this.totalPrize = totalPrize;
+        return this.placementPrize + this.pointsPrize;
     }
 
     /* (non-Javadoc)

@@ -117,7 +117,6 @@ public class LeaderBoard extends BaseBoard {
         for (int j = 0; j < leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
-            leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
         }
         return leaderBoardResult;
     }
