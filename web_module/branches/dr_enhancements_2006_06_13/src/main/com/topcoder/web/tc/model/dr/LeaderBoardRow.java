@@ -2,7 +2,7 @@ package com.topcoder.web.tc.model.dr;
 
 import com.topcoder.web.common.model.Base;
 
-public class LeaderBoardRow extends Base {
+public class LeaderBoardRow extends Base implements IBoardRow {
 
     private long stage;
     private long phase;
@@ -53,15 +53,15 @@ public class LeaderBoardRow extends Base {
         this.totalPrize = totalPrize;
     }
 
-    /**
-     * @return Returns the phase.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getPhase()
      */
     public long getPhase() {
         return phase;
     }
 
-    /**
-     * @param phase The phase to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setPhase(long)
      */
     public void setPhase(long phase) {
         this.phase = phase;
@@ -81,43 +81,43 @@ public class LeaderBoardRow extends Base {
         this.stage = stage;
     }
 
-    /**
-     * @return Returns the userName.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getUserName()
      */
     public String getUserName() {
         return userName;
     }
 
-    /**
-     * @param userName The userName to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setUserName(java.lang.String)
      */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    /**
-     * @return Returns the placementPrize.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getPlacementPrize()
      */
     public double getPlacementPrize() {
         return placementPrize;
     }
 
-    /**
-     * @param placementPrize The placementPrize to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setPlacementPrize(double)
      */
     public void setPlacementPrize(double placementPrize) {
         this.placementPrize = placementPrize;
     }
 
-    /**
-     * @return Returns the points.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getPoints()
      */
     public long getPoints() {
         return points;
     }
 
-    /**
-     * @param points The points to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setPoints(long)
      */
     public void setPoints(long points) {
         this.points = points;
@@ -137,15 +137,15 @@ public class LeaderBoardRow extends Base {
         this.pointsPrize = pointsPrize;
     }
 
-    /**
-     * @return Returns the rank.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getRank()
      */
     public long getRank() {
         return rank;
     }
 
-    /**
-     * @param rank The rank to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setRank(long)
      */
     public void setRank(long rank) {
         this.rank = rank;
@@ -179,29 +179,29 @@ public class LeaderBoardRow extends Base {
         this.totalPrize = totalPrize;
     }
 
-    /**
-     * @return Returns the userId.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#getUserId()
      */
     public long getUserId() {
         return userId;
     }
 
-    /**
-     * @param userId The userId to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setUserId(long)
      */
     public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    /**
-     * @return Returns the winTrip.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#isWinTrip()
      */
     public boolean isWinTrip() {
         return winTrip;
     }
 
-    /**
-     * @param winTrip The winTrip to set.
+    /* (non-Javadoc)
+     * @see com.topcoder.web.tc.model.dr.IBoardRow#setWinTrip(boolean)
      */
     public void setWinTrip(boolean winTrip) {
         this.winTrip = winTrip;

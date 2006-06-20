@@ -6,6 +6,7 @@ package com.topcoder.web.tc.controller.request.dr;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -16,6 +17,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import com.topcoder.web.common.TCWebException;
@@ -34,6 +37,8 @@ public abstract class BaseBoard extends BaseProcessor {
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(BaseBoard.class);
+
+    private static final String CODER_HANDLE_COLUMN = "2";
 
     /**
      * Child must implement businessProcessing.
@@ -130,6 +135,26 @@ public abstract class BaseBoard extends BaseProcessor {
             .parseInt(startRank) + resultBoard.size()));
 
         return resultBoard;
+    }
+
+    /**
+     * @param leaderBoardResult
+     * @param sortDir
+     * @param invert
+     */
+    protected void sortResult(List boardResult, boolean invert) {
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+        // all other columns are sorted already (rank)
+        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
+            Collections.sort(boardResult,new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                return ((IBoardRow) arg0).getUserName().compareTo(((IBoardRow) arg1).getUserName());
+                }
+            });
+             if (invert) {
+                 Collections.reverse(boardResult);
+             }
+        }
     }
 
     protected ResultSetContainer runQuery(String command, String query) throws TCWebException {

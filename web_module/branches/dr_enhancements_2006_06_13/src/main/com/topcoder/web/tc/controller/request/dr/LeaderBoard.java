@@ -6,6 +6,7 @@ package com.topcoder.web.tc.controller.request.dr;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRowComparator;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
@@ -36,8 +37,6 @@ public class LeaderBoard extends BaseBoard {
     private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
 
     private static final double DESIGN_POOL_PRIZE = 28000.0;
-
-    private static final String CODER_HANDLE_COLUMN = "2";
 
     /**
      * The logger to log to.
@@ -91,7 +90,6 @@ public class LeaderBoard extends BaseBoard {
     }
 
     private void processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult) throws TCWebException {
-
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
         long totalPoints = 0;
         long totalPointsThreshold = -1;
@@ -131,49 +129,9 @@ public class LeaderBoard extends BaseBoard {
         }
     }
 
-    /**
-     * @param leaderBoardResult
-     * @param sortDir
-     * @param invert
-     */
-    private void sortResult(List leaderBoardResult, boolean invert) {
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        // all other columns are sorted already (rank)
-        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
-            Collections.sort(leaderBoardResult,new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                return ((LeaderBoardRow) arg0).getUserName().compareTo(((LeaderBoardRow) arg1).getUserName());
-                }
-            });
-             if (invert) {
-                 Collections.reverse(leaderBoardResult);
-             }
-        }
-/*        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        // all other columns are sorted already (rank)
-        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
-            LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
-
-            Arrays.sort(sortArray, new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                return ((LeaderBoardRow) arg0).getUserName().compareTo(((LeaderBoardRow) arg1).getUserName());
-                }
-            });
-
-            leaderBoardResult.clear();
-            if (invert) {
-                for (int j = 0; j < sortArray.length; j++)
-                    leaderBoardResult.add(sortArray[j]);
-            } else {
-                for (int j = sortArray.length - 1; j >= 0 ; j--)
-                    leaderBoardResult.add(sortArray[j]);
-            }
-            log.debug("Sort by name - " + sortDir);
-        }*/
-    }
 
     private void tieBreak(List leaderBoardResult, double[] placementPrize, boolean invert) {
-        LeaderBoardRow[] sortArray = (LeaderBoardRow[]) leaderBoardResult.toArray(new LeaderBoardRow[leaderBoardResult.size()]);
+        IBoardRow[] sortArray = (IBoardRow[]) leaderBoardResult.toArray(new IBoardRow[leaderBoardResult.size()]);
 
         LeaderBoardRowComparator lbrc = new LeaderBoardRowComparator();
         Arrays.sort(sortArray, lbrc);

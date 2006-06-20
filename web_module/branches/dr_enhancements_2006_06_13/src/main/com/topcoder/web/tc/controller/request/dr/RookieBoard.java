@@ -10,11 +10,8 @@ import com.topcoder.web.tc.model.dr.RookieBoardRow;
 import com.topcoder.web.tc.model.dr.RookieBoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import java.util.Comparator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -35,8 +32,6 @@ public class RookieBoard extends BaseBoard {
     private static final Logger log = Logger.getLogger(RookieBoard.class);
 
     private static final int NUMBER_PLACEMENT_PRIZES = 10;
-
-    private static final String CODER_HANDLE_COLUMN = "2";
 
     private static final double[] designPlacementPrize = {10000.0, 7500.0, 5000.0, 2500.0, 1500.0, 1250.0, 750.0, 500.0, 500.0, 500.0};
     private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
@@ -90,44 +85,6 @@ public class RookieBoard extends BaseBoard {
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
 
-    }
-
-    /**
-     * @param rookieBoardResult
-     * @param sortDir
-     * @param invert
-     */
-    private void sortResult(List rookieBoardResult, boolean invert) {
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        // all other columns are sorted already (rank)
-        if (sortCol.equals(CODER_HANDLE_COLUMN)) {
-            Collections.sort(rookieBoardResult,new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                return ((RookieBoardRow) arg0).getUserName().compareTo(((RookieBoardRow) arg1).getUserName());
-                }
-            });
-             if (invert) {
-                 Collections.reverse(rookieBoardResult);
-             }
-        }
-/*
-            RookieBoardRow[] sortArray = (RookieBoardRow[]) rookieBoardResult.toArray(new RookieBoardRow[rookieBoardResult.size()]);
-
-            Arrays.sort(sortArray, new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                return ((RookieBoardRow) arg0).getUserName().compareTo(((RookieBoardRow) arg1).getUserName());
-                }
-            });
-
-            rookieBoardResult.clear();
-            if (invert) {
-                for (int j = 0; j < sortArray.length; j++)
-                    rookieBoardResult.add(sortArray[j]);
-            } else {
-                for (int j = sortArray.length - 1; j >= 0 ; j--)
-                    rookieBoardResult.add(sortArray[j]);
-            }
-        }*/
     }
 
     private void tieBreak(List rookieBoardResult, double[] placementPrize, boolean invert) {
