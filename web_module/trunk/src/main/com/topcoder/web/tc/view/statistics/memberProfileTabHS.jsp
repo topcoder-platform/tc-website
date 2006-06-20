@@ -43,7 +43,7 @@ if ( plugin ) {
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="catNW" colspan="2"><A HREF='tc?module=HSRatingHistory&&ratid=2&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
+            <tr><td class="catNW" colspan="2"><A HREF='tc?module=HSRatingHistory&&ratid=2&cr=<%=request.getParameter("cr")%>'>[competition history]</A><br><br></td></tr>
 <% if (rscAlgData.getStringItem(0, "team_name") != null) { %>            
             <tr><td class="catNW">Team:</td><td class="statRNW"><rsc:item name="team_name" set="<%=rscAlgData%>" ifNull="N/A" /></td></tr>
 <% } %>            
