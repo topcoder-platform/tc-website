@@ -80,7 +80,7 @@ public class LeaderBoard extends BaseBoard {
         // crop
         List resultBoard = cropResult(leaderBoardResult);
 
-        getRequest().setAttribute("testList", resultBoard);
+        getRequest().setAttribute("boardList", resultBoard);
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
 

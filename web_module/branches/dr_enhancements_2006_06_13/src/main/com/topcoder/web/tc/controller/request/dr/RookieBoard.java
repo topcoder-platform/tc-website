@@ -69,7 +69,7 @@ public class RookieBoard extends BaseBoard {
         // crop
         List resultBoard = cropResult(rookieBoardResult);
 
-        getRequest().setAttribute("testList", resultBoard);
+        getRequest().setAttribute("boardList", resultBoard);
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
     }
