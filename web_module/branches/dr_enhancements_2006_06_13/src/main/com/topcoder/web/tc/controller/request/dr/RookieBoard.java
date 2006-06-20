@@ -90,7 +90,7 @@ public class RookieBoard extends BaseBoard {
             rookieBoardResult.add(new RookieBoardRow(row.getLongItem("season_id"), phase, row.getLongItem("rank"),
                     row.getLongItem("user_id"), row.getStringItem("handle_lower"),
                     row.getLongItem("total_points"),
-                    firstRow, 0));
+                    firstRow, 0, row.getLongItem("confirmed_ind") == 0));
             firstRow = false;
         }
         return rookieBoardResult;

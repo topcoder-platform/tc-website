@@ -2,6 +2,8 @@ package com.topcoder.web.tc.model.dr;
 
 public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
 
+    private boolean potential;
+
     /**
      * Default constructor
      */
@@ -23,7 +25,7 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
      * @param totalPrize The totalPrize to set.
      */
     public RookieBoardRow(long period, long phase, long rank, long userId, String userName, long points,
-        boolean winTrip, double placementPrize) {
+        boolean winTrip, double placementPrize, boolean potential) {
         super();
         this.period = period;
         this.phase = phase;
@@ -32,6 +34,21 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
         this.userName = userName;
         this.points = points;
         this.placementPrize = placementPrize;
+        this.potential = potential;
+    }
+
+    /**
+     * @return Returns the potential.
+     */
+    public boolean isPotential() {
+        return potential;
+    }
+
+    /**
+     * @param potential The potential to set.
+     */
+    public void setPotential(boolean potential) {
+        this.potential = potential;
     }
 
     /**

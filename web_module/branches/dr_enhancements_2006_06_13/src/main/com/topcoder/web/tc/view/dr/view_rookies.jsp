@@ -173,7 +173,7 @@ Design Cup Series Rookie of the Year Leaderboard
    <c:forEach items="${testList}" var="boardRow">
 	   <tr class="<%=even?"dark":"light"%>">
 	      <td class="valueC">${boardRow.rank}</td>
-	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
+	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/><c:if test="${boardRow.potential}">*</c:if></td>
 	      <td class="valueR">${boardRow.points}</td>
 	      <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
 	      <td class="valueR">
