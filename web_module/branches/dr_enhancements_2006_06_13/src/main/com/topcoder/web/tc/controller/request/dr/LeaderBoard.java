@@ -6,13 +6,10 @@ package com.topcoder.web.tc.controller.request.dr;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
-import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -27,8 +24,6 @@ import com.topcoder.web.common.TCWebException;
  * @version 1.0
  */
 public class LeaderBoard extends BaseBoard {
-
-    private static final int NUMBER_PLACEMENT_PRIZES = 5;
 
     private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
 
@@ -57,19 +52,19 @@ public class LeaderBoard extends BaseBoard {
         log.debug("Getting Leader board coders...");
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
-        List leaderBoardResult = new ArrayList(rsc.size());
-
         // pre-process board for the prizes
-        processBoard(rsc, designBoard, leaderBoardResult);
+        List leaderBoardResult = processBoard(rsc, designBoard);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         boolean invert = sortDir.equals("asc");
 
         // break prizes ties
         if (designBoard) {
-            tieBreak(leaderBoardResult, designPlacementPrize, invert);
+            tieBreak(leaderBoardResult, designPlacementPrize, invert, "dr_tie_break_placement",
+                    "dr_tie_break_score", Constants.STAGE_ID);
         } else {
-            tieBreak(leaderBoardResult, developmentPlacementPrize, invert);
+            tieBreak(leaderBoardResult, developmentPlacementPrize, invert, "dr_tie_break_placement",
+                    "dr_tie_break_score", Constants.STAGE_ID);
         }
 
         // sort
@@ -85,13 +80,14 @@ public class LeaderBoard extends BaseBoard {
 
     }
 
-    private void processBoard(ResultSetContainer rsc, boolean designBoard, List leaderBoardResult) throws TCWebException {
+    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
         long totalPoints = 0;
         long totalPointsThreshold = -1;
         long overallTopThirdPoints = 0;
         ResultSetRow row = null;
         int i = 1;
+        List leaderBoardResult = new ArrayList(rsc.size());
 
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
@@ -123,50 +119,6 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardRow.setPointsPrize(leaderBoardRow.getPointsPrize() * prizePerPoint);
             leaderBoardRow.setTotalPrize(leaderBoardRow.getPointsPrize() + leaderBoardRow.getPlacementPrize());
         }
-    }
-
-
-    private void tieBreak(List leaderBoardResult, double[] placementPrize, boolean invert) {
-        IBoardRow[] sortArray = (IBoardRow[]) leaderBoardResult.toArray(new IBoardRow[leaderBoardResult.size()]);
-
-        BoardRowComparator brc = new BoardRowComparator("dr_tie_break_placement",
-                "dr_tie_break_score", Constants.STAGE_ID);
-        Arrays.sort(sortArray, brc);
-
-        // Calculates placement prizes. Shares prize pool in case of a tie.
-        int prizes = 0;
-        double prizePool = placementPrize[0];
-        double poolCount = 1;
-        int place = 1;
-        for (int j = sortArray.length - 2; prizes < NUMBER_PLACEMENT_PRIZES && j >= 0 ; j--) {
-            if (brc.compare(sortArray[j+1], sortArray[j]) != 0){
-                for (int k = 0; k < poolCount; k++) {
-                    sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
-                    sortArray[j+k+1].setWinTrip(true);
-                }
-                prizes += poolCount;
-                prizePool = 0;
-                poolCount = 1;
-            } else {
-                poolCount++;
-            }
-            if (place < NUMBER_PLACEMENT_PRIZES) {
-                prizePool += placementPrize[place];
-                place++;
-            }
-        }
-        if (prizes < NUMBER_PLACEMENT_PRIZES) {
-            for (int k = 0; k < poolCount; k++) {
-                sortArray[k].setPlacementPrize(prizePool / poolCount);
-            }
-        }
-        leaderBoardResult.clear();
-        if (invert) {
-            for (int j = 0; j < sortArray.length; j++)
-                leaderBoardResult.add(sortArray[j]);
-        } else {
-            for (int j = sortArray.length - 1; j >= 0 ; j--)
-                leaderBoardResult.add(sortArray[j]);
-        }
+        return leaderBoardResult;
     }
 }

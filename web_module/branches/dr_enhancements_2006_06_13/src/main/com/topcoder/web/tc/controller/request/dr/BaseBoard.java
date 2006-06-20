@@ -7,6 +7,7 @@ package com.topcoder.web.tc.controller.request.dr;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
+import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -15,6 +16,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import java.util.Arrays;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -154,6 +156,50 @@ public abstract class BaseBoard extends BaseProcessor {
              if (invert) {
                  Collections.reverse(boardResult);
              }
+        }
+    }
+
+    protected void tieBreak(List boardResult, double[] placementPrize,
+            boolean invert, String placementCommand, String scoreCommand, String periodKey) {
+        IBoardRow[] sortArray = (IBoardRow[]) boardResult.toArray(new IBoardRow[boardResult.size()]);
+
+        BoardRowComparator brc = new BoardRowComparator(placementCommand, scoreCommand, periodKey);
+        Arrays.sort(sortArray, brc);
+
+        // Calculates placement prizes. Shares prize pool in case of a tie.
+        int numberPlacementPrizes = placementPrize.length;
+        int prizes = 0;
+        double prizePool = placementPrize[0];
+        double poolCount = 1;
+        int place = 1;
+        for (int j = sortArray.length - 2; prizes < numberPlacementPrizes && j >= 0; j--) {
+            if (brc.compare(sortArray[j + 1], sortArray[j]) != 0) {
+                for (int k = 0; k < poolCount; k++) {
+                    sortArray[j + k + 1].setPlacementPrize(prizePool / poolCount);
+                }
+                prizes += poolCount;
+                prizePool = 0;
+                poolCount = 1;
+            } else {
+                poolCount++;
+            }
+            if (place < numberPlacementPrizes) {
+                prizePool += placementPrize[place];
+                place++;
+            }
+        }
+        if (prizes < numberPlacementPrizes) {
+            for (int k = 0; k < poolCount; k++) {
+                sortArray[k].setPlacementPrize(prizePool / poolCount);
+            }
+        }
+        boardResult.clear();
+        if (invert) {
+            for (int j = 0; j < sortArray.length; j++)
+                boardResult.add(sortArray[j]);
+        } else {
+            for (int j = sortArray.length - 1; j >= 0; j--)
+                boardResult.add(sortArray[j]);
         }
     }
 

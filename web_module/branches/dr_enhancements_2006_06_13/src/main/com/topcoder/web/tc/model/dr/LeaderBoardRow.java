@@ -11,7 +11,6 @@ public class LeaderBoardRow extends Base implements IBoardRow {
     private String userName;
     private long points;
     private boolean topThird;
-    private boolean winTrip;
     private double pointsPrize;
     private double placementPrize;
     private double totalPrize;
@@ -47,7 +46,6 @@ public class LeaderBoardRow extends Base implements IBoardRow {
         this.userName = userName;
         this.points = points;
         this.topThird = topThird;
-        this.winTrip = winTrip;
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
         this.totalPrize = totalPrize;
@@ -197,13 +195,6 @@ public class LeaderBoardRow extends Base implements IBoardRow {
      * @see com.topcoder.web.tc.model.dr.IBoardRow#isWinTrip()
      */
     public boolean isWinTrip() {
-        return winTrip;
-    }
-
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.model.dr.IBoardRow#setWinTrip(boolean)
-     */
-    public void setWinTrip(boolean winTrip) {
-        this.winTrip = winTrip;
+        return (this.placementPrize > 0);
     }
 }

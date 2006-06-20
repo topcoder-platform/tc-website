@@ -77,9 +77,4 @@ public interface IBoardRow {
      */
     public abstract boolean isWinTrip();
 
-    /**
-     * @param winTrip The winTrip to set.
-     */
-    public abstract void setWinTrip(boolean winTrip);
-
 }

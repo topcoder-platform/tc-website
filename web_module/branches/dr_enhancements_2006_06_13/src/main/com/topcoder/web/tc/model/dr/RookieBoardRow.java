@@ -10,7 +10,6 @@ public class RookieBoardRow extends Base implements IBoardRow {
     private long userId;
     private String userName;
     private long points;
-    private boolean winTrip;
     private double placementPrize;
 
     /**
@@ -42,7 +41,6 @@ public class RookieBoardRow extends Base implements IBoardRow {
         this.userId = userId;
         this.userName = userName;
         this.points = points;
-        this.winTrip = winTrip;
         this.placementPrize = placementPrize;
     }
 
@@ -148,13 +146,6 @@ public class RookieBoardRow extends Base implements IBoardRow {
      * @return Returns the winTrip.
      */
     public boolean isWinTrip() {
-        return winTrip;
-    }
-
-    /**
-     * @param winTrip The winTrip to set.
-     */
-    public void setWinTrip(boolean winTrip) {
-        this.winTrip = winTrip;
+        return (this.rank == 1);
     }
 }
