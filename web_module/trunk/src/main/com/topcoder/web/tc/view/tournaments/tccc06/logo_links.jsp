@@ -35,7 +35,7 @@
             <% if (selectedTab.equals("submissions")) {%>
                  View Submissions
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_1">View Submissions</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_2">View Submissions</a>
             <% } %>
 
 <%-- 
