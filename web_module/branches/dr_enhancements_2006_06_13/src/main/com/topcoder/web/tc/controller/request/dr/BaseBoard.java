@@ -29,10 +29,10 @@ import com.topcoder.web.common.model.SoftwareComponent;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve dr coders board.
+ * Base implementation for the dr boards.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public abstract class BaseBoard extends BaseProcessor {
     /**
@@ -40,6 +40,9 @@ public abstract class BaseBoard extends BaseProcessor {
      */
     private static final Logger log = Logger.getLogger(BaseBoard.class);
 
+    /**
+     * The coder handle column
+     */
     private static final String CODER_HANDLE_COLUMN = "2";
 
     /**
@@ -50,6 +53,9 @@ public abstract class BaseBoard extends BaseProcessor {
 
     /**
      * private method to retrieve from DB current periods ids.
+     *
+     * @param period_id the period key (could be stage or season).
+     * @return the current period id
      */
     protected String getCurrentPeriod(String period_id) throws TCWebException {
         ResultSetContainer currentPeriod = runQuery(Constants.CURRENT_PERIOD_COMMAND, Constants.CURRENT_PERIOD_QUERY);
@@ -57,8 +63,12 @@ public abstract class BaseBoard extends BaseProcessor {
     }
 
     /**
-     * Process the dr coders board request.
      * Retrieves coders list for development or design for a particular period.
+     *
+     * @param period_id the period key (could be stage or season).
+     * @param command the command to retrieve from DB.
+     * @param query the query to retrieve from DB.
+     * @return the retrieved ResultSetContainer.
      */
     protected ResultSetContainer retrieveBoardData(String period_id, String command, String query) throws Exception {
         // Phase ID is required.
@@ -103,14 +113,12 @@ public abstract class BaseBoard extends BaseProcessor {
     }
 
     /**
-     * @param rookieBoardResult
-     * @param prizePerPoint
-     * @param startRank
-     * @param numRecords
-     * @return
-     * @throws NumberFormatException
+     * Crops coders list.
+     *
+     * @param boardResult the original board list.
+     * @return the cropped list.
      */
-    protected List cropResult(List boardResult) throws NumberFormatException {
+    protected List cropResult(List boardResult) {
         if (boardResult.size() == 0) {
             return boardResult;
         }
@@ -144,9 +152,11 @@ public abstract class BaseBoard extends BaseProcessor {
     }
 
     /**
-     * @param leaderBoardResult
-     * @param sortDir
-     * @param invert
+     * Sorts coders list.
+     *
+     * @param boardResult the original board list.
+     * @param invert true if the order is descending.
+     * @return the sorted list.
      */
     protected void sortResult(List boardResult, boolean invert) {
         if (boardResult.size() == 0) {
@@ -154,7 +164,7 @@ public abstract class BaseBoard extends BaseProcessor {
         }
 
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        // all other columns are sorted already (rank)
+        // all other columns are already sorted (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
             Collections.sort(boardResult,new Comparator() {
                 public int compare(Object arg0, Object arg1) {
@@ -167,6 +177,16 @@ public abstract class BaseBoard extends BaseProcessor {
         }
     }
 
+    /**
+     * Breaks coders ties.
+     *
+     * @param boardResult the original board list.
+     * @param placementPrize array with the placement prizes.
+     * @param invert true if the order is descending.
+     * @param placementCommand the placement command to retrieve from db.
+     * @param scoreCommand the score command to retrieve from db.
+     * @param periodKey the period key (could be stage or season).
+     */
     protected void tieBreak(List boardResult, double[] placementPrize,
             boolean invert, String placementCommand, String scoreCommand, String periodKey) {
 
@@ -216,6 +236,14 @@ public abstract class BaseBoard extends BaseProcessor {
         }
     }
 
+    /**
+     * Helper method to run a simple query
+     *
+     * @param command the command to retrieve.
+     * @param query the query to retrieve.
+     *
+     * @return the retrieved ResultSetContainer.
+     */
     protected ResultSetContainer runQuery(String command, String query) throws TCWebException {
         Request r = new Request();
         r.setContentHandle(command);

@@ -14,27 +14,39 @@ import java.util.Iterator;
 import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.web.common.TCWebException;
 
 /**
  * <strong>Purpose</strong>:
  * A processor to retrieve dr leader board.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public class LeaderBoard extends BaseBoard {
-
-    private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
-
-    private static final double DESIGN_POOL_PRIZE = 28000.0;
 
     /**
      * The logger to log to.
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
 
+    /**
+     * The development prize pool for the top third.
+     */
+    private static final double DEVELOPMENT_POOL_PRIZE = 14000.0;
+
+    /**
+     * The design prize pool for the top third.
+     */
+    private static final double DESIGN_POOL_PRIZE = 28000.0;
+
+    /**
+     * The design leader placement prizes.
+     */
     private static final double[] designPlacementPrize = {25000.0, 10000.0, 7000.0, 3000.0, 2000.0};
+
+    /**
+     * The development leader placement prizes.
+     */
     private static final double[] developmentPlacementPrize = {12500.0, 5000.0, 3500.0, 1500.0, 1000.0};
 
     /**
@@ -59,13 +71,8 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = sortDir.equals("asc");
 
         // break prizes ties
-        if (designBoard) {
-            tieBreak(leaderBoardResult, designPlacementPrize, invert, "dr_tie_break_placement",
-                    "dr_tie_break_score", Constants.STAGE_ID);
-        } else {
-            tieBreak(leaderBoardResult, developmentPlacementPrize, invert, "dr_tie_break_placement",
-                    "dr_tie_break_score", Constants.STAGE_ID);
-        }
+        tieBreak(leaderBoardResult, designBoard ? designPlacementPrize : developmentPlacementPrize, invert,
+            "dr_tie_break_placement", "dr_tie_break_score", Constants.STAGE_ID);
 
         // sort
         sortResult(leaderBoardResult, invert);
@@ -74,13 +81,18 @@ public class LeaderBoard extends BaseBoard {
         List resultBoard = cropResult(leaderBoardResult);
 
         getRequest().setAttribute("testList", resultBoard);
-
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
 
     }
 
-    private List processBoard(ResultSetContainer rsc, boolean designBoard) throws TCWebException {
+    /**
+     * First processing of the board
+     *
+     * @param rsc the ResultSetContainer retrieved from DB
+     * @param designBoard true if its a design board (false if development)
+     */
+    private List processBoard(ResultSetContainer rsc, boolean designBoard) {
         long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
         long totalPoints = 0;
         long totalPointsThreshold = -1;

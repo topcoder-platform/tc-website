@@ -120,13 +120,13 @@ Please select a <strong>season</strong><br>
 </rsc:iterator>
 </SELECT>
 <c:choose>
-<c:when test="${fn:length(testList) > 0}">
+<c:when test="${fn:length(boardList) > 0}">
 
 <!-- crop -->
 <div class="pagingBox" style="width:300px;">
 	<c:choose>
 	    <c:when test="${croppedDataBefore}">
-			<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>
+			<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
 		</c:when>
 		<c:otherwise>
 			&lt;&lt; prev
@@ -135,7 +135,7 @@ Please select a <strong>season</strong><br>
 	|
 	<c:choose>
 	    <c:when test="${croppedDataAfter}">
-			<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>
+			<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
 		</c:when>
 		<c:otherwise>
 			next &gt;&gt;
@@ -170,7 +170,7 @@ Design Cup Series Rookie of the Year Leaderboard
    </tr>
 
    <%boolean even = false;%>
-   <c:forEach items="${testList}" var="boardRow">
+   <c:forEach items="${boardList}" var="boardRow">
 	   <tr class="<%=even?"dark":"light"%>">
 	      <td class="valueC">${boardRow.rank}</td>
 	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/><c:if test="${boardRow.potential}">*</c:if></td>

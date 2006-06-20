@@ -1,5 +1,16 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.tc.model.dr;
 
+/**
+ * <strong>Purpose</strong>:
+ * Interface for the board's row beans.
+ *
+ * @author pulky
+ * @version 1.0
+ */
 public interface IBoardRow {
 
     /**
@@ -73,7 +84,7 @@ public interface IBoardRow {
     public abstract void setUserId(long userId);
 
     /**
-     * @return Returns the winTrip.
+     * @return true if the coder will win a trip.
      */
     public abstract boolean isWinTrip();
 

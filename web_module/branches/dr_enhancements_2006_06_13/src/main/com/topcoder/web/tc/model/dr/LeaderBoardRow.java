@@ -1,8 +1,26 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.tc.model.dr;
 
+/**
+ * <strong>Purpose</strong>:
+ * A simple bean for the leader board.
+ *
+ * @author pulky
+ * @version 1.0
+ */
 public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
 
+    /**
+     * Property indicating if this row is in the top third
+     */
     private boolean topThird;
+
+    /**
+     * Property to store the points prize
+     */
     private double pointsPrize;
 
     /**
@@ -15,6 +33,8 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
     /**
      * Constructor setting properties.
      *
+     * @param period The period to set.
+     * @param phase The phase to set.
      * @param rank The rank to set.
      * @param userId The userId to set.
      * @param userName The userName to set.
@@ -75,8 +95,8 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         return this.placementPrize + this.pointsPrize;
     }
 
-    /* (non-Javadoc)
-     * @see com.topcoder.web.tc.model.dr.IBoardRow#isWinTrip()
+    /**
+     * @return true if the coder will win a trip.
      */
     public boolean isWinTrip() {
         return (this.placementPrize > 0);

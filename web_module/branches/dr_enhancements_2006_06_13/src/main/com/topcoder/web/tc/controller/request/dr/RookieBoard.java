@@ -20,7 +20,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
  * A processor to retrieve dr rookie board.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public class RookieBoard extends BaseBoard {
 
@@ -29,9 +29,15 @@ public class RookieBoard extends BaseBoard {
      */
     private static final Logger log = Logger.getLogger(RookieBoard.class);
 
+    /**
+     * The design rookie placement prizes.
+     */
     private static final double[] designPlacementPrize = {10000.0, 7500.0, 5000.0, 2500.0, 1500.0, 1250.0, 750.0, 500.0, 500.0, 500.0};
-    private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
 
+    /**
+     * The development rookie placement prizes.
+     */
+    private static final double[] developmentPlacementPrize = {7500.0, 5000.0, 3000.0, 1500.0, 900.0, 750.0, 450.0, 300.0, 300.0, 300.0};
 
     /**
      * Process the dr rookie board request.
@@ -54,13 +60,8 @@ public class RookieBoard extends BaseBoard {
         boolean invert = sortDir.equals("asc");
 
         // break prizes ties
-        if (phase == 112) {
-            tieBreak(rookieBoardResult, designPlacementPrize, invert, "dr_rookie_tie_break_placement",
-                "dr_rookie_tie_break_score", Constants.SEASON_ID);
-        } else {
-            tieBreak(rookieBoardResult, developmentPlacementPrize, invert, "dr_rookie_tie_break_placement",
-                "dr_rookie_tie_break_score", Constants.SEASON_ID);
-        }
+        tieBreak(rookieBoardResult, (phase == 112) ? designPlacementPrize : developmentPlacementPrize, invert,
+            "dr_rookie_tie_break_placement", "dr_rookie_tie_break_score", Constants.SEASON_ID);
 
         // sort
         sortResult(rookieBoardResult, invert);
@@ -69,28 +70,26 @@ public class RookieBoard extends BaseBoard {
         List resultBoard = cropResult(rookieBoardResult);
 
         getRequest().setAttribute("testList", resultBoard);
-
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
     }
 
 
     /**
-     * @param rsc
-     * @param phase
-     * @param rookieBoardResult
-     * @throws NullPointerException
+     * First processing of the board
+     *
+     * @param rsc the ResultSetContainer retrieved from DB
+     * @param phase the phase being used.
      */
-    private List processBoard(ResultSetContainer rsc, long phase) throws NullPointerException {
+    private List processBoard(ResultSetContainer rsc, long phase) {
         ResultSetRow row = null;
         boolean firstRow = true;
         List rookieBoardResult = new ArrayList(rsc.size());
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetRow) it.next();
             rookieBoardResult.add(new RookieBoardRow(row.getLongItem("season_id"), phase, row.getLongItem("rank"),
-                    row.getLongItem("user_id"), row.getStringItem("handle_lower"),
-                    row.getLongItem("total_points"),
-                    firstRow, 0, row.getLongItem("confirmed_ind") == 0));
+                row.getLongItem("user_id"), row.getStringItem("handle_lower"), row.getLongItem("total_points"),
+                firstRow, 0, row.getLongItem("confirmed_ind") == 0));
             firstRow = false;
         }
         return rookieBoardResult;

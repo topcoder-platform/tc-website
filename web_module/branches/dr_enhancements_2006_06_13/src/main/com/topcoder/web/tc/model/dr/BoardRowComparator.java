@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ */
+
 package com.topcoder.web.tc.model.dr;
 
 import java.util.Comparator;
@@ -13,7 +17,20 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.Constants;
 
-
+/**
+ * <strong>Purpose</strong>:
+ * Comparator for IBoardRowElements.
+ *
+ * This comparator will check for three things to compare the two objects:
+ * - DR Points.
+ * - The user that had the best placed submissions. (and the number of them)
+ * - The user that had the best average score in their best submissions. (N = min(#sub1, #sub2)
+ *
+ * If a tie still remains, the rows are equal.
+ *
+ * @author pulky
+ * @version 1.0
+ */
 public class BoardRowComparator implements Comparator {
 
     /**
@@ -21,11 +38,28 @@ public class BoardRowComparator implements Comparator {
      */
     private static final Logger log = Logger.getLogger(BoardRowComparator.class);
 
+    /**
+     * The DB command to apply rule 2.
+     */
     private String placementCommand;
+
+    /**
+     * The DB command to apply rule 3.
+     */
     private String scoreCommand;
+
+    /**
+     * The period key, could be stage or season.
+     */
     private String periodKey;
 
-
+    /**
+     * Constructor setting properties.
+     *
+     * @param placementCommand The placementCommand to set.
+     * @param scoreCommand The scoreCommand to set.
+     * @param periodKey The periodKey to set.
+     */
     public BoardRowComparator(String placementCommand, String scoreCommand, String periodKey) {
         super();
         this.placementCommand = placementCommand;
@@ -33,6 +67,14 @@ public class BoardRowComparator implements Comparator {
         this.periodKey = periodKey;
     }
 
+    /**
+     * Constructor setting properties.
+     *
+     * @param arg0 The first object to compare.
+     * @param arg1 The second object to compare.
+     *
+     * @return 0 if equal, -1 if arg0 < arg1 and 1 if argo > arg1.
+     */
     public int compare(Object arg0, Object arg1) {
         IBoardRow lbr0 = (IBoardRow) arg0;
         IBoardRow lbr1 = (IBoardRow) arg1;
@@ -120,9 +162,16 @@ public class BoardRowComparator implements Comparator {
         return 0;
     }
 
+
     /**
-     * @param lbr0
-     * @return
+     * Helper method to retrieve data from DB.
+     *
+     * @param commandName The command name
+     * @param periodId The period to look for.
+     * @param phaseId The phaseId to look for.
+     * @param userId The userId to look for.
+     *
+     * @return the retrieved resultset
      */
     private ResultSetContainer retrieveInfo(String commandName, long periodId, long phaseId, long userId) {
         Request r = new Request();
