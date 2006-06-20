@@ -12,7 +12,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
