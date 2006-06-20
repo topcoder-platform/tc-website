@@ -120,4 +120,3 @@ abstract class BaseLogoSubmit extends Base {
         }
     }
 }
-
