@@ -14,6 +14,7 @@ import java.util.Comparator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -79,7 +80,7 @@ public class RookieBoard extends BaseBoard {
         }
 
         // sort
-        sortResult(rookieBoardResult, sortDir, invert);
+        sortResult(rookieBoardResult, invert);
 
         // crop
         List resultBoard = cropResult(rookieBoardResult);
@@ -96,10 +97,20 @@ public class RookieBoard extends BaseBoard {
      * @param sortDir
      * @param invert
      */
-    private void sortResult(List rookieBoardResult, String sortDir, boolean invert) {
+    private void sortResult(List rookieBoardResult, boolean invert) {
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         // all other columns are sorted already (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
+            Collections.sort(rookieBoardResult,new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                return ((RookieBoardRow) arg0).getUserName().compareTo(((RookieBoardRow) arg1).getUserName());
+                }
+            });
+             if (invert) {
+                 Collections.reverse(rookieBoardResult);
+             }
+        }
+/*
             RookieBoardRow[] sortArray = (RookieBoardRow[]) rookieBoardResult.toArray(new RookieBoardRow[rookieBoardResult.size()]);
 
             Arrays.sort(sortArray, new Comparator() {
@@ -116,8 +127,7 @@ public class RookieBoard extends BaseBoard {
                 for (int j = sortArray.length - 1; j >= 0 ; j--)
                     rookieBoardResult.add(sortArray[j]);
             }
-            log.debug("Sort by name - " + sortDir);
-        }
+        }*/
     }
 
     private void tieBreak(List rookieBoardResult, double[] placementPrize, boolean invert) {
