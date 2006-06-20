@@ -54,6 +54,12 @@ public class Post extends ForumsProcessor {
                 setDefault(ForumConstants.MESSAGE_SUBJECT, replySubject);
             }
             if (postMode.equals("Edit")) {
+            	if (!message.getUser().equals(user)) {
+                    setNextPage("?module=ForumList");
+                    setIsNextPageInContext(false);
+                    return;
+                }
+            	
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
             }
