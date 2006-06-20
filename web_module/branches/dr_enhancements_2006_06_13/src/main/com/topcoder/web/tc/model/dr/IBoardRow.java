@@ -13,6 +13,16 @@ public interface IBoardRow {
     public abstract void setPhase(long phase);
 
     /**
+     * @return Returns the period.
+     */
+    public abstract long getPeriod();
+
+    /**
+     * @param period The period to set.
+     */
+    public abstract void setPeriod(long period);
+
+    /**
      * @return Returns the userName.
      */
     public abstract String getUserName();

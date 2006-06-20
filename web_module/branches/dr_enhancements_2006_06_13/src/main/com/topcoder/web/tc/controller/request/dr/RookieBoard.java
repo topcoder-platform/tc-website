@@ -7,7 +7,8 @@ package com.topcoder.web.tc.controller.request.dr;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
-import com.topcoder.web.tc.model.dr.RookieBoardRowComparator;
+import com.topcoder.web.tc.model.dr.IBoardRow;
+import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import java.util.ArrayList;
@@ -88,10 +89,11 @@ public class RookieBoard extends BaseBoard {
     }
 
     private void tieBreak(List rookieBoardResult, double[] placementPrize, boolean invert) {
-        RookieBoardRow[] sortArray = (RookieBoardRow[]) rookieBoardResult.toArray(new RookieBoardRow[rookieBoardResult.size()]);
+        IBoardRow[] sortArray = (IBoardRow[]) rookieBoardResult.toArray(new IBoardRow[rookieBoardResult.size()]);
 
-        RookieBoardRowComparator lbrc = new RookieBoardRowComparator();
-        Arrays.sort(sortArray, lbrc);
+        BoardRowComparator brc = new BoardRowComparator("dr_rookie_tie_break_placement",
+                "dr_rookie_tie_break_score", Constants.SEASON_ID);
+        Arrays.sort(sortArray, brc);
 
         // Calculates placement prizes. Shares prize pool in case of a tie.
         int prizes = 0;
@@ -99,7 +101,7 @@ public class RookieBoard extends BaseBoard {
         double poolCount = 1;
         int place = 1;
         for (int j = sortArray.length - 2; prizes < NUMBER_PLACEMENT_PRIZES && j >= 0 ; j--) {
-            if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
+            if (brc.compare(sortArray[j+1], sortArray[j]) != 0){
                 for (int k = 0; k < poolCount; k++) {
                     sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
                 }

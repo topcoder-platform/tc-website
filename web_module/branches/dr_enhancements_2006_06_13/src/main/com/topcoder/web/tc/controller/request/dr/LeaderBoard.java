@@ -8,15 +8,11 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
-import com.topcoder.web.tc.model.dr.LeaderBoardRowComparator;
-import com.topcoder.web.tc.model.dr.RookieBoardRow;
+import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import java.util.Comparator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -133,8 +129,9 @@ public class LeaderBoard extends BaseBoard {
     private void tieBreak(List leaderBoardResult, double[] placementPrize, boolean invert) {
         IBoardRow[] sortArray = (IBoardRow[]) leaderBoardResult.toArray(new IBoardRow[leaderBoardResult.size()]);
 
-        LeaderBoardRowComparator lbrc = new LeaderBoardRowComparator();
-        Arrays.sort(sortArray, lbrc);
+        BoardRowComparator brc = new BoardRowComparator("dr_tie_break_placement",
+                "dr_tie_break_score", Constants.STAGE_ID);
+        Arrays.sort(sortArray, brc);
 
         // Calculates placement prizes. Shares prize pool in case of a tie.
         int prizes = 0;
@@ -142,7 +139,7 @@ public class LeaderBoard extends BaseBoard {
         double poolCount = 1;
         int place = 1;
         for (int j = sortArray.length - 2; prizes < NUMBER_PLACEMENT_PRIZES && j >= 0 ; j--) {
-            if (lbrc.compare(sortArray[j+1], sortArray[j]) != 0){
+            if (brc.compare(sortArray[j+1], sortArray[j]) != 0){
                 for (int k = 0; k < poolCount; k++) {
                     sortArray[j+k+1].setPlacementPrize(prizePool / poolCount);
                     sortArray[j+k+1].setWinTrip(true);

@@ -70,14 +70,14 @@ public class LeaderBoardRow extends Base implements IBoardRow {
     /**
      * @return Returns the stage.
      */
-    public long getStage() {
+    public long getPeriod() {
         return stage;
     }
 
     /**
      * @param stage The stage to set.
      */
-    public void setStage(long stage) {
+    public void setPeriod(long stage) {
         this.stage = stage;
     }
 

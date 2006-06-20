@@ -2,7 +2,7 @@ package com.topcoder.web.tc.model.dr;
 
 import com.topcoder.web.common.model.Base;
 
-public class RookieBoardRow extends Base {
+public class RookieBoardRow extends Base implements IBoardRow {
 
     private long season;
     private long phase;
@@ -63,14 +63,14 @@ public class RookieBoardRow extends Base {
     /**
      * @return Returns the season.
      */
-    public long getSeason() {
+    public long getPeriod() {
         return season;
     }
 
     /**
      * @param season The season to set.
      */
-    public void setSeason(long season) {
+    public void setPeriod(long season) {
         this.season = season;
     }
 
