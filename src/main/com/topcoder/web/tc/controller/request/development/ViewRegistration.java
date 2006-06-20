@@ -4,23 +4,20 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
 
@@ -40,10 +37,10 @@ public class ViewRegistration extends Base {
 
         try {
             loadPhase();
-            if (!userLoggedIn()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
-            
+
             validation();
 
 
@@ -81,7 +78,7 @@ public class ViewRegistration extends Base {
     }
 
     protected String getTerms() throws Exception {
-        TermsOfUseLocal t = (TermsOfUseLocal)createLocalEJB(getInitialContext(), TermsOfUse.class);
+        TermsOfUseLocal t = (TermsOfUseLocal) createLocalEJB(getInitialContext(), TermsOfUse.class);
         return t.getText(Constants.PROJECT_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME);
 
     }
@@ -148,12 +145,13 @@ public class ViewRegistration extends Base {
         now.setTime(new Date());
         return now.before(t.getEnd()) && now.after(t.getBeginning());
     }
+
     protected boolean isTournamentProject(long projectId) throws Exception {
         Request r = new Request();
         r.setContentHandle("tournament_project");
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
         boolean ret = !((ResultSetContainer) getDataAccess().getData(r).get("tournament_project")).isEmpty();
-        log.debug("this is " + (ret?"":"not") + " a tourny project");
+        log.debug("this is " + (ret ? "" : "not") + " a tourny project");
         return ret;
     }
 
@@ -200,7 +198,7 @@ public class ViewRegistration extends Base {
         q.setId(row.getLongItem("comp_reg_question_id"));
         q.setStyleId(row.getIntItem("question_style_id"));
         q.setText(row.getStringItem("question_text"));
-        q.setRequired(row.getIntItem("is_required")==1);
+        q.setRequired(row.getIntItem("is_required") == 1);
         q.setAnswerInfo(makeAnswerInfo(q.getId()));
         return q;
     }

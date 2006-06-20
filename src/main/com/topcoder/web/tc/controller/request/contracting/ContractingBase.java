@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.ContractingInfo;
@@ -149,6 +150,16 @@ abstract public class ContractingBase extends BaseProcessor {
                 }
             } catch (Exception e) {
                 addError("Resume", "A resume is required.");
+            }
+
+            // verify text limit at 254 chars
+            int[] textPreferences = new int[]{12, 14, 15, 16, 17, 18};
+            for (int i = 0; i < textPreferences.length; i++) {
+                String preference = info.getPreference(Integer.toString(textPreferences[i]));
+                int length = preference.length();
+                if (length >= 255) {
+                    addError(Constants.PREFERENCE_PREFIX + textPreferences[i], "This field is limited to 254 characters, you entered " + length + ".");
+                }
             }
 
             // user must select different priorities
@@ -378,7 +389,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
         info.setUserID(getUser().getId());
 
-        InitialContext ctx = getInitialContext();
+        InitialContext ctx = TCContext.getInitial();
         UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
 
         //load pref group list, then preferences in group

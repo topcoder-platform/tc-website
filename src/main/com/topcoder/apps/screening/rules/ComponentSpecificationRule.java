@@ -2,19 +2,18 @@
  * Copyright (c) 2005 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.screening.rules;
-import com.topcoder.file.type.MagicNumbers;
+
+import com.topcoder.apps.screening.*;
 import com.topcoder.file.type.FileType;
+import com.topcoder.file.type.MagicNumbers;
+import sun.plugin.cache.FileType;
+
 import java.io.File;
-import com.topcoder.apps.screening.ScreeningRule;
-import com.topcoder.apps.screening.ScreeningLogger;
-import com.topcoder.apps.screening.ResponseCode;
-import com.topcoder.apps.screening.SimpleScreeningData;
-import com.topcoder.apps.screening.DatabaseException;
 
 /**
  * <strong>Purpose</strong>:
  * Checks if a component specification exists.
- *
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -32,12 +31,10 @@ public class ComponentSpecificationRule implements ScreeningRule {
      * Screen the submission. Both the file and the root directory are given. Screening responses
      * are written to the ScreeningLogger instance.
      *
-     * @param file the file to screen.
-     * @param root the root dir of the extracted submission.
+     * @param file   the file to screen.
+     * @param root   the root dir of the extracted submission.
      * @param logger the logger to write responses to.
-     *
      * @return true if the rule succedeed.
-     *
      * @throws DatabaseException if screening process got DatabaseException.
      */
     public boolean screen(File file, File root, ScreeningLogger logger) {
