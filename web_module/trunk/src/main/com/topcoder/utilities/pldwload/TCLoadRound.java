@@ -71,18 +71,18 @@ public class TCLoadRound extends TCLoad {
 
         USAGE_MESSAGE = new String(
                 "TCLoadRound parameters - defaults in ():\n" +
-                "  -roundid number       : Round ID to load\n" +
-                "  [-failed number]      : Failed status for succeeded column    (0)\n" +
-                "  [-succeeded number]   : Succeeded status for succeeded column (1)\n" +
-                "  [-codingseg number]   : ID for beginning of coding segment    (2)\n" +
-                "  [-opened number]      : Problem_status of opened              (120)\n" +
-                "  [-passsystest number] : Problem_status of passed system test  (150)\n" +
-                "  [-failsystest number] : Problem_status of failed system test  (160)\n" +
-                "  [-contestroom number] : Type id for contest rooms             (2)\n" +
-                "  [-roundlogtype number] : Log type id for this load            (1)\n" +
-                "  [-challengenullified number] : id for nullified challenges    (92)\n" +
-                "  [-studentgroup number] : id for the student group             (1800001)\n" +
-                "  [-fullload boolean] : true-clean round load, false-selective  (false)\n");
+                        "  -roundid number       : Round ID to load\n" +
+                        "  [-failed number]      : Failed status for succeeded column    (0)\n" +
+                        "  [-succeeded number]   : Succeeded status for succeeded column (1)\n" +
+                        "  [-codingseg number]   : ID for beginning of coding segment    (2)\n" +
+                        "  [-opened number]      : Problem_status of opened              (120)\n" +
+                        "  [-passsystest number] : Problem_status of passed system test  (150)\n" +
+                        "  [-failsystest number] : Problem_status of failed system test  (160)\n" +
+                        "  [-contestroom number] : Type id for contest rooms             (2)\n" +
+                        "  [-roundlogtype number] : Log type id for this load            (1)\n" +
+                        "  [-challengenullified number] : id for nullified challenges    (92)\n" +
+                        "  [-studentgroup number] : id for the student group             (1800001)\n" +
+                        "  [-fullload boolean] : true-clean round load, false-selective  (false)\n");
     }
 
     /**
@@ -1474,10 +1474,9 @@ public class TCLoadRound extends TCLoad {
      * school_points, submission_points, problems_submitted and
      * point_standard_deviation. We get these later on in the aggregate
      * load.
-
-     important: dw:room_result.school_id comes from oltp:user_school_xref;
-     if students change schools, reloading an old round will lose historical data
-
+     * <p/>
+     * important: dw:room_result.school_id comes from oltp:user_school_xref;
+     * if students change schools, reloading an old round will lose historical data
      */
     private void loadRoomResult() throws Exception {
         int retVal = 0;
@@ -1721,6 +1720,7 @@ public class TCLoadRound extends TCLoad {
         int division_id = 0;
         int problem_id = 0;
         int component_id = 0;
+        int languageId = 0;
 
         try {
             query = new StringBuffer(100);

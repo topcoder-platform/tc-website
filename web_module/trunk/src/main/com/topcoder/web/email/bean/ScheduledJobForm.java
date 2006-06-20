@@ -6,17 +6,10 @@ import java.util.*;
 
 
 /**
-
  * Bean to store information about a scheduled job from a form
-
  *
-
- * @author	James Lee (jameslee@cs.stanford.edu)
-
- * @version	1.0
-
- *
-
+ * @author James Lee (jameslee@cs.stanford.edu)
+ * @version 1.0
  */
 
 
@@ -74,8 +67,6 @@ public class ScheduledJobForm
 
     protected Calendar calendar;
 
-
-
     // keep track of whether or not this job was already added
 
     // (to prevent duplicates when reloading the page)
@@ -116,17 +107,13 @@ public class ScheduledJobForm
 
 
     /**
-
      * This method validates the fields of the scheduled job form.
-
+     * <p/>
      * Returns an empty ArrayList if there are no errors.  Otherwise
-
+     * <p/>
      * returns an ArrayList of error messages.
-
      *
-
-     * @return ArrayList		list of error messages
-
+     * @return ArrayList        list of error messages
      */
 
 
@@ -658,39 +645,22 @@ public class ScheduledJobForm
 
     }
 
-
-
-
-
     // Utilities
 
 
-
-
-
-
     /**
-
      * Changes a specified field in initialDate to a new value.
-
+     * <p/>
      * (for example, changeDate(date, Calendar.MONTH, 0) returns
-
+     * <p/>
      * the date with the month as January and all other fields
-
+     * <p/>
      * untouched).
-
      *
-
-     * @param initialDate	the original date
-
-     * @param field		the Calendar field to alter
-
-     * @param newValue	the new value for the field
-
-     *
-
-     * @return Date		the altered date
-
+     * @param initialDate the original date
+     * @param field       the Calendar field to alter
+     * @param newValue    the new value for the field
+     * @return Date        the altered date
      */
 
 
@@ -710,19 +680,11 @@ public class ScheduledJobForm
 
 
     /**
-
      * Returns the specified field of a Date.
-
      *
-
-     * @param date		the date
-
-     * @param field		the desired field
-
-     *
-
-     * @return String	the value of the field as a String
-
+     * @param date  the date
+     * @param field the desired field
+     * @return String    the value of the field as a String
      */
 
 

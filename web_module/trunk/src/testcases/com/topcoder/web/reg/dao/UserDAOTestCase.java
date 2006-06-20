@@ -2,6 +2,7 @@ package com.topcoder.web.reg.dao;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.TCHibernateTestCase;
+import com.topcoder.web.reg.model.CoderType;
 import com.topcoder.web.reg.model.User;
 
 /**
@@ -11,8 +12,6 @@ import com.topcoder.web.reg.model.User;
  */
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
-
-
 
 /*
 
@@ -67,8 +66,6 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 */
 
-
-
 /*
 
     public void testDemogUpdate() {
@@ -97,101 +94,99 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
 */
 
-
-
 /*
-    public void testFindWithTerms() {
-        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
-        assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
+public void testFindWithTerms() {
+    User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+    assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
+}
+
+public void testFindWithImage() {
+    User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+    assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
+}
+
+    public void testSaveOrUpdateResponses() {
+        User u = TestUtils.makeUser();
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        assertFalse("new responses do not exist", u1.getDemographicResponses().isEmpty());
+
     }
 
-    public void testFindWithImage() {
+
+    public void testFind() {
         User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
-        assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
+        assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
     }
 
-        public void testSaveOrUpdateResponses() {
-            User u = TestUtils.makeUser();
-            Util.getFactory().getUserDAO().saveOrUpdate(u);
+    public void testSecurityGroupsLoaded() {
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        assertTrue("did not load groups for dok", !dok.getSecurityGroups().isEmpty());
+    }
 
-            User u1 = Util.getFactory().getUserDAO().find(u.getId());
-            assertFalse("new responses do not exist", u1.getDemographicResponses().isEmpty());
+    public void testAddressesLoaded() {
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        assertTrue("did not load addresses for dok", !dok.getAddresses().isEmpty());
+    }
 
-        }
+    public void testNotificationsLoaded() {
+        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
+    }
 
+    public void testFindByUserName() {
+        User dok = Util.getFactory().getUserDAO().find("dok");
+        assertTrue("did not load dok", dok != null);
+    }
 
-        public void testFind() {
-            User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
-            assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
-        }
+    public void testFailureFindByUserName() {
+        User dok = Util.getFactory().getUserDAO().find("dokd9d898df333");
+        assertTrue("loaded dokd9d898df333", dok == null);
+    }
 
-        public void testSecurityGroupsLoaded() {
-            User dok = Util.getFactory().getUserDAO().find(new Long(132456));
-            assertTrue("did not load groups for dok", !dok.getSecurityGroups().isEmpty());
-        }
+    public void testSaveUpdateWithCoder() {
+        User u = TestUtils.makeUser();
+        Coder c = new Coder();
+        c.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
+        c.setMemberSince(new Timestamp(System.currentTimeMillis()));
+        c.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
-        public void testAddressesLoaded() {
-            User dok = Util.getFactory().getUserDAO().find(new Long(132456));
-            assertTrue("did not load addresses for dok", !dok.getAddresses().isEmpty());
-        }
-
-        public void testNotificationsLoaded() {
-            User dok = Util.getFactory().getUserDAO().find(new Long(132456));
-            assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
-        }
-
-        public void testFindByUserName() {
-            User dok = Util.getFactory().getUserDAO().find("dok");
-            assertTrue("did not load dok", dok != null);
-        }
-
-        public void testFailureFindByUserName() {
-            User dok = Util.getFactory().getUserDAO().find("dokd9d898df333");
-            assertTrue("loaded dokd9d898df333", dok == null);
-        }
-
-        public void testSaveUpdateWithCoder() {
-            User u = TestUtils.makeUser();
-            Coder c = new Coder();
-            c.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
-            c.setMemberSince(new Timestamp(System.currentTimeMillis()));
-            c.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
-
-            u.setCoder(c);
-            c.setUser(u);
-            Util.getFactory().getUserDAO().saveOrUpdate(u);
-            User u1 = Util.getFactory().getUserDAO().find(u.getId());
-            assertTrue("new coder does not exist", u1 != null);
-        }
+        u.setCoder(c);
+        c.setUser(u);
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
+    }
 
 
-        public void testSaveUpdateWithOutContact() {
-            User u = TestUtils.makeUser();
-            Util.getFactory().getUserDAO().saveOrUpdate(u);
-            User u1 = Util.getFactory().getUserDAO().find(u.getId());
-            assertTrue("contactexists and should not", u1.getContact() == null);
-        }
+    public void testSaveUpdateWithOutContact() {
+        User u = TestUtils.makeUser();
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        assertTrue("contactexists and should not", u1.getContact() == null);
+    }
 
-        public void testSaveUpdateWithContact() {
-            User u = TestUtils.makeUser();
-            Contact c = new Contact();
-            c.setCompany(Util.getFactory().getCompanyDAO().find(new Long(1)));
-            c.setTitle("the man!");
-            u.setContact(c);
-            c.setUser(u);
-            Util.getFactory().getUserDAO().saveOrUpdate(u);
-            User u1 = Util.getFactory().getUserDAO().find(u.getId());
-            assertTrue("new coder does not exist", u1 != null);
+    public void testSaveUpdateWithContact() {
+        User u = TestUtils.makeUser();
+        Contact c = new Contact();
+        c.setCompany(Util.getFactory().getCompanyDAO().find(new Long(1)));
+        c.setTitle("the man!");
+        u.setContact(c);
+        c.setUser(u);
+        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
 
-        }
+    }
 
-        public void testFindWithContactAndCoder() {
-            User dok = Util.getFactory().getUserDAO().find("dok");
-            assertTrue("couldn't find dok's contact information", dok.getContact() != null);
-            assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
-        }
+    public void testFindWithContactAndCoder() {
+        User dok = Util.getFactory().getUserDAO().find("dok");
+        assertTrue("couldn't find dok's contact information", dok.getContact() != null);
+        assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
+    }
 
-    */
+*/
 /*
     public void testFindWithDemographicInfo() {
         User dok = Util.getFactory().getUserDAO().find("duner");
@@ -210,9 +205,16 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 */
 
+/*
     public void testFindWithSchool() {
         User dok = Util.getFactory().getUserDAO().find("tomek", true);
         assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool()==null);
+    }
+*/
+
+    public void testCheckPopsPro() {
+        User pops = Util.getFactory().getUserDAO().find("Pops", false);
+        assertTrue("pops is no a pro", CoderType.PROFESSIONAL.equals(pops.getCoder().getCoderType().getId()));
     }
 
 

@@ -13,6 +13,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
@@ -45,8 +46,8 @@ public class Register extends ViewRegistration {
         try {
             loadPhase();
 
-            if (!userLoggedIn()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
 
             validation();
@@ -63,10 +64,10 @@ public class Register extends ViewRegistration {
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
-                                register();
-                                getRequest().removeAttribute("responses");
-                                setNextPage("/dev/regSuccess.jsp");
-                                setIsNextPageInContext(true);
+                            register();
+                            getRequest().removeAttribute("responses");
+                            setNextPage("/dev/regSuccess.jsp");
+                            setIsNextPageInContext(true);
                         } else {
                             setNextPage("/dev/tournamentConfirm.jsp");
                             setIsNextPageInContext(true);
@@ -99,9 +100,10 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
+
     private List validateSurvey() throws Exception {
-        List sessionList = (List)getRequest().getSession().getAttribute("responses");
-        if (sessionList!=null) {
+        List sessionList = (List) getRequest().getSession().getAttribute("responses");
+        if (sessionList != null) {
             return sessionList;
         } else {
             String paramName;
@@ -134,7 +136,7 @@ public class Register extends ViewRegistration {
         }
     }
 
-   private List validateAnswer(String paramName) throws Exception {
+    private List validateAnswer(String paramName) throws Exception {
 
         Question question = null;
         String[] values = getRequest().getParameterValues(paramName);
@@ -207,7 +209,7 @@ public class Register extends ViewRegistration {
                         response.setFreeForm(true);
                         ret.add(response);
                     }
-                } else if (answerId>0) {
+                } else if (answerId > 0) {
                     //answerId would be -1 in the case of a schulze election where
                     //the respondant does not rate the candidate
                     response.setAnswerId(answerId);
@@ -278,7 +280,7 @@ public class Register extends ViewRegistration {
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName() +
-                    (phase==ComponentVersionInfo.SPECIFICATION?" Design":" Development");
+                    (phase == ComponentVersionInfo.SPECIFICATION ? " Design" : " Development");
             long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
 
             log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
@@ -301,7 +303,7 @@ public class Register extends ViewRegistration {
             }
 
             TCSEmailMessage mail = new TCSEmailMessage();
-            Email e = (Email)createEJB(getInitialContext(), Email.class);
+            Email e = (Email) createEJB(getInitialContext(), Email.class);
             mail.addToAddress(e.getAddress(e.getPrimaryEmailId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME),
                     DBMS.OLTP_DATASOURCE_NAME), TCSEmailMessage.TO);
             mail.setFromAddress("service@topcodersoftware.com");
@@ -312,14 +314,14 @@ public class Register extends ViewRegistration {
             r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
             Map resultMap = getDataAccess().getData(r);
             ResultSetContainer details = (ResultSetContainer) resultMap.get("project_detail");
-            Timestamp submitDeadline = (Timestamp)details.getItem(0, "initial_submission_date").getResultData();
+            Timestamp submitDeadline = (Timestamp) details.getItem(0, "initial_submission_date").getResultData();
             Calendar cal = Calendar.getInstance();
             cal.setTime(submitDeadline);
             cal.setTimeZone(TimeZone.getDefault());
 
             ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
             formatter.setFormatMethodForClass(Calendar.class,
-                                new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
+                    new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
             String date = formatter.format(cal);
 
             if (phase == ComponentVersionInfo.SPECIFICATION) {

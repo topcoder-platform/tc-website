@@ -8,10 +8,11 @@ import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.SoftwareComponent;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ import java.util.Iterator;
 
 /**
  * Shows active review projects.
- *
- * <p>
+ * <p/>
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>

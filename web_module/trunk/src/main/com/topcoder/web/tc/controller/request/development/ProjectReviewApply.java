@@ -3,14 +3,6 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
-import java.sql.Timestamp;
-import java.util.Map;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.apps.review.rboard.RBoardRegistrationException;
@@ -30,10 +22,18 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+import java.sql.Timestamp;
+import java.util.Map;
+
 /**
  * Process the user request to review a component.
- *
- * <p>
+ * <p/>
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -77,7 +77,7 @@ public class ProjectReviewApply extends Base {
                     //project, then people get register while we're still doing the selects to determine
                     //if one should be able to register.  both people end up coming up ok to register and we
                     //end up with more than one person in the same slot.
-                    ProjectLocal project = (ProjectLocal)createLocalEJB(getInitialContext(), Project.class);
+                    ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
                     project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
                     tm.commit();
@@ -116,7 +116,7 @@ public class ProjectReviewApply extends Base {
             RBoardApplicationHome rBoardApplicationHome =
                     (RBoardApplicationHome) PortableRemoteObject.narrow(objRBoardApplication, RBoardApplicationHome.class);
 
-             rBoardApplication = rBoardApplicationHome.create();
+            rBoardApplication = rBoardApplicationHome.create();
         } catch (Exception e) {
             throw new CreateException("Could not find bean!" + e);
         } finally {
