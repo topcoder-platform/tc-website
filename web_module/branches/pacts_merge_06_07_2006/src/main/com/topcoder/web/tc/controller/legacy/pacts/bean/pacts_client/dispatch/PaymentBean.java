@@ -90,6 +90,18 @@ public class PaymentBean implements PactsConstants {
             e1.printStackTrace();
             return null;
         }
+        
+        com.topcoder.shared.dataAccess.resultSet.ResultSetContainer rscHeaders = 
+        	(com.topcoder.shared.dataAccess.resultSet.ResultSetContainer)reply.get(PAYMENT_HEADER_LIST);
+        for (int i=0; i<rscHeaders.getRowCount(); i++) {
+    		log.info("<<< PAYMENT HEADER: " + i);
+    		log.info("<<< project id: " + 
+    				com.topcoder.web.tc.controller.legacy.pacts.common.
+    				TCData.getTCLong(rscHeaders.getRow(i), "project_id", 0, false));
+    		log.info("<<< client: " + 
+    				com.topcoder.web.tc.controller.legacy.pacts.common.
+    				TCData.getTCString(rscHeaders.getRow(i), "client", "", false));
+    	}
 
         PaymentList plist = new PaymentList(reply);
 
