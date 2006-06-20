@@ -72,7 +72,7 @@ public class LeaderBoard extends BaseBoard {
 
         // break prizes ties
         tieBreak(leaderBoardResult, designBoard ? designPlacementPrize : developmentPlacementPrize, invert,
-            "dr_tie_break_placement", "dr_tie_break_score", Constants.STAGE_ID);
+            "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
         // sort
         sortResult(leaderBoardResult, invert);
