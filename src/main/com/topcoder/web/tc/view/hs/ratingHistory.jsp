@@ -99,12 +99,12 @@
             <% if (isHighSchool) { %>
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="statistics_w"/>
-                <jsp:param name="title" value="High School Rating History"/>
+                <jsp:param name="title" value="High School Competition History"/>
             </jsp:include>
             <% } else { %>
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="statistics_w"/>
-                <jsp:param name="title" value="Algorithm Rating History"/>
+                <jsp:param name="title" value="Algorithm Competition History"/>
             </jsp:include>
             <% } %>
 
@@ -113,7 +113,7 @@
             <span class="bodySubtitle"><%= algoType %> Statistics > </span><br>
 <span class="bc">
 <a href='/tc?module=MemberProfile&cr=<%=cr%>' class="bcLink">Member Profile</a>
- | Rating History
+ | Competition History
  <% if (!isHighSchool) { %>
  &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= cr %>" class="bcLink">Earnings History</A>
 <% } %>
@@ -128,7 +128,7 @@
             <% } %>
 
             <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                <tr><td class="title" colspan="7"><%= algoType %> Rating History</td></tr>
+                <tr><td class="title" colspan="7"><%= algoType %> Competition History</td></tr>
                 <tr>
                     <td class="headerC" width="1%"><A href="javascript:clickColumn(0)">Date</A></td>
                     <% if (isHighSchool) { %>
@@ -140,9 +140,10 @@
                     <td class="headerR"><A href="javascript:clickColumn(5)">Volatility</A></td>
                     <td class="headerR"><A href="javascript:clickColumn(6)">Rank</A></td>
                 </tr>
-                <% boolean even = false; %>
+                <% boolean even = true; %>
                 <rsc:iterator list="<%= history %>" id="resultRow">
-                    <tr class="<%=even?"dark":"light"%>">
+                <%even=!even;%>
+                   <tr class="<%=even?"dark":"light"%>">
                         <td class="valueC"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
                         <% if (isHighSchool) { %>
                         <td class="value">
