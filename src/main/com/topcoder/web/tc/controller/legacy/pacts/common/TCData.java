@@ -6,7 +6,8 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
-import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.util.StringTokenizer;
@@ -152,7 +153,7 @@ public class TCData {
 
     public static String dateForm(String userDate, String defaultVal, boolean printError) {
 
-        if (userDate == null) return "00/00/0000";
+        if (userDate == null || "".equals(userDate.trim())) return defaultVal;
 
         StringTokenizer token = new StringTokenizer(userDate, "/");
 
