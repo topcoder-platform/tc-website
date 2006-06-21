@@ -1,15 +1,15 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.common.IdGeneratorClient;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.web.common.IdGeneratorClient;
+import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
@@ -23,9 +23,9 @@ import java.util.*;
 /**
  * The EJB class which handles database access for the PACTS system.
  *
- * @author   Dave Pecora
- * @version  1.00, 03/06/2002
- * @see      PactsConstants
+ * @author Dave Pecora
+ * @version 1.00, 03/06/2002
+ * @see PactsConstants
  */
 
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -254,9 +254,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     private Timestamp makeTimestamp(String dateString, boolean allowNulls, boolean endOfDay)
             throws Exception {
+        log.debug("makeTimestamp: " + dateString + " " + allowNulls + " " + endOfDay);
         if (allowNulls) {
-            if (dateString == null)
+            if (dateString == null) {
                 return null;
+            }
             String s = dateString.trim();
             if (s.equals("") || s.equals(EMPTY_DATE_STRING) || s.equals(ANOTHER_EMPTY_DATE_STRING)) {
                 return null;
@@ -322,9 +324,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the affidavit specified by the given affidavit ID.  <p>
      *
-     * @param   affidavitId  The ID of the affidavit to retrieve.
-     * @return  The affidavit data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param affidavitId The ID of the affidavit to retrieve.
+     * @return The affidavit data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getAffidavit(long affidavitId) throws SQLException {
         StringBuffer selectAffidavitHeader = new StringBuffer(300);
@@ -411,9 +413,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the contract specified by the given contract ID.  <p>
      *
-     * @param   contractId  The ID of the contract to retrieve.
-     * @return  The contract data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param contractId The ID of the contract to retrieve.
+     * @return The contract data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getContract(long contractId) throws SQLException {
         StringBuffer selectContractHeader = new StringBuffer(300);
@@ -461,9 +463,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the note specified by the given note ID.  <p>
      *
-     * @param   noteId  The ID of the note to retrieve.
-     * @return  The note data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param noteId The ID of the note to retrieve.
+     * @return The note data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getNote(long noteId) throws SQLException {
         StringBuffer selectNoteHeader = new StringBuffer(300);
@@ -493,9 +495,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * of the payment header, the most recent payment detail record (with print address, if
      * applicable), and the current coder address information. <p>
      *
-     * @param   paymentId  The ID of the payment to retrieve.
-     * @return  The payment data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param paymentId The ID of the payment to retrieve.
+     * @return The payment data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getPayment(long paymentId) throws SQLException {
         log.debug("getpayment(long) called..");
@@ -530,9 +532,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Data returned will include the payment header, all payment detail records (with print
      * addresses, if applicable), and the current coder address. <p>
      *
-     * @param   paymentId  The ID of the payment to retrieve.
-     * @return  The payment audit trail data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param paymentId The ID of the payment to retrieve.
+     * @return The payment audit trail data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getPaymentAuditTrail(long paymentId) throws SQLException {
         StringBuffer selectPaymentDetails = new StringBuffer(300);
@@ -627,9 +629,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the user profile corresponding to the given user ID.  <p>
      *
-     * @param   userId  The user ID for which to retrieve the user profile.
-     * @return  The user profile data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID for which to retrieve the user profile.
+     * @return The user profile data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserProfile(long userId) throws SQLException {
         StringBuffer selectDetails = new StringBuffer(300);
@@ -677,9 +679,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the user profile header corresponding to the given user ID.  <p>
      *
-     * @param   userId  The user ID for which to retrieve the user profile header.
-     * @return  The user profile header data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID for which to retrieve the user profile header.
+     * @return The user profile header data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserProfileHeader(long userId) throws SQLException {
         Connection c = null;
@@ -727,9 +729,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the generic tax form specified by the given tax form ID.  <p>
      *
-     * @param   taxFormId  The ID of the generic tax form to retrieve.
-     * @return  The tax form data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param taxFormId The ID of the generic tax form to retrieve.
+     * @return The tax form data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getTaxForm(long taxFormId) throws SQLException {
         StringBuffer selectTaxForm = new StringBuffer(300);
@@ -749,10 +751,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the user-specific tax form specified by the given tax form ID.  <p>
      *
-     * @param   userId  The user ID of the tax form to retrieve.
-     * @param   taxFormId  The tax form ID of the tax form to retrieve.
-     * @return  The tax form data.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId    The user ID of the tax form to retrieve.
+     * @param taxFormId The tax form ID of the tax form to retrieve.
+     * @return The tax form data.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserTaxForm(long userId, long taxFormId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
@@ -794,9 +796,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of affidavits for the given user.
      *
-     * @param   userId  The coder ID of the affidavits.
-     * @return  The affidavit header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The coder ID of the affidavits.
+     * @return The affidavit header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserAffidavitList(long userId) throws SQLException {
         StringBuffer selectAffidavitHeaders = new StringBuffer(300);
@@ -843,9 +845,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of contracts for the given user.
      *
-     * @param   userId  The contracted user ID of the contracts.
-     * @return  The contract header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The contracted user ID of the contracts.
+     * @return The contract header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserContractList(long userId) throws SQLException {
         StringBuffer selectContractHeaders = new StringBuffer(300);
@@ -868,9 +870,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of payments to the given user.
      *
-     * @param   userId  The coder ID of the payments.
-     * @return  The payment header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The coder ID of the payments.
+     * @return The payment header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserPaymentList(long userId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
@@ -896,9 +898,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of tax forms for the given user.
      *
-     * @param   userId  The user ID of the tax forms.
-     * @return  The tax form header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID of the tax forms.
+     * @return The tax form header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserTaxFormList(long userId) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
@@ -922,13 +924,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * which can be an affidavit, contract, tax form, payment, or
      * user profile.
      *
-     * @param   objectId  The ID of the object.
-     * @param   objectType The type of the object, as defined in
-     * <tt>PactsConstants.java</tt>
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @return  The note header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectId      The ID of the object.
+     * @param objectType    The type of the object, as defined in
+     *                      <tt>PactsConstants.java</tt>
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @return The note header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getNoteList(long objectId, int objectType, long taxFormUserId) throws SQLException {
         String tableName = "";
@@ -969,9 +971,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of payments associated with the given contract.
      *
-     * @param   contractId  The contract ID of the payments.
-     * @return  The payment header list.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param contractId The contract ID of the payments.
+     * @return The payment header list.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getContractPaymentList(long contractId) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
@@ -998,11 +1000,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the text of an affidavit, contract, note, or tax form.
      *
-     * @param   objectId  The ID of the object.
-     * @param   objectType The type of the object, as defined in
-     * <tt>PactsConstants.java</tt>
-     * @return  The text associated with the object.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectId   The ID of the object.
+     * @param objectType The type of the object, as defined in
+     *                   <tt>PactsConstants.java</tt>
+     * @return The text associated with the object.
+     * @throws SQLException If there is some problem retrieving the data
      */
 
     public Map getText(long objectId, int objectType) throws SQLException {
@@ -1030,8 +1032,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all affidavit types.
      *
-     * @return  The list of affidavit types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of affidavit types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getAffidavitTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1046,8 +1048,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all contract types.
      *
-     * @return  The list of contract types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of contract types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getContractTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1062,8 +1064,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all note types.
      *
-     * @return  The list of note types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of note types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getNoteTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1078,8 +1080,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all payment types.
      *
-     * @return  The list of payment types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of payment types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getPaymentTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1089,12 +1091,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(PAYMENT_TYPE_LIST, rsc);
         return hm;
     }
-    
+
     /**
      * Returns the list of all payment methods.
      *
-     * @return  The list of payment methods
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of payment methods
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getPaymentMethods() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1108,8 +1110,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all payment modification rationales.
      *
-     * @return  The list of rationales
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of rationales
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getModificationRationales() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1121,19 +1123,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(MODIFICATION_RATIONALE_LIST, rsc);
         return hm;
     }
-    
+
     /**
      * Returns the list of all project termination status types.
      *
-     * @return  The list of project termination status types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of project termination status types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getProjectTerminationStatusTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT project_stat_id, project_stat_name FROM project_status ORDER BY 2");
 
         Connection c = null;
-        
+
         try {
             c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
@@ -1156,8 +1158,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all status codes.
      *
-     * @return  The list of status codes
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of status codes
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getStatusCodes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1172,9 +1174,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all status codes for a given object type.
      *
-     * @param   objectType The object type
-     * @return  The list of status codes
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectType The object type
+     * @return The list of status codes
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getStatusCodes(int objectType) throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1190,8 +1192,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all user types.
      *
-     * @return  The list of user types
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of user types
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getUserTypes() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1206,8 +1208,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the list of all rounds.
      *
-     * @return  The list of all rounds
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of all rounds
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getRounds() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1228,8 +1230,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the demographic data for a given user.
      *
-     * @return  The demographic data
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The demographic data
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map getDemographicData(long userId) throws SQLException {
         StringBuffer sb = new StringBuffer(300);
@@ -1268,9 +1270,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds affidavits that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of affidavit headers for the affidavits that satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of affidavit headers for the affidavits that satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findAffidavits(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
@@ -1351,9 +1353,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds contracts that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of contract headers for the contracts that satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of contract headers for the contracts that satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findContracts(Map searchCriteria) throws SQLException {
         StringBuffer selectContractHeaders = new StringBuffer(300);
@@ -1430,9 +1432,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds objects that a given note is associated with.
      *
-     * @param   noteId  The note ID for which to find associated objects.
-     * @return  A list of headers for the objects that are associated with the given note.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param noteId The note ID for which to find associated objects.
+     * @return A list of headers for the objects that are associated with the given note.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findNoteObjects(long noteId) throws SQLException {
         StringBuffer select = new StringBuffer(300);
@@ -1462,10 +1464,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds notes that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of note headers for the notes that
-     * satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of note headers for the notes that
+     *         satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findNotes(Map searchCriteria) throws SQLException {
         StringBuffer selectNoteHeaders = new StringBuffer(300);
@@ -1572,10 +1574,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds payments that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of payment headers for the payments that
-     * satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of payment headers for the payments that
+     *         satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
@@ -1668,10 +1670,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds generic tax forms that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of tax form headers for the generic tax forms that
-     * satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of tax form headers for the generic tax forms that
+     *         satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findTaxForms(Map searchCriteria) throws SQLException {
         StringBuffer selectTaxForms = new StringBuffer(300);
@@ -1711,10 +1713,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds user-specific tax forms that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of tax form headers for the user-specific tax forms that
-     * satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of tax form headers for the user-specific tax forms that
+     *         satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findUserTaxForms(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(300);
@@ -1772,10 +1774,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Finds user profiles that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of user profile headers for the user profiles that
-     * satisfy the criteria.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of user profile headers for the user profiles that
+     *         satisfy the criteria.
+     * @throws SQLException If there is some problem retrieving the data
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
@@ -1906,11 +1908,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds a new affidavit to the database without any corresponding payment.
      *
-     * @param   a Data for the new affidavit.
-     * @param   affidavitText The new affidavit's text
-     * @throws  IllegalUpdateException If the user is trying to make an illegal update.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new affidavit's ID.
+     * @param a             Data for the new affidavit.
+     * @param affidavitText The new affidavit's text
+     * @return The new affidavit's ID.
+     * @throws IllegalUpdateException If the user is trying to make an illegal update.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addAffidavit(Affidavit a, String affidavitText)
             throws IllegalUpdateException, SQLException {
@@ -1921,16 +1923,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Adds the specified affidavit and payment to the database, and associates the two.
      * Also adds a correpsonding referral payment if the affidavit is a contest winnings
      * affidavit and someone referred the winning coder. <p>
-     *
+     * <p/>
      * If the payment input parameter is null, the affidavit will still be created, but
      * without being associated with a payment.
      *
-     * @param   a Data for the new affidavit.
-     * @param   affidavitText The new affidavit's text
-     * @param   p Data for the new payment
-     * @throws  IllegalUpdateException If the user is trying to make an illegal update.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new affidavit's ID.
+     * @param a             Data for the new affidavit.
+     * @param affidavitText The new affidavit's text
+     * @param p             Data for the new payment
+     * @return The new affidavit's ID.
+     * @throws IllegalUpdateException If the user is trying to make an illegal update.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws IllegalUpdateException, SQLException {
@@ -2046,10 +2048,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds the specified contract to the database.
      *
-     * @param   c Data for the new contract.
-     * @param   contractText The new contract text.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new contract's ID.
+     * @param c            Data for the new contract.
+     * @param contractText The new contract text.
+     * @return The new contract's ID.
+     * @throws SQLException If there is some problem updating the data
      */
     public long addContract(Contract c, String contractText) throws SQLException {
         Connection con = null;
@@ -2152,8 +2154,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private void fillPaymentNetAmount(Connection c, Payment p) throws SQLException {
         // If the net amount is zero, fill in the appropriate net amount based on the
         // withholdings specified in the user_tax_form_xref for the payee.  If that isn't available,
-    	// we use the withholdings specified in the default tax form for the payee's country.  
-    	// If that isn't available, we just set net amount = gross amount.
+        // we use the withholdings specified in the default tax form for the payee's country.
+        // If that isn't available, we just set net amount = gross amount.
 
         if (p.getNetAmount() != 0)
             return;
@@ -2341,9 +2343,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_modified
             ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
             if (p.getHeader().getProjectId() != 0) {
-            	ps.setLong(11, p.getHeader().getProjectId());
+                ps.setLong(11, p.getHeader().getProjectId());
             } else {
-            	ps.setNull(11, Types.DECIMAL);
+                ps.setNull(11, Types.DECIMAL);
             }
             ps.executeUpdate();
             ps.close();
@@ -2393,10 +2395,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Adds the specified payment to the database.  Does not add a corresponding referral
      * payment.
      *
-     * @param   p Data for the new payment.
-     * @throws  IllegalUpdateException If the user is trying to make some update that is not allowed
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
+     * @param p Data for the new payment.
+     * @return The new payment's ID.
+     * @throws IllegalUpdateException If the user is trying to make some update that is not allowed
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addPayment(Payment p) throws IllegalUpdateException, SQLException {
         Connection c = null;
@@ -2438,11 +2440,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Adds the specified payment to the database, and to the specified contract.  Does
      * not add a corresponding referral payment.
      *
-     * @param   contractId The ID of the contract to which to add the payment.
-     * @param   p The payment data to add.
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
+     * @param contractId The ID of the contract to which to add the payment.
+     * @param p          The payment data to add.
+     * @return The new payment's ID.
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addContractPayment(long contractId, Payment p) throws IllegalUpdateException, SQLException {
         Connection c = null;
@@ -2502,11 +2504,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds a tax form.
      *
-     * @param   t The tax form to add.
-     * @param   taxFormText The tax form text.
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new tax form's ID.
+     * @param t           The tax form to add.
+     * @param taxFormText The tax form text.
+     * @return The new tax form's ID.
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addTaxForm(TaxForm t, String taxFormText) throws IllegalUpdateException, SQLException {
         Connection c = null;
@@ -2562,8 +2564,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds a user tax form.
      *
-     * @param   t The user tax form to add.
-     * @throws  SQLException If there is some problem updating the data
+     * @param t The user tax form to add.
+     * @throws SQLException If there is some problem updating the data
      */
     public void addUserTaxForm(TaxForm t) throws SQLException {
         Connection c = null;
@@ -2624,16 +2626,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Adds the specified note to the database, and also adds a cross-reference
      * attaching the note to the specified object.
      *
-     * @param   objectId The ID of the object with which to associate the new note.
-     * @param   objectType The type of the object with which to associate the new note.
-     * Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
-     * can have associated notes.
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @param   n Data for the new note.
-     * @throws  SQLException If the object does not exist, or if there is some other problem
-     * updating the data
-     * @return  The new note's ID.
+     * @param objectId      The ID of the object with which to associate the new note.
+     * @param objectType    The type of the object with which to associate the new note.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
+     *                      can have associated notes.
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @param n             Data for the new note.
+     * @return The new note's ID.
+     * @throws SQLException If the object does not exist, or if there is some other problem
+     *                      updating the data
      */
     public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws SQLException {
@@ -2726,13 +2728,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Adds a cross-reference attaching the specified note to the specified object.
      *
-     * @param   objectId The ID of the object with which to associate the note.
-     * @param   objectType The type of the object with which to associate the note.
-     * Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @param   noteId The ID of the note to attach.
-     * @throws  SQLException If there is some problem updating the data
+     * @param objectId      The ID of the object with which to associate the note.
+     * @param objectType    The type of the object with which to associate the note.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @param noteId        The ID of the note to attach.
+     * @throws SQLException If there is some problem updating the data
      */
     public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
             throws SQLException {
@@ -2768,13 +2770,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Affirms the specified affidavit.
      *
-     * @param   affidavitId The ID of the affidavit to affirm.
-     * @param   finalText The finalized affidavit text
-     * @param   coderBirthDate The birth date of the coder
-     * @throws  IllegalUpdateException If the affidavit has expired or has already
-     * been affirmed.
-     * @throws  NoObjectFoundException If the specified affidavit does not exist.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param affidavitId    The ID of the affidavit to affirm.
+     * @param finalText      The finalized affidavit text
+     * @param coderBirthDate The birth date of the coder
+     * @throws IllegalUpdateException If the affidavit has expired or has already
+     *                                been affirmed.
+     * @throws NoObjectFoundException If the specified affidavit does not exist.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
             throws NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -2899,9 +2901,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Updates the given affidavit (excluding text updates and affirmations).
      *
-     * @param   a The updated affidavit information
-     * @throws  NoObjectFoundException If the specified affidavit was not found
-     * @throws  SQLException If there is some problem updating the data
+     * @param a The updated affidavit information
+     * @throws NoObjectFoundException If the specified affidavit was not found
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateAffidavit(Affidavit a) throws NoObjectFoundException, SQLException {
         Connection c = null;
@@ -2932,7 +2934,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, a.getHeader().getUser().getId());
             ps.setInt(2, a.getHeader().getStatusId());
             ps.setInt(3, (a.getHeader().isNotarized() ? 1 : 0));
-            if (a.getPayment().getId()>0) {
+            if (a.getPayment().getId() > 0) {
                 ps.setLong(4, a.getPayment().getId());
             } else {
                 ps.setNull(4, Types.NUMERIC);
@@ -2971,9 +2973,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Updates the given contract (excluding text updates).
      *
-     * @param   c The updated contract information
-     * @throws  NoObjectFoundException If the specified contract was not found
-     * @throws  SQLException If there is some problem updating the data
+     * @param c The updated contract information
+     * @throws NoObjectFoundException If the specified contract was not found
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateContract(Contract c) throws NoObjectFoundException, SQLException {
         Connection con = null;
@@ -3036,11 +3038,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * detail record, and also a new payment address record if the updated
      * status is "Ready to Print".
      *
-     * @param   p The updated payment information
-     * @throws  NoObjectFoundException If the specified payment was not found
-     * @throws  PaymentPaidException If the payment has already been paid
-     * @throws  IllegalUpdateException If the user attempted to make some update that was not allowed
-     * @throws  SQLException If there is some problem updating the data
+     * @param p The updated payment information
+     * @throws NoObjectFoundException If the specified payment was not found
+     * @throws PaymentPaidException   If the payment has already been paid
+     * @throws IllegalUpdateException If the user attempted to make some update that was not allowed
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updatePayment(Payment p)
             throws NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
@@ -3220,10 +3222,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Updates the given tax form (excluding text updates).
      *
-     * @param   t The updated tax form information
-     * @throws  NoObjectFoundException If the specified tax form was not found
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed
-     * @throws  SQLException If there is some problem updating the data
+     * @param t The updated tax form information
+     * @throws NoObjectFoundException If the specified tax form was not found
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateTaxForm(TaxForm t) throws NoObjectFoundException, SQLException, IllegalUpdateException {
         Connection c = null;
@@ -3287,10 +3289,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Updates the given user tax form (user_tax_form_xref table only;
      * to update data in tax_form, use <tt>updateTaxForm()</tt>)
      *
-     * @param   t The updated tax form information
-     * @throws  NoObjectFoundException If the specified user tax form was not found
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
+     * @param t The updated tax form information
+     * @throws NoObjectFoundException If the specified user tax form was not found
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateUserTaxForm(TaxForm t) throws NoObjectFoundException, IllegalUpdateException, SQLException {
         Connection c = null;
@@ -3360,11 +3362,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Updates the text for the given contract or tax form.
      *
-     * @param   objectId The object ID to update
-     * @param   objectType The object type to update
-     * @param   newText The updated text
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param objectId   The object ID to update
+     * @param objectType The object type to update
+     * @param newText    The updated text
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void updateText(long objectId, int objectType, String newText)
             throws NoObjectFoundException, SQLException {
@@ -3604,9 +3606,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * should only be called by the Pacts message handler upon receipt of a message
      * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
      *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @throws  SQLException If there is some other problem updating the data
+     * @param paymentId The payments to update
+     * @param statusId  The new status
+     * @throws SQLException If there is some other problem updating the data
      */
     public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId) throws SQLException {
         Connection c = null;
@@ -3655,16 +3657,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * detail record for each payment involved, and a new address record if
      * called with &quot;Ready to Print&quot; status.  This function should be called
      * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
-     *
+     * <p/>
      * This function actually just puts a message on the JMS queue.  The message handler,
      * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
      * which performs the modifications.
      *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @param   userId The ID of the user submitting the request
-     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
-     * @throws  JMSException If there is some problem putting the message on the queue
+     * @param paymentId The payments to update
+     * @param statusId  The new status
+     * @param userId    The ID of the user submitting the request
+     * @throws IllegalUpdateException If the user is attempting to update the status to Printed or Paid
+     * @throws JMSException           If there is some problem putting the message on the queue
      */
     public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws IllegalUpdateException, JMSException {
@@ -3703,10 +3705,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * reprint request.  Its purpose is to ensure that payments don't get printed
      * multiple times without good reason.
      *
-     * @param   paymentId The payments to mark as reviewed.
-     * @throws  NoObjectFoundException If any payment does not exist
-     * @throws  IllegalUpdateException If any payment has not been printed
-     * @throws  SQLException If there is some other problem updating the data
+     * @param paymentId The payments to mark as reviewed.
+     * @throws NoObjectFoundException If any payment does not exist
+     * @throws IllegalUpdateException If any payment has not been printed
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void reviewPayments(long paymentId[])
             throws NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -3761,10 +3763,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * the member profile demographic information.  If the user does not exist
      * in the database, the method returns false.
      *
-     * @param   userId The user ID to check.
-     * @param   affidavitTypeId The type of the affidavit.
-     * @return  Whether or not the user can affirm an affidavit of the specified type.
-     * @throws  SQLException If there is some problem querying the database
+     * @param userId          The user ID to check.
+     * @param affidavitTypeId The type of the affidavit.
+     * @return Whether or not the user can affirm an affidavit of the specified type.
+     * @throws SQLException If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws SQLException {
         return hasNotarizedAffidavit(userId, affidavitTypeId) && hasAllDemographicAnswers(userId) && hasTaxForm(userId);
@@ -3859,10 +3861,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * The payment information, and the separate payee or "vendor" information, are returned
      * in a two-element string array, the payment information coming first.
      *
-     * @return  The payment and vendor information in String form
-     * @throws  PaymentNotReviewedException If any of the payments to print has been
-     * previously printed and not subsequently reviewed
-     * @throws  SQLException If there is some problem updating the database
+     * @return The payment and vendor information in String form
+     * @throws PaymentNotReviewedException If any of the payments to print has been
+     *                                     previously printed and not subsequently reviewed
+     * @throws SQLException                If there is some problem updating the database
      */
     public String[] printPayments() throws PaymentNotReviewedException, SQLException {
         log.debug("printPayments called...");
@@ -4173,13 +4175,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * money in the given contest round.  Returns the number of
      * affidavit/payment pairs generated.
      *
-     * @param roundId The ID of the round
+     * @param roundId     The ID of the round
      * @param makeChanges If true, updates the database; if false, logs
-     * the changes that would have been made had this parameter been true.
+     *                    the changes that would have been made had this parameter been true.
      * @return The number of affidavit/payment pairs generated.
      * @throws IllegalUpdateException If the affidavit/payment information
-     * has already been generated for this round.
-     * @throws SQLException If there was some error updating the data.
+     *                                has already been generated for this round.
+     * @throws SQLException           If there was some error updating the data.
      */
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {
@@ -4193,7 +4195,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.setAutoCommit(false);
             }
             setLockTimeout(c);
-
 
             // Get list of users with taxforms
             StringBuffer getUsers = new StringBuffer(300);
@@ -4214,7 +4215,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for round " + roundId + "!");
             }
-
 
             // Make sure the round exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
@@ -4357,18 +4357,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). Returns the number of payments generated.
      *
-     * @param projectId The ID of the project
-     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param projectId   The ID of the project
+     * @param status      The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
      * @param makeChanges If true, updates the database; if false, logs
-     * the changes that would have been made had this parameter been true.
+     *                    the changes that would have been made had this parameter been true.
      * @return The number of component payments generated, followed by the number of review board payments generated.
      * @throws IllegalUpdateException If the affidavit/payment information
-     * has already been generated for this round.
-     * @throws SQLException If there was some error updating the data.
+     *                                has already been generated for this round.
+     * @throws SQLException           If there was some error updating the data.
      */
     public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
-			throws IllegalUpdateException, SQLException {
-    	log.debug("generateComponentPayments called...");
+            throws IllegalUpdateException, SQLException {
+        log.debug("generateComponentPayments called...");
         int i;
         Connection c = null;
 
@@ -4378,7 +4378,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.setAutoCommit(false);
             }
             setLockTimeout(c);
-            
+
             // Get list of users with taxforms
             StringBuffer getUsers = new StringBuffer(300);
             getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
@@ -4393,14 +4393,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM payment_detail p, payment_type_lu pt WHERE p.project_id = " + projectId)
-            		.append(" AND p.payment_type_id = pt.payment_type_id ")
-            		.append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
+                    .append(" AND p.payment_type_id = pt.payment_type_id ")
+                    .append(" AND pt.payment_type_desc IN ('Component Payment', 'Review Board Payment')");
             ResultSetContainer rsc = runSelectQuery(c, checkNew.toString(), false);
             int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
             if (existingAffidavits > 0) {
                 throw new IllegalUpdateException("Data already generated for project " + projectId + "!");
             }
-            
+
             // Make sure the project exists; in the process, get the name and due date.
             StringBuffer checkExists = new StringBuffer(300);
             checkExists.append("SELECT cc.component_name, p.complete_date + " + COMPONENT_DUE_DATE_INTERVAL + " UNITS DAY AS due_date ");
@@ -4415,13 +4415,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             String componentName = rsc.getItem(0, 0).toString();
             String dueDate = TCData.getTCDate(rsc.getRow(0), "due_date", null, true);
-            
+
             int[] numWinners = new int[2];
             ResultSetContainer[] winners = new ResultSetContainer[2];
-            
+
             // Get winning designers/developers to be paid
             if (status == ProjectStatus.ID_COMPLETED) {
-                StringBuffer getWinners = new StringBuffer(300);        
+                StringBuffer getWinners = new StringBuffer(300);
                 getWinners.append("select pr.placed, pr.user_id, payment * (1 + tcs_catalog:proc_reliability_bonus(pr.old_reliability)) as paid, pt.project_type_name ");
                 getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_type pt ");
                 getWinners.append("where pr.project_id = " + projectId + " ");
@@ -4434,7 +4434,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 winners[0] = runSelectQuery(c, getWinners.toString(), false);
                 numWinners[0] = winners[0].getRowCount();
             }
-            
+
             // Get review board members to be paid
             StringBuffer getReviewers = new StringBuffer(300);
             getReviewers.append("select ur.login_id as user_id, sum(pi.payment) as paid, pt.project_type_name ");
@@ -4454,59 +4454,59 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getReviewers.append("group by login_id, pt.project_type_name");
             winners[1] = runSelectQuery(c, getReviewers.toString(), false);
             numWinners[1] = winners[1].getRowCount();
-            
+
             for (int j = 0; j < numWinners.length; j++) {
-	            for (i = 0; i < numWinners[j]; i++) {
-	                long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
-	
-	                Payment p = new Payment();
-	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
-	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
-	                if (j == 0) {
-	                	String projectType = winners[j].getItem(i, 3).toString();
-	                	String placed = winners[j].getItem(i, 0).toString();
-	                	if (placed.equals("1")) {
-	                		placed = "1st place";
-	                	} else if (placed.equals("2")) {
-	                		placed = "2nd place";
-	                	}
-	                	String description = componentName + " winnings - " + projectType + ", " + placed;
-	                	p.getHeader().setDescription(description);
-	                	p.getHeader().setTypeId(COMPONENT_PAYMENT);
-	                } else if (j == 1) {
-	                	String projectType = winners[j].getItem(i, 2).toString();
-	                	p.getHeader().setDescription(componentName + " - " + projectType + " review board");
-	                	p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
-	                }
-	                p.setDueDate(dueDate);
-	                p.getHeader().getUser().setId(userId);
-	                p.getHeader().setProjectId(projectId);
-	
-	                if (makeChanges) {
-	                    makeNewPayment(c, p, false);
-	                } else {
-	                    StringBuffer paymentAdd = new StringBuffer(300);
-	                    paymentAdd.append("Payment gross amount: " + p.getGrossAmount() + "\n");
-	                    paymentAdd.append("Payment status ID: " + p.getStatusId() + "\n");
-	                    paymentAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
-	                    paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
-	                    paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
-	                    paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
-	                    ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
-	                    paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
-	                    paymentAdd.append("----------------------------------");
-	                    log.info(paymentAdd.toString());
-	                }
-	            }
+                for (i = 0; i < numWinners[j]; i++) {
+                    long userId = Long.parseLong(winners[j].getItem(i, "user_id").toString());
+
+                    Payment p = new Payment();
+                    p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
+                    p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+                    if (j == 0) {
+                        String projectType = winners[j].getItem(i, 3).toString();
+                        String placed = winners[j].getItem(i, 0).toString();
+                        if (placed.equals("1")) {
+                            placed = "1st place";
+                        } else if (placed.equals("2")) {
+                            placed = "2nd place";
+                        }
+                        String description = componentName + " winnings - " + projectType + ", " + placed;
+                        p.getHeader().setDescription(description);
+                        p.getHeader().setTypeId(COMPONENT_PAYMENT);
+                    } else if (j == 1) {
+                        String projectType = winners[j].getItem(i, 2).toString();
+                        p.getHeader().setDescription(componentName + " - " + projectType + " review board");
+                        p.getHeader().setTypeId(REVIEW_BOARD_PAYMENT);
+                    }
+                    p.setDueDate(dueDate);
+                    p.getHeader().getUser().setId(userId);
+                    p.getHeader().setProjectId(projectId);
+
+                    if (makeChanges) {
+                        makeNewPayment(c, p, false);
+                    } else {
+                        StringBuffer paymentAdd = new StringBuffer(300);
+                        paymentAdd.append("Payment gross amount: " + p.getGrossAmount() + "\n");
+                        paymentAdd.append("Payment status ID: " + p.getStatusId() + "\n");
+                        paymentAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
+                        paymentAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
+                        paymentAdd.append("Payment due date: " + p.getDueDate() + "\n");
+                        paymentAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
+                        ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
+                        paymentAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
+                        paymentAdd.append("----------------------------------");
+                        log.info(paymentAdd.toString());
+                    }
+                }
             }
-            
+
             if (makeChanges) {
                 c.commit();
                 c.setAutoCommit(true);
             }
             c.close();
             c = null;
-            
+
             return numWinners;
 
         } catch (Exception e) {
@@ -4534,8 +4534,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
     }
-    
-    
+
+
     /**
      * Sets the status on all payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
@@ -4553,10 +4553,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             StringBuffer updatePayments = new StringBuffer(300);
-            updatePayments.append("update payment_detail "); 
+            updatePayments.append("update payment_detail ");
             updatePayments.append("set status_id = " + PAYMENT_EXPIRED_STATUS + " ");
-            updatePayments.append("where payment_type_id = 1 and status_id IN (" + 
-            		PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            updatePayments.append("where payment_type_id = 1 and status_id IN (" +
+                    PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             updatePayments.append("and today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             int rowsUpdated = runUpdateQuery(c, updatePayments.toString(), false);
 
@@ -4586,7 +4586,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new SQLException(e.getMessage());
         }
     }
-    
+
 
     /**
      * Sets the status on all affidavits older than a specified time
@@ -4735,7 +4735,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ResultSetContainer rsc = runSelectQuery(conn, query.toString(), false);
 
             if (rsc.isEmpty()) {
-                throw new EJBException("could not find user information for user " + userId );
+                throw new EJBException("could not find user information for user " + userId);
             } else {
                 Payment ret = new Payment();
                 ret.setAddress1(rsc.getStringItem(0, "address1"));
