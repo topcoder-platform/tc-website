@@ -7,7 +7,11 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: dok
@@ -235,7 +239,7 @@ public class Legacy extends Base {
     }
 
     /**
-     * @param request a map containing the information we'll use to create the query
+     * @param request  a map containing the information we'll use to create the query
      * @param emptySet true if one just wants to run the query and
      */
 
@@ -296,7 +300,7 @@ public class Legacy extends Base {
         } else {
             query.append(" ,'N/A' as grad_year\n");
         }
-        query.append(" ,dr2.demographic_response as company\n");
+        query.append(" ,comp.company_name as company\n");
         query.append(" ,da3.demographic_answer_text as looking_for_job\n");
         query.append(" ,cs.school_name as known_school_name\n");
         query.append(" ,da4.demographic_answer_text as other_school_name\n");
@@ -317,13 +321,13 @@ public class Legacy extends Base {
             query.append(" ,demographic_response dr1\n");
             query.append(" ,demographic_answer da1\n");
         }
-        query.append(" ,OUTER demographic_response dr2 \n");
         query.append(" ,OUTER (demographic_response dr3, OUTER demographic_answer da3)\n");
         query.append(" ,OUTER (demographic_response dr4, OUTER demographic_answer da4)\n");
         query.append(" ,OUTER (demographic_response dr5, OUTER demographic_answer da5)\n");
         query.append(" ,demographic_response dr6\n");
         query.append(" ,demographic_answer da6\n");
         query.append(" ,OUTER current_school cs \n");
+        query.append(" , outer (contact con, company comp)\n");
         query.append(" WHERE c.coder_id = u.user_id\n");
         query.append(" AND u.status='A'");
         query.append(" AND ct.coder_type_id = c.coder_type_id\n");
@@ -347,8 +351,8 @@ public class Legacy extends Base {
             query.append(" AND da1.demographic_answer_text::DECIMAL >= " + minGradYear + "\n");
             query.append(" AND da1.demographic_answer_text::DECIMAL <= " + maxGradYear + "\n");
         }
-        query.append(" AND dr2.user_id = c.coder_id\n");
-        query.append(" AND dr2.demographic_question_id = 15\n");
+        query.append(" and con.contact_id = u.user_id\n");
+        query.append(" and con.company_id = comp.company_id\n");
         query.append(" AND dr3.user_id = c.coder_id\n");
         query.append(" AND dr3.demographic_question_id = 3\n");
         query.append(" AND dr3.demographic_answer_id = da3.demographic_answer_id\n");
@@ -599,7 +603,6 @@ public class Legacy extends Base {
             report.setQuery(invitationalInfoQuery);
             registrationInfo.addChild(new ReportNode(report));
 
-
 /*
             report = new Report();
             report.setId(MATCH_SUMMARY_ID);
@@ -659,29 +662,29 @@ public class Legacy extends Base {
     private static final String[] MEMBER_STATS_BY_STATE_HEADINGS = {"State", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String MEMBER_STATS_BY_STATE =
             " SELECT state_name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,rating cr" +
-            " ,state s" +
-             ", user_address_xref x " +
-             ", address a " +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND a.state_code = s.state_code" +
-            " and x.address_id = a.address_id" +
-            " and a.address_type_id = 2 " +
-            " and x.user_id = u.user_id " +
-            " AND u.status = 'A'" +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY s.state_name" +
-            " ORDER BY s.state_name";
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    ", user_address_xref x " +
+                    ", address a " +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND a.state_code = s.state_code" +
+                    " and x.address_id = a.address_id" +
+                    " and a.address_type_id = 2 " +
+                    " and x.user_id = u.user_id " +
+                    " AND u.status = 'A'" +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY s.state_name" +
+                    " ORDER BY s.state_name";
 
     private static final Integer MEMBER_STATS_BY_REGION_ID = new Integer(1);
     private static final String MEMBER_STATS_BY_REGION_TITLE = "Member Stats By Region";
@@ -689,30 +692,30 @@ public class Legacy extends Base {
     private static final String[] MEMBER_STATS_BY_REGION_HEADINGS = {"Region", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String MEMBER_STATS_BY_REGION =
             " SELECT region_name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,rating cr" +
-            " ,state s" +
-            " ,user_address_xref x" +
-            " ,address a " +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND a.state_code = s.state_code" +
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    " ,user_address_xref x" +
+                    " ,address a " +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND a.state_code = s.state_code" +
                     " and x.address_id = a.address_id" +
                     " and a.address_type_id = 2 " +
                     " and x.user_id = u.user_id " +
 
-            " AND u.status = 'A'" +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY region_name" +
-            " ORDER BY region_name";
+                    " AND u.status = 'A'" +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY region_name" +
+                    " ORDER BY region_name";
 
 
     private static final Integer COLLEGE_STATS_BY_SCHOOL_ID = new Integer(2);
@@ -721,28 +724,28 @@ public class Legacy extends Base {
     private static final String[] COLLEGE_STATS_BY_SCHOOL_HEADINGS = {"School", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String COLLEGE_STATS_BY_SCHOOL =
             " SELECT sc.name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,current_school cs" +
-            " ,rating cr" +
-            " ,state s" +
-            " ,school sc" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND cs.coder_id = c.coder_id" +
-            " AND cs.school_id = sc.school_id" +
-            " AND sc.state_code = s.state_code" +
-            " AND u.status = 'A'" +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY sc.name" +
-            " ORDER BY sc.name";
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,current_school cs" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    " ,school sc" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND cs.coder_id = c.coder_id" +
+                    " AND cs.school_id = sc.school_id" +
+                    " AND sc.state_code = s.state_code" +
+                    " AND u.status = 'A'" +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY sc.name" +
+                    " ORDER BY sc.name";
 
     private static final Integer COLLEGE_STATS_BY_SCHOOL_STATE_ID = new Integer(3);
     private static final String COLLEGE_STATS_BY_SCHOOL_STATE_TITLE = "College Stats by School, Choose State";
@@ -750,29 +753,29 @@ public class Legacy extends Base {
     private static final String[] COLLEGE_STATS_BY_SCHOOL_STATE_HEADINGS = {"School", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String COLLEGE_STATS_BY_SCHOOL_STATE =
             " SELECT sc.name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,current_school cs" +
-            " ,rating cr" +
-            " ,state s" +
-            " ,school sc" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND cs.coder_id = c.coder_id" +
-            " AND cs.school_id = sc.school_id" +
-            " AND sc.state_code = s.state_code" +
-            " AND LOWER(s.state_code) = LOWER('?')" +
-            " AND u.status = 'A'  " +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY sc.name" +
-            " ORDER BY sc.name";
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,current_school cs" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    " ,school sc" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND cs.coder_id = c.coder_id" +
+                    " AND cs.school_id = sc.school_id" +
+                    " AND sc.state_code = s.state_code" +
+                    " AND LOWER(s.state_code) = LOWER('?')" +
+                    " AND u.status = 'A'  " +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY sc.name" +
+                    " ORDER BY sc.name";
 
 
     private static final Integer COLLEGE_STATS_BY_SCHOOL_REGION_ID = new Integer(4);
@@ -781,29 +784,29 @@ public class Legacy extends Base {
     private static final String[] COLLEGE_STATS_BY_SCHOOL_REGION_HEADINGS = {"School", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String COLLEGE_STATS_BY_SCHOOL_REGION =
             " SELECT sc.name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,current_school cs" +
-            " ,rating cr" +
-            " ,state s" +
-            " ,school sc" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND cs.coder_id = c.coder_id" +
-            " AND cs.school_id = sc.school_id" +
-            " AND sc.state_code = s.state_code" +
-            " AND LOWER(r.region_name) = LOWER('?')" +
-            " AND u.status = 'A'  " +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY sc.name" +
-            " ORDER BY sc.name";
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,current_school cs" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    " ,school sc" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND cs.coder_id = c.coder_id" +
+                    " AND cs.school_id = sc.school_id" +
+                    " AND sc.state_code = s.state_code" +
+                    " AND LOWER(r.region_name) = LOWER('?')" +
+                    " AND u.status = 'A'  " +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY sc.name" +
+                    " ORDER BY sc.name";
 
 
     private static final Integer COLLEGE_STATS_BY_REGION_ID = new Integer(5);
@@ -812,39 +815,39 @@ public class Legacy extends Base {
     private static final String[] COLLEGE_STATS_BY_REGION_HEADINGS = {"Region", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String COLLEGE_STATS_BY_REGION =
             " SELECT region_name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
-            " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,current_school cs" +
-            " ,rating cr" +
-            " ,state s" +
-            " ,school sc" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND cs.coder_id = c.coder_id" +
-            " AND cs.school_id = sc.school_id" +
-            " AND sc.state_code = s.state_code" +
-            " AND u.status = 'A'  " +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY region_name" +
-            " ORDER BY region_name";
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count" +
+                    " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(CASE WHEN num_ratings > 0 THEN num_ratings ELSE 0 END) as num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,current_school cs" +
+                    " ,rating cr" +
+                    " ,state s" +
+                    " ,school sc" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND cs.coder_id = c.coder_id" +
+                    " AND cs.school_id = sc.school_id" +
+                    " AND sc.state_code = s.state_code" +
+                    " AND u.status = 'A'  " +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY region_name" +
+                    " ORDER BY region_name";
 
     private static final Integer MEMBER_COUNTS_ID = new Integer(6);
     private static final String MEMBER_COUNTS_TITLE = "Member Counts";
     private static final int[] MEMBER_COUNTS_TYPES = {ResultItem.INT, ResultItem.INT, ResultItem.INT};
     private static final String[] MEMBER_COUNTS_HEADINGS = {"Total Count", "Rated Count", "USA Count"};
-    private static final String MEMBER_COUNTS =            
-    	"SELECT COUNT(*) AS total_count, SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count, " +
-    	"SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count " +
-    	"FROM user u, rating cr, user_address_xref x, address a " +
-    	"WHERE cr.coder_id = u.user_id and x.user_id = u.user_id " +
-    	"and x.address_id = a.address_id and a.address_type_id = 2 AND u.status = 'A'";
+    private static final String MEMBER_COUNTS =
+            "SELECT COUNT(*) AS total_count, SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count, " +
+                    "SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count " +
+                    "FROM user u, rating cr, user_address_xref x, address a " +
+                    "WHERE cr.coder_id = u.user_id and x.user_id = u.user_id " +
+                    "and x.address_id = a.address_id and a.address_type_id = 2 AND u.status = 'A'";
 
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
@@ -852,48 +855,48 @@ public class Legacy extends Base {
     private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA"};
     private static final String MEMBER_COUNTS_DAILY =
             " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
-            " ,MIN(TO_CHAR(member_since, '%a')) AS day_of_week" +
-            " ,SUM(CASE WHEN c.coder_type_id = 1 THEN 1 ELSE 0 END) AS student_count" +
-            " ,SUM(CASE WHEN c.coder_type_id = 2 THEN 1 ELSE 0 END) AS pro_count" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(CASE WHEN status='A' THEN 1 ELSE 0 END) AS active_count" +
-            " ,SUM(CASE WHEN a.country_code = 840 AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
-            " ,SUM(CASE WHEN a.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
-            " ,SUM(CASE WHEN a.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
-            " ,SUM(CASE WHEN a.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
-            " ,SUM(CASE WHEN a.country_code = 804 AND status='A' THEN 1 ELSE 0 END) AS ukraine_count" +
-            " ,SUM(CASE WHEN a.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
-            " ,SUM(CASE WHEN a.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
-            " ,SUM(CASE WHEN a.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,rating cr" +
+                    " ,MIN(TO_CHAR(member_since, '%a')) AS day_of_week" +
+                    " ,SUM(CASE WHEN c.coder_type_id = 1 THEN 1 ELSE 0 END) AS student_count" +
+                    " ,SUM(CASE WHEN c.coder_type_id = 2 THEN 1 ELSE 0 END) AS pro_count" +
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(CASE WHEN status='A' THEN 1 ELSE 0 END) AS active_count" +
+                    " ,SUM(CASE WHEN a.country_code = 840 AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
+                    " ,SUM(CASE WHEN a.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
+                    " ,SUM(CASE WHEN a.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
+                    " ,SUM(CASE WHEN a.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
+                    " ,SUM(CASE WHEN a.country_code = 804 AND status='A' THEN 1 ELSE 0 END) AS ukraine_count" +
+                    " ,SUM(CASE WHEN a.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
+                    " ,SUM(CASE WHEN a.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
+                    " ,SUM(CASE WHEN a.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,rating cr" +
                     " ,user_address_xref x" +
                     " , address a" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
                     " and x.user_id = u.user_id " +
-                           " and x.address_id = a.address_id " +
-                           " and a.address_type_id = 2 " +
-            " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY 1" +
-            " ORDER BY 1 DESC";
+                    " and x.address_id = a.address_id " +
+                    " and a.address_type_id = 2 " +
+                    " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY 1" +
+                    " ORDER BY 1 DESC";
 
     private static final Integer MEMBER_COUNTS_WEEKLY_ID = new Integer(19);
     private static final String MEMBER_COUNTS_WEEKLY_TITLE = "Member Counts By Week";
     private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT};
     private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International"};
-    private static final String MEMBER_COUNTS_WEEKLY =    
-		    "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " + 
-			"count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
-			"sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count " +
-			"from coder c, user u, calendar cal ,user_address_xref x , address a " +
-			"where date(c.member_since) = cal.date and u.user_id = c.coder_id and " +
-			"x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +  
-			"and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
+    private static final String MEMBER_COUNTS_WEEKLY =
+            "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " +
+                    "count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
+                    "sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count " +
+                    "from coder c, user u, calendar cal ,user_address_xref x , address a " +
+                    "where date(c.member_since) = cal.date and u.user_id = c.coder_id and " +
+                    "x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +
+                    "and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
 
 
     private static final Integer REGISTRATION_BY_SCHOOL_ID = new Integer(8);
@@ -902,21 +905,20 @@ public class Legacy extends Base {
     private static final String[] REGISTRATION_BY_SCHOOL_HEADINGS = {"Registration Date", "School", "Registration Count", "Active Count"};
     private static final String REGISTRATION_BY_SCHOOL =
             " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
-            " ,s.name" +
-            " ,COUNT(*) AS reg_count" +
-            " ,SUM(case WHEN status = 'A' THEN 1 ELSE 0 END) AS active_count" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,current_school cs" +
-            " ,school s" +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cs.coder_id = c.coder_id" +
-            " AND s.school_id = cs.school_id" +
-            " AND member_since > CURRENT-INTERVAL(10) DAY (2) TO DAY" +
-            " AND country_code IN (840,124)" +
-            " GROUP BY 1,2 " +
-            " ORDER BY 1,2";
-    
+                    " ,s.name" +
+                    " ,COUNT(*) AS reg_count" +
+                    " ,SUM(case WHEN status = 'A' THEN 1 ELSE 0 END) AS active_count" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,current_school cs" +
+                    " ,school s" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cs.coder_id = c.coder_id" +
+                    " AND s.school_id = cs.school_id" +
+                    " AND member_since > CURRENT-INTERVAL(10) DAY (2) TO DAY" +
+                    " AND country_code IN (840,124)" +
+                    " GROUP BY 1,2 " +
+                    " ORDER BY 1,2";
 
 /*
     private static final Integer MATCH_SUMMARY_ID = new Integer(9);
@@ -951,18 +953,18 @@ public class Legacy extends Base {
     private static final String[] REFERRAL_HEADINGS = {"Date", "Referral Type", "Count"};
     private static final String REFERRAL =
             " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
-            " ,r.referral_desc" +
-            " ,COUNT(*)" +
-            " FROM coder c" +
-            " ,referral r" +
-            " ,coder_referral cr" +
-            " ,user u" +
-            " WHERE c.coder_id = cr.coder_id" +
-            " AND r.referral_id = cr.referral_id" +
-            " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-            " and c.coder_Id = u.user_id" +
-            " GROUP BY 1, 2" +
-            " ORDER BY 1 DESC, 2";
+                    " ,r.referral_desc" +
+                    " ,COUNT(*)" +
+                    " FROM coder c" +
+                    " ,referral r" +
+                    " ,coder_referral cr" +
+                    " ,user u" +
+                    " WHERE c.coder_id = cr.coder_id" +
+                    " AND r.referral_id = cr.referral_id" +
+                    " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+                    " and c.coder_Id = u.user_id" +
+                    " GROUP BY 1, 2" +
+                    " ORDER BY 1 DESC, 2";
 
     private static final Integer OTHER_REFERRAL_ID = new Integer(11);
     private static final String OTHER_REFERRAL_TITLE = "Other Referrals";
@@ -970,18 +972,18 @@ public class Legacy extends Base {
     private static final String[] OTHER_REFERRAL_HEADINGS = {"Date", "Referral Type", "More Info", "Count"};
     private static final String OTHER_REFERRAL =
             " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
-            " ,r.referral_desc" +
-            " ,LOWER(cr.other)" +
-            " ,COUNT(*)" +
-            " FROM coder c" +
-            " ,referral r" +
-            " ,coder_referral cr" +
-            " WHERE c.coder_id = cr.coder_id" +
-            " AND r.referral_id = cr.referral_id" +
-            " AND r.referral_id IN (50, 10)" +
-            " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-            " GROUP BY 1, 2, 3" +
-            " ORDER BY 1 DESC, 2";
+                    " ,r.referral_desc" +
+                    " ,LOWER(cr.other)" +
+                    " ,COUNT(*)" +
+                    " FROM coder c" +
+                    " ,referral r" +
+                    " ,coder_referral cr" +
+                    " WHERE c.coder_id = cr.coder_id" +
+                    " AND r.referral_id = cr.referral_id" +
+                    " AND r.referral_id IN (50, 10)" +
+                    " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+                    " GROUP BY 1, 2, 3" +
+                    " ORDER BY 1 DESC, 2";
 
     private static final Integer CONNECTION_HISTORY_ID = new Integer(12);
     private static final String CONNECTION_HISTORY_TITLE = "By Day";
@@ -989,41 +991,41 @@ public class Legacy extends Base {
     private static final String[] CONNECTION_HISTORY_HEADINGS = {"Date", "Total Connections", "Guest Connections", "Unique Visitors", "Avg. Time (min)"};
     private static final String CONNECTION_HISTORY =
             " select " +
-            " date_string," +
-            " connections," +
-            " guests," +
-            " unique_coders," +
-            " round(total_mins / unique_coders, 2)" +
-            " from " +
-            " table(multiset" +
-            " (" +
-            " select " +
-            " to_char(start_time, '%iY-%m-%d %a') as date_string, " +
-            " count(c.coder_id) as connections," +
-            " sum(case when handle like 'guest%' then 1 else 0 end) as guests," +
-            " count(distinct c.coder_id) as unique_coders, " +
-            " sum(calc_seconds(start_time, end_time))/60 as total_mins" +
-            " from " +
-            " user u, " +
-            " coder c, " +
-            " rating cr, " +
-            " connection_history ch " +
-            " where  " +
-            " u.user_id = c.coder_id and " +
-            " cr.coder_id = c.coder_id and " +
-            " ch.coder_id = c.coder_id and " +
-            " date(ch.start_time) > date(today-30) and  " +
-            " date(ch.start_time) > mdy(1,24,2002) and " +
-            " calc_seconds(start_time, end_time) between 60 and 22000 and" +
-            " handle_lower not in ('mike', 'chuck', 'grunt', 'td', 'dok', 'tlongo', 'jhughes', 'fenway', 'gt494') and" +
-            " u.user_id not in  " +
-            " ( " +
-            " select user_id from group_user where group_id = 13 " +
-            " ) " +
-            " group by  " +
-            " 1" +
-            " )) x" +
-            " order by 1 DESC";
+                    " date_string," +
+                    " connections," +
+                    " guests," +
+                    " unique_coders," +
+                    " round(total_mins / unique_coders, 2)" +
+                    " from " +
+                    " table(multiset" +
+                    " (" +
+                    " select " +
+                    " to_char(start_time, '%iY-%m-%d %a') as date_string, " +
+                    " count(c.coder_id) as connections," +
+                    " sum(case when handle like 'guest%' then 1 else 0 end) as guests," +
+                    " count(distinct c.coder_id) as unique_coders, " +
+                    " sum(calc_seconds(start_time, end_time))/60 as total_mins" +
+                    " from " +
+                    " user u, " +
+                    " coder c, " +
+                    " rating cr, " +
+                    " connection_history ch " +
+                    " where  " +
+                    " u.user_id = c.coder_id and " +
+                    " cr.coder_id = c.coder_id and " +
+                    " ch.coder_id = c.coder_id and " +
+                    " date(ch.start_time) > date(today-30) and  " +
+                    " date(ch.start_time) > mdy(1,24,2002) and " +
+                    " calc_seconds(start_time, end_time) between 60 and 22000 and" +
+                    " handle_lower not in ('mike', 'chuck', 'grunt', 'td', 'dok', 'tlongo', 'jhughes', 'fenway', 'gt494') and" +
+                    " u.user_id not in  " +
+                    " ( " +
+                    " select user_id from group_user where group_id = 13 " +
+                    " ) " +
+                    " group by  " +
+                    " 1" +
+                    " )) x" +
+                    " order by 1 DESC";
 
     private static final Integer MEMBER_STATS_BY_COUNTRY_ID = new Integer(13);
     private static final String MEMBER_STATS_BY_COUNTRY_TITLE = "Member Stats By Country";
@@ -1031,29 +1033,29 @@ public class Legacy extends Base {
     private static final String[] MEMBER_STATS_BY_COUNTRY_HEADINGS = {"Country", "Total Count", "Rated Count", "Avg Rating", "Max Rating", "Avg Number of Events"};
     private static final String MEMBER_STATS_BY_COUNTRY =
             " SELECT co.country_name" +
-            " ,COUNT(*) AS total_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
-            " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
-            " ,MAX(rating) AS max_rating" +
-            " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
-            " FROM user u" +
-            " ,coder c" +
-            " ,rating cr" +
-            " ,country co" +
+                    " ,COUNT(*) AS total_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN 1 ELSE 0 end) AS rated_count" +
+                    " ,SUM(case WHEN cr.rating > 0 THEN cr.rating ELSE 0 end) AS sum_rating" +
+                    " ,MAX(rating) AS max_rating" +
+                    " ,SUM(case WHEN num_ratings > 0 THEN num_ratings ELSE 0 end) AS num_events" +
+                    " FROM user u" +
+                    " ,coder c" +
+                    " ,rating cr" +
+                    " ,country co" +
                     " ,user_address_xref x " +
                     " ,address a " +
-            " WHERE u.user_id = c.coder_id" +
-            " AND cr.coder_id = c.coder_id" +
-            " AND a.country_code = co.country_code" +
-            " AND u.status = 'A'" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " AND cr.coder_id = c.coder_id" +
+                    " AND a.country_code = co.country_code" +
+                    " AND u.status = 'A'" +
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2" +
-            " AND u.user_id NOT IN (SELECT user_id" +
-            " FROM group_user" +
-            " WHERE group_id = 13)" +
-            " GROUP BY co.country_name" +
-            " ORDER BY 2 DESC";
+                    " AND u.user_id NOT IN (SELECT user_id" +
+                    " FROM group_user" +
+                    " WHERE group_id = 13)" +
+                    " GROUP BY co.country_name" +
+                    " ORDER BY 2 DESC";
 
 
     private static final Integer MEMBER_RATING_DISTRIBUTION_ID = new Integer(14);
@@ -1062,19 +1064,19 @@ public class Legacy extends Base {
     private static final String[] MEMBER_RATING_DISTRIBUTION_HEADINGS = {"Red #", "Red %", "Yellow #", "Yellow %", "Blue #", "Blue %", "Green #", "Green %", "Gray #", "Gray%"};
     private static final String MEMBER_RATING_DISTRIBUTION =
             " SELECT SUM(CASE WHEN r.rating > 2199 THEN 1 ELSE 0 END) as red_count" +
-            " ,SUM(CASE WHEN r.rating > 2199 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as red_percent" +
-            " ,SUM(CASE WHEN r.rating > 1499 AND r.rating < 2200 THEN 1 ELSE 0 END) as yellow_count" +
-            " ,SUM(CASE WHEN r.rating > 1499 AND r.rating < 2200 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as yellow_percent" +
-            " ,SUM(CASE WHEN r.rating > 1199 AND r.rating < 1500 THEN 1 ELSE 0 END) as blue_count" +
-            " ,SUM(CASE WHEN r.rating > 1199 AND r.rating < 1500 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as blue_percent" +
-            " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END) as green_count" +
-            " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as green_percent" +
-            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END) as gray_count" +
-            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as gray_percent" +
-            " FROM rating r" +
-            " ,coder c" +
-            " WHERE r.coder_id = c.coder_id" +
-            " AND c.status = 'A'";
+                    " ,SUM(CASE WHEN r.rating > 2199 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as red_percent" +
+                    " ,SUM(CASE WHEN r.rating > 1499 AND r.rating < 2200 THEN 1 ELSE 0 END) as yellow_count" +
+                    " ,SUM(CASE WHEN r.rating > 1499 AND r.rating < 2200 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as yellow_percent" +
+                    " ,SUM(CASE WHEN r.rating > 1199 AND r.rating < 1500 THEN 1 ELSE 0 END) as blue_count" +
+                    " ,SUM(CASE WHEN r.rating > 1199 AND r.rating < 1500 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as blue_percent" +
+                    " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END) as green_count" +
+                    " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as green_percent" +
+                    " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END) as gray_count" +
+                    " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as gray_percent" +
+                    " FROM rating r" +
+                    " ,coder c" +
+                    " WHERE r.coder_id = c.coder_id" +
+                    " AND c.status = 'A'";
 
     private static final Integer LINK_HIT_COUNT_ID = new Integer(15);
     private static final String LINK_HIT_COUNT_TITLE = "Link Hit Count";
@@ -1082,14 +1084,13 @@ public class Legacy extends Base {
     private static final String[] LINK_HIT_COUNT_HEADINGS = {"Date", "Link", "Refering Page", "Hit Count"};
     private static final String LINK_HIT_COUNT =
             " SELECT TO_CHAR(timestamp, '%iY-%m-%d')" +
-            " ,link" +
-            " ,refer" +
-            " ,count(*)" +
-            " FROM link_hit" +
-            " where timestamp > current - 30 units day " +
-            " GROUP BY 1, link, refer" +
-            " ORDER BY 1 DESC, link ASC, refer ASC";
-
+                    " ,link" +
+                    " ,refer" +
+                    " ,count(*)" +
+                    " FROM link_hit" +
+                    " where timestamp > current - 30 units day " +
+                    " GROUP BY 1, link, refer" +
+                    " ORDER BY 1 DESC, link ASC, refer ASC";
 
 /*
     private static final int[] PROFILE_LIST_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
@@ -1112,52 +1113,46 @@ public class Legacy extends Base {
     private static final String[] PRO_REG_INFO_HEADINGS = {"Status", "Company", "Title", "First", "Last", "Email", "Handle", "City", "State", "Country", "Date Registered", "Referral Info"};
     private static final String PRO_REG_INFO =
             " SELECT status " +
-            "  ,(SELECT dr.demographic_response " +
-            " FROM demographic_response dr " +
-            " WHERE dr.user_id = u.user_id " +
-            " AND dr.demographic_question_id = 15) as company " +
-            " ,(SELECT da.demographic_answer_text " +
-            " FROM demographic_response dr, demographic_answer da " +
-            " WHERE dr.user_id = u.user_id and dr.demographic_answer_id = da.demographic_answer_id " +
-            " AND dr.demographic_question_id = 8) as title " +
-            " ,u.first_name " +
-            " ,u.last_name " +
-            " ,e.address as email " +
-            " ,u.handle " +
-            " ,a.city " +
-            " ,a.state_code " +
-            " ,co.country_name " +
-            " ,DATE(c.member_since) as date_registered " +
-            " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
-            " cr.other" +
-            " else" +
-            " (SELECT r.referral_desc" +
-            " FROM referral r" +
-            " WHERE c.coder_id = cr.coder_id" +
-            " AND r.referral_id = cr.referral_id)" +
-            " end" +
-            " FROM user u " +
-            " ,coder c " +
-            " ,user_address_xref x " +
-                    " , address a "+
-            " ,country co " +
-             " , email e " +
-            " ,coder_referral cr" +
-            " WHERE u.user_id = c.coder_id " +
-            " and c.coder_id = cr.coder_id" +
-                   " and e.user_id = u.user_id " +
-                   " and e.primary_ind = 1 " +
-            " AND c.coder_type_id = 2 " +
-            " AND DATE(member_since) >= today-14 " +
-            " AND handle NOT LIKE 'guest%' " +
+                    "  ,(select comp.company_name from company comp, contact con where con.contact_id = u.user_id and comp.company_id = con.company_id) as company " +
+                    " ,(select title from contact where contact_id = u.user_id) as title " +
+                    " ,u.first_name " +
+                    " ,u.last_name " +
+                    " ,e.address as email " +
+                    " ,u.handle " +
+                    " ,a.city " +
+                    " ,a.state_code " +
+                    " ,co.country_name " +
+                    " ,DATE(c.member_since) as date_registered " +
+                    " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
+                    " cr.other" +
+                    " else" +
+                    " (SELECT r.referral_desc" +
+                    " FROM referral r" +
+                    " WHERE c.coder_id = cr.coder_id" +
+                    " AND r.referral_id = cr.referral_id)" +
+                    " end" +
+                    " FROM user u " +
+                    " ,coder c " +
+                    " ,user_address_xref x " +
+                    " , address a " +
+                    " ,country co " +
+                    " , email e " +
+                    " ,coder_referral cr" +
+                    " WHERE u.user_id = c.coder_id " +
+                    " and c.coder_id = cr.coder_id" +
+                    " and e.user_id = u.user_id " +
+                    " and e.primary_ind = 1 " +
+                    " AND c.coder_type_id = 2 " +
+                    " AND DATE(member_since) >= today-14 " +
+                    " AND handle NOT LIKE 'guest%' " +
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2 " +
-            " AND co.country_code = a.country_code " +
-            " AND u.user_id NOT IN (SELECT g.user_id " +
-            " FROM group_user g " +
-            " WHERE g.group_id = 13) " +
-            " ORDER BY 11 DESC";
+                    " AND co.country_code = a.country_code " +
+                    " AND u.user_id NOT IN (SELECT g.user_id " +
+                    " FROM group_user g " +
+                    " WHERE g.group_id = 13) " +
+                    " ORDER BY 11 DESC";
 
 
     private static final Integer STUDENT_REG_INFO_ID = new Integer(17);
@@ -1166,45 +1161,45 @@ public class Legacy extends Base {
     private static final String[] STUDENT_REG_INFO_HEADINGS = {"Status", "Handle", "First", "Last", "Email", "Date Registered", "City", "State", "Country", "Referral Info"};
     private static final String STUDENT_REG_INFO =
             " SELECT u.status " +
-            "     ,u.handle" +
-            " ,u.first_name" +
-            " ,u.last_name" +
-            " ,e.address as email" +
-            " ,date(c.member_since) as date_registered" +
-            " ,a.city" +
-            " ,a.state_code" +
-            " ,co.country_name" +
-            " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
-            " cr.other" +
-            " else" +
-            " (SELECT r.referral_desc" +
-            " FROM referral r" +
-            " WHERE c.coder_id = cr.coder_id" +
-            " AND r.referral_id = cr.referral_id)" +
-            " end" +
-            " FROM user u" +
-            " ,coder c" +
+                    "     ,u.handle" +
+                    " ,u.first_name" +
+                    " ,u.last_name" +
+                    " ,e.address as email" +
+                    " ,date(c.member_since) as date_registered" +
+                    " ,a.city" +
+                    " ,a.state_code" +
+                    " ,co.country_name" +
+                    " , case when cr.referral_id = 10 or cr.referral_id = 50 then" +
+                    " cr.other" +
+                    " else" +
+                    " (SELECT r.referral_desc" +
+                    " FROM referral r" +
+                    " WHERE c.coder_id = cr.coder_id" +
+                    " AND r.referral_id = cr.referral_id)" +
+                    " end" +
+                    " FROM user u" +
+                    " ,coder c" +
                     " , user_address_xref x " +
                     ", address a" +
-                    " , email e "  +
-            " ,country co" +
-            " ,coder_referral cr" +
-            " WHERE u.user_id = c.coder_id" +
-            " and cr.coder_id = c.coder_id" +
+                    " , email e " +
+                    " ,country co" +
+                    " ,coder_referral cr" +
+                    " WHERE u.user_id = c.coder_id" +
+                    " and cr.coder_id = c.coder_id" +
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2 " +
                     " and e.user_id = u.user_id " +
                     " and e.primary_ind = 1 " +
-            " AND c.coder_type_id = 1" +
-            " AND date(member_since) >= today-14" +
-            " AND handle not like 'guest%'" +
-            " AND co.country_code = a.country_code" +
-            " AND u.user_id NOT IN (" +
-            " SELECT g.user_id" +
-            " FROM group_user g" +
-            " WHERE g.group_id = 13)" +
-            " ORDER BY 6 DESC";
+                    " AND c.coder_type_id = 1" +
+                    " AND date(member_since) >= today-14" +
+                    " AND handle not like 'guest%'" +
+                    " AND co.country_code = a.country_code" +
+                    " AND u.user_id NOT IN (" +
+                    " SELECT g.user_id" +
+                    " FROM group_user g" +
+                    " WHERE g.group_id = 13)" +
+                    " ORDER BY 6 DESC";
 
     private static final Integer INVITATIONAL_INFO_ID = new Integer(18);
     private static final String INVITATIONAL_INFO_TITLE = "Invitational Registration Information";
@@ -1212,66 +1207,66 @@ public class Legacy extends Base {
     private static final String[] INVITATIONAL_INFO_HEADINGS = {"total_registered", "top_1024_registered"};
     private static final String INVITATIONAL_INFO =
             " select" +
-            " x.all" +
-            " ,y.top_1024" +
-            " from" +
-            " table(multiset(" +
-            " select" +
-            "   count(*) as all" +
-            " from " +
-            "   user u," +
-            "   rating r," +
-            "   coder c," +
-            "   invite_list l" +
-            " where " +
-            "   l.round_id = 4320 and" +
-            "   l.coder_id = u.user_id and" +
-            "   u.user_id = c.coder_id and" +
-            "   r.coder_id = c.coder_id" +
-            " )) x," +
-            " table(multiset(" +
-            " select" +
-            "   count(*) as top_1024 " +
-            " from " +
-            "   user u," +
-            "   rating r," +
-            "	round_segment rs," +
-            "   coder c," +
-            "	address a," +
-            "	user_address_xref uax," +
-            "   invite_list l" +
-            " where " +
-            "   l.round_id = 4320 and" +
-            "   l.coder_id = u.user_id and" +
-            "   u.user_id = c.coder_id and" +
-            "   r.coder_id = c.coder_id and" +
-            "   r.rating >= 923 and" +
-            "   u.status = 'A' and" +
-            "   r.num_ratings > 2 and" +
-            "	r.round_id = rs.round_id and" + 
-            "	rs.segment_id = 2 and" +
-            "   date(rs.end_time) >= mdy(4,1,2002) and" +
-            "   handle not like 'guest%' and" +
-            "	u.user_id = uax.user_id and uax.address_id = a.address_id and" +
-            "   a.country_code in ('036','124','372','356','826','840','156','554') and" +
-            "   u.user_id not in (select user_id from group_user where group_id = 13)" +
-            " )) y";
+                    " x.all" +
+                    " ,y.top_1024" +
+                    " from" +
+                    " table(multiset(" +
+                    " select" +
+                    "   count(*) as all" +
+                    " from " +
+                    "   user u," +
+                    "   rating r," +
+                    "   coder c," +
+                    "   invite_list l" +
+                    " where " +
+                    "   l.round_id = 4320 and" +
+                    "   l.coder_id = u.user_id and" +
+                    "   u.user_id = c.coder_id and" +
+                    "   r.coder_id = c.coder_id" +
+                    " )) x," +
+                    " table(multiset(" +
+                    " select" +
+                    "   count(*) as top_1024 " +
+                    " from " +
+                    "   user u," +
+                    "   rating r," +
+                    "	round_segment rs," +
+                    "   coder c," +
+                    "	address a," +
+                    "	user_address_xref uax," +
+                    "   invite_list l" +
+                    " where " +
+                    "   l.round_id = 4320 and" +
+                    "   l.coder_id = u.user_id and" +
+                    "   u.user_id = c.coder_id and" +
+                    "   r.coder_id = c.coder_id and" +
+                    "   r.rating >= 923 and" +
+                    "   u.status = 'A' and" +
+                    "   r.num_ratings > 2 and" +
+                    "	r.round_id = rs.round_id and" +
+                    "	rs.segment_id = 2 and" +
+                    "   date(rs.end_time) >= mdy(4,1,2002) and" +
+                    "   handle not like 'guest%' and" +
+                    "	u.user_id = uax.user_id and uax.address_id = a.address_id and" +
+                    "   a.country_code in ('036','124','372','356','826','840','156','554') and" +
+                    "   u.user_id not in (select user_id from group_user where group_id = 13)" +
+                    " )) y";
 
 
     private static final String STATE_QUERY =
             "SELECT state_code" +
-            " FROM state";
+                    " FROM state";
 
     private static final String COUNTRY_QUERY =
             "SELECT country_code" +
-            " ,country_name" +
-            " FROM country";
+                    " ,country_name" +
+                    " FROM country";
 
     private static final String RELOCATE_QUERY =
             "SELECT demographic_answer_id as answer_id" +
-            " ,demographic_answer_text as answer_text" +
-            " FROM demographic_answer" +
-            " WHERE demographic_question_id = 4";
+                    " ,demographic_answer_text as answer_text" +
+                    " FROM demographic_answer" +
+                    " WHERE demographic_question_id = 4";
 
 }
 
