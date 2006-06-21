@@ -47,7 +47,7 @@
 <br><br>
 
 by <tc-webtag:handle coderId="159052" /><br>and <tc-webtag:handle coderId="274023" /><br>
-<span class="smallText"><em>TopCoder Member</em></span>
+<span class="smallText"><em>TopCoder Members</em></span>
 
 <br><br><br>
 <span class="bodySubtitle"><A href="/longcontest/?module=ViewProblemStatement&compid=5910&rd=10082">MasterMind</A></span>
@@ -303,7 +303,7 @@ breakdown of which solutions won the most cases, we have:
 <tr><td>vdave</td><td align="right">59</td></tr>
 <tr><td>flagitious</td><td align="right">155</td></tr>
 <tr><td>lyc1977</td><td align="right">21</td></tr>
-<tr><td>Psycho</td><td align="right">3</td></tr>
+<tr><td>Psyho</td><td align="right">3</td></tr>
 </table>
 <br><br>
 But, the way the scoring works, flagitious got only half as many points as venco
