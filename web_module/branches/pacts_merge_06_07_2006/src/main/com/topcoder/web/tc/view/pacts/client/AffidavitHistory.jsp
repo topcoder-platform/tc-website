@@ -191,8 +191,9 @@ function goTo(selection){
 	       		description = description.substring(description.indexOf(")")+1).trim();
 	       }
 	       String componentId = "";
-	       if (componentIdMap.contains(payments[i-1].getHeader().getProjectId())) {
-	       		componentId = (String)componentIdMap.get(payments[i-1].getHeader().getProjectId());
+	       String projectId = String.valueOf(payments[i-1].getHeader().getProjectId());
+	       if (componentIdMap.contains(projectId)) {
+	       		componentId = (String)componentIdMap.get(projectId);
 	       }
 	       if (!componentId.equals("")) {
 	       		String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+payments[i-1].getHeader().getProjectId()+"&ver=1\">"+description+"</a>";
