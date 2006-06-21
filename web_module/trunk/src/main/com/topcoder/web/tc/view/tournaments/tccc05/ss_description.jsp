@@ -5,7 +5,7 @@
 <title>2005 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 <jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 </head>
 <body>
 

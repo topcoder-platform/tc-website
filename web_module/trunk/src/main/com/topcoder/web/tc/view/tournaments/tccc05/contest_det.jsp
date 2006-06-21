@@ -8,7 +8,7 @@
 <head>
 <title>2005 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
-<link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
 </head>
 <body>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
