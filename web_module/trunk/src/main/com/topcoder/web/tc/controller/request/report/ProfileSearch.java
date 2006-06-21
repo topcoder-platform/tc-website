@@ -73,6 +73,7 @@ public class ProfileSearch extends Base {
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
         String comp = request.getParameter("company");
+        String title = request.getParameter("title");
         String sch = request.getParameter("school");
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
@@ -130,8 +131,12 @@ public class ProfileSearch extends Base {
             query.append("  , cry.country_name as Country\n");
             headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country"}));
             if (comp != null && comp.length() > 0) {
-                query.append("  , drc.demographic_response as Company\n");
+                query.append("  , comp.company_name as Company\n");
                 headers.add("Company");
+            }
+            if (title != null && title.length() > 0) {
+                query.append("  , con.title as Title\n");
+                headers.add("Title");
             }
             if (sch != null && sch.length() > 0) {
                 query.append("  , sch.name as School\n");
@@ -156,7 +161,10 @@ public class ProfileSearch extends Base {
         }
         query.append("  FROM");
         if (comp != null && comp.length() > 0) {
-            query.append("    demographic_response drc,\n");
+            query.append("    company comp,\n");
+        }
+        if ((comp != null && comp.length() > 0) || (title != null && title.length() > 0)) {
+            query.append("    contact con,\n");
         }
         if (sch != null && sch.length() > 0) {
             query.append("    school sch,\n");
@@ -214,9 +222,13 @@ public class ProfileSearch extends Base {
         query.append("    AND e.user_id = u.user_id\n");
         query.append("    AND e.primary_ind = 1\n");
         if (comp != null && comp.length() > 0) {
-            query.append("    AND drc.user_id = c.coder_id\n");
-            query.append("    AND drc.demographic_question_id = 15\n");
-            query.append(stringMatcher(comp, "drc.demographic_response", isCaseSensitive));
+            query.append("    AND c.coder_id = con.contact_id\n");
+            query.append("    AND con.company_id = comp.company_id\n");
+            query.append(stringMatcher(comp, "comp.company_name", isCaseSensitive));
+        }
+        if (title != null && title.length() > 0) {
+            query.append("    AND c.coder_id = con.contact_id\n");
+            query.append(stringMatcher(title, "con.title", isCaseSensitive));
         }
         if (sch != null && sch.length() > 0) {
             query.append("    AND cur_sch.coder_id = c.coder_id\n");
