@@ -40,6 +40,11 @@ import java.util.Map;
  */
 public class Submit extends Base {
 
+    private static final String NEAR_END =
+            "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
+                    "If you make \na full submission at any point between now and the event of the event \nyou will " +
+                    "not be able to make any further full subimssions for\n the duration of the event.";
+
     protected void longContestProcessing() throws TCWebException {
         TCRequest request = getRequest();
 
@@ -180,9 +185,7 @@ public class Submit extends Base {
                 request.setAttribute(Constants.LANGUAGES, getLanguages());
                 setNextPage(Constants.SUBMISSION_JSP);
                 if (isNearEnd(rid)) {
-                    request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                            "If you make \na full submission at any point between now and the event of the event you will " +
-                            "not \nbe able to make any further full subimssions for the duration of the event.");
+                    request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + NEAR_END);
                 } else {
                     request.setAttribute(Constants.MESSAGE, message);
                 }
@@ -259,7 +262,12 @@ public class Submit extends Base {
                         request.getSession().setAttribute(Constants.CODE, code);
                         request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
                         log.debug("set message in session to " + res.getCompileError());
-                        request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
+                        if (isNearEnd(rid)) {
+                            request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError() + "\n\n"
+                                    + NEAR_END);
+                        } else {
+                            request.getSession().setAttribute(Constants.MESSAGE, message);
+                        }
                         // Go back to coding.
                         closeProcessingPage(buildProcessorRequestString("Submit",
                                 new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID, Constants.LANGUAGE_ID},
@@ -269,7 +277,13 @@ public class Submit extends Base {
                     log.debug("compilation timed out...");
                     // The compilation timed out
                     log.debug("set message in session to code compilation request timed out");
-                    request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.");
+                    if (isNearEnd(rid)) {
+                        request.getSession().setAttribute(Constants.MESSAGE, "Your code compilation request timed out.\n\n"
+                                + NEAR_END);
+                    } else {
+                        request.getSession().setAttribute(Constants.MESSAGE, message);
+                    }
+
                     request.getSession().setAttribute(Constants.CODE, code);
                     request.getSession().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
                     // Go back to coding.
@@ -286,9 +300,7 @@ public class Submit extends Base {
                     // go back to coding!
                     log.debug("set message in request to successful save");
                     if (isNearEnd(rid)) {
-                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.\n\nNote: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                                "If you make a full submission at any point between now and the event of the event you will " +
-                                "not be able to make any further full subimssions for the duration of the event.");
+                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.\n\n" + NEAR_END);
                     } else {
                         request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
                     }
