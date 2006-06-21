@@ -16,6 +16,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
+import java.util.Map;
 
 public class PaymentBean implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentBean.class);
@@ -86,8 +87,8 @@ public class PaymentBean implements PactsConstants {
         try {
             reply = bean.getUserComponentDetailsList(memberId, pendingOnly);
         } catch (Exception e1) {
-            log.error("did not get payment list in getComponentDetailsForUser");
-            e1.printStackTrace();
+            //log.error("did not get payment list in getComponentDetailsForUser");
+            //e1.printStackTrace();
             return null;
         }
 
@@ -97,6 +98,25 @@ public class PaymentBean implements PactsConstants {
         	return null;
         }
         return plist.getHeaderList();
+    }
+    
+    /**
+     * Generates a map with project ID keys and component ID values from the component and review board
+     * payments in the given list.
+     * 
+     * @param paymentIds The list of payment IDs.
+     * @return the map of (projectID, componentID) pairs
+     */
+    public Map getPaymentComponentData(long[] paymentIds) {
+    	DataInterfaceBean bean = new DataInterfaceBean();
+    	java.util.Map reply = null;
+    	try {
+    		reply = bean.getPaymentComponentData(paymentIds);
+    	} catch (Exception e1) {
+    		log.error("did not get reply in getPaymentComponentData");
+            e1.printStackTrace();
+    	}
+    	return reply;
     }
 
     public Payment getEmptyPayment(long userId) throws Exception {

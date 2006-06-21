@@ -171,6 +171,7 @@ public interface PactsConstants {
     public static final String USER_DEMOGRAPHICS = "user_demographics";
     public static final String ENTRY_HEADER_LIST = "entry_header_list";
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
+    public static final String COMPONENT_DATA = "component_data";
 
     /*
     public static final String AFFIDAVIT_DETAIL = "affidavit";
@@ -281,6 +282,7 @@ public interface PactsConstants {
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";
     public static final String PROJECT_ID = "project_id";
+    public static final String PROJECT_CLIENT = "client";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -348,8 +350,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String PROJECT_TERMINATION_STATUS = "projts";
-    public static final String PROJECT_CLIENT = "client";
-
+    
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
     public static final String AFFIDAVIT_HISTORY_CMD = "affidavit_history";

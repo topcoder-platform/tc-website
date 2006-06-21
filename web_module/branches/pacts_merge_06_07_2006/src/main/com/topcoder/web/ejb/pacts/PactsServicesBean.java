@@ -940,7 +940,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     //  Helper function to retrieve component and review board payment information for a given user.
     private Map doUserComponentPayments(long userId, String detailsQuery, boolean pendingOnly) throws SQLException {
-        log.debug("dopayment(long, String) called...");
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
@@ -1377,6 +1376,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         rsc = runSelectQuery(sb.toString(), true);
         hm.put(USER_CURRENT_SCHOOL, rsc);
 
+        return hm;
+    }
+    
+    /**
+     * Returns project and component IDs from the component and review board payments in the given list.
+     * 
+     * @param paymentIds The list of payment IDs.
+     * @return the map of (projectID, componentID) pairs
+     * @throws SQLException If there was some error retrieving the data.
+     */
+    public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
+    	String paymentList = makeList(paymentIds);
+    	StringBuffer sb = new StringBuffer(300);
+    	sb.append("SELECT p.project_id, cc.component_id "); 
+    	sb.append("FROM tcs_catalog:project p, tcs_catalog:comp_catalog cc, tcs_catalog:comp_versions cv ");
+    	sb.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+    	sb.append("AND cc.component_id = cv.component_id ");
+    	sb.append("AND p.project_id IN (" + paymentList + ") ");
+    	sb.append("AND p.cur_version = 1");
+    	
+    	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        HashMap hm = new HashMap();
+        hm.put(COMPONENT_DATA, rsc);
         return hm;
     }
     
@@ -4708,6 +4730,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    
     /**
      * Helper function that calculates the component payment given the base payment and winner's reliability. 
      *
@@ -4725,6 +4748,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	}
     	return payment * (1+bonus);
     }
+    
     
     /**
      * Sets the status on all contest payments with Pending or On Hold status older than a specified time

@@ -83,6 +83,8 @@ public interface PactsServices extends EJBObject {
 
     Map getDemographicData(long userId) throws RemoteException, SQLException;
     
+    Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException;
+    
     Map getCreationDates(String paymentIds) throws RemoteException, SQLException;
 
     // Search routines

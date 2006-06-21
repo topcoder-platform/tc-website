@@ -1384,6 +1384,19 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateComponentPayments(projectId, status, client, makeChanges);
     }
     
+    
+    /**
+     * Generates a map with project ID keys and component ID values from the component and review board
+     * payments in the given list.
+     * 
+     * @param paymentIds The list of payment IDs.
+     * @return the map of (projectID, componentID) pairs
+     */
+    public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.getPaymentComponentData(paymentIds);
+    }
+    
     /**
      * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
@@ -1416,7 +1429,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
-
+    
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getEmptyPayment(userId);

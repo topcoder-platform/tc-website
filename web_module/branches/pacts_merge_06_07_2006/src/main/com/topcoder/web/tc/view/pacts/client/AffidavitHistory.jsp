@@ -54,6 +54,8 @@ function goTo(selection){
     Payment[] payments = null;
        payments = (Payment[])
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
+       
+    HashMap componentIdMap = (HashMap)request.getAttribute(PactsConstants.COMPONENT_DATA);
 
 	String fullList = request.getParameter("full_list");
 	String href = new String("");
@@ -188,8 +190,16 @@ function goTo(selection){
 	       if (description.indexOf(")") > -1) {
 	       		description = description.substring(description.indexOf(")")+1).trim();
 	       }
-	       String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+payments[i-1].getHeader().getProjectId()+"&ver=1\">test</a>";
-	       tableData.setElement(i,0,description+" "+link);
+	       String componentId = "";
+	       if (componentIdMap.contains(payments[i-1].getHeader().getProjectId())) {
+	       		componentId = (String)componentIdMap.get(payments[i-1].getHeader().getProjectId());
+	       }
+	       if (!componentId.equals("")) {
+	       		String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+payments[i-1].getHeader().getProjectId()+"&ver=1\">"+description+"</a>";
+	       		tableData.setElement(i,0,link);
+	       } else {
+	       		tableData.setElement(i,0,description);
+	       }
 	      
 	       // net amount
 	       DecimalFormat decf = new DecimalFormat("0.00");

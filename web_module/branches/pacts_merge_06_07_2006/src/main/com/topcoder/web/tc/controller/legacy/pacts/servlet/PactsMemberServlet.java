@@ -16,6 +16,8 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  */
 
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -30,6 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
@@ -256,7 +260,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             }
         }
         
-        // add payment info to PaymentBean
+        // Payment data
         PaymentBean paymentBean = new PaymentBean();
         Payment[] payments;
         
@@ -269,7 +273,25 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         	log.debug("we got null from getComponentDetailsForUser");
         } else {
         	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
+        	
+        	// Component IDs
+        	long[] paymentIds = new long[payments.length];
+        	for (int i=0; i<payments.length; i++) {
+        		paymentIds[i] = payments[i].getId();
+        	}
+            Map reply = paymentBean.getPaymentComponentData(paymentIds);
+            
+        	HashMap componentIdMap = new HashMap();
+        	ResultSetContainer rsc = (ResultSetContainer)reply.get(COMPONENT_DATA);
+        	int numRows = rsc.getRowCount();
+        	for (int i=0; i<numRows; i++) {
+        		ResultSetRow row = rsc.getRow(i);
+        		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
+        	}
+            request.setAttribute(COMPONENT_DATA, componentIdMap);
         }
+        
+        // Payment creation dates
  
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
