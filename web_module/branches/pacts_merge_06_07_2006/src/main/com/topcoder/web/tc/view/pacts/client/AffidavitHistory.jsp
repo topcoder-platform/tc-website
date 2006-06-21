@@ -192,7 +192,7 @@ function goTo(selection){
 	       }
 	       String componentId = "";
 	       String projectId = String.valueOf(payments[i-1].getHeader().getProjectId());
-	       if (componentIdMap.contains(projectId)) {
+	       if (componentIdMap.containsKey(projectId)) {
 	       		componentId = (String)componentIdMap.get(projectId);
 	       }
 	       if (!componentId.equals("")) {

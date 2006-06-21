@@ -288,11 +288,11 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         		ResultSetRow row = rsc.getRow(i);
         		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
         	}
-        	log.info("**** Added " + numRows + " entries to componentIdMap");
             request.setAttribute(COMPONENT_DATA, componentIdMap);
         }
         
         // Payment creation dates
+        
  
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }

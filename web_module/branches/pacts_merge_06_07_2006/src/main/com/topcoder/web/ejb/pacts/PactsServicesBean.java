@@ -1389,12 +1389,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
     	String paymentList = makeList(paymentIds);
     	StringBuffer sb = new StringBuffer(300);
-    	sb.append("SELECT p.project_id, cc.component_id "); 
-    	sb.append("FROM tcs_catalog:project p, tcs_catalog:comp_catalog cc, tcs_catalog:comp_versions cv ");
-    	sb.append("WHERE p.comp_vers_id = cv.comp_vers_id ");
+    	sb.append("SELECT pd.project_id, cc.component_id ");
+        sb.append("FROM payment p, payment_detail pd, tcs_catalog:project proj, ");
+    	sb.append("tcs_catalog:comp_catalog cc, tcs_catalog:comp_versions cv ");
+    	sb.append("WHERE pd.project_id = proj.project_id ");
+    	sb.append("AND proj.comp_vers_id = cv.comp_vers_id ");
     	sb.append("AND cc.component_id = cv.component_id ");
-    	sb.append("AND p.project_id IN (" + paymentList + ") ");
-    	sb.append("AND p.cur_version = 1");
+    	sb.append("AND p.payment_id IN (" + paymentList + ") ");
+    	sb.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+    	sb.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
+    	sb.append("AND proj.cur_version = 1");
     	
     	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
