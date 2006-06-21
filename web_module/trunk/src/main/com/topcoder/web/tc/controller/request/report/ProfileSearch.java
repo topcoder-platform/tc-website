@@ -504,7 +504,7 @@ public class ProfileSearch extends Base {
         Map skillMap = new HashMap();
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
-        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
+        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
         boolean[] checkBoxDefaults = {false, true, true, false, false, false, false};
         boolean revise = "on".equals(request.getParameter("revise"));
