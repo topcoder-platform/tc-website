@@ -897,7 +897,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of component and review board payments to the given user.
+     * Returns the list of component, review board, and one-off payments to the given user.
      *
      * @param   userId  The coder ID of the payments.
      * @param	pendingOnly  True if only details which are pending, owed, or on hold should be returned.
@@ -1399,6 +1399,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	sb.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
     	sb.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
     	sb.append("AND proj.cur_version = 1");
+    	long.info("query: " + sb.toString());
     	
     	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
