@@ -302,8 +302,7 @@ public class Legacy extends Base {
         }
         query.append(" ,comp.company_name as company\n");
         query.append(" ,da3.demographic_answer_text as looking_for_job\n");
-        query.append(" ,cs.school_name as known_school_name\n");
-        query.append(" ,da4.demographic_answer_text as other_school_name\n");
+        query.append(" ,s.name as known_school_name\n");
         query.append(" ,da5.demographic_answer_text as degree\n");
         query.append(" ,da6.demographic_answer_text as relocate\n");
         query.append(" ,rs.start_time as last_rated_event\n");
@@ -322,13 +321,13 @@ public class Legacy extends Base {
             query.append(" ,demographic_answer da1\n");
         }
         query.append(" ,OUTER (demographic_response dr3, OUTER demographic_answer da3)\n");
-        query.append(" ,OUTER (demographic_response dr4, OUTER demographic_answer da4)\n");
         query.append(" ,OUTER (demographic_response dr5, OUTER demographic_answer da5)\n");
         query.append(" ,demographic_response dr6\n");
         query.append(" ,demographic_answer da6\n");
-        query.append(" ,OUTER current_school cs \n");
+        query.append(" ,OUTER (current_school cs, school s \n");
         query.append(" , outer (contact con, company comp)\n");
         query.append(" WHERE c.coder_id = u.user_id\n");
+        query.append(" and cs.school_id = s.school_id\n");
         query.append(" AND u.status='A'");
         query.append(" AND ct.coder_type_id = c.coder_type_id\n");
         if (coderTypes != null && !coderTypes.equals("")) {
@@ -357,11 +356,6 @@ public class Legacy extends Base {
         query.append(" AND dr3.demographic_question_id = 3\n");
         query.append(" AND dr3.demographic_answer_id = da3.demographic_answer_id\n");
         query.append(" AND dr3.demographic_question_id = da3.demographic_question_id\n");
-        query.append(" AND dr4.user_id = c.coder_id\n");
-        query.append(" AND dr4.demographic_question_id = 20\n");
-        query.append(" AND dr4.demographic_answer_id <> 0\n");
-        query.append(" AND dr4.demographic_answer_id = da4.demographic_answer_id\n");
-        query.append(" AND dr4.demographic_question_id = da4.demographic_question_id\n");
         query.append(" AND dr5.user_id = c.coder_id\n");
         query.append(" AND dr5.demographic_question_id = 16\n");
         query.append(" AND dr5.demographic_answer_id = da5.demographic_answer_id\n");
