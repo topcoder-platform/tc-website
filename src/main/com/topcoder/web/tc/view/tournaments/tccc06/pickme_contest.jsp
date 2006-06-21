@@ -27,13 +27,13 @@
 Did you miss out on making it as a TCCC finalist?  Still want to see the finals in San Diego anyway?  Here's your chance!
 <br><br>
 <span class="bodySubtitle">The contest:</span><br/>
-Write to us and tell us why you'd be a good candidate to come to Las Vegas and blog about the 2006 TopCoder&reg; Collegiate Challenge, Sponsored by AMD.  We want someone to join us at the finals and give a member's perspective on the competition, the atmosphere, and the city.  You'll win a trip to Las Vegas, as well as have your blog posted on the TCO website for everyone to read.  
+Write to us and tell us why you'd be a good candidate to come to Las Vegas and blog about the 2006 TopCoder&reg; Collegiate Challenge, Sponsored by AMD.  We want someone to join us at the finals and give a member's perspective on the competition, the atmosphere, and the city.  You'll win a trip to Las Vegas, as well as have your blog posted on the TCCC website for everyone to read.  
 <br><br>
 <span class="bodySubtitle">Who can compete:</span><br/>
-In order to be eligible, you must be a registered TopCoder member who is 18 years of age or older as of May 1, 2006. All eligible members may submit an entry, regardless of their current standing in the TCO, but only the entries of those members who are not TCO finalists or Review Board members will be considered. That is, contestants cannot be both a TCO finalist or Review Board member AND the winner of this contest.
+In order to be eligible, you must be a registered TopCoder member who is 18 years of age or older as of May 1, 2006. All eligible members may submit an entry, regardless of their current standing in the TCCC, but only the entries of those members who are not TCCC finalists or Review Board members will be considered. That is, contestants cannot be both a TCCC finalist or Review Board member AND the winner of this contest.
 <br><br>
 <span class="bodySubtitle">How it will work:</span><br/>
-Email your story to TopCoder at <a href="mailto: pickme@topcoder.com">pickme@topcoder.com</a>. TopCoder staff will read through the submissions and choose the member they think is most deserving of the trip.  The winning submission will be featured in the TCO06 program and on the TopCoder website.  
+Email your story to TopCoder at <a href="mailto: pickme@topcoder.com">pickme@topcoder.com</a>. TopCoder staff will read through the submissions and choose the member they think is most deserving of the trip.  The winning submission will be featured in the TCCC06 program and on the TopCoder website.  
 <br><br>
 <span class="bodySubtitle">What you get:</span><br/>
 The member with the winning submission wins an expenses-paid trip to Las Vegas, including airfare, hotel and certain meals paid for by TopCoder.  But you don't get this all for free!  We'll want you to write about your experience as the competitions take place so we can update your blog throughout the finals.  

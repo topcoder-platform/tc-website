@@ -35,7 +35,7 @@
 <br><br>
 <span class="bodySubtitle">Overview</span>
 <br><br>
-The 2006 TopCoder Open ("TCO") Component Design and Development Competition ("CDDC") will take place between January 2 and May 5, 2006.  It will consist of two competitions - the design competition and the development competition.  Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round.  The prize purse for this tournament is $75,000 in cash, with $46,000 being awarded for the design competition and $29,000 for the development competition.  The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Aladdin Resort and Casino in Las Vegas, Nevada, USA on May 3-5, 2006.
+The 2006 TopCoder Collegiate Challenge ("TCCC") Component Design and Development Competition ("CDDC") will take place between January 2 and May 5, 2006.  It will consist of two competitions - the design competition and the development competition.  Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round.  The prize purse for this tournament is $75,000 in cash, with $46,000 being awarded for the design competition and $29,000 for the development competition.  The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Aladdin Resort and Casino in Las Vegas, Nevada, USA on May 3-5, 2006.
 <br><br>
 <a name="eligibility"></a>
 <a href="#top"><img src="/i/tournament/tccc06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
@@ -47,9 +47,9 @@ TopCoder members meeting the following eligibility criteria are eligible to comp
 <li>If not a US resident, must be living in, and participating from, your country of residence; AND</li>
 <li>Must currently be eligible for participation in TopCoder Component projects (i.e. not suspended from TopCoder).</li>
 </ul>
-TopCoder members who are 18 years of age or older as of February 15, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of February 15, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
-Those members who are eligible to compete in both the Algorithm Competition of the TCO and in the CDDC will be permitted to participate in both, and advance to the finals in both.  In addition, members will be allowed to compete in both the design and development competitions of the TCO.  However, if one member participates in both the design and development competitions AND qualifies as one of the finalists in each, then the member will only be permitted to advance to the Championship round in one of the competitions.  The following criteria will be used to determine to which competition the member will advance:
+Those members who are eligible to compete in both the Algorithm Competition of the TCCC and in the CDDC will be permitted to participate in both, and advance to the finals in both.  In addition, members will be allowed to compete in both the design and development competitions of the TCCC.  However, if one member participates in both the design and development competitions AND qualifies as one of the finalists in each, then the member will only be permitted to advance to the Championship round in one of the competitions.  The following criteria will be used to determine to which competition the member will advance:
 <ol>
 <li>The member will advance to the competition in which he/she achieved a higher cumulative score.</li>
 <li>If the member's cumulative placement score is the same for both competitions, then the member will choose the competition in which he/she will compete.</li>
@@ -195,11 +195,11 @@ Contestant #1 would advance to the Championship round.
 <br><br>
 Up to eight (8) advancers in each competition from the five (5) weeks of online competition will travel to the Aladdin Casino on Tuesday, May 2nd, 2006 to compete in the final competitive stage of the tournament being held on Wednesday, May 3 - Friday, May 5, 2006. All contestants must arrive at the Aladdin Casino no later than 4:00 PM PDT on Tuesday, May 2nd, 2006. All contestants must confirm their attendance at the onsite Championship Round no later than 5:00 PM EST on Tuesday, March 14, 2006 by emailing <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A>. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time. If a contestant is unable to attend the onsite round, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the competitor with the next highest positive (i.e., greater than zero) cumulative placement score from the online competition.   
 <br><br>
-TopCoder will provide travel arrangements for each competitor up to a cost of $1,500 per person. (That is, if a contestant's airfare is greater than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total TCO prize money won. If the contestant's total TCO prize money is not sufficient to cover the additional costs, they will be subtracted from the contestant's overall TCO winnings.)  The flight reserved by and paid for by TopCoder is for arrival on May 2, 2006 and departure on May 6, 2006.  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won..
+TopCoder will provide travel arrangements for each competitor up to a cost of $1,500 per person. (That is, if a contestant's airfare is greater than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total TCCC prize money won. If the contestant's total TCCC prize money is not sufficient to cover the additional costs, they will be subtracted from the contestant's overall TCCC winnings.)  The flight reserved by and paid for by TopCoder is for arrival on May 2, 2006 and departure on May 6, 2006.  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won..
 <br><br>
-TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2006 TCO. 
+TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2006 TCCC. 
 <br><br>
-Online portion of Championship Round:  Each finalist will compete on the same set of components online.  Three (3) component competitions will be open to only the finalists.  Each finalist MUST submit these components by the deadline or they will be disqualified.  The component competition will be run according to the standard TopCoder component competition rules.  However the appeals phase for each component will be done onsite, so none of the competitors will know the score of any component prior to the onsite round.  Component winners will be required to complete their final fixes after the conclusion of the TCO.
+Online portion of Championship Round:  Each finalist will compete on the same set of components online.  Three (3) component competitions will be open to only the finalists.  Each finalist MUST submit these components by the deadline or they will be disqualified.  The component competition will be run according to the standard TopCoder component competition rules.  However the appeals phase for each component will be done onsite, so none of the competitors will know the score of any component prior to the onsite round.  Component winners will be required to complete their final fixes after the conclusion of the TCCC.
 <br><br>
 Onsite portion of Championship Round:  Each competitor will be given one hundred (100) points to spread across all three finals component.  The competition for each round will begin with each competitor choosing the points to allocate to their component.  Each competitor may risk a maximum of sixty (60) points and minimum of ten (10) points on an individual component.  The number of points awarded is the floor of the points wagered divided by the placement standing.  For instance see the table below:
 <br><br>
@@ -328,8 +328,8 @@ All contestants who submit components that pass screening during at least one we
    </tr>
    <tr valign="top">
       <td class="sidebarText">Online participants who pass screening for at least one component</td>
-      <td class="sidebarText">Limited edition 2006 TopCoder Open t-shirt</td>
-      <td class="sidebarText">Limited edition 2006 TopCoder Open t-shirt</td>
+      <td class="sidebarText">Limited edition 2006 TopCoder Collegiate Challenge t-shirt</td>
+      <td class="sidebarText">Limited edition 2006 TopCoder Collegiate Challenge t-shirt</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText" colspan="3">* Prize will be awarded after the conclusion of the Championship Round. Winner must be present <br>at the onsite round to receive prize.</td>
@@ -339,7 +339,7 @@ All contestants who submit components that pass screening during at least one we
    </tr>
 </table>
 <br><br>
-In order for onsite finalists to receive their onsite cash prize, they must first complete all TCO-related work for all online rounds and the Championship Round, including final fixes.
+In order for onsite finalists to receive their onsite cash prize, they must first complete all TCCC-related work for all online rounds and the Championship Round, including final fixes.
 <br><br>
 <a name="conditions"></a>
 <a href="#top"><img src="/i/tournament/tccc06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
@@ -356,7 +356,7 @@ As a condition of participation in the tournament, all information provided by y
 Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EST on Friday, March 24, 2006:
 
 <ul>
-<li>Competitor Questionnaire - the questions and responses will be published in the 2006 TopCoder Open program</li>
+<li>Competitor Questionnaire - the questions and responses will be published in the 2006 TopCoder Collegiate Challenge program</li>
 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
 <ul>
