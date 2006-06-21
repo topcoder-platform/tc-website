@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.21.06<br>12:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">Marathon Match 2 - Analysis</A></span><br><br>
+Many of us probably played MasterMind as children.  However, the MasterMind we
+played had no more than 6 pegs, and about 6 colors.
+      </td>
+      <td class="newsPhoto">by <tc-webtag:handle coderId="159052" /><br>and <tc-webtag:handle coderId="274023" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506052" message="discuss this" />&#160;|&#160;
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.21.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">Money matches announced: SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>, <A href="/tc?module=MatchDetails&rd=9997">317</A>, <A href="/tc?module=MatchDetails&rd=9999">319</A>, and <A href="/tc?module=MatchDetails&rd=10004">324</A>.</span><br><br>
       TopCoder will be paying out $5,000 in prizes during each of these matches.  For more info, check out the Match Details for each.</td>
