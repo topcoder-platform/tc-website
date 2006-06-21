@@ -1396,6 +1396,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         buf.append("/");
         buf.append(dueDate.get(Calendar.YEAR));
 
+        log.debug("due date: |" + request.getParameter("date_due") + "|");
+
         p.setDueDate(TCData.dateForm(request.getParameter("date_due"), buf.toString(), true));
 
         DataInterfaceBean dib = new DataInterfaceBean();
