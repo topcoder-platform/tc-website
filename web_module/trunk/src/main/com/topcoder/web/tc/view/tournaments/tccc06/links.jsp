@@ -75,7 +75,11 @@
             <% } %>
 <%--
 --%>
-
+            <% if (tabLev2.equals("student_reps")) {%>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOn.gif" alt="" border="0" /></A></td>
+            <% } else { %>
+               <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><img src="/i/tournament/tccc06/tabs/L2_studentRepsOff.gif" alt="" border="0" /></A></td>
+            <% } %>
             <% if (tabLev2.equals("sponsors")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><img src="/i/tournament/tccc06/tabs/L2_sponsorsOn.gif" alt="" border="0" /></A></td>
             <% } else { %>
