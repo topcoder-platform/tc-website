@@ -9,6 +9,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.21.06<br>11:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">Money matches announced: SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>, <A href="/tc?module=MatchDetails&rd=9997">317</A>, <A href="/tc?module=MatchDetails&rd=9999">319</A>, and <A href="/tc?module=MatchDetails&rd=10004">324</A>.</span><br><br>
+      We'll be giving out cash prizes for these matches.  For more info, check out the Match Details for each.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506058" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>06.20.06<br>2:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10082">Marathon Match 2 Results</A>
@@ -181,26 +192,6 @@ while <tc-webtag:handle coderId="7442498" context="algorithm"/> got second, with
        <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506051" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.06.06<br>2:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm1">TCHS SRM 1 - Problem Set & Analysis</A></span><br><br>
-In a close race, <b>Burunduk1</b> from the Russian Federation won the match, thanks to
-fast submissions (that took him to the third place after Coding Phase) and to two successful challenges that
-gave him the points he needed to overtake the other top scorers.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm1">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506023" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 
