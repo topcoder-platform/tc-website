@@ -181,8 +181,8 @@ public class Submit extends Base {
                 setNextPage(Constants.SUBMISSION_JSP);
                 if (isNearEnd(rid)) {
                     request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                            "If you make a full submission at any point between now and the event of the event you will " +
-                            "not be able to make any further full subimssions for the duration of the event.");
+                            "If you make \na full submission at any point between now and the event of the event you will " +
+                            "not \nbe able to make any further full subimssions for the duration of the event.");
                 } else {
                     request.setAttribute(Constants.MESSAGE, message);
                 }
