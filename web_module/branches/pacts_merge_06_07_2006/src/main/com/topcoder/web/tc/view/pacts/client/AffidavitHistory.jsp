@@ -234,6 +234,8 @@ function goTo(selection){
 	}
 %>
 
+	   size: <%=componentIdMap.size()%>
+
 <P><BR/></P>
       </TD>
    </TR>
