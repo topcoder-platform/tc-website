@@ -107,7 +107,7 @@ public class ViewActiveContests extends Base {
 
             Map mapPassContests = dai.getData(reqPassContests);
             ResultSetContainer rscPassContests = (ResultSetContainer) mapPassContests.get("long_contest_pass_contests");
-            for (int i = 0; i < rscPassContests.getRowCount() & contests.size() < 5; i++) {
+            for (int i = 0; i < rscPassContests.getRowCount(); i++) {
                 if (areResultsAvailable(rscPassContests.getLongItem(i, "round_id"))) {
                     LongContest longContest = new LongContest();
                     longContest.setPassed(true);
