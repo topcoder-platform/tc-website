@@ -44,7 +44,7 @@
 </head>
 
 <body>
-<a href=<%=Constants.SERVLET_ADDR%>><<back to main menu< a><br/><br/>
+<a href=<%=Constants.SERVLET_ADDR%>>&lt;&lt;back to main menu</a><br/><br/>
 (Use % for a wildcard.)
 <form name="profileForm" method="get" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
     <input type="hidden" name="module" value="LegacyReport"/>
@@ -77,16 +77,16 @@
 
 <%
 
-  if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null ) {
-    for (int k=0; k<profiles.size(); k++) {
-      p = profiles.getRow(k);
-      demographicList = (ResultSetContainer)((Map)detailList.get(k)).get("coder_demographics");
-      notifyList = (ResultSetContainer)((Map)detailList.get(k)).get("notify");
-      handleList = (ResultSetContainer)((Map)detailList.get(k)).get("handle_history");
-      addressList = (ResultSetContainer)((Map)detailList.get(k)).get("address_history");
-      violationList = (ResultSetContainer)((Map)detailList.get(k)).get("violations");
-      statusList = (ResultSetContainer)((Map)detailList.get(k)).get("status_changed");
-        jobList = (ResultSetContainer)((Map)detailList.get(k)).get("job_list");
+    if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null) {
+        for (int k = 0; k < profiles.size(); k++) {
+            p = profiles.getRow(k);
+            demographicList = (ResultSetContainer) ((Map) detailList.get(k)).get("coder_demographics");
+            notifyList = (ResultSetContainer) ((Map) detailList.get(k)).get("notify");
+            handleList = (ResultSetContainer) ((Map) detailList.get(k)).get("handle_history");
+            addressList = (ResultSetContainer) ((Map) detailList.get(k)).get("address_history");
+            violationList = (ResultSetContainer) ((Map) detailList.get(k)).get("violations");
+            statusList = (ResultSetContainer) ((Map) detailList.get(k)).get("status_changed");
+            jobList = (ResultSetContainer) ((Map) detailList.get(k)).get("job_list");
 
 
 %>
@@ -294,7 +294,7 @@
 
 <%
 
-        if (!handleList.isEmpty()) {
+    if (!handleList.isEmpty()) {
 
 %>
 <br/><br/>
@@ -316,8 +316,8 @@
 </table>
 <%
 
-        }
-        if (!addressList.isEmpty()) {
+    }
+    if (!addressList.isEmpty()) {
 
 %>
 <br/><br/>
@@ -339,8 +339,8 @@
 </table>
 <%
 
-}
-if (!violationList.isEmpty()) {
+    }
+    if (!violationList.isEmpty()) {
 %>
 <br/><br/>
 <table cellpadding="5" cellspacing="0">
@@ -360,12 +360,12 @@ if (!violationList.isEmpty()) {
 
 <%
 
-        }
+    }
 
 %>
 <%
 
-        if (!statusList.isEmpty()) {
+    if (!statusList.isEmpty()) {
 
 %>
 <br/><br/>
@@ -387,13 +387,13 @@ if (!violationList.isEmpty()) {
 </table>
 <%
 
-        }
+    }
 
 %>
 
 <%
 
-        if (!jobList.isEmpty()) {
+    if (!jobList.isEmpty()) {
 
 %>
 <br/><br/>
@@ -417,7 +417,7 @@ if (!violationList.isEmpty()) {
 </table>
 <%
 
-        }
+    }
 
 %>
 
@@ -428,15 +428,15 @@ if (!violationList.isEmpty()) {
 <hr size="5"/>
 <%
 
-  }
-  }
-  if (p==null && processed!=null && processed.booleanValue()) {
+        }
+    }
+    if (p == null && processed != null && processed.booleanValue()) {
 
 %>
 <b>Unknown user, try again...</b>
 <%
 
-  }
+    }
 
 %>
 
