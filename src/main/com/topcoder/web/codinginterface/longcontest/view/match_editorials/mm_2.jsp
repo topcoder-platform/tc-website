@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+   <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -46,8 +46,7 @@
 <span class="bodySubtitle">Marathon Match 2</span><br>06.07.2006 - 06.14.2006
 <br><br>
 
-<img src="/i/m/battyone_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
-By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
+by <tc-webtag:handle coderId="159052" /><br>and <tc-webtag:handle coderId="274023" /><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
