@@ -46,135 +46,263 @@
 <span class="bodySubtitle">Marathon Match 2</span><br>06.07.2006 - 06.14.2006
 <br><br>
 
-<img src="/i/m/battyone_big.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
+<img src="/i/m/battyone_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>
 By&#160;<tc-webtag:handle coderId="7504863" context="algorithm"/><br>
 <span class="smallText"><em>TopCoder Member</em></span>
 
 <br><br><br>
-<span class="bodySubtitle"><A href="/longcontest/?module=ViewProblemStatement&compid=5503&rd=9874">CostlySorting</A></span>
+<span class="bodySubtitle"><A href="/longcontest/?module=ViewProblemStatement&compid=5910&rd=10082">MasterMind</A></span>
 <br><br>
 
-Sorting is a classic problem, and algorithms for it have been investigated since
-the dawn of computers.  A very early result tells us that if the only
-information we have comes from comparing two items, it will take at least O(N lg
-N) comparisons to sort a list, in the worst case.  This result comes from
-information theory.  After making the first i comparisons, there is some set S
-of possible orders that are consistent with those i comparisons.  For comparison
-i+1, there is some S' &sube; S such that all the orders in S' are consistent
-with one of the outcomes of the comparison.   Naturally, the orders in the set
-S-S' are all consistent with the other outcome of the comparison.  In the worst
-case, the result of the comparison will be such that the consistent orders after
-comparison i+1 are always the those in the larger of S' and S-S'.  Therefore,
-it is best if the sorting algorithm chooses a comparison such that S' and S-S'
-are exactly the same size.  If the algorithm can do this, then each comparison
-will remove exactly half of the consistent orders.  Since there are N! orders
-to begin with (before any comparisons are made), the number of comparisons
-needed must be at least the number of times that N! must be halved before it is
-1 or less.  This number is found by taking log<sub>2</sub>(N!).  By using <a
-href="http://mathworld.wolfram.com/StirlingsApproximation.html">Stirling's
-Approximation</a>, we know that this is roughly N log<sub>2</sub> N, for large
-N.
+Many of us probably played MasterMind as children.  However, the MasterMind we
+played had no more than 6 pegs, and about 6 colors.  While this may be fun for a
+person, it represents little challenge for a computer.  To make things
+interesting, this problem required competitors to write a program that would
+play with as many as 100 pegs and 20 colors, or as few as 5 pegs and 5 colors.<br/><br/>
+
+A quick search on the internet will reveal that this problem has a long history,
+going back to the 1970's, when Knuth showed a simple greedy strategy which solves the
+classic 4 peg, 6 color version in an average of 4.478 moves.  However, to
+generalize his method, we would have to enumerate far too many possibilities in
+the larger cases.  Luckily, an even simpler strategy does almost as well.
+Consider all possible codes which would give the response to guesses seen so
+far.  Call this set of codes the <i>consistent</i> codes.  From these consistent
+codes, pick one at random -- this gives an average of 4.638 moves, almost as
+good, but with much less computation.<br/>
+<br/>
+
+Of course, with 100 pegs and 20 colors, there are 20<sup>100</sup> possible
+codes, so we won't be able to enumerate all consistent codes and then pick one
+at random.  But, if we could just find one that was consistent, that would be
+almost as good as picking one at random (maybe even better if we got lucky).  Unfortunately, it
+has recently been shown that finding a consistent guess given a set of previous
+guesses is an NP-Hard problem (<a href="http://arxiv.org/abs/cs/0512049">read
+the paper</a>).
+<br/><br/>
+
+At first, this may sound like pretty bad news.  It says that even if we have all
+the information we need from the guesses, it might be computationally hard to
+put the pieces together and come up with the answer.  However, one should always
+keep in mind that, while an NP-Hard problem may be hard in some cases, simple
+heuristics will often perform well in the average case.<br/>
+<br/>
+
+Furthermore, we don't have to solve the NP-Hard problem in order to eventually
+arrive at the right answer.  If we are having a hard time coming up with a
+consistent guess, we can always ask for more information, which will only make
+things easier.<br/><br/>
+
+With this background we can now sketch the basic algorithm used by the top two
+competitors:
+<ul>
+<li>Make some initial guesses:  Many competitors chose to make solid color
+guesses to exactly determine the number of pegs of each color.  Other
+competitors (notably venco) chose to essentially skip this phase.</li>
+<li>
+Somehow find a guess that is consistent.  If this proves too hard, find a guess
+that is as close to consistent as possible (for some definition of close).
+</li>
+</ul>
+
+Of course, the key to doing well is all in the details.  How much processing
+time should one spend trying to find a consistent guess?  What function should
+be used to evaluate closeness?  What information can be logically deduced from
+the guesses to help find a consistent guess?  The list of potential tricks is
+almost limitless.  <br/><br/>
+
+<h3>Venco's solution</h3>
+
+My first thought about how to solve the problem was to generate any guess
+consistent with the results of all previous guesses.  It's known that in the
+regular MasterMind game with just a few colors and pegs there are better
+algorithms. One can make special inconsistent guesses that reduce the possible
+number of secret keys further than any of the consistent guess would.  Of
+course, it was clear that these sorts of algorithms were infeasible here, as
+there were far too many colors and pegs.  So, I used the sub-optimal, but
+still reasonably good approach of simply finding any consistent guess.  It turns
+out this problem is also too complex (NP-Hard), probably with complexity similar
+to number of possible orders of all the pegs.  So, in theory, this approach is
+no better than the optimal one. But in practice we can be satisfied with almost
+consistent guesses which are much easier to achieve.<br/><br/>
+
+From the very beginning I had two stages to my guesses.  The first stage tries
+to find the exact number of pegs of each color, not taking into account whether
+the peg was in the right place or not. If we call the first number in the
+results <tt>hits</tt>, and the second number <tt>misses</tt>, then total number
+of correctly guessed colors can be calculated by adding <tt>hits</tt> and
+<tt>misses</tt> together. This number can be computed more efficiently than it
+is by the algorithm given in the problem, which has O(L<sup>2</sup>) complexity.
+Instead, I always preprocess all my guesses by counting the number of each color
+in the guess.  After that, the number of matching colors between two guesses can
+be calculated in O(K) time:
+
+<pre>
+    int match = 0;
+    for ( int k = 0; k &lt; K; ++k )
+        match += min(cnt1[k], cnt2[k]);
+</pre><br/>
+
+My first submission for the first stage tried to make some reasonable initial
+guess, and then optimized it by switching pegs from one color to another.
+In optimizing, I tried to find guesses that were as consistent as possible with
+the previous guesses, just in terms of the number of correct colors (ignoring
+location).  More specifically, when evaluating a guess <tt>g</tt> I examined
+each previous guess <tt>g'</tt>.  I computed the value of <tt>hits+misses</tt>
+that I would have received for <tt>g'</tt> if <tt>g</tt> were the correct code.
+The error for <tt>g</tt> from <tt>g'</tt> is the difference between this
+computed value and the actual value I received.  The total error for <tt>g</tt>
+was simply the sum of the errors over all <tt>g'</tt>.<br/><br/>
+I did the obvious thing of starting with a random guess and then changing one
+color at a time to improve the error.  I restarted a few times, and picked the
+best guess (lowest error) as my final guess.  To avoid timeout, I often did not
+find completely consistent guesses.  Eventually, I would get a guess that would
+have all the right colors in it, and then I'd advance to the second stage of my
+algorithm.<br/><br/>
+
+However, my tests showed that this approach failed to find the answer for large
+L.  It turns out that it failed to find the correct color counts for a long
+time, hundreds of guesses. I added an obvious fix for this by issuing unicolored
+guesses for K-1 color just to find the color counts.  I did this for L &gt;=
+15, and the code started to work reasonably well.  <br/><br/>
+
+For the second stage, when I knew how many of every color were present, I simply
+assigned <tt>hits</tt> pegs randomly based on the guess with the most
+<tt>hits</tt> so far, and filled the rest randomly according to the known
+numbers of pegs of each color.  This version score 62.11
+which was quite good at the moment, although not the best.<br/><br/>
+
+I ended up sticking with these essential two stages till the end. From here, I
+made a number of important optimizations to each of the two parts.  First I
+coded a better optimization function for the second stage. After making an
+initial order, I counted how bad and how good each peg was in its place. For
+example, if some guess actually has 2 hits, but my guess would give it 5,
+all the matching pegs were given a negative score because they increased the
+difference between current and required number of hits. So I created two arrays
+kl_add, and kl_sub containing the difference in error function I can get by
+adding specific color k at the place l, and by removing this peg. My
+optimization routine was:
+
+<ol>
+<li>
+Take several (2-8) pegs off the board so that the error is reduced as mach as possible.</li>
+<li>Add them back in the places so that error is as small as possible again.</li>
+<li>Repeat it until I cannot get any improvement in error for several times in a row.</li>
+</ol>
+
+Each time I remove or place a peg on the board I had to update kl_add and kl_sub
+arrays, because the whole situation changes, and some pegs which were in a good
+place, may now be in a bad place as the total number of hits for each guess
+changes.  Fortunately, the change was usually small, and overall those arrays
+save time (as opposed to recalculating the error after each possible change).
+Unfortunately there are a lot of cases, the code is quite complex and not obvious,
+and it's easy to make a mistake.  After implementing the above order
+optimization function, my second submission went on top with score
+106.02.<br/><br/>
+
+Now, what else to do? Seeing the improvement from optimization of stage two I
+decided to implement a similar thing in stage one, so instead of moving one peg at
+a time from one color to another, I move several pegs. Again, I first remove
+several (2-8) pegs from the board, and take them back with another colors so
+that total error is minimized.  In addition I have noticed that some information
+about color counts can be obtained analytically. Consider the example (we are
+talking about color counts here, so order doesn't matter):
+<pre>
+guess 1: abbcccdef, 5 matched colors.
+guess 2: aaabccedf, 4 matched color.
+</pre>
+
+As we see, the number of matched colors decreased by 1. But if we consider each
+color separately, we see that number of pegs with color <tt>a</tt> increased by
+2, while <tt>b</tt> and <tt>c</tt> both decreased by 1 and <tt>d</tt>,
+<tt>e</tt> and <tt>f</tt> stayed the same.  Looking at individual
+colors, there are three ways to get an overall decrease of 1 match (columns
+represent change in number of matches for one color): 
+<pre>
+Change in
+ a  b  c
+---------
+ 0  0 -1
+ 0 -1  0
++1 -1 -1
+</pre>
+
+From this, we can immediately conclude that there are at most 2 pegs of color
+<tt>a</tt>, since it could have increased by at most 1, and there could have
+been at most one match to begin with.  In this case, we can actually get a bit
+more information, though my code does not do this.  Assume there are 2 pegs of
+color <tt>a</tt>.  Looking at the table, the number of <tt>b</tt>'s and
+<tt>c</tt>'s must have each decreased by 1.  Thus, the number must have been at
+least 2 and 3, respectively (otherwise they wouldn't have gone down).  But now,
+we have too many matches, since <tt>b</tt>'s, three <tt>c</tt>'s and an
+<tt>a</tt> add up to more than 5 matches.  Thus, there can be at most one
+<tt>a</tt>.<br/><br/>
+
+Another example
+<pre>
+guess 1: abbccc, 1 matched color.
+guess 2: aaabcc, 3 matched colors.
+</pre>
+Here things are simple, as the only color which increased was color <tt>a</tt>.
+Thus, the only way to get an increase of two is for there to be at least three
+<tt>a</tt>'s.  While there are many more complex rules and further deductions
+one might make, just this simple one usually lead to the right color counts
+quite quickly.<br/>
+<br/>
+
+In reality, there is usually much less information that can be easily gleaned
+analytically, but if we consider all pairs of previous guesses we can deduce the
+exact number of colors in many fewer guesses.  It turned out, with all those
+rules implemented, the stage of unicolor guesses is not needed at all.  My code
+finds exact number of colors in about the same K-1 guesses on average.  Although
+it may be seen as no improvement, but if we recall that with K-1 unicolor
+guesses we do not get any order information at all, the new approach takes a
+lead with a score of 142.99.<br/><br/>
+
+Later, I optimized my code a lot to avoid timeout in some rare cases,
+removed a lot of unused and debugging code, switched to standard random
+function, increased number of iterations to find the guess from original
+2000/L to 50000000/(L*L*L), because for small cases I can run much more
+iterations in time.
+All this gives slight improvement on average, so I submitted 4th version,
+and even though it scored slightly less on 50 test cases, I'm sure it's better
+on average.<br/><br/>
+
+I think that the biggest advantage I had over the competition was that my
+initial stage gave me more information.  While many people did a good job on the
+second stage, they used K-1 guesses to obtain the color counts in the first
+stage, and just the color counts.  By contrast, I used an average of about that
+many, but also gained a significant amount of information about the ordering at
+the same time.
+
+<h3>Second and Third Place Submissions</h3>
+vdave used the same basic approach as venco, except that his discovery of the
+color counts gave him less information.  He recognized that guessing solid
+colors was clearly not optimal though, and he did improve on it somewhat, but he
+probably still fell short of the amount of information venco gained with the
+first few guesses.  In addition he worked hard to optimize his code so he could
+find the most consistent guess possible when working in the second stage.  In
+the end though, the early guesses cost too much, especially on the cases where
+the number of colors was large compared to the number of pegs.<br/><br/>
+
+A more radical approach came from flagitious.  I'm not sure I exactly understand
+how it works, but the basic idea seems to be to work on one color at a time.
+This strategy does quite poorly when there are just a few colors or pegs (with
+10 pegs and 5 colors it makes at least twice as many guesses as venco).
+However, on the larger cases, it almost always wins.  In fact, looking at the
+breakdown of which solutions won the most cases, we have:
 <br><br>
-This analysis gives us a hint about how to solve the problem.  We would like
-roughly half of the orders to be eliminated by a comparison, regardless of its
-outcome.  You might wonder if this is really best in the average case, since the
-analysis above is only for the worst case.  If a fraction p of the cases are
-left after one outcome of the comparison, and a fraction 1-p are left after the
-other outcome of the comparison, then the expected number of cases left after
-the comparison is p<sup>2</sup>+(1-p)<sup>2</sup>.  This function is minimized
-when p = 0.5.  Thus, splitting the cases in half is best in both the average and
-worst cases. Of course, this is a greedy method.  Picking the comparison that
-splits S in half is a good strategy, but it is not necessarily the best.
-Luckily, many simple sorting algorithms come close to the theoretical limit, so
-it is reasonable to expect that our greedy selection will be good.
+<table cellpadding="3" cellspacing="0" border="1" class="bodyText">
+<tr><th>Coder</th><th>Cases Won</th></tr>
+<tr><td>venco</td><td align="right">158</td></tr>
+<tr><td>vdave</td><td align="right">59</td></tr>
+<tr><td>flagitious</td><td align="right">155</td></tr>
+<tr><td>lyc1977</td><td align="right">21</td></tr>
+<tr><td>Psycho</td><td align="right">3</td></tr>
+</table>
 <br><br>
-But this is just a start.  In order to have an algorithm, we need to define
-two things.  First, how to we find p, the fraction of orders that a particular
-outcome of a comparison are consistent with.  Second, once we have p for all
-possible comparisons, how do we decide which one to use.  The first one is
-probably the simpler of the two questions.  An effective way (used by the
-winner, BradAustin) is to simply generate a large number of permutations that
-are consistent with what is already known.  From these permutations, we simply
-count how many times the comparison occurs one way, and how many times it occurs
-the other way.  This Monte Carlo method isn't perfect, but we can generate
-enough permutations (over 1000) within the timelimit to make it pretty good.
-An alternative approach was used by SnapDragon (the second place finisher) and
-is described <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=508413&start=75&mc=118#521087">here</a>.
-<br><br>
-Once we have found a good approximation of p for a particular comparison, we
-would like to assign a score to that comparison that is based on the value of p,
-and the cost of the comparison.  We know that we want to eliminate
-half of the possible order, but if this is very expensive, it might be
-better to make a slightly skewed comparison.  The question is exactly
-what sort of tradeoff to use between cost and information gained.
-There are a number of different ways to do this, but I'll just
-describe those used by the first and second place finishers.
-<br><br>
-BradAustin used a variant on the classic entropy equation from information
-theory.  On average, a split yields <tt>-p lg(p) - (1-p) lg(1-p)</tt> bits of information.With k bits of information, you can
-encode 2<sup>k</sup> different things (orders in this cases).  The
-goal, of course, is to get enough bits of information so that
-2<sup>k</sup> &ge; N! and the correct order can be determined.
-Naturally we want to do this as cheaply as possible.  Thus, we make
-comparisons that give bits of information at the lowest cost, dividing
-the entropy formula by the cost of the comparison to get the bits
-gained per cost.  The way BradAustin uses the formula is slightly
-different, as he essentially assumes that the outcome of the comparison
-will be the worst case outcome, instead of the average case outcome.
-Thus, his score is simply <tt>-lg(max(p,1-p)) / cost</tt>.  It's not
-quite clear why this works better than using the more standard entropy
-formula.  The main effect of using this variant is that even more
-emphasis is put on finding comparisons that divide S in
-half.
-<br><br>
-SnapDragon, on the other hand, uses an even simpler formula:
-p*(1-p)/cost.  This has the same property as the other formulas in
-that it is maximized at p = 0.5.  It also places a bit more emphasis
-on dividing S in half than the standard entropy formula, though not as
-much as the worst case version BradAustin used.
-<br><br>
-In the end it seemed like all of the top submissions used some
-variation on the same scheme.  A greedy algorithm selected the best
-comparison based on some score derived from the cost and the
-information likely to be yielded by the comparison.  Comparisons that
-are either too expensive, or that don't yield very much information
-are not made.  It's hard to say why some methods worked better than
-others, though it seems like perhaps the thing that set SnapDragon and
-BradAustin apart was that they estimated the fraction p better than
-most competitors.  The fact that their score functions were pretty
-different seems to suggest that a good estimation of p is more
-important than a good score function, though its hard to say much with
-any certainty.
-<br><br>
-It is interesting to note a few other things about the results.  A
-simple solution that many people came up with was to make comparisons
-from cheapest to most expensive, skipping comparisons that yield no
-new information.  This simple algorithm gave submissions a score of
-40.41, indicating that they cost only a quarter more than the best
-submissions, on average.
-<br><br>
-In addition, many competitors worried that the best submissions would
-just be the best submissions on the small test set, not the best
-submissions in general.  To investigate this, I ran the top 3
-submissions on 1116 randomly generated cases.  Using the same scoring
-system, BradAustin got 1100.75 points, SnapDragon got 1100.14 points,
-and lyc1977 got 1086.82 points.  Though it's possible that some
-submission other than the top 3 got unlucky, these results suggest that
-BradAustin and SnapDragon did indeed have the best submissions in
-general, and that they were roughly equal.
-<br><br>
-Another interesting experiment is to compare the top submissions to a
-solution that makes the optimal comparison at each stage.  An optimal
-comparison is one that minimizes the expected cost of the whole
-process, given the known information.  Of course, doing this is hard
-(or the problem wouldn't be interesting), but we can do it for a small
-number of elements.  Unfortunately, I don't see how to solve the
-problem optimally for more than 7 elements.  But, for sorting just 7
-elements on 56 random cases, an optimal solution scored 54.3228, while
-BradAustin scored 53.3325 and SnapDragon scored 53.5088.  While the
-optimal solution is definitely a little bit better, it seems that the
-submitted solutions are very close to optimal, at least for a small
-number of elements.
+But, the way the scoring works, flagitious got only half as many points as venco
+on the easy cases, while venco -- though he took many more guesses -- got almost full
+points on the hard cases.
 <br><br>
    </div>
 </div>
