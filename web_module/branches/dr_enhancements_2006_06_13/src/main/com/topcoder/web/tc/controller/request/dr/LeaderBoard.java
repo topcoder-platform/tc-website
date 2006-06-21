@@ -123,7 +123,10 @@ public class LeaderBoard extends BaseBoard {
             i++;
         }
 
-        double prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+        double prizePerPoint = 0;
+        if (overallTopThirdPoints > 0) {
+                prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
+        }
         log.debug("prizePerPoint: " + prizePerPoint);
 
         for (int j = 0; j < leaderBoardResult.size(); j++) {
