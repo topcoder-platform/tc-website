@@ -277,7 +277,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         	// Component IDs
         	long[] paymentIds = new long[payments.length];
         	for (int i=0; i<payments.length; i++) {
-        		paymentIds[i] = payments[i].getId();
+        		paymentIds[i] = payments[i].getHeader().getId();
         	}
             Map reply = paymentBean.getPaymentComponentData(paymentIds);
             

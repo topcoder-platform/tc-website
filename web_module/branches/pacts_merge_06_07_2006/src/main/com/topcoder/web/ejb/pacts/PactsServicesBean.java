@@ -897,7 +897,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of component, review board, and one-off payments to the given user.
+     * Returns the list of component, review board, and one-off payments for the given user.
      *
      * @param   userId  The coder ID of the payments.
      * @param	pendingOnly  True if only details which are pending, owed, or on hold should be returned.
@@ -918,7 +918,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
-        selectPaymentDetails.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
+        selectPaymentDetails.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + "," + ONE_OFF_PAYMENT + ") ");
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
@@ -938,7 +938,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return doUserComponentPayments(userId, selectPaymentDetails.toString(), pendingOnly);
     }
     
-    //  Helper function to retrieve component and review board payment information for a given user.
+    //  Helper function to retrieve component, review board, and one-off payment information for a given user.
     private Map doUserComponentPayments(long userId, String detailsQuery, boolean pendingOnly) throws SQLException {
         StringBuffer selectPaymentHeaders = new StringBuffer(300);
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
@@ -950,7 +950,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
         selectPaymentHeaders.append("AND p.user_id = u.user_id ");
-        selectPaymentHeaders.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
+        selectPaymentHeaders.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + "," + ONE_OFF_PAYMENT + ") ");
         selectPaymentHeaders.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
