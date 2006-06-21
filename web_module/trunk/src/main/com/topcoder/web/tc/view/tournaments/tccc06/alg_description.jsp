@@ -48,24 +48,24 @@ Aladdin Resort and Casino*, Las Vegas, Nevada, USA</li>
 
 The competition is free and you must be 18 years or older to be eligible.
 <br><br>
-<span class="bodySubtitle">New to the 2006 TCO - the TCO Complete Coder Incentive Program!</span>
-<br><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
+<span class="bodySubtitle">New to the 2006 TCCC - the TCCC Complete Coder Incentive Program!</span>
+<br><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
 <br><br>
 <%--
 <span class="bigTitle">How to Register for the Algorithm Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href="/tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition.
+Click <A href="/tc?module=TCCC06AlgorithmTerms">here</A> to register for the TCCC Algorithm Competition.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href="/tc?module=TCO06AlgorithmTerms">here</A> to register for the TCO Algorithm Competition
+Click <A href="/tc?module=TCCC06AlgorithmTerms">here</A> to register for the TCCC Algorithm Competition
 <br><br>
 --%>
 *Soon to be Planet Hollywood Resort and Casino
 <br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_rules">rules and regulations</A> for full details.
+See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules">rules and regulations</A> for full details.
         </div>
       </td>
 

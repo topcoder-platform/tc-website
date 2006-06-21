@@ -27,7 +27,7 @@
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
 <span class="bodySubtitle">Registration</span><br>
-Registration for the 2006 TopCoder Open Algorithm Competition will open at 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EST on Monday, February 13, 2006, and will close at 9:00AM EST on Tuesday, February 28, 2006.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr valign="top">
