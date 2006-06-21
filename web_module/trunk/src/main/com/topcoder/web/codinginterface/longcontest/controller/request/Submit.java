@@ -178,8 +178,14 @@ public class Submit extends Base {
                 }
                 log.debug("set message in request to " + message);
                 request.setAttribute(Constants.LANGUAGES, getLanguages());
-                request.setAttribute(Constants.MESSAGE, message);
                 setNextPage(Constants.SUBMISSION_JSP);
+                if (isNearEnd(rid)) {
+                    request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
+                            "If you make a full submission at any point between now and the event of the event you will " +
+                            "not be able to make any further full subimssions for the duration of the event.");
+                } else {
+                    request.setAttribute(Constants.MESSAGE, message);
+                }
                 setIsNextPageInContext(true);
             } else if (action.equals("submit")) { // user is submiting code
 
@@ -215,11 +221,6 @@ public class Submit extends Base {
                     return;
                 }
 
-                if (isNearEnd(rid)) {
-                    request.setAttribute(Constants.MESSAGE, "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
-                            "If you make a full submission at any point between now and the event of the event you will " +
-                            "not be able to make any further full subimssions for the duration of the event.");
-                }
                 // The request info for the compiler
                 if (code == null) {
                     log.debug("********************* code is null ***********************");
@@ -284,7 +285,13 @@ public class Submit extends Base {
                     // save complete
                     // go back to coding!
                     log.debug("set message in request to successful save");
-                    request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
+                    if (isNearEnd(rid)) {
+                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.\n\nNote: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
+                                "If you make a full submission at any point between now and the event of the event you will " +
+                                "not be able to make any further full subimssions for the duration of the event.");
+                    } else {
+                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
+                    }
                     request.setAttribute(Constants.LANGUAGES, getLanguages());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
