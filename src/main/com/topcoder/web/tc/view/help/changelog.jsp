@@ -46,6 +46,7 @@
         <li>Add warning message for the case that there is less than the submission rate time left in a marathon
             match</li>
         <li>Add unified registration process to the corporate and TopCoder Software sites.</li>
+        <li>Show all matches in the Marathon Match active contests page, not just past 5</li>
     </ul>
 </p>
 
