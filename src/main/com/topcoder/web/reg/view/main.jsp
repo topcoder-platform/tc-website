@@ -493,16 +493,6 @@
 
 <br><br>
 
-<strong>Terms of Use</strong>
-<br>
-<IFRAME SRC="" WIDTH="100%" HEIGHT="200"></IFRAME>
-<div align="center">
-<span class="bigRed"></span>
-
-<INPUT TYPE="checkbox" NAME="tuid"/>I agree
-<br><br>
-</div>
-
 <div align="center">
     <a href="#" onclick="document.mainForm.submit();return false;">Submit</a>
 </div>
