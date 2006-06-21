@@ -1390,9 +1390,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         dueDate.setTime(new Date());
         dueDate.add(Calendar.DAY_OF_YEAR, DUE_DATE_INTERVAL);
         StringBuffer buf = new StringBuffer(10);
-        buf.append(dueDate.get(Calendar.DAY_OF_MONTH));
-        buf.append("/");
         buf.append(dueDate.get(Calendar.MONTH) + 1);
+        buf.append("/");
+        buf.append(dueDate.get(Calendar.DAY_OF_MONTH));
         buf.append("/");
         buf.append(dueDate.get(Calendar.YEAR));
 
