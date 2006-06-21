@@ -11,7 +11,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.21.06<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">Money matches announced: SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>, <A href="/tc?module=MatchDetails&rd=9997">317</A>, <A href="/tc?module=MatchDetails&rd=9999">319</A>, and <A href="/tc?module=MatchDetails&rd=10004">324</A>.</span><br><br>
-      We'll be giving out cash prizes for these matches.  For more info, check out the Match Details for each.</td>
+      TopCoder will be paying out $5,000 in prizes during each of these matches.  For more info, check out the Match Details for each.</td>
    </tr>
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506058" message="discuss this" />&#160;|&#160;
