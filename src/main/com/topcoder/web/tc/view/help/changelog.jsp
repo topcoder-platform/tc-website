@@ -41,10 +41,11 @@
 </jsp:include>
 
 <p>
-    5.3.x - 2006.06.xx
+    5.3.6 - 2006.06.21
     <ul>
         <li>Add warning message for the case that there is less than the submission rate time left in a marathon
             match</li>
+        <li>Add unified registration process to the corporate and TopCoder Software sites.</li>
     </ul>
 </p>
 
