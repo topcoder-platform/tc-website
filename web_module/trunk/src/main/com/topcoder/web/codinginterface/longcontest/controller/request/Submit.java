@@ -266,7 +266,7 @@ public class Submit extends Base {
                             request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError() + "\n\n"
                                     + NEAR_END);
                         } else {
-                            request.getSession().setAttribute(Constants.MESSAGE, message);
+                            request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
                         }
                         // Go back to coding.
                         closeProcessingPage(buildProcessorRequestString("Submit",
