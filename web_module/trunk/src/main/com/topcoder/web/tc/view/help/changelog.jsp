@@ -41,6 +41,13 @@
 </jsp:include>
 
 <p>
+    5.3.7 - 2006.06.xx
+    <ul>
+        <li>Don't show the message about being close the end of the round for practice Marathon Matches</li>
+    </ul>
+</p>
+
+<p>
     5.3.6 - 2006.06.21
     <ul>
         <li>Add warning message for the case that there is less than the submission rate time left in a marathon
