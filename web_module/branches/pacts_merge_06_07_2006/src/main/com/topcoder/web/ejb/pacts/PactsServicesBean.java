@@ -2351,6 +2351,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	            dataFound = true;
 	            log.debug("Got user withholding");
 	        } else {
+	        	// country withholding removed since 6/22/2006 - mktong
+	        	/*
 	            StringBuffer getWithholding = new StringBuffer(300);
 	            getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
 	            getWithholding.append("tf.use_percentage AS default_use_percentage ");
@@ -2369,6 +2371,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	                usePercent = TCData.getTCInt(rsc.getRow(0), "default_use_percentage");
 	                dataFound = true;
 	            }
+	            */
 	        }
         }
 
@@ -4571,6 +4574,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
 
+            // Get list of users with taxforms
+            StringBuffer getUsers = new StringBuffer(300);
+            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
+            		.append(" , tcs_catalog:project_result pr where u.user_id = utfx.user_id and u.user_id = pr.user_id ")
+            		.append(" and utfx.user_id = pr.user_id and pr.project_id = " + projectId);
+            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
+            HashSet userTaxFormSet = new HashSet();
+            for (i = 0; i < rscUser.getRowCount(); i++) {
+            	userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
+            
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM payment_detail pd, payment_type_lu pt WHERE pd.project_id = " + projectId)
@@ -4657,7 +4670,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 	
 	                Payment p = new Payment();
 	                p.setGrossAmount(TCData.getTCDouble(winners[j].getRow(i), "paid"));
-	                p.setStatusId(PAYMENT_PENDING_STATUS);
+	                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
 	                if (j == 0) {
 	                	double reliability = TCData.getTCDouble(winners[j].getRow(i), "reliability");
 	                	p.setGrossAmount(getReliabilityPayment(p.getGrossAmount(), reliability));
