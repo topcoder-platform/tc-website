@@ -17,7 +17,7 @@ public class Constants implements CodingInterfaceConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("LongContest");
     private static final Logger log = Logger.getLogger(Constants.class);
 
-        public static String ROUND_TYPE_ID;
+    public static String ROUND_TYPE_ID;
     public static String CONTEST_ID;
     public static String CODER_ID;
     public static String TEST_CASE_ID;
@@ -92,6 +92,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PAGE_EXAMPLE_HISTORY;
     public static String RP_QUEUE_STATUS;
     public static String PAGE_QUEUE_STATUS;
+    public static String EMAIL_ACTIVATE;
     public static int SUBMISSION_RATE;
     public static int EXAMPLE_SUBMISSION_RATE;
     public static final String RESULTS_AVAILABLE = "resav";
@@ -131,7 +132,6 @@ public class Constants implements CodingInterfaceConstants {
             }
         }
     }
-
 
 
 }
