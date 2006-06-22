@@ -33,11 +33,11 @@
 
 <tr><td colspan="2" class="sidebarTitle">Wednesday, November 15, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Algorithm Semifinal Room 1</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextOdd">Component Design & Development 1</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextEven">Algorithm Semifinal Room 2</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 10:00pm</td><td class="formTextOdd">Competitor Game Room</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextEven">Poker tournament</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextEven">Component Design & Development 1</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Semifinal Room 2</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">4:00pm - 10:00pm</td><td class="formTextEven">Competitor Game Room</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 10:00pm</td><td class="formTextOdd">Poker tournament</td></tr>
 
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
@@ -52,11 +52,11 @@
 
 <tr><td colspan="2" class="sidebarTitle">Friday, November 17, 2006</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Component Design & Development Appeals Final</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextEven">Lunch</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">2:30pm - 4:30pm</td><td class="formTextOdd">Algorithm Championship Round</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">4:30pm - 5:00pm</td><td class="formTextEven">All Champion Announcements</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">5:00pm - 6:00pm</td><td class="formTextOdd">Media Hour / Press Conference</td></tr>
-<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextEven">Awards Reception</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">2:30pm - 4:30pm</td><td class="formTextEven">Algorithm Championship Round</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">4:30pm - 5:00pm</td><td class="formTextOdd">All Champion Announcements</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">5:00pm - 6:00pm</td><td class="formTextEven">Media Hour / Press Conference</td></tr>
+<tr><td class="formTextOdd" nowrap="nowrap">7:00pm - 9:00pm</td><td class="formTextOdd">Awards Reception</td></tr>
 </table>
 
         </div>
