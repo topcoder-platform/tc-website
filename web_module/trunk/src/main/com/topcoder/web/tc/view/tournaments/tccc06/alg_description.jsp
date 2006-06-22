@@ -22,36 +22,47 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">Description of the Algorithm Competition</span>
+<span class="bigTitle">2006 TopCoder Collegiate Challenge - Algorithm Competition</span>
 <br><br>
-TopCoder is pleased to offer more exciting twists and turns for this year's Algorithm Competition.  We are now introducing auto-qualification for our top rated members (see rules and regulations for more details), 'dart board seeding', and a trip to Las Vegas for the 48 that make it through the online rounds of competition.
-<ul>
-<li><strong>Registration</strong><br />
-Begins: February 13, 2006 9:00AM EST<br>
-Ends: February 28, 2006 9:00AM EST<br>
-You have 16 days to register so don't forget</li>
+The TCCC is here, so let the battle of the universities begin!  TopCoder is excited to launch our new and improved Algorithm tournament.  This time you’ve got three chances to qualify!
 
-<li><strong>Qualification Round</strong><br />
-Begins: February 28, 2006 Noon EST<br>
-Ends: March 1, 2006 Noon EST</li>
-
-<li><strong>Online Elimination Rounds</strong><br />
-March 4, 2006 - Round 1<br>
-March 8, 2006 - Round 2<br>
-March 15, 2006 - Round 3<br>
-March 22, 2006 - Round 4</li>
-
-<li><strong>Onsite Finals</strong><br />
-May 3-5, 2006<br>
-Aladdin Resort and Casino*, Las Vegas, Nevada, USA</li>
-</ul>
-
-The competition is free and you must be 18 years or older to be eligible.
+<span class="bodySubtitle">Registration</span><br>
+Begins: August 28, 2006 9:00AM EDT<br>
+Ends: September 13, 2006 6:00PM EDT<br>
+In order to compete in any qualification round or to auto-qualify, you must be registered for the competition.
 <br><br>
-<span class="bodySubtitle">New to the 2006 TCCC - the TCCC Complete Coder Incentive Program!</span>
+
+<span class="bodySubtitle">Qualification Round</span><br>
+Qualification Round 1:  Saturday, September 9 at 1:00PM EDT<br>
+Qualification Round 2:  Tuesday, September 12 at 9:00PM EDT<br>
+Qualification Round 3:  Thursday, September 14 at 7:00AM EDT
+<br><br>
+
+<span class="bodySubtitle">Online Elimination Rounds</span><br>
+<b>Round 1</b><br>
+Section A - Wednesday, September 20 at 7:00AM EDT<br>
+Section B - Saturday, September 23 at 1:00PM EDT<br>
+Section C - Wednesday, September 27 at 9:00PM EDT
+<br><br>
+<b>Round 2</b><br>
+Section A - Wednesday, October 4 at 7:00AM EDT<br>
+Section B - Saturday, October 7 at 1:00PM EDT<br>
+Section C - Wednesday, October 11 at 9:00PM EDT
+<br><br>
+<b>Round 3</b><br>
+Saturday, October 14 at 1:00PM EDT
+<br><br>
+
+<span class="bodySubtitle">Onsite Finals</span><br>
+November 15 - 17, 2006<br>
+San Diego Marriott Mission Valley, San Diego, California, USA
+<br><br>
+The competition is free and you must be 18 years or older as well as a matriculated full-time student at an accredited college or university to be eligible.
+<br><br>
+<%--<span class="bodySubtitle">New to the 2006 TCCC - the TCCC Complete Coder Incentive Program!</span>
 <br><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
 <br><br>
-<%--
+
 <span class="bigTitle">How to Register for the Algorithm Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
@@ -63,8 +74,6 @@ Check your email and activate your new TopCoder account.<br>
 Click <A href="/tc?module=TCCC06AlgorithmTerms">here</A> to register for the TCCC Algorithm Competition
 <br><br>
 --%>
-*Soon to be Planet Hollywood Resort and Casino
-<br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules">rules and regulations</A> for full details.
         </div>
       </td>
