@@ -11,21 +11,25 @@ import com.topcoder.shared.security.User;
  * @author Greg Paul
  */
 public interface WebAuthentication extends Authentication {
-    /** this looks at the cookie first, whereas inherited getUser() looks at the session only
+    public static final String KNOWN_USER = "knu";
+
+    /**
+     * this looks at the cookie first, whereas inherited getUser() looks at the session only
      * implementing classes should provide some method of setting a default cookie path
      */
     User getActiveUser();
 
     /**
      * Attempt to log in with the given user.
+     *
      * @param u
      * @param rememberUser whether or not the user
-     * should be recognized the next time attempt to use the site
-     * basically we're setting a cookie to remember them (getActiveUser())
+     *                     should be recognized the next time attempt to use the site
+     *                     basically we're setting a cookie to remember them (getActiveUser())
      * @throws LoginException
      */
     void login(User u, boolean rememberUser) throws LoginException;
 
-
+    boolean isKnownUser();
 
 }

@@ -1,12 +1,12 @@
 package com.topcoder.web.common;
 
 import com.topcoder.security.RolePrincipal;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import java.io.Serializable;
@@ -29,8 +29,10 @@ public class SessionInfo implements Serializable {
     private Date date = null;
     private boolean isLoggedIn = false;
     private int memberCount = -1;
+    private boolean knownUser = false;
 
-    /** group may be:
+    /**
+     * group may be:
      * 'G' guest
      * 'A' admin
      */
@@ -70,6 +72,7 @@ public class SessionInfo implements Serializable {
             log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
                     getQueryString() + " request: " + getRequestString());
         }
+        knownUser = authentication.isKnownUser();
 
     }
 
@@ -126,6 +129,10 @@ public class SessionInfo implements Serializable {
 
     public Date getDate() {
         return date;
+    }
+
+    public boolean isKnownUser() {
+        return knownUser;
     }
 
     public int getMemberCount() {

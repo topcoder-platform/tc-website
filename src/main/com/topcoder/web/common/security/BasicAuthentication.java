@@ -45,7 +45,6 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
     public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
-    public static final String KNOWN_USER = "knu";
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -355,6 +354,15 @@ public class BasicAuthentication implements WebAuthentication {
     protected void setUserInPersistor(User user) {
         log.debug("set " + user.getUserName() + " as logged in");
         persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
+    }
+
+    public boolean isKnownUser() {
+        Cookie[] ca = request.getCookies();
+        boolean found = false;
+        for (int i = 0; ca != null && i < ca.length && !found; i++) {
+            found = KNOWN_USER.equals(ca[i].getName());
+        }
+        return found;
     }
 
 }
