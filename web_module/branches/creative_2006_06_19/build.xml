@@ -1112,6 +1112,57 @@
     </target>
 
 
+    <target name="compile-creative" depends="jar_shared,init">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/creative/**"/>
+            <include name="com/topcoder/web/common/**"/>
+        </javac>
+    </target>
+
+    <target name="war-creative" depends="compile-creative">
+        <war warfile="${war.dir}/creative.war" webxml="${resources}/creative/web.xml">
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/creative/**/*.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+            </webinf>
+            <fileset dir="${java}/com/topcoder/web/creative/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="errorPage.jsp"/>
+            </fileset>
+            <webinf dir="${resources}/creative">
+                <include name="jboss-web.xml"/>
+            </webinf>
+            <lib dir="${jars.dir}">
+                <include name="jstl.jar"/>
+                <include name="standard.jar"/>
+            </lib>
+        </war>
+    </target>
+
+    <target name="deploy-creative" depends="war-creative">
+        <antcall target="expand-creative"/>
+    </target>
+
+    <target name="expand-creative" depends="">
+        <delete file="${jboss_home}/server/all/deploy/creative.war"/>
+        <unwar src="${war.dir}/creative.war" dest="${jboss_home}/server/all/deploy/creative.war/" overwrite="yes"/>
+        <delete dir="${jboss_home}/server/all/deploy/creative.war/META-INF"/>
+    </target>
+
+
     <target name="package-TCUser" depends="compile_TCUser">
         <jar jarfile="${jars.dir}/tcuser.jar">
             <fileset dir="${classes}/">
