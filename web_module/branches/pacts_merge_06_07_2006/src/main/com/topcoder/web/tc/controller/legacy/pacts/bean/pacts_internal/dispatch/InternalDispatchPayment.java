@@ -84,7 +84,9 @@ public class InternalDispatchPayment implements PactsConstants {
      */
      public String getCreationDate(PaymentHeader payment) throws Exception {
      	DataInterfaceBean bean = new DataInterfaceBean();	
-     	Map results = bean.getCreationDates(String.valueOf(payment.getId()));
+     	long payments[] = new long[1];
+     	payments[0] = payment.getId();
+     	Map results = bean.getCreationDates(payments);
      	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
      	
      	if (rsc == null) {
@@ -106,5 +108,3 @@ public class InternalDispatchPayment implements PactsConstants {
          return creationDate;
      }
 }
-
-;

@@ -9,6 +9,8 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -16,6 +18,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+
 import java.util.Map;
 
 public class PaymentBean implements PactsConstants {
@@ -118,6 +122,39 @@ public class PaymentBean implements PactsConstants {
     	}
     	return reply;
     }
+    
+    /**
+     * Returns an array of dates which the given payments were created on.
+     *
+     * @return - String[]
+     */
+     public String[] getCreationDates(long[] paymentIds) throws Exception {	
+    	if (paymentIds.length == 0) return new String[0];
+     	DataInterfaceBean bean = new DataInterfaceBean();
+     	Map results = bean.getCreationDates(paymentIds);
+     	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
+     	
+     	if (rsc == null) {
+             log.error("There were no " + CREATION_DATE_LIST + " entries in the" +
+                     " result set map sent to PaymentBean.getCreationDates()");
+             return null;
+         }
+
+         // see if there are any rows of data
+         int numRows = rsc.getRowCount();
+         if (numRows <= 0) {
+             log.debug("there were no rows of data in the result set sent\n" +
+                     "to PaymentBean.getCreationDates()");
+             return new String[0];
+         }
+         
+         String[] creationDates = new String[numRows];
+         for (int i=0; i<numRows; i++) {
+         	ResultSetRow rRow = rsc.getRow(i);
+         	creationDates[i] = TCData.getTCDate(rRow, "date_created");
+         }
+         return creationDates;
+     }
 
     public Payment getEmptyPayment(long userId) throws Exception {
         log.debug("getEmptyPayment called");

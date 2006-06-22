@@ -523,7 +523,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getCreationDates(String paymentIds) throws RemoteException, SQLException {
+    public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getCreationDates(paymentIds);
     }

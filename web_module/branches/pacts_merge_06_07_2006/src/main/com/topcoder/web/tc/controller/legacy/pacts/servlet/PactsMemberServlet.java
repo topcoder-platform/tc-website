@@ -289,11 +289,12 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
         	}
             request.setAttribute(COMPONENT_DATA, componentIdMap);
+            
+            // Payment creation dates
+            String[] creationDates = paymentBean.getCreationDates(paymentIds);
+            request.setAttribute(CREATION_DATE_LIST, creationDates);
         }
         
-        // Payment creation dates
-        
- 
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
 

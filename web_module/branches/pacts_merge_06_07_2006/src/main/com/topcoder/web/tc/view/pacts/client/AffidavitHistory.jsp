@@ -196,7 +196,7 @@ function goTo(selection){
 	       		componentId = (String)componentIdMap.get(projectId);
 	       }
 	       if (!componentId.equals("")) {
-	       		String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+payments[i-1].getHeader().getProjectId()+"&ver=1\">"+description+"</a>";
+	       		String link = "<a href=\"http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/catalog/c_component.jsp?comp="+componentId+"&ver=1\">"+description+"</a>";
 	       		tableData.setElement(i,0,link);
 	       } else {
 	       		tableData.setElement(i,0,description);

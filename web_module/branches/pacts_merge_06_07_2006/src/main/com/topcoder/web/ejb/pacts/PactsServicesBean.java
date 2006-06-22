@@ -1413,11 +1413,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return  The created dates
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getCreationDates(String paymentIds) throws RemoteException, SQLException {
+    public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
+    	String paymentList = makeList(paymentIds);
     	StringBuffer sb = new StringBuffer(300);
     	sb.append("SELECT pdx.payment_id, min(pd.date_modified) as date_created ");
     	sb.append("FROM payment_detail_xref pdx, payment_detail pd ");
-    	sb.append("WHERE payment_id IN (" + paymentIds + ") ");
+    	sb.append("WHERE payment_id IN (" + paymentList + ") ");
     	sb.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
     	sb.append("GROUP BY 1 ");
     	sb.append("ORDER BY 1 ");

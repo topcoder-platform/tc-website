@@ -117,11 +117,11 @@ public class InternalDispatchPaymentList implements PactsConstants {
     public String[] getCreationDates(PaymentHeader[] payments) throws Exception {
     	if (payments.length == 0) return new String[0];
     	DataInterfaceBean bean = new DataInterfaceBean();
-    	String[] paymentIds = new String[payments.length];
+    	long[] paymentIds = new long[payments.length];
     	for (int i=0; i<payments.length; i++) {
-    		paymentIds[i] = String.valueOf(payments[i].getId());
+    		paymentIds[i] = payments[i].getId();
     	}  	
-    	Map results = bean.getCreationDates(createValuesStr(paymentIds));
+    	Map results = bean.getCreationDates(paymentIds);
     	ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
     	
     	if (rsc == null) {
@@ -162,5 +162,3 @@ public class InternalDispatchPaymentList implements PactsConstants {
     	return valuesStr;
     }
 }
-
-;
