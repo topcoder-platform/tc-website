@@ -22,46 +22,37 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<span class="bigTitle">2006 TopCoder Collegiate Challenge - Overview</span>
+<span class="bigTitle">2006 TopCoder Collegiate Challenge</span>
 <br><br>
-Are you ready to be dazzled? We've put together another incredible competition for you and even higher stakes. We're giving away $150,000 and a trip for 64 finalists to one of the world's largest playgrounds.  Las Vegas awaits!  
+Calling all college students!  Welcome to the 2006 TopCoder Collegiate Challenge!  The tournament that gathers the most talented college minds for an academic challenge.   We are excited to announce $200,000 worth of prize money and two competitions worth your while!  This year's TCCC will conclude in sunny San Diego, so get your beach gear and sun glasses ready!.
 <br><br>
-The 2006 TopCoder Collegiate Challenge is here.
-<br><br>
-<span class="bodySubtitle">Competitions include:</span>
+<span class="bodySubtitle">Here's what you'll need to know:</span><br>
+TCCC Competitions :
 <ul>
-<li>Algorithm Competition</li>
-<li>Component Design Competition</li>
-<li>Component Development Competition</li>
+<li>Algorithm Competition
+<ul><li>Registration begins August 28, 2006</li></ul></li>
+<li>Component Design Competition
+<ul><li>Registration begins July 31, 2006</li></ul></li>
+<li>Component Development Competition
+<ul><li>Registration begins July 31, 2006</li></ul></li>
 </ul>
-<span class="bodySubtitle">Finals held at:</span>
-<ul>
-<li>Aladdin Resort and Casino*, Las Vegas, NV</li>
-</ul>
-Where else in the world can you marvel at dancing fountains (the Bellagio), see an erupting volcano (the Mirage), or watch pirates and sirens entertain on ships nightly (Treasure Island)?  Not to mention downtown's Fremont Street Experience that is a haven for pedestrians. Las Vegas has it all!
+<span class="bodySubtitle">TCCC Competitors:</span><br>
+All registered TopCoder members over the age of 18 who are matriculated full time at an accredited college or university may compete.
 <br><br>
-<span class="bodySubtitle">Important Dates:</span>
+<span class="bodySubtitle">TCCC Finals:</span><br>
+November 15 - 17, 2006 at the San Diego Marriott Mission Valley, San Diego, California, USA
 <br><br>
-<b>Component Competition</b>
-<ul>
-<li>Registration:  January 2, 2006</li>
-<li>Begins:  January 18, 2006</li>
-</ul>
-<b>Algorithm Competition</b>
-<ul>
-<li>Registration:  February 13, 2006</li>
-<li>Begins:  February 28, 2006</li>
-</ul>
-<ul>
-<li>Prizes for the Algorithm and Component competitions total $150,000</li>
-</ul>
-<span class="bodySubtitle">New to the 2006 TCCC - the TCCC Complete Coder Incentive Program!</span>
-<br><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
+<span class="bodySubtitle">TCCC Prize Money:</span><br>
+Prizes for the Algorithm and Component competitions total $200,000
 <br><br>
-*soon to be Planet Hollywood Resort and Casino
+<span class="bodySubtitle">Want to win a trip to the TCCC?</span><br>
+Refer your friends and classmates to TopCoder, and you could be our top Student Representative.
 <br><br>
+<%--<span class="bodySubtitle">Don't forget to take part in the 2006 TCCC Complete Coder Incentive Program!</span><br>
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.
+<br><br>--%>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_rules">Algorithm</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules">Component</A> rules and regulations for full details.
-        </div>
+       </div>
       </td>
         
          

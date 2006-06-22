@@ -24,34 +24,28 @@
             
 <span class="bigTitle">Hotels near the TCCC06</span>
 <br><br>
-<A href="http://www.aladdincasino.com" target="_blank">Aladdin Resort and Casino*</A>
-<br>3667 Las Vegas Blvd. S.
-<br>Las Vegas, NV 89109
-<br>877-333-9474
+<A href="http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left">San Diego Marriott Mission Valley</A><br>
+8757 Rio San Diego Drive<br>
+San Diego, California 92108<br>
+800-842-5329
 <br><br>
-Themed for Aladdin's legendary tale, this resort includes more restaurants, more shops, more entertainment and more casino options than any other destination in Las Vegas.
+Several other hotels are located only a short walk from the <A href="http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left">San Diego Marriott Mission Valley</A>. We have included a representative sample for your convenience: 
 <br><br>
-From its location in the heart of the Las Vegas Strip, the Aladdin offers easy access from the airport and highway as well as easy pedestrian access directly from the Strip.
+<A href="http://www.doubletree.com/en/dt/hotels/index.jhtml?ctyhocn=SDGO-DT">Doubletree Hotel San Diego Mission Valley</A><br>
+7450 Hazard Center Drive<br>
+San Diego, CA 92108<br>
+(619)-297-5466
 <br><br>
-Several other hotels are located only a short walk from the Aladdin Resort and Casino. We have included a representative sample for your convenience:
+<A href="http://www.starwoodhotels.com/sheraton/search/hotel_detail.html?propertyID=127">Sheraton San Diego Hotel and Marina</A><br>
+1380 Harbor Island Drive<br>
+San Diego, CA 92101<br>
+(619) 291-2900
 <br><br>
-<A href="http://www.ballyslv.com" target="_blank">Bally's Las Vegas</A>
-<br>3645 Las Vegas Blvd South
-<br>Las Vegas, NV 89109-4307
-<br>888-742-9248
-<br><br>
-<A href="http://www.paris-lv.com" target="_blank">Paris Las Vegas</A>
-<br>3655 Las Vegas Blvd South
-<br>Las Vegas, NV 89109
-<br>877-796-2096
-<br><br>
-<A href="http://www.travelodge.com" target="_blank">Travelodge</A>
-<br>3735 Las Vegas Blvd. South
-<br>Las Vegas, NV 89109
-<br>702-736-3443
-<br><br>
-*Soon to be Planet Hollywood Resort and Casino
-<br><br>
+<A href="http://www.hanaleihotel.com/">Red Lion Hanalei Hotel San Diego</A><br>
+2270 Hotel Circle N<br>
+San Diego, CA  92108<br>
+(619) 297-1101
+<br><br><br><br><br><br><br><br><br><br>
         </div>
       </td>
         
