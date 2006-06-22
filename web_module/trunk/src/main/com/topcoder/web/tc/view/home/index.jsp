@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
