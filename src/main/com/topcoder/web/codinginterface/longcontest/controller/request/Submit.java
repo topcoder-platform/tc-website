@@ -323,11 +323,16 @@ public class Submit extends Base {
     private boolean isNearEnd(long roundId) throws Exception {
         log.debug("isNearEnd called on round: " + roundId);
         ResultSetContainer rsc = getRoundInfo(roundId);
-        long end = rsc.getTimestampItem(0, "end_time").getTime();
-        long curr = System.currentTimeMillis();
-        long diff = Constants.SUBMISSION_RATE * 60 * 1000;
-        log.debug("end: " + end + " curr: " + curr + " diff: " + diff);
-        return (end - curr) < diff;
+        if (rsc.getIntItem(0, "round_type_id") == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                rsc.getIntItem(0, "round_type_id") == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+            return false;
+        } else {
+            long end = rsc.getTimestampItem(0, "end_time").getTime();
+            long curr = System.currentTimeMillis();
+            long diff = Constants.SUBMISSION_RATE * 60 * 1000;
+            log.debug("end: " + end + " curr: " + curr + " diff: " + diff);
+            return (end - curr) < diff;
+        }
     }
 
     // Checks whether the specified field is null.
