@@ -1160,6 +1160,12 @@
         <delete file="${jboss_home}/server/all/deploy/creative.war"/>
         <unwar src="${war.dir}/creative.war" dest="${jboss_home}/server/all/deploy/creative.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/creative.war/META-INF"/>
+        <copy todir="${jboss_conf}">
+            <fileset dir="${resources}">
+                <include name="Creative.properties"/>
+            </fileset>
+        </copy>
+
     </target>
 
 
