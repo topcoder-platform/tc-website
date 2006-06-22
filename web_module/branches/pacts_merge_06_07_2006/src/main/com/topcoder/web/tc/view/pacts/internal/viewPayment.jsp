@@ -155,7 +155,7 @@
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
    out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
-   out.println("\">Reconcile Payment</a><br>");
+   out.println("\">Update Payment</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");

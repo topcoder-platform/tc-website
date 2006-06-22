@@ -395,7 +395,6 @@ public interface PactsConstants {
     public static final String VIEW_TASK = "view";
     public static final String ADD_TASK = "add";
     public static final String UPDATE_TASK = "update";
-    public static final String RECONCILE_TASK = "reconcile";
     public static final String LOGOUT_TASK = "logout";
     public static final String SEARCH_TASK = "search";
     public static final String AFFIRM_TASK = "affirm";
