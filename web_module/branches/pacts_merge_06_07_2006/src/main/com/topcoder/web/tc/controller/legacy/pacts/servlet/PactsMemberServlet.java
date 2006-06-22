@@ -236,7 +236,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * @param response the http response
      */
     public void doAffidavitHistory(HttpServletRequest request,
-                                   HttpServletResponse response) throws Exception {
+                                   HttpServletResponse response) {
         AffidavitBean bean = new AffidavitBean();
         Affidavit[] affidavits;
 
@@ -291,8 +291,13 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             request.setAttribute(COMPONENT_DATA, componentIdMap);
             
             // Payment creation dates
-            String[] creationDates = paymentBean.getCreationDates(paymentIds);
-            request.setAttribute(CREATION_DATE_LIST, creationDates);
+            try {
+            	String[] creationDates = paymentBean.getCreationDates(paymentIds);
+            	request.setAttribute(CREATION_DATE_LIST, creationDates);
+            } catch (Exception e1) {
+        		log.error("error in doAffidavitHistory");
+                e1.printStackTrace();
+        	}
         }
         
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
