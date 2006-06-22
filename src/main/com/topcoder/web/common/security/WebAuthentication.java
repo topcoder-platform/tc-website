@@ -30,6 +30,11 @@ public interface WebAuthentication extends Authentication {
      */
     void login(User u, boolean rememberUser) throws LoginException;
 
+    /**
+     * A user is "known" if they've ever logged in
+     *
+     * @return true if the user is "known" false otherwise
+     */
     boolean isKnownUser();
 
 }

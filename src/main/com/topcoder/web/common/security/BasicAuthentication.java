@@ -46,6 +46,8 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
     public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
 
+    private boolean knownUser = false;
+
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
@@ -300,6 +302,7 @@ public class BasicAuthentication implements WebAuthentication {
         Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(c);
+        knownUser = true;
     }
 
     /**
@@ -357,12 +360,16 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     public boolean isKnownUser() {
-        Cookie[] ca = request.getCookies();
-        boolean found = false;
-        for (int i = 0; ca != null && i < ca.length && !found; i++) {
-            found = KNOWN_USER.equals(ca[i].getName());
+        if (knownUser) {
+            return true;
+        } else {
+            Cookie[] ca = request.getCookies();
+            boolean found = false;
+            for (int i = 0; ca != null && i < ca.length && !found; i++) {
+                found = KNOWN_USER.equals(ca[i].getName());
+            }
+            return found;
         }
-        return found;
     }
 
 }

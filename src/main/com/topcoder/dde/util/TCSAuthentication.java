@@ -27,6 +27,7 @@ public class TCSAuthentication implements WebAuthentication {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private static final User GUEST = SimpleUser.createGuest();
+    private boolean knownUser = false;
 
 
     public TCSAuthentication(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -117,15 +118,19 @@ public class TCSAuthentication implements WebAuthentication {
         Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
         c.setMaxAge(Integer.MAX_VALUE);
         response.addCookie(c);
+        knownUser = true;
     }
 
     public boolean isKnownUser() {
-        Cookie[] ca = request.getCookies();
-        boolean found = false;
-        for (int i = 0; ca != null && i < ca.length && !found; i++) {
-            found = KNOWN_USER.equals(ca[i].getName());
+        if (knownUser) {
+            return true;
+        } else {
+            Cookie[] ca = request.getCookies();
+            boolean found = false;
+            for (int i = 0; ca != null && i < ca.length && !found; i++) {
+                found = KNOWN_USER.equals(ca[i].getName());
+            }
+            return found;
         }
-        return found;
     }
-
 }
