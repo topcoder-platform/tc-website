@@ -23,7 +23,7 @@
         _uacct = "UA-321688-1"; urchinTracker();
         -->
     </script>
-    <c:if test="${sessionInfo.isKnownUser}">
+    <c:if test="${sessionInfo.knownUser}">
         <% if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) { %>
         <script src="/webiq/webiq.js" type="text/javascript"></script>
         <% } %>
@@ -32,7 +32,7 @@
 </head>
 
 <body>
-<c:if test="${sessionInfo.isKnownUser}">
+<c:if test="${sessionInfo.knownUser}">
     <% if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) { %>
     <script type="text/javascript">
         <!--
