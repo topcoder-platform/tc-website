@@ -56,6 +56,8 @@ function goTo(selection){
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
        
     HashMap componentIdMap = (HashMap)request.getAttribute(PactsConstants.COMPONENT_DATA);
+    
+    String[] paymentCreationDates = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
 
 	String fullList = request.getParameter("full_list");
 	String href = new String("");
@@ -177,10 +179,11 @@ function goTo(selection){
 	
 	   //set up the table title row
 	   tableData.setElement(0,0,"Payment Description");
-	   tableData.setElement(0,1,"Net Payment Amount");
-	   tableData.setElement(0,2,"Status");
+	   tableData.setElement(0,1,"Date Created");
+	   tableData.setElement(0,2,"Net Payment Amount");
+	   tableData.setElement(0,3,"Status");
 	   if (fullList != null) {
-	   	   tableData.setElement(0,3,"Date Paid");
+	   	   tableData.setElement(0,4,"Date Paid");
 	   }
 	   
 	   // fill in the data
@@ -202,17 +205,20 @@ function goTo(selection){
 	       		tableData.setElement(i,0,description);
 	       }
 	      
+	       // date created
+	       tableData.setElement(i,1,paymentCreationDates[i-1]);
+	      
 	       // net amount
 	       DecimalFormat decf = new DecimalFormat("0.00");
 	       str = "$" + decf.format(payments[i-1].getNetAmount());
-	       tableData.setElement(i,1,str);
+	       tableData.setElement(i,2,str);
 	       
 	       // status
-	       tableData.setElement(i,2,payments[i-1].getStatusDesc());
+	       tableData.setElement(i,3,payments[i-1].getStatusDesc());
 	       
 	       // date paid
 		   if (fullList != null && payments[i-1].getPayDate() != null && !payments[i-1].getPayDate().equals("00/00/0000")) {
-		   		tableData.setElement(i,3,payments[i-1].getPayDate());
+		   		tableData.setElement(i,4,payments[i-1].getPayDate());
 		   }
 	   }
 	   
@@ -225,10 +231,11 @@ function goTo(selection){
 	   table.setClassName("bodyText");
 	   table.setRowBold(0,true);
 	   table.setWidth("100%");
-	   table.setColumnWidth(0, "60%");
-	   table.setColumnWidth(1, "20%");
-	   table.setColumnWidth(2, "10%");
+	   table.setColumnWidth(0, "50%");
+	   table.setColumnWidth(1, "10%");
+	   table.setColumnWidth(2, "20%");
 	   table.setColumnWidth(3, "10%");
+	   table.setColumnWidth(4, "10%");
 	   out.print("<P></P>");
 	   out.print(table.getHtml());
 	}

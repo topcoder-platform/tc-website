@@ -236,7 +236,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * @param response the http response
      */
     public void doAffidavitHistory(HttpServletRequest request,
-                                   HttpServletResponse response) {
+                                   HttpServletResponse response) throws Exception {
         AffidavitBean bean = new AffidavitBean();
         Affidavit[] affidavits;
 
