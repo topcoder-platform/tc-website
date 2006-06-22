@@ -31,7 +31,10 @@ public interface WebAuthentication extends Authentication {
     void login(User u, boolean rememberUser) throws LoginException;
 
     /**
-     * A user is "known" if they've ever logged in
+     * A user is "known" if they've ever logged in.  We do not make
+     * the requirement that we have to be sure that the individual currently
+     * using the computer has logged in, just that someone has used that machine
+     * and logged in.  Generally, we know this by using a cookie.
      *
      * @return true if the user is "known" false otherwise
      */
