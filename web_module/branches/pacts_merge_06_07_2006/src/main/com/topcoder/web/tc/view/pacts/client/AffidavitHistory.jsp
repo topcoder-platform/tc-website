@@ -84,8 +84,8 @@ function goTo(selection){
 	   out.print("</p>");
 	}
 	
-	PactsMemberTableModel tableData;
-	PactsHtmlTable table;
+	PactsMemberTableModel tableData = null;
+	PactsHtmlTable table = null;
 	if (affidavits != null) {
 	   // build the affidavit table
 	   tableData = new PactsMemberTableModel(affidavits.length+1,6);
@@ -154,28 +154,36 @@ function goTo(selection){
 		   		tableData.setElement(i,5,affidavits[i-1].getPayDate());
 		   }
 	   }
-
-	   table = new PactsHtmlTable(tableData);
-	   table.setBgcolor("\"#FFFFFF\"");
-	   table.setCellSpacing("2");
-	   table.setCellPadding("2");
-	   table.setBorder("0");
-	   table.setRowColor(0,"\"#093158\"");
-	   table.setClassName("bodyText");
-	   table.setRowBold(0,true);
-	   table.setWidth("100%");
-	   table.setColumnWidth(0, "35%");
-	   table.setColumnWidth(1, "20%");
-	   table.setColumnWidth(2, "15%");
-	   table.setColumnWidth(3, "10%");
-	   table.setColumnWidth(4, "10%");
-	   table.setColumnWidth(5, "10%");
-	   out.print(table.getHtml());
     }
+%>
+
+<table BGCOLOR="#FFFFFF" CELLPADDING=2 CELLSPACING=2 BORDER=0 WIDTH=100%>
+	<tr>
+		<td class="bodyText" width="35%"><b>Affidavit Description</b></td>
+		<td class="bodyText" width="20%"><b>Affidavit Affirmation</b></td>
+		<td class="bodyText" width="15%"><b>Net Payment Amount</b></td>
+		<td class="bodyText" width="10%"><b>Notarized</b></td>
+		<td class="bodyText" width="10%"><b>Status</b></td>
+		<td class="bodyText" width="10%"><b>Date Paid</b></td>
+	</tr>
+<%	for(int i=1;i<=affidavits.length;i++) { %>
+	<tr>
+		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
+		<td class="bodyText" width="20%"><%=tableData.getElement(i,1)%></td>
+		<td class="bodyText" width="15%"><%=tableData.getElement(i,2)%></td>
+		<td class="bodyText" width="10%"><%=tableData.getElement(i,3)%></td>
+		<td class="bodyText" width="10%"><%=tableData.getElement(i,4)%></td>
+		<td class="bodyText" width="10%"><%=tableData.getElement(i,5)%></td>
+	</tr>
+<%	} %>
+</table>
     
+<P></P>    
+    
+<%    
     if(payments!=null) {
        // build the payment table
-	   tableData = new PactsMemberTableModel(payments.length+1,4);
+	   tableData = new PactsMemberTableModel(payments.length+1,5);
 	
 	   //set up the table title row
 	   tableData.setElement(0,0,"Payment Description");
@@ -221,25 +229,27 @@ function goTo(selection){
 		   		tableData.setElement(i,4,payments[i-1].getPayDate());
 		   }
 	   }
-	   
-	   table = new PactsHtmlTable(tableData);
-	   table.setBgcolor("\"#FFFFFF\"");
-	   table.setCellSpacing("2");
-	   table.setCellPadding("2");
-	   table.setBorder("0");
-	   table.setRowColor(0,"\"#093158\"");
-	   table.setClassName("bodyText");
-	   table.setRowBold(0,true);
-	   table.setWidth("100%");
-	   table.setColumnWidth(0, "50%");
-	   table.setColumnWidth(1, "10%");
-	   table.setColumnWidth(2, "20%");
-	   table.setColumnWidth(3, "10%");
-	   table.setColumnWidth(4, "10%");
-	   out.print("<P></P>");
-	   out.print(table.getHtml());
 	}
 %>
+
+<table BGCOLOR="#FFFFFF" CELLPADDING=2 CELLSPACING=2 BORDER=0 WIDTH=100%>
+	<tr>
+		<td class="bodyText" width="35%"><b>Payment Description</b></td>
+		<td class="bodyText" width="20%"><b>Date Created</b></td>
+		<td class="bodyText" width="25%"><b>Net Payment Amount</b></td>
+		<td class="bodyText" width="10%"><b>Status</b></td>
+		<td class="bodyText" width="10%"><b>Date Paid</b></td>
+	</tr>
+<%	for(int i=1;i<=payments.length;i++) { %>
+	<tr>
+		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
+		<td class="bodyText" width="20%"><%=tableData.getElement(i,1)%></td>
+		<td class="bodyText" width="25%"><%=tableData.getElement(i,2)%></td>
+		<td class="bodyText" width="10%"><%=tableData.getElement(i,3)%></td>
+		<td class="bodyText" width="10%"><%=tableData.getElement(i,4)%></td>
+	</tr>
+<%	} %>
+</table>
 
 <P><BR/></P>
       </TD>

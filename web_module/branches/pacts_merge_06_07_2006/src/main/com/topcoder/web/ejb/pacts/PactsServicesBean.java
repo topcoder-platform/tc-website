@@ -1399,7 +1399,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     	sb.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
     	sb.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ") ");
     	sb.append("AND proj.cur_version = 1");
-    	log.info("query: " + sb.toString());
     	
     	ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
         HashMap hm = new HashMap();
