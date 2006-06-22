@@ -63,8 +63,8 @@ public class Login extends Base {
                             if (getEmailStatus(sub.getUserId()) != ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
-                                setNextPage(com.topcoder.web.tc.Constants.EMAIL_ACTIVATE);
-                                setIsNextPageInContext(true);
+                                setNextPage(Constants.EMAIL_ACTIVATE);
+                                setIsNextPageInContext(false);
                                 return;
                             } else {
                                 log.debug("user active");
@@ -115,7 +115,7 @@ public class Login extends Base {
 
         }
 
-        String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getHeader("Referer");
         if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
