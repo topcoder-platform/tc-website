@@ -6,6 +6,33 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%---------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.26.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_062606">Bloomberg L.P. Named Premier Sponsor of TCCC06</A></span><br><br>
+      Leading Global Provider of Data, News and Analytics Backs Top Computer Science Tournament.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506059" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.26.06<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062606">So I see you're a member of TopCoder&#8230;</A></span><br><br>
+       &#8230;Tell me about that. If your resume includes some mention of TopCoder, then you might have heard this during a job interview.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=features&d2=062606">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506060" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -198,20 +225,6 @@ while <tc-webtag:handle coderId="7442498" context="algorithm"/> got second, with
        <A href="/tc?module=Static&d1=help&d2=writeForTC">learn more</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506053" message="discuss this" />
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TCHS Competitions</A></span><br><br>
-      TopCoder today announced a partnership with the renowned Science Museum of Minnesota to promote the new TopCoder High School (TCHS) tournament to its members and high school students statewide.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506051" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
