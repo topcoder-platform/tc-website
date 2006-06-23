@@ -493,15 +493,19 @@
 
 <br><br>
 
-<strong>Terms of Use</strong>
-<br>
-<IFRAME SRC="" WIDTH="100%" HEIGHT="200"></IFRAME>
-<div align="center">
-<span class="bigRed"></span>
 
-<INPUT TYPE="checkbox" NAME="tuid"/>I agree
-<br><br>
-</div>
+<c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="termsId"/>
+<c:if test="${!regUser.agreedToSiteTerms}">
+    <strong>Terms of Use</strong>
+    <br>
+    <IFRAME SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>" WIDTH="100%" HEIGHT="200"></IFRAME>
+    <div align="center">
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${termsId}">${err}
+            <br/></tc-webtag:errorIterator></span>
+        <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
+        <br><br>
+    </div>
+</c:if>
 
 <div align="center">
     <a href="#" onclick="document.mainForm.submit();return false;">Submit</a>
