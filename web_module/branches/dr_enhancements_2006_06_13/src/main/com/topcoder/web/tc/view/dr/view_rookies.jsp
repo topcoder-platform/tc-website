@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.tc.Constants" %>
+         import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -160,108 +162,109 @@ Please select a <strong>season</strong><br>
     </rsc:iterator>
 </SELECT>
 <c:choose>
-    <c:when test="${fn:length(boardList) > 0}">
+<c:when test="${fn:length(boardList) > 0}">
 
-        <!-- crop -->
-        <div class="pagingBox" style="width:300px;">
-            <c:choose>
-                <c:when test="${croppedDataBefore}">
-                    <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-                </c:when>
-                <c:otherwise>
-                    &lt;&lt; prev
-                </c:otherwise>
-            </c:choose>
-            |
-            <c:choose>
-                <c:when test="${croppedDataAfter}">
-                    <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-                </c:when>
-                <c:otherwise>
-                    next &gt;&gt;
-                </c:otherwise>
-            </c:choose>
-        </div>
+    <!-- crop -->
+    <div class="pagingBox" style="width:300px;">
+        <c:choose>
+            <c:when test="${croppedDataBefore}">
+                <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+            </c:when>
+            <c:otherwise>
+                &lt;&lt; prev
+            </c:otherwise>
+        </c:choose>
+        |
+        <c:choose>
+            <c:when test="${croppedDataAfter}">
+                <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+            </c:when>
+            <c:otherwise>
+                next &gt;&gt;
+            </c:otherwise>
+        </c:choose>
+    </div>
 
-        <table class="stat" cellpadding="0" cellspacing="0" width="510">
-            <tr>
-                <td class="title" colspan="6">
-                    <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-                    Development Cup Series Rookie of the Year Leaderboard
-                    <% } else { %>
-                    Design Cup Series Rookie of the Year Leaderboard
-                    <% } %>
+    <table class="stat" cellpadding="0" cellspacing="0" width="510">
+        <tr>
+            <td class="title" colspan="6">
+                <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
+                Development Cup Series Rookie of the Year Leaderboard
+                <% } else { %>
+                Design Cup Series Rookie of the Year Leaderboard
+                <% } %>
+            </td>
+        </tr>
+        <tr>
+            <td class="headerC">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
+            </td>
+            <td class="header" width="100%">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
+            </td>
+            <td class="headerR" colspan="3">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
+            </td>
+            <td class="headerR">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10
+                    Prize</a>
+            </td>
+        </tr>
+
+        <%boolean even = false;%>
+        <% int i = 0;%>
+        <c:forEach items="${boardList}" var="boardRow">
+            <tr class="<%=even?"dark":"light"%>">
+                <td class="valueC">${boardRow.rank}</td>
+                <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
+                    <c:if test="${boardRow.potential}">*</c:if></td>
+                <td class="valueC">
+                    <c:if test="${boardRow.winTrip}">
+                        <div class="container">
+                            <img src="/i/interface/emblem/trip.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>a')" onmouseout="popHide()"/>
+
+                            <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the
+                                <strong>Rookie of the Year</strong></div></div>
+                        </div>
+                    </c:if>
                 </td>
+                <td class="valueC">
+                    <c:if test="${boardRow.placementPrize>0}">
+                        <div class="container">
+                            <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>b')" onmouseout="popHide()"/>
+
+                            <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top
+                                Ten</strong></div></div>
+                        </div>
+                    </c:if>
+                </td>
+                <td class="valueR">${boardRow.points}</td>
+                <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+                    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+                </c:if></td>
             </tr>
-            <tr>
-                <td class="headerC">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
-                </td>
-                <td class="header" width="100%">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
-                </td>
-                <td class="headerR" colspan="3">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
-                </td>
-                <td class="headerR">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10
-                        Prize</a>
-                </td>
-            </tr>
+            <%i++;%>
+            <%even = !even;%>
+        </c:forEach>
+    </table>
 
-            <%boolean even = false;%>
-            <% int i = 0;%>
-            <c:forEach items="${boardList}" var="boardRow">
-                <tr class="<%=even?"dark":"light"%>">
-                    <td class="valueC">${boardRow.rank}</td>
-                    <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
-                        <c:if test="${boardRow.potential}">*</c:if></td>
-                    <td class="valueC">
-                        <c:if test="${boardRow.winTrip}">
-                            <div class="container">
-                                <img src="/i/interface/emblem/trip.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>a')" onmouseout="popHide()"/>
+    <span class="small">* has not yet passed review enough times this season to qualify as a rookie</span>
 
-                                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the
-                                    <strong>Rookie of the Year</strong></div></div>
-                            </div>
-                        </c:if>
-                    </td>
-                    <td class="valueC">
-                        <c:if test="${boardRow.placementPrize>0}">
-                            <div class="container">
-                                <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>b')" onmouseout="popHide()"/>
+    <div class="pagingBox">
+        View &#160;
+        <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+        &#160;at a time starting with &#160;
+        <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+        <a href="javascript:document.rookieBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
+    </div>
 
-                                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top
-                                    Ten</strong></div></div>
-                            </div>
-                        </c:if>
-                    </td>
-                    <td class="valueR">${boardRow.points}</td>
-                    <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
-                        <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-                    </c:if></td>
-                </tr>
-                <%i++;%>
-                <%even = !even;%>
-            </c:forEach>
-        </table>
-
-        <span class="small">* has not yet passed review enough times this season to qualify as a rookie</span>
-
-        <div class="pagingBox">
-            View &#160;
-            <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-            &#160;at a time starting with &#160;
-            <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-            <a href="javascript:document.rookieBoardForm.submit();" class="bcLink">&#160;[ submit ]</a>
-        </div>
-
-    </c:when>
-    <c:otherwise>
-        <br><br>
-        The selected season is underway and results will start coming in soon.
-    </c:otherwise>
+</c:when>
+<c:otherwise>
+    <br><br>
+    The selected season is underway and results will start coming in soon.
+</c:otherwise>
 </c:choose>
+</form>
 </div>
 </div>
 </TD>
