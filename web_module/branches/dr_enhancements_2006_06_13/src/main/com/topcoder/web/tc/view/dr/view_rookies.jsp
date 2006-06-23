@@ -179,7 +179,7 @@ Please select a <strong>season</strong><br>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="510">
    <tr>
-      <td class="title" colspan="5">
+      <td class="title" colspan="6">
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
 Development Cup Series Rookie of the Year Leaderboard
 <% } else { %>
@@ -194,7 +194,7 @@ Design Cup Series Rookie of the Year Leaderboard
       <td class="header" width="100%">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
       </td>
-      <td class="headerR" colspan="2">
+      <td class="headerR" colspan="3">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
       </td>
       <td class="headerR">
@@ -215,6 +215,14 @@ Design Cup Series Rookie of the Year Leaderboard
    <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
 </div>
 </c:if>
+         </td>
+         <td class="valueC">
+<%----prize logic goes here----%>
+<div class="container" >
+   <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>b')" onmouseout="popHide()" />
+   <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
+</div>
+<%--------%>
          </td>
          <td class="valueR">${boardRow.points}</td>
          <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
