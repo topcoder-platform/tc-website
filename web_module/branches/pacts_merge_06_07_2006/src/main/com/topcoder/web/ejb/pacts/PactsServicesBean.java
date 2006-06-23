@@ -4594,6 +4594,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             HashSet userTaxFormSet = new HashSet();
             for (i = 0; i < rscUser.getRowCount(); i++) {
             	userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
+            }
             
             // Make sure we haven't done this before for this project.
             StringBuffer checkNew = new StringBuffer(300);
@@ -4733,7 +4734,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             return numWinners;
 
-        } catch (Exception e) {
+       } catch (Exception e) {
             printException(e);
             if (makeChanges) {
                 try {
