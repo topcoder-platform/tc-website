@@ -7,6 +7,7 @@ import com.topcoder.shared.docGen.xml.xsl.XSLTransformerWrapper;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
 
@@ -21,7 +22,7 @@ public class HTMLRenderer {
      * Use the provided XML and file to generate html.
      */
     public synchronized String render(XMLDocument xmldocObject, String xsldocURLString)
-            throws TCException {
+            throws TCException, FileNotFoundException {
 
         ByteArrayOutputStream baos = null;
         XSLTransformerWrapper wrapper = null;
@@ -35,6 +36,8 @@ public class HTMLRenderer {
             wrapper.transform(new StringReader(xmldocObject.getXML()), baos);
             return baos.toString();
 
+        } catch (FileNotFoundException e) {
+            throw e;
         } catch (Exception e) {
 
             /* try and read through the file looking for suspicious characters. */
