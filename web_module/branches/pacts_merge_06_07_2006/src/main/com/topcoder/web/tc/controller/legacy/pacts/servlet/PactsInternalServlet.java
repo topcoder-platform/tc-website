@@ -1443,6 +1443,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     new InternalDispatchPayment(request, response);
             Payment results = bean.get(payment_id);
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            String creationDate = bean.getCreationDate(results.getHeader());
+            request.setAttribute(CREATION_DATE, creationDate);
             forward(INTERNAL_PAYMENT_JSP, request, response);
         }
 
