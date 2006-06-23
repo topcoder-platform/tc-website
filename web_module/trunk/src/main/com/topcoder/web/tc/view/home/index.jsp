@@ -254,6 +254,9 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+                <%--TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>--%>
+
                 AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">...more</A><br>[June 19]<br><br>
 
