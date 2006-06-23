@@ -263,11 +263,13 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         // Payment data
         PaymentBean paymentBean = new PaymentBean();
         Payment[] payments;
+        int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
+        		ONE_OFF_PAYMENT};
         
         if (fullList != null) {
-            payments = paymentBean.getComponentDetailsForUser(getUserId(request), false);
+            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, false);
         } else {
-            payments = paymentBean.getComponentDetailsForUser(getUserId(request), true);
+            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, true);
         }
         if (payments == null) {
         	log.debug("we got null from getComponentDetailsForUser");

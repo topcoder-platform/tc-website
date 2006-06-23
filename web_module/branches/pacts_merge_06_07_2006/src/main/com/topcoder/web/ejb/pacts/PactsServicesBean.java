@@ -897,15 +897,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of component, review board, and one-off payments for the given user.
+     * Returns the list of payment details of the given type(s) for the given user.
      *
      * @param   userId  The coder ID of the payments.
+     * @param	paymentTypes  The payment type(s) to filter on.
      * @param	pendingOnly  True if only details which are pending, owed, or on hold should be returned.
      * @return  The payment header list.
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws SQLException {
-        StringBuffer selectPaymentDetails = new StringBuffer(300);        
+    public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws SQLException {
+    	String paymentTypeList = makeList(paymentTypes);
+    	StringBuffer selectPaymentDetails = new StringBuffer(300);        
         selectPaymentDetails.append("SELECT p.payment_id, pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
         selectPaymentDetails.append("pd.modification_rationale_id, mr.modification_rationale_desc, ");
@@ -918,7 +920,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.user_id = " + userId + " ");
-        selectPaymentDetails.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + "," + ONE_OFF_PAYMENT + ") ");
+        selectPaymentDetails.append("AND pd.payment_type_id IN (" + paymentTypeList + ") ");
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentDetails.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentDetails.append("AND pm.payment_method_id = pd.payment_method_id ");
@@ -935,12 +937,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         
         selectPaymentDetails.append("ORDER BY 1");
         
-        return doUserComponentPayments(userId, selectPaymentDetails.toString(), pendingOnly);
+        return doUserPayments(userId, selectPaymentDetails.toString(), paymentTypes, pendingOnly);
     }
     
-    //  Helper function to retrieve component, review board, and one-off payment information for a given user.
-    private Map doUserComponentPayments(long userId, String detailsQuery, boolean pendingOnly) throws SQLException {
-        StringBuffer selectPaymentHeaders = new StringBuffer(300);
+    //  Helper function to retrieve payment information for a given user.
+    private Map doUserPayments(long userId, String detailsQuery, int[] paymentTypes, boolean pendingOnly) throws SQLException {
+    	String paymentTypeList = makeList(paymentTypes);
+    	StringBuffer selectPaymentHeaders = new StringBuffer(300);
         selectPaymentHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
         selectPaymentHeaders.append("pt.payment_type_desc, pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentHeaders.append("pd.net_amount, pd.status_id, s.status_desc, ");
@@ -950,7 +953,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
         selectPaymentHeaders.append("AND p.user_id = u.user_id ");
-        selectPaymentHeaders.append("AND pd.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + "," + ONE_OFF_PAYMENT + ") ");
+        selectPaymentHeaders.append("AND pd.payment_type_id IN (" + paymentTypeList + ") ");
         selectPaymentHeaders.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
         selectPaymentHeaders.append("AND pt.payment_type_id = pd.payment_type_id ");
         selectPaymentHeaders.append("AND pm.payment_method_id = pd.payment_method_id ");
@@ -3613,6 +3616,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             listBuffer.append(idList[i]);
         }
         return listBuffer.toString();
+    }
+    
+    private String makeList(int idList[]) {
+    	long[] list = new long[idList.length];
+    	for (int i=0; i<list.length; i++) {
+    		list[i] = (long)idList[i];
+    	}
+    	return makeList(list);
     }
 
     // This is a lot like the helper function below, but requires payment-level granularity and

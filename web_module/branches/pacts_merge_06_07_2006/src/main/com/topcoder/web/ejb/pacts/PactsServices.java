@@ -46,7 +46,7 @@ public interface PactsServices extends EJBObject {
 
     Map getUserPaymentList(long userId) throws RemoteException, SQLException;
     
-    Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws RemoteException, SQLException;
+    Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException;
 
     Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
 

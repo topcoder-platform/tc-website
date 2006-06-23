@@ -78,18 +78,19 @@ public class PaymentBean implements PactsConstants {
     }
    
     /**
-     * Obtains an array of component and review board payment details for the given user.
+     * Obtains an array of payment details for the given user.
      * 
      * @param memberId the member id
+     * @parampaymentTypes the payment type(s) to filter on
      * @param pendingOnly whether only pending/owed details should be returned
      * @return the payment details, or null if the payment id is bad
      */
-    public Payment[] getComponentDetailsForUser(long memberId, boolean pendingOnly) {
-    	log.debug("getComponentDetailsForUser, memberId = " + memberId);
+    public Payment[] getPaymentDetailsForUser(long memberId, int[] paymentTypes, boolean pendingOnly) {
+    	log.debug("getPaymentDetailsForUser, memberId = " + memberId);
     	DataInterfaceBean bean = new DataInterfaceBean();
         java.util.Map reply = null;
         try {
-            reply = bean.getUserComponentDetailsList(memberId, pendingOnly);
+            reply = bean.getUserPaymentDetailsList(memberId, paymentTypes, pendingOnly);
         } catch (Exception e1) {
             //log.error("did not get payment list in getComponentDetailsForUser");
             //e1.printStackTrace();

@@ -280,17 +280,18 @@ public class DataInterfaceBean implements PactsConstants {
     }
     
     /**
-     * Returns the list of component payment details to the given user.
+     * Returns the list of payment details of the given type(s) for the given user.
      *
      * @param   userId  The coder ID of the payments.
-     * @param 	pendingOnly  True if only pending/owed details should be returned.
+     * @param	paymentTypes  The payment type(s) to filter on.
+     * @param 	pendingOnly  True when only pending/owed details should be returned.
      * @return  The payment header list.
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some problem retrieving the data
      */
-    public Map getUserComponentDetailsList(long userId, boolean pendingOnly) throws RemoteException, SQLException {
+    public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
-        return ps.getUserComponentDetailsList(userId, pendingOnly);
+        return ps.getUserPaymentDetailsList(userId, paymentTypes, pendingOnly);
     }
 
     /**
