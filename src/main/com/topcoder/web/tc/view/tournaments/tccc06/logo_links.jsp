@@ -25,11 +25,13 @@
             <% } %>
 
 <!-- Registration tab -->
+<%-- 
             <% if (selectedTab.equals("submit")) {%>
                  Submit Your Design | 
             <% } else { %>
                   <a href="/tc?module=TCCC06LogoTerms">Submit Your Design</a> | 
             <% } %>
+--%>
 
 <!-- View Submissions tab -->
             <% if (selectedTab.equals("submissions")) {%>
@@ -37,8 +39,8 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_3">View Submissions</a>
             <% } %>
-
 <%-- 
+
  | 
 
 <!-- Finalists tab -->
@@ -55,5 +57,4 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">Winner</a>
             <% } %>
-<%--
 --%>
