@@ -52,7 +52,41 @@
                 myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
                 myForm.submit();
               }
-        </script>
+var objPopUp = null;
+function popUp(objectID){
+objPopUp = document.getElementById(objectID);
+objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+objPopUp.style.visibility = 'hidden';
+objPopUp = null;
+}
+</script>
+<style type="text/css">
+img.emblem{float:left;margin: 0px 0px 0px 0px;}
+div.container{
+display:block;
+text-align:center;
+position:relative;
+margin:0px;
+padding:0px;
+}
+div.popUp{
+visibility: hidden;
+position: absolute;
+top:20px;
+left:20px;
+z-index: 1;
+}
+div.popUp div{
+font-size: 11px;
+width:200px;
+background: #FFFFCC;
+border: 1px solid #999999;
+padding: 6px;
+text-align:left;
+}
+</style>
     </head>
 <body>
 
@@ -124,26 +158,26 @@ Please select a <strong>season</strong><br>
 
 <!-- crop -->
 <div class="pagingBox" style="width:300px;">
-	<c:choose>
-	    <c:when test="${croppedDataBefore}">
-			<a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-		</c:when>
-		<c:otherwise>
-			&lt;&lt; prev
-		</c:otherwise>
-	</c:choose>
-	|
-	<c:choose>
-	    <c:when test="${croppedDataAfter}">
-			<a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-		</c:when>
-		<c:otherwise>
-			next &gt;&gt;
-		</c:otherwise>
-	</c:choose>
+   <c:choose>
+       <c:when test="${croppedDataBefore}">
+         <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+      </c:when>
+      <c:otherwise>
+         &lt;&lt; prev
+      </c:otherwise>
+   </c:choose>
+   |
+   <c:choose>
+       <c:when test="${croppedDataAfter}">
+         <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+      </c:when>
+      <c:otherwise>
+         next &gt;&gt;
+      </c:otherwise>
+   </c:choose>
 </div>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="500">
+<table class="stat" cellpadding="0" cellspacing="0" width="510">
    <tr>
       <td class="title" colspan="5">
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
@@ -160,27 +194,33 @@ Design Cup Series Rookie of the Year Leaderboard
       <td class="header" width="100%">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
       </td>
-      <td class="headerR">
+      <td class="headerR" colspan="2">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
       </td>
       <td class="headerR">
-         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Placement prize</a>
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10 Prize</a>
       </td>
-      <td class="headerR">Trip</td>
    </tr>
 
    <%boolean even = false;%>
+   <% int i = 0;%>
    <c:forEach items="${boardList}" var="boardRow">
-	   <tr class="<%=even?"dark":"light"%>">
-	      <td class="valueC">${boardRow.rank}</td>
-	      <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/><c:if test="${boardRow.potential}">*</c:if></td>
-	      <td class="valueR">${boardRow.points}</td>
-	      <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
-	      <td class="valueR">
-	      	<c:if test="${boardRow.winTrip}">*</c:if>
-	      </td>
-	   </tr>
-	   <%even=!even;%>
+      <tr class="<%=even?"dark":"light"%>">
+         <td class="valueC">${boardRow.rank}</td>
+         <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/><c:if test="${boardRow.potential}">*</c:if></td>
+         <td class="valueC">
+<c:if test="${boardRow.winTrip}">
+<div class="container" >
+   <img src="/i/interface/emblem/trip.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>a')" onmouseout="popHide()" />
+   <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
+</div>
+</c:if>
+         </td>
+         <td class="valueR">${boardRow.points}</td>
+         <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
+      </tr>
+      <%i++;%>
+      <%even=!even;%>
    </c:forEach>
 </table>
 
