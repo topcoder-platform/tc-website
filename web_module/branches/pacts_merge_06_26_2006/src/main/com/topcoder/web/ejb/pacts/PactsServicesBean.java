@@ -1231,20 +1231,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-    /**
-     * Returns the list of all payment methods.
-     *
-     * @return The list of payment methods
-     * @throws SQLException If there is some problem retrieving the data
-     */
-    public Map getPaymentMethods() throws SQLException {
-        StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_method_id, payment_method_desc FROM payment_method_lu ORDER BY payment_method_list_order, 2");
-        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
-        HashMap hm = new HashMap();
-        hm.put(PAYMENT_METHOD_LIST, rsc);
-        return hm;
-    }
 
     /**
      * Returns the list of all payment modification rationales.
@@ -1275,37 +1261,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         Connection c = null;
         
-        try {
-            c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-            ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
-            HashMap hm = new HashMap();
-            hm.put(PROJECT_TERMINATION_STATUS_LIST, rsc);
-            c.close();
-            c = null;
-            return hm;
-        } catch (Exception e) {
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            throw new SQLException(e.getMessage());
-        }
-    }
-
-    /**
-     * Returns the list of all project termination status types.
-     *
-     * @return The list of project termination status types
-     * @throws SQLException If there is some problem retrieving the data
-     */
-    public Map getProjectTerminationStatusTypes() throws SQLException {
-        StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT project_stat_id, project_stat_name FROM project_status ORDER BY 2");
-
-        Connection c = null;
-
         try {
             c = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = runSelectQuery(c, sb.toString(), true);
