@@ -45,10 +45,12 @@
 <span class="bigTitle">Match summary</span>
 
 <p>
-In both divisions first two problems were rather easy and standard, but the third caused some troubles. In Division 1 there is only one successful submission for the third problem done by <b>bmerry</b> who has taken the first place. The second and third are <b>warmingup</b> and <b>andrewzta</b> correspondingly. 
+In both divisions, the first two problems were rather easy and standard, but the third caused some troubles. 
+In Division 1 there was only one successful submission for the third problem done by <b>bmerry</b> who took 
+the first place. Second and third went to <b>warmingup</b> and <b>andrewzta</b>. 
 </p>
 <p>
-In division 2 there were a lot of submissions for the hard problem, but only ten of them were successive. Division 2 winner is <b>vlad_D</b>, <b>Piotrus</b> and <b>kupicekic</b> are second and third.
+In division 2 there were a lot of submissions for the hard problem, but only ten of them were successful. The Division 2 winner is <b>vlad_D</b>, <b>Piotrus</b> and <b>kupicekic</b> are second and third.
 </p>
  
 <H1>
@@ -104,10 +106,9 @@ CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" bor
   </tr>
 </table></blockquote>
 <p>
-Clearly, the answer is -1 only if the number of elements in array is even. 
+Clearly, the answer is -1 only if the number of elements in the array is even. 
 Otherwise you just need to sort an array and return the middle element.
-Alternatively you can iterate through elements of the array and check for it 
-if this is median, using the definition of the median from the problem statement.
+Alternatively you could iterate through elements of the array and check for the median, using the definition of the median from the problem statement.
 </p>
 <p>
 Here is the sample solution:
@@ -214,9 +215,9 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 <p>
 The solution of the problem is pretty straightforward. 
 You just need to iterate through the dictionary and find 
-the prefix the current string representing the <b>archive</b> 
+the prefix that the current string representing the <b>archive</b> 
 starts with. After that cut the prefix and repeat the described 
-operation until <b>archive</b> will be empty.
+operation until <b>archive</b> is empty.
 </p>
 
 <p>
@@ -423,7 +424,7 @@ CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" bor
   </tr>
 </table></blockquote>
 <p>
-First, for each size let's calculate the number of bolts of this size A. We will process the bolts in the ascending order of its size. 
+First, for each size let's calculate the number of bolts of this size A. We will process the bolts in the ascending order of their sizes. 
 </p>
 <p>
 Let D[s, flag, p1, p2] be the maximum number of unused bolts and holes, if p1 bolts of the size s are connected with holes of the size s + 1, p2 holes of the size s are connected with the bolts of the size s + 1, bolts of size less than s are already balanced and flag is equal to 0, 1, or 2. flag is equal to 0 if there is no unused (in the terms of the problem) holes and bolts of the size s. flag is equal to 1 if there are some unused bolts of the size s and flag is equal to 2 if there are some unused holes of the size s. Clearly, state with both unused bolts and holes is forbidden, because we can connect them.
@@ -448,7 +449,7 @@ If two states DP and DN are balanced, and we already know the value of DP, the v
 </ul>
 </p>
 <p>
-Using the given formulas it is possible to calculate the answer with the help of <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>. You can look at <b>bmerry</b>'s solution that is used similar (but not the same) ideas.
+Using the given formulas it is possible to calculate the answer with the help of <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>. You can look at <b>bmerry</b>'s solution which used similar (but not the same) ideas.
 </p>
 
 
