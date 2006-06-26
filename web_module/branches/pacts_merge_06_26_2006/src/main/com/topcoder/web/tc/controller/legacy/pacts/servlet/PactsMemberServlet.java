@@ -16,8 +16,6 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  */
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -281,15 +279,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         	for (int i=0; i<payments.length; i++) {
         		paymentIds[i] = payments[i].getHeader().getId();
         	}
-            Map reply = paymentBean.getPaymentComponentData(paymentIds);
-            
-        	HashMap componentIdMap = new HashMap();
-        	ResultSetContainer rsc = (ResultSetContainer)reply.get(COMPONENT_DATA);
-        	int numRows = rsc.getRowCount();
-        	for (int i=0; i<numRows; i++) {
-        		ResultSetRow row = rsc.getRow(i);
-        		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
-        	}
+	    Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
             request.setAttribute(COMPONENT_DATA, componentIdMap);
             
             // Payment creation dates

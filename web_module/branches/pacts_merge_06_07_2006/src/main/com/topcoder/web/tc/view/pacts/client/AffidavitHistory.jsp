@@ -55,7 +55,7 @@ function goTo(selection){
        payments = (Payment[])
        request.getAttribute(PactsConstants.PAYMENT_DETAIL_LIST);
        
-    HashMap componentIdMap = (HashMap)request.getAttribute(PactsConstants.COMPONENT_DATA);
+    Map componentIdMap = (Map)request.getAttribute(PactsConstants.COMPONENT_DATA);
     
     String[] paymentCreationDates = (String[])request.getAttribute(PactsConstants.CREATION_DATE_LIST);
 

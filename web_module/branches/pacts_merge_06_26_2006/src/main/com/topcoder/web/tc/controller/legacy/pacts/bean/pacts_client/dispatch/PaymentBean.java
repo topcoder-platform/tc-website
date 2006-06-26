@@ -121,7 +121,16 @@ public class PaymentBean implements PactsConstants {
     		log.error("did not get reply in getPaymentComponentData");
             e1.printStackTrace();
     	}
-    	return reply;
+
+
+    	Map componentIdMap = new HashMap();
+    	ResultSetContainer rsc = (ResultSetContainer)reply.get(COMPONENT_DATA);
+    	int numRows = rsc.getRowCount();
+    	for (int i=0; i<numRows; i++) {
+    		ResultSetRow row = rsc.getRow(i);
+    		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
+    	}
+    	return componentIdMap;
     }
     
     /**

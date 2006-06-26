@@ -281,15 +281,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         	for (int i=0; i<payments.length; i++) {
         		paymentIds[i] = payments[i].getHeader().getId();
         	}
-            Map reply = paymentBean.getPaymentComponentData(paymentIds);
-            
-        	HashMap componentIdMap = new HashMap();
-        	ResultSetContainer rsc = (ResultSetContainer)reply.get(COMPONENT_DATA);
-        	int numRows = rsc.getRowCount();
-        	for (int i=0; i<numRows; i++) {
-        		ResultSetRow row = rsc.getRow(i);
-        		componentIdMap.put(row.getStringItem("project_id"), row.getStringItem("component_id"));
-        	}
+            Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
             request.setAttribute(COMPONENT_DATA, componentIdMap);
             
             // Payment creation dates
