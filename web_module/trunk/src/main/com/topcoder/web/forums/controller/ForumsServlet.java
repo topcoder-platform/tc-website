@@ -10,29 +10,20 @@ import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.RequestTracker;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -57,22 +48,32 @@ public class ForumsServlet extends BaseServlet {
         SessionInfo info = null;
 
         try {
-            TCSubject user = null;
+            request.setCharacterEncoding("utf-8");
+            if (log.isDebugEnabled()) {
+                log.debug("content type: " + request.getContentType());
+            }
 
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
-
-            //set up security objects and session info
-            authentication = createAuthentication(tcRequest, tcResponse);
             AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
                 authToken = AuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {
             }
-            user = getUser(authToken.getUserID());
 
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            //set up security objects and session info
+            authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
+            log.debug("uri: " + request.getRequestURL().toString());
+            if (!authentication.getActiveUser().isAnonymous() &&
+                    !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
+                log.debug("using an uncached response");
+                tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+            }
             //todo perhaps this should be configurable...so implementing classes
             //todo don't have to do it if they don't want to
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
