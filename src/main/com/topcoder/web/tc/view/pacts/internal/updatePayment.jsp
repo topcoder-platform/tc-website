@@ -33,12 +33,10 @@
 		try { if (param != null) payment.getHeader().setRecentStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("payment_desc");
 		if (param != null) payment.getHeader().setDescription(param);
-		param = request.getParameter("date_printed");
-		if (param != null) payment.setPrintDate(param);
-		param = request.getParameter("date_paid");
-		if (param != null) payment.setPayDate(param);
 		param = request.getParameter("date_due");
 		if (param != null) payment.setDueDate(param);
+		param = request.getParameter("date_paid");
+		if (param != null) payment.setPayDate(param);
 		param = request.getParameter("payment_type_id");
 		try { if (param != null) payment.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("payment_method_id");
@@ -119,12 +117,16 @@
 <% out.print("<input type=text width=25 name=\"payment_desc\" value=\""+payment.getHeader().getDescription()+"\">"); %>
 		</td></tr>
 		<tr>
-		<td><b>Date Paid:</b></td><td>
-<% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment.getPrintDate()+"\">"); %>
+		<td><b>Client:</b></td><td>
+<% out.print("<input type=text width=25 name=\"client\" value=\""+payment.getHeader().getClient()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Date Due:</b></td><td>
 <% out.print("<input type=text width=25 name=\"date_due\" value=\""+payment.getDueDate()+"\">"); %>
+		</td></tr>
+		<tr>
+		<td><b>Date Paid:</b></td><td>
+<% out.print("<input type=text width=25 name=\"date_paid\" value=\""+payment.getPrintDate()+"\">"); %>
 		</td></tr>
 		<tr>
 			<td><b>Type:</b></td><td>

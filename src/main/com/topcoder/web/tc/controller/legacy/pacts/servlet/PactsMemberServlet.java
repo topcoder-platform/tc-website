@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
@@ -244,7 +245,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         }
 
         if (affidavits == null) {
-            log.error("we got null from getAffidavitForUser");
+            log.debug("we got null from getAffidavitForUser");
         } else {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
             PaymentBean paymentBean = new PaymentBean();
@@ -255,7 +256,41 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             	}
             }
         }
-
+        
+        // Payment data
+        PaymentBean paymentBean = new PaymentBean();
+        Payment[] payments;
+        int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, COMPONENT_PAYMENT, REVIEW_BOARD_PAYMENT,
+        		ONE_OFF_PAYMENT};
+        
+        if (fullList != null) {
+            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, false);
+        } else {
+            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, true);
+        }
+        if (payments == null) {
+        	log.debug("we got null from getComponentDetailsForUser");
+        } else {
+        	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
+        	
+        	// Component IDs
+        	long[] paymentIds = new long[payments.length];
+        	for (int i=0; i<payments.length; i++) {
+        		paymentIds[i] = payments[i].getHeader().getId();
+        	}
+	    Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
+            request.setAttribute(COMPONENT_DATA, componentIdMap);
+            
+            // Payment creation dates
+            try {
+            	String[] creationDates = paymentBean.getCreationDates(paymentIds);
+            	request.setAttribute(CREATION_DATE_LIST, creationDates);
+            } catch (Exception e1) {
+        		log.error("error in doAffidavitHistory");
+                e1.printStackTrace();
+        	}
+        }
+        
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
 

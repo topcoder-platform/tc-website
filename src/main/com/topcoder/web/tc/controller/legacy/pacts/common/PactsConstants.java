@@ -164,12 +164,15 @@ public interface PactsConstants {
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
     public static final String PROJECT_TERMINATION_STATUS_LIST = "project_termination_status_list";
+    public static final String CREATION_DATE_LIST = "creation_date_list";
+
     // Miscellaneous
     public static final String TEXT = "text";
     public static final String ROUND_LIST = "round_list";
     public static final String USER_DEMOGRAPHICS = "user_demographics";
     public static final String ENTRY_HEADER_LIST = "entry_header_list";
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
+    public static final String COMPONENT_DATA = "component_data";
 
     /*
     public static final String AFFIDAVIT_DETAIL = "affidavit";
@@ -272,6 +275,7 @@ public interface PactsConstants {
     public static final String METHOD_CODE = "method_code";
     public static final String EARLIEST_CREATION_DATE = "earliest_creation_date";
     public static final String LATEST_CREATION_DATE = "latest_creation_date";
+    public static final String CREATION_DATE = "creation_date";
     public static final String PAYMENT_ID = "payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";
@@ -279,6 +283,7 @@ public interface PactsConstants {
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";
     public static final String PROJECT_ID = "project_id";
+    public static final String PROJECT_CLIENT = "client";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -346,7 +351,7 @@ public interface PactsConstants {
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
     public static final String PROJECT_TERMINATION_STATUS = "projts";
-
+    
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
     public static final String AFFIDAVIT_HISTORY_CMD = "affidavit_history";
@@ -391,7 +396,6 @@ public interface PactsConstants {
     public static final String VIEW_TASK = "view";
     public static final String ADD_TASK = "add";
     public static final String UPDATE_TASK = "update";
-    public static final String RECONCILE_TASK = "reconcile";
     public static final String LOGOUT_TASK = "logout";
     public static final String SEARCH_TASK = "search";
     public static final String AFFIRM_TASK = "affirm";

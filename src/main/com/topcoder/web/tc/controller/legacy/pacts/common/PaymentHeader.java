@@ -48,6 +48,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private long projectId;
+    private String client;
     private boolean reviewed;
 
     /**************\
@@ -72,56 +73,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         typeId = 0;
         methodId = 1;	// Check
         reviewed = false;
-    }
-
-/* This constructor makes the object out of raw data.
-*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
-*
-*  @ARGS
-*   o id          - the DB id of the payment details
-*   o userID      - the DB id of the TC member
-*   o handle      - the handle of the TC member
-*   o groupID[]    - the group number of the TC member
-*   o status      - the most recent status of the payment
-*   o netAmount   - the current net amount of the payment
-*   o description - the description of the payment
-*   o type        - type of the payment
-*	o method      - payment method
-*/
-    public PaymentHeader(long id, long userID, String handle, long groupID[],
-                         String status, double netAmount, String description, String type, String method) {
-
-        this.id = id;
-        user = new UserProfileHeader(userID, handle);
-        recentStatus = status;
-        recentNetAmount = netAmount;
-        this.description = description;
-        this.type = type;
-        this.method = method;
-    }
-
-/* This constructor makes the object out of raw data & headers.
-*  DEPRECATED -- WILL BE REMOVED UNLESS I AM NOTIFIED (Matt)
-*
-*  @ARGS
-*   o id          - the DB id of the payment details
-*   o user        - UserProfileHeader
-*   o status      - the most recent status of the payment
-*   o netAmount   - the current net amount of the payment
-*   o description - the description of the payment
-*   o type        - type of the payment
-*	o method      - payment method
-*/
-    public PaymentHeader(long id, UserProfileHeader user,
-                         String status, double netAmount, String description, String type, String method) {
-
-        this.id = id;
-        this.user = user;
-        recentStatus = status;
-        recentNetAmount = netAmount;
-        this.description = description;
-        this.type = type;
-        this.method = method;
     }
 
 /* This constructor makes the object out of the Map containing
@@ -185,6 +136,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         	user = new UserProfileHeader(
         			TCData.getTCLong(rsr, "user_id", 0, true),
                     TCData.getTCString(rsr, "handle", "default handle", true));
+        }
+        if (typeId == COMPONENT_PAYMENT || typeId == REVIEW_BOARD_PAYMENT) {
+        	projectId = TCData.getTCLong(rsr, "project_id", 0, false);
+        	client = TCData.getTCString(rsr, "client", "", false);
         }
         reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
     }
@@ -293,6 +248,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setProjectId(long projectId) {
         this.projectId = projectId;
+    }
+    
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
     }
 
     public boolean isReviewed() {

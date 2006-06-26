@@ -17,6 +17,7 @@
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
 	NoteHeader[] notes = (NoteHeader[])
 		request.getAttribute(PactsConstants.NOTE_HEADER_LIST);
+	String creationDate = (String)request.getAttribute(PactsConstants.CREATION_DATE);
 	if (notes == null) {
 		notes = new NoteHeader[0];
 	}
@@ -52,6 +53,12 @@
 <%			out.print(payment.getHeader().getDescription());
 %>
 		</td></tr>
+<%		if (payment.getHeader().getClient() != null && !payment.getHeader().getClient().equals("")) { %>
+			<tr>
+			<td><b>Client:</b></td><td>
+				<%	out.print(payment.getHeader().getClient()); %>
+			</td></tr>
+<%		} %>
 		<tr>
 		<td><b>Status:</b></td>
 <%			out.print("<td>"+payment.getStatusDesc()+"</td>\n");
@@ -87,15 +94,19 @@
 <%			out.print("<td>"+df.format(payment.getNetAmount())+"</td>\n");
 %>
 		</tr>
-
 		<tr>
-		<td><b>Date Paid:</b></td>
-<%			out.print("<td>"+payment.getPayDate()+"</td>\n");
+		<td><b>Date Created:</b></td>
+<%			out.print("<td>"+creationDate+"</td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Date Due:</b></td>
 <%			out.print("<td>"+payment.getDueDate()+"</td>\n");
+%>
+		</tr>
+		<tr>
+		<td><b>Date Paid:</b></td>
+<%			out.print("<td>"+payment.getPayDate()+"</td>\n");
 %>
 		</tr>
 		<tr>
@@ -144,7 +155,7 @@
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
    out.println(PactsConstants.PAYMENT_ID+"="+payment.getHeader().getId());
-   out.println("\">Reconcile Payment</a><br>");
+   out.println("\">Update Payment</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");

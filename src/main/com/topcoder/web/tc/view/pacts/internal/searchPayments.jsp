@@ -59,8 +59,8 @@
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
-            <td>Print Date:</td>
-<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_PRINT_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_PRINT_DATE+"\" size=\"10\"></td>"); %>
+            <td>Creation Date:</td>
+<% out.println("            <td>Between <input type=\"text\" name=\""+PactsConstants.EARLIEST_CREATION_DATE+"\" size=\"10\"> and <input type=\"text\" name=\""+PactsConstants.LATEST_CREATION_DATE+"\" size=\"10\"></td>"); %>
           </tr>
           <tr>
             <td>Pay Date:</td>
@@ -76,7 +76,7 @@
           </tr>
           <tr>
             <td>Status:</td>
-<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < statusRowCount; n++) {
       rsr = status.getRow(n);
@@ -86,7 +86,7 @@
           </tr>
           <tr>
             <td>Type:</td>
-<% out.println("            <td><select name=\""+PactsConstants.TYPE_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.TYPE_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < paymentTypeRowCount; n++) {
       rsr = paymentType.getRow(n);
@@ -96,7 +96,7 @@
           </tr>
           <tr>
             <td>Method:</td>
-<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\">");
+<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\" multiple size=4>");
    out.println("              <option value=\"\" selected>Any</option>");
    for (int n = 0; n < paymentMethodRowCount; n++) {
       rsr = paymentMethod.getRow(n);

@@ -106,9 +106,24 @@ public class Payment implements PactsConstants, java.io.Serializable {
             modifiedDate = TCData.getTCDate(rRow, "date_modified");
             if (row == 0)
                 header = new PaymentHeader(results, row);
-            else
-                header = new PaymentHeader();
-
+            else {
+            	boolean initFromRow = true;
+            	ResultSetContainer rscHeaders = (ResultSetContainer) results.get(PAYMENT_HEADER_LIST);
+            	if (rscHeaders == null) {
+            		initFromRow = false;
+            	}
+            	int numRows = rscHeaders.getRowCount();
+            	if (row < 0 || row >= numRows) {
+            		initFromRow = false;
+            	}
+            	
+            	if (initFromRow) {
+            		header = new PaymentHeader(results, row);
+            	} else {
+            		header = new PaymentHeader();
+            	}
+            }
+           
 
             if ((statusId != PAID_STATUS)) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
