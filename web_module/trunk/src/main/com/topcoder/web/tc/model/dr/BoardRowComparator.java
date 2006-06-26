@@ -14,6 +14,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -52,6 +53,8 @@ public class BoardRowComparator implements Comparator {
      * The period key, could be stage or season.
      */
     private String periodKey;
+
+    private HashMap cache = new HashMap();
 
     /**
      * Constructor setting properties.
@@ -175,21 +178,38 @@ public class BoardRowComparator implements Comparator {
         if (log.isDebugEnabled()) {
             log.debug("running retrieveInfo command: " + commandName + " periodId: " + periodId + " phaseid: " + phaseId + " userId: " + userId);
         }
-        Request r = new Request();
-        r.setContentHandle(commandName);
-        r.setProperty(periodKey, String.valueOf(periodId));
-        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
-        r.setProperty(Constants.CODER_ID, String.valueOf(userId));
 
-        // retrieves data from DB
-        Map m = null;
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-        try {
-            m = dai.getData(r);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        ResultSetContainer ret = null;
+
+        StringBuffer key = new StringBuffer(100);
+        key.append(commandName).append(":");
+        key.append(periodId).append(":");
+        key.append(phaseId).append(":");
+        key.append(userId).append(":");
+
+        //do some local caching.  this method may be called many times in a single request on the same data, so we should cache it
+        //so we don't have to hit either the distributed cache or the db so many times.
+        ret = (ResultSetContainer) cache.get(key.toString());
+
+        if (ret == null) {
+            Request r = new Request();
+            r.setContentHandle(commandName);
+            r.setProperty(periodKey, String.valueOf(periodId));
+            r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+            r.setProperty(Constants.CODER_ID, String.valueOf(userId));
+
+            // retrieves data from DB
+            Map m = null;
+            DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+            try {
+                m = dai.getData(r);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            ret = (ResultSetContainer) m.get(commandName);
+            cache.put(key.toString(), ret);
         }
+        return ret;
 
-        return (ResultSetContainer) m.get(commandName);
     }
 }
