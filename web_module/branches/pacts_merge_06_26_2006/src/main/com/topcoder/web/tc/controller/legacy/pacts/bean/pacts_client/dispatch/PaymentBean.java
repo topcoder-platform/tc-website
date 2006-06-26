@@ -20,6 +20,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class PaymentBean implements PactsConstants {
