@@ -3,9 +3,9 @@ package com.topcoder.web.tc.controller.request.report;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -33,6 +33,11 @@ public class EditNote extends Base {
 
             getRequest().setAttribute(Constants.HANDLE,
                     user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+            getRequest().setAttribute(Constants.GIVEN_NAME,
+                    user.getFirstName(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+            getRequest().setAttribute(Constants.SURNAME,
+                    user.getLastName(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+
             setDefault(Constants.USER_ID, userId);
 
             Email email = (Email) createEJB(getInitialContext(), Email.class);
