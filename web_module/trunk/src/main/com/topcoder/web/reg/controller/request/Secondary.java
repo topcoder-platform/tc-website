@@ -145,6 +145,7 @@ public class Secondary extends Base {
                 a.setState(getFactory().getStateDAO().find((String) params.get(Constants.STATE_CODE)));
             }
         } else {
+            a.setState(null);
             if (fields.contains(Constants.PROVINCE)) {
                 a.setProvince((String) params.get(Constants.PROVINCE));
             }
