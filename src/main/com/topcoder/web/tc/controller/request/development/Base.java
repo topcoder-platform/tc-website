@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @author dok
- * Date: Feb 10, 2004
+ *         Date: Feb 10, 2004
  */
 public abstract class Base extends BaseProcessor {
     protected Logger log = Logger.getLogger(Base.class);

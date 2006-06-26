@@ -8,7 +8,10 @@ package com.topcoder.web.tc.controller.request.contracting;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.email.Email;
@@ -18,20 +21,19 @@ import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 
-import javax.transaction.TransactionManager;
 import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 import java.util.*;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class Submit extends ContractingBase {
 
 
     protected void contractingProcessing() throws TCWebException {
         try {
-            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             tm.begin();
             try {
                 //prefs
@@ -88,7 +90,9 @@ public class Submit extends ContractingBase {
                         //fileType = Integer.parseInt(file.getParameter("fileType"));
                         Map types = getFileTypes();
                         if (types.containsKey(info.getResumeContentType())) {
-                            log.debug("FOUND TYPE");
+                            if (log.isDebugEnabled()) {
+                                log.debug("FOUND TYPE");
+                            }
                             fileType = ((Long) types.get(info.getResumeContentType())).intValue();
                         } else {
                             log.info("DID NOT FIND TYPE " + info.getResumeContentType());
@@ -186,7 +190,7 @@ public class Submit extends ContractingBase {
                 tm.commit();
                 clearInfo();
             } catch (Exception e) {
-                if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE)
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE)
                     tm.rollback();
                 throw e;
             }
@@ -199,7 +203,9 @@ public class Submit extends ContractingBase {
             long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-            log.debug("Emailing: " + email);
+            if (log.isDebugEnabled()) {
+                log.debug("Emailing: " + email);
+            }
 
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Placement Registration");

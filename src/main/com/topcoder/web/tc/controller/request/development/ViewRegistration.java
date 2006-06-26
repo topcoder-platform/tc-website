@@ -132,7 +132,9 @@ public class ViewRegistration extends Base {
         }
         //just adding the date check to hold off on the db hit when we don't need it
         if (isTournamentTime()) {
-            log.debug("tourny time");
+            if (log.isDebugEnabled()) {
+                log.debug("tourny time");
+            }
             if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
                 getRequest().setAttribute("notRegistered", "true");
             }
@@ -151,7 +153,9 @@ public class ViewRegistration extends Base {
         r.setContentHandle("tournament_project");
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
         boolean ret = !((ResultSetContainer) getDataAccess().getData(r).get("tournament_project")).isEmpty();
-        log.debug("this is " + (ret ? "" : "not") + " a tourny project");
+        if (log.isDebugEnabled()) {
+            log.debug("this is " + (ret ? "" : "not") + " a tourny project");
+        }
         return ret;
     }
 

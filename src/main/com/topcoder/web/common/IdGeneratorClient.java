@@ -31,14 +31,14 @@ public class IdGeneratorClient {
 
     public static long getSeqId(String seqName) throws IDGenerationException {
         if (log.isDebugEnabled()) {
-            log.debug("getSeqId("+seqName+") called");
+            log.debug("getSeqId(" + seqName + ") called");
         }
         return getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
     private static long getSeqId(String seqName, String dataSourceName) throws IDGenerationException {
         if (log.isDebugEnabled()) {
-            log.debug("getSeqId("+seqName+", "+dataSourceName+") called");
+            log.debug("getSeqId(" + seqName + ", " + dataSourceName + ") called");
         }
         long retVal;
         IDGenerator gen = IDGeneratorFactory.getIDGenerator(seqName);

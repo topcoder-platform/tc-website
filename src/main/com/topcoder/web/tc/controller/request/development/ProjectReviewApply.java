@@ -71,7 +71,9 @@ public class ProjectReviewApply extends Base {
                 nonTransactionalValidation(catalog, reviewTypeId);
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
-                    log.debug("Begin transaction");
+                    if (log.isDebugEnabled()) {
+                        log.debug("Begin transaction");
+                    }
                     tm.begin();
                     //we're doing this so that we can have something to sync on.  if we don't lock
                     //project, then people get register while we're still doing the selects to determine
@@ -81,14 +83,20 @@ public class ProjectReviewApply extends Base {
                     project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
                     tm.commit();
-                    log.debug("Commit transaction");
+                    if (log.isDebugEnabled()) {
+                        log.debug("Commit transaction");
+                    }
                     // Put the terms text in the request.
                     TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                     setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
                 } catch (Exception e) {
-                    log.debug("Error transaction");
+                    if (log.isDebugEnabled()) {
+                        log.debug("Error transaction");
+                    }
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                        log.debug("Rollback Transaction");
+                        if (log.isDebugEnabled()) {
+                            log.debug("Rollback Transaction");
+                        }
                         tm.rollback();
                     }
                     throw e;
@@ -110,7 +118,9 @@ public class ProjectReviewApply extends Base {
         RBoardApplication rBoardApplication = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.debug("context: " + ctx.getEnvironment().toString());
+            if (log.isDebugEnabled()) {
+                log.debug("context: " + ctx.getEnvironment().toString());
+            }
 
             Object objRBoardApplication = ctx.lookup(RBoardApplicationHome.class.getName());
             RBoardApplicationHome rBoardApplicationHome =

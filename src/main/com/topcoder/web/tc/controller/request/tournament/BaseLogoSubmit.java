@@ -58,7 +58,9 @@ abstract class BaseLogoSubmit extends Base {
                 if (submissionCount >= getMaxSubmissions()) {
                     throw new NavigationException("Sorry, you can not submit again, you have already submitted " + getMaxSubmissions() + " times.");
                 } else if (file != null) {
-                    log.debug("got file " + file.getFile());
+                    if (log.isDebugEnabled()) {
+                        log.debug("got file " + file.getFile());
+                    }
                     StringBuffer fileName = new StringBuffer(100);
                     fileName.append(getUser().getId()).append("_");
                     Calendar cal = Calendar.getInstance();
@@ -75,9 +77,13 @@ abstract class BaseLogoSubmit extends Base {
                     if (idx >= 0) {
                         fileName.append(file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.')));
                     }
-                    log.debug("filename built is " + fileName.toString());
+                    if (log.isDebugEnabled()) {
+                        log.debug("filename built is " + fileName.toString());
+                    }
                     FileOutputStream fos = new FileOutputStream(getPath() + fileName.toString());
-                    log.debug("write that file to " + fileName.toString());
+                    if (log.isDebugEnabled()) {
+                        log.debug("write that file to " + fileName.toString());
+                    }
                     byte[] bytes = new byte[(int) file.getSize()];
                     file.getInputStream().read(bytes);
                     file.getInputStream().close();
@@ -96,7 +102,9 @@ abstract class BaseLogoSubmit extends Base {
 
                         long imageId = image.createImage(fileName.toString(), getImageTypeId(), getPathId(),
                                 DBMS.JTS_OLTP_DATASOURCE_NAME);
-                        log.debug("created image " + imageId);
+                        if (log.isDebugEnabled()) {
+                            log.debug("created image " + imageId);
+                        }
                         coderImage.createCoderImage(getUser().getId(), imageId, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
                         tm.commit();
                         setNextPage(getSuccessPage());

@@ -171,7 +171,9 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void addError(String key, Object error) {
-        log.debug("adding error on " + key + " " + error.toString());
+        if (log.isDebugEnabled()) {
+            log.debug("adding error on " + key + " " + error.toString());
+        }
         ArrayList errs = (ArrayList) errors.get(key);
         if (errs == null) {
             errs = new ArrayList();
@@ -192,7 +194,9 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void removeError(String key) {
-        log.debug("removing error on " + key);
+        if (log.isDebugEnabled()) {
+            log.debug("removing error on " + key);
+        }
         if (hasError(key)) {
             errors.remove(key);
         }
@@ -203,12 +207,16 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected boolean hasErrors() {
-        log.debug(errors.size() + " errors found\n" + errors.keySet());
+        if (log.isDebugEnabled()) {
+            log.debug(errors.size() + " errors found\n" + errors.keySet());
+        }
         return !errors.isEmpty();
     }
 
     protected void setDefault(String key, Object o) {
-        log.debug("setting " + key + " to " + o);
+        if (log.isDebugEnabled()) {
+            log.debug("setting " + key + " to " + o);
+        }
         defaults.put(key, o);
     }
 

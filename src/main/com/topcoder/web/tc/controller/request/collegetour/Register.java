@@ -24,7 +24,9 @@ public class Register extends Base {
             TransactionManager tm = null;
             try {
                 Timestamp now = new Timestamp(System.currentTimeMillis());
-                log.debug("now: " + now + " start: " + getRegStart() + " end: " + getRegEnd());
+                if (log.isDebugEnabled()) {
+                    log.debug("now: " + now + " start: " + getRegStart() + " end: " + getRegEnd());
+                }
                 if (now.before(getRegEnd()) && now.after(getRegStart())) {
 
                     tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);

@@ -50,42 +50,58 @@ public class ProblemArchive extends Base {
 
             ArrayList filters = new ArrayList();
             if (!className.equals("")) {
-                log.debug("add problem name filter: " + className);
+                if (log.isDebugEnabled()) {
+                    log.debug("add problem name filter: " + className);
+                }
                 filters.add(new Contains(className, "problem_name"));
                 setDefault(Constants.CLASS_NAME, className);
             }
             if (!category.equals("")) {
-                log.debug("add category filter: " + category);
+                if (log.isDebugEnabled()) {
+                    log.debug("add category filter: " + category);
+                }
                 filters.add(new Contains(category, "categories"));
                 setDefault(Constants.CATEGORY, category);
             }
             if (!minDiv1Success.equals("")) {
-                log.debug("add min div 1 success filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add min div 1 success filter");
+                }
                 filters.add(new GreaterThanOrEqual(makePercentage(minDiv1Success), "div1_success"));
                 setDefault(Constants.MIN_DIV1_SUCCESS, minDiv1Success);
             }
             if (!minDiv2Success.equals("")) {
-                log.debug("add min div 2 success filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add min div 2 success filter");
+                }
                 filters.add(new GreaterThanOrEqual(makePercentage(minDiv2Success), "div2_success"));
                 setDefault(Constants.MIN_DIV2_SUCCESS, minDiv2Success);
             }
             if (!maxDiv1Success.equals("")) {
-                log.debug("add max div 1 success filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add max div 1 success filter");
+                }
                 filters.add(new LessThanOrEqual(makePercentage(maxDiv1Success), "div1_success"));
                 setDefault(Constants.MAX_DIV1_SUCCESS, maxDiv1Success);
             }
             if (!maxDiv2Success.equals("")) {
-                log.debug("add max div 2 success filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add max div 2 success filter");
+                }
                 filters.add(new LessThanOrEqual(makePercentage(maxDiv2Success), "div2_success"));
                 setDefault(Constants.MAX_DIV2_SUCCESS, maxDiv2Success);
             }
             if (!div1Level.equals("")) {
-                log.debug("add div 1 level filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add div 1 level filter");
+                }
                 filters.add(new Equals(new Integer(div1Level), "div1_level"));
                 setDefault(Constants.DIV1_LEVEL, div1Level);
             }
             if (!div2Level.equals("")) {
-                log.debug("add div 2 level filter");
+                if (log.isDebugEnabled()) {
+                    log.debug("add div 2 level filter");
+                }
                 filters.add(new Equals(new Integer(div2Level), "div2_level"));
                 setDefault(Constants.DIV2_LEVEL, div2Level);
             }

@@ -41,7 +41,9 @@ public class SubmitEmailActivate extends Base {
             try {
                 LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
                 subject = login.login(username, password);
-                log.debug("login success " + subject.getUserId());
+                if (log.isDebugEnabled()) {
+                    log.debug("login success " + subject.getUserId());
+                }
             } catch (Exception e) {
                 log.info("login failed", e);
                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
@@ -50,9 +52,9 @@ public class SubmitEmailActivate extends Base {
                 return;
             }
             try {
-                Email e = (Email)createEJB(getInitialContext(), Email.class);
+                Email e = (Email) createEJB(getInitialContext(), Email.class);
                 long emailId = e.getPrimaryEmailId(subject.getUserId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                e.setStatusId(emailId,2, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                e.setStatusId(emailId, 2, DBMS.JTS_OLTP_DATASOURCE_NAME);
                 e.setAddress(emailId, email, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
                 TCSEmailMessage mail = new TCSEmailMessage();

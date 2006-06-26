@@ -4,15 +4,15 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.ContractingInfo;
+import com.topcoder.web.common.model.ContractingResponse;
+import com.topcoder.web.common.model.ContractingResponseGroup;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.model.ContractingInfo;
-import com.topcoder.web.common.model.ContractingResponse;
-import com.topcoder.web.common.model.ContractingResponseGroup;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;
@@ -53,17 +53,17 @@ public class PlacementInfoDetail extends Base {
                     String text = rscPref.getStringItem(j, "preference_desc");
                     int type = rscPref.getIntItem(j, "preference_type_id");
                     int id = rscPref.getIntItem(j, "preference_id");
-                    
+
                     if (type == Constants.PREFERENCE_TEXT_ANSWER && info.getPreference(String.valueOf(id)) != null) {
-                    	String answer = info.getPreference(String.valueOf(id));
-                    	
-                    	ContractingResponse rsp = new ContractingResponse();
+                        String answer = info.getPreference(String.valueOf(id));
+
+                        ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
                         rsp.setVal(answer);
 
                         g.addResponse(rsp);
-                    }
-                    else if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
+                    } else
+                    if (type != Constants.PREFERENCE_SINGLE_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         //look up answer
                         String answer = "";
 
@@ -75,7 +75,8 @@ public class PlacementInfoDetail extends Base {
 
                         for (int x = 0; x < rscVal.size(); x++) {
 
-                            if (info.getPreference(String.valueOf(id)).equals(String.valueOf(rscVal.getIntItem(x, "preference_value_id")))) {
+                            if (info.getPreference(String.valueOf(id)).equals(String.valueOf(rscVal.getIntItem(x, "preference_value_id"))))
+                            {
                                 answer = rscVal.getStringItem(x, "value");
                             }
 
@@ -261,7 +262,9 @@ public class PlacementInfoDetail extends Base {
     protected ContractingInfo getInfoFromDB(long userId) throws Exception {
         ContractingInfo info = new ContractingInfo();
 
-        log.debug("LOADING DATA FROM DB");
+        if (log.isDebugEnabled()) {
+            log.debug("LOADING DATA FROM DB");
+        }
 
         info.setUserID(userId);
 
@@ -271,7 +274,7 @@ public class PlacementInfoDetail extends Base {
         //load pref group list, then preferences in group
         Request r = new Request();
         r.setContentHandle("preference_groups");
-        
+
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("preference_groups");
         for (int i = 0; i < rsc.size(); i++) {
             ResultSetContainer rscPrefs = prefbean.getPreferencesByGroup(userId, rsc.getIntItem(i, "preference_group_id"), DBMS.COMMON_OLTP_DATASOURCE_NAME);
@@ -279,10 +282,14 @@ public class PlacementInfoDetail extends Base {
                 info.setEdit(true);
                 if (rscPrefs.getIntItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
                     info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "value"));
-                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                    if (log.isDebugEnabled()) {
+                        log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                    }
                 } else {
                     info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
-                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                    if (log.isDebugEnabled()) {
+                        log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                    }
                 }
             }
         }
@@ -311,7 +318,9 @@ public class PlacementInfoDetail extends Base {
             ResultSetContainer rscSkills = skillbean.getSkillsByType(userId, rsc.getIntItem(i, "skill_type_id"), DBMS.OLTP_DATASOURCE_NAME);
             for (int j = 0; j < rscSkills.size(); j++) {
                 info.setSkill(rscSkills.getStringItem(j, "skill_id"), rscSkills.getStringItem(j, "ranking"));
-                log.debug("SET SKILL " + rscSkills.getStringItem(j, "skill_id") + " TO " + rscSkills.getStringItem(j, "ranking"));
+                if (log.isDebugEnabled()) {
+                    log.debug("SET SKILL " + rscSkills.getStringItem(j, "skill_id") + " TO " + rscSkills.getStringItem(j, "ranking"));
+                }
             }
         }
 
@@ -323,7 +332,9 @@ public class PlacementInfoDetail extends Base {
         rsc = (ResultSetContainer) getDataAccess().getData(r).get("contracting_user_notes");
         for (int i = 0; i < rsc.size(); i++) {
             info.setNote(rsc.getStringItem(i, "note_type_id"), rsc.getStringItem(i, "text"));
-            log.debug("SET NOTE " + rsc.getStringItem(i, "note_type_id") + " TO " + rsc.getStringItem(i, "text"));
+            if (log.isDebugEnabled()) {
+                log.debug("SET NOTE " + rsc.getStringItem(i, "note_type_id") + " TO " + rsc.getStringItem(i, "text"));
+            }
         }
 
         return info;

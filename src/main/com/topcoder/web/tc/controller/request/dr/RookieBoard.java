@@ -47,10 +47,14 @@ public class RookieBoard extends BaseBoard {
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
         ResultSetContainer seasons = runQuery(Constants.DR_SEASON_COMMAND, Constants.DR_SEASON_QUERY);
-        log.debug("Got " + seasons.size() + " rows for seasons");
+        if (log.isDebugEnabled()) {
+            log.debug("Got " + seasons.size() + " rows for seasons");
+        }
         getRequest().setAttribute(Constants.SEASON_LIST_KEY, seasons);
 
-        log.debug("Getting rookie board coders...");
+        if (log.isDebugEnabled()) {
+            log.debug("Getting rookie board coders...");
+        }
         ResultSetContainer rsc = retrieveBoardData(Constants.SEASON_ID, Constants.ROOKIE_BOARD_COMMAND, Constants.ROOKIE_BOARD_QUERY);
 
         long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();

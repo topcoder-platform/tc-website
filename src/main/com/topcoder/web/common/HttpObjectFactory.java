@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 public class HttpObjectFactory {
     private static Logger log = Logger.getLogger(HttpObjectFactory.class);
+
     public static TCRequest createRequest(HttpServletRequest r) {
         String contentType = r.getContentType();
         //log.debug("content type: " + contentType);
@@ -38,7 +39,6 @@ public class HttpObjectFactory {
     }
 
     /**
-     * 
      * @param r
      * @return a TCResponse object whose headers will tell proxy servers/browsers not to cache the page
      */

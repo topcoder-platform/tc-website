@@ -110,7 +110,9 @@ public class Register extends ViewRegistration {
             List responses = new ArrayList(10);
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
-                log.debug("param: " + paramName);
+                if (log.isDebugEnabled()) {
+                    log.debug("param: " + paramName);
+                }
                 if (paramName.startsWith(AnswerInput.PREFIX)) {
                     List l = validateAnswer(paramName);
                     if (l != null)
@@ -149,7 +151,9 @@ public class Register extends ViewRegistration {
             long questionId = -1;
             long answerId = -1;
             for (int i = 0; i < values.length; i++) {
-                log.debug("param: " + paramName + " value: " + values[i]);
+                if (log.isDebugEnabled()) {
+                    log.debug("param: " + paramName + " value: " + values[i]);
+                }
                 /* single choice will be in the format <prefix><question_id>
                  * multiple choice will be in the format <prefix><question_id>,<answer_id>
                  */
@@ -170,31 +174,43 @@ public class Register extends ViewRegistration {
                     try {
                         answerId = Long.parseLong(st.nextToken());
                     } catch (NumberFormatException e) {
-                        log.debug("numberformat trying to get answer for multiple choice");
+                        if (log.isDebugEnabled()) {
+                            log.debug("numberformat trying to get answer for multiple choice");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
                     if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
-                        log.debug("param has answerid but it's not multiple choice");
+                        if (log.isDebugEnabled()) {
+                            log.debug("param has answerid but it's not multiple choice");
+                        }
                         addError(errorKey, "Invalid answer.");
                     } else if (findAnswer(answerId, question) == null) {
-                        log.debug("can't find multiple choice answer");
+                        if (log.isDebugEnabled()) {
+                            log.debug("can't find multiple choice answer");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
                 } else {
                     //only when it's a multiple choice question should there be multiple answers
                     if (values.length > 1) {
-                        log.debug("not multiple choice, but there are multiple answers");
+                        if (log.isDebugEnabled()) {
+                            log.debug("not multiple choice, but there are multiple answers");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
                     if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
                         } catch (NumberFormatException e) {
-                            log.debug("numberformat trying to get answer for single choice");
+                            if (log.isDebugEnabled()) {
+                                log.debug("numberformat trying to get answer for single choice");
+                            }
                             addError(errorKey, "Invalid answer.");
                         }
                         if (findAnswer(answerId, question) == null) {
-                            log.debug("can't find single choice answer");
+                            if (log.isDebugEnabled()) {
+                                log.debug("can't find single choice answer");
+                            }
                             addError(errorKey, "Invalid answer.");
                         }
                     }
@@ -218,7 +234,9 @@ public class Register extends ViewRegistration {
                 }
             }
         }
-        log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
+        if (log.isDebugEnabled()) {
+            log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
+        }
         return ret;
     }
 
@@ -273,7 +291,9 @@ public class Register extends ViewRegistration {
             int phase = 111 + pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
             ctx = TCContext.getContext(ApplicationServer.JNDI_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            log.debug("context: " + ctx.getEnvironment().toString());
+            if (log.isDebugEnabled()) {
+                log.debug("context: " + ctx.getEnvironment().toString());
+            }
 
             Object objComponentManager = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome componentManagerHome =
@@ -283,7 +303,9 @@ public class Register extends ViewRegistration {
                     (phase == ComponentVersionInfo.SPECIFICATION ? " Design" : " Development");
             long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
 
-            log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
+            if (log.isDebugEnabled()) {
+                log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
+            }
             Object objUserManager = ctx.lookup(UserManagerRemoteHome.EJB_REF_NAME);
             UserManagerRemoteHome userManagerHome =
                     (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);

@@ -21,20 +21,19 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *
  * @author rfairfax
  */
-public class MemberProfile extends Base { 
-    
+public class MemberProfile extends Base {
+
     protected void businessProcessing() throws TCWebException {
         try {
             //step 1, get the base data used for the top section           
-            if(!hasParameter("cr")) {
+            if (!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
             }
-            
+
             String coderId = getRequest().getParameter("cr");
-            
+
             Request r = new Request();
             r.setContentHandle("member_profile");
             r.setProperty("cr", coderId);
@@ -42,7 +41,7 @@ public class MemberProfile extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("Coder_Data");
-            
+
             //here we want to get the current tab, then load data for that tab
             boolean hasAlg = false;
             boolean hasHS = false;
@@ -51,59 +50,61 @@ public class MemberProfile extends Base {
             boolean hasDev = false;
             boolean hasLong = false;
 
-            
+
             int algRating = 0;
             int hsRating = 0;
             int desRating = 0;
             int devRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
-            
-            if(rsc.size() != 0) {
-            
-                if((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {                    
+
+            if (rsc.size() != 0) {
+
+                if ((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {
                     hasAlg = true;
                     algRating = rsc.getIntItem(0, "rating");
                 }
 
-                if((rsc.getItem(0, "hs_rating").getResultData() != null) && (rsc.getIntItem(0, "hs_rating") != 0)) {
+                if ((rsc.getItem(0, "hs_rating").getResultData() != null) && (rsc.getIntItem(0, "hs_rating") != 0)) {
                     hasHS = true;
                     hsRating = rsc.getIntItem(0, "hs_rating");
                 }
 
-                if(rsc.getItem(0, "design_rating").getResultData() != null) {
+                if (rsc.getItem(0, "design_rating").getResultData() != null) {
                     hasDes = true;
                     desRating = rsc.getIntItem(0, "design_rating");
                 }
 
-                if(rsc.getItem(0, "development_rating").getResultData() != null) {
+                if (rsc.getItem(0, "development_rating").getResultData() != null) {
                     hasDev = true;
                     devRating = rsc.getIntItem(0, "development_rating");
                 }
 
-                log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
-                hasLong=rsc.getStringItem(0, "has_long_comp").equals("1");
-                
+                if (log.isDebugEnabled()) {
+                    log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
+                }
+                hasLong = rsc.getStringItem(0, "has_long_comp").equals("1");
+
                 registeredHS = rsc.getIntItem(0, "hs_registered") == 1;
 
                 //get the selected tab
-                if(tab.equals("")) {
-                    if(!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong) {
+                if (tab.equals("")) {
+                    if (!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong) {
                         tab = "";
                     } else if (!hasAlg && !hasHS && !hasDes && !hasDev && hasLong) {
                         tab = "long";
-                    } else if(hasAlg && algRating >= hsRating && algRating >= desRating && algRating >= devRating) {
+                    } else if (hasAlg && algRating >= hsRating && algRating >= desRating && algRating >= devRating) {
                         tab = "alg";
-                    } else if(hasHS && hsRating >= algRating && hsRating >= desRating && hsRating >= devRating) {
+                    } else if (hasHS && hsRating >= algRating && hsRating >= desRating && hsRating >= devRating) {
                         tab = "hs";
-                    } else if(hasDes && desRating >= algRating && desRating >= hsRating && desRating >= devRating) {
+                    } else if (hasDes && desRating >= algRating && desRating >= hsRating && desRating >= devRating) {
                         tab = "des";
                     } else if (hasDev) {
                         tab = "dev";
                     }
                 }
 
-                if(tab.equals("alg")) {
+                if (tab.equals("alg")) {
                     //load algo data from Coder_Alg_Data
                     r = new Request();
                     r.setContentHandle("Coder_Alg_Data");
@@ -113,26 +114,26 @@ public class MemberProfile extends Base {
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
                     Iterator it = algoData.keySet().iterator();
-                    while(it.hasNext()) {
+                    while (it.hasNext()) {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
-                } else if(tab.equals("hs")) {
-                        //load algo data from Coder_HS_Data
-                        r = new Request();
-                        r.setContentHandle("Coder_hs_Data");
-                        r.setProperty("cr", coderId);
-                        r.setProperty("ratid", "2");
-                        
-                        dai = getDataAccess(true);
-                        Map algoData = dai.getData(r);
-                        Iterator it = algoData.keySet().iterator();
-                        while(it.hasNext()) {
-                            String key = (String) it.next();
-                            result.put(key, algoData.get(key));
-                        }
-                                                                    
-                } else if(tab.equals("des")) {
+                } else if (tab.equals("hs")) {
+                    //load algo data from Coder_HS_Data
+                    r = new Request();
+                    r.setContentHandle("Coder_hs_Data");
+                    r.setProperty("cr", coderId);
+                    r.setProperty("ratid", "2");
+
+                    dai = getDataAccess(true);
+                    Map algoData = dai.getData(r);
+                    Iterator it = algoData.keySet().iterator();
+                    while (it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, algoData.get(key));
+                    }
+
+                } else if (tab.equals("des")) {
                     //load des data from Coder_Des_Data
                     r = new Request();
                     r.setContentHandle("Coder_Des_Data");
@@ -142,11 +143,11 @@ public class MemberProfile extends Base {
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
                     Iterator it = algoData.keySet().iterator();
-                    while(it.hasNext()) {
+                    while (it.hasNext()) {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
-                } else if(tab.equals("dev")) {
+                } else if (tab.equals("dev")) {
                     //load des data from Coder_Des_Data
                     r = new Request();
                     r.setContentHandle("Coder_Dev_Data");
@@ -156,7 +157,7 @@ public class MemberProfile extends Base {
                     dai = getDataAccess(true);
                     Map algoData = dai.getData(r);
                     Iterator it = algoData.keySet().iterator();
-                    while(it.hasNext()) {
+                    while (it.hasNext()) {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
@@ -168,7 +169,7 @@ public class MemberProfile extends Base {
                     dai = getDataAccess(true);
                     Map longData = dai.getData(r);
                     Iterator it = longData.keySet().iterator();
-                    while(it.hasNext()) {
+                    while (it.hasNext()) {
                         String key = (String) it.next();
                         result.put(key, longData.get(key));
                     }
@@ -176,7 +177,7 @@ public class MemberProfile extends Base {
                 }
             }
             getRequest().setAttribute("resultMap", result);
-            
+
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasHS", new Boolean(hasHS));
             getRequest().setAttribute("registeredHS", new Boolean(registeredHS));
@@ -184,7 +185,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
             getRequest().setAttribute("tab", tab);
-            
+
             setNextPage(Constants.MEMBER_PROFILE);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
@@ -193,5 +194,5 @@ public class MemberProfile extends Base {
             throw new TCWebException(e);
         }
     }
-    
+
 }

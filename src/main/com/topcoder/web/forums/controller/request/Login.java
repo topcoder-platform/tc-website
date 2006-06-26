@@ -12,8 +12,8 @@ import com.topcoder.web.common.security.BasicAuthentication;
 
 /**
  * @author mtong
- *
- * Logs into the forums, redirecting the user to the chosen page. 
+ *         <p/>
+ *         Logs into the forums, redirecting the user to the chosen page.
  */
 public class Login extends ForumsProcessor {
 
@@ -30,14 +30,14 @@ public class Login extends ForumsProcessor {
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
-        
+
         try {
             userID = Long.parseLong(getRequest().getParameter(USER_ID));
             password = getPassword(userID);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        
+
         // Ensure that the destination URL is well-formed; default to main site if no server is specified
         if (!dest.startsWith("http://") && !dest.startsWith("https://")) {
             if (dest.startsWith("/")) {
@@ -46,7 +46,7 @@ public class Login extends ForumsProcessor {
                 dest = "http://" + ApplicationServer.SERVER_NAME + "/" + dest;
             }
         }
-        
+
         //String queryString = getRequest().getQueryString();
         //int destStartIdx = queryString.indexOf("http://");
         //String dest = queryString.substring(destStartIdx);
@@ -61,7 +61,7 @@ public class Login extends ForumsProcessor {
         //User user = ((BasicAuthentication)getAuthentication()).checkCookie();
 
         try {
-            if (((BasicAuthentication)getAuthentication()).hashPassword(getPassword(userID)).equals(hashedPassword)) {
+            if (((BasicAuthentication) getAuthentication()).hashPassword(getPassword(userID)).equals(hashedPassword)) {
                 //com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
@@ -70,12 +70,16 @@ public class Login extends ForumsProcessor {
                 doLegacyCrap(getRequest());
 */
             } else {
-                log.debug("forum password hash not matched");
+                if (log.isDebugEnabled()) {
+                    log.debug("forum password hash not matched");
+                }
                 throw new Exception();
             }
         } catch (Exception e) {
-            log.debug(e.getMessage());
-            log.debug("login failed for: " + dest);
+            if (log.isDebugEnabled()) {
+                log.debug(e.getMessage());
+                log.debug("login failed for: " + dest);
+            }
             AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
             getAuthentication().logout();
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
@@ -110,7 +114,9 @@ public class Login extends ForumsProcessor {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         String ret = pmgr.getPassword(userID);
-        log.debug("password is "  + ret);
+        if (log.isDebugEnabled()) {
+            log.debug("password is " + ret);
+        }
         return ret;
     }
 }
