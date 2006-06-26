@@ -4019,6 +4019,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" AND dq.demographic_question_id NOT IN ");
         query.append("  (SELECT demographic_question_id FROM demographic_response ");
         query.append("   WHERE user_id = " + userId + ") ");
+	query.append(" AND da.registration_type_id = 1 ");
+    	query.append(" AND da.is_required = 1 ");
 
         Connection c = null;
         boolean ret = false;
