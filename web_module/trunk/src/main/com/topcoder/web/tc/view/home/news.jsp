@@ -194,24 +194,6 @@ The second TopCoder High School Single Round Match, first one for the <a href="/
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.09.06<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm306">SRM 306 - Problem Set & Analysis</A></span><br><br>
-The problem set in both divisions was pretty difficult. In division 1, <tc-webtag:handle coderId="19786437" context="algorithm"/> took home the win
-while <tc-webtag:handle coderId="7442498" context="algorithm"/> got second, with the only 2 succesful submissions of the hard problem.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm306">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505981" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
