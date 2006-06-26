@@ -1,9 +1,9 @@
 package com.topcoder.web.reg.dao.hibernate;
 
-import com.topcoder.web.reg.model.RegistrationType;
 import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import org.hibernate.Session;
+import com.topcoder.web.reg.model.RegistrationType;
 import org.hibernate.Query;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 13, 2006
  */
-public class RegistrationTypeDAOHibernate extends Base implements  RegistrationTypeDAO {
+public class RegistrationTypeDAOHibernate extends Base implements RegistrationTypeDAO {
 
     public RegistrationTypeDAOHibernate() {
         super();
@@ -58,6 +58,11 @@ public class RegistrationTypeDAOHibernate extends Base implements  RegistrationT
     public RegistrationType getSoftwareType() {
         //todo perhaps we should cache this
         return find(RegistrationType.SOFTWARE_ID);
+    }
+
+    public RegistrationType getCreativeType() {
+        //todo perhaps we should cache this
+        return find(RegistrationType.CREATIVE_ID);
     }
 
 }

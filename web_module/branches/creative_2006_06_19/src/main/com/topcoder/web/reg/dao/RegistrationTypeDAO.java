@@ -25,4 +25,6 @@ public interface RegistrationTypeDAO {
 
     RegistrationType getSoftwareType();
 
+    RegistrationType getCreativeType();
+
 }
