@@ -10,8 +10,8 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.Survey;
 
-import java.util.*;
 import java.sql.Timestamp;
+import java.util.*;
 
 public abstract class SurveyData extends Base {
 
@@ -35,7 +35,9 @@ public abstract class SurveyData extends Base {
             if (survey == null) {
                 throw new NavigationException("Invalid Request, survey does not exist.");
             } else {
-                log.debug("found survey " + survey.getId() + " " + survey.getName());
+                if (log.isDebugEnabled()) {
+                    log.debug("found survey " + survey.getId() + " " + survey.getName());
+                }
                 getRequest().setAttribute("surveyInfo", survey);
                 questionInfo = getQuestionInfo(surveyId);
                 getRequest().setAttribute("questionInfo", questionInfo);
@@ -49,7 +51,9 @@ public abstract class SurveyData extends Base {
     }
 
     protected List getQuestionInfo(long surveyId) throws Exception {
-        log.debug("getQuestionInfo: " + surveyId);
+        if (log.isDebugEnabled()) {
+            log.debug("getQuestionInfo: " + surveyId);
+        }
         Request r = new Request();
         r.setContentHandle("survey_questions");
         r.setProperty("sid", String.valueOf(surveyId));
@@ -57,7 +61,10 @@ public abstract class SurveyData extends Base {
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
-        log.debug("got " + questions.size() + " questions");
+
+        if (log.isDebugEnabled()) {
+            log.debug("got " + questions.size() + " questions");
+        }
 
         ResultSetContainer.ResultSetRow question = null;
         List questionList = new ArrayList(questions.size());
@@ -83,9 +90,9 @@ public abstract class SurveyData extends Base {
             ret.setName(rsc.getRow(0).getStringItem("name"));
             ret.setStatusId(rsc.getRow(0).getIntItem("status_id"));
             ret.setText(rsc.getRow(0).getStringItem("text"));
-            ret.setStartDate(new Date(((Timestamp)rsc.getItem(0, "start_date").getResultData()).getTime()));
-            ret.setEndDate(new Date(((Timestamp)rsc.getItem(0, "end_date").getResultData()).getTime()));
-            ret.setResultsViewable(rsc.getRow(0).getIntItem("results_viewable")==1);
+            ret.setStartDate(new Date(((Timestamp) rsc.getItem(0, "start_date").getResultData()).getTime()));
+            ret.setEndDate(new Date(((Timestamp) rsc.getItem(0, "end_date").getResultData()).getTime()));
+            ret.setResultsViewable(rsc.getRow(0).getIntItem("results_viewable") == 1);
         }
         return ret;
     }

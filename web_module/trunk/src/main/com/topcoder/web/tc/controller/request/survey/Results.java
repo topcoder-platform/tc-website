@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
@@ -109,7 +109,9 @@ public class Results extends SurveyData {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
-                        log.debug("add balot: " + ballot.toString());
+                        if (log.isDebugEnabled()) {
+                            log.debug("add balot: " + ballot.toString());
+                        }
                         election.addBalot(ballot);
                     }
                     ballot = new RankBallot(candidates);
@@ -119,10 +121,14 @@ public class Results extends SurveyData {
                 lastUserId = curr.getLongItem("user_id");
             }
             if (ballot != null) {
-                log.debug("add balot: " + ballot.toString());
+                if (log.isDebugEnabled()) {
+                    log.debug("add balot: " + ballot.toString());
+                }
                 election.addBalot(ballot);
             }
-            log.debug("election: " + election.getSumMatrix().toString());
+            if (log.isDebugEnabled()) {
+                log.debug("election: " + election.getSumMatrix().toString());
+            }
             results = new CondorcetSchulzeResults(election);
             if (hasCacheConnection) {
                 try {

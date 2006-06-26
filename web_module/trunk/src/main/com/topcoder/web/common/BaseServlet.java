@@ -126,7 +126,9 @@ public abstract class BaseServlet extends HttpServlet {
             try {
 
                 request.setCharacterEncoding("utf-8");
-                log.debug("content type: " + request.getContentType());
+                if (log.isDebugEnabled()) {
+                    log.debug("content type: " + request.getContentType());
+                }
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -135,10 +137,14 @@ public abstract class BaseServlet extends HttpServlet {
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                 //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
-                log.debug("uri: " + request.getRequestURL().toString());
+                if (log.isDebugEnabled()) {
+                    log.debug("uri: " + request.getRequestURL().toString());
+                }
                 if (!authentication.getActiveUser().isAnonymous() &&
                         !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
-                    log.debug("using an uncached response");
+                    if (log.isDebugEnabled()) {
+                        log.debug("using an uncached response");
+                    }
                     tcResponse = HttpObjectFactory.createUnCachedResponse(response);
                 }
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
@@ -175,7 +181,9 @@ public abstract class BaseServlet extends HttpServlet {
                     //log.debug("path " + PATH);
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
-                    log.debug("creating request processor for " + processorName);
+                    if (log.isDebugEnabled()) {
+                        log.debug("creating request processor for " + processorName);
+                    }
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(authentication, resource)) {
@@ -187,12 +195,16 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    log.debug("caught PermissionException");
+                    if (log.isDebugEnabled()) {
+                        log.debug("caught PermissionException");
+                    }
                     if (authentication.getUser().isAnonymous()) {
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        log.debug("already logged in, rethrowing");
+                        if (log.isDebugEnabled()) {
+                            log.debug("already logged in, rethrowing");
+                        }
                         throw pe;
                     }
                 }
@@ -229,10 +241,14 @@ public abstract class BaseServlet extends HttpServlet {
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
             }
-            log.debug("forwarding to " + dest);
+            if (log.isDebugEnabled()) {
+                log.debug("forwarding to " + dest);
+            }
             getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
         } else {
-            log.debug("redirecting to " + dest);
+            if (log.isDebugEnabled()) {
+                log.debug("redirecting to " + dest);
+            }
             response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }
@@ -321,7 +337,9 @@ public abstract class BaseServlet extends HttpServlet {
             /* forward to the login page, with a message and a way back */
             request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
                     "and password.");
-            log.debug("going to " + info.getRequestString() + " on successful login");
+            if (log.isDebugEnabled()) {
+                log.debug("going to " + info.getRequestString() + " on successful login");
+            }
             request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
             request.setAttribute(MODULE, LOGIN_PROCESSOR);

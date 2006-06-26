@@ -20,7 +20,9 @@ import java.util.Map;
 public class TCSProfileLookup extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        log.debug("process called....");
+        if (log.isDebugEnabled()) {
+            log.debug("process called....");
+        }
 
         try {
 
@@ -45,7 +47,9 @@ public class TCSProfileLookup extends Base {
     }
 
     private void getProfile(TCRequest request) throws Exception {
-        log.debug("getProfile called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfile called...");
+        }
         Request mainRequest = new Request();
         mainRequest.setContentHandle("tcs_profile_lookup");
         String handle = StringUtils.checkNull(request.getParameter(Constants.REPORT_HANDLE_KEY));
@@ -66,8 +70,10 @@ public class TCSProfileLookup extends Base {
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer) mainMap.get("main_profile_info");
 
-        log.debug("found " + profileList.size() + " people matching search criteria");
-        log.debug("request was: " + mainRequest.toString());
+        if (log.isDebugEnabled()) {
+            log.debug("found " + profileList.size() + " people matching search criteria");
+            log.debug("request was: " + mainRequest.toString());
+        }
 
         request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, profileList);
     }

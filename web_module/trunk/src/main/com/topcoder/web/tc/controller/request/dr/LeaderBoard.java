@@ -57,12 +57,16 @@ public class LeaderBoard extends BaseBoard {
     protected void businessProcessing() throws Exception {
         // Prepare request for data retrieval
         ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
-        log.debug("Got " + stages.size() + " rows for stages");
+        if (log.isDebugEnabled()) {
+            log.debug("Got " + stages.size() + " rows for stages");
+        }
         getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
 
         boolean designBoard = getRequest().getParameter(Constants.PHASE_ID).equals("112");
 
-        log.debug("Getting Leader board coders...");
+        if (log.isDebugEnabled()) {
+            log.debug("Getting Leader board coders...");
+        }
         ResultSetContainer rsc = retrieveBoardData(Constants.STAGE_ID, Constants.LEADER_BOARD_COMMAND, Constants.LEADER_BOARD_QUERY);
 
         // pre-process board for the prizes
@@ -128,7 +132,9 @@ public class LeaderBoard extends BaseBoard {
         if (overallTopThirdPoints > 0) {
             prizePerPoint = (designBoard ? DESIGN_POOL_PRIZE : DEVELOPMENT_POOL_PRIZE) / overallTopThirdPoints;
         }
-        log.debug("prizePerPoint: " + prizePerPoint);
+        if (log.isDebugEnabled()) {
+            log.debug("prizePerPoint: " + prizePerPoint);
+        }
 
         for (int j = 0; j < leaderBoardResult.size(); j++) {
             LeaderBoardRow leaderBoardRow = (LeaderBoardRow) leaderBoardResult.get(j);

@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.EmailEngine;
@@ -8,7 +9,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 
 
 public class PasswordEmail extends Base {
@@ -69,14 +69,18 @@ public class PasswordEmail extends Base {
     }
 
     private static String clean(String string) {
-        log.debug("in " + string);
-        StringBuffer ret = new StringBuffer(string.length()+10);
-        for (int i=0; i<string.length(); i++) {
-            if (string.charAt(i)=='\'') {
+        if (log.isDebugEnabled()) {
+            log.debug("in " + string);
+        }
+        StringBuffer ret = new StringBuffer(string.length() + 10);
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == '\'') {
                 ret.append("''");
             } else ret.append(string.charAt(i));
         }
-        log.debug("out " + ret.toString());
+        if (log.isDebugEnabled()) {
+            log.debug("out " + ret.toString());
+        }
         return ret.toString();
     }
 
@@ -85,7 +89,9 @@ public class PasswordEmail extends Base {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         String ret = pmgr.getPassword(userID);
-        log.debug("password is "  + ret);
+        if (log.isDebugEnabled()) {
+            log.debug("password is " + ret);
+        }
         return ret;
     }
 

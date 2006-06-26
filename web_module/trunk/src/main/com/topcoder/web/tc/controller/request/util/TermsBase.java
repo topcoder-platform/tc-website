@@ -48,11 +48,15 @@ abstract class TermsBase extends Base {
     }
 
     public boolean isRegistered() throws Exception {
-        log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
+        if (log.isDebugEnabled()) {
+            log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
+        }
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
         ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
-        log.debug("they " + (ret ? "are" : "are not") + " registered");
+        if (log.isDebugEnabled()) {
+            log.debug("they " + (ret ? "are" : "are not") + " registered");
+        }
         return ret;
     }
 

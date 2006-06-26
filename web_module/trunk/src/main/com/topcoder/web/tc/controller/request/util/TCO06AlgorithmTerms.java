@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Calendar;
 
@@ -49,7 +49,9 @@ public class TCO06AlgorithmTerms extends TermsBase {
         r.setContentHandle("tco06_eligibility");
         r.setProperty("cr", String.valueOf(getUser().getId()));
         ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("tco06_eligibility");
-        log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
+        if (log.isDebugEnabled()) {
+            log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
+        }
         return !rsc.isEmpty();
     }
 

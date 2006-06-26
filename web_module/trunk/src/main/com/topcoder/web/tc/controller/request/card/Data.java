@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @author dok
- * Date: Jan 19, 2004
+ *         Date: Jan 19, 2004
  */
 public class Data extends Base {
 
@@ -38,7 +38,9 @@ public class Data extends Base {
 
             //let users always look at their own card.  this is only gonna work if
             //they've got their cookie, otherwise, it'll just bomb out like anyone else
-            log.debug("user " + getUser().getId() + " wants to look at " + coderId + "'s card");
+            if (log.isDebugEnabled()) {
+                log.debug("user " + getUser().getId() + " wants to look at " + coderId + "'s card");
+            }
             if (getUser().getId() != Long.parseLong(coderId)) {
                 UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
                 try {

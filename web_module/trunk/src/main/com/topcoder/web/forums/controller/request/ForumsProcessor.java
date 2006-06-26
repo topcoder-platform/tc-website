@@ -6,17 +6,13 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
-import com.jivesoftware.forum.ForumFactory;
-import com.jivesoftware.forum.ForumCategory;
-import com.jivesoftware.forum.Forum;
-import com.jivesoftware.forum.ReadTracker;
-import com.jivesoftware.forum.WatchManager;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.jivesoftware.forum.*;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.ForumConstants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,8 +20,8 @@ import java.util.Iterator;
 
 /**
  * @author mtong
- *
- * Base class for forum-related processors, providing message and user data.
+ *         <p/>
+ *         Base class for forum-related processors, providing message and user data.
  */
 public abstract class ForumsProcessor extends BaseProcessor {
     protected HttpServletRequest httpRequest;
@@ -33,7 +29,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
-
 
     /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
 
@@ -44,10 +39,10 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
-        
+
         setUnreadCategories();
     }
-    
+
     //  Determine categories with unread forums
     protected void setUnreadCategories() throws UnauthorizedException {
         ReadTracker readTracker = forumFactory.getReadTracker();
@@ -56,30 +51,37 @@ public abstract class ForumsProcessor extends BaseProcessor {
         ForumCategory rootCategory = forumFactory.getRootForumCategory();
         Iterator itCategories = rootCategory.getCategories();
         while (itCategories.hasNext()) {
-            ForumCategory category = (ForumCategory)itCategories.next();
+            ForumCategory category = (ForumCategory) itCategories.next();
             Iterator itForums = category.getForums();
             boolean isCategoryRead = true;
             while (isCategoryRead && itForums.hasNext()) {
-                Forum forum = (Forum)itForums.next();
-                if (user != null && forum.getLatestMessage() != null 
+                Forum forum = (Forum) itForums.next();
+                if (user != null && forum.getLatestMessage() != null
                         && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ
-                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) {
+                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread())))
+                {
                     isCategoryRead = false;
                 }
             }
             if (category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) == null) {
-                log.debug("category nav name is null " + category.getDescription());
+                if (log.isDebugEnabled()) {
+                    log.debug("category nav name is null " + category.getDescription());
+                }
             }
             if (!isCategoryRead && category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) != null) {
                 unreadCategories.append(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)).append(',');
             }
         }
         if (unreadCategories.length() > 0) {
-            log.debug("unread:" + unreadCategories);
-            getRequest().setAttribute("unreadCategories", 
-                    unreadCategories.substring(0,unreadCategories.length()-1));
+            if (log.isDebugEnabled()) {
+                log.debug("unread:" + unreadCategories);
+            }
+            getRequest().setAttribute("unreadCategories",
+                    unreadCategories.substring(0, unreadCategories.length() - 1));
         } else {
-            log.debug("no unread categories");
+            if (log.isDebugEnabled()) {
+                log.debug("no unread categories");
+            }
             getRequest().setAttribute("unreadCategories", "");
         }
     }
@@ -101,7 +103,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     }
 
     public void setAuthToken(AuthToken authToken) {
-    	this.authToken = authToken;
+        this.authToken = authToken;
     }
 
     public void setUser(User user) {
@@ -113,7 +115,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     }
 
     public boolean isGuest() {
-    	return authToken.isAnonymous();
+        return authToken.isAnonymous();
     }
 
     public DataAccessInt getDataAccess() throws Exception {
@@ -123,7 +125,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     public DataAccessInt getDataAccess(boolean cached) throws Exception {
         return getDataAccess(DBMS.OLTP_DATASOURCE_NAME, cached);
     }
-    
+
     public DataAccessInt getDataAccess(String datasource) throws Exception {
         return getDataAccess(datasource, false);
     }

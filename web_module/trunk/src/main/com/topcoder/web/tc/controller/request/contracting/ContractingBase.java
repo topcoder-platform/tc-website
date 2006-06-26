@@ -65,7 +65,9 @@ abstract public class ContractingBase extends BaseProcessor {
                 //errors occured
                 ContractingBase errorProcessor = getOldProcessor();
 
-                log.debug("ERRORS FOUND, using " + errorProcessor);
+                if (log.isDebugEnabled()) {
+                    log.debug("ERRORS FOUND, using " + errorProcessor);
+                }
                 errorProcessor.setRequest(getRequest());
                 errorProcessor.setResponse(getResponse());
                 errorProcessor.setAuthentication(getAuthentication());
@@ -261,7 +263,9 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected ContractingInfo updateContractingInfo(ContractingInfo info) throws IOException {
         if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("preferences")) {
-            log.debug("LOADING DATA FROM REQUEST");
+            if (log.isDebugEnabled()) {
+                log.debug("LOADING DATA FROM REQUEST");
+            }
             info.clearPreferences();
 
             //get list of preferences
@@ -276,7 +280,9 @@ abstract public class ContractingBase extends BaseProcessor {
 
                     if (!val.equals("")) {
                         info.setPreference(prefId, val);
-                        log.debug("SET PREFERENCE " + prefId + " TO " + val);
+                        if (log.isDebugEnabled()) {
+                            log.debug("SET PREFERENCE " + prefId + " TO " + val);
+                        }
                     }
                 }
             }
@@ -296,7 +302,9 @@ abstract public class ContractingBase extends BaseProcessor {
                 UploadedFile file = req.getUploadedFile("Resume");
 
                 if (file != null && file.getContentType() != null) {
-                    log.debug("FOUND RESUME");
+                    if (log.isDebugEnabled()) {
+                        log.debug("FOUND RESUME");
+                    }
                     //info.setResume(file);
 
                     byte[] fileBytes = new byte[(int) file.getSize()];
@@ -311,7 +319,9 @@ abstract public class ContractingBase extends BaseProcessor {
         } else
         if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
             //load skills
-            log.debug("LOADING DATA FROM REQUEST");
+            if (log.isDebugEnabled()) {
+                log.debug("LOADING DATA FROM REQUEST");
+            }
             //info.clearSkills();
 
             //get list of preferences / notes
@@ -326,7 +336,9 @@ abstract public class ContractingBase extends BaseProcessor {
 
                     if (!val.equals("") && Integer.parseInt(val) != 0) {
                         info.setSkill(skillId, val);
-                        log.debug("SET SKILL " + skillId + " TO " + val);
+                        if (log.isDebugEnabled()) {
+                            log.debug("SET SKILL " + skillId + " TO " + val);
+                        }
                     } else {
                         info.removeSkill(skillId);
                     }
@@ -338,7 +350,9 @@ abstract public class ContractingBase extends BaseProcessor {
 
                     if (!val.equals("")) {
                         info.setNote(noteId, val);
-                        log.debug("SET NOTE " + noteId + " TO " + val);
+                        if (log.isDebugEnabled()) {
+                            log.debug("SET NOTE " + noteId + " TO " + val);
+                        }
                     } else {
                         info.removeNote(noteId);
                     }
@@ -346,8 +360,10 @@ abstract public class ContractingBase extends BaseProcessor {
             }
 
         } else {
-            log.debug("NO DATA TO LOAD FROM REQUEST");
-            log.debug("FIELD IS " + getRequestParameter("dataToLoad"));
+            if (log.isDebugEnabled()) {
+                log.debug("NO DATA TO LOAD FROM REQUEST");
+                log.debug("FIELD IS " + getRequestParameter("dataToLoad"));
+            }
         }
 
         return info;
@@ -366,7 +382,9 @@ abstract public class ContractingBase extends BaseProcessor {
     protected ContractingInfo getInfoFromPersistor() {
         ContractingInfo info = null;
 
-        log.debug("LOADING DATA FROM PERSISTOR");
+        if (log.isDebugEnabled()) {
+            log.debug("LOADING DATA FROM PERSISTOR");
+        }
 
         Object tmp = p.getObject(Constants.CONTRACTING_INFO);
         if (tmp == null)
@@ -385,7 +403,9 @@ abstract public class ContractingBase extends BaseProcessor {
     protected ContractingInfo getInfoFromDB() throws Exception {
         ContractingInfo info = new ContractingInfo();
 
-        log.debug("LOADING DATA FROM DB");
+        if (log.isDebugEnabled()) {
+            log.debug("LOADING DATA FROM DB");
+        }
 
         info.setUserID(getUser().getId());
 
@@ -403,10 +423,14 @@ abstract public class ContractingBase extends BaseProcessor {
                 info.setEdit(true);
                 if (rscPrefs.getIntItem(j, "preference_type_id") == Constants.PREFERENCE_TEXT_ANSWER) {
                     info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "value"));
-                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                    if (log.isDebugEnabled()) {
+                        log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "value"));
+                    }
                 } else {
                     info.setPreference(rscPrefs.getStringItem(j, "preference_id"), rscPrefs.getStringItem(j, "preference_value_id"));
-                    log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                    if (log.isDebugEnabled()) {
+                        log.debug("SET PREFERENCE " + rscPrefs.getStringItem(j, "preference_id") + " TO " + rscPrefs.getStringItem(j, "preference_value_id"));
+                    }
                 }
             }
         }
@@ -425,7 +449,9 @@ abstract public class ContractingBase extends BaseProcessor {
             ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"), DBMS.OLTP_DATASOURCE_NAME);
             for (int j = 0; j < rscSkills.size(); j++) {
                 info.setSkill(rscSkills.getStringItem(j, "skill_id"), rscSkills.getStringItem(j, "ranking"));
-                log.debug("SET SKILL " + rscSkills.getStringItem(j, "skill_id") + " TO " + rscSkills.getStringItem(j, "ranking"));
+                if (log.isDebugEnabled()) {
+                    log.debug("SET SKILL " + rscSkills.getStringItem(j, "skill_id") + " TO " + rscSkills.getStringItem(j, "ranking"));
+                }
             }
         }
 
@@ -437,7 +463,9 @@ abstract public class ContractingBase extends BaseProcessor {
         rsc = (ResultSetContainer) getDataAccess().getData(r).get("contracting_user_notes");
         for (int i = 0; i < rsc.size(); i++) {
             info.setNote(rsc.getStringItem(i, "note_type_id"), rsc.getStringItem(i, "text"));
-            log.debug("SET NOTE " + rsc.getStringItem(i, "note_type_id") + " TO " + rsc.getStringItem(i, "text"));
+            if (log.isDebugEnabled()) {
+                log.debug("SET NOTE " + rsc.getStringItem(i, "note_type_id") + " TO " + rsc.getStringItem(i, "text"));
+            }
         }
 
         return info;

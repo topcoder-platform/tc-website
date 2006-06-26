@@ -35,8 +35,8 @@ import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.fileconversion.FileConversion;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.tc.model.*;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.*;
 
 import javax.naming.InitialContext;
 import java.awt.*;
@@ -378,7 +378,9 @@ public class PDFGenerator extends BaseProcessor {
                 result.addCompetitorDetails(row);
             }
 
-            log.debug(result);
+            if (log.isDebugEnabled()) {
+                log.debug(result);
+            }
 
             return result;
         }
@@ -419,7 +421,9 @@ public class PDFGenerator extends BaseProcessor {
         }
 
 
-        log.debug(result);
+        if (log.isDebugEnabled()) {
+            log.debug(result);
+        }
         return result;
     }
 
@@ -481,7 +485,9 @@ public class PDFGenerator extends BaseProcessor {
                 result.setReliability(DecimalFormat.getPercentInstance().format(rsc.getDoubleItem(0, "reliability")));
             }
 
-            log.debug(result);
+            if (log.isDebugEnabled()) {
+                log.debug(result);
+            }
 
             return result;
         }
@@ -535,7 +541,9 @@ public class PDFGenerator extends BaseProcessor {
             }
         }
 
-        log.debug(result);
+        if (log.isDebugEnabled()) {
+            log.debug(result);
+        }
 
         return result;
     }
@@ -662,7 +670,9 @@ public class PDFGenerator extends BaseProcessor {
 
             getResponse().flushBuffer();
 
-            log.debug("DONE PDFING");
+            if (log.isDebugEnabled()) {
+                log.debug("DONE PDFING");
+            }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
@@ -1232,7 +1242,9 @@ public class PDFGenerator extends BaseProcessor {
 
         if (resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
             String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.') + 1);
-            log.debug(ext);
+            if (log.isDebugEnabled()) {
+                log.debug(ext);
+            }
 
             doc.resetFooter();
             doc.resetHeader();

@@ -113,7 +113,9 @@ public class ForumsServlet extends BaseServlet {
 
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
-                    log.debug("creating request processor for " + processorName);
+                    if (log.isDebugEnabled()) {
+                        log.debug("creating request processor for " + processorName);
+                    }
                     try {
                         SimpleResource resource = new SimpleResource(processorName);
                         if (hasPermission(authentication, resource)) {
@@ -125,12 +127,16 @@ public class ForumsServlet extends BaseServlet {
                         throw new NavigationException("Invalid request", e);
                     }
                 } catch (PermissionException pe) {
-                    log.debug("caught PermissionException");
+                    if (log.isDebugEnabled()) {
+                        log.debug("caught PermissionException");
+                    }
                     if (authentication.getUser().isAnonymous()) {
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        log.debug("already logged in, rethrowing");
+                        if (log.isDebugEnabled()) {
+                            log.debug("already logged in, rethrowing");
+                        }
                         throw pe;
                     }
                 }

@@ -13,10 +13,10 @@ package com.topcoder.web.tc.controller.request.util;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
+
 import java.util.Calendar;
 
 /**
- *
  * @author rfairfax
  */
 public class TCO05AlgorithmTerms extends TermsBase {

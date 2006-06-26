@@ -20,7 +20,9 @@ import java.util.*;
 public class ProfileSearch extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        log.debug("process called....");
+        if (log.isDebugEnabled()) {
+            log.debug("process called....");
+        }
         try {
             String task = getRequest().getParameter(Constants.TASK_NAME_KEY);
             if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
@@ -34,7 +36,9 @@ public class ProfileSearch extends Base {
                     long time = System.currentTimeMillis();
                     String query = buildQuery(getRequest(), headers);
                     time = System.currentTimeMillis() - time;
-                    log.debug("query constructed in " + time);
+                    if (log.isDebugEnabled()) {
+                        log.debug("query constructed in " + time);
+                    }
                     getRequest().setAttribute("QUERY", query);
                     if (!"on".equals(getRequest().getParameter("queryOnly"))) {
                         time = System.currentTimeMillis();
@@ -43,7 +47,9 @@ public class ProfileSearch extends Base {
                         qr.addQuery("results", query);
                         Map m = qda.getData(qr);
                         time = System.currentTimeMillis() - time;
-                        log.debug("data got in " + time);
+                        if (log.isDebugEnabled()) {
+                            log.debug("data got in " + time);
+                        }
 
 
                         getRequest().setAttribute("column_headers", headers);
@@ -547,7 +553,9 @@ public class ProfileSearch extends Base {
             ResultSetContainer.ResultSetRow question = demographic_questions.getRow(i);
             List l = new ArrayList();
             int questionId = question.getIntItem("demographic_question_id");
-            log.debug("question: " + questionId);
+            if (log.isDebugEnabled()) {
+                log.debug("question: " + questionId);
+            }
             Set s = new HashSet();
             String[] v = request.getParameterValues("demo_" + questionId);
             if (v != null) {
@@ -556,7 +564,9 @@ public class ProfileSearch extends Base {
             while (answer.getIntItem("demographic_question_id") == questionId) {
                 String text = answer.getStringItem("demographic_answer_text");
                 String answerId = answer.getStringItem("demographic_answer_id");
-                log.debug("answer: " + answerId);
+                if (log.isDebugEnabled()) {
+                    log.debug("answer: " + answerId);
+                }
                 l.add(new ListSelectTag.Option(answerId, text, s.contains(answerId)));
                 if (++j == demographic_answers.getRowCount()) {
                     break;

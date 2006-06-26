@@ -6,14 +6,14 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Question;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.model.Question;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Date;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -26,7 +26,7 @@ public class View extends SurveyData {
                 setIsNextPageInContext(false);
             } else if (isSRMSurvey() && !hasSurveyClosed()) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
-            } else if (survey.getEndDate().before(new Date())||survey.getStartDate().after(new Date())) {
+            } else if (survey.getEndDate().before(new Date()) || survey.getStartDate().after(new Date())) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 setNextPage(Constants.SURVEY_VIEW);
@@ -40,7 +40,9 @@ public class View extends SurveyData {
     }
 
     protected List makeAnswerInfo(long questionId) throws Exception {
-        log.debug("makeAnswerInfo called: " + questionId);
+        if (log.isDebugEnabled()) {
+            log.debug("makeAnswerInfo called: " + questionId);
+        }
         Request req = new Request();
         DataAccessInt dataAccess = getDataAccess(true);
         req.setContentHandle("answers");
@@ -81,6 +83,7 @@ public class View extends SurveyData {
      * this refers to whether or not is has closed as far as
      * the srm round registration is concerned.  we don't
      * want people answering the survey on the site and in the applet
+     *
      * @return
      * @throws TCWebException
      */

@@ -22,19 +22,21 @@ public class Submit extends View {
         try {
             if (getUser().isAnonymous())
                 throw new NavigationException("Sorry, you must be logged in to submit your response",
-                        getSessionInfo().getServletPath()+"/?"+Constants.MODULE_KEY+"=Login");
+                        getSessionInfo().getServletPath() + "/?" + Constants.MODULE_KEY + "=Login");
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
             } else if (isSRMSurvey() && !hasSurveyClosed()) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
-            } else if (survey.getEndDate().before(new Date())||survey.getStartDate().after(new Date())) {
+            } else if (survey.getEndDate().before(new Date()) || survey.getStartDate().after(new Date())) {
                 throw new NavigationException("Sorry, you can not answer this survey at this time.");
             } else {
                 String paramName = null;
                 List responses = new ArrayList(10);
                 for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                     paramName = (String) params.nextElement();
-                    log.debug("param: " + paramName);
+                    if (log.isDebugEnabled()) {
+                        log.debug("param: " + paramName);
+                    }
                     if (paramName.startsWith(AnswerInput.PREFIX)) {
                         List l = validateAnswer(paramName);
                         if (l != null)
@@ -107,7 +109,9 @@ public class Submit extends View {
             long questionId = -1;
             long answerId = -1;
             for (int i = 0; i < values.length; i++) {
-                log.debug("param: " + paramName + " value: " + values[i]);
+                if (log.isDebugEnabled()) {
+                    log.debug("param: " + paramName + " value: " + values[i]);
+                }
                 /* single choice will be in the format <prefix><question_id>
                  * multiple choice will be in the format <prefix><question_id>,<answer_id>
                  */
@@ -128,44 +132,60 @@ public class Submit extends View {
                     try {
                         answerId = Long.parseLong(st.nextToken());
                     } catch (NumberFormatException e) {
-                        log.debug("numberformat trying to get answer for multiple choice");
+                        if (log.isDebugEnabled()) {
+                            log.debug("numberformat trying to get answer for multiple choice");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
                     if (question.getStyleId() != Question.MULTIPLE_CHOICE) {
-                        log.debug("param has answerid but it's not multiple choice");
+                        if (log.isDebugEnabled()) {
+                            log.debug("param has answerid but it's not multiple choice");
+                        }
                         addError(errorKey, "Invalid answer.");
                     } else if (findAnswer(answerId, question) == null) {
-                        log.debug("can't find multiple choice answer");
+                        if (log.isDebugEnabled()) {
+                            log.debug("can't find multiple choice answer");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
                 } else {
                     //only when it's a multiple choice question should there be multiple answers
                     if (values.length > 1) {
-                        log.debug("not multiple choice, but there are multiple answers");
+                        if (log.isDebugEnabled()) {
+                            log.debug("not multiple choice, but there are multiple answers");
+                        }
                         addError(errorKey, "Invalid answer.");
                     }
-                    if (question.getTypeId()== Question.SCHULZE_ELECTION_TYPE) {
+                    if (question.getTypeId() == Question.SCHULZE_ELECTION_TYPE) {
                         if (!"".equals(values[i])) {
                             try {
                                 answerId = Long.parseLong(values[i]);
                             } catch (NumberFormatException e) {
-                                log.debug("numberformat trying to get answer for single choice");
+                                if (log.isDebugEnabled()) {
+                                    log.debug("numberformat trying to get answer for single choice");
+                                }
                                 addError(errorKey, "Invalid answer.");
                             }
                             if (findAnswer(answerId, question) == null) {
-                                log.debug("can't find single choice answer");
+                                if (log.isDebugEnabled()) {
+                                    log.debug("can't find single choice answer");
+                                }
                                 addError(errorKey, "Invalid answer.");
                             }
                         }
-                    } else  if (question.getStyleId() == Question.SINGLE_CHOICE) {
+                    } else if (question.getStyleId() == Question.SINGLE_CHOICE) {
                         try {
                             answerId = Long.parseLong(values[i]);
                         } catch (NumberFormatException e) {
-                            log.debug("numberformat trying to get answer for single choice");
+                            if (log.isDebugEnabled()) {
+                                log.debug("numberformat trying to get answer for single choice");
+                            }
                             addError(errorKey, "Invalid answer.");
                         }
                         if (findAnswer(answerId, question) == null) {
-                            log.debug("can't find single choice answer");
+                            if (log.isDebugEnabled()) {
+                                log.debug("can't find single choice answer");
+                            }
                             addError(errorKey, "Invalid answer.");
                         }
                     }
@@ -180,7 +200,7 @@ public class Submit extends View {
                         response.setFreeForm(true);
                         ret.add(response);
                     }
-                } else if (answerId>0) {
+                } else if (answerId > 0) {
                     //answerId would be -1 in the case of a schulze election where
                     //the respondant does not rate the candidate
                     response.setAnswerId(answerId);
@@ -189,6 +209,7 @@ public class Submit extends View {
                 }
             }
         }
+
         log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
         return ret;
     }

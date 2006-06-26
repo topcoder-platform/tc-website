@@ -21,7 +21,9 @@ import java.util.Map;
 public class Legacy extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        log.debug("process called....");
+        if (log.isDebugEnabled()) {
+            log.debug("process called....");
+        }
         String task = null;
         String response_addr = null;
         Report report = null;
@@ -120,7 +122,9 @@ public class Legacy extends Base {
 
 
     private String getReport(Report report) throws Exception {
-        log.debug("getReport called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getReport called...");
+        }
         if (report.getId().compareTo(MEMBER_STATS_BY_STATE_ID) == 0) {
             specialProcessing(report);
             return Constants.REPORT_RESULT_ADDR;
@@ -149,7 +153,9 @@ public class Legacy extends Base {
     }
 
     private void getProfile(TCRequest request) throws Exception {
-        log.debug("getProfile called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfile called...");
+        }
         Request mainRequest = new Request();
         mainRequest.setContentHandle("profile_lookup");
         String handle = StringUtils.checkNull(request.getParameter(Constants.REPORT_HANDLE_KEY));
@@ -170,8 +176,10 @@ public class Legacy extends Base {
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer) mainMap.get("main_profile_info");
 
-        log.debug("found " + profileList.size() + " people matching search criteria");
-        log.debug("request was: " + mainRequest.toString());
+        if (log.isDebugEnabled()) {
+            log.debug("found " + profileList.size() + " people matching search criteria");
+            log.debug("request was: " + mainRequest.toString());
+        }
         ArrayList result = new ArrayList(profileList.size());
 
         Request detailRequest = new Request();
@@ -186,7 +194,9 @@ public class Legacy extends Base {
 
 
     private Map parseQueryString(TCRequest request) {
-        log.debug("parseQueryString called...");
+        if (log.isDebugEnabled()) {
+            log.debug("parseQueryString called...");
+        }
         Enumeration e = null;
         String param = null;
         String value = null;
@@ -209,7 +219,9 @@ public class Legacy extends Base {
     }
 
     private void getProfileDetail(TCRequest request) throws Exception {
-        log.debug("getProfileDetail called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfileDetail called...");
+        }
         DataAccessInt dai = null;
         Request dataRequest = null;
         Map resultMap = null;
@@ -222,7 +234,9 @@ public class Legacy extends Base {
     }
 
     private void getProfileList(TCRequest request) throws Exception {
-        log.debug("getProfileList called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfileList called...");
+        }
         QueryRequest qr = null;
         DataAccessInt dai = null;
         Map resultMap = null;
@@ -244,7 +258,9 @@ public class Legacy extends Base {
      */
 
     private String getProfileListQuery(Map request, boolean emptySet) throws Exception {
-        log.debug("getProfileListQuery called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfileListQuery called...");
+        }
         StringBuffer query = null;
         String minRating = null;
         String maxRating = null;
@@ -396,13 +412,17 @@ public class Legacy extends Base {
             query.append(" AND c.coder_id = -666\n");
         }
         query.append(" ORDER BY 23 ASC");
-        log.debug("\n" + query.toString());
+        if (log.isDebugEnabled()) {
+            log.debug("\n" + query.toString());
+        }
         return query.toString();
 
     }
 
     private void getProfileListMenu(TCRequest request) throws Exception {
-        log.debug("getProfileListMenu called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getProfileListMenu called...");
+        }
         QueryRequest qr = null;
         DataAccessInt dai = null;
         Map resultMap = null;
@@ -423,12 +443,18 @@ public class Legacy extends Base {
     }
 
     private void specialProcessing(Report report) throws Exception {
-        log.debug("specialProcessing called...");
+        if (log.isDebugEnabled()) {
+            log.debug("specialProcessing called...");
+        }
         ArrayList result = report.getQuery().execute();
-        log.debug("**** query **** \n\n" + report.getQuery() + "\n\n");
+        if (log.isDebugEnabled()) {
+            log.debug("**** query **** \n\n" + report.getQuery() + "\n\n");
+        }
         for (int j = 0; j < result.size(); j++) {
             ResultItem[] origResultItems = (ResultItem[]) result.get(j);
-            log.debug(origResultItems.length + " rows returned by query.");
+            if (log.isDebugEnabled()) {
+                log.debug(origResultItems.length + " rows returned by query.");
+            }
             if (((IntResult) origResultItems[2]).getInt() > 0) {
                 float avg_rating = (float) ((IntResult) origResultItems[3]).getInt() / ((IntResult) origResultItems[2]).getInt();
                 float avg_events = (float) ((IntResult) origResultItems[5]).getInt() / ((IntResult) origResultItems[2]).getInt();
@@ -444,7 +470,9 @@ public class Legacy extends Base {
 
 
     private ReportNode getReportList() throws Exception {
-        log.debug("getReportList called...");
+        if (log.isDebugEnabled()) {
+            log.debug("getReportList called...");
+        }
         ReportNode result = null;
         Report report = null;
         try {

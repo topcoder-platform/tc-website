@@ -13,13 +13,14 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
+
 import java.sql.Timestamp;
 import java.util.Map;
 
 /**
  * Process the user request to review a component when agreed.
- *
- * <p>
+ * <p/>
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -62,8 +63,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
-        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, 
-            reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
 
         //send email
         Request r = new Request();
@@ -90,7 +91,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         detail = (ResultSetContainer) results.get("pm_details");
 
         String address = detail.getStringItem(0, "address");
-        log.debug("ORIGINAL ADDRESS IS: " + address);
+        if (log.isDebugEnabled()) {
+            log.debug("ORIGINAL ADDRESS IS: " + address);
+        }
 
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("New Review Application");

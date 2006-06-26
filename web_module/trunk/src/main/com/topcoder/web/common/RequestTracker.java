@@ -50,6 +50,7 @@ public class RequestTracker {
     /**
      * Track a request.  This version does not have a user associated with
      * the request so we'll assume they are anonymous
+     *
      * @param request
      */
     public static void trackRequest(TCRequest request) {
@@ -58,6 +59,7 @@ public class RequestTracker {
 
     /**
      * Track a request.
+     *
      * @param u
      * @param request
      */
@@ -199,6 +201,7 @@ public class RequestTracker {
          * We parse out the request here so that
          * we don't have to maintain a reference after the request has
          * been serviced.
+         *
          * @param u
          * @param r
          */
@@ -210,7 +213,7 @@ public class RequestTracker {
             buf.append(r.getContextPath());
             buf.append(r.getServletPath());
             String query = r.getQueryString();
-            if (query==null) {
+            if (query == null) {
                 if (r.getMethod().equals("POST")) {
                     //just a little hack to pick up some extra info on posts
                     String module = StringUtils.checkNull(r.getParameter("module"));

@@ -97,7 +97,9 @@ public abstract class BaseBoard extends BaseProcessor {
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer board = (ResultSetContainer) m.get(query);
-        log.debug("Got " + board.size() + " rows for board");
+        if (log.isDebugEnabled()) {
+            log.debug("Got " + board.size() + " rows for board");
+        }
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.TYPE_KEY,

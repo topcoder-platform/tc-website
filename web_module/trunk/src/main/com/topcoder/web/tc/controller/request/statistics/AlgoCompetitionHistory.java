@@ -4,27 +4,23 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.common.BaseProcessor;
-import java.util.Map;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.tag.HandleTag;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
+
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
  * A processor to retrieve algorithm competition history.
- * 
+ *
  * @author pulky
  * @version 1.0
  */
@@ -38,7 +34,7 @@ public class AlgoCompetitionHistory extends Base {
      * Process the competition history request.
      * Retrieves the algorithm competition history for a particular coder.
      */
-     protected void businessProcessing() throws Exception  {
+    protected void businessProcessing() throws Exception {
         // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -48,8 +44,8 @@ public class AlgoCompetitionHistory extends Base {
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
-        
-        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));   
+
+        setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
 
         // Gets the rest of the optional parameters.
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
@@ -61,8 +57,8 @@ public class AlgoCompetitionHistory extends Base {
         if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
             startRank = "1";
         }
-        setDefault(DataAccessConstants.START_RANK, startRank);   
-        
+        setDefault(DataAccessConstants.START_RANK, startRank);
+
         if ("".equals(endRank)) {
             endRank = String.valueOf(Integer.parseInt(startRank) + Constants.DEFAULT_HISTORY);
         } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
@@ -70,15 +66,15 @@ public class AlgoCompetitionHistory extends Base {
         }
         setDefault(DataAccessConstants.END_RANK, endRank);
 
-        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));   
-        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));   
+        setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        setDefault(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
         // Prepare request for data retrieval
         Request r = new Request();
         if (!(sortCol.equals("") || sortDir.equals(""))) {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ALGO_COMPETITION_HISTORY_QUERY);            
+            r.setProperty(DataAccessConstants.SORT_QUERY, Constants.ALGO_COMPETITION_HISTORY_QUERY);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setContentHandle(Constants.ALGO_COMPETITION_HISTORY_COMMAND);
@@ -86,12 +82,14 @@ public class AlgoCompetitionHistory extends Base {
         // retrieves data from DB
         DataAccessInt dai = getDataAccess(true);
         Map m = dai.getData(r);
-        ResultSetContainer history = (ResultSetContainer)m.get(Constants.ALGO_COMPETITION_HISTORY_QUERY);
-        log.debug("Got " +  history.size() + " rows for algorithm competition history");
-        
+        ResultSetContainer history = (ResultSetContainer) m.get(Constants.ALGO_COMPETITION_HISTORY_QUERY);
+        if (log.isDebugEnabled()) {
+            log.debug("Got " + history.size() + " rows for algorithm competition history");
+        }
+
         // crops data
-        ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank), 
-            Integer.parseInt(endRank));
+        ResultSetContainer rsc = new ResultSetContainer(history, Integer.parseInt(startRank),
+                Integer.parseInt(endRank));
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, rsc);

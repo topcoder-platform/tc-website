@@ -2,9 +2,9 @@ package com.topcoder.web.common;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -22,7 +22,9 @@ public class GZIPResponseFilter implements Filter {
             HttpServletResponse response = (HttpServletResponse) res;
             String ae = request.getHeader("accept-encoding");
             if (ae != null && ae.indexOf("gzip") != -1 && "text/html".equalsIgnoreCase(response.getContentType())) {
-                log.debug("GZIP supported, compressing.");
+                if (log.isDebugEnabled()) {
+                    log.debug("GZIP supported, compressing.");
+                }
                 GZIPResponseWrapper wrappedResponse =
                         new GZIPResponseWrapper(response);
                 chain.doFilter(req, wrappedResponse);

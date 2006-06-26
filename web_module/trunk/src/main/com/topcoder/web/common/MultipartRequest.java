@@ -19,17 +19,21 @@ public class MultipartRequest extends SimpleRequest {
 
     public MultipartRequest(HttpServletRequest request) throws IOException {
         super(request);
-        log.debug("create file upload object");
+        if (log.isDebugEnabled()) {
+            log.debug("create file upload object");
+        }
 
         file = new FileUpload(request, false);
 
-        log.debug("created file upload object");
+        if (log.isDebugEnabled()) {
+            log.debug("created file upload object");
+        }
     }
 
     public String getParameter(String name) {
         try {
-            if (file.getParameter(name)!=null) {
-                if (request.getCharacterEncoding()!=null) {
+            if (file.getParameter(name) != null) {
+                if (request.getCharacterEncoding() != null) {
                     return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
                 } else {
                     return file.getParameter(name);
@@ -52,7 +56,7 @@ public class MultipartRequest extends SimpleRequest {
         Enumeration e = getParameterNames();
         Map ret = new HashMap();
         while (e.hasMoreElements()) {
-            String s = (String)e.nextElement();
+            String s = (String) e.nextElement();
             ret.put(s, getParameter(s));
         }
         return ret;
@@ -71,7 +75,7 @@ public class MultipartRequest extends SimpleRequest {
                 ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                ret[i] =(String) al.get(i);
+                ret[i] = (String) al.get(i);
             }
         }
 
@@ -91,7 +95,7 @@ public class MultipartRequest extends SimpleRequest {
                 ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                ret[i] =(String) al.get(i);
+                ret[i] = (String) al.get(i);
             }
         }
 
