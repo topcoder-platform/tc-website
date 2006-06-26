@@ -43,13 +43,11 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
-            <%--
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=062606"><strong>So I see you're a member of TopCoder&#8230;</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jun 26, 2006</td>
             </tr>
-            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="16096823" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=061906"><strong>How to prepare for an Assembly Competition</strong></A></td>
