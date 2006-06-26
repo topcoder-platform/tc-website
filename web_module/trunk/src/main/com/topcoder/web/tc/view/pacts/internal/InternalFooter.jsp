@@ -56,9 +56,6 @@ Searches<br>
 
 <br><br>
 <%
-   out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.LOGOUT_TASK+"&");
-   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.LOGOUT_TASK+"\">");
-   out.print("Logout</a><br>");
+   out.print("<a href=\"tc?module=Logout\">Logout</a><br>");
 %>
 </center>

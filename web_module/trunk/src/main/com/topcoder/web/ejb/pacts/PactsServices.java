@@ -45,6 +45,8 @@ public interface PactsServices extends EJBObject {
     Map getUserContractList(long userId) throws RemoteException, SQLException;
 
     Map getUserPaymentList(long userId) throws RemoteException, SQLException;
+    
+    Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException;
 
     Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
 
@@ -80,6 +82,10 @@ public interface PactsServices extends EJBObject {
     Map getRounds() throws RemoteException, SQLException;
 
     Map getDemographicData(long userId) throws RemoteException, SQLException;
+    
+    Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException;
+    
+    Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException;
 
     // Search routines
     Map findAffidavits(Map searchCriteria) throws RemoteException, SQLException;
@@ -166,7 +172,7 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
-    int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
+    int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
     		throws IllegalUpdateException, RemoteException, SQLException;
     
     int expireOldPayments() throws RemoteException, SQLException;

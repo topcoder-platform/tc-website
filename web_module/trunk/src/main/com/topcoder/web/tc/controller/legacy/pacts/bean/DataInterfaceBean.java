@@ -278,6 +278,21 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getUserPaymentList(userId);
     }
+    
+    /**
+     * Returns the list of payment details of the given type(s) for the given user.
+     *
+     * @param   userId  The coder ID of the payments.
+     * @param	paymentTypes  The payment type(s) to filter on.
+     * @param 	pendingOnly  True when only pending/owed details should be returned.
+     * @return  The payment header list.
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getUserPaymentDetailsList(userId, paymentTypes, pendingOnly);
+    }
 
     /**
      * Returns the list of tax forms for the given user.
@@ -501,6 +516,18 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.getDemographicData(userId);
     }
+    
+    /**
+     * Returns the created dates for the given payments.
+     *
+     * @return  The created dates
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getCreationDates(paymentIds);
+    }
 
     /*****************************************************
      * Search functions
@@ -511,7 +538,7 @@ public class DataInterfaceBean implements PactsConstants {
      * valid example of the specified input type.
      *
      * @param   input  The input in question.
-     * @param   inputType  Crtierion input type as specified in
+     * @param   inputType  Criterion input type as specified in
      * <tt>PactsConstants.java</tt>.  Currently integer, decimal,
      * boolean, and date inputs can be checked for compliance.
      * @return  Whether or not the given input is valid.
@@ -743,8 +770,8 @@ public class DataInterfaceBean implements PactsConstants {
             }
             hs.add(key);
             boolean inputOk;
-            if (key.equals(EARLIEST_PRINT_DATE) ||
-                    key.equals(LATEST_PRINT_DATE) ||
+            if (key.equals(EARLIEST_CREATION_DATE) ||
+                    key.equals(LATEST_CREATION_DATE) ||
                     key.equals(EARLIEST_PAY_DATE) ||
                     key.equals(LATEST_PAY_DATE) ||
                     key.equals(EARLIEST_DUE_DATE) ||
@@ -754,15 +781,15 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(AFFIDAVIT_ID) ||
                     key.equals(PAYMENT_ID) ||
                     key.equals(USER_ID) ||
-                    key.equals(STATUS_CODE) ||
-                    key.equals(TYPE_CODE) || 
-                    key.equals(METHOD_CODE) ||
                     key.equals(PROJECT_ID))
                 inputOk = validateInput(value, INTEGER);
             else if (key.equals(LOWEST_NET_AMOUNT) ||
                     key.equals(HIGHEST_NET_AMOUNT))
                 inputOk = validateInput(value, DECIMAL);
-            else if (key.equals(HANDLE))
+            else if (key.equals(STATUS_CODE) ||
+                    key.equals(TYPE_CODE) || 
+                    key.equals(METHOD_CODE) ||
+                    key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(IS_REVIEWED))
                 inputOk = validateInput(value, BOOLEAN);
@@ -1352,14 +1379,27 @@ public class DataInterfaceBean implements PactsConstants {
      * has already been generated for this round.
      * @throws SQLException If there was some error updating the data.
      */
-    public int[] generateComponentPayments(long projectId, long status, boolean makeChanges)
+    public int[] generateComponentPayments(long projectId, long status, String client, boolean makeChanges)
 		throws IllegalUpdateException, RemoteException, SQLException {
     	PactsServices ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, makeChanges);
+        return ps.generateComponentPayments(projectId, status, client, makeChanges);
+    }
+    
+    
+    /**
+     * Generates a map with project ID keys and component ID values from the component and review board
+     * payments in the given list.
+     * 
+     * @param paymentIds The list of payment IDs.
+     * @return the map of (projectID, componentID) pairs
+     */
+    public Map getPaymentComponentData(long[] paymentIds) throws RemoteException, SQLException {
+    	PactsServices ps = getEjbHandle();
+    	return ps.getPaymentComponentData(paymentIds);
     }
     
     /**
-     * Sets the status on all payments with Pending or On Hold status older than a specified time
+     * Sets the status on all contest payments with Pending or On Hold status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.
      *
@@ -1370,6 +1410,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         return ps.expireOldPayments();
     }
+
 
     /**
      * Sets the status on all affidavits older than a specified time
@@ -1390,7 +1431,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServices ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
-
+    
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
         PactsServices ps = getEjbHandle();
         return ps.getEmptyPayment(userId);
