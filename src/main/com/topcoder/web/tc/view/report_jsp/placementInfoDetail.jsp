@@ -40,7 +40,7 @@
     </tr>
     <tr><td><br/></td></tr>
     <tr><td align=center><p><b>Placement information for ${requestScope[handle]}
-        (${requestScope[givenName]} ${requestScope[surame]})</b></p></td></tr>
+        (${requestScope[givenName]} ${requestScope[surname]})</b></p></td></tr>
     <tr><td><br/></td></tr>
     <tr>
         <td align=center><p>
