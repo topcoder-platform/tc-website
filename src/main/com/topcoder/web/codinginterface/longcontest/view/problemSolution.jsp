@@ -48,7 +48,9 @@
             sTemp = strtok.nextToken();
             boolean inTag = false;
             for (i = 0; i < sTemp.length(); i++) {
-                inTag = sTemp.charAt(i) == '<';
+                if (!inTag && sTemp.charAt(i) == '<') {
+                    inTag = true;
+                }
                 if (inTag && sTemp.charAt(i) == '>') {
                     inTag = false;
                 }
