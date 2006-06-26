@@ -68,10 +68,14 @@ public class ForumsServlet extends BaseServlet {
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
             //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
-            log.debug("uri: " + request.getRequestURL().toString());
+            if (log.isDebugEnabled()) {
+                log.debug("uri: " + request.getRequestURL().toString());
+            }
             if (!authentication.getActiveUser().isAnonymous() &&
                     !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
-                log.debug("using an uncached response");
+                if (log.isDebugEnabled()) {
+                    log.debug("using an uncached response");
+                }
                 tcResponse = HttpObjectFactory.createUnCachedResponse(response);
             }
             //todo perhaps this should be configurable...so implementing classes
