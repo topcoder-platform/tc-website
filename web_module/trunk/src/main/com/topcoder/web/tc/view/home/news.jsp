@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.26.06<br>2:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm308">SRM 308 - Problem Set & Analysis</A></span><br><br>
+In both divisions, the first two problems were rather easy and standard, but the third caused some troubles.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm308">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505983" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.26.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_062606">Bloomberg L.P. Named Premier Sponsor of TCCC06</A></span><br><br>
       Leading Global Provider of Data, News and Analytics Backs Top Computer Science Tournament.
@@ -178,21 +195,6 @@ The second TopCoder High School Single Round Match, first one for the <a href="/
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.12.06<br>9:35 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061206">Creating Use Case and Sequence Diagrams</A></span><br><br>
-       This article provides an overview of use case and sequence diagrams, including how they are created, how they influence design, and how they help developers and users.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=061206">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506054" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
