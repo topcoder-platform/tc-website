@@ -25,8 +25,8 @@
             <c:set value="<%=Constants.HANDLE%>" var="handle"/>
             <c:set value="<%=Constants.GIVEN_NAME%>" var="givenName"/>
             <c:set value="<%=Constants.SURNAME%>" var="surname"/>
-            <tr><td align=center><b><font size="+2">${handle}</font></b></td></tr>
-            <tr><td align=center>${givenName} ${surname}</td></tr>
+            <tr><td align=center><b><font size="+2">${requestScope[handle]}</font></b></td></tr>
+            <tr><td align=center>${requestScope[givenName]} ${requestScope[surame]}</td></tr>
             <tr><td align=center>
                 <a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report
                     Profile</a></td></tr>
