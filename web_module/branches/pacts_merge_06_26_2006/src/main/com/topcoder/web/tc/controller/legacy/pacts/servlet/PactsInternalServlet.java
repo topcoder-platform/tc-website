@@ -221,27 +221,45 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         return;
                     }
                     if (command.equals(PAYMENT_CMD)) {
+                    	String[] statusValues = request.getParameterValues(STATUS_CODE);
+                    	String[] typeValues = request.getParameterValues(TYPE_CODE);
+                    	String[] methodValues = request.getParameterValues(METHOD_CODE);
+                    	
+                    	boolean checked = true;
+                    	if (statusValues != null) {
+	                    	for (int i=0; i<statusValues.length; i++) {
+	                    		checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
+	                    	}
+                    	}
+                    	if (typeValues != null) {
+	                    	for (int i=0; i<typeValues.length; i++) {
+	                    		checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
+	                    	}
+                    	}
+                    	if (methodValues != null) {
+	                    	for (int i=0; i<methodValues.length; i++) {
+	                    		checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
+	                    	}
+                    	}
+                    	
                         if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                        && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                        && checkParam(INT_TYPE, request.getParameter(METHOD_CODE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_PRINT_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                        && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                        && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
-                                        && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
-                                        && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
-                                        && pp.get()) {
-
+                        		checked
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
+                                && pp.get()) {
                             doPaymentList(request, response);
                         } else {
                             throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
@@ -1189,12 +1207,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         // Give the JSP the list of Payment Types
         map = dib.getPaymentTypes();
-        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
-
+        request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));        
+        
         // Give the JSP the list of Payment Methods
         map = dib.getPaymentMethods();
         request.setAttribute(PAYMENT_METHOD_LIST, map.get(PAYMENT_METHOD_LIST));
-
+        
         // Give the JSP the list of Affidavit Statuss
         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
         request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
@@ -1240,15 +1258,15 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             Payment p = null;
             if (!"".equals(StringUtils.checkNull(request.getParameter("payment_desc")))) {
                 p = new Payment(
-                        Long.parseLong(request.getParameter("user_id")),
-                        request.getParameter("payment_desc"),
-                        Integer.parseInt(request.getParameter("payment_type_id")),
-                        Integer.parseInt(request.getParameter("payment_method_id")),
-                        // dpecora 05/03 - fix
-                        // Double.parseDouble(request.getParameter(net)),
-                        Double.parseDouble(net),
-                        Double.parseDouble(request.getParameter("gross_amount")),
-                        Integer.parseInt(request.getParameter("payment_status_id")));
+                    Long.parseLong(request.getParameter("user_id")),
+                    request.getParameter("payment_desc"),
+                    Integer.parseInt(request.getParameter("payment_type_id")),
+                    Integer.parseInt(request.getParameter("payment_method_id")),
+                    // dpecora 05/03 - fix
+                    // Double.parseDouble(request.getParameter(net)),
+                    Double.parseDouble(net),
+                    Double.parseDouble(request.getParameter("gross_amount")),
+                    Integer.parseInt(request.getParameter("payment_status_id")));
                 p.setDueDate(TCData.dateForm(request.getParameter("date_due")));
             }
 
@@ -1423,6 +1441,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     new InternalDispatchPayment(request, response);
             Payment results = bean.get(payment_id);
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            String creationDate = bean.getCreationDate(results.getHeader());
+            request.setAttribute(CREATION_DATE, creationDate);
             forward(INTERNAL_PAYMENT_JSP, request, response);
         }
 
@@ -1717,6 +1737,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 new InternalDispatchPayment(request, response);
         Payment results = bean.get();
         request.setAttribute(PACTS_INTERNAL_RESULT, results);
+        String creationDate = bean.getCreationDate(results.getHeader());
+        request.setAttribute(CREATION_DATE, creationDate);
 
         InternalDispatchNoteList nlb =
                 new InternalDispatchNoteList(request, response);
@@ -1764,15 +1786,16 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         query = INTERNAL_SERVLET_URL + "?" + query;
         request.setAttribute("query", query);
 
-
         InternalDispatchPaymentList bean =
                 new InternalDispatchPaymentList(request, response);
         PaymentHeader[] results = bean.get();
+        String[] creationDates = bean.getCreationDates(results);
         if (results.length != 1) {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
+            request.setAttribute(CREATION_DATE_LIST, creationDates);
             forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
         } else {
             InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
@@ -1782,7 +1805,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
             request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
-
+            request.setAttribute(CREATION_DATE, creationDates[0]);
             forward(INTERNAL_PAYMENT_JSP, request, response);
         }
     }
@@ -2019,21 +2042,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateAffidavit(affidavit);
 
-        if (!affidavit.getHeader().isAffirmed() &&
-                affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
-            doAffirmAffidavitPost(request, response);
-        } else {
-            affidavit = bean.get();
-
-            request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
-
-            InternalDispatchNoteList notes =
-                    new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
-            request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
-
-            forward(INTERNAL_AFFIDAVIT_JSP, request, response);
+        if (!affidavit.getHeader().isAffirmed() && 
+        		affidavit.getHeader().getStatusId() == AFFIDAVIT_AFFIRMED_STATUS) {
+        	doAffirmAffidavitPost(request, response);
+        } else {        
+	        affidavit = bean.get();
+	
+	        request.setAttribute(PACTS_INTERNAL_RESULT, affidavit);
+	
+	        InternalDispatchNoteList notes =
+	                new InternalDispatchNoteList(request, response);
+	        Map search = new HashMap();
+	        search.put(AFFIDAVIT_ID, request.getParameter(AFFIDAVIT_ID));
+	        request.setAttribute(NOTE_HEADER_LIST, notes.get(search));
+	        
+	        forward(INTERNAL_AFFIDAVIT_JSP, request, response);
         }
     }
 
@@ -2134,12 +2157,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         payment.getHeader().setDescription(request.getParameter("payment_desc"));
         payment.getHeader().setTypeId(Integer.parseInt(request.getParameter("payment_type_id")));
         payment.getHeader().setMethodId(Integer.parseInt(request.getParameter("payment_method_id")));
+        payment.getHeader().setClient(StringUtils.checkNull(request.getParameter("client")).trim());
         payment.setGrossAmount(Double.parseDouble(request.getParameter("gross_amount")));
         // dpecora 05/03 - fix
         // payment._netAmount = Double.parseDouble(request.getParameter(net));
         payment.setNetAmount(Double.parseDouble(net));
         payment.setStatusId(Integer.parseInt(request.getParameter("status_id")));
-        payment.setPrintDate(TCData.dateForm(request.getParameter("date_printed")));
         payment.setPayDate(TCData.dateForm(request.getParameter("date_paid")));
         payment.setDueDate(TCData.dateForm(request.getParameter("date_due")));
         payment.setRationaleId(Integer.parseInt(request.getParameter("modification_rationale_id")));
