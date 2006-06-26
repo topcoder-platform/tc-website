@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>Note</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.note.NoteHome</jndi-name>
+    </session>
+  </enterprise-beans>
+</jboss>
