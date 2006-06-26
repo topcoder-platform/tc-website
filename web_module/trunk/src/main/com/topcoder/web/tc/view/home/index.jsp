@@ -254,8 +254,8 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-                <%--TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>--%>
+                TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>
 
                 AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">...more</A><br>[June 19]<br><br>
@@ -269,19 +269,12 @@
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0"/></div>
                 Gartner cites TopCoder as model for "Web 2.0" community
-                <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May
-                16]<br><br>
+                <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May 16]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" border="0"/></div>
                 Idol or idle: which one are you?
-                <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">...more</A><br>[May
-                15]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/cnbc_logo.gif" width="68" height="35" alt="CNBC TV" border="0"/></div>
-                CNBC's Jane's Addiction and Squawk Box [MOVIE] <A href="/movies/press/cnbc_051506.mov" target="_blank">...more</A>
-                <br>[May 15]<br><br>
+                <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">...more</A><br>[May 15]<br><br>
 
             </td>
         </tr>
