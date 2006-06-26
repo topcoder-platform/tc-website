@@ -80,11 +80,11 @@ public class BoardRowComparator implements Comparator {
 
         // compares points
         if (lbr0.getPoints() < lbr1.getPoints()) {
-            log.debug("--1-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
+            //log.debug("--1-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
         if (lbr0.getPoints() > lbr1.getPoints()) {
-            log.debug("--2-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
+            //log.debug("--2-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
@@ -99,33 +99,33 @@ public class BoardRowComparator implements Comparator {
             ResultSetRow row1 = (ResultSetRow) it1.next();
 
             if (row0.getLongItem("placed") < row1.getLongItem("placed")) {
-                log.debug("--3-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
+                //log.debug("--3-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }
 
             if (row0.getLongItem("placed") < row1.getLongItem("placed")) {
-                log.debug("--4-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
+                //log.debug("--4-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
                 return 1;
             }
 
             if (row0.getLongItem("cnt") > row1.getLongItem("cnt")) {
-                log.debug("--5-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
+                //log.debug("--5-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
                 return -1;
             }
 
             if (row0.getLongItem("cnt") > row1.getLongItem("cnt")) {
-                log.debug("--6-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
+                //log.debug("--6-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
                 return 1;
             }
         }
 
         if (!it0.hasNext() && it1.hasNext()) {
-            log.debug("--7-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
+            //log.debug("--7-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
 
         if (it0.hasNext() && it0.hasNext()) {
-            log.debug("--8-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
+            //log.debug("--8-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
@@ -147,17 +147,17 @@ public class BoardRowComparator implements Comparator {
         }
 
         if (score0 < score1) {
-            log.debug("--9-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
+            //log.debug("--9-- Compare result: " + lbr0.getUserName() + " < " + lbr1.getUserName());
             return -1;
         }
 
         if (score0 > score1) {
-            log.debug("--10-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
+            //log.debug("--10-- Compare result: " + lbr0.getUserName() + " > " + lbr1.getUserName());
             return 1;
         }
 
         // tie
-        log.debug("--11-- Compare result: " + lbr0.getUserName() + " = " + lbr1.getUserName());
+        //log.debug("--11-- Compare result: " + lbr0.getUserName() + " = " + lbr1.getUserName());
         return 0;
     }
 
@@ -172,6 +172,9 @@ public class BoardRowComparator implements Comparator {
      * @return the retrieved resultset
      */
     private ResultSetContainer retrieveInfo(String commandName, long periodId, long phaseId, long userId) {
+        if (log.isDebugEnabled()) {
+            log.debug("running retrieveInfo command: " + commandName + " periodId: " + periodId + " phaseid: " + phaseId + " userId: " + userId);
+        }
         Request r = new Request();
         r.setContentHandle(commandName);
         r.setProperty(periodKey, String.valueOf(periodId));
@@ -184,9 +187,9 @@ public class BoardRowComparator implements Comparator {
         try {
             m = dai.getData(r);
         } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
-        ResultSetContainer rsc = (ResultSetContainer) m.get(commandName);
-        return rsc;
+        return (ResultSetContainer) m.get(commandName);
     }
 }
