@@ -1,11 +1,14 @@
 package com.topcoder.common.web.data.report;
 
-/** A set of constants for the reporting tool
- *  @author Greg Paul
- *  @version $Revision$
+import com.topcoder.web.common.WebConstants;
+
+/**
+ * A set of constants for the reporting tool
  *
+ * @author Greg Paul
+ * @version $Revision$
  */
-public class Constants {
+public class Constants implements WebConstants {
 
     public static String REPORT_HOME_ADDR = "/index.jsp";
     public static String NEW_REPORT_HOME_ADDR = "/newIndex.jsp";
