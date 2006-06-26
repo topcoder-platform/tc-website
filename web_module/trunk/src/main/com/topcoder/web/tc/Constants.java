@@ -53,7 +53,6 @@ public class Constants implements WebConstants {
     public static String SURVEY_ID;
     public static String FIRST_NAME;
     public static String LAST_NAME;
-    public static String EMAIL;
     public static final String COMPANY_NAME = "compName";
 
     public static String NOTE_ID;
