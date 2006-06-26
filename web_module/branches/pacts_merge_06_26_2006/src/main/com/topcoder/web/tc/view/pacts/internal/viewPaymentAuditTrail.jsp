@@ -65,8 +65,9 @@
 		<td><b>Method</b></td>
 		<td><b>Net Amount</b></td>
 		<td><b>Gross Amount</b></td>
-		<td><b>Date Paid</b></td>
+		<td><b>Date Modified</b></td>
 		<td><b>Date Due</b></td>
+		<td><b>Date Paid</b></td>
 		<td><b>Modification Rationale</b></td>
 		<td><b>Address Information</b></td>
 		</tr>
@@ -79,8 +80,9 @@
 			out.print("<td>"+payments[n].getMethod()+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getNetAmount())+"</td>\n");
 			out.print("<td>"+df.format(payments[n].getGrossAmount())+"</td>\n");
-			out.print("<td>"+payments[n].getPayDate()+"</td>\n");
+			out.print("<td>"+payments[n].getModifiedDate()+"</td>\n");
 			out.print("<td>"+payments[n].getDueDate()+"</td>\n");
+			out.print("<td>"+payments[n].getPayDate()+"</td>\n");
 			out.print("<td>"+payments[n].getRationale()+"</td>\n");
 			if (payments[n].getStatusId() == PactsConstants.PAID_STATUS) {
 				out.print("<td><pre>");
@@ -114,6 +116,14 @@
 
 <%
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&");
+   out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
+   out.println(PactsConstants.PAYMENT_ID+"="+payments[0].getHeader().getId());
+   out.println("\">View Payment</a><br>");
+
+   out.print("<br>");
+
+   out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.ADD_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"&");
    out.println("object_id="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
@@ -125,7 +135,7 @@
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.UPDATE_TASK+"&");
    out.println(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"&");
    out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID));
-   out.println("\">Reconcile Payment</a><br>");
+   out.println("\">Update Payment</a><br>");
 
    out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
