@@ -46,13 +46,19 @@
         String sTemp = "";
         while (strtok.hasMoreTokens()) {
             sTemp = strtok.nextToken();
+            boolean inTag = false;
             for (i = 0; i < sTemp.length(); i++) {
-                if (sTemp.charAt(i) == ' ')
+                inTag = sTemp.charAt(i) == '<';
+                if (inTag && sTemp.charAt(i) == '>') {
+                    inTag = false;
+                }
+                if (!inTag && sTemp.charAt(i) == ' ') {
                     stBuffer.append("&#160;");
-                else
+                } else {
                     stBuffer.append(sTemp.charAt(i));
+                }
             }
-            stBuffer.append("<BR>");
+            stBuffer.append("<br />");
         }
         return stBuffer.toString();
     }
