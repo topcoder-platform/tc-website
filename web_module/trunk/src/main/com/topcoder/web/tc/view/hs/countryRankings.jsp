@@ -105,8 +105,8 @@
                 <span class="subtitle">Season: <%= round.getSeasonName() %></span><br>
 
 <span class="bc">
-<a href="/tc?module=HSRank&snid=<%= round.getSeasonId() %>" class="bcLink">Coders</a> | 
-<a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> | 
+<a href="/tc?module=HSRank&snid=<%= round.getSeasonId() %>" class="bcLink">Coders</a> |
+<a href="/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>" class="bcLink">Teams</a> |
 Countries
 </span>
                 <br><br>
@@ -125,7 +125,7 @@ Countries
                             <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
                             <td class="value"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
                             <td class="value"><rsc:item name="member_count" row="<%=resultRow%>"/></td>
-                            <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                            <td class="valueR"><rsc:item name="rating" row="<%=resultRow%>" format="0.00"/></td>
                         </tr>
                     </rsc:iterator>
                 </table>
