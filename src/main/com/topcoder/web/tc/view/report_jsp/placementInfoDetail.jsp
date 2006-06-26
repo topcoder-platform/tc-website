@@ -35,11 +35,12 @@
     <tr>
         <td align=left><p>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=LegacyReport&t=new_report&c=placement_people&db=java:OLTP">
-                <<back to placement registrants report</ a></p></td>
+                &lt;&lt;back to placement registrants report</a></p></td>
 
     </tr>
     <tr><td><br/></td></tr>
-    <tr><td align=center><p><b>Placement information for ${handle} (${givenName} ${surname})</b></p></td></tr>
+    <tr><td align=center><p><b>Placement information for ${requestScope[handle]}
+        (${requestScope[givenName]} ${requestScope[surame]})</b></p></td></tr>
     <tr><td><br/></td></tr>
     <tr>
         <td align=center><p>
