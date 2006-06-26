@@ -7,13 +7,15 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getHeader("Referer");
   if(nextpage==null) nextpage = "http://"+request.getServerName();
-  ResultSetContainer leaderBoard = (ResultSetContainer) request.getAttribute(Constants.CODER_LIST_KEY);
   String type = (String)request.getAttribute(Constants.TYPE_KEY);
   ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
 %>
@@ -45,12 +47,46 @@ function submitEnter(e) {
   }
   function previous() {
     var myForm = document.leaderBoardForm;
-    myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+    myForm.<%=DataAccessConstants.START_RANK%>.value=parseInt(myFsorm.<%=DataAccessConstants.START_RANK%>.value)-parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
     myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
     myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
     myForm.submit();
   }
+var objPopUp = null;
+function popUp(objectID){
+objPopUp = document.getElementById(objectID);
+objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+objPopUp.style.visibility = 'hidden';
+objPopUp = null;
+}
 </script>
+<style type="text/css">
+img.emblem{float:left;margin: 0px 0px 0px 0px;}
+div.container{
+display:block;
+text-align:center;
+position:relative;
+margin:0px;
+padding:0px;
+}
+div.popUp{
+visibility: hidden;
+position: absolute;
+top:20px;
+left:20px;
+z-index: 1;
+}
+div.popUp div{
+font-size: 11px;
+width:200px;
+background: #FFFFCC;
+border: 1px solid #999999;
+padding: 6px;
+text-align:left;
+}
+</style>
 </head>
 <body>
 
@@ -118,17 +154,32 @@ Design Cup Series Leaderboard<br>
                </rsc:iterator>
            </SELECT>
 
-<% if(!leaderBoard.isEmpty()) { %>
+<c:choose>
+<c:when test="${fn:length(boardList) > 0}">
 
 <div class="pagingBox" style="width:300px;">
-<%=(leaderBoard.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-| <%=(leaderBoard.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>":"next &gt;&gt;")%>
+   <c:choose>
+       <c:when test="${croppedDataBefore}">
+         <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+      </c:when>
+      <c:otherwise>
+         &lt;&lt; prev
+      </c:otherwise>
+   </c:choose>
+   |
+   <c:choose>
+       <c:when test="${croppedDataAfter}">
+         <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+      </c:when>
+      <c:otherwise>
+         next &gt;&gt;
+      </c:otherwise>
+   </c:choose>
 </div>
 
-
-<table class="stat" cellpadding="0" cellspacing="0" width="500">
+<table class="stat" cellpadding="0" cellspacing="0" width="510">
    <tr>
-      <td class="title" colspan="3">
+      <td class="title" colspan="9">
 <% if(request.getParameter(Constants.PHASE_ID).equals("113")){ %>
 Development Cup Series Leaderboard
 <% } else { %>
@@ -143,33 +194,67 @@ Design Cup Series Leaderboard
       <td class="header" width="100%">
          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
       </td>
-      <td class="headerR">
-         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Points</a>
+      <td class="headerR" colspan="4">
+         <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
       </td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top Five<br>Prize</a></td>
+      <td class="headerR" nowrap="nowrap"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top Third<br>Prize</a></td>
+      <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total Prizes</a></td>
    </tr>
-   <%boolean even = false;%>
-   <rsc:iterator list="<%=leaderBoard%>" id="resultRow">
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-      <td class="value" width="100%"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context='<%=type%>' /></td>
-      <td class="valueR"><rsc:item name="total_points" row="<%=resultRow%>"/></td>
-   </tr>
-   <%even=!even;%>
-   </rsc:iterator>
+
+   <% boolean even = false;%>
+   <% int i = 0;%>
+   <c:forEach items="${boardList}" var="boardRow">
+      <tr class="<%=even?"dark":"light"%>">
+         <td class="valueC">${boardRow.rank}</td>
+         <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>' /></td>
+         <td class="valueC">
+<c:if test="${boardRow.winTrip}">
+<div class="container" >
+   <img src="/i/interface/emblem/trip.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>a')" onmouseout="popHide()" />
+   <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
+</div>
+</c:if>
+         </td>
+         <td class="valueC">
+<c:if test="${boardRow.winTrip}">
+<div class="container" >
+   <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>b')" onmouseout="popHide()" />
+   <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
+</div>
+</c:if>
+         </td>
+         <td class="valueC">
+<c:if test="${boardRow.topThird}">
+<div class="container" id="container<%=i%>b">
+   <img src="/i/interface/emblem/prize.gif" class="emblem" alt="" border="0" onmouseover="popUp('pop<%=i%>c')" onmouseout="popHide()" />
+   <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top Third</strong></div></div>
+</div>
+</c:if>
+         </td>
+         <td class="valueR">${boardRow.points}</td>
+         <td class="valueR"><c:if test="${boardRow.placementPrize>0}"><fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/></c:if></td>
+         <td class="valueR"><c:if test="${boardRow.pointsPrize>0}"><fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/></c:if></td>
+         <td class="valueR"><c:if test="${boardRow.totalPrize>0}"><fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/></c:if></td>
+      </tr>
+      <%i++;%>
+      <%even=!even;%>
+   </c:forEach>
 </table>
 
 <div class="pagingBox" style="width:300px;">
 View <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-at a time starting with 
+at a time starting with
 <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
 <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
 </div>
 
-<% } else { %>
+ </c:when>
+<c:otherwise>
 <br><br>
 The selected stage is underway and results will start coming in soon.
-<% } %>
-
+</c:otherwise>
+</c:choose>
    </div>
 </div>
        </TD>
