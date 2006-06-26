@@ -21,26 +21,26 @@
    <tr valign="top">
       <td valign="top" align="center">
       <div class="bodySpacer">
-<span class="bigTitle">Description of the Component Design and Development Competition</span>
+<span class="bigTitle">2006 TopCoder Collegiate Challenge - Component Design and Development Competition </span>
 <br><br>
-We're inviting the top 16 finalists - 8 designers and 8 developers - to join us in Las Vegas, NV at the Finals of the Component Competition.
-<ul>
-<li><strong>Registration</strong><br>
-Begins: January 2, 2006 9:00AM EST<br>
-Ends: February 15, 2006 9:00AM EST
-</li>
-<li><strong>Online Rounds</strong><br>
-January 18, 2006 - February 15, 2006
-</li>
-<li><strong>Online Finals</strong><br>
-March 15, 2006 - April 19, 2006
-</li>
-<li><strong>Onsite Finals</strong><br>
-May 3-5, 2006<br>
-Aladdin Resort and Casino*, Las Vegas, Nevada, USA
-</li>
-</ul>
-The competition is free and you must be 18 years or older to be eligible.  
+<span class="bodySubtitle">Registration</span><br>
+Begins: July 31, 2006 9:00AM EDT<br>
+Ends: September 14, 2006 9:00AM EDT
+<br><br>
+
+<span class="bodySubtitle">Online Rounds</span><br>
+August 17, 2006 - September 14, 2006
+<br><br>
+
+<span class="bodySubtitle">Online Finals</span><br>
+October 5, 2006 - November 2, 2006
+<br><br>
+
+<span class="bodySubtitle">Onsite Finals</span><br>
+November 15-17, 2006<br>
+San Diego Marriott Mission Valley, San Diego, California, USA 
+<br><br>
+The competition is free and you must be 18 years or older as well as a matriculated full-time student at an accredited college or university to be eligible.
 <br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">rules and regulations</A> for full details.
 <br><br>

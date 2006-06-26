@@ -28,8 +28,8 @@
    <tr valign="top">
       <td class="sidebarTitle" width="25%">Registration</td>
       <td class="sidebarTitle" width="75%">
-         OPENS: Monday, January 2, 2006 at 9:00 AM EST<br /><br/>
-         CLOSES: Wednesday, February 15, 2006 at 9:00 AM EST
+         OPENS: Monday, July 31, 2006 at 9:00 AM EDT<br /><br/>
+         CLOSES: Thursday, September 14, 2006 at 9:00 AM EDT
       </td>
    </tr>
 </table>
@@ -44,51 +44,51 @@
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 1 of Online Qualification Round</td>
-      <td class="sidebarText">01.18.2006 9:00AM*</td>
+      <td class="sidebarText">08.17.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">01.26.2006 9:00AM*</td>
+      <td class="sidebarText">08.24.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 2 of Online Qualification Round</td>
-      <td class="sidebarText">01.26.2006 9:00AM*</td>
+      <td class="sidebarText">08.24.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.02.2006 9:00AM*</td>
+      <td class="sidebarText">08.31.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 3 of Online Qualification Round</td>
-      <td class="sidebarText">02.02.2006 9:00AM*</td>
+      <td class="sidebarText">08.31.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.09.2006 9:00AM*</td>
+      <td class="sidebarText">09.07.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 4 of Online Qualification Round</td>
-      <td class="sidebarText">02.09.2006 9:00AM*</td>
+      <td class="sidebarText">09.07.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.16.2006 9:00AM*</td>
+      <td class="sidebarText">09.14.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 5 of Online Qualification Round</td>
-      <td class="sidebarText">02.16.2006 9:00AM*</td>
+      <td class="sidebarText">09.14.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">02.23.2006 9:00AM*</td>
+      <td class="sidebarText">09.21.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 1)</td>
-      <td class="sidebarText">03.16.2006 9:00AM*</td>
+      <td class="sidebarText">10.05.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">03.23.2006 9:00AM*</td>
+      <td class="sidebarText">10.12.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 2)</td>
-      <td class="sidebarText">03.30.2006 9:00AM*</td>
+      <td class="sidebarText">10.19.2006 9:00AM**</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.06.2006 9:00AM**</td>
+      <td class="sidebarText">10.26.2006 9:00AM**</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online  portion component 3)</td>
-      <td class="sidebarText">04.13.2006 9:00AM**</td>
+      <td class="sidebarText">11.02.2006 9:00AM*</td>
       <td class="sidebarText" align="center">72 Hours</td>
-      <td class="sidebarText">04.20.2006 9:00AM**</td>
+      <td class="sidebarText">11.09.2006 9:00AM*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (onsite portion)</td>
