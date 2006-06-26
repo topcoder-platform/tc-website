@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+	<mbean code="com.topcoder.apps.review.autopilottimer.AutoPilotTimer"
+		name="topcoder.startup:name=AutoPilotTimer">
+<!--
+		<attribute name="Initialized">false</attribute>
+-->
+        <attribute name="InitStatus"/>
+	</mbean>
+</server>
