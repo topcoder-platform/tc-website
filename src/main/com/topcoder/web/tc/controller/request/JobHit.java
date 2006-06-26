@@ -73,7 +73,9 @@ public class JobHit extends Base {
             JobHitData hit = getData();
             getRequest().setAttribute("JobHitData", hit);
 
-            log.debug("user rating: " + hit.getRating());
+            if (log.isDebugEnabled()) {
+                log.debug("user rating: " + hit.getRating());
+            }
             jpServices = (JobPostingServices) BaseProcessor.createEJB(getInitialContext(), JobPostingServices.class);
             if (hitType == Constants.PLACEMENT_CLICK_THRU_ID) {
                 if (jpServices.jobExists(jobId, DBMS.OLTP_DATASOURCE_NAME)) {

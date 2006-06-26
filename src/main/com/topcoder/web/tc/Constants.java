@@ -20,7 +20,7 @@ public class Constants implements WebConstants {
     public static String VIEW_ROOKIE_BOARD_PAGE;
     public static String VIEW_COMPETITION_HISTORY_PAGE;
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
-    
+
     public static String LEADER_BOARD_COMMAND;
     public static String LEADER_BOARD_QUERY;
     public static String ROOKIE_BOARD_COMMAND;
@@ -46,8 +46,8 @@ public class Constants implements WebConstants {
 
     public static String STAGE_LIST_KEY;
     public static String SEASON_LIST_KEY;
-    
-        
+
+
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
@@ -81,7 +81,7 @@ public class Constants implements WebConstants {
     public static String PROJECT_ID;
     public static String PHASE_ID;
     public static String SEASON_ID;
-    
+
     public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
@@ -171,8 +171,8 @@ public class Constants implements WebConstants {
     public static final int TCO06_EVENT_ID = 5;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
-    public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID=20383;
-    public static final int TCO06_COMPONENT_TERMS_OF_USE_ID=20384;
+    public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID = 20383;
+    public static final int TCO06_COMPONENT_TERMS_OF_USE_ID = 20384;
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
     public static final int TCO06_SPONSOR_COMPANY_QUESTION_ID = 31;
     public static final int TCO06_SPONSOR_TERMS_ID = 20388;
@@ -243,9 +243,9 @@ public class Constants implements WebConstants {
 
     public static String TCCC05_STUDENT_REPS;
 
-    public static final String COLLEGE_TOUR_EVENT_ID="cteid";
-    public static final String COLLEGE_TOUR_CONFIG_INFO="configInfo";
-    public static final String ROUND_NAME="rdname";
+    public static final String COLLEGE_TOUR_EVENT_ID = "cteid";
+    public static final String COLLEGE_TOUR_CONFIG_INFO = "configInfo";
+    public static final String ROUND_NAME = "rdname";
     public static final int RECRUITER_NAME_PROP_ID = 1;
     public static final int FIRST_PLACE_PROP_ID = 2;
     public static final int SECOND_PLACE_PROP_ID = 3;
@@ -269,7 +269,7 @@ public class Constants implements WebConstants {
 
     //High School statistics
     public static String HS_ROUND_OVERVIEW;
-    public static String HS_ROUND_STATS_TEAM; 
+    public static String HS_ROUND_STATS_TEAM;
     public static String HS_ROUND_STATS_IND;
     public static String HS_ROOM_STATS;
     public static String HS_TEAM_RESULTS;
@@ -280,7 +280,7 @@ public class Constants implements WebConstants {
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
 
-    
+
     static {
         initialize();
     }
@@ -307,10 +307,13 @@ public class Constants implements WebConstants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null) == null)
+                if (f[i].get(null) == null) {
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else
-                    log.debug(f[i].getName() + " <== " + f[i].get(null));
+                } else {
+                    if (log.isDebugEnabled()) {
+                        log.debug(f[i].getName() + " <== " + f[i].get(null));
+                    }
+                }
 
             } catch (Exception e) {
                 /* probably harmless, could just be a type or modifier mismatch */

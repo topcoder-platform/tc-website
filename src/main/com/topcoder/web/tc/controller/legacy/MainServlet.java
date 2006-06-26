@@ -44,7 +44,9 @@ public final class MainServlet extends BaseServlet {
 
 
     public synchronized void init(ServletConfig config) throws ServletException {
-        log.debug("SERVLET INIT CALLED");
+        if (log.isDebugEnabled()) {
+            log.debug("SERVLET INIT CALLED");
+        }
         if (htmlMaker == null) {
             htmlMaker = new HTMLRenderer();
         }
@@ -59,7 +61,9 @@ public final class MainServlet extends BaseServlet {
     public final void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getServerName().equals("topcoder.com")) {
-            log.debug("redirect around");
+            if (log.isDebugEnabled()) {
+                log.debug("redirect around");
+            }
             response.sendRedirect("http://www.topcoder.com/");
             return;
         }
@@ -226,15 +230,17 @@ public final class MainServlet extends BaseServlet {
                     params.nextToken();
                     if (params.hasMoreTokens()) {
                         String temp = params.nextToken();
-                        log.debug("redirecting to " + temp + " after login");
+                        if (log.isDebugEnabled()) {
+                            log.debug("redirecting to " + temp + " after login");
+                        }
                         response.sendRedirect(temp);
                     }
                 }
                 String encode = request.getHeader("Accept-Encoding");
                 if (
                         encode != null
-                        && encode.indexOf("gzip") != -1
-                ) {
+                                && encode.indexOf("gzip") != -1
+                        ) {
                     //log.debug("zip it and rip it");
                     response.setContentType("text/html");
                     outputStream = response.getOutputStream();
@@ -253,7 +259,9 @@ public final class MainServlet extends BaseServlet {
                 }
             }
         } catch (PermissionException pe) {
-            log.debug("caught PermissionException");
+            if (log.isDebugEnabled()) {
+                log.debug("caught PermissionException");
+            }
             try {
                 if (!nav.isLoggedIn()) {
                     /* forward to the login page, with a message and a way back */
@@ -295,7 +303,9 @@ public final class MainServlet extends BaseServlet {
                     gzipStream.flush();
                     gzipStream.close();
                 } catch (Exception ignore) {
-                    log.debug("gzipStream.finish() FAILED!!!");
+                    if (log.isDebugEnabled()) {
+                        log.debug("gzipStream.finish() FAILED!!!");
+                    }
                 }
             }
         }

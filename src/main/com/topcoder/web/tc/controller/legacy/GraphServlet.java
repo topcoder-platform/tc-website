@@ -31,10 +31,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- *  A servlet to generate graph images
+ * A servlet to generate graph images
  *
- * @version $Revision$
  * @author Greg Paul
+ * @version $Revision$
  */
 
 public final class GraphServlet extends BaseServlet {
@@ -48,11 +48,11 @@ public final class GraphServlet extends BaseServlet {
 
     private static final Color MAROON = new Color(0x88, 0x00, 0x22);
     private static final String[] rating_segments = {"0-99", "100-199", "200-299", "300-399",
-                                                     "400-499", "500-599", "600-699", "700-799", "800-899", "900-999",
-                                                     "1000-1099", "1100-1199", "1200-1299", "1300-1399", "1400-1499", "1500-1599",
-                                                     "1600-1699", "1700-1799", "1800-1899", "1900-1999", "2000-2099", "2100-2199",
-                                                     "2200-2299", "2300-2399", "2400-2499", "2500-2599", "2600-2699", "2700-2799",
-                                                     "2800-2899", "2900 & up"};
+            "400-499", "500-599", "600-699", "700-799", "800-899", "900-999",
+            "1000-1099", "1100-1199", "1200-1299", "1300-1399", "1400-1499", "1500-1599",
+            "1600-1699", "1700-1799", "1800-1899", "1900-1999", "2000-2099", "2100-2199",
+            "2200-2299", "2300-2399", "2400-2499", "2500-2599", "2600-2699", "2700-2799",
+            "2800-2899", "2900 & up"};
     private static final String LICENSE_KEY = "8C6BE93G3B21D6D";
 
     private static final Style axisStyle = new Style(YELLOW, "Verdana", Font.PLAIN, 10);
@@ -68,7 +68,9 @@ public final class GraphServlet extends BaseServlet {
     private static CacheClient client = null;
 
     public synchronized void init(ServletConfig config) throws ServletException {
-        log.debug("SERVLET INIT CALLED");
+        if (log.isDebugEnabled()) {
+            log.debug("SERVLET INIT CALLED");
+        }
         super.init(config);
     }
 
@@ -205,7 +207,11 @@ public final class GraphServlet extends BaseServlet {
         } catch (Exception e) {
             log.error("ERROR GETTING OBJECT FROM CACHE");
         }
-        if (ret != null) log.debug("graph found in cache");
+        if (ret != null) {
+            if (log.isDebugEnabled()) {
+                log.debug("graph found in cache");
+            }
+        }
         return ret;
     }
 
@@ -233,7 +239,6 @@ public final class GraphServlet extends BaseServlet {
     }
 
     private static byte[] getSchoolMembership(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getSchoolMemberShip called...");
 
         ByteArrayOutputStream baos = null;
         BarGraph g = null;
@@ -282,7 +287,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getProInterest(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getProInterest called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -329,7 +333,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getProIndustry(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getProIndustry called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -406,7 +409,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getStudentInterest(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getStudentInterest called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -453,7 +455,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getProTitle(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getProTitle called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -529,7 +530,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getProAreaInterest(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getProAreaInterest called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -604,7 +604,6 @@ public final class GraphServlet extends BaseServlet {
     }
 
     private static byte[] getProReferral(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getProReferral called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -679,7 +678,6 @@ public final class GraphServlet extends BaseServlet {
 
 
     private static byte[] getStudentReferral(RequestInt dataRequest) throws NavigationException {
-        log.debug("GraphServlet:getStudentReferral called...");
 
         ByteArrayOutputStream baos = null;
         PieGraph g = null;
@@ -753,12 +751,11 @@ public final class GraphServlet extends BaseServlet {
     }
 
 
-
     /**
-     ****************************************************************************************
+     * ***************************************************************************************
      * getRatingsHistory()
      * Builds a line graph that plots a coder's rating history.
-     ****************************************************************************************
+     * ***************************************************************************************
      */
 /*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
@@ -821,12 +818,8 @@ public final class GraphServlet extends BaseServlet {
     }
 
 */
-
-
-
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
-        log.debug("taskGraph:getRatingsHistory called...");
 
         Map resultMap = null;
         DataAccessInt dai = null;
@@ -862,7 +855,6 @@ public final class GraphServlet extends BaseServlet {
     private static byte[] getRatingsDistribution(RequestInt dataRequest)
             throws NavigationException {
 
-        log.debug("taskGraph:getRatingsDistribution called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
@@ -919,10 +911,9 @@ public final class GraphServlet extends BaseServlet {
             throw new NavigationException(e);
         }
     }
-    
+
 
     private static byte[] getRatingsDistributionProfile(RequestInt dataRequest) throws NavigationException {
-        log.debug("taskGraph:getRatingsDistributionProfile called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
@@ -972,7 +963,7 @@ public final class GraphServlet extends BaseServlet {
             int rating = Integer.parseInt(dataRequest.getProperty("rt"));
 
             int rs = rating / 100;
-            if(rating > 2900)
+            if (rating > 2900)
                 rs = 29;
 
             baos = new ByteArrayOutputStream();
@@ -991,9 +982,9 @@ public final class GraphServlet extends BaseServlet {
             else if (rs >= 22 && rs < 30)
                 out.setColor(RED);
 
-            out.line(85+(16*rs), 75, 85+(16*rs), 350); // was y=95,330
-            out.line(84+(16*rs), 75, 84+(16*rs), 350);
-            
+            out.line(85 + (16 * rs), 75, 85 + (16 * rs), 350); // was y=95,330
+            out.line(84 + (16 * rs), 75, 84 + (16 * rs), 350);
+
             out.render(g);
             return baos.toByteArray();
 
@@ -1002,10 +993,9 @@ public final class GraphServlet extends BaseServlet {
             throw new NavigationException(e);
         }
     }
-    
-    
+
+
     private static byte[] getRatingsDistributionProfileDesign(RequestInt dataRequest) throws NavigationException {
-        log.debug("taskGraph:getRatingsDistributionProfileDesign called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
@@ -1055,7 +1045,7 @@ public final class GraphServlet extends BaseServlet {
             int rating = Integer.parseInt(dataRequest.getProperty("rt"));
 
             int rs = rating / 100;
-            if(rating > 2900)
+            if (rating > 2900)
                 rs = 29;
 
             baos = new ByteArrayOutputStream();
@@ -1074,9 +1064,9 @@ public final class GraphServlet extends BaseServlet {
             else if (rs >= 22 && rs < 30)
                 out.setColor(RED);
 
-            out.line(85+(16*rs), 75, 85+(16*rs), 350); // was y=95,330
-            out.line(84+(16*rs), 75, 84+(16*rs), 350);
-            
+            out.line(85 + (16 * rs), 75, 85 + (16 * rs), 350); // was y=95,330
+            out.line(84 + (16 * rs), 75, 84 + (16 * rs), 350);
+
             out.render(g);
             return baos.toByteArray();
 
@@ -1085,10 +1075,9 @@ public final class GraphServlet extends BaseServlet {
             throw new NavigationException(e);
         }
     }
-    
-    
+
+
     private static byte[] getRatingsDistributionProfileDevelopment(RequestInt dataRequest) throws NavigationException {
-        log.debug("taskGraph:getRatingsDistributionProfileDevelopment called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
@@ -1138,7 +1127,7 @@ public final class GraphServlet extends BaseServlet {
             int rating = Integer.parseInt(dataRequest.getProperty("rt"));
 
             int rs = rating / 100;
-            if(rating > 2900)
+            if (rating > 2900)
                 rs = 29;
 
             baos = new ByteArrayOutputStream();
@@ -1157,9 +1146,9 @@ public final class GraphServlet extends BaseServlet {
             else if (rs >= 22 && rs < 30)
                 out.setColor(RED);
 
-            out.line(85+(16*rs), 75, 85+(16*rs), 350); // was y=95,330
-            out.line(84+(16*rs), 75, 84+(16*rs), 350);
-            
+            out.line(85 + (16 * rs), 75, 85 + (16 * rs), 350); // was y=95,330
+            out.line(84 + (16 * rs), 75, 84 + (16 * rs), 350);
+
             out.render(g);
             return baos.toByteArray();
 
@@ -1173,7 +1162,6 @@ public final class GraphServlet extends BaseServlet {
     private static byte[] getRatingsDistributionDark(RequestInt dataRequest)
             throws NavigationException {
 
-        log.debug("taskGraph:getRatingsDistributionDark called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
@@ -1234,7 +1222,6 @@ public final class GraphServlet extends BaseServlet {
     private static byte[] getProblemDistribution(RequestInt dataRequest)
             throws NavigationException {
 
-        log.debug("taskGraph:getRatingsDistribution called...");
 
         BarGraph g = null;
         ByteArrayOutputStream baos = null;
