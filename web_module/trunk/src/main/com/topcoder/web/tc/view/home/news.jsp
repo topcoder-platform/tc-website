@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%----------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.28.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=217">Vote for the TCCC06 Logo</A></span><br><br>
+      The Top 10 Finalists of the TCCC06 Logo Design Contest have been posted, it's time to vote for your favorite!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=ViewSurvey&sid=217">vote</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506061" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+----------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.26.06<br>2:50 PM</td>
