@@ -110,7 +110,12 @@ public class SimpleSearch extends Base {
 
         StringBuffer queryBottom = new StringBuffer(300);
         queryBottom.append(" FROM coder c");
-        queryBottom.append(" , rating r");
+        if (m.getMinRating() == null && m.getMaxRating() == null) {
+            queryBottom.append(" , OUTER algo_rating r");
+        } else {
+            queryBottom.append(" , algo_rating r");
+        }
+
         if (m.getMaxDaysSinceLastComp() != null) {
             queryBottom.append(" , round ro");
             queryBottom.append(" , calendar cal");
@@ -175,6 +180,7 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND desr.phase_id = 112");
         queryBottom.append(" AND c.coder_id = devr.user_id");
         queryBottom.append(" AND devr.phase_id = 113");
+        queryBottom.append(" AND r.algo_rating_type_id=1");
 
         StringBuffer searchQuery = new StringBuffer(400);
         searchQuery.append(" SELECT c.coder_id AS user_id");
