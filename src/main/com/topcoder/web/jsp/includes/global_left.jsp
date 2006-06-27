@@ -130,7 +130,7 @@
 //      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/Registration?update=true", "Update My Profile", "competitor_update_profile"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/reg/?nrg=false", "Update My Profile", "competitor_update_profile"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Member Referrals", "referrals"));
-      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history", "Affidavits", "affidavits"));
+      nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?t=affidavit&c=affidavit_history", "Affidavits / Payments", "affidavits"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=card&d2=description", "Cards / Badges", "cards_badges"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_about_tc')", "About TopCoder", "m_about_tc"));
