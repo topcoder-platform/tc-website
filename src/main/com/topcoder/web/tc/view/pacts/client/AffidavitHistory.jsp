@@ -81,7 +81,7 @@ function goTo(selection){
                PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "bodyText");
 	   out.print(desc);
 	   out.print(href);
-	   out.print("</p>");
+	   out.print("</p><p></p>");
 	}
 	
 	PactsMemberTableModel tableData = null;
