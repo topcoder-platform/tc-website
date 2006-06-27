@@ -24,10 +24,10 @@ public class MemberSearch {
     private ResultSetContainer countryList = null;
     private Integer maxDaysSinceLastComp = null;
     
-    private Integer minHsRating = null;
-    private Integer maxHsRating = null;
-    private Integer minNumHsRatings = null;
-    private Integer maxNumHsRatings = null;
+    private Integer minHSRating = null;
+    private Integer maxHSRating = null;
+    private Integer minNumHSRatings = null;
+    private Integer maxNumHSRatings = null;
     private Integer maxDaysSinceLastHSComp = null;
     
     public Integer getMaxDaysSinceLastHSComp() {
@@ -38,36 +38,37 @@ public class MemberSearch {
         this.maxDaysSinceLastHSComp = maxDaysSinceLastHSComp;
     }
 
-    public Integer getMaxHsRating() {
-        return maxHsRating;
+
+    public Integer getMaxHSRating() {
+        return maxHSRating;
     }
 
-    public void setMaxHsRating(Integer maxHsRating) {
-        this.maxHsRating = maxHsRating;
+    public void setMaxHSRating(Integer maxHSRating) {
+        this.maxHSRating = maxHSRating;
     }
 
-    public Integer getMaxNumHsRatings() {
-        return maxNumHsRatings;
+    public Integer getMaxNumHSRatings() {
+        return maxNumHSRatings;
     }
 
-    public void setMaxNumHsRatings(Integer maxNumHsRatings) {
-        this.maxNumHsRatings = maxNumHsRatings;
+    public void setMaxNumHSRatings(Integer maxNumHSRatings) {
+        this.maxNumHSRatings = maxNumHSRatings;
     }
 
-    public Integer getMinHsRating() {
-        return minHsRating;
+    public Integer getMinHSRating() {
+        return minHSRating;
     }
 
-    public void setMinHsRating(Integer minHsRating) {
-        this.minHsRating = minHsRating;
+    public void setMinHSRating(Integer minHSRating) {
+        this.minHSRating = minHSRating;
     }
 
-    public Integer getMinNumHsRatings() {
-        return minNumHsRatings;
+    public Integer getMinNumHSRatings() {
+        return minNumHSRatings;
     }
 
-    public void setMinNumHsRatings(Integer minNumHsRatings) {
-        this.minNumHsRatings = minNumHsRatings;
+    public void setMinNumHSRatings(Integer minNumHSRatings) {
+        this.minNumHSRatings = minNumHSRatings;
     }
 
     public Integer getStart() {
