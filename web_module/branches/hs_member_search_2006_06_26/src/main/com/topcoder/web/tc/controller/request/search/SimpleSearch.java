@@ -132,7 +132,7 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(" , algo_rating hsr");
          
-            if (m.getMaxDaysSinceLastComp() != null) {
+            if (m.getMaxDaysSinceLastHSComp() != null) {
                 queryBottom.append(" , round hsro");
                 queryBottom.append(" , calendar hscal");
             } else {
