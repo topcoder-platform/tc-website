@@ -46,6 +46,7 @@
         <li>Don't show the message about being close the end of the round for practice Marathon Matches</li>
         <li>Add survey system</li>
         <li>Add potential winnings to the Digital Run leaderboard</li>
+        <li>Additional PACTS changes for component paymnents</li>
     </ul>
 </p>
 
