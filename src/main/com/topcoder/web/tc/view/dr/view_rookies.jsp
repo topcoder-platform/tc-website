@@ -206,8 +206,7 @@ Please select a <strong>season</strong><br>
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
             </td>
             <td class="headerR">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10
-                    Prize</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10<br>Prize</a>*
             </td>
         </tr>
 
@@ -217,7 +216,7 @@ Please select a <strong>season</strong><br>
             <tr class="<%=even?"dark":"light"%>">
                 <td class="valueC">${boardRow.rank}</td>
                 <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
-                    <c:if test="${boardRow.potential}">*</c:if></td>
+                    <c:if test="${boardRow.potential}">**</c:if></td>
                 <td class="valueC">
                     <c:if test="${boardRow.winTrip}">
                         <div class="container">
@@ -248,7 +247,10 @@ Please select a <strong>season</strong><br>
         </c:forEach>
     </table>
 
-    <span class="small">* has not yet passed review enough times this season to qualify as a rookie</span>
+<p class="small" align="left">
+* Prizes are based on current earned points and the dollar per point value for completed projects.  Current and future projects may affect the final results.<br>
+** has not yet passed review enough times this season to qualify as a rookie
+</p>
 
     <div class="pagingBox">
         View &#160;

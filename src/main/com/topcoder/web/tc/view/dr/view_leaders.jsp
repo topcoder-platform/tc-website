@@ -209,13 +209,13 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 </td>
                 <td class="headerR" nowrap="nowrap">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                        Five<br>Prize</a></td>
+                        Five<br>Prize</a>*</td>
                 <td class="headerR" nowrap="nowrap">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                        Third<br>Prize</a></td>
+                        Third<br>Prize</a>*</td>
                 <td class="headerR">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total
-                        Prizes</a></td>
+                        Prizes</a>*</td>
             </tr>
 
             <% boolean even = false;%>
@@ -270,6 +270,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 <%even = !even;%>
             </c:forEach>
         </table>
+<p class="small" align="left">
+* Prizes are based on current earned points and the dollar per point value for completed projects.  Current and future projects may affect the final results.
+</p>
 
         <div class="pagingBox" style="width:300px;">
             View
