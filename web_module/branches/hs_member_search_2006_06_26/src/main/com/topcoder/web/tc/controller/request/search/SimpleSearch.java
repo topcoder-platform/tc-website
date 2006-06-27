@@ -110,17 +110,17 @@ public class SimpleSearch extends Base {
 
         StringBuffer queryBottom = new StringBuffer(300);
         queryBottom.append(" FROM coder c");
-        if (m.getMinRating() == null && m.getMaxRating() == null) {
-            queryBottom.append(" , OUTER algo_rating r");
+        if (m.getMinRating() == null && m.getMaxRating() == null && m.getMaxDaysSinceLastComp() == null) {
+            queryBottom.append(" , OUTER (algo_rating r, round ro)");
         } else {
             queryBottom.append(" , algo_rating r");
-        }
-
-        if (m.getMaxDaysSinceLastComp() != null) {
-            queryBottom.append(" , round ro");
-            queryBottom.append(" , calendar cal");
-        } else {
-            queryBottom.append(" , OUTER round ro");
+         
+            if (m.getMaxDaysSinceLastComp() != null) {
+                queryBottom.append(" , round ro");
+                queryBottom.append(" , calendar cal");
+            } else {
+                queryBottom.append(" , OUTER round ro");
+            }
         }
         queryBottom.append(" , country co");
         if (m.getSchoolName()!=null) {
