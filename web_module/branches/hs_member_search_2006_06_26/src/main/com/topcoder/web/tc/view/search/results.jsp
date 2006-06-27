@@ -22,6 +22,7 @@
               <tr class="searchHeaders" valign="middle">
                   <td width="20%">Handle</td>
                   <td align="right" width="15%">Alg Rating</td>
+                  <td align="right" width="15%">HS Rating</td>
                   <td align="right" width="12%">Des Rating</td>
                   <td align="right" width="12%">Dev Rating</td>
                   <td align="center" width="12%">School</td>
@@ -29,6 +30,8 @@
                   <td align="left" width="25%">Country</td>
                   <td align="center" width="12%">Events</td>
                   <td align="center" width="12%">Last Event</td>
+                  <td align="center" width="12%">HS Events</td>
+                  <td align="center" width="12%">Last HS Event</td>
               </tr>
 
               <%boolean even = false;%>
@@ -36,6 +39,7 @@
               <tr>
                   <td class="searchText" valign="top" align="left" nowrap><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
                   <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="rating"/></td>
+                  <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="hs_rating"/></td>                  
                   <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="Unrated"/></td>
                   <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="Unrated"/></td>
                   <td class="searchText" valign="top" align="center"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>
@@ -43,6 +47,8 @@
                   <td class="searchText" valign="top" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
                   <td class="searchText" valign="top" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="searchText" valign="top" align="right"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
+                  <td class="searchText" valign="top" align="center"><rsc:item row="<%=resultRow%>" name="last_hs_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
