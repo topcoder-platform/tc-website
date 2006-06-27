@@ -145,7 +145,67 @@ selections will be returned. Click on a Handle to view information about the Cod
                                 </tr>
 
                                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+                                
+                                <tr><td class="bodyText" align="center" colspan="2">High School Rating</td></tr>
 
+                                <tr>
+                                    <td class="bodyText" width="50%" align="center">Min</td>
+                                    <td class="bodyText" width="50%" align="center">Max</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MIN_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+                                    </td>
+
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MAX_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+
+                                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+
+                                <tr><td class="bodyText" align="center" colspan="2"># of High School Rated Events</td></tr>
+
+                                <tr>
+                                    <td class="bodyText" width="50%" align="center">Min</td>
+                                    <td class="bodyText" width="50%" align="center">Max</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MIN_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+                                    </td>
+
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.MAX_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+                                
+								<tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+
+                                <tr><td class="bodyText">Max Time Since Last High School Competition</td></tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <select name="<%=Constants.MAX_DAYS_SINCE_LAST_HS_COMP%>" size="1">
+                                            <option value="">None Specified</option>
+                                            <option value="30" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(30))?"selected":""%>>
+                                                30 Days
+                                            </option>
+                                            <option value="90" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(90))?"selected":""%>>
+                                                90 Days
+                                            </option>
+                                            <option value="180" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(180))?"selected":""%>>
+                                                180 Days
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+								
+								<tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
+                                
                                 <tr><td class="bodyText" align="center" colspan="2">Design Rating</td></tr>
 
                                 <tr>
