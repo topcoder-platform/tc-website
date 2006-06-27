@@ -166,6 +166,7 @@ function goTo(selection){
 		<td class="bodyText" width="10%"><b>Status</b></td>
 		<td class="bodyText" width="10%"><b><% if (fullList != null) { %>Date Paid<% } %></b></td>
 	</tr>
+<%	if (affidavits != null) { %>
 <%	for(int i=1;i<=affidavits.length;i++) { %>
 	<tr>
 		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
@@ -175,6 +176,7 @@ function goTo(selection){
 		<td class="bodyText" width="10%"><%=tableData.getElement(i,4)%></td>
 		<td class="bodyText" width="10%"><%	if (fullList != null) { %><%=tableData.getElement(i,5)%><% } %></td>
 	</tr>
+<%	} %>
 <%	} %>
 </table>
     
@@ -240,6 +242,7 @@ function goTo(selection){
 		<td class="bodyText" width="10%"><b>Status</b></td>
 		<td class="bodyText" width="10%"><% if (fullList != null) { %><b>Date Paid</b><% } %></td>
 	</tr>
+<%	if (payments != null) { %>
 <%	for(int i=1;i<=payments.length;i++) { %>
 	<tr>
 		<td class="bodyText" width="35%"><%=tableData.getElement(i,0)%></td>
@@ -248,6 +251,7 @@ function goTo(selection){
 		<td class="bodyText" width="10%"><%=tableData.getElement(i,3)%></td>
 		<td class="bodyText" width="10%"><% if (fullList != null) { %><%=tableData.getElement(i,4)%><% } %></td>
 	</tr>
+<%	} %>
 <%	} %>
 </table>
 
