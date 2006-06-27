@@ -110,7 +110,9 @@ public class SimpleSearch extends Base {
 
         StringBuffer queryBottom = new StringBuffer(300);
         queryBottom.append(" FROM coder c");
-        if (m.getMinRating() == null && m.getMaxRating() == null && m.getMaxDaysSinceLastComp() == null) {
+        if (m.getMinRating() == null && m.getMaxRating() == null &&
+                m.getMinNumRatings() == null && m.getMaxNumRatings() == null &&
+                m.getMaxDaysSinceLastComp() == null) {
             queryBottom.append(" , OUTER (algo_rating r, round ro)");
         } else {
             queryBottom.append(" , algo_rating r");
@@ -123,7 +125,9 @@ public class SimpleSearch extends Base {
             }
         }
 
-        if (m.getMinHSRating() == null && m.getMaxHSRating() == null && m.getMaxDaysSinceLastHSComp() == null) {
+        if (m.getMinHSRating() == null && m.getMaxHSRating() == null && 
+            m.getMinNumHSRatings() == null && m.getMaxNumHSRatings() == null &&             
+            m.getMaxDaysSinceLastHSComp() == null) {
             queryBottom.append(" , OUTER (algo_rating hsr, round hsro)");
         } else {
             queryBottom.append(" , algo_rating hsr");
@@ -217,7 +221,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , c.handle_lower lower_handle");
         searchQuery.append(" , CASE WHEN r.rating= 0 or r.rating is NULL THEN 'Unrated' ELSE ''||r.rating END as rating");
         searchQuery.append(" , case when co.country_code = '840' then c.state_code else case when c.state_code='ZZ' then '' else c.state_code end end as state_code");
-        searchQuery.append(" , r.num_ratings");
+        searchQuery.append(" , CASE WHEN r.num_ratings is NULL THEN 0 ELSE r.num_ratings END as num_ratings");        
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = ro.calendar_id) AS last_competed");
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
@@ -225,7 +229,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , desr.rating as design_rating");
         searchQuery.append(" , devr.rating as dev_rating ");        
         searchQuery.append(" , CASE WHEN hsr.rating= 0 or hsr.rating is NULL THEN 'Unrated' ELSE ''||hsr.rating END as hs_rating");
-        searchQuery.append(" , hsr.num_ratings as num_hs_ratings");
+        searchQuery.append(" , CASE WHEN hsr.num_ratings is NULL THEN 0 ELSE hsr.num_ratings END as num_hs_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
         
         searchQuery.append(queryBottom.toString());
