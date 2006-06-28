@@ -64,9 +64,6 @@
         </td>
 <!-- Right Column Ends -->
 
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 

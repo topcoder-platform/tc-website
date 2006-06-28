@@ -20,9 +20,7 @@
 //--></script>
 <STYLE TYPE="text/css">
 table.stat td{
-vertical-align:middle;
-padding-top:10px;
-padding-bottom:10px;
+white-space: nowrap;
 }
 </STYLE>
 
@@ -116,7 +114,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Max time since last<br><strong>Algorithm</strong> competition:
+         Max time since last <strong>Algorithm</strong> competition:
       </td>
       <td class="value" colspan="4">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_COMP%>" size="1">
@@ -169,7 +167,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Max time since last<br><strong>High School</strong> competition:
+         Max time since last <strong>High School</strong> competition:
       </td>
       <td class="value" colspan="4">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_HS_COMP%>" size="1">
