@@ -62,7 +62,7 @@
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
                           <% if (memberSearch.getTotal() > Constants.MEMBER_SEARCH_MAX_ROWS) {%>
-                              Too many coders found.  Please narrow your search criteria.
+                              More than <%= Constants.MEMBER_SEARCH_MAX_ROWS %> coders found.  Please narrow your search criteria.
                           <% } else { %>
 	                          <jsp:include page="results.jsp"/>
                           <% } %>
