@@ -18,19 +18,20 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-<script language="JavaScript"><!--
-  function next() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
-  function previous() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
-//--></script>
-
+<% if (memberSearch.getTotal() <= Constants.MEMBER_SEARCH_MAX_ROWS) {%>                          
+	<script language="JavaScript"><!--
+	  function next() {
+	    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.submit();
+	  }
+	  function previous() {
+	    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.submit();
+	  }
+	//--></script>
+<% } %>
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
