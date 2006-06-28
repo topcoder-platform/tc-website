@@ -4674,7 +4674,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Identify component categories            
             String category = "";
             StringBuffer getCategories = new StringBuffer(300);
-            getCategories.append("select p.project_id, cat.category_name ");
+            getCategories.append("select p.project_id, cat.category_name, cv.version_text ");
             getCategories.append("from tcs_catalog:comp_catalog cc, tcs_catalog:project p, ");
             getCategories.append("tcs_catalog:categories cat, tcs_catalog:comp_versions cv ");
             getCategories.append("where p.comp_vers_id = cv.comp_vers_id ");
@@ -4684,7 +4684,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getCategories.append("and cc.root_category_id = cat.category_id ");
             getCategories.append("and cat.parent_category_id is null");
             ResultSetContainer categoryRsc = runSelectQuery(c, getCategories.toString(), false);
-            category = "(" + categoryRsc.getItem(0, 1).toString() + ")";	
+            category = "(" + categoryRsc.getItem(0, 1).toString() + ", v" + 
+            	categoryRsc.getItem(0, 2).toString() + ")";	
             
             for (int j = 0; j < numWinners.length; j++) {
 	            for (i = 0; i < numWinners[j]; i++) {
