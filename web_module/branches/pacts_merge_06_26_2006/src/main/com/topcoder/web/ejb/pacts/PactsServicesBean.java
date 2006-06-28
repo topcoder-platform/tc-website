@@ -4685,7 +4685,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getCategories.append("and cat.parent_category_id is null");
             ResultSetContainer categoryRsc = runSelectQuery(c, getCategories.toString(), false);
             category = "(" + categoryRsc.getItem(0, 1).toString() + ", v" + 
-            	categoryRsc.getItem(0, 2).toString() + ")";	
+            	categoryRsc.getItem(0, 2).toString().trim() + ")";	
             
             for (int j = 0; j < numWinners.length; j++) {
 	            for (i = 0; i < numWinners[j]; i++) {
