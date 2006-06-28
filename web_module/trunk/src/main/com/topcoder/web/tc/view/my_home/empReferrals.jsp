@@ -42,7 +42,7 @@
 <div class="fixedWidthBody">
 
 <div align="center" style="margin-bottom: 10px;">
-<img src="/i/my_home/empReferrals.jpg" alt="" border="0" />
+<img src="/i/my_home/empReferrals_old.jpg" alt="" border="0" />
 </div>
 
 <span class="bigTitle">Overview</span>
@@ -50,7 +50,7 @@
 TopCoder knows that not only is our community filled with exceptional developers, but that everyone within the community has a friend who is equally as exceptional.  We'd like to know them, too!
 <br><br>
 <span class="bodySubTitle">How it works</span><br>
-TopCoder is actively seeking high quality, experienced full time Project Managers and Application Architects to work on our ever-growing list of clients.  If you know someone who is interested in working as a PM or Architect, tell us.  If they're hired by TopCoder, you get paid!  The referring member (you) will receive $5,000 for every full time PM and/or Architect that we hire based on your referral.  
+TopCoder is actively seeking high quality, experienced full time Project Managers and Application Architects to work on our ever-growing list of clients.  If you know someone who is interested in working as a PM or Architect, tell us.  If they're hired by TopCoder, you get paid!  The referring member (you) will receive $1,000 for every full time PM and/or Architect that we hire based on your referral.  
 <br><br>
 Don't delay &mdash; contact us at <a href="mailto:employeereferral@topcoder.com">employeereferral@topcoder.com</a> and let us know that you have an interested candidate.  We'll get in touch with you to receive the rest of the information.
 <br><br>
@@ -66,10 +66,10 @@ The following are the official rules for the Employee Referral Program:
 <li>Only candidates who are legal residents of the United States and Canada are eligible for the referral fee.</li>
 <li>To be eligible as a referral, a candidate must not have been employed on TopCoder's payroll or as an independent contractor with TopCoder within the previous 12 months of member referral.</li>
 <li>To receive a referral commission, the TopCoder member must be 18 years of age or older at the time of the referral and must not have been permanently suspended from participating in any TopCoder competitions.</li>
-<li>TopCoder will pay a total referral commission of $5,000 as follows:
+<li>TopCoder will pay a total referral commission of $1,000 as follows:
     <ul>
-    <li>$2,500 upon the start date of the referred candidate</li>
-    <li>$2,500 after 90 days if the referred candidate is still employed with TopCoder, Inc.</li>
+    <li>$500 upon the start date of the referred candidate</li>
+    <li>$500 after 90 days if the referred candidate is still employed with TopCoder, Inc.</li>
     </ul>
     </li>
 <li>Payment is contingent upon TopCoder receiving a completed affidavit of eligibility, verifying the member's eligibility to participate in the Employee Referral Program, and a completed appropriate tax form.</li>

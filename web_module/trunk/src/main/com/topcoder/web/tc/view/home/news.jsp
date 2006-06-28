@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.29.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program Prize Increase</A></span><br><br>
+      We have increased the prize for referring a friend as a Project Manager or an Architect to $5,000.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=my_home&d2=empReferrals">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.28.06<br>5:10 PM</td>
@@ -192,19 +205,6 @@ clusters.
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506010" message="discuss this" />&#160;|&#160;
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.19.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TCCC</A></span><br><br>
-      AOL Supports Global Student Programming Community in $200,000 Technical Software Contest.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506056" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 
