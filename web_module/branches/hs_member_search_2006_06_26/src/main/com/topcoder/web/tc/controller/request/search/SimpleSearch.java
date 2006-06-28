@@ -244,6 +244,7 @@ public class SimpleSearch extends Base {
         StringBuffer str = new StringBuffer(100);
         str.append(" AND " + field + " BETWEEN ");
         str.append(from == null ? "0" : from.toString());
+        str.append(" AND ");
         str.append(to == null ? String.valueOf(Integer.MAX_VALUE) : to.toString());
         return str.toString();
     }
