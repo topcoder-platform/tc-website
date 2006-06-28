@@ -11,6 +11,7 @@
 <%@ page import="com.topcoder.web.common.voting.*" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.model.Survey" %>
+<%@ page import="javax.servlet.ServletRequest" %>
 <%@ page import="java.sql.Timestamp" %>
 <%@ page import="java.util.*" %>
 <%@ page language="java" %>
@@ -18,12 +19,12 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% CondorcetSchulzeResults results = getResults();%>
-<% Survey surveyInfo = createSurvey();%>
+<% CondorcetSchulzeResults results = getResults(request);%>
+<% Survey surveyInfo = createSurvey(request);%>
 
 
 <%!
-    protected final Survey createSurvey() throws Exception {
+    protected final Survey createSurvey(ServletRequest request) throws Exception {
         String sid = request.getParameter(Constants.SURVEY_ID);
         Request r = new Request();
         r.setContentHandle("survey_info");
@@ -46,7 +47,7 @@
         return ret;
     }
 
-    protected CondorcetSchulzeResults getResults() throws Exception {
+    protected CondorcetSchulzeResults getResults(ServletRequest request) throws Exception {
 
         String sid = request.getParameter(Constants.SURVEY_ID);
         CondorcetSchulzeResults results = null;
