@@ -110,10 +110,15 @@ public class SimpleSearch extends Base {
 
         StringBuffer queryBottom = new StringBuffer(300);
         queryBottom.append(" FROM coder c");
+        
+        boolean needsRating = true;
+        boolean needsHSRating = true;
+        
         if (m.getMinRating() == null && m.getMaxRating() == null &&
                 m.getMinNumRatings() == null && m.getMaxNumRatings() == null &&
                 m.getMaxDaysSinceLastComp() == null) {
             queryBottom.append(" , OUTER (algo_rating r, round ro)");
+            needsRating = false;
         } else {
             queryBottom.append(" , algo_rating r");
          
@@ -129,6 +134,7 @@ public class SimpleSearch extends Base {
             m.getMinNumHSRatings() == null && m.getMaxNumHSRatings() == null &&             
             m.getMaxDaysSinceLastHSComp() == null) {
             queryBottom.append(" , OUTER (algo_rating hsr, round hsro)");
+            needsHSRating = false; 
         } else {
             queryBottom.append(" , algo_rating hsr");
          
@@ -215,12 +221,88 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
         
         searchQuery.append(queryBottom.toString());
-//        searchQuery.append(" ORDER BY rating_order, lower_handle");
+        searchQuery.append(" ORDER BY rating_order, lower_handle");
        
+        StringBuffer filter = new StringBuffer(400);
+        filter.append(" WHERE c.status = 'A'");
+
         StringBuffer countQuery = new StringBuffer(400);
         countQuery.append(" SELECT count(*) as count ");
         countQuery.append(queryBottom.toString());
+        countQuery.append(" FROM coder c");
+        
+        if (needsRating) {
+            countQuery.append(" , algo_rating r");
+           
+            filter.append(" AND r.algo_rating_type_id=1");            
+            filter.append(" AND c.coder_id = r.coder_id");
+        }
+        
+        if (m.getMaxDaysSinceLastComp() != null) {
+            countQuery.append(" , round ro");
+            countQuery.append(" , calendar cal");
+            
+            filter.append(" AND r.last_rated_round_id = ro.round_id");            
+            filter.append(" AND cal.calendar_id = ro.calendar_id");
+            filter.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
+        } 
 
+        if (m.getMaxDaysSinceLastHSComp() != null) {
+            countQuery.append(" , round hsro");
+            countQuery.append(" , calendar hscal");
+            countQuery.append(" AND hsr.algo_rating_type_id=2");
+
+            filter.append(" AND hsr.last_rated_round_id = hsro.round_id");            
+            filter.append(" AND hscal.calendar_id = hsro.calendar_id");
+            filter.append(" AND hscal.date > CURRENT - ").append(m.getMaxDaysSinceLastHSComp()).append(" UNITS DAY");
+        }
+
+        if (needsHSRating)  {
+            countQuery.append(" , algo_rating hsr");
+            filter.append(" AND c.coder_id = hsr.coder_id");
+        }
+        
+        if (m.getSchoolName()!=null) {
+            countQuery.append(" , school s");
+            countQuery.append(" , current_school cs");
+
+            filter.append(" AND s.school_id = cs.school_id");
+            filter.append(" AND cs.viewable = 1");
+            filter.append(" AND cs.coder_id = c.coder_id");
+            filter.append(" AND lower(s.name) like lower('").append(StringUtils.replace(m.getSchoolName(), "'", "''")).append("')");
+            filter.append(" AND c.coder_type_id = 1");
+        }         
+        
+        if (!(m.getMinDesignRating()==null && m.getMaxDesignRating()==null)) {
+            countQuery.append(", tcs_dw:user_rating desr");
+            filter.append(" AND c.coder_id = desr.user_id");
+            filter.append(" AND desr.phase_id = 112");
+        }
+        
+        if (!(m.getMinDevRating()==null&&m.getMaxDevRating()==null)) {
+            countQuery.append(", tcs_dw:user_rating devr");
+            filter.append(" AND c.coder_id = devr.user_id");
+            filter.append(" AND devr.phase_id = 113");
+        }
+
+        if (m.getStateCode() != null)
+            countQuery.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
+
+        if (m.getHandle() != null)
+            countQuery.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
+        
+        
+        countQuery.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
+        countQuery.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
+        countQuery.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
+        countQuery.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
+        countQuery.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
+        countQuery.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
+        if (m.getCountryCode() != null)
+            countQuery.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
+
+        countQuery.append(filter);
+        
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
