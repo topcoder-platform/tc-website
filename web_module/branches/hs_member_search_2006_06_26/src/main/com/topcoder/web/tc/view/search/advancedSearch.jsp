@@ -39,9 +39,8 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" style="padding:0px 10px 0px 10px;" align="center">
+<td width="100%" align="center" class="bodyColumn">
 
-<div style="width: 600px;">
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
 <jsp:param name="title" value="Find a Competitor"/>
@@ -52,7 +51,6 @@
             </form>
 
          <br><br>
-</div>
         </td>
 
 

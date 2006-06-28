@@ -18,6 +18,14 @@
                             } else return true;
                         }
 //--></script>
+<STYLE TYPE="text/css">
+table.stat td{
+vertical-align:middle;
+padding-top:6px;
+padding-bottom:6px;
+}
+</STYLE>
+
 
 <p align="left">
 <input type="hidden" name="module" value="AdvancedSearch"/>
@@ -26,6 +34,171 @@
 Enter search criteria below then click the Search button. Search results matching the criteria
 selections will be returned. Click on a Handle to view information about the Coder.
 </p>
+
+<table cellspacing="0" cellpadding="0" class="stat" width="510">
+<tbody>
+   <tr>
+      <td class="title" colspan="4">
+         Advanced Member Search
+      </td>
+   </tr>
+   <tr>
+      <td class="header" colspan="4">
+         An underscore ( _ ) = one character space<br/>
+         A percent sign ( % ) = any number of character spaces
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Handle:
+      </td>
+      <td class="value" colspan="2">
+         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="15" maxlength="20" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         State:
+      </td>
+      <td class="value" colspan="2">
+         <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getStateList()%>" fieldText="state_name" fieldValue="state_code"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Country:
+      </td>
+      <td class="value" colspan="2">
+         <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         School:
+      </td>
+      <td class="value" colspan="2">
+         <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)" escapeHtml="true"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Algorithm rating:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         # of rated Algorithm events:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_NUM_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Max time since last Algorithm competition:
+      </td>
+      <td class="value" colspan="2">
+         <select name="<%=Constants.MAX_DAYS_SINCE_LAST_COMP%>" size="1">
+         <option value="">None Specified</option>
+         <option value="30" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(30))?"selected":""%>>
+         30 Days
+         </option>
+         <option value="90" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(90))?"selected":""%>>
+         90 Days
+         </option>
+         <option value="180" <%=memberSearch.getMaxDaysSinceLastComp()!=null&&memberSearch.getMaxDaysSinceLastComp().equals(new Integer(180))?"selected":""%>>
+         180 Days
+         </option>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         High School rating:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_HS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         # of rated High School events:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_NUM_HS_RATINGS%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Max time since last High School competition:
+      </td>
+      <td class="value" colspan="2">
+         <select name="<%=Constants.MAX_DAYS_SINCE_LAST_HS_COMP%>" size="1">
+         <option value="">None Specified</option>
+         <option value="30" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(30))?"selected":""%>>
+         30 Days
+         </option>
+         <option value="90" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(90))?"selected":""%>>
+         90 Days
+         </option>
+         <option value="180" <%=memberSearch.getMaxDaysSinceLastHSComp()!=null&&memberSearch.getMaxDaysSinceLastHSComp().equals(new Integer(180))?"selected":""%>>
+         180 Days
+         </option>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Design rating:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_DESIGN_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" colspan="2">
+         Development rating:
+      </td>
+      <td class="value">
+         Min: <tc-webtag:textInput name="<%=Constants.MIN_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="value">
+         Max: <tc-webtag:textInput name="<%=Constants.MAX_DEV_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueC" colspan="4">
+         <div style="padding:6px;">
+         <A href="javascript:document.searchForm.submit()" class="bodyText"><img src="/i/search.gif" width="60" height="18" border="0"/></A>
+         </div>
+      </td>
+   </tr>
+</tbody>
+</table>
+
+<%--
+<br><br>
+
+
+
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="100%" class="formFrame">
                     <tr valign="top">
                         <td colspan="2">
@@ -255,3 +428,4 @@ selections will be returned. Click on a Handle to view information about the Cod
                         </td>
                     </tr>
                 </table>
+--%>
