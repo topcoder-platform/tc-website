@@ -227,7 +227,7 @@ public class SimpleSearch extends Base {
         filter.append(" WHERE c.status = 'A'");
 
         StringBuffer countQuery = new StringBuffer(400);
-        countQuery.append(" SELECT 1 ");
+        countQuery.append(" SELECT count(*) as count ");
         countQuery.append(" FROM coder c");
         
         if (needsRating) {
@@ -301,10 +301,6 @@ public class SimpleSearch extends Base {
             filter.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
 
         countQuery.append(filter);
-        
-        
-        countQuery.append(" SELECT count(*) as count ");
-        countQuery.append(queryBottom.toString());
 
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
