@@ -3,9 +3,10 @@ package com.topcoder.web.email.bean;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.EmailServices.EmailJob;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.email.servlet.EmailConstants;
 import com.topcoder.web.email.servlet.TaskRouter;
-import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -19,12 +20,11 @@ import java.util.*;
 
 /**
  * ScheduledJobTask.java
- *
+ * <p/>
  * Description: Task bean to add/edit/remove scheduled jobs
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
- * @version	1.0
- *
+ * @author James Lee (jameslee@cs.stanford.edu)
+ * @version 1.0
  */
 
 public class ScheduledJobTask
@@ -121,10 +121,9 @@ public class ScheduledJobTask
     /**
      * Displays a list of jobs.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String list(HttpServletRequest request, HttpServletResponse response)
@@ -140,10 +139,9 @@ public class ScheduledJobTask
     /**
      * Begins the job creation process.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String create(HttpServletRequest request, HttpServletResponse response)
@@ -179,10 +177,9 @@ public class ScheduledJobTask
      * Loads the job creation screen.  Called mostly when the months and years
      * are changed (to update the allowable days in the month)
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String reloadCreate(HttpServletRequest request, HttpServletResponse response)
@@ -199,10 +196,9 @@ public class ScheduledJobTask
     /**
      * Adds a newly created job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String add(HttpServletRequest request, HttpServletResponse response)
@@ -322,10 +318,9 @@ public class ScheduledJobTask
     /**
      * Begins the job editing process.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String edit(HttpServletRequest request, HttpServletResponse response)
@@ -351,10 +346,9 @@ public class ScheduledJobTask
     /**
      * Views a job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String view(HttpServletRequest request, HttpServletResponse response)
@@ -381,10 +375,9 @@ public class ScheduledJobTask
      * Loads the job editing screen.  Called mostly when the months and years
      * are changed (to update the allowable days in the month)
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String reloadEdit(HttpServletRequest request, HttpServletResponse response)
@@ -400,10 +393,9 @@ public class ScheduledJobTask
     /**
      * Shows the job editing screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String showEdit(HttpServletRequest request, HttpServletResponse response)
@@ -416,10 +408,9 @@ public class ScheduledJobTask
     /**
      * Saves an edited job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String save(HttpServletRequest request, HttpServletResponse response)
@@ -454,10 +445,9 @@ public class ScheduledJobTask
     /**
      * Deletes a job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String delete(HttpServletRequest request, HttpServletResponse response)
@@ -471,11 +461,9 @@ public class ScheduledJobTask
      * loads the list chooser page - otherwise it forwards back to the initial creation
      * screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
-
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseListAdd(HttpServletRequest request, HttpServletResponse response)
@@ -506,10 +494,9 @@ public class ScheduledJobTask
      * Loads the list chooser screen.  Called mostly when the list group is changed
      * and the screen needs to be reloaded.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String reloadChooseListAdd(HttpServletRequest request, HttpServletResponse response)
@@ -530,17 +517,15 @@ public class ScheduledJobTask
     /**
      * Chooses a predefined query for the job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseQueryAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
         ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
-
 
         // set properties..
         setProperties(job, request);
@@ -565,10 +550,9 @@ public class ScheduledJobTask
     /**
      * Sets command input parameters for a new job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String setCommandInputsAdd(HttpServletRequest request, HttpServletResponse response)
@@ -591,10 +575,9 @@ public class ScheduledJobTask
     /**
      * Sets the address list for a new job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String setListAdd(HttpServletRequest request, HttpServletResponse response)
@@ -617,10 +600,9 @@ public class ScheduledJobTask
     /**
      * Loads the template chooser screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseTemplateAdd(HttpServletRequest request, HttpServletResponse response)
@@ -642,10 +624,9 @@ public class ScheduledJobTask
     /**
      * Loads the template chooser screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseReportTemplate(HttpServletRequest request, HttpServletResponse response)
@@ -679,10 +660,9 @@ public class ScheduledJobTask
     /**
      * Chooses command inputs for a predefined query for a new job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseCommandInputsAdd(HttpServletRequest request, HttpServletResponse response)
@@ -694,8 +674,6 @@ public class ScheduledJobTask
         job.setListId("0");
 
         log.debug("command: " + job.getCommandId());
-
-
 
         // retrieve command inputs for the command
         Set commandInputSet = StatisticsUtilities.getCommandInputs(Integer.parseInt(job.getCommandId()));
@@ -714,14 +692,9 @@ public class ScheduledJobTask
     /**
      * Ask if user wants to send a test message.
      *
-     * @param request	the HttpServletRequest object
-
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
-
-
-
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String askSendTest(HttpServletRequest request, HttpServletResponse response)
@@ -739,10 +712,9 @@ public class ScheduledJobTask
     /**
      * Chooses list for test message.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseTestList(HttpServletRequest request, HttpServletResponse response)
@@ -768,10 +740,9 @@ public class ScheduledJobTask
     /**
      * Sends a test message.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String sendTestMessage(HttpServletRequest request, HttpServletResponse response)
@@ -809,7 +780,6 @@ public class ScheduledJobTask
             log.debug("Already created job.");
         }
 
-
         // create regular job
         return add(request, response);
     }
@@ -818,10 +788,9 @@ public class ScheduledJobTask
     /**
      * Chooses a list when editing a template.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseListEdit(HttpServletRequest request, HttpServletResponse response)
@@ -850,11 +819,9 @@ public class ScheduledJobTask
     /**
      * Set the list property of the job and go back to the edit page.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
-
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String setListEdit(HttpServletRequest request, HttpServletResponse response)
@@ -874,12 +841,9 @@ public class ScheduledJobTask
     }
 
     /**
-     *
-     *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseTemplateEdit(HttpServletRequest request, HttpServletResponse response)
@@ -905,13 +869,11 @@ public class ScheduledJobTask
     }
 
     /**
-     *  Sets the template property of a job and goes back to the edit page.
+     * Sets the template property of a job and goes back to the edit page.
      *
-     * @param request	the HttpServletRequest object
-
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String setTemplateEdit(HttpServletRequest request, HttpServletResponse response)
@@ -929,10 +891,9 @@ public class ScheduledJobTask
     /**
      * Shows screen to choose query while editing a job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseQueryEdit(HttpServletRequest request, HttpServletResponse response)
@@ -950,10 +911,9 @@ public class ScheduledJobTask
     /**
      * Shows screen to choose command inputs when editing a job.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String chooseCommandInputsEdit(HttpServletRequest request, HttpServletResponse response)
@@ -983,10 +943,9 @@ public class ScheduledJobTask
     /**
      * Sets command inputs for a job and goes back to the edit screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String setCommandInputsEdit(HttpServletRequest request, HttpServletResponse response)
@@ -1009,10 +968,9 @@ public class ScheduledJobTask
     /**
      * Shows the log screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String showLog(HttpServletRequest request, HttpServletResponse response)
@@ -1053,10 +1011,9 @@ public class ScheduledJobTask
     /**
      * Shows the log data screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String showLogData(HttpServletRequest request, HttpServletResponse response)
@@ -1083,11 +1040,9 @@ public class ScheduledJobTask
     /**
      * Shows the search screen.
      *
-     * @param request	the HttpServletRequest object
-
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String showSearch(HttpServletRequest request, HttpServletResponse response)
@@ -1147,10 +1102,9 @@ public class ScheduledJobTask
     /**
      * Performs the search and shows the results screen.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String showSearchResults(HttpServletRequest request, HttpServletResponse response)
@@ -1172,13 +1126,12 @@ public class ScheduledJobTask
 
             log.debug("Searching on e-mail address: " + emailAddress);
 
-            inputMap.put("email", emailAddress);
+            inputMap.put(WebConstants.EMAIL, emailAddress);
 
             // run query and get results
             resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.JOBS_BY_SENDER_COMMAND, inputMap);
             resultSetContainer = (ResultSetContainer) resultMap.get(EmailConstants.JOBS_BY_SENDER_RESULT);
         } else if (EmailConstants.SEARCH_BY_SUBJECT.equals(searchType)) {
-
 
             // retrieve subject
             String subject = request.getParameter("Subject");
@@ -1237,10 +1190,9 @@ public class ScheduledJobTask
     /**
      * Cancels a job and returns the next page..
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String cancelJob(HttpServletRequest request, HttpServletResponse response)
@@ -1263,10 +1215,9 @@ public class ScheduledJobTask
     /**
      * Resumes a job and returns the next page..
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
-     *
-     * @return String	the URL of the next page
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @return String    the URL of the next page
      */
 
     private String resumeJob(HttpServletRequest request, HttpServletResponse response)
@@ -1287,17 +1238,14 @@ public class ScheduledJobTask
         return nextPage;
     }
 
-
-
     // Utilities
 
 
     /**
      * Retrieves a list of job id's of recent jobs.
      *
-     * @param numDaysBack	the number of days to look back
-     *
-     * @return ArrayList	a list of job id's
+     * @param numDaysBack the number of days to look back
+     * @return ArrayList    a list of job id's
      */
 
     private static ArrayList retrieveRecentJobs(int numDaysBack)
@@ -1333,9 +1281,8 @@ public class ScheduledJobTask
     /**
      * Creates a new job using the properties from a ScheduledJobForm object.
      *
-     * @param job	the ScheduledJobForm containing the necessary information
-     *
-     * @return int	the job id of the new job
+     * @param job the ScheduledJobForm containing the necessary information
+     * @return int    the job id of the new job
      */
 
     private static int createJob(ScheduledJobForm job)
@@ -1385,9 +1332,8 @@ public class ScheduledJobTask
     /**
      * Creates a new job using the properties from a ScheduledJobForm object.
      *
-     * @param job	the ScheduledJobForm containing the necessary information
-     *
-     * @return int	the job id of the new job
+     * @param job the ScheduledJobForm containing the necessary information
+     * @return int    the job id of the new job
      */
 
     private static int createReportJob(ScheduledJobForm job, int baseJobId)
@@ -1439,7 +1385,7 @@ public class ScheduledJobTask
     /**
      * Updates a job using properties from a ScheduledJobForm object.
      *
-     * @param job	the ScheduledJobForm representing the job
+     * @param job the ScheduledJobForm representing the job
      */
 
     private static void saveJob(ScheduledJobForm job)
@@ -1489,9 +1435,8 @@ public class ScheduledJobTask
      * Retrieves information about a job, and returns a
      * ScheduledJobForm object populated with the information.
      *
-     * @param jobId		the id of the desired job
-     *
-     * @return ScheduledJobForm		the populated ScheduledJobForm
+     * @param jobId the id of the desired job
+     * @return ScheduledJobForm        the populated ScheduledJobForm
      */
 
     private static ScheduledJobForm retrieveJob(int jobId)
@@ -1546,9 +1491,6 @@ public class ScheduledJobTask
 
 
         return job;
-
-
-
 
 // this is from when I was using the stats bean to retrieve all this information
 /*
@@ -1613,7 +1555,7 @@ public class ScheduledJobTask
     /**
      * Cancels a job.
      *
-     * @param jobId		the id of the job to cancel
+     * @param jobId the id of the job to cancel
      */
 
     private static void cancelJob(int jobId)
@@ -1643,7 +1585,7 @@ public class ScheduledJobTask
     /**
      * Resumes a job.
      *
-     * @param jobId		the id of the job to resume
+     * @param jobId the id of the job to resume
      */
 
     private static void resumeJob(int jobId)
@@ -1672,10 +1614,9 @@ public class ScheduledJobTask
     /**
      * Retrieves job detail data as a String
      *
-     * @param jobId		the id of the job
-     * @param jobDetailId	the id of the job detail
-     *
-     * @return String	the job detail data
+     * @param jobId       the id of the job
+     * @param jobDetailId the id of the job detail
+     * @return String    the job detail data
      */
 
     public static String getJobDetailData(int jobId, int jobDetailId)
@@ -1710,9 +1651,8 @@ public class ScheduledJobTask
      * Retrieves information about a job, and returns a
      * JobSummary object populated with the information.
      *
-     * @param jobId		the id of the desired job
-     *
-     * @return JobSummary		the populated JobSummary
+     * @param jobId the id of the desired job
+     * @return JobSummary        the populated JobSummary
      */
 
     public static JobSummary getJobSummary(int jobId)
@@ -1779,11 +1719,10 @@ public class ScheduledJobTask
      * Retrieves log information about a job, and returns a
      * list of corresponding JobLogEntry objects.
      *
-     * @param jobId		the id of the desired job
-     * @param sr		starting row of result set
-     * @param er		ending row of result set
-     *
-     * @return List		the list of JobLogEntry's
+     * @param jobId the id of the desired job
+     * @param sr    starting row of result set
+     * @param er    ending row of result set
+     * @return List        the list of JobLogEntry's
      */
 
     public static Object[] getJobLog(int jobId, int sr, int er)
@@ -1855,10 +1794,9 @@ public class ScheduledJobTask
     /**
      * Parses request parameters for command inputs.
      *
-     * @param request	the HttpServletRequest object
-     *
-     * @return Map		Map of input id's to parameter values
-     **/
+     * @param request the HttpServletRequest object
+     * @return Map        Map of input id's to parameter values
+     */
 
     private static Map getCommandInputs(HttpServletRequest request) {
         Map commandInputMap = new HashMap();
@@ -1884,8 +1822,8 @@ public class ScheduledJobTask
     /**
      * Populates a ScheduledJobForm with properties from a request.
      *
-     * @param scheduledJob	the ScheduledJobForm to populate
-     * @param request	the HttpServletRequest object
+     * @param scheduledJob the ScheduledJobForm to populate
+     * @param request      the HttpServletRequest object
      */
 
     private static void setProperties(ScheduledJobForm scheduledJob, HttpServletRequest request) {
