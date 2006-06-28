@@ -34,15 +34,15 @@
    </tr>
    <%boolean even = false;%>
    <rsc:iterator list="<%=results%>" id="resultRow">
-   <tr>
+   <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="rating"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="hs_rating"/></td>                  
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="Unrated"/></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="Unrated"/></td>
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>                  
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>
       <td class="value"><rsc:item row="<%=resultRow%>" name="school_name" ifNull="N/A"/></td>
       <td class="valueC"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-      <td class="value" nowrap="nowrap"><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+      <td class="value"><rsc:item row="<%=resultRow%>" name="country_name"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_ratings"/></td>
       <td class="valueC"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="num_hs_ratings"/></td>
