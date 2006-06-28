@@ -220,15 +220,15 @@
             <%-- CNN
                         <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
             --%>
-            <%-- WSJ--%>
+            <%-- WSJ
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0"/></A>
-            
+            --%>
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
             --%>
-            <%-- employee referral 
-            <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm2.gif" alt="TopCoder Employee Referral Program" border="0"/></A>
-            --%>
+            <%-- employee referral --%>
+            <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0"/></A>
+            
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
