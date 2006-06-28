@@ -217,26 +217,17 @@ public class SimpleSearch extends Base {
         searchQuery.append(queryBottom.toString());
         searchQuery.append(" ORDER BY rating_order, lower_handle");
 
-        StringBuffer countQuery = new StringBuffer(400);
-        countQuery.append(" SELECT count(*) as count ");
-        countQuery.append(queryBottom.toString());
-
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
-/*
-        r.addQuery("count", countQuery.toString());
-        r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
-        r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
-*/
         
         CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-//        ResultSetContainer count = (ResultSetContainer) res.get("count");
+
         int count = rsc.getRowCount(); 
         m.setResults(new ResultSetContainer(rsc, m.getStart().intValue(), m.getEnd().intValue()));
-        //m.setTotal(count.getIntItem(0, "count"));
+
         m.setTotal(count);
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
@@ -251,7 +242,7 @@ public class SimpleSearch extends Base {
         if (from == null && to == null) return "";
         
         StringBuffer str = new StringBuffer(100);
-        str.append("AND " + field + " BETWEEN ");
+        str.append(" AND " + field + " BETWEEN ");
         str.append(from == null ? "0" : from.toString());
         str.append(to == null ? String.valueOf(Integer.MAX_VALUE) : to.toString());
         return str.toString();
