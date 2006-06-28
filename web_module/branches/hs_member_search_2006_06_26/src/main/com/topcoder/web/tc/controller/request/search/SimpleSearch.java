@@ -215,20 +215,26 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
         
         searchQuery.append(queryBottom.toString());
-        searchQuery.append(" ORDER BY rating_order, lower_handle");
+//        searchQuery.append(" ORDER BY rating_order, lower_handle");
+       
+        StringBuffer countQuery = new StringBuffer(400);
+        countQuery.append(" SELECT count(*) as count ");
+        countQuery.append(queryBottom.toString());
 
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
-        
+        r.addQuery("count", countQuery.toString());
+        r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
+        r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
+
+
         CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-
-        int count = rsc.getRowCount(); 
-        m.setResults(new ResultSetContainer(rsc, m.getStart().intValue(), m.getEnd().intValue()));
-
-        m.setTotal(count);
+        ResultSetContainer count = (ResultSetContainer) res.get("count");
+        m.setResults(rsc);
+        m.setTotal(count.getIntItem(0, "count"));
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
         }
