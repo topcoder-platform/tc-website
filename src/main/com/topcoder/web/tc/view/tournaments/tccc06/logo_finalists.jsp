@@ -64,16 +64,16 @@
 <A href="/tc?module=ViewSurvey&sid=217">Vote for your favorite</A>
 <br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0" class="bodyText">
-<tr><td>0045 - <tc-webtag:handle coderId="14925029"/><br><img src="/i/tournament/tccc06/finalists/0045.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0224 - <tc-webtag:handle coderId="8361901"/><br><img src="/i/tournament/tccc06/finalists/0224.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0227 - <tc-webtag:handle coderId="22503298"/><br><img src="/i/tournament/tccc06/finalists/0227.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0377 - <tc-webtag:handle coderId="22432924"/><br><img src="/i/tournament/tccc06/finalists/0377.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0379 - <tc-webtag:handle coderId="22383231"/><br><img src="/i/tournament/tccc06/finalists/0379.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0404 - <tc-webtag:handle coderId="22626796"/><br><img src="/i/tournament/tccc06/finalists/0404.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0433 - <tc-webtag:handle coderId="10651364"/><br><img src="/i/tournament/tccc06/finalists/0433.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0449 - <tc-webtag:handle coderId="14947661"/><br><img src="/i/tournament/tccc06/finalists/0449.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0462 - <tc-webtag:handle coderId="15140959"/><br><img src="/i/tournament/tccc06/finalists/0462.gif" alt="" border="0" /><hr></td></tr>
-<tr><td>0571 - <tc-webtag:handle coderId="22540263"/><br><img src="/i/tournament/tccc06/finalists/0571.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0045<br><img src="/i/tournament/tccc06/finalists/0045.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0224<br><img src="/i/tournament/tccc06/finalists/0224.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0227<br><img src="/i/tournament/tccc06/finalists/0227.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0377<br><img src="/i/tournament/tccc06/finalists/0377.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0379<br><img src="/i/tournament/tccc06/finalists/0379.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0404<br><img src="/i/tournament/tccc06/finalists/0404.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0433<br><img src="/i/tournament/tccc06/finalists/0433.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0449<br><img src="/i/tournament/tccc06/finalists/0449.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0462<br><img src="/i/tournament/tccc06/finalists/0462.gif" alt="" border="0" /><hr></td></tr>
+<tr><td>0571<br><img src="/i/tournament/tccc06/finalists/0571.gif" alt="" border="0" /><hr></td></tr>
 </table>
 
 
