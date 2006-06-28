@@ -117,7 +117,7 @@ public class SimpleSearch extends Base {
         if (m.getMinRating() == null && m.getMaxRating() == null &&
                 m.getMinNumRatings() == null && m.getMaxNumRatings() == null &&
                 m.getMaxDaysSinceLastComp() == null) {
-            queryBottom.append(" , OUTER (algo_rating r, round ro)");
+            queryBottom.append(" , OUTER (algo_rating r, OUTER round ro)");
             needsRating = false;
         } else {
             queryBottom.append(" , algo_rating r");
@@ -133,7 +133,7 @@ public class SimpleSearch extends Base {
         if (m.getMinHSRating() == null && m.getMaxHSRating() == null && 
             m.getMinNumHSRatings() == null && m.getMaxNumHSRatings() == null &&             
             m.getMaxDaysSinceLastHSComp() == null) {
-            queryBottom.append(" , OUTER (algo_rating hsr, round hsro)");
+            queryBottom.append(" , OUTER (algo_rating hsr, OUTER round hsro)");
             needsHSRating = false; 
         } else {
             queryBottom.append(" , algo_rating hsr");
