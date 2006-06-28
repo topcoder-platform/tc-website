@@ -79,8 +79,7 @@
             <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/"/>
         </map>
         <td class="BIGPromoBox" align="center">
-             <%--<A href="/tc?module=ViewSurvey&sid=217"><img src="/i/home/tccc06_logo_contest_vote.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>--%>
-            <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview"><img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
+            <A href="/tc?module=ViewSurvey&sid=217"><img src="/i/home/tccc06_logo_contest_vote.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
