@@ -73,13 +73,18 @@
         <area shape="rect" alt="" coords="159,1, 209,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
         </map>
               <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
-        --%>
+        
         <map name="tchs">
             <area shape="rect" alt="" coords="19,8, 211,57" href="/tc?module=Static&d1=hs&d2=home"/>
             <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/"/>
-        </map>
+        </map>--%>
+
         <td class="BIGPromoBox" align="center">
-            <A href="/tc?module=ViewSurvey&sid=217"><img src="/i/home/tccc06_logo_contest_vote.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
+        <map name="logo">
+        <area shape="rect" alt="" coords="5,80, 318,115" href="/tc?module=ViewSurvey&sid=217" />
+        <area shape="rect" alt="" coords="323,94, 402,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview" />
+        </map>
+        <img src="/i/home/tccc06_logo_contest_vote.gif" border="0" usemap="#logo" alt="TopCoder Collegiate Challenge Logo Contest" />
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
@@ -215,14 +220,15 @@
             <%-- CNN
                         <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
             --%>
-            <%-- WSJ
-            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0"/></A>--%>
+            <%-- WSJ--%>
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0"/></A>
+            
             <%-- Intel MTCS
                         <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
             --%>
-            <%-- employee referral --%>
+            <%-- employee referral 
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm2.gif" alt="TopCoder Employee Referral Program" border="0"/></A>
-
+            --%>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
