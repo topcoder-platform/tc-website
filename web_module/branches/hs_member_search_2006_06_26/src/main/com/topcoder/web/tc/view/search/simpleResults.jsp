@@ -18,7 +18,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-<% if (memberSearch.getTotal() <= Constants.MEMBER_SEARCH_MAX_ROWS) {%>  
 <script language="JavaScript"><!--
   function next() {
     document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
@@ -31,7 +30,6 @@
     document.simpleSearch.submit();
   }
 //--></script>
-<% } %>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -66,12 +64,7 @@
 <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
 <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
 <input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
-           <% if (memberSearch.getTotal() > Constants.MEMBER_SEARCH_MAX_ROWS) {%>
-           <span class="bigRed">More than <%= Constants.MEMBER_SEARCH_MAX_ROWS %> coders found.  Please narrow your search criteria.</span>
-           <% } else { %>
-           <jsp:include page="results.jsp"/>
-           <% } %>
-
+<jsp:include page="results.jsp"/>
 </form>
 
 </td>

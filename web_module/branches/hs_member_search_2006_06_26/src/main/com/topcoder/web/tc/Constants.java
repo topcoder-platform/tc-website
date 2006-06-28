@@ -284,8 +284,6 @@ public class Constants implements WebConstants {
     public static String HS_PROBLEM_STATEMENT;
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
-
-    public static int MEMBER_SEARCH_MAX_ROWS;
     
     static {
         initialize();

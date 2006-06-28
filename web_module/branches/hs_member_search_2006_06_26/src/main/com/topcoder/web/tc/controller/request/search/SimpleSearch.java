@@ -302,37 +302,24 @@ public class SimpleSearch extends Base {
 
         countQuery.append(filter);
         
-        // retrieve the number of rows
+        
+        countQuery.append(" SELECT count(*) as count ");
+        countQuery.append(queryBottom.toString());
+
         QueryRequest r = new QueryRequest();
-        r.addQuery("count", countQuery.toString());
-        r.setProperty("count" + DataAccessConstants.START_RANK, "0");
-        r.setProperty("count" + DataAccessConstants.END_RANK, "" + (1 + Constants.MEMBER_SEARCH_MAX_ROWS)); 
-        CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
-        cda.setExpireTime(60 * 1000); //cache for 1 minutes
-        Map res = cda.getData(r);
-        int count = ((ResultSetContainer) res.get("count")).getRowCount();
-        m.setTotal(count);
-        
-        // if the quantity exceeded the maximum, don't retrieve the values, just return m and
-        // the an error message will be shown to the user.
-        if (count > Constants.MEMBER_SEARCH_MAX_ROWS) return m;
-        
-        r = new QueryRequest();
-        
         r.addQuery("member_search", searchQuery.toString());
-        
+        r.addQuery("count", countQuery.toString());
         r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
         r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
 
 
-        cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
+        CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
-        res = cda.getData(r);
+        Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-        
+        ResultSetContainer count = (ResultSetContainer) res.get("count");
         m.setResults(rsc);
-        
-        //m.setTotal(count.getIntItem(0, "count"));
+        m.setTotal(count.getIntItem(0, "count"));
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
         }
