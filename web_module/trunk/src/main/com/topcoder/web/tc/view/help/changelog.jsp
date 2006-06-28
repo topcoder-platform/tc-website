@@ -39,6 +39,12 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<p>
+    5.3.8 - 2006.06.xx
+    <ul>
+        <li>Fix bug in the password reminder system</li>
+    </ul>
+</p>
 
 <p>
     5.3.7 - 2006.06.26
