@@ -36,7 +36,7 @@
    <rsc:iterator list="<%=results%>" id="resultRow">
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap="nowrap"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' /></td>
-      <td class="valueR"><rsc:item row="<%=resultRow%>" name="rating"/></td>
+      <td class="valueR"><rsc:item row="<%=resultRow%>" name="rating" format="#" ifNull="unrated"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="hs_rating" format="#" ifNull="unrated"/></td>                  
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="unrated"/></td>
       <td class="valueR"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="unrated"/></td>

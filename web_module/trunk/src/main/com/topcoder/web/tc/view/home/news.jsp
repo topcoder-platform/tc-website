@@ -8,6 +8,25 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.28.06<br>3:10 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">TCHS SRM 4 - Problem Set & Analysis</A></span><br><br>
+The fourth HS SRM (the first for group delta) proved to be the
+trickiest thus far.  Only two coders were able to solve the hard
+problem.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506026" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.28.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=217">Vote for the TCCC06 Logo</A></span><br><br>
       The Top 10 Finalists of the TCCC06 Logo Design Contest have been posted, it's time to vote for your favorite!
@@ -173,23 +192,6 @@ clusters.
        <A href="/tc?module=Static&d1=pressroom&d2=pr_061906">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506056" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.15.06<br>4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm307">SRM 307 - Problem Set & Analysis</A></span><br><br>
-The overall level of the problem set this time was a bit higher than usual. It led to an interesting challenge phase and unexpected results after system test.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Mike-Mirzayanov_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="308953" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm307">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505982" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
