@@ -249,7 +249,6 @@ public class SimpleSearch extends Base {
         if (m.getMaxDaysSinceLastHSComp() != null) {
             countQuery.append(" , round hsro");
             countQuery.append(" , calendar hscal");
-            countQuery.append(" AND hsr.algo_rating_type_id=2");
 
             filter.append(" AND hsr.last_rated_round_id = hsro.round_id");            
             filter.append(" AND hscal.calendar_id = hsro.calendar_id");
@@ -259,6 +258,7 @@ public class SimpleSearch extends Base {
         if (needsHSRating)  {
             countQuery.append(" , algo_rating hsr");
             filter.append(" AND c.coder_id = hsr.coder_id");
+            filter.append(" AND hsr.algo_rating_type_id=2");
         }
         
         if (m.getSchoolName()!=null) {
@@ -285,20 +285,20 @@ public class SimpleSearch extends Base {
         }
 
         if (m.getStateCode() != null)
-            countQuery.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
+            filter.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
 
         if (m.getHandle() != null)
-            countQuery.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
+            filter.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
         
         
-        countQuery.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
-        countQuery.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
-        countQuery.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
-        countQuery.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
-        countQuery.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
-        countQuery.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
+        filter.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
+        filter.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
+        filter.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
+        filter.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
+        filter.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
+        filter.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         if (m.getCountryCode() != null)
-            countQuery.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
+            filter.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
 
         countQuery.append(filter);
         
