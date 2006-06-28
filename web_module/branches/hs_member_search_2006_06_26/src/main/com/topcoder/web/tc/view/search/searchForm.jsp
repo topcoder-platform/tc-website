@@ -82,7 +82,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Algorithm rating:
+         <strong>Algorithm</strong> rating:
       </td>
       <td class="valueR">
          Min:
@@ -99,7 +99,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         # of rated Algorithm events:
+         # of rated <strong>Algorithm</strong> events:
       </td>
       <td class="valueR">
          Min:
@@ -116,7 +116,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Max time since last Algorithm competition:
+         Max time since last <strong>Algorithm</strong> competition:
       </td>
       <td class="value" colspan="4">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_COMP%>" size="1">
@@ -135,7 +135,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         High School rating:
+         <strong>High School</strong> rating:
       </td>
       <td class="valueR">
          Min:
@@ -152,7 +152,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         # of rated High School events:
+         # of rated <strong>High School</strong> events:
       </td>
       <td class="valueR">
          Min:
@@ -169,7 +169,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Max time since last High School competition:
+         Max time since last <strong>High School</strong> competition:
       </td>
       <td class="value" colspan="4">
          <select name="<%=Constants.MAX_DAYS_SINCE_LAST_HS_COMP%>" size="1">
@@ -188,7 +188,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Design rating:
+         <strong>Design</strong> rating:
       </td>
       <td class="valueR">
          Min:
@@ -205,7 +205,7 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR">
-         Development rating:
+         <strong>Development</strong> rating:
       </td>
       <td class="valueR">
          Min:
