@@ -166,30 +166,12 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND hsr.last_rated_round_id = hsro.round_id");
-        queryBottom.append(" AND r.rating BETWEEN ");
-        queryBottom.append(m.getMinRating() == null ? "0" : m.getMinRating().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxRating().toString());
-        queryBottom.append(" AND hsr.rating BETWEEN ");
-        queryBottom.append(m.getMinHSRating() == null ? "0" : m.getMinHSRating().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxHSRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxHSRating().toString());
-        queryBottom.append(" AND desr.rating BETWEEN ");
-        queryBottom.append(m.getMinDesignRating() == null ? "0" : m.getMinDesignRating().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxDesignRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxDesignRating().toString());
-        queryBottom.append(" AND devr.rating BETWEEN ");
-        queryBottom.append(m.getMinDevRating() == null ? "0" : m.getMinDevRating().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxDevRating() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxDevRating().toString());
-        queryBottom.append(" AND r.num_ratings BETWEEN ");
-        queryBottom.append(m.getMinNumRatings() == null ? "0" : m.getMinNumRatings().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxNumRatings() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxNumRatings().toString());
-        queryBottom.append(" AND hsr.num_ratings BETWEEN ");
-        queryBottom.append(m.getMinNumHSRatings() == null ? "0" : m.getMinNumHSRatings().toString());
-        queryBottom.append(" AND ");
-        queryBottom.append(m.getMaxNumHSRatings() == null ? String.valueOf(Integer.MAX_VALUE) : m.getMaxNumHSRatings().toString());
+        queryBottom.append(betweenFilter("r.rating", m.getMinRating(), m.getMaxRating()));
+        queryBottom.append(betweenFilter("hsr.rating", m.getMinHSRating(), m.getMaxHSRating()));
+        queryBottom.append(betweenFilter("desr.rating", m.getMinDesignRating(), m.getMaxDesignRating()));
+        queryBottom.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
+        queryBottom.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
+        queryBottom.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         if (m.getCountryCode() != null)
             queryBottom.append(" AND c.comp_country_code like '").append(StringUtils.replace(m.getCountryCode(), "'", "''")).append("'");
         if (m.getMaxDaysSinceLastComp() != null) {
@@ -241,18 +223,21 @@ public class SimpleSearch extends Base {
 
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
+/*
         r.addQuery("count", countQuery.toString());
         r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
         r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
-
-
+*/
+        
         CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-        ResultSetContainer count = (ResultSetContainer) res.get("count");
-        m.setResults(rsc);
-        m.setTotal(count.getIntItem(0, "count"));
+//        ResultSetContainer count = (ResultSetContainer) res.get("count");
+        int count = rsc.getRowCount(); 
+        m.setResults(new ResultSetContainer(rsc, m.getStart().intValue(), m.getEnd().intValue()));
+        //m.setTotal(count.getIntItem(0, "count"));
+        m.setTotal(count);
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
         }
@@ -262,4 +247,13 @@ public class SimpleSearch extends Base {
         return m;
     }
 
+    private String betweenFilter(String field, Integer from, Integer to) {
+        if (from == null && to == null) return "";
+        
+        StringBuffer str = new StringBuffer(100);
+        str.append("AND " + field + " BETWEEN ");
+        str.append(from == null ? "0" : from.toString());
+        str.append(to == null ? String.valueOf(Integer.MAX_VALUE) : to.toString());
+        return str.toString();
+    }
 }
