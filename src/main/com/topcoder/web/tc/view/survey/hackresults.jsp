@@ -243,7 +243,7 @@
         <div align="left" style="width: 600px;">
 
             <% if (surveyInfo.getText() != null) { %>
-            <span class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></span><br>
+            <span class="bodyTitle"><%=surveyInfo.getText()%></span><br>
             <% } %>
 
             <br><br>
