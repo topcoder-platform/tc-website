@@ -35,22 +35,20 @@
 
 <!-- View Submissions tab -->
             <% if (selectedTab.equals("submissions")) {%>
-                 View Submissions
+                 View Submissions |
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_6">View Submissions</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_submissions_6">View Submissions</a> |
             <% } %>
-<%-- 
-
- | 
+ 
 
 <!-- Finalists tab -->
             <% if (selectedTab.equals("finalists")) {%>
-                 Finalists
+                 Finalists 
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_finalists">Finalists</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_finalists">Finalists</a> 
             <% } %>
-
- | 
+<%--
+|
 <!-- Winners tab -->
             <% if (selectedTab.equals("winner")) {%>
                  Winner
