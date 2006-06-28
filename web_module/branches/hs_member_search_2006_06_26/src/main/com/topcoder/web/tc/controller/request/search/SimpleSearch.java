@@ -228,7 +228,6 @@ public class SimpleSearch extends Base {
 
         StringBuffer countQuery = new StringBuffer(400);
         countQuery.append(" SELECT count(*) as count ");
-        countQuery.append(queryBottom.toString());
         countQuery.append(" FROM coder c");
         
         if (needsRating) {
