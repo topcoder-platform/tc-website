@@ -227,7 +227,7 @@ public class SimpleSearch extends Base {
         filter.append(" WHERE c.status = 'A'");
 
         StringBuffer countQuery = new StringBuffer(400);
-        countQuery.append(" SELECT count(*) as count ");
+        countQuery.append(" SELECT 1 ");
         countQuery.append(" FROM coder c");
         
         if (needsRating) {
@@ -307,15 +307,18 @@ public class SimpleSearch extends Base {
         r.addQuery("count", countQuery.toString());
         r.setProperty("member_search" + DataAccessConstants.START_RANK, m.getStart().toString());
         r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
+        r.setProperty("count" + DataAccessConstants.START_RANK, "0");
+        r.setProperty("count" + DataAccessConstants.END_RANK, "1001");
 
 
         CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
         cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
-        ResultSetContainer count = (ResultSetContainer) res.get("count");
+        int count = ((ResultSetContainer) res.get("count")).getRowCount();
         m.setResults(rsc);
-        m.setTotal(count.getIntItem(0, "count"));
+        m.setTotal(count);
+        //m.setTotal(count.getIntItem(0, "count"));
         if (m.getEnd().intValue() > m.getTotal()) {
             m.setEnd(new Integer(m.getTotal()));
         }
