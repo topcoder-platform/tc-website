@@ -61,7 +61,11 @@
                       <form name="searchForm" method="get">
                           <jsp:include page="searchForm.jsp"/>
                           <br/>
-                          <jsp:include page="results.jsp"/>
+                          <% if (memberSearch.getTotal() > Constants.MEMBER_SEARCH_MAX_ROWS) {%>
+                              Too many coders found.  Please narrow your search criteria.
+                          <% } else { %>
+	                          <jsp:include page="results.jsp"/>
+                          <% } %>
                       </form>
          <br><br>
         </td>
