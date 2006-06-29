@@ -323,7 +323,7 @@
                         <% if (results.getSumMatrix().getValue(i, j) > results.getSumMatrix().getValue(j, i)) { %>
                         <b><%=results.getSumMatrix().getValue(i, j)%></b>
                         <% } else { %>
-                        <b><%=results.getSumMatrix().getValue(i, j)%></b>
+                        <%=results.getSumMatrix().getValue(i, j)%>
                         <% } %>
                         <%}%>
                     </td>
