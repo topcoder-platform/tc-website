@@ -65,7 +65,7 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505946">here</A>.
+Documentation/Specification is available in the application forums <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=21303682">here</A>.
 
 <br><br>
 
