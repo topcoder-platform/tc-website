@@ -45,6 +45,11 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
+        setDefault(Constants.MIN_HS_RATING, m.getMinHSRating() == null ? "" : m.getMinHSRating().toString());
+        setDefault(Constants.MAX_HS_RATING, m.getMaxHSRating() == null ? "" : m.getMaxHSRating().toString());
+        setDefault(Constants.MIN_NUM_HS_RATINGS, m.getMinNumHSRatings() == null ? "" : m.getMinNumHSRatings().toString());
+        setDefault(Constants.MAX_NUM_HS_RATINGS, m.getMaxNumHSRatings() == null ? "" : m.getMaxNumHSRatings().toString());
+        setDefault(Constants.MAX_DAYS_SINCE_LAST_HS_COMP, m.getMaxDaysSinceLastHSComp() == null ? "" : m.getMaxDaysSinceLastHSComp().toString());
     }
 
     /**
@@ -102,6 +107,25 @@ public class AdvancedSearch extends SimpleSearch {
         if (!maxDaysSinceLastComp.equals(""))
             ret.setMaxDaysSinceLastComp(new Integer(maxDaysSinceLastComp));
 
+        String minHSRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_HS_RATING));
+        if (!minHSRating.equals(""))
+            ret.setMinHSRating(new Integer(minHSRating));
+
+        String maxHSRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_HS_RATING));
+        if (!maxHSRating.equals(""))
+            ret.setMaxHSRating(new Integer(maxHSRating));
+
+        String minNumHSRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_HS_RATINGS));
+        if (!minNumHSRatings.equals(""))
+            ret.setMinNumHSRatings(new Integer(minNumHSRatings));
+
+        String maxNumHSRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_NUM_HS_RATINGS));
+        if (!maxNumHSRatings.equals(""))
+            ret.setMaxNumHSRatings(new Integer(maxNumHSRatings));
+
+        String maxDaysSinceLastHSComp = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DAYS_SINCE_LAST_HS_COMP));
+        if (!maxDaysSinceLastHSComp.equals(""))
+            ret.setMaxDaysSinceLastHSComp(new Integer(maxDaysSinceLastHSComp));
 
         ret.setStateList(getStateList());
         ret.setCountryList(getCountryList());

@@ -51,41 +51,25 @@
         </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-    <!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
- <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="statisticsw"/>
-           <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Member Search Results"/>
-            </jsp:include>
+<td width="100%" align="center" class="bodyColumn">
 
-            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-              <tr valign="top">
-                  <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
-                      <form name="simpleSearch" method="get">
-                          <input type="hidden" name="module" value="SimpleSearch"/>
-                          <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
-                          <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
-                          <input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
+<jsp:include page="/page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Find a Competitor"/>
+</jsp:include>
 
-                          <jsp:include page="results.jsp"/>
-                      </form>
-                  </td>
-              </tr>
-            </table>
-         <br><br>
-        </td>
+<form name="simpleSearch" method="get">
+<input type="hidden" name="module" value="SimpleSearch"/>
+<input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
+<input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
+<input type="hidden" name=<%=Constants.HANDLE%> value="<jsp:getProperty name="memberSearch" property="handle"/>"/>
+<jsp:include page="results.jsp"/>
+</form>
+
+</td>
 
 
-<!-- Center Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
         <td width="170">
@@ -101,7 +85,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="/foot.jsp"/>
 
 </body>
 
