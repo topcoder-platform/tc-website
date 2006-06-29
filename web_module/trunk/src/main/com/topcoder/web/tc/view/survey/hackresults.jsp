@@ -149,9 +149,11 @@
         while (st.hasMoreTokens()) {
             tok = st.nextToken();
             if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
+                ret.append(" ");
                 ret.append(tok);
             }
-            if (tok.endsWith(">")) {
+            if (tok.endsWith("/>")) {
+                ret.append(" />");
                 break;
             }
         }
