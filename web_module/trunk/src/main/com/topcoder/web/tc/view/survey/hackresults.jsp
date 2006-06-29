@@ -320,7 +320,11 @@
                     <%for (int j = 0; j < size; j++) {%>
                     <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
-                        <%=results.getSumMatrix().getValue(i, j)%>
+                        <% if (results.getSumMatrix().getValue(i, j) > results.getSumMatrix().getValue(j, i)) { %>
+                        <b><%=results.getSumMatrix().getValue(i, j)%></b>
+                        <% } else { %>
+                        <b><%=results.getSumMatrix().getValue(i, j)%></b>
+                        <% } %>
                         <%}%>
                     </td>
                     <% } %>
