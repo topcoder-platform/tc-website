@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.voting.CondorcetSchulzeResults" %>
+<%@ page import="java.util.StringTokenizer" %>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -6,7 +7,34 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% CondorcetSchulzeResults results = (CondorcetSchulzeResults) request.getAttribute("results");%>
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey"/>
-
+<%!
+    protected String trimPopup(String s) {
+        StringTokenizer st = new StringTokenizer(s, " ");
+        StringBuffer ret = new StringBuffer(100);
+        ret.append("<img ");
+        String tok;
+        while (st.hasMoreTokens()) {
+            tok = st.nextToken();
+            if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
+                ret.append(" ");
+                ret.append(tok);
+                if (tok.indexOf(">") >= 0) {
+                    break;
+                }
+            }
+            //we know that it's not one of the tags we care about
+            if (tok.endsWith(">") || tok.endsWith("/>")) {
+                break;
+            }
+            //we know that it's not one of the tags we care about
+            if (tok.indexOf(">") >= 0) {
+                ret.append(" />");
+                break;
+            }
+        }
+        return ret.toString();
+    }
+%>
 
 <html>
 
@@ -144,11 +172,11 @@
                 <% int size = results.getSumMatrix().getCandidates().length;
                 %> <tr><td></td> <%
                 for (int i = 0; i < size; i++) {
-            %><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td><%
+            %><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td><%
                 } %>
             </tr>
                 <% for (int i = 0; i < size; i++) {%>
-                <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
+                <tr><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td>
                     <%for (int j = 0; j < size; j++) {%>
                     <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
