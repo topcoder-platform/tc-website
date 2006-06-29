@@ -23,6 +23,53 @@ public class MemberSearch {
     private ResultSetContainer results = null;
     private ResultSetContainer countryList = null;
     private Integer maxDaysSinceLastComp = null;
+    
+    private Integer minHSRating = null;
+    private Integer maxHSRating = null;
+    private Integer minNumHSRatings = null;
+    private Integer maxNumHSRatings = null;
+    private Integer maxDaysSinceLastHSComp = null;
+    
+    public Integer getMaxDaysSinceLastHSComp() {
+        return maxDaysSinceLastHSComp;
+    }
+
+    public void setMaxDaysSinceLastHSComp(Integer maxDaysSinceLastHSComp) {
+        this.maxDaysSinceLastHSComp = maxDaysSinceLastHSComp;
+    }
+
+
+    public Integer getMaxHSRating() {
+        return maxHSRating;
+    }
+
+    public void setMaxHSRating(Integer maxHSRating) {
+        this.maxHSRating = maxHSRating;
+    }
+
+    public Integer getMaxNumHSRatings() {
+        return maxNumHSRatings;
+    }
+
+    public void setMaxNumHSRatings(Integer maxNumHSRatings) {
+        this.maxNumHSRatings = maxNumHSRatings;
+    }
+
+    public Integer getMinHSRating() {
+        return minHSRating;
+    }
+
+    public void setMinHSRating(Integer minHSRating) {
+        this.minHSRating = minHSRating;
+    }
+
+    public Integer getMinNumHSRatings() {
+        return minNumHSRatings;
+    }
+
+    public void setMinNumHSRatings(Integer minNumHSRatings) {
+        this.minNumHSRatings = minNumHSRatings;
+    }
 
     public Integer getStart() {
         return start;
