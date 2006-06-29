@@ -6,7 +6,23 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%--------------------------------------
+<%-----------------------POST JULY 5
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.05.06<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=070506">Understanding your algorithm rating - and why it changes</A></span><br><br>
+       This article will attempt to explain, in less precise but more accessible terms, how your rating is adjusted after each match.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=features&d2=070506">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506063" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+---------------------------------%>
+<%---------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.29.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -18,7 +34,7 @@
          <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-------------------%>
+-----------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.28.06<br>5:10 PM</td>
