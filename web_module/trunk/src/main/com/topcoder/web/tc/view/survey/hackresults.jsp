@@ -152,7 +152,7 @@
                 ret.append(" ");
                 ret.append(tok);
             }
-            if (tok.endsWith("/>")) {
+            if (tok.indexOf("/>") >= 0) {
                 ret.append(" />");
                 break;
             }
