@@ -39,9 +39,8 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" style="padding:0px 10px 0px 10px;" align="center">
+<td width="100%" align="center" class="bodyColumn">
 
-<div style="width: 600px;">
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
 <jsp:param name="title" value="Find a Competitor"/>
@@ -52,7 +51,6 @@
             </form>
 
          <br><br>
-</div>
         </td>
 
 
@@ -66,9 +64,6 @@
         </td>
 <!-- Right Column Ends -->
 
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 

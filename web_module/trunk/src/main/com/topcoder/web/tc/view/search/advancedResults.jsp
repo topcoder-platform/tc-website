@@ -18,19 +18,18 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 
-<script language="JavaScript"><!--
-  function next() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
-  function previous() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
-//--></script>
-
+	<script language="JavaScript"><!--
+	  function next() {
+	    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.submit();
+	  }
+	  function previous() {
+	    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
+	    document.searchForm.submit();
+	  }
+	//--></script>
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
@@ -49,16 +48,10 @@
             <jsp:param name="node" value="competitor_search"/>
          </jsp:include>
         </td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-    <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" style="padding:0px 10px 0px 10px;" align="center">
+<td width="100%" align="center" class="bodyColumn">
 
-<div style="width: 600px;">
 <jsp:include page="/page_title.jsp" >
 <jsp:param name="image" value="statistics_w"/>
 <jsp:param name="title" value="Find a Competitor"/>
@@ -70,15 +63,8 @@
                           <jsp:include page="results.jsp"/>
                       </form>
          <br><br>
-</div>
         </td>
 
-
-<!-- Center Column Ends -->
-
-<!-- Gutter -->
-        <td width="50%"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
         <td width="170">
@@ -86,11 +72,7 @@
                 <jsp:param name="level1" value="search"/>
             </jsp:include>
         </td>
-<!-- Right Column Ends -->
 
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 
