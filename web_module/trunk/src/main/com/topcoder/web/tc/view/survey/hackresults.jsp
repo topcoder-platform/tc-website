@@ -151,7 +151,15 @@
             if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
                 ret.append(" ");
                 ret.append(tok);
+                if (tok.indexOf(">") >= 0) {
+                    break;
+                }
             }
+            //we know that it's not one of the tags we care about
+            if (tok.endsWith(">") || tok.endsWith("/>")) {
+                break;
+            }
+            //we know that it's not one of the tags we care about
             if (tok.indexOf(">") >= 0) {
                 ret.append(" />");
                 break;
