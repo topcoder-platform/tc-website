@@ -48,6 +48,35 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+   <%--
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewScorecardAdmin">Review Scorecard Admin Tests</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Scorecard Admin Tests">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!-- CHANGE COMMENT TYPE
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewScorecardAdmin">results</A>
+      -->
+      </td>
+      <td class="valueC">
+      &#160;
+      </td>
+      <td class="valueC">
+      07.13.2006 09:00 PM EST
+      </td>
+      <td class="valueC">
+      07.13.2006 09:00 PM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="">discuss the project</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_timeTrackerClientAdmin">Time Tracker Client Admin Tests</A>
