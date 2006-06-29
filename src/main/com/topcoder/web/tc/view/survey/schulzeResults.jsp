@@ -182,7 +182,7 @@
                     <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
                         <% if (results.getSumMatrix().getValue(i, j) > results.getSumMatrix().getValue(j, i)) { %>
-                        <b><%=results.getSumMatrix().getValue(i, j)%></b>
+                        <span class="bigRed"><%=results.getSumMatrix().getValue(i, j)%></span>
                         <% } else { %>
                         <%=results.getSumMatrix().getValue(i, j)%>
                         <% } %>
