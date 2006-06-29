@@ -48,6 +48,38 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+<%--   
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Online Review Scorecard Admin">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--CHANGE COMMENT TYPE 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewScorecardAdmin">results</A>-->
+      </td>
+      <td class="valueC">
+      &#160;
+      </td>
+      <td class="valueC">
+      07.13.2006 9:00 PM EST
+      </td>
+      <td class="valueC">
+      07.24.2006 9:00 PM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
+      <br>
+      <A href="">discuss the project</A>
+      </td>
+   </tr>
+   
+   <% even = !even;%>
+--%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_timeTrackerTimeExpRep">Time Tracker Time, Expense and Reporting</A>
