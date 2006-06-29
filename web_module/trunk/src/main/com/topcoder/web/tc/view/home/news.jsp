@@ -204,25 +204,6 @@ played had no more than 6 pegs, and about 6 colors.
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.19.06<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">Intel&#174; Multi-Threading Competion 5 - Analysis</A></span><br><br>
-Clustering is a very common real-world data mining problem, and while the data
-for this match was artificial, many real-world graphs show strong natural
-clusters.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_5">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506010" message="discuss this" />&#160;|&#160;
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
