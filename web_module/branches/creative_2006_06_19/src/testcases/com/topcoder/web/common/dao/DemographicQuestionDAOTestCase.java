@@ -1,8 +1,8 @@
 package com.topcoder.web.common.dao;
 
+import com.topcoder.web.common.model.DemographicAnswer;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.DemographicAnswer;
-import com.topcoder.web.reg.model.DemographicQuestion;
 
 import java.util.Iterator;
 import java.util.Set;

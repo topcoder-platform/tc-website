@@ -2,11 +2,11 @@ package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.TCHibernateTestCase;
 import com.topcoder.web.reg.TestUtils;
-import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok

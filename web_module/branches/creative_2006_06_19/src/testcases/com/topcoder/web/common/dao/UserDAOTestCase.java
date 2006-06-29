@@ -1,8 +1,8 @@
 package com.topcoder.web.common.dao;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok

@@ -1,8 +1,6 @@
 package com.topcoder.web.common.dao;
 
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
 import java.util.HashSet;
