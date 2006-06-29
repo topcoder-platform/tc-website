@@ -1,12 +1,12 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.Notification;
-import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author dok
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class NotificationValidatorTestCase extends TCHibernateTestCase {
     public void testValid() {
 
-        List l = Util.getFactory().getNotificationDAO().getNotifications();
+        List l = DAOUtil.getFactory().getNotificationDAO().getNotifications();
         assertTrue("found a valid notification to be invalid",
                 new NotificationValidator().validate(new ListInput(l)).isValid());
     }

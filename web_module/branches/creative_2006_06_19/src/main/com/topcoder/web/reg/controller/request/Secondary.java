@@ -4,10 +4,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.*;
-import com.topcoder.web.reg.model.TimeZone;
 
 import java.util.*;
 

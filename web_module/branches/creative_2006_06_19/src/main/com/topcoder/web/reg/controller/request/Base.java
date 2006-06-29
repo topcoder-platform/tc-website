@@ -1,15 +1,18 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.*;
 import com.topcoder.web.reg.validation.*;
 
 import java.io.IOException;
@@ -23,6 +26,7 @@ import java.util.*;
 abstract class Base extends HibernateProcessor {
 
     private User user = null;
+    private DAOFactory factory = null;
 
     protected void dbProcessing() throws Exception {
         registrationProcessing();
@@ -636,6 +640,12 @@ abstract class Base extends HibernateProcessor {
         return getFactory().getReferralDAO().getReferrals(s);
     }
 
+    protected DAOFactory getFactory() {
+        if (factory == null) {
+            factory = DAOUtil.getFactory();
+        }
+        return factory;
+    }
 
     /**
      * Should be implemented by child classes to handle all the actual processing

@@ -1,9 +1,9 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.model.Referral;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.Referral;
 
 /**
  * @author dok

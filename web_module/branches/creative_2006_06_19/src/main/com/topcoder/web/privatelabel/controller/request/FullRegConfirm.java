@@ -5,9 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * @author gpaul 07.07.2003
  */
 public abstract class FullRegConfirm extends FullRegBase {
@@ -52,6 +51,7 @@ public abstract class FullRegConfirm extends FullRegBase {
 
     /**
      * Check the extended type information only.
+     *
      * @param info
      * @throws TCWebException
      */

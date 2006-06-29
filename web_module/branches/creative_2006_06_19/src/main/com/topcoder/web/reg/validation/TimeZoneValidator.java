@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.TimeZone;
 
 
 /**
@@ -21,7 +21,7 @@ public class TimeZoneValidator implements Validator {
             } catch (NumberFormatException e) {
                 return new BasicResult(false, "Please choose a valid time zone.");
             }
-            TimeZone c = Util.getFactory().getTimeZoneDAO().find(i);
+            TimeZone c = DAOUtil.getFactory().getTimeZoneDAO().find(i);
             if (c == null) {
                 return new BasicResult(false, "Please choose a valid time zone.");
             } else {

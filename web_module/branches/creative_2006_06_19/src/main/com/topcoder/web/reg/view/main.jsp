@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.dao.DAOUtil" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -494,8 +495,8 @@
 <br><br>
 
 
-<c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="termsId"/>
-<c:if test="${!regUser.agreedToSiteTerms}">
+<c:set value="<%=DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID))%>" var="regTerms"/>
+<c:if test="${!cf:contains(regUser.terms, regTerms)}">
     <strong>Terms of Use</strong>
     <br>
     <IFRAME SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>" WIDTH="100%" HEIGHT="200"></IFRAME>

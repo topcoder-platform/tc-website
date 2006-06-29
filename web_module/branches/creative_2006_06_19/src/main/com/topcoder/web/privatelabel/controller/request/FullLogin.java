@@ -7,17 +7,17 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.school.CurrentSchool;
-import com.topcoder.web.ejb.phone.Phone;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -68,7 +68,7 @@ public abstract class FullLogin extends FullReg {
             log.debug("no event account");
             try {
                 BasicAuthentication b = new BasicAuthentication(new SessionPersistor(getRequest().getSession()),
-                    getRequest(), getResponse(), BasicAuthentication.PRIVATE_LABEL_SITE);
+                        getRequest(), getResponse(), BasicAuthentication.PRIVATE_LABEL_SITE);
                 b.login(new SimpleUser(0, handle, password), false);
                 char status = user.getStatus(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
@@ -152,7 +152,8 @@ public abstract class FullLogin extends FullReg {
                 DemographicResponse r = new DemographicResponse();
                 r.setQuestionId(row.getLongItem("demographic_question_id"));
                 r.setSort(row.getIntItem("sort"));
-                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id")>0) {
+                if (row.getItem("demographic_answer_id").getResultData() != null && row.getLongItem("demographic_answer_id") > 0)
+                {
                     r.setAnswerId(row.getLongItem("demographic_answer_id"));
                 } else {
                     r.setText(row.getStringItem("demographic_response"));
@@ -186,7 +187,7 @@ public abstract class FullLogin extends FullReg {
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         long phoneId = phone.getPrimaryPhoneId(userId, db);
-        if (phoneId>0) {
+        if (phoneId > 0) {
             info.setPhoneNumber(phone.getNumber(phoneId, db));
         }
         info.setFirstName(user.getFirstName(userId, db));

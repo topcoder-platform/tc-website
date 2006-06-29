@@ -3,10 +3,10 @@ package com.topcoder.web.privatelabel.controller.request.verisign06;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -70,7 +70,7 @@ public class Confirm extends FullRegConfirm {
         try {
             if (info.isNew() && !info.isAccountConversion() && userExists(info.getHandle())) {
                 addError(Constants.HANDLE,
-                        "The handle ("+info.getHandle()+") that you have chosen is already in use.  If this is your TopCoder VeriSign Sponsor Track handle, you are already registered and you may use it to log in.  Otherwise, you will need to choose a different handle.");
+                        "The handle (" + info.getHandle() + ") that you have chosen is already in use.  If this is your TopCoder VeriSign Sponsor Track handle, you are already registered and you may use it to log in.  Otherwise, you will need to choose a different handle.");
             }
         } catch (Exception e) {
             throw new TCWebException(e);
