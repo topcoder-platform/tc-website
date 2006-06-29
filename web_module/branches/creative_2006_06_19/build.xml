@@ -807,7 +807,7 @@
         <copy todir="${jboss_lib}">
             <fileset dir="${bin}">
                 <include name="shared.jar"/>
-                <include name="common.jar"/>
+                <include name="tcwebcommon.jar"/>
                 <include name="tc.jar"/>
             </fileset>
         </copy>
