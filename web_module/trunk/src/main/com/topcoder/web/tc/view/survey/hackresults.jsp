@@ -141,6 +141,23 @@
         return ret;
     }
 
+    protected String trimPopup(String s) {
+        StringTokenizer st = new StringTokenizer(s, " ");
+        StringBuffer ret = new StringBuffer(100);
+        ret.append("<img ");
+        String tok;
+        while (st.hasMoreTokens()) {
+            tok = st.nextToken();
+            if (tok.startsWith("src") || tok.startsWith("alt") || tok.startsWith("class")) {
+                ret.append(tok);
+            }
+            if (tok.endsWith(">")) {
+                break;
+            }
+        }
+        return ret.toString();
+    }
+
 %>
 
 
@@ -285,11 +302,11 @@
                 <% int size = results.getSumMatrix().getCandidates().length;
                 %> <tr><td></td> <%
                 for (int i = 0; i < size; i++) {
-            %><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td><%
+            %><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td><%
                 } %>
             </tr>
                 <% for (int i = 0; i < size; i++) {%>
-                <tr><td><%=results.getSumMatrix().getCandidates()[i].getName()%></td>
+                <tr><td><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td>
                     <%for (int j = 0; j < size; j++) {%>
                     <td class="bodyText" align="center">
                         <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
