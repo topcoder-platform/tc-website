@@ -76,6 +76,12 @@ public class Constants implements WebConstants {
     public static String LOGO;
     public static int TCO05_SPONSOR_TERMS_ID;
 
+    public static String MIN_HS_RATING;
+    public static String MAX_HS_RATING;
+    public static String MIN_NUM_HS_RATINGS;
+    public static String MAX_NUM_HS_RATINGS;
+    public static String MAX_DAYS_SINCE_LAST_HS_COMP;
+
 
     public static String PROJECT_ID;
     public static String PHASE_ID;
