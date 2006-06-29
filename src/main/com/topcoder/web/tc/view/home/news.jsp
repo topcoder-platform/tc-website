@@ -22,9 +22,10 @@
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 ---------------------------------%>
-<%------------------------------------
+<%--------------------------------------------------------%>
+
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.29.06<br>10:20 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.29.06<br>2:40 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=Static&d1=my_home&d2=empReferrals">TopCoder Employee Referral Program Prize Increase</A></span><br><br>
       We have increased the prize for referring a friend as a Project Manager or an Architect to $5,000.
@@ -34,7 +35,6 @@
          <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
---------------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.28.06<br>5:10 PM</td>
