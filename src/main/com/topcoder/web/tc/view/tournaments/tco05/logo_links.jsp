@@ -33,7 +33,14 @@
 
 <!-- Finalists tab -->
             <% if (selectedTab.equals("finalists")) {%>
-                 Finalists
+                 Finalists&#160;|&#160;
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">Finalists</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">Finalists</a>&#160;|&#160;
+            <% } %>
+            
+<!-- Finalists tab -->
+            <% if (selectedTab.equals("winner")) {%>
+                 Winner
+            <% } else { %>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_winner">Winner</a>
             <% } %>
