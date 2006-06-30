@@ -42,7 +42,7 @@
 <tr><td colspan="2" class="bodyText">&#160;</td></tr>
 
 <tr><td colspan="2" class="sidebarTitle">Thursday, November 16, 2006</td></tr>
-<tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00pm</td><td class="formTextEven">Algorithm Semifinal Room 3</td></tr>
+<tr><td class="formTextEven" nowrap="nowrap">9:00am - 11:00am</td><td class="formTextEven">Algorithm Semifinal Room 3</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">12:00pm - 1:00pm</td><td class="formTextOdd">Lunch</td></tr>
 <tr><td class="formTextEven" nowrap="nowrap">1:00pm - 3:00pm</td><td class="formTextEven">Component Design & Development 2</td></tr>
 <tr><td class="formTextOdd" nowrap="nowrap">4:00pm - 6:00pm</td><td class="formTextOdd">Algorithm Wildcard Round</td></tr>
