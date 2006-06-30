@@ -27,20 +27,20 @@
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
 <span class="bodySubtitle">Registration</span><br>
-Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 18, and will close at 6:00PM EDT on Wednesday, September 13, 2006. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 18, and will close at 6:00PM EDT on Tuesday, September 12, 2006. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr valign="top">
       <td class="sidebarTitle" width="25%">Registration</td>
       <td class="sidebarTitle" width="75%">
          OPENS: Monday, August 18, 2006 9:00AM EDT<br /><br/>
-         CLOSES: Tuesday, September 13, 2006 6:00PM EDT
+         CLOSES: Tuesday, September 12, 2006 6:00PM EDT
       </td>
    </tr>
 </table>
 <br><br>
 <span class="bodySubtitle">Qualification Round</span><br>
-There will be three Qualification Rounds available for those registered for the TCCC.  A maximum of 450 competitors will advance to Online Round #1 from each qualification round, including the 150 top rated members who automatically advance without competing in the Qualification Round.
+There will be three Qualification Rounds available for those registered for the TCCC.  A maximum of 450 competitors will advance to Online Round #1 from each qualification round, plus the 150 top rated members who automatically advance without competing in the Qualification Round.
 <br><br>
 <a name="sched"></a>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -97,7 +97,7 @@ There will be three Qualification Rounds available for those registered for the 
    <tr valign="top">
       <td class="sidebarText">Online Round #1 - <br>Section A</td>
       <td class="sidebarText">
-      Wednesday, September 20th<br>
+      Thursday, September 21st<br>
       Register:  4:00 - 6:55 AM<br>
       START: 7:00 AM</td>
       <td class="sidebarText">Up to 600**</td>
@@ -128,7 +128,7 @@ There will be three Qualification Rounds available for those registered for the 
    <tr valign="top">
       <td class="sidebarText">Online Round #2 - <br>Section A</td>
       <td class="sidebarText">
-      Wednesday, October 4th<br>
+      Thursday, October 5th<br>
       Register: 4:00 - 6:55 AM<br>
       START: 7:00 AM</td>
       <td class="sidebarText">150</td>
@@ -174,7 +174,7 @@ There will be three Qualification Rounds available for those registered for the 
 <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle" width="20%">Round</td>
-      <td class="sidebarTitle" width="40%">Date and Time (Pacific Daylight Time)*</td>
+      <td class="sidebarTitle" width="40%">Date and Time (Pacific Standard Time)*</td>
       <td class="sidebarTitle" width="20%"># of Competitors</td>
       <td class="sidebarTitle" width="20%"># of Advancers</td>
    </tr>

@@ -28,16 +28,13 @@ San Diego Marriott Mission Valley<br>
 8757 Rio San Diego Drive<br>
 San Diego, California 92108
 <br><br>
-<b>By Car:</b>
-The San Diego Marriott Mission Valley 
-<br><br>
-<b>From Los Angeles:</b> Los Angeles to San Diego is approximately 118 miles. Leaving Los Angeles, take I-5 South for approximately 75 miles and merge left onto I-805.  Go right onto SR-16 and take exit 4.  Turn right off the ramp and bear right onto Friars Road.  Turn right onto Qualcomm Way.  Finally, turn left onto Rio San Diego Drive to your final destination.
+<b>Driving from Los Angeles:</b> Los Angeles to San Diego is approximately 118 miles. Leaving Los Angeles, take I-5 South for approximately 75 miles and merge left onto I-805.  Go right onto SR-16 and take exit 4.  Turn right off the ramp and bear right onto Friars Road.  Turn right onto Qualcomm Way.  Finally, turn left onto Rio San Diego Drive to your final destination.
 <br><br>
 <b>For other areas:</b> <A href="http://www.mapquest.com" target="_blank">http://www.mapquest.com</A> 
 <br><br>
 <b>By Plane:</b> The San Diego International Airport is located 8 miles from the San Diego Marriott Mission Valley. It offers a variety of airlines and ground transportation to the hotel. See here for more details: <A href="http://www.san.org/" target="_blank">http://www.san.org</A>
 <br><br>
-<b>By Bus:</b> Go to the <A href="http://www.greyhound.com" target="_blank">Greyhound website</A> (to get to San Diego, CA). 
+<b>By Bus:</b> Go to the <A href="http://www.greyhound.com" target="_blank">Greyhound website</A> to get to San Diego, CA. 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 

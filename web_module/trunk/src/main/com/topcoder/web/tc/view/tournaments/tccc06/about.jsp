@@ -24,10 +24,9 @@
             
 <span class="bigTitle">2006 TopCoder Collegiate Challenge</span>
 <br><br>
-Calling all college students!  Welcome to the 2006 TopCoder Collegiate Challenge!  The tournament that gathers the most talented college minds for an academic challenge.   We are excited to announce $200,000 worth of prize money and two competitions worth your while!  This year's TCCC will conclude in sunny San Diego, so get your beach gear and sun glasses ready!.
+Calling all college students! Welcome to the 2006 TopCoder Collegiate Challenge - the tournament that gathers the most talented college minds for an academic challenge. We are excited to announce $200,000 worth of prize money and two competitions worth your while. This year's TCCC will conclude in sunny San Diego, so get your beach gear and sun glasses ready.
 <br><br>
 <span class="bodySubtitle">Here's what you'll need to know:</span><br>
-TCCC Competitions :
 <ul>
 <li>Algorithm Competition
 <ul><li>Registration begins August 28, 2006</li></ul></li>
@@ -46,7 +45,7 @@ November 15 - 17, 2006 at the San Diego Marriott Mission Valley, San Diego, Cali
 Prizes for the Algorithm and Component competitions total $200,000
 <br><br>
 <span class="bodySubtitle">Want to win a trip to the TCCC?</span><br>
-Refer your friends and classmates to TopCoder, and you could be our top Student Representative.
+Refer your friends and classmates to TopCoder, and you could be our top <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Student Representative</A>.
 <br><br>
 <%--<span class="bodySubtitle">Don't forget to take part in the 2006 TCCC Complete Coder Incentive Program!</span><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ccip_description">Learn how</A> you can earn more prize money by participating in both Component and Algorithm competitions.

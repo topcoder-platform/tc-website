@@ -24,28 +24,28 @@
             
 <span class="bigTitle">2006 TopCoder Collegiate Challenge - Algorithm Competition</span>
 <br><br>
-The TCCC is here, so let the battle of the universities begin!  TopCoder is excited to launch our new and improved Algorithm tournament.  This time you’ve got three chances to qualify!
-
+The TCCC is here, so let the battle of the universities begin!  TopCoder is excited to launch our new and improved Algorithm tournament.  This time you have three chances to qualify!
+<br><br>
 <span class="bodySubtitle">Registration</span><br>
 Begins: August 28, 2006 9:00AM EDT<br>
-Ends: September 13, 2006 6:00PM EDT<br>
+Ends: September 12, 2006 6:00PM EDT<br>
 In order to compete in any qualification round or to auto-qualify, you must be registered for the competition.
 <br><br>
 
 <span class="bodySubtitle">Qualification Round</span><br>
-Qualification Round 1:  Saturday, September 9 at 1:00PM EDT<br>
-Qualification Round 2:  Tuesday, September 12 at 9:00PM EDT<br>
-Qualification Round 3:  Thursday, September 14 at 7:00AM EDT
+Qualification Round 1: Thursday, September 7 at 7:00AM EDT<br>
+Qualification Round 2: Saturday, September 9 at 1:00PM EDT<br>
+Qualification Round 3: Tuesday, September 12 at 9:00PM EDT
 <br><br>
 
 <span class="bodySubtitle">Online Elimination Rounds</span><br>
 <b>Round 1</b><br>
-Section A - Wednesday, September 20 at 7:00AM EDT<br>
+Section A - Thursday, September 21 at 7:00AM EDT<br>
 Section B - Saturday, September 23 at 1:00PM EDT<br>
 Section C - Wednesday, September 27 at 9:00PM EDT
 <br><br>
 <b>Round 2</b><br>
-Section A - Wednesday, October 4 at 7:00AM EDT<br>
+Section A - Thursday, October 5 at 7:00AM EDT<br>
 Section B - Saturday, October 7 at 1:00PM EDT<br>
 Section C - Wednesday, October 11 at 9:00PM EDT
 <br><br>

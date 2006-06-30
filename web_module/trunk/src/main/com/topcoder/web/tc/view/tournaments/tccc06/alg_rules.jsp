@@ -41,10 +41,10 @@ The 2006 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take 
 <span class="bodySubtitle">Eligibility</span><br><br>
 TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition: 
 <ul>
-<li>Must be at least 18 years of age (as of September 9, 2006); AND</li>
+<li>Must be at least 18 years of age (as of September 7, 2006); AND</li>
 <li>Must be matriculated full-time at an accredited college or university.</li>
 </ul>
-TopCoder members who are 18 years of age or older as of September 9, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of September 7, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
 Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.  If a competitor’s employer signs on as an official sponsor of the tournament after August 28, 2006, then that competitor will be removed from further participation in the tournament.  TopCoder members who are performing internships for any official tournament sponsor between August 28 and November 17, 2006 are also ineligible to compete.  
 <br><br>
@@ -53,18 +53,18 @@ In the event that a competitor is disqualified from any round, no other competit
 <a name="registration"></a>
 <a href="#top"><img src="/i/tournament/tccc06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Registration</span><br><br>
-Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 18, 2006, and will close at 6:00PM EDT on Wednesday, September 13, 2006.  In order to compete in either of the Qualification Rounds that take place prior to September 13, 2006, competitors must have registered for the tournament prior to the start of the Qualification Round.  In order to be eligible to compete in any of the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the tournament; however each individual may only register once.
+Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 18, 2006, and will close at 6:00PM EDT on Tuesday, September 12, 2006.  In order to compete in either of the Qualification Rounds that take place prior to September 12, 2006, competitors must have registered for the tournament prior to the start of the Qualification Round.  In order to be eligible to compete in any of the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  There is no limit to the number of registrants for the tournament; however each individual may only register once.
 <br><br>
 <a name="qualification"></a>
 <span class="bodySubtitle">Qualification Rounds</span><br><br>
-<strong>Automatic Berths</strong> - The top 150 rated members as of September 9, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
+<strong>Automatic Berths</strong> - The top 150 rated members as of September 7, 2006 who meet all of the following criteria will receive an automatic berth into Online Round #1:
 <ul>
-<li>Must have competed in a TopCoder rated event between April 9 and September 9, 2006; and</li>
+<li>Must have competed in a TopCoder rated event between April 9 and September 7, 2006; and</li>
 <li>Must have competed in at least three (3) lifetime TopCoder rated events; and</li>
 <li>Must have registered for the 2006 TCCC; and</li>
 <li>Must have met all other tournament eligibility criteria.</li>
 </ul>
-<strong>Qualification Spots</strong> – All members who do not receive an automatic berth and who meet all of the tournament eligibility criteria can compete for one of the 1,500 qualification spots in the tournament.  Three (3) Qualification Rounds will be held and the top 450 scorers from each Qualification Round will win a spot in Online Round #1.  Please note that the top 150 rated members who receive an automatic berth will not be allowed to compete in any of the Qualification Rounds.  Also, those members who qualify for the tournament during one qualification attempt will not be allowed to compete in future Qualification Rounds.
+<strong>Qualification Spots</strong> - All members who do not receive an automatic berth and who meet all of the tournament eligibility criteria can compete for one of the 1,500 qualification spots in the tournament.  Three (3) Qualification Rounds will be held and the top 450 scorers from each Qualification Round will win a spot in Online Round #1.  Please note that the top 150 rated members who receive an automatic berth will not be allowed to compete in any of the Qualification Rounds.  Also, those members who qualify for the tournament during one qualification attempt will not be allowed to compete in future Qualification Rounds.
 <br><br>
 The schedule and details of the Qualification Rounds are as follows:
 <br><br>
@@ -141,7 +141,7 @@ The dates and times of the online rounds of competition are as follows:
    <tr valign="top">
       <td class="sidebarText">Online Round #1 - <br>Section A</td>
       <td class="sidebarText">
-      Wednesday, September 20th<br>
+      Thursday, September 21st<br>
       Register:  4:00 - 6:55 AM<br>
       START: 7:00 AM</td>
       <td class="sidebarText">Up to 600**</td>
@@ -172,7 +172,7 @@ The dates and times of the online rounds of competition are as follows:
    <tr valign="top">
       <td class="sidebarText">Online Round #2 - <br>Section A</td>
       <td class="sidebarText">
-      Wednesday, October 4th<br>
+      Thursday, October 5th<br>
       Register: 4:00 - 6:55 AM<br>
       START: 7:00 AM</td>
       <td class="sidebarText">150</td>
@@ -219,7 +219,7 @@ After each section of competition in Online Rounds #1 and #2, the highest scorer
 <ul>
 <li><strong>Online Round #1</strong><br>Up to 600 coders will compete in each section and up to 150 will advance from each section.  The highest 150 scorers across all rooms in each section will advance to Online Round #2.</li>
 <li><strong>Online Round #2</strong><br>Up to 150 coders will compete in each section and up to 50 will advance from each section.  The highest 50 scorers across all rooms in each section will advance to Online Round #3.</li>
-<li><strong>Online Round #3</strong><br>• Up to 150 coders will compete and up to 48 will advance.  The highest 48 scorers across all rooms will advance to the field of Semifinalists.</li>
+<li><strong>Online Round #3</strong><br>Up to 150 coders will compete and up to 48 will advance.  The highest 48 scorers across all rooms will advance to the field of Semifinalists.</li>
 </ul>
 <strong>NOTE:</strong> In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
 <ul>
@@ -228,7 +228,7 @@ After each section of competition in Online Rounds #1 and #2, the highest scorer
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 <span class="bodySubtitle">Competition Round Structure</span><br>
-Each online and onsite round of competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for Single Round Matches as of September 9, 2006 will also apply to the online and onsite rounds of the TCCC, with the exception of the Unused Code Rule during the onsite rounds.)
+Each online and onsite round of competition (including the Qualification Rounds) consists of three phases: Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for Single Round Matches as of September 7, 2006 will also apply to the online and onsite rounds of the TCCC, with the exception of the Unused Code Rule during the onsite rounds.)
 <ul>
 <li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.  During the online rounds, the Coding Phase will last 75 minutes.  During the onsite rounds, the Coding Phase will last 85 minutes.</li>
 <li><strong>The Challenge Phase</strong> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.  During the online rounds, the Challenge Phase will last 15 minutes.  During the onsite round, the Challenge Phase will last 10 minutes.</li>
@@ -237,7 +237,7 @@ Each online and onsite round of competition (including the Qualification Rounds)
 <span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br>
 The forty-eight (48) advancers from Online Round #3 will travel to the San Diego Marriott Mission Valley on Tuesday, November 14, 2006 to compete in the Semifinal rounds of the tournament being held on Wednesday, November 15 and Thursday, November 16, 2006.  All contestants must arrive at the San Diego Marriott Mission Valley no later than 4:00 PM PST on Tuesday, November 14, 2006.  All contestants must confirm their attendance at the onsite rounds no later than 8:00 AM EDT (GMT -4) on Wednesday, October 18, 2006.  That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #3.  
 <br><br>
-At the end of the Qualification Rounds, TopCoder will issue letters at the request of international competitors who require one to obtain a travel visa to enter the United States.  Visa letters can be requested by emailing Jessie D’Amato at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A> and must be requested by Thursday, October 12, 2006 at 5:00 PM EDT (GMT -4).  Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.
+At the end of the Qualification Rounds, TopCoder will issue letters at the request of international competitors who require one to obtain a travel visa to enter the United States.  Visa letters can be requested by emailing Jessie D'Amato at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A> and must be requested by Thursday, October 12, 2006 at 5:00 PM EDT (GMT -4).  Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline.  The cost of obtaining a visa is the sole responsibility of the competitor.
 <br><br>
 TopCoder will provide air travel arrangements for each competitor, up to a cost of $1,500 per person.  (That is, if a contestant's airfare is greater than $1,500, the difference between the cost of the airfare and $1,500 will be deducted from the contestant's total TCCC prize money won. If the contestant's total TCCC prize money is not sufficient to cover the additional costs, the contestant will be responsible for remitting to TopCoder the remainder of the cost by November 30, 2006.)  The flight reserved by and paid for by TopCoder is for arrival on November 14, 2006 and departure on November 18, 2006.  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCCC prize money won, as above.
 <br><br>
@@ -358,7 +358,7 @@ All contestants who advance to the onsite tournament rounds must complete the fo
 <li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li>
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
    <ul>
-   <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder.  The document must be postmarked by March 29, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than April 12, 2006.</li>
+   <li>TopCoder must receive the original copy of a notarized affidavit unless a notarized affidavit is already on file with TopCoder.  The document must be postmarked by October 18, 2006, and must be sent in such a manner that it will arrive at TopCoder no later than November 3, 2006.</li>
    <li>If TopCoder already has a notarized affidavit and a tax form on file for a contestant, that contestant may affirm the affidavit online.  No hardcopy needs to be sent to TopCoder.</li>
    </ul>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
