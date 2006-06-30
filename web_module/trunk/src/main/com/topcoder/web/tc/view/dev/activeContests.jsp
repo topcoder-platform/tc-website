@@ -103,7 +103,7 @@ position: relative;
         <td class="title" colspan="9">Active Component Design Contests</td>
     </tr>
    <tr>
-      <td class="header" style="width: 55px;">Catalog</td>
+      <td class="headerC">Catalog</td>
       <td class="header" width="100%">Component</td>
       <td class="header">&#160;</td>
       <td class="headerC" style="width: 80px;">Registrants<br/>Rated/Unrated</td>
@@ -116,7 +116,7 @@ position: relative;
     <% boolean even = false; %>
     <rsc:iterator list="<%=designContests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
-            <td class="value">
+            <td class="valueC">
                 <% if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/smJava.gif"/>
                 <% } else if ("Java Custom".equals(resultRow.getStringItem("catalog_name"))) { %>
