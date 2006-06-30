@@ -1,6 +1,6 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.validation.ReferralValidatorTestCase;
+import com.topcoder.web.reg.validation.TermsOfUseValidatorTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -12,8 +12,6 @@ import junit.framework.TestSuite;
 public class RegTests extends TCHibernateTestCase {
     public static Test suite() {
         final TestSuite suite = new TestSuite();
-
-
 
 /*
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
@@ -73,9 +71,10 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
-        suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
-*/
+        suite.addTest(new TestSuite(ReferralDAOTestCase.class));
         suite.addTest(new TestSuite(ReferralValidatorTestCase.class));
+*/
+        suite.addTest(new TestSuite(TermsOfUseValidatorTestCase.class));
 
 //        suite.addTest(new TestSuite(DetachedTestCase.class));
 

@@ -270,7 +270,7 @@ public class Secondary extends Base {
             u.getCoder().addRating(tcRating);
         }
 
-
+        u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
         setRegUser(u);
     }
 }

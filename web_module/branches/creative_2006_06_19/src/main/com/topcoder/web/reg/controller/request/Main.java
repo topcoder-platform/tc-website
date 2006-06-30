@@ -43,11 +43,6 @@ public class Main extends Base {
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
             }
-            if (!u.hasTerms(new Long(Constants.REG_TERMS_ID))) {
-                if (!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
-                    addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
-                }
-            }
             //todo if they are attempting to register for high school, and they are not eligible,
             //todo give them a message saying they are not eligible to register for highschool
             //todo those that are ineligable: big age demographic question,
@@ -106,7 +101,6 @@ public class Main extends Base {
 
                 setMainDefaults(u);
 
-                u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                 setRegUser(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);

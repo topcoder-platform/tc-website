@@ -192,6 +192,12 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
 
+        ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
+                new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
+        if (!termsResults.isValid()) {
+            addError(Constants.TERMS_OF_USE_ID, termsResults.getMessage());
+        }
+
         if (fields.contains(Constants.EMAIL_CONFIRM)) {
             ValidationResult emailConfirmResult = new EmailConfirmValidator(
                     new StringInput((String) params.get(Constants.EMAIL))).validate(
