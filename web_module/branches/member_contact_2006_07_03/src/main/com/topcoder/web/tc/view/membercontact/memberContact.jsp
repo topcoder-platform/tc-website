@@ -2,7 +2,7 @@
 <%@ page language="java"
          import="com.topcoder.web.tc.Constants" %>
 <html>
-<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/membercontact/taconite-client.js"></script>
 <script type="text/javascript">
 
 function validateHandle() {
