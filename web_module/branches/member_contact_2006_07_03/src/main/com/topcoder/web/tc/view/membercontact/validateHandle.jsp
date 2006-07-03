@@ -7,11 +7,11 @@
             if("cucu".equals(handle)) {
         %>
         <div style="font-weight:bold;color:green;">
-        User OK
+        User OK <%= handle %>
         </div>
         <% } else { %>
         <div style="font-weight:bold;color:red;">
-        UNKNOWN User
+        UNKNOWN User <%= handle %>
         </div>
         <% } %>
     </tac:replaceChildren>

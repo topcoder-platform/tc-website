@@ -15,7 +15,7 @@ function validateHandle() {
 </script>
 <form action='/tc?module=MemberContact' method='post'>
 
-To: <input type='text' name='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle()' />
+To: <input type='text' name='<%= Constants.TO_HANDLE %>' id='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle()' />
 <div id="validationHandle"> </div>
 <br/><br/>
 Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br/>
