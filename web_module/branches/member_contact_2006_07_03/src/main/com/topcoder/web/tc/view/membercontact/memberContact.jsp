@@ -15,11 +15,13 @@ function validateHandle() {
 </script>
 <form action='/tc?module=MemberContact' method='post'>
 
-To: <input type='text' name='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle()' /> <br/>
-Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/>
+To: <input type='text' name='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle()' />
+<div id="validationHandle"> </div>
+<br/><br/>
+Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br/>
 
 <textarea name='<%= Constants.TO_HANDLE %>' cols='50' rows='10'></textarea>
-<br>
+<br/><br/>
 <input type='submit' value='Send'/>
 </form>
 
