@@ -20,7 +20,7 @@ public class Constants implements WebConstants {
     public static String VIEW_ROOKIE_BOARD_PAGE;
     public static String VIEW_COMPETITION_HISTORY_PAGE;
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
-    
+
     public static String LEADER_BOARD_COMMAND;
     public static String LEADER_BOARD_QUERY;
     public static String ROOKIE_BOARD_COMMAND;
@@ -46,8 +46,8 @@ public class Constants implements WebConstants {
 
     public static String STAGE_LIST_KEY;
     public static String SEASON_LIST_KEY;
-    
-        
+
+
     /* request parameters */
     public static String PROBLEM_ID;
     public static String SURVEY_ID;
@@ -81,7 +81,7 @@ public class Constants implements WebConstants {
     public static String PROJECT_ID;
     public static String PHASE_ID;
     public static String SEASON_ID;
-    
+
     public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
@@ -90,6 +90,8 @@ public class Constants implements WebConstants {
     public static String ANSWER_PREFIX;
     public static String MESSAGE;
 
+    public static String SUBJECT;
+    public static String TO_HANDLE;
 
     /* pages */
     public static String SURVEY_RESULTS;
@@ -146,6 +148,8 @@ public class Constants implements WebConstants {
     public static String TCS_SURVEY_RESULTS;
 
     public static String MEMBER_PROFILE;
+
+    public static String MEMBER_CONTACT;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
@@ -269,7 +273,7 @@ public class Constants implements WebConstants {
 
     //High School statistics
     public static String HS_ROUND_OVERVIEW;
-    public static String HS_ROUND_STATS_TEAM; 
+    public static String HS_ROUND_STATS_TEAM;
     public static String HS_ROUND_STATS_IND;
     public static String HS_ROOM_STATS;
     public static String HS_TEAM_RESULTS;
@@ -280,7 +284,7 @@ public class Constants implements WebConstants {
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
 
-    
+
     static {
         initialize();
     }
