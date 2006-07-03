@@ -109,7 +109,9 @@
  <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
    <tr>
       <td class="statDk" align="center">
-         <% if (resultRow.getLongItem("category_id")==Constants.DOT_NET_CATALOG_ID) { %>
+         <% if (resultRow.getItem("brand_aol").getResultData() != null) { %>
+         <img src="/i/development/smAOL.gif" border="0"/>
+         <% } else if (resultRow.getLongItem("category_id")==Constants.DOT_NET_CATALOG_ID) { %>
          <img src="/i/development/netSm.gif" border="0"/>
          <% } else if (resultRow.getLongItem("category_id")==Constants.CUSTOM_DOT_NET_CATALOG_ID) {%>
          <img src="/i/development/smNetCustom.gif" border="0"/>
