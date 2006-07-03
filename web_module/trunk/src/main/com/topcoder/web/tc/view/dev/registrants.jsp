@@ -78,7 +78,7 @@
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
             <% if (registrants.getItem(0, "aol_brand").getResultData() != null) { %>
-            <img src="/i/development/smAOL.gif" alt="Java" border="0" />
+            <img src="/i/development/smAOL.gif" alt="AOL" border="0" />
             <% } else if ("Java".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/smJava.gif" alt="Java" border="0" />
             <% } else if ("Java Custom".equals(registrants.getStringItem(0, "catalog_name"))) { %>
