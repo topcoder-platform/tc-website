@@ -84,7 +84,7 @@
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-                <% if (resultRow.getItem("aol_brand") != null) { %>
+                <% if (resultRow.getItem("aol_brand").getResultData() != null) { %>
                 <img src="/i/development/smAOL.gif"/>
                 <% } else if ("Java".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/smJava.gif"/>
