@@ -47,7 +47,6 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
-        <pathelement location="${jars.dir}/taconite.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -1573,6 +1572,7 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+                <include name="taconite.jar"/>
             </lib>
 
         </war>
