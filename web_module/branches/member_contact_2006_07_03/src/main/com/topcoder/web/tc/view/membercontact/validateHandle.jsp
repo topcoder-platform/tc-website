@@ -1,4 +1,4 @@
-<%@ taglib uri="taconite.tld" prefix="tac" %>
+<%@ taglib uri="/taconite.tld" prefix="tac" %>
 
 <tac:taconiteRoot>
 
