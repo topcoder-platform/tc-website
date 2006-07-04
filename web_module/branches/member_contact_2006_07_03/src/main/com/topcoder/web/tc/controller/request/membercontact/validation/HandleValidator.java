@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.membercontact.validation;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -14,18 +13,18 @@ public class HandleValidator implements Validator {
         ValidationResult nret = new NonEmptyValidator("Please enter an user name.").validate(input);
         
         if (!nret.isValid()) {
-            return nret;
+            return new HandleValidationResult(false, false);
         }
         User user = DAOUtil.getFactory().getUserDAO().find((String) input.getInput(), true, true);
         
         if (user == null) {
-            return new BasicResult(false, "User name does not exist.");
+            return new HandleValidationResult(false, false);
         }
         
         // fix
         if (user.getHandle().equals("tomek")) {
-            return new BasicResult(false, "The user doesn't have the member contact feature enabled.");            
+            return new HandleValidationResult(true, false);
         }
-        return ValidationResult.SUCCESS;
+        return new HandleValidationResult(true, true, user.getPrimaryEmailAddress().getAddress());
     }
 }

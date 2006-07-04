@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import antlr.StringUtils;
-
-import com.topcoder.apps.review.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidationResult;
+import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
 
 public class MemberContact extends BaseProcessor {
 
@@ -16,10 +16,15 @@ public class MemberContact extends BaseProcessor {
         String message = getRequest().getParameter(Constants.MESSAGE);
         
         if (toHandle != null) {
+            HandleValidationResult result = (HandleValidationResult) new HandleValidator().validate(new StringInput(toHandle));
+            if (!result.isValid()) {
+                throw new Exception("Can't contact that user.");
+            }
+                
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(subject);
-            mail.setBody(toHandle);
-            mail.addToAddress("amarcu@gmail.com", TCSEmailMessage.TO); // fix
+            mail.setBody(message);
+            mail.addToAddress(result.getEmail(), TCSEmailMessage.TO); 
             mail.setFromAddress("service@topcoder.com");
             EmailEngine.send(mail);
         }
