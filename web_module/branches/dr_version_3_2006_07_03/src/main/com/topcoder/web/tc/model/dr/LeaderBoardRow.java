@@ -24,11 +24,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
     private double pointsPrize;
 
     /**
-     * Property to store the outstanding points
-     */
-    private double outstandingPoints;
-
-    /**
      * Default constructor
      */
     public LeaderBoardRow() {
@@ -52,7 +47,7 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      */
     public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, long points,
                           boolean topThird, boolean winTrip, double pointsPrize,
-                          double placementPrize, double totalPrize, double outstandingPoints) {
+                          double placementPrize, double totalPrize, long outstandingPoints) {
         super();
         this.period = period;
         this.phase = phase;
@@ -81,20 +76,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
     }
 
     /**
-     * @return Returns the outstandingPoints.
-     */
-    public double getOutstandingPoints() {
-        return outstandingPoints;
-    }
-
-    /**
-     * @param outstandingPoints The outstandingPoints to set.
-     */
-    public void setOutstandingPoints(double outstandingPoints) {
-        this.outstandingPoints = outstandingPoints;
-    }
-
-    /**
      * @return Returns the topThird.
      */
     public boolean isTopThird() {
@@ -113,13 +94,6 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      */
     public double getTotalPrize() {
         return this.placementPrize + this.pointsPrize;
-    }
-
-    /**
-     * @return Returns the total points.
-     */
-    public double getTotalPoints() {
-        return this.points + this.outstandingPoints;
     }
 
     /**

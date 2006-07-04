@@ -88,4 +88,18 @@ public interface IBoardRow {
      */
     public abstract boolean isWinTrip();
 
+    /**
+     * @return Returns the outstandingPoints.
+     */
+    public long getOutstandingPoints();
+
+    /**
+     * @param outstandingPoints The outstandingPoints to set.
+     */
+    public void setOutstandingPoints(long outstandingPoints);
+
+    /**
+     * @return Returns the total points.
+     */
+    public long getTotalPoints();
 }

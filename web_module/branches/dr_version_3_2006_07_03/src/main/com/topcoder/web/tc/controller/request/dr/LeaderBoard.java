@@ -98,7 +98,16 @@ public class LeaderBoard extends BaseBoard {
      * @param designBoard true if its a design board (false if development)
      */
     private List processBoard(ResultSetContainer rsc, boolean designBoard) {
-        long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
+        long topThirdAttempt = 0;
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            if (((ResultSetRow) it.next()).getLongItem("total_points") > 0) {
+                topThirdAttempt++;
+            }
+        }
+
+        topThirdAttempt = Math.round(Math.ceil(topThirdAttempt / 3.0));
+
         long totalPoints = 0;
         long totalPointsThreshold = -1;
         long overallTopThirdPoints = 0;

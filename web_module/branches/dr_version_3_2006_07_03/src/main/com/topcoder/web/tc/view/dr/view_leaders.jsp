@@ -208,10 +208,10 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
                 </td>
                 <td class="headerR">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Outstanding Points</a>
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Outstanding Points</a>
                 </td>
                 <td class="headerR">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total Points</a>
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Total Points</a>
                 </td>
                 <td class="headerR" nowrap="nowrap">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top

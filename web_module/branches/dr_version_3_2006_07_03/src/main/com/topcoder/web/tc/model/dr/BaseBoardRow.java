@@ -49,6 +49,11 @@ public abstract class BaseBoardRow implements IBoardRow {
     protected double placementPrize;
 
     /**
+     * Property to store the outstanding points
+     */
+    protected long outstandingPoints;
+
+    /**
      * Default constructor
      */
     public BaseBoardRow() {
@@ -151,5 +156,26 @@ public abstract class BaseBoardRow implements IBoardRow {
      */
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    /**
+     * @return Returns the outstandingPoints.
+     */
+    public long getOutstandingPoints() {
+        return outstandingPoints;
+    }
+
+    /**
+     * @param outstandingPoints The outstandingPoints to set.
+     */
+    public void setOutstandingPoints(long outstandingPoints) {
+        this.outstandingPoints = outstandingPoints;
+    }
+
+    /**
+     * @return Returns the total points.
+     */
+    public long getTotalPoints() {
+        return this.points + this.outstandingPoints;
     }
 }
