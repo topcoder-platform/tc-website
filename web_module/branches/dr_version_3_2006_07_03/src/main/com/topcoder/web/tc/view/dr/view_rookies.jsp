@@ -187,7 +187,7 @@ Please select a <strong>season</strong><br>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="510">
         <tr>
-            <td class="title" colspan="6">
+            <td class="title" colspan="8">
                 <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
                 Development Cup Series Rookie of the Year Leaderboard
                 <% } else { %>
@@ -204,6 +204,12 @@ Please select a <strong>season</strong><br>
             </td>
             <td class="headerR" colspan="3">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
+            </td>
+            <td class="headerR">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Outstanding Points</a>
+            </td>
+            <td class="headerR">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Total Points</a>
             </td>
             <td class="headerR">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10<br>Prize</a>*
@@ -237,7 +243,13 @@ Please select a <strong>season</strong><br>
                         </div>
                     </c:if>
                 </td>
-                <td class="valueR">${boardRow.points}</td>
+                <td class="valueR"><c:if test="${boardRow.points>0}">
+					<A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
+               	</c:if></td>
+                <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
+                    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
+                </c:if></td>
+                <td class="valueR">${boardRow.totalPoints}</td>
                 <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
                     <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
                 </c:if></td>
