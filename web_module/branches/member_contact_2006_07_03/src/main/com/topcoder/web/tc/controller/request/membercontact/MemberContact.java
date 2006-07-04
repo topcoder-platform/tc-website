@@ -2,15 +2,15 @@ package com.topcoder.web.tc.controller.request.membercontact;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidationResult;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
 
-public class MemberContact extends BaseProcessor {
+public class MemberContact extends HibernateProcessor {
 
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
         String toHandle = getRequest().getParameter(Constants.TO_HANDLE);
         String subject = getRequest().getParameter(Constants.SUBJECT);
         String message = getRequest().getParameter(Constants.MESSAGE);
@@ -30,8 +30,7 @@ public class MemberContact extends BaseProcessor {
         }
         
         setNextPage(Constants.MEMBER_CONTACT);
-        setIsNextPageInContext(true);
-        
+        setIsNextPageInContext(true);        
     }
 
 
