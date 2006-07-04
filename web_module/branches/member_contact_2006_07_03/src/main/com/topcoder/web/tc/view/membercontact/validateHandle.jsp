@@ -14,7 +14,7 @@
            
            if(result.isValid()) {
         %>
-        <div>
+        <div> ok </div>
         <% } else if (!result.handleExist()) { %>
         </div>
             <div style="font-weight:bold;color:red;">
