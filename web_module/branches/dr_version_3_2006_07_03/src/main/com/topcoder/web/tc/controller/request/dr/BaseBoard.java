@@ -48,7 +48,7 @@ public abstract class BaseBoard extends BaseProcessor {
     /**
      * The total points column
      */
-    private static final String TOTAL_POINTS_COLUMN = "6";
+    private static final String TOTAL_POINTS_COLUMN = "7";
 
     /**
      * Child must implement businessProcessing.
