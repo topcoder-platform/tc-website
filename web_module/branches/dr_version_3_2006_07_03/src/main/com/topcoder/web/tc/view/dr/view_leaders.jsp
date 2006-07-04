@@ -189,7 +189,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
 
         <table class="stat" cellpadding="0" cellspacing="0" width="510">
             <tr>
-                <td class="title" colspan="9">
+                <td class="title" colspan="11">
                     <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
                     Development Cup Series Leaderboard
                     <% } else { %>
@@ -206,6 +206,12 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 </td>
                 <td class="headerR" colspan="4">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
+                </td>
+                <td class="headerR">
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Outstanding Points</a>
+                </td>
+                <td class="headerR">
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total Points</a>
                 </td>
                 <td class="headerR" nowrap="nowrap">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
@@ -256,6 +262,8 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                         </c:if>
                     </td>
                     <td class="valueR">${boardRow.points}</td>
+                    <td class="valueR">${boardRow.outstandingPoints}</td>
+                    <td class="valueR">${boardRow.totalPoints}</td>
                     <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
                         <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
                     </c:if></td>

@@ -124,7 +124,7 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("stage_id"), phase, row
                     .getLongItem("rank"), row.getLongItem("user_id"), row
                     .getStringItem("handle_lower"), totalPoints, inTopThird,
-                    false, inTopThird ? totalPoints : 0, 0, 0));
+                    false, inTopThird ? totalPoints : 0, 0, 0, row.getLongItem("outstanding_points")));
             i++;
         }
 
