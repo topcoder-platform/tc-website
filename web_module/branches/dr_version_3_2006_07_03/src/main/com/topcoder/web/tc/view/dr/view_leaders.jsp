@@ -265,8 +265,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                     	${boardRow.points}
                    	</c:if></td>
                     <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
-                        <A href="/tc?module=OutstandingProjects&ph=<%=request.getParameter(Constants.PHASE_ID)%>
-                        &staid=<%=request.getParameter(Constants.STAGE_ID)%>&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
+                        <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
                     </c:if></td>
                     <td class="valueR">${boardRow.totalPoints}</td>
                     <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
