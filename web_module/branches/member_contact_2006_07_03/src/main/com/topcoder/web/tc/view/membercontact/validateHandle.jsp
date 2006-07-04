@@ -2,6 +2,7 @@
          import="com.topcoder.web.common.validation.ValidationResult,
          com.topcoder.web.common.validation.StringInput,
          com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator,
+         com.topcoder.web.common.HibernateUtils,
          com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidationResult
          " %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
@@ -9,9 +10,13 @@
 <tac:taconiteRoot>
 
     <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
-        <% String handle = request.getParameter("th");
+        <%
+
+        String handle = request.getParameter("th");
+        HibernateUtils.begin();
         HandleValidationResult result = (HandleValidationResult) new HandleValidator().validate(new StringInput(handle));
-           
+        HibernateUtils.commit();
+
            if(result.isValid()) {
         %>
         <div> ok </div>
