@@ -100,9 +100,9 @@ z-index: 1;
                  Competition History
                  </td></tr>
                  <tr>
-                    <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
-                    <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a></TD>
-                    <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true"/>">Submissions</a></TD>
+                    <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a></TD>
+                    <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a></TD>
+                    <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
                     <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></TD>
                     <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
                  </tr>
