@@ -2,7 +2,7 @@
          import="com.topcoder.web.common.validation.ValidationResult,
          com.topcoder.web.common.validation.StringInput,
          com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator,
-         com.topcoder.web.common.HibernateUtils,
+         com.topcoder.web.common.HibernateUtils
          " %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 

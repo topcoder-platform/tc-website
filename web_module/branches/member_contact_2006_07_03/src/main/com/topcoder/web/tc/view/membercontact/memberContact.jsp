@@ -20,7 +20,7 @@ To: <input type='text' name='<%= Constants.TO_HANDLE %>' id='<%= Constants.TO_HA
 <br/><br/>
 Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br/>
 
-<textarea name='<%= Constants.TO_HANDLE %>' cols='50' rows='10'></textarea>
+<textarea name='<%= Constants.MESSAGE %>' cols='50' rows='10'></textarea>
 <br/><br/>
 <input type='submit' value='Send'/>
 </form>
