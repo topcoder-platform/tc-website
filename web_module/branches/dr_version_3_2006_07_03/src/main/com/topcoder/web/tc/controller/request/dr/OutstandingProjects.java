@@ -59,11 +59,6 @@ public class OutstandingProjects extends BaseProcessor {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        // checks for either stage id or season id.
-        if (!hasParameter(Constants.STAGE_ID) && !hasParameter(Constants.SEASON_ID)) {
-            throw new TCWebException("parameter " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
-        }
-
         // Gets the rest of the optional parameters.
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));

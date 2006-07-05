@@ -88,7 +88,7 @@ z-index: 1;
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
     &#160;|&#160;
     <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition History</A>
-    &#160;|&#160;Current Projects
+    &#160;|&#160;Current Projects<br><br>
 	</span>
 
 
