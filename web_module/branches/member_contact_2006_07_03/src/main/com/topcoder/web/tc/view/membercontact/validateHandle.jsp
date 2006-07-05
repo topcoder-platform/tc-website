@@ -36,6 +36,7 @@
                         document.f.submit();
                     <% } %>
                 }
+                showButton();
             </script>
         </tac:replaceChildren>
 

@@ -21,6 +21,9 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
+function showButton() {
+    document.f.submitBtn.disabled=!canSend();
+}
 
 
 </script>
@@ -37,9 +40,9 @@ function canSend() {
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
 <div id="validationHandle"> </div>
 <br/><br/>
-Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50' onKeyUp='document.f.submitBtn.disabled=!canSend()' /> <br/><br/>
+Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50' onKeyUp='showButton()' /> <br/><br/>
 
-<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='document.f.submitBtn.disabled=!canSend()'></textarea>
+<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
 <br/><br/>
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/>
