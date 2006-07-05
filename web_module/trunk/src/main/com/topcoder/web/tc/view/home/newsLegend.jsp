@@ -1,14 +1,15 @@
 <%----------------MARATHON MATCH-------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>04.10.06<br>12:00 NOON</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>07.05.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=9958">Intel Multi-Threading Competition 3 Results</A>
+      <A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A>
       </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="15500323" />.
+      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 6.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="505958" message="discuss this" />&#160;|&#160;
+         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
