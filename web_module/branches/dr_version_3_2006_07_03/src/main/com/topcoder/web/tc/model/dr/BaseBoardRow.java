@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * Base implementation for the board rows.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public abstract class BaseBoardRow implements IBoardRow {
 

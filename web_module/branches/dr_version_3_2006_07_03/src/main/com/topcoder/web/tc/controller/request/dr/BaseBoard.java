@@ -27,7 +27,7 @@ import java.util.*;
  * Base implementation for the dr boards.
  *
  * @author pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public abstract class BaseBoard extends BaseProcessor {
     /**

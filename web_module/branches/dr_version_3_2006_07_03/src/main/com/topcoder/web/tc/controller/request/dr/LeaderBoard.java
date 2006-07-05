@@ -21,7 +21,7 @@ import java.util.List;
  * A processor to retrieve dr leader board.
  *
  * @author pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class LeaderBoard extends BaseBoard {
 

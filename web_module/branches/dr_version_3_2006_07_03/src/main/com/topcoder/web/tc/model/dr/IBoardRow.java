@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * Interface for the board's row beans.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public interface IBoardRow {
 
