@@ -8,7 +8,6 @@
 
 <tac:taconiteRoot>
 
-    <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
         <%
 
         String handle = request.getParameter("th");
@@ -18,11 +17,21 @@
 
            if(result.isValid()) {
         %>
-        <div> </div>
+		    <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
+        			<div> </div>
+   	    	</tac:replaceChildren>
+		    <tac:replaceChildren contextNodeID="submitButton" parseOnServer="true">
+			    <input type='submit' value='Send'/>
+   	    	</tac:replaceChildren>
         <% } else { %>
-            <div style="font-weight:bold;color:red;">
-               <%= result.getMessage() %>
-            </div>
+		    <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
+	            <div style="font-weight:bold;color:red;">
+    	           <%= result.getMessage() %>
+        	    </div>
+            </tac:replaceChildren>
+		    <tac:replaceChildren contextNodeID="submitButton" parseOnServer="true">
+			    <input type='submit' value='Send' disabled="true"/>
+   	    	</tac:replaceChildren>
         <% } %>
-    </tac:replaceChildren>
+
 </tac:taconiteRoot>

@@ -24,7 +24,10 @@ Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br
 <br/><br/>
 <input type='checkbox' name='sc' />Send a copy to myself.
 <br/>
-<input type='submit' value='Send'/>
+
+<div id="submitButton"> 
+<input type='submit' value='Send' disabled="true"/>
+</div>
 </form>
 
 </html>
