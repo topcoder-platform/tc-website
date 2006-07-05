@@ -74,19 +74,19 @@ public class OutstandingProjects extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             if (hasParameter(Constants.STAGE_ID)) {
-                r.setProperty(DataAccessConstants.SORT_QUERY, "stage_outstanding_project");
+                r.setProperty(DataAccessConstants.SORT_QUERY, "stage_outstanding_projects");
             } else {
-                r.setProperty(DataAccessConstants.SORT_QUERY, "season_outstanding_project");
+                r.setProperty(DataAccessConstants.SORT_QUERY, "season_outstanding_projects");
             }
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         r.setProperty(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         if (hasParameter(Constants.STAGE_ID)) {
             r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
-            r.setContentHandle("stage_outstanding_project");
+            r.setContentHandle("stage_outstanding_projects");
         } else {
             r.setProperty(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
-            r.setContentHandle("season_outstanding_project");
+            r.setContentHandle("season_outstanding_projects");
         }
 
         // retrieves data from DB
@@ -94,9 +94,9 @@ public class OutstandingProjects extends BaseProcessor {
         Map m = dai.getData(r);
         ResultSetContainer history;
         if (hasParameter(Constants.STAGE_ID)) {
-             history = (ResultSetContainer) m.get("stage_outstanding_project");
+             history = (ResultSetContainer) m.get("stage_outstanding_projects");
         } else {
-            history = (ResultSetContainer) m.get("season_outstanding_project");
+            history = (ResultSetContainer) m.get("season_outstanding_projects");
         }
         if (log.isDebugEnabled()) {
             log.debug("Got " + history.size() + " rows for competition history");
