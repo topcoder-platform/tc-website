@@ -66,7 +66,7 @@ According to Section 1 of the Decision "to ensure operational security of the In
 <li>Intentional composition or dissemination of computer virus or other destructive programs, or attacking the computer system or telecommunication network and resulting in damage or destruction of such computer systems or telecommunication network;</li>
 <li>Unauthorized disruption of operation of the computer network or telecommunication service and resulting in malfunction of such network or telecommunication systems in violation of the laws or regulations of the state."</li>
 </ol>
-According to Section 2 of the Decision, "to protect national security and social stability, the person or organization perpetrating any of the following ads in violation of the criminal law shall be penalized according to the criminal code:
+According to Section 2 of the Decision, "to protect national security and social stability, the person or organization perpetrating any of the following acts in violation of the criminal law shall be penalized according to the criminal code:
 <ol>
 <li>Disseminating rumor or slander on the Internet, or publishing or diffusing maleficent information to instigate subversion of the state power or socialist system, advocate abruption of the country or harm unity of the country;</li>
 <li>Stealing or disclosing the national or military secrets on the Internet;</li>
