@@ -15,16 +15,10 @@ function validateHandle(send) {
     ajaxRequest.sendRequest();
 }
 
-function check(form) {
-	validateHandle();
-	return !form.submitBtn.disabled;	
-}
-
-
 
 </script>
 <form name='f' action='/tc?module=MemberContact' method='post' >
-<input type="hidden" name="send" value="true" />
+<input type="hidden" id="send" name="send" value="true" />
 
 To: <input type='text' name='<%= Constants.TO_HANDLE %>' id='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
 <div id="validationHandle"> </div>
