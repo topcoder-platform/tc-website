@@ -40,18 +40,19 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.05.06 10:00 AM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.20.06 2:20 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10082">Marathon Match 2 Results</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">06.05.06 10:00 AM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10019">Intel Multi-Threading Competition 5 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.05.06 10:00 AM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10019">Intel&#174; Multi-Threading Competition 5 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.23.06 1:45 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=10015">Marathon Match 1 Results</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">05.11.06 10:30 AM - </td><td width="100%">Intel Multi-Threading Competition 5 postponed</td></tr>
-<tr class="bodyText"><td nowrap="nowrap">05.08.06 2:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9974">Intel Multi-Threading Competition 4 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.11.06 10:30 AM - </td><td width="100%">Intel&#174; Multi-Threading Competition 5 postponed</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.08.06 2:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9974">Intel&#174; Multi-Threading Competition 4 Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.27.06 9:00 AM - </td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 1 to start on May 10th</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.10.06 12:00 NOON - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9958">Intel Multi-Threading Competition 3 Results</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">03.29.06 3:15 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">Intel Multi-Threading Competition 3 server maintenance, extended deadline</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">03.09.06 3:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9892">Intel Multi-Threading Competition 2 Results</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">02.17.06 5:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel Multi-Threading Competition 1 Results</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">01.27.06 3:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel Multi-Threading Competition 1 Extended</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">01.16.06 9:00 AM - </td><td width="100%"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel Multi-Threading Competition Series</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.10.06 12:00 NOON - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9958">Intel&#174; Multi-Threading Competition 3 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.29.06 3:15 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=13">Intel&#174; Multi-Threading Competition 3 server maintenance, extended deadline</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.09.06 3:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9892">Intel&#174; Multi-Threading Competition 2 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.17.06 5:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewOverview&rd=9881">Intel&#174; Multi-Threading Competition 1 Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.27.06 3:30 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests&rt=15">Intel&#174; Multi-Threading Competition 1 Extended</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">01.16.06 9:00 AM - </td><td width="100%"><A href="/longcontest/?module=Static&d1=intel_overview">Introducing the Intel&#174; Multi-Threading Competition Series</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.05 10:00 AM - </td><td width="100%"><A href="/longcontest/?module=Static&d1=instructions">Introducing Marathon Matches</A></td></tr>
 </table>
  

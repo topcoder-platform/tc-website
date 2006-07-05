@@ -8,6 +8,35 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>07.05.06<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="283329" /> for winning the Intel&#174; Multi-Threading Competition 6.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=ViewOverview&rd=10083">results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.05.06<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">kristofferrouge is the TCCC06 Logo Contest Winner!</A></span><br><br>
+      Congratulations to <tc-webtag:handle coderId="14947661" /> for designing the winning logo submission.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">details</A>&#160;|&#160;
+         <A href="/tc?module=SurveyResults&sid=217">vote results</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Press Releases & Articles" border="0" /><br>07.05.06<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Java Posse - Interviews from Topcoder and Java One</A> [PODCAST]</span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
@@ -83,7 +112,7 @@ problem.
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.28.05<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.28.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=217">Vote for the TCCC06 Logo</A></span><br><br>
       The Top 10 Finalists of the TCCC06 Logo Design Contest have been posted, it's time to vote for your favorite!
       </td>
@@ -168,21 +197,6 @@ played had no more than 6 pegs, and about 6 colors.
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506058" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>06.20.06<br>2:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/longcontest/?module=ViewOverview&rd=10082">Marathon Match 2 Results</A>
-      </span><br><br>
-      Congratulations to <tc-webtag:handle coderId="274023" />.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/longcontest/?module=ViewOverview&rd=10082">results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506052" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
 
 

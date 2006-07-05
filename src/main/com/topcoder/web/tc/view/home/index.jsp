@@ -60,31 +60,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-        <%-- TCO06
-        <map name="tco06_map">
-        <area shape="rect" alt="" coords="1,1, 260,149" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=about" />
-        <area shape="rect" alt="" coords="316,8, 364,105" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=alg_finals_analysis" />
-        <area shape="rect" alt="" coords="371,8, 420,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_des_summary" />
-        <area shape="rect" alt="" coords="426,8, 473,106" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_dev_summary" />
-        </map>
-        <map name="tco06_links">
-        <area shape="rect" alt="" coords="9,1, 65,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=photos" />
-        <area shape="rect" alt="" coords="82,1, 143,24" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=movies" />
-        <area shape="rect" alt="" coords="159,1, 209,23" href="/tc?module=Static&d1=tournaments&d2=tco06&d3=blogs&d4=overview" />
-        </map>
-              <div align="center"><IMG SRC="/i/home/tco06_champions.jpg" border="0" ALT="2006 TopCoder Open" usemap="#tco06_map" /></div>
-        
-        <map name="tchs">
-            <area shape="rect" alt="" coords="19,8, 211,57" href="/tc?module=Static&d1=hs&d2=home"/>
-            <area shape="rect" alt="" coords="16,62, 211,93" href="/reg/"/>
-        </map>--%>
-
         <td class="BIGPromoBox" align="center">
-        <map name="logo">
-        <area shape="rect" alt="" coords="5,80, 318,115" href="/tc?module=ViewSurvey&sid=217" />
-        <area shape="rect" alt="" coords="323,94, 402,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview" />
-        </map>
-        <img src="/i/home/tccc06_logo_contest_vote.gif" border="0" usemap="#logo" alt="TopCoder Collegiate Challenge Logo Contest" />
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner"><img src="/i/home/tccc06_logo_contest_winner.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>

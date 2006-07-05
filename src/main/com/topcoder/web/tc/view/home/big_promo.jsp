@@ -34,9 +34,4 @@
 <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
 --%>
 <%-- TCCC06 logo contest --%>
-<%--<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview"><img src="/i/home/tccc06_logo_contest.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>--%>
-<map name="logo">
-<area shape="rect" alt="" coords="5,80, 318,115" href="/tc?module=ViewSurvey&sid=217" />
-<area shape="rect" alt="" coords="323,94, 402,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview" />
-</map>
-<img src="/i/home/tccc06_logo_contest_vote.gif" border="0" usemap="#logo" alt="TopCoder Collegiate Challenge Logo Contest" />
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner"><img src="/i/home/tccc06_logo_contest_winner.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
