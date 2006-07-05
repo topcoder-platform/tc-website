@@ -61,7 +61,7 @@
             <div align="center">
             <div style="padding: 10px;"><img src="/i/tournament/tccc06/finalists/0449.gif" alt="" border="0" /></div>
             <span class="bodySubtitle">Congratulations to <tc-webtag:handle coderId="14947661"/></span><br>
-            <A href="/tc?module=SurveyResults&sid=217">survey results</A>
+            <A href="/tc?module=SurveyResults&sid=217">vote results</A>
             </div>
 
          </div>
