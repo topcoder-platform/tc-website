@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import="com.topcoder.web.tc.Constants" %>
+         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
 <html>
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
@@ -8,30 +8,36 @@
 function validateHandle(send) {
     var url = 'membercontact/validateHandle.jsp';
     var ajaxRequest = new AjaxRequest(url);
-    ajaxRequest.addFormElementsById("<%= Constants.TO_HANDLE %>");
+    ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
     if (send) {
-	    ajaxRequest.addFormElementsById("send");
+        ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
     }
     ajaxRequest.sendRequest();
 }
 
 
 </script>
-<form name='f' action='/tc?module=MemberContact' method='post' >
-<input type="hidden" id="send" name="send" value="true" />
+<% if (request.getParameter(MemberContact.CONFIRM) != NULL) { %>
+    <div style="font-weight:bold;color:green;">
+       Your email was sent.
+    </div>
+<% } %>
 
-To: <input type='text' name='<%= Constants.TO_HANDLE %>' id='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
+<form name='f' action='/tc?module=MemberContact' method='post' >
+<input type="hidden" id="send" name="<%= MemberContact.SEND %>" value="true" />
+
+To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
 <div id="validationHandle"> </div>
 <br/><br/>
-Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br/>
+Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50'/> <br/><br/>
 
-<textarea name='<%= Constants.MESSAGE %>' cols='50' rows='10'></textarea>
+<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10'></textarea>
 <br/><br/>
-<input type='checkbox' name='sc' />Send a copy to myself.
+<input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/>
 
 <input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/>
-<div id="runJS"> 
+<div id="runJS">
 </div>
 </form>
 

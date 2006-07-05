@@ -90,9 +90,6 @@ public class Constants implements WebConstants {
     public static String ANSWER_PREFIX;
     public static String MESSAGE;
 
-    public static String SUBJECT;
-    public static String TO_HANDLE;
-
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SCHULZE_RESULTS;

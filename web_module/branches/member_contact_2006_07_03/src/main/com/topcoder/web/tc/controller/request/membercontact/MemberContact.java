@@ -15,16 +15,23 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
 
 public class MemberContact extends HibernateProcessor {
-
+    
+    public static String SUBJECT = "sbj";
+    public static String TO_HANDLE = "th";
+    public static String TEXT = "txt";
+    public static String SEND_COPY = "sc";
+    public static String CONFIRM = "conf";
+    public static String SEND = "send";
+    
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        String toHandle = getRequest().getParameter(Constants.TO_HANDLE);
-        String subject = getRequest().getParameter(Constants.SUBJECT);
-        String message = getRequest().getParameter(Constants.MESSAGE);
-        boolean sendCopy = getRequest().getParameter("sc") != null;
+        String toHandle = getRequest().getParameter(TO_HANDLE);
+        String subject = getRequest().getParameter(SUBJECT);
+        String message = getRequest().getParameter(TEXT);
+        boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
 
         if (toHandle != null) {
             ValidationResult result = new HandleValidator().validate(new StringInput(toHandle));
@@ -51,6 +58,7 @@ public class MemberContact extends HibernateProcessor {
                 mail.setFromAddress(senderEmail);
                 EmailEngine.send(mail);
             }
+            getRequest().setAttribute(CONFIRM, "true");
         }
         
         setNextPage(Constants.MEMBER_CONTACT);
