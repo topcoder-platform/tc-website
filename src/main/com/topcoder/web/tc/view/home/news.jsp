@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Press Releases & Articles" border="0" /><br>07.05.06<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Java Posse - Interviews from Topcoder and Java One</A> [PODCAST]</span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
+      This is a pair of previously un-aired interviews. The first was recorded by Joe, Carl and Dick at TopCoder with Ari Balogh, Vice President of Engineering for Verisign Inc. It is a short but technically meaty interview.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">listen</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506065" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.05.06<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -169,22 +183,6 @@ played had no more than 6 pegs, and about 6 colors.
          <A href="/longcontest/?module=ViewOverview&rd=10082">results</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506052" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.19.06<br>4:25 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061906">How to prepare for an Assembly Competition</A></span><br><br>
-       What does it take for you and your team to ace TopCoder's next Assembly Competition? The winner of the very first Assembly contest tells all&#8230;</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=061906">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506057" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 

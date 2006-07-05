@@ -263,6 +263,11 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+                <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
+                Java Posse - Interviews from Topcoder and Java One
+                <A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">...more</A><br>[July 5]<br><br>
+
                 TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">...more</A><br>[June 26]<br><br>
 
@@ -278,14 +283,7 @@
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/gartner_logo.gif" width="68" height="15" alt="Gartner" border="0"/></div>
                 Gartner cites TopCoder as model for "Web 2.0" community
-                <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May
-                16]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/itWeek_logo.gif" width="88" height="25" alt="IT Week" border="0"/></div>
-                Idol or idle: which one are you?
-                <A href="http://garyflood.itweek.co.uk/2006/05/idol_or_idle_wh.html" target="_blank">...more</A><br>[May
-                15]<br><br>
+                <A href="http://biz.yahoo.com/bw/060516/20060516005941.html?.v=1" target="_blank">...more</A><br>[May 16]<br><br>
 
             </td>
         </tr>
