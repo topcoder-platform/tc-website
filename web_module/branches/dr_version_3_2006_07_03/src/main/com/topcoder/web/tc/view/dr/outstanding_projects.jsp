@@ -68,71 +68,65 @@ z-index: 1;
 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Development Competition History"/>
+    <jsp:param name="title" value="Component Development Outstanding Projects"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Design Competition History"/>
+    <jsp:param name="title" value="Component Design Outstanding Projects"/>
     </jsp:include>
 <% } %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
     <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
-        <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+        <span class="bodySubtitle">Development Outstanding Projects&#160;>&#160;</span><br>
     <% } else { %>
-        <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+        <span class="bodySubtitle">Design Outstanding Projects&#160;>&#160;</span><br>
     <% } %>
-    <span class="bc">
-    <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-    &#160;|&#160;Competition History
-</span>
 
-
-              <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                 <tr><td class="title" colspan="10">
-                 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
-                    Development
-                 <% } else { %>
-                    Design
-                 <% } %>
-                 Competition History
-                 </td></tr>
-                 <tr>
-                    <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a></TD>
-                    <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a></TD>
-                    <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
-                    <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></TD>
-                    <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
-                 </tr>
-                 <%boolean even = false;%>
-                 <rsc:iterator list="<%=rsc2%>" id="resultRow">
-                 <tr class="<%=even?"dark":"light"%>">
-                    <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
-                    <TD class="value">
-                        <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>
-                            <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                                <rsc:item name="component_name" row="<%=resultRow%>"/>
-                            </A>
-                        <% } else { %>
-                            <rsc:item name="component_name" row="<%=resultRow%>"/>
-                        <% } %>
-                    </TD>
-                    <TD class="valueC"><rsc:item name="num_valid_submissions" row="<%=resultRow%>"/></TD>
-                    <TD class="valueC"><rsc:item name="outstanding_points" row="<%=resultRow%>"/></TD>
-                    <TD class="valueR" nowrap="nowrap">
-                        <% if (resultRow.getItem("project_id").getResultData() != null) { %>
-                            <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
-                                Contest Details
-                            </A>
-                        <% } %>
-                    </TD>
-                 </tr>
-                 <%even=!even;%>
-                 </rsc:iterator>
-              </TABLE>
-          </FORM>
+  <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+     <tr><td class="title" colspan="10">
+     <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
+        Development
+     <% } else { %>
+        Design
+     <% } %>
+		Projects
+     </td></tr>
+     <tr>
+        <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a></TD>
+        <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a></TD>
+        <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
+        <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></TD>
+        <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
+     </tr>
+     <%boolean even = false;%>
+     <rsc:iterator list="<%=rsc2%>" id="resultRow">
+     <tr class="<%=even?"dark":"light"%>">
+        <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+        <TD class="value">
+            <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>
+                <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                    <rsc:item name="component_name" row="<%=resultRow%>"/>
+                </A>
+            <% } else { %>
+                <rsc:item name="component_name" row="<%=resultRow%>"/>
+            <% } %>
+        </TD>
+        <TD class="valueC"><rsc:item name="num_valid_submissions" row="<%=resultRow%>"/></TD>
+        <TD class="valueC"><rsc:item name="outstanding_points" row="<%=resultRow%>"/></TD>
+        <TD class="valueR" nowrap="nowrap">
+            <% if (resultRow.getItem("project_id").getResultData() != null) { %>
+                <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                    Contest Details
+                </A>
+            <% } %>
+        </TD>
+     </tr>
+     <%even=!even;%>
+     </rsc:iterator>
+  </TABLE>
 
          <p><br></p>
          <!-- END BODY -->
