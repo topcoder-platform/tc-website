@@ -118,7 +118,7 @@ z-index: 1;
         <TD class="valueC"><rsc:item name="outstanding_points" row="<%=resultRow%>"/></TD>
         <TD class="valueR" nowrap="nowrap">
             <% if (resultRow.getItem("project_id").getResultData() != null) { %>
-                <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                <A HREF="/tc?module=ViewRegistrants&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                     Contest Details
                 </A>
             <% } %>
