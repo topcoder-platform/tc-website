@@ -12,8 +12,14 @@ function validateHandle() {
     ajaxRequest.sendRequest();
 }
 
+function check(form) {
+	validateHandle();
+	return !form.submitBtn.disabled;	
+}
+
+
 </script>
-<form action='/tc?module=MemberContact' method='post'>
+<form name='f' action='/tc?module=MemberContact' method='post' onSubmit="check(this)">
 
 To: <input type='text' name='<%= Constants.TO_HANDLE %>' id='<%= Constants.TO_HANDLE %>' size='12' onBlur='validateHandle()' />
 <div id="validationHandle"> </div>
@@ -25,8 +31,8 @@ Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br
 <input type='checkbox' name='sc' />Send a copy to myself.
 <br/>
 
-<div id="submitButton"> 
-<input type='submit' value='Send' disabled="true"/>
+<input type='submit' name="submitBtn" value='Send' disabled="true"/>
+<div id="runJS"> 
 </div>
 </form>
 
