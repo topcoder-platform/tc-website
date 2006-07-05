@@ -17,7 +17,7 @@ function validateHandle(send) {
 
 
 </script>
-<% if (request.getParameter(MemberContact.CONFIRM) != NULL) { %>
+<% if (request.getParameter(MemberContact.CONFIRM) != null) { %>
     <div style="font-weight:bold;color:green;">
        Your email was sent.
     </div>
