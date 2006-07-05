@@ -29,7 +29,10 @@
     <% } %>
 	    <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
 			<script type="text/javascript">
-				document.f.submitBtn.disabled = <%= !result.isValid() %>;				
+				document.f.submitBtn.disabled = <%= !result.isValid() %>;
+				<% if (request.getParameter("send") != null) { %>
+					document.f.submit();
+				<% } %>				
 			</script>		    
 	   	</tac:replaceChildren>
 
