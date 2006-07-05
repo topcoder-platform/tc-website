@@ -49,6 +49,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Java Posse --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank"><img src="/i/pressroom/javaPosse_logo.gif" alt="The Java Posse" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3" target="_blank">Interviews from Topcoder and Java One</A> [PODCAST] </strong></font><br />
+                        This is a pair of previously un-aired interviews. The first was recorded by Joe, Carl and Dick at TopCoder with Ari Balogh, Vice President of Engineering for Verisign Inc. It is a short but technically meaty interview.<span class="prHead"> [July 5]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Bloomberg Premier TCCC Sponsor --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
