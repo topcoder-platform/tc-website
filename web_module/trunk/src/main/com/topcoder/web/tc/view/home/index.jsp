@@ -234,22 +234,23 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">June
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">July
                 Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-                <b>06/05</b> - TCHS SRM 1 - 7 PM<br><br>
-                <b>06/07</b> - Marathon Match 2 - 12 NOON<br><br>
-                <b>06/08</b> - SRM 306 - 7 AM<br><br>
-                <b>06/12</b> - TCHS SRM 2 - 2 PM<br><br>
-                <b>06/14</b> - Intel Multi-Threading Competition 6 - 12 NOON<br><br>
-                <b>06/14</b> - SRM 307 - 9 PM<br><br>
-                <b>06/19</b> - TCHS SRM 3 - 10 AM<br><br>
-                <b>06/24</b> - SRM 308 - 12 NOON<br><br>
-                <b>06/26</b> - TCHS SRM 4 - 6 AM<br><br>
-                <b>06/28</b> - SRM 309 - 11 AM<br><br>
+                <b>07/05</b> - TCHS SRM 5 - 7 PM<br><br>
+                <b>07/06</b> - SRM 310 - 9 PM<br><br>
+                <b>07/10</b> - TCHS SRM 6 - 2 PM<br><br>
+                <b>07/12</b> - SRM 311 - 7 AM<br><br>
+                <b>07/12</b> - Marathon Match 3 - 12 NOON<br><br>
+                <b>07/17</b> - TCHS SRM 7 - 10 AM<br><br>
+                <b>07/19</b> - Intel Multi-Threading Competition 7 - 12 NOON<br><br>
+                <b>07/22</b> - SRM 312 - 12 NOON<br><br>
+                <b>07/24</b> - TCHS SRM 8 - 6 AM<br><br>
+                <b>07/26</b> - SRM 313 - 11 AM<br><br>
+                <b>07/31</b> - TCHS SRM 9 - 7 PM<br><br>
             </td>
         </tr>
 
