@@ -6,9 +6,9 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%-----------------------POST JULY 5
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.05.06<br>9:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.05.06<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=070506">Understanding your algorithm rating - and why it changes</A></span><br><br>
@@ -21,9 +21,8 @@
        <tc-webtag:forumLink forumID="506063" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
----------------------------------%>
-<%--------------------------------------------------------%>
 
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.29.06<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -35,6 +34,7 @@
          <tc-webtag:forumLink forumID="505956" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.28.06<br>5:10 PM</td>
@@ -185,23 +185,6 @@ played had no more than 6 pegs, and about 6 colors.
        <A href="/tc?module=Static&d1=features&d2=061906">article</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506057" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.19.06<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm3">TCHS SRM 3 - Problem Set & Analysis</A></span><br><br>
-<tc-webtag:handle coderId="22375930" context="hs_algorithm"/> took the lead after the coding phase but, thanks to two +75s in challenge phase, <tc-webtag:handle coderId="15868491" context="hs_algorithm"/> got up to the first place and won his third HS SRM in a row.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm3">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506025" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 
