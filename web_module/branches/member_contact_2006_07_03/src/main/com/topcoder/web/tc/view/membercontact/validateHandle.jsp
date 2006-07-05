@@ -30,10 +30,12 @@
     <% } %>
         <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
             <script type="text/javascript">
-                document.f.submitBtn.disabled = <%= !result.isValid() %>;
-                <% if ((request.getParameter(MemberContact.SEND) != null) && result.isValid()) { %>
-                    document.f.submit();
-                <% } %>
+                document.f.handleValid.value = <%= result.isValid() %>;
+                if (canSend()) {
+                    <% if ((request.getParameter(MemberContact.SEND) != null) && result.isValid()) { %>
+                        document.f.submit();
+                    <% } %>
+                }
             </script>
         </tac:replaceChildren>
 

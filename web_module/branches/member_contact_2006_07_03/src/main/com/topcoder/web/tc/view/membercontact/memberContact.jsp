@@ -15,6 +15,13 @@ function validateHandle(send) {
     ajaxRequest.sendRequest();
 }
 
+function canSend() {
+   return document.f.<%= MemberContact.SUBJECT %>.value != "" &&
+           document.f.<%= MemberContact.TEXT %>.value != "" &&
+           document.f.handleValid.value == "true";
+}
+
+
 
 </script>
 <% if (request.getAttribute(MemberContact.CONFIRM) != null) { %>
@@ -24,14 +31,15 @@ function validateHandle(send) {
 <% } %>
 
 <form name='f' action='/tc?module=MemberContact' method='post' >
-<input type="hidden" id="send" name="<%= MemberContact.SEND %>" value="true" />
+<input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
+<input type="hidden" id="handleValid" name="handleValid" value="false" />
 
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
 <div id="validationHandle"> </div>
 <br/><br/>
-Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50'/> <br/><br/>
+Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50' onKeyUp='document.f.submitBtn.disabled=!canSend()' /> <br/><br/>
 
-<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10'></textarea>
+<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='document.f.submitBtn.disabled=!canSend()'></textarea>
 <br/><br/>
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/>
