@@ -3,7 +3,6 @@
          com.topcoder.web.common.validation.StringInput,
          com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator,
          com.topcoder.web.common.HibernateUtils,
-         com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidationResult
          " %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 
@@ -14,20 +13,15 @@
 
         String handle = request.getParameter("th");
         HibernateUtils.begin();
-        HandleValidationResult result = (HandleValidationResult) new HandleValidator().validate(new StringInput(handle));
+        ValidationResult result = new HandleValidator().validate(new StringInput(handle));
         HibernateUtils.commit();
 
            if(result.isValid()) {
         %>
-        <div> ok </div>
-        <% } else if (!result.handleExist()) { %>
-        </div>
+        <div> </div>
+        <% } else { %>
             <div style="font-weight:bold;color:red;">
-               User name not found.
-            </div>
-        <% } else if (!result.canReceiveEmail()) { %>
-            <div style="font-weight:bold;color:red;">
-                The user  can't receive email via member contact.
+               <%= result.getMessage() %>
             </div>
         <% } %>
     </tac:replaceChildren>
