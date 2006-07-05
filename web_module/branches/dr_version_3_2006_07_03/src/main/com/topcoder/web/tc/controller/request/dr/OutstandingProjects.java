@@ -108,7 +108,7 @@ public class OutstandingProjects extends BaseProcessor {
                 (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
                         HandleTag.DEVELOPMENT : HandleTag.DESIGN));
 
-        setNextPage(Constants.VIEW_COMPETITION_HISTORY_PAGE);
+        setNextPage("/dr/outstanding_projects.jsp");
         setIsNextPageInContext(true);
     }
 }
