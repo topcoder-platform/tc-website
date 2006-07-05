@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
- * A processor to retrieve competition history.
+ * A processor to retrieve current projects.
  *
  * @author pulky
  * @version 1.0
@@ -36,8 +36,8 @@ public class OutstandingProjects extends BaseProcessor {
     private static final Logger log = Logger.getLogger(OutstandingProjects.class);
 
     /**
-     * Process the competition history request.
-     * Retrieves the competition history list for development or design for a particular coder.
+     * Process the current projects request.
+     * Retrieves the current projects list for development or design for a particular coder.
      */
     protected void businessProcessing() throws Exception {
         // user should be authenticated.
@@ -100,7 +100,7 @@ public class OutstandingProjects extends BaseProcessor {
             history = (ResultSetContainer) m.get("outstanding_projects");
         }
         if (log.isDebugEnabled()) {
-            log.debug("Got " + history.size() + " rows for competition history");
+            log.debug("Got " + history.size() + " rows for current projects");
         }
 
         // sets attributes for the jsp
