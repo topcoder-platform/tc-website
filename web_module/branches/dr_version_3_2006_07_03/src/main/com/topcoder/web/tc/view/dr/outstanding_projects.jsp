@@ -109,7 +109,7 @@ z-index: 1;
                  <%boolean even = false;%>
                  <rsc:iterator list="<%=rsc2%>" id="resultRow">
                  <tr class="<%=even?"dark":"light"%>">
-                    <TD class="value"><rsc:item name="rating_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                    <TD class="value"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
                     <TD class="value">
                         <% if (resultRow.getItem("component_id").getResultData() != null && resultRow.getIntItem("viewable_category_ind") == 1) { %>
                             <A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>" CLASS="statLink">
