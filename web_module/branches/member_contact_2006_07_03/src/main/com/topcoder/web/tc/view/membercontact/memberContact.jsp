@@ -22,6 +22,8 @@ Subject: <input type='text' name='<%= Constants.SUBJECT %>' size='50'/> <br/><br
 
 <textarea name='<%= Constants.MESSAGE %>' cols='50' rows='10'></textarea>
 <br/><br/>
+<input type='checkbox' name='sc' />Send a copy to myself.
+<br/>
 <input type='submit' value='Send'/>
 </form>
 
