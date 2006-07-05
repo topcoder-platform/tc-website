@@ -47,7 +47,6 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_finalists">Finalists</a> 
             <% } %>
-<%--
 |
 <!-- Winners tab -->
             <% if (selectedTab.equals("winner")) {%>
@@ -55,4 +54,5 @@
             <% } else { %>
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">Winner</a>
             <% } %>
+<%--
 --%>
