@@ -122,6 +122,8 @@ z-index: 1;
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
     &#160;|&#160;Competition History
+    &#160;|&#160;
+    <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&ph=<%=phaseId%>" class="bcLink">Current Projects</A>
 </span>
 
 
@@ -221,8 +223,8 @@ z-index: 1;
         <% } else { %>
             &#160;
         <% } %>
-    </div> 
-    
+    </div>
+
          <p><br></p>
          <!-- END BODY -->
 

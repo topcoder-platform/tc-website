@@ -68,25 +68,33 @@ z-index: 1;
 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Development Outstanding Projects"/>
+    <jsp:param name="title" value="Component Development Current Projects"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Design Outstanding Projects"/>
+    <jsp:param name="title" value="Component Design Current Projects"/>
     </jsp:include>
 <% } %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
     <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
-        <span class="bodySubtitle">Development Outstanding Projects&#160;>&#160;</span><br>
+        <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
     <% } else { %>
-        <span class="bodySubtitle">Design Outstanding Projects&#160;>&#160;</span><br>
+        <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } %>
+    <span class="bc">
+    <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
+    &#160;|&#160;
+    <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition History</A>
+    &#160;|&#160;Current Projects
+	</span>
+
 
   <table class="stat" cellpadding="0" cellspacing="0" width="100%">
      <tr><td class="title" colspan="10">
+        Current
      <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){%>
         Development
      <% } else { %>

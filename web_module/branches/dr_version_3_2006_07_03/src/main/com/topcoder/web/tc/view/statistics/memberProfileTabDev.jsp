@@ -48,6 +48,7 @@ if ( plugin ) {
             <%}%>
             </td></tr>
             <tr><td class="catNW" colspan="2"><A href='/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=113&cr=<%=request.getParameter("cr")%>'>[competition history]</A><br><br></td></tr>
+            <tr><td class="catNW" colspan="2"><A href='/tc?module=OutstandingProjects&<%=Constants.PHASE_ID%>=113&cr=<%=request.getParameter("cr")%>'>[current projects]</A><br><br></td></tr>
             <tr><td class="catNW">Percentile:</td><td class="statRNW"><rsc:item name="percentile" set="<%=rscDevData%>" ifNull="N/A" /></td></tr>
             <tr><td class="catNW">Rank:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscDevData%>" ifNull="not ranked" /><% if (rscDevData.getStringItem(0, "rank")!=null) { %> of <rsc:item name="num_ranked" set="<%=rscDevData%>"/><% } %></td></tr>
             <tr><td class="catNW">Country Rank:</td><td class="statRNW"><rsc:item name="country_rank" set="<%=rscDevData%>" ifNull="not ranked" /><% if (rscDevData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscDevData%>"/><% } %></td></tr>

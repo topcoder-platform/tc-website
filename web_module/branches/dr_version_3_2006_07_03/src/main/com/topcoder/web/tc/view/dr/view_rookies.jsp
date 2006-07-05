@@ -244,7 +244,7 @@ Please select a <strong>season</strong><br>
                     </c:if>
                 </td>
                 <td class="valueR"><c:if test="${boardRow.points>0}">
-					<A href="/tc?&sc=7&sd=desc&module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
+					<A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
                	</c:if></td>
                 <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
                     <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>

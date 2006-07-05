@@ -59,7 +59,7 @@ public class OutstandingProjects extends BaseProcessor {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
-        // either stage id or season id are required.
+        // checks for either stage id or season id.
         if (!hasParameter(Constants.STAGE_ID) && !hasParameter(Constants.SEASON_ID)) {
             throw new TCWebException("parameter " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
         }
@@ -75,8 +75,10 @@ public class OutstandingProjects extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             if (hasParameter(Constants.STAGE_ID)) {
                 r.setProperty(DataAccessConstants.SORT_QUERY, "stage_outstanding_projects");
-            } else {
+            } else if (hasParameter(Constants.SEASON_ID)) {
                 r.setProperty(DataAccessConstants.SORT_QUERY, "season_outstanding_projects");
+            } else {
+                r.setProperty(DataAccessConstants.SORT_QUERY, "outstanding_projects");
             }
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
@@ -84,9 +86,11 @@ public class OutstandingProjects extends BaseProcessor {
         if (hasParameter(Constants.STAGE_ID)) {
             r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
             r.setContentHandle("stage_outstanding_projects");
-        } else {
+        } else if (hasParameter(Constants.SEASON_ID)){
             r.setProperty(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
             r.setContentHandle("season_outstanding_projects");
+        } else {
+            r.setContentHandle("outstanding_projects");
         }
 
         // retrieves data from DB
@@ -95,8 +99,10 @@ public class OutstandingProjects extends BaseProcessor {
         ResultSetContainer history;
         if (hasParameter(Constants.STAGE_ID)) {
              history = (ResultSetContainer) m.get("stage_outstanding_projects");
-        } else {
+        } else if (hasParameter(Constants.SEASON_ID)){
             history = (ResultSetContainer) m.get("season_outstanding_projects");
+        } else {
+            history = (ResultSetContainer) m.get("outstanding_projects");
         }
         if (log.isDebugEnabled()) {
             log.debug("Got " + history.size() + " rows for competition history");
