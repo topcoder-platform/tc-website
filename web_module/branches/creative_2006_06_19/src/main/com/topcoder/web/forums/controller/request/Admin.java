@@ -4,15 +4,10 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.Log;
-import com.jivesoftware.base.PermissionsManager;
-import com.jivesoftware.base.PermissionType;
-import com.jivesoftware.base.UserManager;
-import com.jivesoftware.base.User;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumMessageIterator;
-import com.jivesoftware.forum.ForumPermissions;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -107,19 +102,6 @@ public class Admin extends ForumsProcessor {
             }
             if (ratingManager.getRatingFromScore(2) == null) {
                 ratingManager.createRating(2, "positive");
-            }
-        } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATING_PERMS)) {
-            PermissionsManager permManager = forumFactory.getPermissionsManager();
-            UserManager userManager = forumFactory.getUserManager();
-            Iterator users = userManager.users();
-            int count = userManager.getUserCount();
-            int processed = 0;
-            while (users.hasNext()) {
-                User u = (User)users.next();
-                permManager.addUserPermission(user, PermissionType.ADDITIVE, ForumPermissions.RATE_MESSAGE);
-                if (++processed % 1000 == 0) {
-                    log.info("Adding rating permissions: " + processed+"/"+count);
-                }
             }
         }
         /*

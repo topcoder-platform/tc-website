@@ -39,6 +39,8 @@
         </init-param>
         <!-- end parameters required by BaseServlet -->
 
+		<!-- begin parameters for ForumsServlet processor mapping -->
+		<!-- end parameters for ForumsServlet processor mapping -->
     </servlet>
 
 

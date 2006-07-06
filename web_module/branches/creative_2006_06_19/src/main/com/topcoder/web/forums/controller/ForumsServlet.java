@@ -106,7 +106,10 @@ public class ForumsServlet extends BaseServlet {
                     if (!isLegalCommand(cmd))
                         throw new NavigationException();
 
-                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+                    String processorName = getProcessor(cmd);
+                    if (processorName.indexOf(".") == -1) {
+                    	processorName = PATH + (PATH.endsWith(".") ? "" : ".") + processorName;
+                    }
 
                     log.debug("creating request processor for " + processorName);
                     try {
