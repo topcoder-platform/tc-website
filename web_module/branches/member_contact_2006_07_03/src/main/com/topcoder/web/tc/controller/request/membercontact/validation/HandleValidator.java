@@ -22,8 +22,9 @@ public class HandleValidator implements Validator {
             return new BasicResult(false, "User not found");
         }
         
+        String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(user.getId().longValue(), 24).getValue();
         // fix
-        if (user.getHandle().equals("tomek")) {
+        if (!"true".equals(canReceive)) {
             return new BasicResult(false, "The user can't receive emails via Member Contact.");
         }
         return BasicResult.SUCCESS;

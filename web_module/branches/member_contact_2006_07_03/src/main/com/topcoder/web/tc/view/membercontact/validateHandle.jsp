@@ -11,12 +11,6 @@
         String handle = request.getParameter(MemberContact.TO_HANDLE);
         HibernateUtils.begin();
         ValidationResult result = new HandleValidator().validate(new StringInput(handle));
-
-
-%>
-<%= com.topcoder.web.common.dao.DAOUtil.getFactory().getUserPreferenceDAO().find(7545675,8).getPreferenceValue().getValue() %>
-
-<%
         HibernateUtils.commit();
         %>
 
