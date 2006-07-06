@@ -68,7 +68,7 @@ Members who wish to head up a team of developers will register as Team Captains.
 <br><br>
 Team Captains will extend offers to Free Agents and other Team Captains to recruit them onto their team.  The offer will include a description of the proposed responsibilities and the percentage of project winnings that the team member will earn.  Free Agents may also contact Team Captains and offer their services as a team member.  Once an offer is accepted, the payment percentage is locked in.
 <br><br>
-<span class="bigRed">NOTE:  For the Time Tracker Application, the prize money will be equally distributed between the Team Captain and all team members.</span>
+<span class="bigRed">NOTE:  For the Online Review Application, the prize money will be equally distributed between the Team Captain and all team members.</span>
 <br><br>
 Competitors can only be part of one team per Assembly Competition.  Before being selected to a team, competitors can change their status from Free Agent to Team Captain at any time.  At the conclusion of the Team Creation stage, each team member must agree to terms that outline which team he/she is working for and what percentage of the earnings he/she will be given.
 <br><br>
@@ -86,7 +86,7 @@ As the <A href="/tc?module=Static&d1=dev&d2=testing&d3=overview">Testing Competi
 <br><br>
 Once a team has submitted their code, a TopCoder Deployment Engineer will install and run their code on a TopCoder server against the test cases submitted through the Testing Competition.  The Testing Competition participants and the team will receive feedback based on the results of the testing.  Once four teams have passed the initial review, no other teams will be allowed to submit any code.  
 <br><br>
-<span class="bigRed">NOTE:  For the Time Tracker Application, submissions will be taken based on a certain length of time from the start of the Competition phase and NOT on the number of submissions that pass the initial review.</span>
+<span class="bigRed">NOTE:  For the Online Review Application, submissions will be taken based on a certain length of time from the start of the Competition phase and NOT on the number of submissions that pass the initial review.</span>
 <br><br>
 If a team misses the submission deadline by up to 24 hours, they will lose 10% of any awarded prize.  If they are late up to an additional 24 hours, another 10% will be lost.  If they are late up to an additional 24 hours, they will be removed from the competition and will not be awarded any prize.  Any bugs found in the components that must be used during the Competition phase will result in an extended deadline.
 <br><br>
@@ -98,7 +98,7 @@ The Deployment Engineer will set up an environment for each team and will test t
 <br><br>
 Each team will have a scorecard set up in online review.  Reviewers will score each team's submission based on an Application Scorecard.  The scorecard will ensure proper use of all components as outlined in the deliverables, as well as ensure that all code follows TopCoder guidelines.  Modifying or neglecting to use any components will be cause for immediate failure.  
 <br><br>
-<span class="bigRed">NOTE: For the Time Tracker Application, online review will not be used.  Scorecards will be in RTF format and can be viewed <A class="bigRed" href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">here</A>.</span>
+<span class="bigRed">NOTE: For the Online Review Application, online review will not be used.  Scorecards will be in RTF format and can be viewed <A class="bigRed" href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">here</A>.</span>
 <br><br>
 The Appeals and Appeals Response stage will follow the scorecard review.  Each Team Captain can appeal any reviewer statement, as long as it is factually wrong.  Each reviewer will respond to the Team Captain's appeals.
 <br><br>
@@ -116,7 +116,7 @@ Each team will fill out an evaluation that covers the architecture deliverables 
 <br><br>
 Each team member will be allowed to rate and comment on their fellow team members, including the Team Captain.  The feedback will be anonymously available to other TopCoder members and staff when they are selecting teams and Review Boards for future projects. 
 <br><br>
-<span class="bigRed">NOTE: For the Time Tracker Application, we will not be soliciting feedback on team members.</span>
+<span class="bigRed">NOTE: For the Online Review Application, we will not be soliciting feedback on team members.</span>
 <br><br>
 The second place team will be awarded 100% of their prize, less any deductions for missed timelines.  TopCoder will pay each team member based on the terms agreed upon prior to the start of the competition.  No exceptions will be made.
 <br><br>

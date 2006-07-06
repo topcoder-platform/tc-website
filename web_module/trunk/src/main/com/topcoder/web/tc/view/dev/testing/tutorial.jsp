@@ -98,7 +98,7 @@ Make sure you write a comprehensive unit testing suite. Inadequate tests can cos
 If your test cases need to be configured, all of the configurable parameters must be documented.  The reviewers will need to tweak the test cases to their individual environments.  
 <br><br>
 <span class="bodySubtitle">Submission</span><br>
-You will package your submission and upload the submission to Project, Submit and Review.  <span class="bigRed">Note: For TimeTracker, you will email your submissions into TopCoder.</span> Your solution will be packaged based on the script attached with the distribution.  Please verify your deployment documentation and all source code is packaged in your submission.
+You will package your submission and upload the submission to Project, Submit and Review.  <span class="bigRed">Note: For the Online Review Application, you will email your submissions into TopCoder.</span> Your solution will be packaged based on the script attached with the distribution.  Please verify your deployment documentation and all source code is packaged in your submission.
 <br><br>
 <span class="bodySubtitle">Challenging Test Cases</span>
 <br><br>

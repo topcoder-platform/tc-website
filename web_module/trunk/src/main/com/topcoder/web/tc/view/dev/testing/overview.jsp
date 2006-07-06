@@ -71,7 +71,7 @@ Participants will be granted access to a private forum for each Testing Competit
 <br><br>
 Once a participant has submitted their code, it will be automatically screened to enforce coding standards.  Additional manual screening by a reviewer will be used to check the completeness of the test cases.  A reviewer will screen on a per submission basis.  When a submission is made, it will generate an open screening position that will be immediately filled by a qualified reviewer, who will then screen the submission.  Once four submissions for each test case scenario have passed the initial screening, no other submissions will be allowed.  
 <br><br>
-<span class="bigRed">NOTE:  For the Time Tracker Application, submissions will be taken based on a certain length of time from the start of the Competition phase and NOT on the number of submissions that pass the initial screening.</span>
+<span class="bigRed">NOTE:  For the Online Review Application, submissions will be taken based on a certain length of time from the start of the Competition phase and NOT on the number of submissions that pass the initial screening.</span>
 <br><br>
 Once a submission has passed screening, the Assembly Competition teams will be allowed to download the test code.  Testing Competition participants need to be available to provide answers to questions from the Assembly Competition teams regarding the test code.  Testing Competition participants are not eligible to compete in the corresponding Assembly Competition.
 <br><br>
