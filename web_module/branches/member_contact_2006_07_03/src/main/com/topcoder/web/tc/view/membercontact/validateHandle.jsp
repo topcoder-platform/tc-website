@@ -14,7 +14,7 @@
 
 
 %>
-<%= com.topcoder.web.common.dao.DAOUtil.getFactory().getUserPreferenceDAO().find(7545675,8).getPreferenceValue().getValue()) %>
+<%= com.topcoder.web.common.dao.DAOUtil.getFactory().getUserPreferenceDAO().find(7545675,8).getPreferenceValue().getValue() %>
 
 <%
         HibernateUtils.commit();
