@@ -60,6 +60,7 @@ The tests in this competition will be concerned with creating, editing and viewi
 <div class="sectionHeader">Technologies</div>
 <ul>
 <li>HTMLUnit (required)</li>
+<li>JUnit</li>
 </ul>
 <div class="sectionHeader">Documentation</div>
 Documentation/Specification is available in the application forums <A href="">here</A>.
