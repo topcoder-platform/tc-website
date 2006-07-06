@@ -1710,6 +1710,7 @@
             	<include name="com/topcoder/web/forums/controller/request/*.class"/>
             	<include name="com/topcoder/web/forums/model/**/*.class"/>
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
+            	<include name="com/topcoder/web/forums/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
         	<classes dir="${resources}/forums/tc">
