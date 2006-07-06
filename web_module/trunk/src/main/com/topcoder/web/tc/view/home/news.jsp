@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.06.06<br>10:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm309">SRM 309 - Problem Set & Analysis</A></span><br><br>
+This SRM had a very difficult Division 1 problem set, along with an unusually hard medium, resulting on most coders completing only the easy problem correctly.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm309">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505984" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>07.05.06<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10083">Intel&#174; Multi-Threading Competition 6 Results</A>
@@ -186,17 +203,6 @@ played had no more than 6 pegs, and about 6 colors.
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506052" message="discuss this" />&#160;|&#160;
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.21.06<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">Money matches announced: SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>, <A href="/tc?module=MatchDetails&rd=9997">317</A>, <A href="/tc?module=MatchDetails&rd=9999">319</A>, and <A href="/tc?module=MatchDetails&rd=10004">324</A>.</span><br><br>
-      TopCoder will be paying out $5,000 in prizes during each of these matches.  For more info, check out the Match Details for each.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506058" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
