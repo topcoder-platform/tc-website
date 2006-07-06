@@ -1705,8 +1705,6 @@
                 <include name="com/topcoder/common/web/data/UserType.class" />
                 <include name="com/topcoder/common/web/data/Browser.class" />
                 <include name="com/topcoder/common/web/data/Round.class" />
-                <include name="com/topcoder/ejb/UserServices/UserServices.class" />
-                <include name="com/topcoder/ejb/UserServices/UserServicesHome.class" />
                 <include name="com/topcoder/web/common/**/*.class" />
                 <include name="com/topcoder/web/forums/controller/*.class"/>
             	<include name="com/topcoder/web/forums/controller/request/*.class"/>
