@@ -1696,12 +1696,27 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
+            	<include name="com/topcoder/common/web/util/Conversion.class" />
+                <include name="com/topcoder/common/web/error/TCException.class" />
+                <include name="com/topcoder/common/web/data/Navigation.class" />
+                <include name="com/topcoder/common/web/data/User.class" />
+                <include name="com/topcoder/common/web/data/SecureObject.class" />
+                <include name="com/topcoder/common/web/data/PermissionAssignee.class" />
+                <include name="com/topcoder/common/web/data/UserType.class" />
+                <include name="com/topcoder/common/web/data/Browser.class" />
+                <include name="com/topcoder/common/web/data/Round.class" />
+                <include name="com/topcoder/ejb/UserServices/UserServices.class" />
+                <include name="com/topcoder/ejb/UserServices/UserServicesHome.class" />
+                <include name="com/topcoder/web/common/**/*.class" />
                 <include name="com/topcoder/web/forums/controller/*.class"/>
             	<include name="com/topcoder/web/forums/controller/request/*.class"/>
             	<include name="com/topcoder/web/forums/model/**/*.class"/>
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
+        	<classes dir="${resources}/forums/tc">
+        		<include name="jive_init.xml" />
+        	</classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
