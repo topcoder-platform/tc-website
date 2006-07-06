@@ -25,6 +25,7 @@ public class User extends Base {
     private Set emailAddresses;
     private Set phoneNumbers;
     private Set notifications;
+    private Set userPreferences;
     /**
      * hoke: used getting information
      */
@@ -322,5 +323,13 @@ public class User extends Base {
         }
         return found;
     }
+
+	public Set getUserPreferences() {
+		return userPreferences;
+	}
+
+	public void setUserPreferences(Set userPreferences) {
+		this.userPreferences = userPreferences;
+	}
 
 }

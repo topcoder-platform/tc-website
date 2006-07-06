@@ -28,6 +28,10 @@ public interface DAOFactory {
 
     NotificationDAO getNotificationDAO();
 
+    PreferenceDAO getPreferenceDAO();
+
+    PreferenceValueDAO getPreferenceValueDAO();
+    
     RegistrationTypeDAO getRegistrationTypeDAO();
 
     ReferralDAO getReferralDAO();
@@ -49,4 +53,6 @@ public interface DAOFactory {
     TimeZoneDAO getTimeZoneDAO();
 
     UserDAO getUserDAO();
+    
+    UserPreferenceDAO getUserPreferenceDAO();    
 }

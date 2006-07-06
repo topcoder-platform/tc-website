@@ -51,6 +51,15 @@ public class DAOFactoryHibernate implements DAOFactory {
     public NotificationDAO getNotificationDAO() {
         return new NotificationDAOHibernate();
     }
+    
+	public PreferenceDAO getPreferenceDAO() {
+		return new PreferenceDAOHibernate();
+	}
+
+	public PreferenceValueDAO getPreferenceValueDAO() {
+		return new PreferenceValueDAOHibernate();
+	}
+   
 
     public RegistrationTypeDAO getRegistrationTypeDAO() {
         return new RegistrationTypeDAOHibernate();
@@ -95,4 +104,8 @@ public class DAOFactoryHibernate implements DAOFactory {
     public UserDAO getUserDAO() {
         return new UserDAOHibernate();
     }
+
+	public UserPreferenceDAO getUserPreferenceDAO() {
+		return new UserPreferenceDAOHibernate();
+	}
 }

@@ -60,6 +60,8 @@
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>        
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
@@ -73,6 +75,7 @@
         <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>        
     </session-factory>
 
 </hibernate-configuration>
