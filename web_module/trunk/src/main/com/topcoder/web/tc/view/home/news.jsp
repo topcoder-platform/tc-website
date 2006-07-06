@@ -8,6 +8,18 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.06.06<br>11:05 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Competition systems downtime for scheduled maintenance: 07.07</span><br><br>
+      Tomorrow, July 7th, we will be performing some maintenance on our competition systems.  The maintenance window will start at 5PM EDT and last for approximately one hour.  During this time the Arena and Marathon systems may not be available.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506066" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.06.06<br>10:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
