@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -29,7 +30,7 @@ import java.util.Collection;
  * </ol>
  *
  * @author Albert Mao, pulky
- * @version 1.0.1
+ * @version 1.0.2
  * @see     CatalogHome
  * @see     ComponentManager
  */
@@ -179,6 +180,26 @@ public interface Catalog extends javax.ejb.EJBObject {
      */
     public Collection getComponentsByStatusAndCatalog(long status, long catalogId)
             throws RemoteException, CatalogException, SQLException, NamingException;
+
+    /**
+     * Returns the summary information for the current version of each component
+     * with the specified status and within the specified catalogs. The status constants
+     * are defined in {@link ComponentInfo ComponentInfo}. The summaries are returned
+     * in alphabetical order by component name.
+     *
+     * @param status the status value to obtain components for
+     * @param catalogIds the list of catalogs values to obtain components for
+     * @return a <code>Collection</code> of <code>ComponentSummary</code>
+     * objects
+     * @throws RemoteException if a system-level failure causes the remote
+     * method call to fail
+     * @throws CatalogException if the summary information cannot be retrieved
+     *
+     * @since 1.0.2
+     */
+    public Collection getComponentsByStatusAndCatalogs(long status, List catalogIds)
+            throws RemoteException, CatalogException, SQLException, NamingException;
+
 
     /**
      * Returns the summary information for the current version of the specified
