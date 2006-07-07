@@ -148,6 +148,11 @@ public class Constants implements WebConstants {
 
     public static String MEMBER_CONTACT;
 
+    public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
+    public static String MEMBER_CONTACT_ENABLE;
+    
+    public static int MEMBER_CONTACT_PREFERENCE_ID;
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
