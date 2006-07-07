@@ -73,7 +73,7 @@ import java.util.Date;
  * </ol>
  *
  * @author Albert Mao, pulky
- * @version 1.0.1
+ * @version 1.0.2
  * @see     Catalog
  * @see     CatalogHome
  */
@@ -1436,6 +1436,38 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         for (Iterator it = ret.iterator(); it.hasNext();) {
             cs = (ComponentSummary) it.next();
             if (cs.getRootCategory() != catalogId)
+                it.remove();
+        }
+
+        Collections.sort((List) ret, new Comparators.ComponentSummarySorter());
+        return ret;
+
+    }
+
+
+    /**
+     * Returns the summary information for the current version of each component
+     * with the specified status and within the specified catalogs. The status constants
+     * are defined in {@link ComponentInfo ComponentInfo}. The summaries are returned
+     * in alphabetical order by component name.
+     *
+     * @param status the status value to obtain components for
+     * @param catalogIds the list of catalogs values to obtain components for
+     * @return a <code>Collection</code> of <code>ComponentSummary</code>
+     * objects
+     * @throws CatalogException if the summary information cannot be retrieved
+     *
+     * @since 1.0.2
+     */
+    public Collection getComponentsByStatusAndCatalogs(long status, List catalogIds)
+            throws CatalogException, NamingException, SQLException {
+
+
+        Collection ret = getComponentsByStatus(status);
+        ComponentSummary cs = null;
+        for (Iterator it = ret.iterator(); it.hasNext();) {
+            cs = (ComponentSummary) it.next();
+            if (!catalogIds.contains(new Long(cs.getRootCategory())))
                 it.remove();
         }
 

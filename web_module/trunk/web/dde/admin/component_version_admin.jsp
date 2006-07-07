@@ -1606,7 +1606,14 @@ if (action != null) {
                             </tr>
 <%
     // List all completed components
-    ComponentSummary approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
+    ComponentSummary approvedComps[];
+    boolean showCatalog = false;
+    if (componentManager.getRootCategory() == Catalog.APPLICATION_CATALOG) {
+        boolean showCatalog = true;
+        approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)}));
+    } else
+        approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
+    }
     //debug.addMsg("component version admin", "got approved summaries");
 
     // List components for this version
@@ -1626,8 +1633,16 @@ if (action != null) {
                             for (int i=0; i < approvedComps.length; i++) {
                                 //debug.addMsg("component version admin", "got master component " + (i+1) + "/" + approvedComps.length);
                                 if (htHits.get("" + approvedComps[i].getVersionId()) == null) {
+                                    String catalogName = "";
+                                    if (showCatalog) {
+                                        if (approvedComps[i].getRootCategory() == Catalog.NET_CATALOG) {
+                                            catalogName = ".net -- ";    
+                                        } else if (approvedComps[i].getRootCategory() == Catalog.JAVA_CATALOG) {
+                                            catalogName = "java -- ";
+                                        }
+                                    }
 %>
-                                        <option value="<%= approvedComps[i].getVersionId() %>"><%= approvedComps[i].getName() %> v.<%= approvedComps[i].getVersionLabel() %></option>
+                                        <option value="<%= approvedComps[i].getVersionId() %>"><%= catalogName%> <%= approvedComps[i].getName() %> v.<%= approvedComps[i].getVersionLabel() %></option>
 <%                              }
                             }
 %>
@@ -1650,8 +1665,16 @@ if (action != null) {
                                     <select name="selVersionDependency" size="4" multiple="multiple">
     <% for (int i=0; i < versionComps.length; i++) {
         //debug.addMsg("component version admin", "got version component " + (i+1) + "/" + versionComps.length);
+            String catalogName = "";
+            if (showCatalog) {
+                if (versionComps[i].getRootCategory() == Catalog.NET_CATALOG) {
+                    catalogName = ".net -- ";    
+                } else if (versionComps[i].getRootCategory() == Catalog.JAVA_CATALOG) {
+                    catalogName = "java -- ";
+                }
+            }
     %>
-                                        <option value="<%= versionComps[i].getVersionId() %>"><%= versionComps[i].getName() %> v.<%= versionComps[i].getVersionLabel() %></option>
+                                        <option value="<%= versionComps[i].getVersionId() %>"><%= catalogName%><%= versionComps[i].getName() %> v.<%= versionComps[i].getVersionLabel() %></option>
     <% } %>
                                     </select></td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
