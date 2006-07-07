@@ -1610,7 +1610,7 @@ if (action != null) {
     boolean showCatalog = false;
     if (componentManager.getRootCategory() == Catalog.APPLICATION_CATALOG) {
         showCatalog = true;
-        approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)}).toArray(new ComponentSummary[0]);
+        approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)})).toArray(new ComponentSummary[0]);
     } else {
         approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
     }
