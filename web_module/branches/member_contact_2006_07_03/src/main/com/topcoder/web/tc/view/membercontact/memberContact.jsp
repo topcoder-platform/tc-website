@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
+         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
+         com.topcoder.web.tc.Constants" %>
 <html>
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
@@ -34,6 +35,11 @@ function showButton() {
 <% } %>
 
 <form name='f' action='/tc?module=MemberContact' method='post' >
+<% if (!"true".equals(request.getAttribute(MemberContact.CAN_RECEIVE))) { %>
+To enable other members to contact you, <a href='javascript:window.open("membercontact/<%= Constants.MEMBER_CONTACT_ENABLE %>")'>click here</a>
+<% } %>
+<br>
+
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 

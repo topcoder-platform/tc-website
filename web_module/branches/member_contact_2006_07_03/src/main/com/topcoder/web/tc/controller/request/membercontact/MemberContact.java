@@ -22,6 +22,7 @@ public class MemberContact extends HibernateProcessor {
     public static String SEND_COPY = "sc";
     public static String CONFIRM = "conf";
     public static String SEND = "send";
+    public static String CAN_RECEIVE = "cr";
     
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
@@ -60,6 +61,11 @@ public class MemberContact extends HibernateProcessor {
             }
             getRequest().setAttribute(CONFIRM, "true");
         }
+        
+        String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
+                getUser().getId(), Constants.MEMBER_CONTACT_PREFERENCE_ID).getValue();
+
+        getRequest().setAttribute(CAN_RECEIVE, canReceive);
         
         setNextPage(Constants.MEMBER_CONTACT);
         setIsNextPageInContext(true);        
