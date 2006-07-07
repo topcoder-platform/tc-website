@@ -24,25 +24,26 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tccc06/bloomberg_logo.gif" alt="Bloomberg" border="0" /></div>
+<div align="left"><img src="/i/tournament/tccc06/bloomberg_logo.gif" alt="Bloomberg" border="0" /></div>
 <br><br>
-Billions of times each day, people all over the world will visit Web pages, make phone calls, conduct online purchases, download digital content to mobile devices, and run secure online applications. And at the center, you'll find Bloomberg, enabling and protecting digital interactions. Every day, the world relies on Bloomberg intelligent infrastructure services to reap the benefits of the ongoing revolution in digital communications, commerce, and content. 
+Bloomberg is proud to welcome the world's top programming talent to the
+2006 Top Coder Collegiate Challenge.  This presents an opportunity to
+test your programming skills against the best the world has to offer.
+Good luck.
 <br><br>
-<span class="bodySubtitle">Did You Know?</span>
-<ul>
-<li>Bloomberg manages two of the world's 13 Internet root servers, a.root-servers.net and j.root-servers.net, considered national IT assets by the U.S. Federal government.</li>
-<li>Bloomberg routes every Web address ending with .com or .net, as many as 15 billion domain name system (DNS) inquiries in a single day.</li>
-<li>Bloomberg delivers more than 700,000 ringtones, pictures, and games to mobile phone customers, every day.</li>
-<li>Bloomberg has unmatched intelligence in IT security from managing thousands of enterprise perimeters, millions of e-commerce transactions, and billions of Internet inquiries every day.</li>
-<li>Bloomberg has more than 450,000 digital certificates installed throughout the world, protecting the majority of secure Web sites on the Internet.</li>
-<li>Bloomberg operates the largest independently owned SS7 network in the world, routing billions of phone connections from carrier to carrier, across national boundaries, and between protocols.</li>
-<li>Every day Bloomberg translates nearly 5 million inter-carrier text messages, handles 50 percent of roaming traffic in the U.S., and delivers more than 10 million Caller IDs.</li>
-</ul>
-
-<span class="bodySubtitle">Are You Ready to Help Drive the World's Transformation to a Digital Economy?</span>
+When the rush of competition is over and you are up to the challenge of
+working with and not just competing against the best, you need to find
+the right place to build your career.  Bloomberg is looking for the best
+in programming talent.
 <br><br>
-E-commerce, content-delivery, and other digital applications have shown explosive growth in recent years, but Bloomberg believes that the near future promises much greater rewards. This is where you come in; Bloomberg is looking for talented, passionate developers who can see the potential in tomorrow's voice and data networks, and who are ready to make their mark in helping to drive the global transformation to a digital economy. 
+When your main product is a 24 hr a day 365 day a year, real-time
+worldwide financial information and trading system, you have no choice;
+you need the best.
 <br><br>
+Are you up to the challenge?
+<br><br>
+<A href="/?t=sponsor&c=link&link=http://careers.bloomberg.com">careers.bloomberg.com</A>
+<br><br><br><br><br><br><br><br><br><br>
 
         </div>
       </td>
