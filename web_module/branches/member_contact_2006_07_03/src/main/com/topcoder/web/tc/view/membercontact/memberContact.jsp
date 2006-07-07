@@ -37,7 +37,7 @@ function showButton() {
 <form name='f' action='/tc?module=MemberContact' method='post' >
 <% if (!"true".equals(request.getAttribute(MemberContact.CAN_RECEIVE))) { %>
 To enable other members to contact you, 
-<a href='javascript:window.open("<%= Constants.MEMBER_CONTACT_ENABLE %>", "enable", "width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no"); return false;'>
+<a href='<%= Constants.MEMBER_CONTACT_ENABLE %>' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
 click here</a>
 <% } %>
 <br>
