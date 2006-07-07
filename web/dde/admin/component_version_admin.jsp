@@ -1610,7 +1610,9 @@ if (action != null) {
     boolean showCatalog = false;
     if (componentManager.getRootCategory() == Catalog.APPLICATION_CATALOG) {
         showCatalog = true;
-        approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)})).toArray(new ComponentSummary[0]);
+        approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(
+            new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG),
+            new Long(Catalog.NET_CUSTOM_CATALOG), new Long(Catalog.JAVA_CUSTOM_CATALOG)})).toArray(new ComponentSummary[0]);
     } else {
         approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
     }
@@ -1635,10 +1637,19 @@ if (action != null) {
                                 if (htHits.get("" + approvedComps[i].getVersionId()) == null) {
                                     String catalogName = "";
                                     if (showCatalog) {
-                                        if (approvedComps[i].getRootCategory() == Catalog.NET_CATALOG) {
-                                            catalogName = ".net -- ";    
-                                        } else if (approvedComps[i].getRootCategory() == Catalog.JAVA_CATALOG) {
-                                            catalogName = "java -- ";
+                                        switch (approvedComps[i].getRootCategory()) {
+                                            case Catalog.NET_CATALOG: 
+                                                catalogName = ".net -- ";
+                                                break;
+                                            case Catalog.JAVA_CATALOG: 
+                                                catalogName = "java -- ";
+                                                break;
+                                            case Catalog.NET_CUSTOM_CATALOG: 
+                                                catalogName = "custom .net -- ";
+                                                break;
+                                            case Catalog.JAVA_CUSTOM_CATALOG: 
+                                                catalogName = "custom java -- ";
+                                                break;
                                         }
                                     }
 %>
