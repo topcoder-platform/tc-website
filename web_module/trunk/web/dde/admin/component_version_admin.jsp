@@ -1611,7 +1611,7 @@ if (action != null) {
     if (componentManager.getRootCategory() == Catalog.APPLICATION_CATALOG) {
         boolean showCatalog = true;
         approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)}));
-    } else
+    } else {
         approvedComps[] = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
     }
     //debug.addMsg("component version admin", "got approved summaries");
