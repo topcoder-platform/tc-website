@@ -1606,10 +1606,10 @@ if (action != null) {
                             </tr>
 <%
     // List all completed components
-    ComponentSummary[] approvedComps;
+    ComponentSummary approvedComps[];
     boolean showCatalog = false;
     if (componentManager.getRootCategory() == Catalog.APPLICATION_CATALOG) {
-        boolean showCatalog = true;
+        showCatalog = true;
         approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalogs(ComponentInfo.APPROVED, Arrays.asList(new Long[] {new Long(Catalog.NET_CATALOG), new Long(Catalog.JAVA_CATALOG)}));
     } else {
         approvedComps = (ComponentSummary[])catalog.getComponentsByStatusAndCatalog(ComponentInfo.APPROVED, componentManager.getRootCategory()).toArray(new ComponentSummary[0]);
