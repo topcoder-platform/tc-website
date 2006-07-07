@@ -39,7 +39,7 @@ function arena() {
                 </tr>
 
 <!-- Components begins -->
-                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/tc?module=ViewActiveContests" class="leftOn">Components</a></td></tr>
+                <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><img src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Components</td></tr>
 
         <% if ((level2.equals("components"))) { %>
                 <tr><td id="<%=level3.equals("des_projects")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=112" class="leftOn">Active Design Contests</a></td></tr>
