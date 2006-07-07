@@ -1637,19 +1637,14 @@ if (action != null) {
                                 if (htHits.get("" + approvedComps[i].getVersionId()) == null) {
                                     String catalogName = "";
                                     if (showCatalog) {
-                                        switch (approvedComps[i].getRootCategory()) {
-                                            case Catalog.NET_CATALOG: 
-                                                catalogName = ".net -- ";
-                                                break;
-                                            case Catalog.JAVA_CATALOG: 
-                                                catalogName = "java -- ";
-                                                break;
-                                            case Catalog.NET_CUSTOM_CATALOG: 
-                                                catalogName = "custom .net -- ";
-                                                break;
-                                            case Catalog.JAVA_CUSTOM_CATALOG: 
-                                                catalogName = "custom java -- ";
-                                                break;
+                                        if (approvedComps[i].getRootCategory()) == Catalog.NET_CATALOG) {
+                                            catalogName = ".net -- ";
+                                        } else if (approvedComps[i].getRootCategory()) == Catalog.JAVA_CATALOG) {
+                                            catalogName = "java -- ";
+                                        } else if (approvedComps[i].getRootCategory()) == Catalog.NET_CUSTOM_CATALOG) {
+                                            catalogName = "custom .net -- ";
+                                        } else if (approvedComps[i].getRootCategory()) == Catalog.JAVA_CUSTOM_CATALOG) {
+                                            catalogName = "custom java -- ";
                                         }
                                     }
 %>
@@ -1678,10 +1673,14 @@ if (action != null) {
         //debug.addMsg("component version admin", "got version component " + (i+1) + "/" + versionComps.length);
             String catalogName = "";
             if (showCatalog) {
-                if (versionComps[i].getRootCategory() == Catalog.NET_CATALOG) {
-                    catalogName = ".net -- ";    
-                } else if (versionComps[i].getRootCategory() == Catalog.JAVA_CATALOG) {
+                if (versionComps[i].getRootCategory()) == Catalog.NET_CATALOG) {
+                    catalogName = ".net -- ";
+                } else if (versionComps[i].getRootCategory()) == Catalog.JAVA_CATALOG) {
                     catalogName = "java -- ";
+                } else if (versionComps[i].getRootCategory()) == Catalog.NET_CUSTOM_CATALOG) {
+                    catalogName = "custom .net -- ";
+                } else if (versionComps[i].getRootCategory()) == Catalog.JAVA_CUSTOM_CATALOG) {
+                    catalogName = "custom java -- ";
                 }
             }
     %>
