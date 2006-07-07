@@ -7,6 +7,7 @@ import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.tc.Constants;
 
 public class HandleValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
@@ -22,8 +23,9 @@ public class HandleValidator implements Validator {
             return new BasicResult(false, "User not found");
         }
         
-        String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(user.getId().longValue(), 24).getValue();
-        // fix
+        String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
+                    user.getId().longValue(), Constants.MEMBER_CONTACT_PREFERENCE_ID).getValue();
+
         if (!"true".equals(canReceive)) {
             return new BasicResult(false, "The user can't receive emails via Member Contact.");
         }

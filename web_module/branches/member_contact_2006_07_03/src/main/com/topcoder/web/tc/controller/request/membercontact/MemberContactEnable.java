@@ -19,14 +19,14 @@ public class MemberContactEnable extends HibernateProcessor {
         boolean enable = getRequest().getParameter(ENABLE) != null;
 
         if (enable) {
-            UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(getUser().getId(), 
-                    Constants.MEMBER_CONTACT_PREFERENCE_ID);
+            UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(
+                    getUser().getId(), Constants.MEMBER_CONTACT_PREFERENCE_ID);
             
             up.setValue("true");
-            setNextPage(Constants.MEMBER_CONTACT_ENABLE);
+            setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);                    
         } else {
-            setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
+            setNextPage(Constants.MEMBER_CONTACT_ENABLE);
             setIsNextPageInContext(true);                    
         }
         
