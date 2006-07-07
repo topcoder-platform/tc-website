@@ -23,6 +23,8 @@ public class MemberContactEnable extends HibernateProcessor {
                     getUser().getId(), Constants.MEMBER_CONTACT_PREFERENCE_ID);
             
             up.setValue("true");
+            markForCommit();
+            
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);                    
         } else {
