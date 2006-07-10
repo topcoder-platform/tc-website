@@ -169,12 +169,12 @@ on this topic is going to become a classic among TopCoder members).
 <p>
 The simplest way of solving this problem is to directly follow the instructions
 <pre>
-	double h = sqrt(sqr((double)diagonal) / (sqr(((double)width) / height) + 1));
-	double w = sqrt(sqr((double)diagonal) / (sqr(((double)height) / width) + 1));
-	vector<int> ans(2);
-	ans[0] = h; 
-	ans[1] = w;
-	return ans;
+ double h = sqrt(sqr((double)diagonal) / (sqr(((double)width) / height) + 1));
+ double w = sqrt(sqr((double)diagonal) / (sqr(((double)height) / width) + 1));
+ vector<int> ans(2);
+ ans[0] = h; 
+ ans[1] = w;
+ return ans;
 </pre>
 and round both h and w down to the nearest integer. Unfortunately for lots of our coders, this approach is wrong. 
 Even a small imprecision can be fatal for your solution - value of h equal, for example, to 2.99999 instead of 3 will be rounded down to 2 and cause your solution to fail.
@@ -183,23 +183,23 @@ Even a small imprecision can be fatal for your solution - value of h equal, for 
 Fortunately, this problem can be solved without using any floating point numbers at all.
 The problem asks us to find the biggest integer number h such that 
 <pre>
-	h <= (diagonal * height / hypoth), where hypoth = sqrt(height<sup>2</sup> + width<sup>2</sup>).
+ h <= (diagonal * height / hypoth), where hypoth = sqrt(height<sup>2</sup> + width<sup>2</sup>).
 </pre>
 Squaring this formula we can get the following one:
 <pre>
-	h * h <= (diagonal * height)<sup>2</sup> / (height<sup>2</sup> + width<sup>2</sup>),
+ h * h <= (diagonal * height)<sup>2</sup> / (height<sup>2</sup> + width<sup>2</sup>),
 </pre>
 or, in other words,
 <pre>
-	(height<sup>2</sup> + width<sup>2</sup>) * h * h <= (diagonal * height)<sup>2</sup>,
+ (height<sup>2</sup> + width<sup>2</sup>) * h * h <= (diagonal * height)<sup>2</sup>,
 </pre>
 
 Having this formula, we can easily find h (don't forget to use long variables to avoid integer overflow):
 
 <pre>
-	for (long i = 0; ; i++) 
-    	    if ((height * height + width * width) * i * i > (diagonal * height * diagonal * height) 
-	        return i - 1;
+ for (long i = 0; ; i++) 
+         if ((height * height + width * width) * i * i > (diagonal * height * diagonal * height) 
+         return i - 1;
 </pre>
 </p>
  
@@ -302,7 +302,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
 <p>
 
-	This problem was fairly simple.  Given a string of words, spaces and punctuation, sort the
+ This problem was fairly simple.  Given a string of words, spaces and punctuation, sort the
 words while preserving the spaces and punctuation.  In pseudocode, all one needs to do is locate
 each word, extract it and replace it with a place holder.  Store each word in a container and sort
 it; both C++ and Java provide mechanisms for sorting so you shouldn't have to write your own sort
@@ -492,7 +492,9 @@ Java implementation follows:
     Queue<Integer> q;
     int N;
     int[][] memo;
-    void add(int n1, int n2, int t) { // If time t is the best time for position (n1, n2) - add position (n1, n2) to the queue
+    // If time t is the best time for position 
+    // (n1, n2) - add position (n1, n2) to the queue
+    void add(int n1, int n2, int t) { 
         if (n1 < 0 || n2 < 0 || n1 >= N || n2 >= 51 || memo[n1][n2] <= t) 
             return; // position is out of the text or time t isn't the best time.
         memo[n1][n2] = t;
@@ -502,7 +504,9 @@ Java implementation follows:
     public int keystrokes(String[] source, int[] start, int[] finish) {
         q = new LinkedList();
         N = source.length;
-        memo = new int[N][51]; // element (i, j) stores the best time we need to get to position (i, j) from the start
+        // element (i, j) stores the best time we 
+        // need to get to position (i, j) from the start
+        memo = new int[N][51]; 
         for (int i = 0; i < N; i++) 
             while (source[i].length() < 51) 
                 source[i] += " "; // make all strings of the same length
