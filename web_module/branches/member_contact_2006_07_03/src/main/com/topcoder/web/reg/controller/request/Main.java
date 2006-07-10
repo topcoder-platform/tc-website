@@ -112,14 +112,11 @@ public class Main extends Base {
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
-log.debug("position 0");
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
-log.debug("position 1");                
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
-log.debug("position 2");                
+                getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
-log.debug("position 3");                
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

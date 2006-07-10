@@ -56,6 +56,7 @@ public class Secondary extends Base {
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
+                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
