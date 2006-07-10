@@ -8,6 +8,25 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>11:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_6">Intel&#174; Multi-Threading Competition 6 - Analysis</A></span><br><br>
+Bin packing problems are very common and a lot of research information is
+available on the subject, as it is yet another NP Complete problem that was
+presented in the contest.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/JacoCronje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="283329" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_6">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
+       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>10:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -168,24 +187,6 @@ This SRM had a very difficult Division 1 problem set, along with an unusually ha
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.28.06<br>3:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">TCHS SRM 4 - Problem Set & Analysis</A></span><br><br>
-The fourth HS SRM (the first for group delta) proved to be the
-trickiest thus far.  Only two coders were able to solve the hard
-problem.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506026" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
 
 
 
