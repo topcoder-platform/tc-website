@@ -47,7 +47,6 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
-   <%--
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
@@ -58,8 +57,8 @@
       </td>
       <td class="valueC">
       &#160;
-      <!--CHANGE COMMENT TYPE 
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewScorecardAdmin">results</A>-->
+      <%-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewScorecardAdmin">results</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -77,7 +76,6 @@
       <A href="">discuss the project</A>
       </td>
    </tr>
-   --%>
 </table>
 
 </td>
