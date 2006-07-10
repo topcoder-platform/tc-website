@@ -8,6 +8,24 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>10:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm310">SRM 310 - Problem Set & Analysis</A></span><br><br>
+Division 1 saw an interesting match, with a reasonably easy 250 pointer, a not-so-standard medium
+problem that startled quite a lot of coders, and a hard problem worth only 900 points.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm310">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505985" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.10.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Syntax Highlighter and other features added to the arena</span><br><br>
@@ -167,20 +185,6 @@ problem.
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506026" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.28.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=217">Vote for the TCCC06 Logo</A></span><br><br>
-      The Top 10 Finalists of the TCCC06 Logo Design Contest have been posted, it's time to vote for your favorite!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=217">vote</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_overview">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
