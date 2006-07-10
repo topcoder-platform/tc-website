@@ -95,11 +95,13 @@ public class TCHandleTag implements Filter {
                     
                     // special case for admins
                     int rating = 0;
-                    if (rsc.getIntItem(0, "algorithm_rating") < 0)
-                        rating = rsc.getIntItem(0, "algorithm_rating");
-                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
-                            rsc.getIntItem(0, "design_rating"),
-                            rsc.getIntItem(0, "development_rating"));
+                    if (rsc != null && rsc.getRowCount() > 0) {
+	                    if (rsc.getIntItem(0, "algorithm_rating") < 0)
+	                        rating = rsc.getIntItem(0, "algorithm_rating");
+	                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
+	                            rsc.getIntItem(0, "design_rating"),
+	                            rsc.getIntItem(0, "development_rating"));
+                    }
                     output.append(getRatingCSS(rating));
                     
                     output.append("\">");
