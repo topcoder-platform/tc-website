@@ -61,7 +61,16 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner"><img src="/i/home/tccc06_logo_contest_winner.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
+<%-- Digital Run --%>
+<map name="digital_run">
+<area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
+<area shape="rect" alt="" coords="307,4,477,48" href="/tc?module=Static&d1=digital_run&d2=description" />
+<area shape="rect" alt="" coords="348,53,477,87" href="/tc?&ph=112&module=LeaderBoard" />
+<area shape="rect" alt="" coords="382,89,477,101" href="/tc?module=RookieBoard&ph=112" />
+<area shape="rect" alt="" coords="310,109,477,140" href="/tc?&ph=113&module=LeaderBoard" />
+<area shape="rect" alt="" coords="382,141,477,154" href="/tc?module=RookieBoard&ph=113" />
+</map>
+<IMG SRC="/i/home/digital_run_071006.gif" border="0" ALT="The Digital Run" usemap="#digital_run"/>
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
