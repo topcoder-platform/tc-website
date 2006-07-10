@@ -190,21 +190,6 @@ This SRM had a very difficult Division 1 problem set, along with an unusually ha
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%---------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.28.06<br>5:10 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=9988">Marathon Matches in the Arena Survey</A></span><br><br>
-      Would you prefer that Marathon Match participation be available in the Competition Arena?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=9988">view survey</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506062" message="discuss this" />&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-
------------------------%>
 
 </table>
 <br><br>
