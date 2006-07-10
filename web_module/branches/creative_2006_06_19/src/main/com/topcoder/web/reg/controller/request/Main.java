@@ -114,6 +114,7 @@ public class Main extends Base {
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
+                getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }
