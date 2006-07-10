@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10353806" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=071006"><strong>Breaking software for fun and profit</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jul 10, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&amp;d1=features&amp;d2=070506"><strong>Understanding your algorithm rating - and why it changes</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 5, 2006</td>
