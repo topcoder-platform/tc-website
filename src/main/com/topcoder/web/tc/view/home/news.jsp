@@ -80,7 +80,7 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
 This match continued the streak of Burunduks. 
 With the best overall score and with 3 successful submissions, <tc-webtag:handle coderId="21468741" context="algorithm"/> took first place
       </td>
-      <td class="newsPhoto"><%--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><%--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
