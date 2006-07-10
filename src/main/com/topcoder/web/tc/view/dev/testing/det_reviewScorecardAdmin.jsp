@@ -63,7 +63,7 @@ The tests in this competition will be concerned with creating, editing and viewi
 <li>JUnit</li>
 </ul>
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="">here</A>.
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">here</A>.
 <br><br>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions.
