@@ -33,7 +33,7 @@
 
 <div class="fixedWidthBody">
 <div align="center" style="margin-bottom: 10px;">
-<img src="/i/digital_run/banner.jpg" alt="The Digital Run" />
+<img src="/i/digital_run/banner.gif" alt="The Digital Run" />
 </div>
 
 <div align="center">

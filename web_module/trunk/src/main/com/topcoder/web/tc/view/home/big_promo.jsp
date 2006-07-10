@@ -14,9 +14,18 @@
 <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
 --%>
 
-<%-- Digital Run 
-<A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digital_run.jpg" border="0" ALT="The Digital Run"/></A>
---%>
+<%-- Digital Run --%>
+<map name="digital_run">
+<area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
+<area shape="rect" alt="" coords="307,4,477,48" href="/tc?module=Static&d1=digital_run&d2=description" />
+<area shape="rect" alt="" coords="348,53,477,87" href="/tc?&ph=112&module=LeaderBoard" />
+<area shape="rect" alt="" coords="382,89,477,101" href="/tc?module=RookieBoard&ph=112" />
+<area shape="rect" alt="" coords="310,109,477,140" href="/tc?&ph=113&module=LeaderBoard" />
+<area shape="rect" alt="" coords="382,141,477,154" href="/tc?module=RookieBoard&ph=113" />
+</map>
+
+<IMG SRC="/i/home/digital_run_071006.gif" border="0" ALT="The Digital Run" usemap="#digital_run"/>
+
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
@@ -33,5 +42,3 @@
 </map>
 <img src="/i/home/high_school_reg.jpg" border="0" alt="TopCoder High School" usemap="#tchs" />
 --%>
-<%-- TCCC06 logo contest --%>
-<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner"><img src="/i/home/tccc06_logo_contest_winner.gif" border="0" alt="TopCoder Collegiate Challenge Logo Contest"/></A>
