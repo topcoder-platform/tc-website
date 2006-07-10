@@ -27,7 +27,7 @@
 <!-- Left Column Begins-->
         <td width="180">
 <jsp:include page="/includes/global_left.jsp">
-<jsp:param name="node" value="dev_documentation"/>
+<jsp:param name="node" value="testing_documentation"/>
 </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -39,7 +39,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-			<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
+			<p><A href="/tc?module=Static&d1=dev&d2=testing&d3=tutorial">Back to tutorial</A></p>
 
 			<h2>Unit Tests - C#</h2>
 
@@ -138,7 +138,7 @@ public void SaveAsNull()
     test_object.SaveAs(null);
 }</pre>
 
-		<p>This code shows the power of NUnit.  The function is marked with the [Test] attribute, as normal, but there is another attribute here, ExpectedException.  If the execution of this test function does not throw an exception, of the type marked, the test will fail.  Alternatively, you can use Assert.Fail(string message) to immediately fail a test.  See the <a href="/tc?module=Static&d1=dev&d2=support&d3=devUnitTestsJava">Java section of this tutorial</a> for more failure testing strategy.</p>
+		<p>This code shows the power of NUnit.  The function is marked with the [Test] attribute, as normal, but there is another attribute here, ExpectedException.  If the execution of this test function does not throw an exception, of the type marked, the test will fail.  Alternatively, you can use Assert.Fail(string message) to immediately fail a test.  See the <A href="/tc?module=Static&d1=dev&d2=support&d3=testingUnitTestsJava">Java section of this tutorial</a> for more failure testing strategy.</p>
 		<p>Note that so far, we have a bit of duplicate code. Also, you may have wondered,&nbsp;what if the output files are somehow already on the system? How can I guarantee a clean environment and reduce code duplication?</p>		<span class=bodySubtitle>[SetUp] and [TearDown]</span>
 		<p>The solution to all these questions is provided by the NUnit Framework. You can add functions which will be called before and after each test function. Let's move the duplicate code into TestSetUp(), and use both functions to ensure our environment is clean.</p>
 
@@ -175,7 +175,7 @@ public void TestTearDown()
 		<pre>nant test</pre>
 		<p>If all your tests compile, they'll run. The results will be logged in the <font face="Courier New" size="2">log/</font> directory, in a text file.  You can read the log to find which tests passed, which tests failed, and the reasons for failure.</p>
 
-			<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
+			<p><A href="/tc?module=Static&d1=dev&d2=testing&d3=tutorial">Back to tutorial</A></p>
 			<p><br/></p>
         </td>
 <!-- Center Column Ends -->

@@ -74,8 +74,8 @@ Once you have received all of your documentation and have an understanding of th
 <strong>Test Case Development</strong><br>
 Test case development is really where you can make your submission stand out.  Each language is a bit different for testing purposes.
 <ul>
-<li><A href="/tc?module=Static&d1=dev&d2=support&d3=devUnitTestsCSharp">Writing C# Unit Tests</A></li>
-<li><A href="/tc?module=Static&d1=dev&d2=support&d3=devUnitTestsJava">Writing Java Unit Tests</A></li>
+<li><A href="/tc?module=Static&d1=dev&d2=support&d3=testingUnitTestsCSharp">Writing C# Unit Tests</A></li>
+<li><A href="/tc?module=Static&d1=dev&d2=support&d3=testingUnitTestsJava">Writing Java Unit Tests</A></li>
 </ul>
 It can be very tempting to simply aggregate all of your unit tests into one function. However, this greatly reduces the utility of your tests. In our example above, we could easily combine all three test functions into a single function, testSaveAs(). Instead of having three tests, we now only have one. If any of the three behaviors are broken, all tests will fail. In larger scale testing, this composite testing methodology can lead to very confusing failure conditions, and it can become difficult to debug your testing code. The smaller and more atomic your tests become, the more obvious the failure point and probable cause generally are.
 <ul>
