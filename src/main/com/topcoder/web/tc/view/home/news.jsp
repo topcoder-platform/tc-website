@@ -8,6 +8,36 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.10.06<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Syntax Highlighter and other features added to the arena</span><br><br>
+      We've added full syntax highlighting support to the standard editor and challenge views in the arena, along with several other features which you can find in the arena change log.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506067" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>9:35 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm5">TCHS SRM 5 - Problem Set & Analysis</A></span><br><br>
+This match continued the streak of Burunduks. 
+With the best overall score and with 3 successful submissions, <tc-webtag:handle coderId="21468741" context="algorithm"/> took first place
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm5">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506027" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.06.06<br>11:05 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Competition systems downtime for scheduled maintenance: 07.07</span><br><br>
@@ -153,69 +183,6 @@ problem.
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.26.06<br>2:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm308">SRM 308 - Problem Set & Analysis</A></span><br><br>
-In both divisions, the first two problems were rather easy and standard, but the third caused some troubles.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm308">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505983" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.26.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_062606">Bloomberg L.P. Named Premier Sponsor of TCCC06</A></span><br><br>
-      Leading Global Provider of Data, News and Analytics Backs Top Computer Science Tournament.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_062606">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506059" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.26.06<br>9:10 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062606">So I see you're a member of TopCoder&#8230;</A></span><br><br>
-       &#8230;Tell me about that. If your resume includes some mention of TopCoder, then you might have heard this during a job interview.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=062606">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506060" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.21.06<br>12:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">Marathon Match 2 - Analysis</A></span><br><br>
-Many of us probably played MasterMind as children.  However, the MasterMind we
-played had no more than 6 pegs, and about 6 colors.
-      </td>
-      <td class="newsPhoto">by <tc-webtag:handle coderId="159052" /><br>and <tc-webtag:handle coderId="274023" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_2">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506052" message="discuss this" />&#160;|&#160;
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 
 </table>
