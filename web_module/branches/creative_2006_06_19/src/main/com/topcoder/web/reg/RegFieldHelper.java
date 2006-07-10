@@ -22,6 +22,7 @@ public class RegFieldHelper {
     private static Set mainCorpFields = new HashSet();
     private static Set mainMinFields = new HashSet();
     private static Set mainSoftwareFields = new HashSet();
+    private static Set mainCreativeFields = new HashSet();
 
     private static Set secondaryHSFields = new HashSet();
     private static Set secondaryCompStudentFields = new HashSet();
@@ -29,12 +30,15 @@ public class RegFieldHelper {
     private static Set secondaryCorpFields = new HashSet();
     private static Set secondaryMinFields = new HashSet();
     private static Set secondarySoftwareFields = new HashSet();
+    private static Set secondaryCreativeStudentFields = new HashSet();
+    private static Set secondaryCreativeProFields = new HashSet();
 
     private static Set requiredMainHSFields = new HashSet();
     private static Set requiredMainCompFields = new HashSet();
     private static Set requiredMainCorpFields = new HashSet();
     private static Set requiredMainMinFields = new HashSet();
     private static Set requiredMainSoftwareFields = new HashSet();
+    private static Set requiredMainCreativeFields = new HashSet();
 
     private static Set requiredSecondaryHSFields = new HashSet();
     private static Set requiredSecondaryCompStudentFields = new HashSet();
@@ -42,6 +46,8 @@ public class RegFieldHelper {
     private static Set requiredSecondaryCorpFields = new HashSet();
     private static Set requiredSecondaryMinFields = new HashSet();
     private static Set requiredSecondarySoftwareFields = new HashSet();
+    private static Set requiredSecondaryCreativeStudentFields = new HashSet();
+    private static Set requiredSecondaryCreativeProFields = new HashSet();
 
 
     static {
@@ -255,6 +261,68 @@ public class RegFieldHelper {
         //secondary page for min reg is empty
     }
 
+    static {
+        mainCreativeFields.add(Constants.GIVEN_NAME);
+        mainCreativeFields.add(Constants.SURNAME);
+        mainCreativeFields.add(Constants.ADDRESS1);
+        mainCreativeFields.add(Constants.ADDRESS2);
+        mainCreativeFields.add(Constants.ADDRESS3);
+        mainCreativeFields.add(Constants.CITY);
+        mainCreativeFields.add(Constants.STATE_CODE);
+        mainCreativeFields.add(Constants.POSTAL_CODE);
+        mainCreativeFields.add(Constants.PROVINCE);
+        mainCreativeFields.add(Constants.COUNTRY_CODE);
+        mainCreativeFields.add(Constants.PHONE_NUMBER);
+        mainCreativeFields.add(Constants.HANDLE);
+        mainCreativeFields.add(Constants.PASSWORD);
+        mainCreativeFields.add(Constants.PASSWORD_CONFIRM);
+        mainCreativeFields.add(Constants.EMAIL);
+        mainCreativeFields.add(Constants.EMAIL_CONFIRM);
+        mainCreativeFields.add(Constants.NOTIFICATION);
+        mainCreativeFields.add(Constants.COMP_COUNTRY_CODE);
+        mainCreativeFields.add(Constants.CODER_TYPE);
+        mainCreativeFields.add(Constants.TIMEZONE);
+
+        requiredMainCreativeFields.add(Constants.GIVEN_NAME);
+        requiredMainCreativeFields.add(Constants.SURNAME);
+        requiredMainCreativeFields.add(Constants.ADDRESS1);
+        requiredMainCreativeFields.add(Constants.CITY);
+        requiredMainCreativeFields.add(Constants.COUNTRY_CODE);
+        requiredMainCreativeFields.add(Constants.HANDLE);
+        requiredMainCreativeFields.add(Constants.PASSWORD);
+        requiredMainCreativeFields.add(Constants.PASSWORD_CONFIRM);
+        requiredMainCreativeFields.add(Constants.EMAIL);
+        requiredMainCreativeFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainCreativeFields.add(Constants.COMP_COUNTRY_CODE);
+        requiredMainCreativeFields.add(Constants.CODER_TYPE);
+        requiredMainCreativeFields.add(Constants.TIMEZONE);
+
+        secondaryCreativeStudentFields.add(Constants.DEMOG_PREFIX);
+        secondaryCreativeStudentFields.add(Constants.VISIBLE_SCHOOL);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_NAME);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_CITY);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_ID);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_PROVINCE);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_STATE);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_COUNTRY);
+        secondaryCreativeStudentFields.add(Constants.SCHOOL_TYPE);
+
+        requiredSecondaryCreativeStudentFields.add(Constants.VISIBLE_SCHOOL);
+        requiredSecondaryCreativeStudentFields.add(Constants.SCHOOL_NAME);
+        requiredSecondaryCreativeStudentFields.add(Constants.SCHOOL_CITY);
+        requiredSecondaryCreativeStudentFields.add(Constants.SCHOOL_ID);
+        requiredSecondaryCreativeStudentFields.add(Constants.SCHOOL_COUNTRY);
+        requiredSecondaryCreativeStudentFields.add(Constants.SCHOOL_TYPE);
+
+        secondaryCreativeProFields.add(Constants.DEMOG_PREFIX);
+        secondaryCreativeProFields.add(Constants.TITLE);
+        secondaryCreativeProFields.add(Constants.COMPANY_NAME);
+
+        requiredSecondaryCreativeProFields.add(Constants.TITLE);
+        requiredSecondaryCreativeProFields.add(Constants.COMPANY_NAME);
+
+
+    }
 
     /**
      * Figure out what registration fields are relevant for the given set of registration types
@@ -349,6 +417,12 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainSoftwareFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.CREATIVE_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainCreativeFields);
+                    } else {
+                        ret.addAll(mainCreativeFields);
+                    }
                 }
             } else if (regTypes.contains(curr) && !currentTypes.contains(curr)) {
                 //the user creating a registration for the specified type
@@ -381,6 +455,12 @@ public class RegFieldHelper {
                         ret.addAll(requiredMainSoftwareFields);
                     } else {
                         ret.addAll(mainSoftwareFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.CREATIVE_ID)) {
+                    if (required) {
+                        ret.addAll(requiredMainCreativeFields);
+                    } else {
+                        ret.addAll(mainCreativeFields);
                     }
                 }
             }
@@ -420,7 +500,7 @@ public class RegFieldHelper {
                     if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompProFields);
+                            ret.addAll(requiredSecondaryCompProFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompProFields);
@@ -439,7 +519,7 @@ public class RegFieldHelper {
                     if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompStudentFields);
+                            ret.addAll(requiredSecondaryCompStudentFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompStudentFields);
@@ -474,6 +554,31 @@ public class RegFieldHelper {
                         ret.addAll(requiredSecondarySoftwareFields);
                     } else {
                         ret.addAll(secondarySoftwareFields);
+                    }
+                } else if (curr.getId().equals(RegistrationType.CREATIVE_ID)) {
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
+                    {
+                        if (required) {
+                            ret.addAll(requiredSecondaryCreativeProFields);
+                        } else {
+                            ret.addAll(secondaryCompProFields);
+                        }
+                        if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                            //remove these because if they are registering for competitions as a pro
+                            //and they are corporate, they answered these questions on the first page already
+                            ret.remove(Constants.COMPANY_NAME);
+                            ret.remove(Constants.TITLE);
+                        }
+                    } else
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
+                    {
+                        if (required) {
+                            ret.addAll(requiredSecondaryCompStudentFields);
+                        } else {
+                            ret.addAll(secondaryCompStudentFields);
+                        }
+                    } else {
+                        throw new RuntimeException("Invalid coder type " + user.getCoder().getCoderType().getId());
                     }
                 }
 
@@ -530,6 +635,34 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(secondarySoftwareFields);
                     }
+                } else if (curr.getId().equals(RegistrationType.CREATIVE_ID)) {
+                    ct = user.getCoder().getCoderType();
+                    if (ct == null) {
+                        throw new RuntimeException("User had no coder type");
+                    } else {
+                        if (ct.getId().equals(CoderType.PROFESSIONAL)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryCreativeProFields);
+                            } else {
+                                ret.addAll(secondaryCreativeProFields);
+                            }
+                            if (regTypes.contains(corp) || regTypes.contains(tcs)) {
+                                //remove these because if they are registering for competitions as a pro
+                                //and they are corporate, they answered these questions on the first page already
+                                ret.remove(Constants.COMPANY_NAME);
+                                ret.remove(Constants.TITLE);
+                            }
+                        } else if (ct.getId().equals(CoderType.STUDENT)) {
+                            if (required) {
+                                ret.addAll(requiredSecondaryCreativeStudentFields);
+                            } else {
+                                ret.addAll(secondaryCreativeStudentFields);
+                            }
+                        } else {
+                            throw new RuntimeException("Invalid coder type " + ct.getId());
+                        }
+                    }
+
                 }
             }
         }
