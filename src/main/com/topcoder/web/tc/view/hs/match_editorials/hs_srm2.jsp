@@ -94,7 +94,7 @@ The Problems
 
  
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2">
+Used as: Level One: <blockquote><table cellspacing="2">
 
  
 
@@ -311,7 +311,7 @@ The most common error on this problem was the lack of '=' in the if, causing eit
 
  
 
-Used as: Division One - Level Two: <blockquote><table cellspacing="2">
+Used as: Level Two: <blockquote><table cellspacing="2">
 
  
 
@@ -539,7 +539,7 @@ For testing purposes the 100,000th beastly number is 22,230,666, the 1,000,000th
 
  
 
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+Used as: Level Three: <blockquote><table cellspacing="2">
 
  
 

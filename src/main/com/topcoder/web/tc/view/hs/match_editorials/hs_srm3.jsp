@@ -62,7 +62,7 @@ name="6440">BestSeller</a></b>
 </font>
 <A href="Javascript:openProblemRating(6440)"><img src="/i/rate_it.gif"
 hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506025"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division One - Level One: <blockquote><table cellspacing="2">
+CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Level One: <blockquote><table cellspacing="2">
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
       <b>Value</b> 
@@ -138,7 +138,7 @@ name="5989">KidsWordGame</a></b>
 </font>
 <A href="Javascript:openProblemRating(5989)"><img src="/i/rate_it.gif"
 hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506025"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division One - Level Two: <blockquote><table cellspacing="2">
+CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Level Two: <blockquote><table cellspacing="2">
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
       <b>Value</b> 
@@ -220,7 +220,7 @@ name="5987">BestDecomposition</a></b>
 </font>
 <A href="Javascript:openProblemRating(5987)"><img src="/i/rate_it.gif"
 hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506025"
-CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Level Three: <blockquote><table cellspacing="2">
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
       <b>Value</b> 
