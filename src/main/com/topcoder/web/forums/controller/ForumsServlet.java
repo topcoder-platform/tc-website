@@ -48,59 +48,59 @@ public class ForumsServlet extends BaseServlet {
         SessionInfo info = null;
 
         try {
-            request.setCharacterEncoding("utf-8");
-            if (log.isDebugEnabled()) {
-                log.debug("content type: " + request.getContentType());
-            }
-
-            AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
-                authToken = AuthFactory.getAuthToken(request, response);
-            } catch (UnauthorizedException uae) {
-            }
-
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            //set up security objects and session info
-            authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject user = getUser(authentication.getActiveUser().getId());
-            info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
-            if (log.isDebugEnabled()) {
-                log.debug("uri: " + request.getRequestURL().toString());
-            }
-            if (!authentication.getActiveUser().isAnonymous() &&
-                    !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
+                request.setCharacterEncoding("utf-8");
                 if (log.isDebugEnabled()) {
-                    log.debug("using an uncached response");
+                    log.debug("content type: " + request.getContentType());
                 }
-                tcResponse = HttpObjectFactory.createUnCachedResponse(response);
-            }
-            //todo perhaps this should be configurable...so implementing classes
-            //todo don't have to do it if they don't want to
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-            com.jivesoftware.base.User forumUser = null;
-            ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-            if (!authToken.isAnonymous()) {
-                forumUser = forumFactory.getUserManager().getUser(authToken.getUserID());
-            }
+                AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+                try {
+                    authToken = AuthFactory.getAuthToken(request, response);
+                } catch (UnauthorizedException uae) {
+                }
 
-            StringBuffer loginfo = new StringBuffer(100);
-            loginfo.append("[* ");
-            loginfo.append(info.getHandle());
-            loginfo.append(" * ");
-            loginfo.append(request.getRemoteAddr());
-            loginfo.append(" * ");
-            loginfo.append(request.getMethod());
-            loginfo.append(" ");
-            loginfo.append(info.getRequestString());
-            loginfo.append(" *]");
-            log.info(loginfo);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 
-            try {
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+                //set up security objects and session info
+                authentication = createAuthentication(tcRequest, tcResponse);
+                TCSubject user = getUser(authentication.getActiveUser().getId());
+                info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
+                if (log.isDebugEnabled()) {
+                    log.debug("uri: " + request.getRequestURL().toString());
+                }
+                if (!authentication.getActiveUser().isAnonymous() &&
+                        !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("using an uncached response");
+                    }
+                    tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                }
+                //todo perhaps this should be configurable...so implementing classes
+                //todo don't have to do it if they don't want to
+                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+                com.jivesoftware.base.User forumUser = null;
+                ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+                if (!authToken.isAnonymous()) {
+                    forumUser = forumFactory.getUserManager().getUser(authToken.getUserID());
+                }
+
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[* ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" * ");
+                loginfo.append(request.getRemoteAddr());
+                loginfo.append(" * ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" *]");
+                log.info(loginfo);
+
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                     if (cmd.equals(""))
