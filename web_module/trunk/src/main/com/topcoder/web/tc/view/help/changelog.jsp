@@ -45,6 +45,7 @@
         <li>Fix bug in the password reminder system</li>
         <li>New site terms of use. The new terms don't include the clause about users notifying TopCoder if they are
             contacted by a 3rd party.</li>
+        <li>Fix bug that caused error if one left fields blank while filling out employment preferences</li>
     </ul>
 </p>
 
