@@ -68,16 +68,16 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="">here</A>.<br><br>
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">here</A>.<br><br>
 
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $1,000
+Total Payment - $2,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $500
+Total Payment - $1,000
 <br><br>
 <div class="sectionHeader">Eligibility</div>
 You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.
@@ -101,19 +101,19 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">07.06.2006</td><td align="right">07.13.2006</td>
+      <td>Team Creation:</td><td align="right">07.11.2006</td><td align="right">07.19.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">07.14.2006</td><td align="right">07.24.2006</td>
+      <td>Competition Phase:</td><td align="right">07.19.2006</td><td align="right">07.27.2006</td>
    </tr>
    <tr>
-      <td>Test Challenge Phase:</td><td align="right">07.25.2006</td><td align="right">07.26.2006</td>
+      <td>Test Challenge Phase:</td><td align="right">07.28.2006</td><td align="right">07.31.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">07.27.2006</td><td align="right">08.09.2006</td>
+      <td>Review Phase:</td><td align="right">08.01.2006</td><td align="right">08.14.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">08.10.2006</td><td align="right">08.11.2006</td>
+      <td>Feedback Phase:</td><td align="right">08.15.2006</td><td align="right">08.16.2006</td>
    </tr>
 </table>
 </div>
