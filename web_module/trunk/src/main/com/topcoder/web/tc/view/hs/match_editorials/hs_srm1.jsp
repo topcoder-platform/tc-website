@@ -102,7 +102,7 @@ The Problems
 
 <br>
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2">
+Used as: Level One: <blockquote><table cellspacing="2">
 
   <tr>
 
@@ -238,7 +238,7 @@ saving valuable coding time and, more importantly, catching some errors before y
 
 <br>
 
-Used as: Division One - Level Two: <blockquote><table cellspacing="2">
+Used as: Level Two: <blockquote><table cellspacing="2">
 
   <tr>
 
@@ -408,7 +408,7 @@ of where and why floating point arithmetic can fail in a contest.</p>
 
 <br>
 
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+Used as: Level Three: <blockquote><table cellspacing="2">
 
   <tr>
 

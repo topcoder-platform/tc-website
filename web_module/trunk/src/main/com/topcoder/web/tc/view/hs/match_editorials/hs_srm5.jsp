@@ -76,7 +76,7 @@ The Problems
 
 <br> 
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
+Used as: Level One: <blockquote><table cellspacing="2"> 
 
   <tr> 
 
@@ -216,7 +216,7 @@ Having this formula, we can easily find h (don't forget to use long variables to
 
 <br> 
 
-Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
+Used as: Level Two: <blockquote><table cellspacing="2"> 
 
   <tr> 
 
@@ -389,7 +389,7 @@ public String wordSort(String sentence)
 
 <br> 
 
-Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
+Used as: Level Three: <blockquote><table cellspacing="2"> 
 
   <tr> 
 

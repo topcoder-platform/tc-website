@@ -77,7 +77,7 @@ The Problems
 
 <br>
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2">
+Used as: Level One: <blockquote><table cellspacing="2">
 
   <tr>
 
@@ -192,7 +192,7 @@ two potential errors that should be avoided.
 
 <br>
 
-Used as: Division One - Level Two: <blockquote><table cellspacing="2">
+Used as: Level Two: <blockquote><table cellspacing="2">
 
   <tr>
 
@@ -336,7 +336,7 @@ are longer than the measures (above we check acc / len > 1).
 
 <br>
 
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+Used as: Level Three: <blockquote><table cellspacing="2">
 
   <tr>
 
