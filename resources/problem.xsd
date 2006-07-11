@@ -20,6 +20,8 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
+		<xs:enumeration value="int[][]"/>
+        <xs:enumeration value="long[][]"/>
     </xs:restriction>
 </xs:simpleType>
 
@@ -95,6 +97,7 @@
         <xs:group ref="inline"/>
         <xs:group ref="block"/>
     </xs:choice>
+	<xs:attribute name="escaped" type="xs:boolean" use="optional"/>
 </xs:complexType>
 
 <xs:complexType name="inline" mixed="true">
