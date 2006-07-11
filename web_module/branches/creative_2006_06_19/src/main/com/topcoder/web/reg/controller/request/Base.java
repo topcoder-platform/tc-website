@@ -141,6 +141,7 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
+        ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
