@@ -40,7 +40,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.3.8 - 2006.06.xx
+    5.3.8 - 2006.07.11
     <ul>
         <li>Fix bug in the password reminder system</li>
         <li>New site terms of use. The new terms don't include the clause about users notifying TopCoder if they are
