@@ -46,6 +46,7 @@
 
 <!-- 2006 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
+<%--<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_071206">UBS Extends Premier Sponsorship of TopCoder Events</A> [July 12]<br/></td></tr>--%>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_062606">TopCoder Announces Bloomberg L.P. As Premier Sponsor of TCCC06</A> [June 26]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_061906">AOL Named Title Sponsor of 2006 TopCoder Collegiate Challenge</A> [June 19]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060706">Science Museum of Minnesota Partners with TopCoder High School Competitions</A> [June 7]<br/></td></tr>
