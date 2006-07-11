@@ -158,9 +158,12 @@ abstract public class ContractingBase extends BaseProcessor {
             int[] textPreferences = new int[]{12, 14, 15, 16, 17, 18};
             for (int i = 0; i < textPreferences.length; i++) {
                 String preference = info.getPreference(Integer.toString(textPreferences[i]));
-                int length = preference.length();
-                if (length >= 255) {
-                    addError(Constants.PREFERENCE_PREFIX + textPreferences[i], "This field is limited to 254 characters, you entered " + length + ".");
+                if (preference != null) {
+                    //we can do it this way, because it has already been checked for null and errors added for the user
+                    int length = preference.length();
+                    if (length >= 255) {
+                        addError(Constants.PREFERENCE_PREFIX + textPreferences[i], "This field is limited to 254 characters, you entered " + length + ".");
+                    }
                 }
             }
 
