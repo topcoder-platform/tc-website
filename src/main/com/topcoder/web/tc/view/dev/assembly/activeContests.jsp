@@ -64,16 +64,16 @@
       &#160;
       </td>
       <td class="valueC">
-      07.13.2006 9:00 PM EST
+      07.19.2006 9:00 PM EST
       </td>
       <td class="valueC">
-      07.24.2006 9:00 PM EST
+      07.27.2006 9:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
 
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
-      <A href="">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">discuss the project</A>
       </td>
    </tr>
 </table>

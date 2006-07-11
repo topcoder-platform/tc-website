@@ -117,7 +117,7 @@ Once you have reviewed all of the test cases, you will have the opportunity to p
 <span class="bodySubtitle">Submission</span><br>
 You will package your submission and upload the submission to Project Submit and Review.  
 <br><br>
-<span class="bigRed">NOTE: For the Time Tracker Application, you will email your submission to TopCoder.  Your solution will be packaged based on the script attached with the distribution.  Please verify that your deployment documentation and all source code is packaged in your submission.</span>
+<span class="bigRed">NOTE: For the Online Review Application, you will email your submission to TopCoder.  Your solution will be packaged based on the script attached with the distribution.  Please verify that your deployment documentation and all source code is packaged in your submission.</span>
 <br><br>
 <span class="bodySubtitle">Review</span><br>
 The submission is now out of your hands, and the Review Board will judge it on the scorecard, which you can find <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sampleScorecard">here</A>.  Sit back, relax and wait for your chance to appeal the review.
