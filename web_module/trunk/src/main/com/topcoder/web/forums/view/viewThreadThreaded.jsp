@@ -212,7 +212,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                 int ratingCount = -1;
                 int posRatings = -1; 
                 int negRatings = -1; %> 
-            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
+            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap; word-wrap: break-word; ">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
                       <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
@@ -246,19 +246,23 @@ function displayVotes(messageID, posVotes, negVotes) {
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
       %>
       <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
-      <td class="rtPosterCell">
-         <div class="rtPosterSpacer">
-         <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-            <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
-         <%  } %>
-         <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
-         </div>
-      </td>
-      <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
-      <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
-      <%   } else { %>
-      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
-      <%   } %>
+	      <td class="rtPosterCell">
+	         <div class="rtPosterSpacer">
+	         <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
+	            <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	         <%  } %>
+	         <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
+	         </div>
+	      </td>
+	      <%   if (ForumsUtil.highlightPost(user, pct, ratingCount)) { %>
+	      <td class="rtTextCellHlt" width="100%"><jsp:getProperty name="message" property="body"/></td>
+	      <%   } else { %>
+	      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
+	      <%   } %>
+      </tr>
+      <tr>
+	      <td></td>
+	      <td width="100%"></td>
       </tr>
 </table>
 </div>

@@ -276,6 +276,10 @@ function displayVotes(messageID, posVotes, negVotes) {
       <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
       <%   } %>
    </tr>
+   <tr>
+      <td></td>
+      <td width="100%"></td>
+   </tr>
 </table>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
