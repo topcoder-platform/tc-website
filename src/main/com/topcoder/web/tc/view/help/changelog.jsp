@@ -46,6 +46,7 @@
         <li>New site terms of use. The new terms don't include the clause about users notifying TopCoder if they are
             contacted by a 3rd party.</li>
         <li>Fix bug that caused error if one left fields blank while filling out employment preferences</li>
+        <li>Added hs members to member search and corresponding fields to advanced search</li>
     </ul>
 </p>
 
