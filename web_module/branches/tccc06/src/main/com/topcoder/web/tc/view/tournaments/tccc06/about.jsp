@@ -30,7 +30,7 @@ Calling all college students! Welcome to the 2006 TopCoder Collegiate Challenge 
 <ul>
 <li>Algorithm Competition
 <ul><li>Registration begins August 28, 2006</li></ul></li>
-<li>Component Design Competition
+<li>Component Design Competition 
 <ul><li>Registration begins July 31, 2006</li></ul></li>
 <li>Component Development Competition
 <ul><li>Registration begins July 31, 2006</li></ul></li>
