@@ -17,8 +17,26 @@
     <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <jsp:include page="baseHRef.jsp" />
-    <jsp:include page="../script.jsp" />
+    <jsp:include page="/script.jsp" />
 
+<script type="text/javascript">
+var objPopUp = null;
+function popUp(event,objectID){
+objPopTrig = document.getElementById(event);
+objPopUp = document.getElementById(objectID);
+xPos = objPopTrig.offsetLeft+15;
+yPos = objPopTrig.offsetTop + objPopTrig.offsetHeight - 5;
+if(xPos + objPopUp.offsetWidth > document.body.clientWidth) xPos = xPos - objPopUp.offsetWidth;
+if(yPos + objPopUp.offsetHeight > document.body.clientHeight) yPos = yPos - objPopUp.offsetHeight - objPopTrig.offsetHeight;
+objPopUp.style.left = xPos + 'px';
+objPopUp.style.top = yPos + 'px';
+objPopUp.style.visibility = 'visible';
+}
+function popHide(){
+objPopUp.style.visibility = 'hidden';
+objPopUp = null;
+}
+</script>
 <STYLE TYPE="text/css">
 .popper{display:block; margin: 0px auto 0px auto;}
 #container{text-align: center;position: relative;margin: 0px;padding: 0px;}
@@ -68,12 +86,12 @@ z-index: 1;
 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Development Current Projects"/>
+    <jsp:param name="title" value="Component Development Current Contests"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="../page_title.jsp" >
     <jsp:param name="image" value="statistics_w"/>
-    <jsp:param name="title" value="Component Design Current Projects"/>
+    <jsp:param name="title" value="Component Design Current Contests"/>
     </jsp:include>
 <% } %>
 
@@ -86,11 +104,11 @@ z-index: 1;
     <% } %>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-    &#160;|&#160;
-    <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition History</A>
-    &#160;|&#160;Current Projects<br><br>
-	</span>
+ | <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition History</A>
+ | Current Contests
+   </span>
 
+<div class="pagingBox" style="clear:both;">&#160;</div>
 
   <table class="stat" cellpadding="0" cellspacing="0" width="100%">
      <tr><td class="title" colspan="10">
@@ -100,14 +118,20 @@ z-index: 1;
      <% } else { %>
         Design
      <% } %>
-		Projects
+      Contests
      </td></tr>
      <tr>
         <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a></TD>
-        <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a></TD>
-        <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
-        <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a></TD>
-        <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
+        <TD CLASS="header" width="40%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Component</a></TD>
+        <TD CLASS="headerC" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
+        <TD CLASS="headerC" width="20%">
+<div id="container">
+<img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+<div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
+</div>
+<a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a>
+         </TD>
+        <TD CLASS="headerR" width="20%">&#160;</TD>
      </tr>
      <%boolean even = false;%>
      <rsc:iterator list="<%=rsc2%>" id="resultRow">
