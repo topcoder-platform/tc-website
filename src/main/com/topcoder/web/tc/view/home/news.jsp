@@ -22,7 +22,7 @@
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 ----------------------%>
-<%----------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_071206">UBS Extends Premier Sponsorship of TopCoder Events</A></span><br><br>
@@ -34,7 +34,7 @@
        <tc-webtag:forumLink forumID="506069" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
-----------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.11.06<br>12:35 PM</td>
@@ -205,22 +205,6 @@ This SRM had a very difficult Division 1 problem set, along with an unusually ha
        <A href="/http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">listen</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506065" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.05.06<br>10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=070506">Understanding your algorithm rating - and why it changes</A></span><br><br>
-       This article will attempt to explain, in less precise but more accessible terms, how your rating is adjusted after each match.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=070506">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506063" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 
