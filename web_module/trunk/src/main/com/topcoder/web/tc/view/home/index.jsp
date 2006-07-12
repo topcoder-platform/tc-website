@@ -249,15 +249,14 @@
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-<%--
+
                 <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
-                <i>Mass High Tech</i> features TopCoder staff
-                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A>&#160;|&#160;
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>
-...more</A><br>[July 5]<br><br>
---%>
+                    <img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Java Posse" border="0"/></div>
+                <i>Mass High Tech</i> features TopCoder staff<br>
+                <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A><br>
+       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A><br>
+       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>[July 12]<br><br>
+
                 UBS Extends Premier Sponsorship of TopCoder Events
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_071206">...more</A><br>[July 12]<br><br>
 
@@ -274,10 +273,10 @@
 
                 Science Museum of Minnesota Partners with TopCoder High School Competitions
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_060706">...more</A><br>[June 7]<br><br>
-                
+<%--                
                 AOL, Bloomberg, UBS and NSA Announced as Sponsors/Patrons of 2006 TopCoder Collegiate Challenge
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_060606">...more</A><br>[June 6]<br><br>
-                
+--%>                
             </td>
         </tr>
     </table>

@@ -6,9 +6,9 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-<%----------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><i>Mass High Tech</i> features TopCoder staff</span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
       The latest issue of <i>Mass High Tech</i> names TheFaxman one of the six best programmers in New England, and features an article from FogleBird on identifying talented developers.  
@@ -18,10 +18,10 @@
        <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A>&#160;|&#160;
        <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
        <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>
-       <tc-webtag:forumLink forumID="506069" message="discuss this" />&#160;|&#160;
+       <tc-webtag:forumLink forumID="506070" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
-----------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>9:00 AM</td>
@@ -191,20 +191,6 @@ This SRM had a very difficult Division 1 problem set, along with an unusually ha
          <A href="/tc?module=SurveyResults&sid=217">vote results</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/headphones.gif" alt="Press Releases & Articles" border="0" /><br>07.05.06<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">Java Posse - Interviews from Topcoder and Java One</A> [PODCAST]</span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/javaPosse_logo.gif" width="68" height="31" alt="Java Posse" border="0"/></div>
-      This is a pair of previously un-aired interviews. The first was recorded by Joe, Carl and Dick at TopCoder with Ari Balogh, Vice President of Engineering for Verisign Inc. It is a short but technically meaty interview.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/http://media32b.libsyn.com/aHeceJl2a3eTdmd2bHOcq5qkZnaZ/podcasts/dickwall/JavaPosse065.mp3">listen</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506065" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=home&d2=news_archive_podcast">archive</A>
    </td></tr>
 
 
