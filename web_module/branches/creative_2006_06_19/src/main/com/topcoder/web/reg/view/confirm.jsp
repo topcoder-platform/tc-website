@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
