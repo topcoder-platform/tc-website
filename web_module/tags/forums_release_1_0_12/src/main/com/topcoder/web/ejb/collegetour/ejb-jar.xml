@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+        "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>College Tour Jar</description>
+    <display-name>College Tour Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>College Tour Registration EJB</description>
+            <display-name>College Tour Registration EJB</display-name>
+            <ejb-name>Registration</ejb-name>
+            <home>com.topcoder.web.ejb.collegetour.RegistrationHome</home>
+            <remote>com.topcoder.web.ejb.collegetour.Registration</remote>
+            <local-home>com.topcoder.web.ejb.collegetour.RegistrationLocalHome</local-home>
+            <local>com.topcoder.web.ejb.collegetour.RegistrationLocal</local>
+            <ejb-class>com.topcoder.web.ejb.collegetour.RegistrationBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Bean</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Registration</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
+
+
