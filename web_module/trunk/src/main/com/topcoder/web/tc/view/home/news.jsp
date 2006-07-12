@@ -41,7 +41,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm6">TCHS SRM 6 - Problem Set & Analysis</A></span><br><br>
-The High Schools matches are heating up, with quite a lot of registrants and yet another match with a reasonably hard medium.
+The High School matches are heating up, with quite a lot of registrants and yet another match with a reasonably hard medium.
       </td>
       <td class="newsPhoto"><img src="/i/m/myprasanna_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13366203" context="algorithm"/></td></tr></table>
       </td>
