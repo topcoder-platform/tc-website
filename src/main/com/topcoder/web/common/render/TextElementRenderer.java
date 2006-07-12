@@ -26,10 +26,16 @@ public class TextElementRenderer extends BaseRenderer implements ElementRenderer
     }
 
     public String toHTML(Language language) {
+        if (textElement.isEscapedText()) {
+            return textElement.getEditableText();
+        }
         return super.encodeHTML(textElement.getEditableText());
     }
 
     public String toPlainText(Language language) {
+        if (textElement.isEscapedText()) {
+            return TextElement.decodeHTML(textElement.getEditableText());
+        }
         return textElement.getEditableText();
     }
 }
