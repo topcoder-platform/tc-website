@@ -50,12 +50,14 @@ Are you up to the challenge?
         
          
 <!-- Right Column-->
+<td>&#160;</td>
+<%--
         <td width="170" align="right">
             <jsp:include page="right.jsp">
             <jsp:param name="level1" value="bloomberg"/>
             </jsp:include>
          </td>
-      
+--%>      
    </tr>
    
 </table>

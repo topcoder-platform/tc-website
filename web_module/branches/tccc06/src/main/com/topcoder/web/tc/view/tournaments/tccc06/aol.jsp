@@ -22,15 +22,12 @@
    <tr valign="top">
       <td valign="top" align="center">
             <br>
-<div align="center"><img src="/i/tournament/tccc06/aol_landing.jpg" alt="Wanna Be an All-American Coder?" border="0" /></div>
+<map name="aol">
+<area shape="rect" alt="" coords="435,439,533,453" href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank" />
+<area shape="rect" alt="" coords="488,510,596,525" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_recruiting" />
+</map>
+<div align="center"><IMG SRC="/i/tournament/tccc06/aol_landing.jpg" border="0" ALT="Wanna Be an All-Star Coder" usemap="#aol"/></div>
 <br><br>
-
-<%--<div align="center">
-<a href="/?t=sponsor&c=link&link=http://developer.AOL.com/">Join AOL Developer Central</a>
-&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=AOL_chat_031706">SRM 293 Chat Transcript</A>
-&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=AOL_chat_040306">SRM 296 Chat Transcript</A>
-</div>
-<br><br>--%>
       </td>
 
 <!-- Right Column-->
