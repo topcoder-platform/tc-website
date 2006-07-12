@@ -336,13 +336,12 @@
 <c:if test="${cf:contains(fields, memberContact)}">
     <tr>
         <td class="name">
-            Member Contact:
+            Member Contact Enabled:
         </td>
     </tr>
     <tr>
         <td class="value">(fix this!)
-                <c:if test="${regUser.getUserProfile(24).value =='true'}">yes</c:if>
-                <c:if test="${regUser.getUserProfile(24).value !='true'}">no</c:if>
+            <%=  regUser.getUserProfile(24).getValue().equals("true")? "yes" : "no" %>,
         </td>
     </tr>
 </c:if>
