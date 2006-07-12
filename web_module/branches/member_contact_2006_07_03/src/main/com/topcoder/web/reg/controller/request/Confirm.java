@@ -248,6 +248,7 @@ public class Confirm extends Base {
         if (fields.contains(Constants.TITLE)) {
             u.getContact().setTitle((String) params.get(Constants.TITLE));
         }
+        
 
         setRegUser(u);
     }

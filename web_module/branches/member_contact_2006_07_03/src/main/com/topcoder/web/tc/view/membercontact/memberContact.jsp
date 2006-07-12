@@ -7,8 +7,7 @@
 <script type="text/javascript">
 
 function validateHandle(send) {
-    var url = 'membercontact/validateHandle.jsp';
-    var ajaxRequest = new AjaxRequest(url);
+    var ajaxRequest = new AjaxRequest('membercontact/validateHandle.jsp');
     ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
     if (send) {
         ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
@@ -39,6 +38,7 @@ function showButton() {
 To enable other members to contact you, 
 <a href='<%= Constants.MEMBER_CONTACT_ENABLE %>' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
 click here</a>
+<br>
 <% } %>
 <br>
 

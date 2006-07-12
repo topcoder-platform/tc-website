@@ -384,6 +384,25 @@
     </tr>
 </c:if>
 
+<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
+<c:if test="${cf:contains(fields, memberContact)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.MEMBER_CONTACT%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if> Enable Member Contact:
+        </td>
+        <td class="value">
+            <tc-webtag:chkBox name="<%=Constants.MEMBER_CONTACT%>"/>Other users will be able to contact me.
+        </td>
+    </tr>
+</c:if>
+
+
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
     <tr>

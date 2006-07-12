@@ -332,6 +332,21 @@
     </c:forEach>
 </c:if>
 
+<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
+<c:if test="${cf:contains(fields, memberContact)}">
+    <tr>
+        <td class="name">
+            Member Contact:
+        </td>
+    </tr>
+    <tr>
+        <td class="value">(fix this!)
+                <c:if test="${regUser.getUserProfile(24).value =='true'}">yes</c:if>
+                <c:if test="${regUser.getUserProfile(24).value !='true'}">no</c:if>
+        </td>
+    </tr>
+</c:if>
+
 
 <c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 <c:if test="${cf:contains(fields, coderType)}">

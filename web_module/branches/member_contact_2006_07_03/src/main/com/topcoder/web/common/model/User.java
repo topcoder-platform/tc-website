@@ -331,5 +331,21 @@ public class User extends Base {
 	public void setUserPreferences(Set userPreferences) {
 		this.userPreferences = userPreferences;
 	}
+    
+    public void addUserPreference(UserPreference userPreference) {
+        userPreferences.add(userPreference);    
+    }
+    
+    public UserPreference getUserPreference(long preferenceId) {
+        for (Iterator it = userPreferences.iterator(); it.hasNext(); )
+        {
+            UserPreference up = (UserPreference) it.next();
+            if (up.getId().getPreference().getId().longValue() == preferenceId) {
+                return up;
+            }            
+        }
+        return null;
+    }
+   
 
 }

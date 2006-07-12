@@ -231,6 +231,11 @@ public class Secondary extends Base {
             u.setNotifications(new HashSet((List) params.get(Constants.NOTIFICATION)));
         }
 
+        if (fields.contains(Constants.MEMBER_CONTACT)) {
+        	UserPreference up = u.getUserPreference(com.topcoder.web.tc.Constants.MEMBER_CONTACT_PREFERENCE_ID);
+        	up.setValue(String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
+        }
+
         if (fields.contains(Constants.COMP_COUNTRY_CODE)) {
             u.getCoder().setCompCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COMP_COUNTRY_CODE)));
         }
