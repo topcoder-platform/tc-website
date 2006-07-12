@@ -54,7 +54,7 @@
 <br><br>
 TopCoder competitions offer sponsors a powerful branding platform within the TopCoder global community of over 85,000 members that provides a unique opportunity to build valuable relationships and to hire some of the best developers in the world.
 <br><br>
-"We are delighted to have UBS join us as a repeat Premier level sponsor," said Rob Hughes, President and COO of TopCoder, Inc. "TopCoder sponsors understand the growing importance and potential of interfacing with this key developer community within its environment of choice Ð the TopCoder arena."   
+"We are delighted to have UBS join us as a repeat Premier level sponsor," said Rob Hughes, President and COO of TopCoder, Inc. "TopCoder sponsors understand the growing importance and potential of interfacing with this key developer community within its environment of choice &mdash; the TopCoder arena."   
 <br><br>
 <span class="bodySubtitle">About TopCoder Competitions</span><br>
 TopCoder tournaments are known worldwide as the most grueling, comprehensive test of skill in the field of competitive programming. The events allow competitors to solve complex algorithmic problems and design and develop working pieces of reusable software. All current industry standard technologies are incorporated, including Java, C++, C#, VB.NET, UML, J2EE and .NET.
