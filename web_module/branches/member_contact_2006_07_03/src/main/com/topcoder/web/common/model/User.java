@@ -53,6 +53,7 @@ public class User extends Base {
         notifications = new TreeSet();
         securityGroups = new HashSet();
         transientResponses = new ArrayList();
+        userPreferences = new HashSet();
         terms = new HashSet();
     }
 
@@ -325,7 +326,7 @@ public class User extends Base {
     }
 
 	public Set getUserPreferences() {
-		return userPreferences;
+		return Collections.unmodifiableSet(userPreferences);
 	}
 
 	public void setUserPreferences(Set userPreferences) {
