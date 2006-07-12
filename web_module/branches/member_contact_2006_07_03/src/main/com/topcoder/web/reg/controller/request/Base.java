@@ -142,6 +142,7 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
+        ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
@@ -300,6 +301,10 @@ abstract class Base extends HibernateProcessor {
         }
         
         UserPreference up = u.getUserPreference(com.topcoder.web.tc.Constants.MEMBER_CONTACT_PREFERENCE_ID);
+        if (up!=null)
+        {
+        	log.debug("up not null! value="+up.getValue());
+        }
         setDefault(Constants.MEMBER_CONTACT, up == null? String.valueOf(false) : up.getValue());
         
         if (u.getContact() != null) {

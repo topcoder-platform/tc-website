@@ -394,7 +394,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, emailConfirm)}">*</c:if> Enable Member Contact:
+            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Enable Member Contact:
         </td>
         <td class="value">
             <tc-webtag:chkBox name="<%=Constants.MEMBER_CONTACT%>"/>Other users will be able to contact me.

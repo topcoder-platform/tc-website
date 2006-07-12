@@ -338,10 +338,13 @@ public class User extends Base {
     }
     
     public UserPreference getUserPreference(long preferenceId) {
+    	log.debug("User.getUpserPreference " + preferenceId);
         for (Iterator it = userPreferences.iterator(); it.hasNext(); )
         {
             UserPreference up = (UserPreference) it.next();
+            log.debug("up=" + up.getValue());
             if (up.getId().getPreference().getId().longValue() == preferenceId) {
+            	log.debug("found!");
                 return up;
             }            
         }
