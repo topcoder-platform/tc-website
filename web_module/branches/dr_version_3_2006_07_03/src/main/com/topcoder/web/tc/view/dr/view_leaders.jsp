@@ -276,9 +276,14 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                     <td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
                         <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
                     </c:if></td>
-                    <td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.totalPrize>0}">
-                        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$" ifNull="&#160;" />
-                    </c:if></td>
+                    <td class="valueR" style="border-right: 1px solid #999999;">
+                    <c:if test="${boardRow.totalPrize>0}">
+                        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$" />
+                    </c:if>
+                    <c:if test="${boardRow.totalPrize==0}">
+                    &#160;
+                    </c:if>
+                    </td>
                     <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
                         <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
                     </c:if></td>
