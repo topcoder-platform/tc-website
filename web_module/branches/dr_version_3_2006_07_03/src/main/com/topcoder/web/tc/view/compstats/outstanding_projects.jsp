@@ -126,10 +126,10 @@ z-index: 1;
         <TD CLASS="headerC" width="20%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a></TD>
         <TD CLASS="headerC" width="20%">
 <div id="container">
-<img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+<A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" /></A>
 <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
 </div>
-<a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Points</a>
+<a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential Points</a>*
          </TD>
         <TD CLASS="headerR" width="20%">&#160;</TD>
      </tr>
@@ -159,6 +159,7 @@ z-index: 1;
      <%even=!even;%>
      </rsc:iterator>
   </TABLE>
+* Assuming first place finish for all current contests
 
          <p><br></p>
          <!-- END BODY -->

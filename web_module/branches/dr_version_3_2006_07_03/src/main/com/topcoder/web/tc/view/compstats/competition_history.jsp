@@ -162,7 +162,7 @@ z-index: 1;
                     <TD CLASS="headerR" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a></TD>
                     <TD CLASS="headerC" WIDTH="9%">
                          <div id="container">
-                            <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                            <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" /></A>
                             <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
                          </div>
                          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
