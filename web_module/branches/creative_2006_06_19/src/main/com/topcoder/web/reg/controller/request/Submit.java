@@ -80,6 +80,9 @@ public class Submit extends Base {
 
             //set these in the request for the success page, cuz we're about to kill the session
             getRequest().setAttribute(Constants.REG_TYPES, h);
+            //kind of a hack.  the final page needs to know if they're new or not.  but by adding
+            //them to the db, they're not "new" anymore as far as hibernate is concerned.
+            u.setNew(newUser);
             getRequest().setAttribute(Constants.USER, u);
             getRequest().getSession().invalidate();
 

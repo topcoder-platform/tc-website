@@ -66,6 +66,11 @@ public class Secondary extends Base {
                         if (secondaryFields.isEmpty()) {
                             getRequest().setAttribute(Constants.FIELDS, fields);
                             setNextPage("/confirm.jsp");
+                            HashSet h = new HashSet();
+                            for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
+                                h.add(((RegistrationType) it.next()).getId());
+                            }
+                            getRequest().setAttribute(Constants.REG_TYPES, h);
                             setIsNextPageInContext(true);
                         } else {
                             //set the fields in the user object
@@ -141,6 +146,7 @@ public class Secondary extends Base {
                 a.setState(getFactory().getStateDAO().find((String) params.get(Constants.STATE_CODE)));
             }
         } else {
+            a.setState(null);
             if (fields.contains(Constants.PROVINCE)) {
                 a.setProvince((String) params.get(Constants.PROVINCE));
             }
