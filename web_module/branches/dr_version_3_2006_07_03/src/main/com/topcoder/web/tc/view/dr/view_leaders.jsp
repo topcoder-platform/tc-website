@@ -198,17 +198,19 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 </td>
             </tr>
             <tr>
+               <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
+               <td class="headerC" colspan="8" style="border-right: 1px solid #999999;">Completed Contests</td>
+               <td class="headerC">Current Contests</td>
+            </tr>
+            <tr>
                 <td class="headerC">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
                 </td>
-                <td class="header" width="100%">
+                <td class="header" width="100%" style="border-right: 1px solid #999999;">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
                 </td>
                 <td class="headerR" colspan="4">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
-                </td>
-                <td class="headerR">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Outstanding Points</a>
                 </td>
                 <td class="headerR">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Total Points</a>
@@ -219,9 +221,12 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                 <td class="headerR" nowrap="nowrap">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
                         Third<br>Prize</a>*</td>
-                <td class="headerR">
+                <td class="headerR" style="border-right: 1px solid #999999;">
                     <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total
                         Prizes</a>*</td>
+                <td class="headerR">
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Max Points</a>
+                </td>
             </tr>
 
             <% boolean even = false;%>
@@ -229,7 +234,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
             <c:forEach items="${boardList}" var="boardRow">
                 <tr class="<%=even?"dark":"light"%>">
                     <td class="valueC">${boardRow.rank}</td>
-                    <td class="value" width="100%">
+                    <td class="value" width="100%" style="border-right: 1px solid #999999;">
                         <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/></td>
                     <td class="valueC">
                         <c:if test="${boardRow.winTrip}">
@@ -262,11 +267,8 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                         </c:if>
                     </td>
                     <td class="valueR"><c:if test="${boardRow.points>0}">
-						<A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
-                   	</c:if></td>
-                    <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
-                        <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
-                    </c:if></td>
+                  <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
+                      </c:if></td>
                     <td class="valueR">${boardRow.totalPoints}</td>
                     <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
                         <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
@@ -274,8 +276,11 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
                     <td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
                         <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
                     </c:if></td>
-                    <td class="valueR"><c:if test="${boardRow.totalPrize>0}">
-                        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+                    <td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.totalPrize>0}">
+                        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$" ifNull="&#160;" />
+                    </c:if></td>
+                    <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
+                        <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
                     </c:if></td>
                 </tr>
                 <%i++;%>
