@@ -247,7 +247,16 @@ public class Secondary extends Base {
 
         if (fields.contains(Constants.MEMBER_CONTACT)) {
         	UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-        	up.setValue(String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
+        	String value = String.valueOf(params.get(Constants.MEMBER_CONTACT) != null);
+        	if (up == null) {
+        		up = new UserPreference();
+        		Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        		up.setId(new UserPreference.Identifier(u, p));
+        		up.setValue(value);
+        		u.addUserPreference(up);        		
+        	} else {
+        		up.setValue(value);
+        	}
         }
 
         if (fields.contains(Constants.COMP_COUNTRY_CODE)) {
