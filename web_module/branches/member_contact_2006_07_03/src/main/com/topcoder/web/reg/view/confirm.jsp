@@ -338,12 +338,9 @@
         <td class="name">
             Member Contact Enabled:
         </td>
-    </tr>
-    <tr>
-        <td class="value">(fix this!)
+        <td class="value">
             <c:if test="${regUser.memberContactEnabled}">yes</c:if>
             <c:if test="${!regUser.memberContactEnabled}">no</c:if>
-
         </td>
     </tr>
 </c:if>
