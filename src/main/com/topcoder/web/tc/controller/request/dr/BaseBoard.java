@@ -234,24 +234,28 @@ public abstract class BaseBoard extends BaseProcessor {
         double poolCount = 1;
         int place = 1;
         for (int j = sortArray.length - 2; prizes < numberPlacementPrizes && j >= 0; j--) {
-            if (brc.compare(sortArray[j + 1], sortArray[j]) != 0) {
-                for (int k = 0; k < poolCount; k++) {
-                    sortArray[j + k + 1].setPlacementPrize(prizePool / poolCount);
+            if (sortArray[j + 1].getPoints() > 0) {
+                if (brc.compare(sortArray[j + 1], sortArray[j]) != 0) {
+                    for (int k = 0; k < poolCount; k++) {
+                        sortArray[j + k + 1].setPlacementPrize(prizePool / poolCount);
+                    }
+                    prizes += poolCount;
+                    prizePool = 0;
+                    poolCount = 1;
+                } else {
+                    poolCount++;
                 }
-                prizes += poolCount;
-                prizePool = 0;
-                poolCount = 1;
-            } else {
-                poolCount++;
-            }
-            if (place < numberPlacementPrizes) {
-                prizePool += placementPrize[place];
-                place++;
+                if (place < numberPlacementPrizes) {
+                    prizePool += placementPrize[place];
+                    place++;
+                }
             }
         }
         if (prizes < numberPlacementPrizes) {
             for (int k = 0; k < poolCount; k++) {
-                sortArray[k].setPlacementPrize(prizePool / poolCount);
+                if (sortArray[k].getPoints() > 0) {
+                    sortArray[k].setPlacementPrize(prizePool / poolCount);
+                }
             }
         }
         boardResult.clear();
