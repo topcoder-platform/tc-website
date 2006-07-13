@@ -1,15 +1,29 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.AlgoRating;
+import com.topcoder.web.common.model.AlgoRatingType;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.Notification;
+import com.topcoder.web.common.model.Phone;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.TimeZone;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-
-import java.util.*;
 
 /**
  * @author dok
@@ -231,11 +245,9 @@ public class Secondary extends Base {
             u.setNotifications(new HashSet((List) params.get(Constants.NOTIFICATION)));
         }
 
-        log.debug("fields.contains(Constants.MEMBER_CONTACT):" + fields.contains(Constants.MEMBER_CONTACT));
         if (fields.contains(Constants.MEMBER_CONTACT)) {
-        	UserPreference up = u.getUserPreference(com.topcoder.web.tc.Constants.MEMBER_CONTACT_PREFERENCE_ID);
+        	UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
         	up.setValue(String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-        	log.debug("up.setValue:" + String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
         }
 
         if (fields.contains(Constants.COMP_COUNTRY_CODE)) {

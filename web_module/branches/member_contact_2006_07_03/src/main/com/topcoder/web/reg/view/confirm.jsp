@@ -7,7 +7,6 @@
 <%@ taglib uri="reg-tags" prefix="rt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -342,8 +341,6 @@
     </tr>
     <tr>
         <td class="value">(fix this!)
-            <%=  regUser.getUserProfile(24).getValue().equals("true")? "yes" : "no" %>,
-
             <c:if test="${regUser.memberContactEnabled}">yes</c:if>
             <c:if test="${!regUser.memberContactEnabled}">no</c:if>
 

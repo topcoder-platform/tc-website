@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.membercontact.validation;
 
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.tc.Constants;
 
 public class HandleValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
@@ -24,7 +24,7 @@ public class HandleValidator implements Validator {
         }
         
         String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                    user.getId().longValue(), Constants.MEMBER_CONTACT_PREFERENCE_ID).getValue();
+                    user.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
 
         if (!"true".equals(canReceive)) {
             return new BasicResult(false, "The user can't receive emails via Member Contact.");

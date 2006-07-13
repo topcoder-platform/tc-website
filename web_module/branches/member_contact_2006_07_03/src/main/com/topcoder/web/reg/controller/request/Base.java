@@ -300,12 +300,7 @@ abstract class Base extends HibernateProcessor {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
         
-        UserPreference up = u.getUserPreference(com.topcoder.web.tc.Constants.MEMBER_CONTACT_PREFERENCE_ID);
-        if (up!=null)
-        {
-        	log.debug("up not null! value="+up.getValue());
-        }
-        setDefault(Constants.MEMBER_CONTACT, up == null? String.valueOf(false) : up.getValue());
+        setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
         
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());

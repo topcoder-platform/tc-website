@@ -27,7 +27,7 @@ public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDA
         return (UserPreference) find(UserPreference.class, new UserPreference.Identifier(user, preference));
     }
     
-    public UserPreference find(long userId, long preferenceId) {
+    public UserPreference find(Long userId, Long preferenceId) {
     	Query q = session.createQuery(" from UserPreference " +
     								  " where user_id=" + userId +
     								  " and preference_id=" + preferenceId);

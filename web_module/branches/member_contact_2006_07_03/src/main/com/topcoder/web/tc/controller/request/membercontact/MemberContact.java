@@ -5,9 +5,8 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -63,7 +62,7 @@ public class MemberContact extends HibernateProcessor {
         }
         
         String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                getUser().getId(), Constants.MEMBER_CONTACT_PREFERENCE_ID).getValue();
+                new Long(getUser().getId()), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
 
         getRequest().setAttribute(CAN_RECEIVE, canReceive);
         
