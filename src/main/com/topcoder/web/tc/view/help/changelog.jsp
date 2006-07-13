@@ -39,10 +39,13 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
 <p>
     5.3.9 - 2006.07.13
     <ul>
         <li>Fix problem details so that it doesn't crash the database</li>
+        <li>Added outstanding points to the Digital Run scoreboards pages</li>
+        <li>Added current contests page</li>
     </ul>
 </p>
 
