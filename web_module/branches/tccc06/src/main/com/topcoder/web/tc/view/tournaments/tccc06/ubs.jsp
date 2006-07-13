@@ -25,11 +25,6 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
-<%--
-<p align="center"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=505918">UBS Employment Forum</A>
-&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">TCO06 Round 3 Chat Transcript</A>
-</p>
---%>
 <br><br>
 UBS is pleased to become the first TopCoder Open sponsor from the financial services industry.  UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
 <br><br>
@@ -37,7 +32,7 @@ The global financial markets are increasingly electronic and trading in these ma
 <br><br>
 At UBS, you'll have access to the resources and expertise of a global firm while enjoying the flexibility and autonomy of a start-up. The technology we build is responsible for trading every 1 in 9 shares globally*, managing trillions of dollars in assets, and trading across nearly every product and region around the globe.
 <br><br>
-Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_confirm">Apply Now</a>
+Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs_confirm">Apply Now</a>
 <br><br>
 <b>You & Us. UBS.</b>
 <br><br>
@@ -49,12 +44,14 @@ Become part of our exciting future at UBS. There are positions for extraordinary
         
          
 <!-- Right Column-->
+<td>&#160;</td>
+<%--
         <td width="170" align="right">
             <jsp:include page="right.jsp">
             <jsp:param name="level1" value="ubs"/>
             </jsp:include>
          </td>
-      
+--%>      
    </tr>
    
 </table>

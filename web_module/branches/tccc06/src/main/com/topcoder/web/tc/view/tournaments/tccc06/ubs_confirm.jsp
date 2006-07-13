@@ -13,7 +13,7 @@
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
 <jsp:param name="tabLev2" value="sponsors"/>
-<jsp:param name="tabLev3" value="aol"/>
+<jsp:param name="tabLev3" value="ubs"/>
 </jsp:include>
 
 
@@ -21,29 +21,34 @@
 <!-- Body-->
    <tr valign="top">
       <td valign="top" align="center">
-            <br>
-<map name="aol">
-<area shape="rect" alt="" coords="436,442,530,455" href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank" />
-<area shape="rect" alt="" coords="489,515,595,527" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_recruiting" />
-</map>
-<div align="center"><IMG SRC="/i/tournament/tccc06/aol_landing.gif" border="0" ALT="Wanna Be an All-Star Coder" usemap="#aol"/></div>
+      <div class="bodySpacer">
+            
+<div align="center"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
 <br><br>
-      </td>
+By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to UBS and you will be giving UBS permission to contact you about their current job opportunities.
+<br><br>
+<A href="">Submit</A>
+<%--<A href="/tc?module=JobHit&jid=326&jt=1">Submit</A>.--%>
+<br><br><br><br><br><br>
 
+        </div>
+      </td>
+        
+         
 <!-- Right Column-->
 <td>&#160;</td>
 <%--
         <td width="170" align="right">
             <jsp:include page="right.jsp">
-            <jsp:param name="level1" value="aol"/>
+            <jsp:param name="level1" value="ubs"/>
             </jsp:include>
          </td>
---%>
+--%>    
    </tr>
-
+   
 </table>
-
-
+   
+   
 
 
 <jsp:include page="../../foot.jsp" />
