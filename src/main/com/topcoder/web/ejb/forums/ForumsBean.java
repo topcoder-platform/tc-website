@@ -67,4 +67,12 @@ public class ForumsBean extends BaseEJB {
         }
         return (String[])listNames.toArray(new String[listNames.size()]);
     }
+    
+    public int getThreadMessageCount(int threadID) {
+    	return this.selectInt("jivemessage",
+    			"count(*)",
+    			new String[]{"threadid"}, 
+    			new String[]{String.valueOf(threadID)}, 
+    			DBMS.FORUMS_DATASOURCE_NAME).intValue();
+    }
 }
