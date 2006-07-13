@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+  <blobFix>
+    <sourcedb>jdbc:informix-sqli://172.16.214.52:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</sourcedb>
+    <blobColumn>problem_text</blobColumn>
+    <table>problem</table>
+    <regex>http://[\\d]+\\.[\\d]+\\.[\\d]+\\.[\\d]+/</regex>
+    <replaceText>http://www.topcoder.com/</replaceText>
+    <parameterList>
+    </parameterList>
+  </blobFix>
