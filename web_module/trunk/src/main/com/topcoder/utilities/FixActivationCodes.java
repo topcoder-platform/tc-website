@@ -29,7 +29,7 @@ public class FixActivationCodes {
     public void doIt() throws Exception {
 
         try {
-            String s = "select user_id from user u";
+            String s = "select user_id, activation_code from user u";
             String t = "update user set activation_code = ? where user_id = ?";
 
             Connection conn = null;
@@ -37,6 +37,7 @@ public class FixActivationCodes {
             PreparedStatement ps1 = null;
             ResultSet rs = null;
             long userId = 0;
+            String code;
             try {
                 conn = DBMS.getDirectConnection();
                 ps = conn.prepareStatement(t);
@@ -46,9 +47,12 @@ public class FixActivationCodes {
                 while (rs.next()) {
                     try {
                         userId = rs.getLong("user_id");
-                        ps.setString(1, StringUtils.getActivationCode(userId));
-                        ps.setLong(2, userId);
-                        count += ps.executeUpdate();
+                        code = rs.getString("activation_code");
+                        if (!StringUtils.getActivationCode(userId).equals(code)) {
+                            ps.setString(1, StringUtils.getActivationCode(userId));
+                            ps.setLong(2, userId);
+                            count += ps.executeUpdate();
+                        }
                         if (count % 25 == 0) System.out.println("" + count + " records updated");
                     } catch (Exception e) {
                         System.out.println("user " + userId);
