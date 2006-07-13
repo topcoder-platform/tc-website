@@ -1,16 +1,11 @@
-
 CLASSPATH=""
-CLASSPATH=$CLASSPATH:../../lib/jars/weblogic510sp12.jar
-CLASSPATH=$CLASSPATH:../../lib/jars/weblogicaux.jar
-CLASSPATH=$CLASSPATH:../../lib/jars/weblog.jar
-CLASSPATH=$CLASSPATH:../../resources
-CLASSPATH=$CLASSPATH:../../lib/jars/log4j-1.2.7.jar
-CLASSPATH=$CLASSPATH:../../lib/jars/ifxjdbc.jar
-CLASSPATH=$CLASSPATH:../../lib/jars/jdbc7.0-1.2.jar
-CLASSPATH=$CLASSPATH:../../lib/jars/xerces.jar
-CLASSPATH=$CLASSPATH:../../build/classes
-CLASSPATH=$CLASSPATH:../../lib/jars/idgenerator.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/resources
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/log4j-1.2.7.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/ifxjdbc.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/jdbc7.0-1.2.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/xerces.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/build/classes
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/idgenerator.jar
+CLASSPATH=$CLASSPATH:/home/coder/web/lib/jars/jboss/jbossall-client.jar
 
-nohup /usr/java/bin/java -cp $CLASSPATH com.topcoder.utilities.dwload.TCLoadUtility -xmlfile loadwebrequest.xml > ./nohup.out 2>&1 &
-tail -f nohup.out
-
+nohup java -Xmx1024m -cp $CLASSPATH com.topcoder.shared.util.dwload.TCLoadUtility -xmlfile /home/coder/web/scripts/dwload/loadwebrequest.xml >> /home/coder/web/scripts/dwload/request_load.log 2>&1 &

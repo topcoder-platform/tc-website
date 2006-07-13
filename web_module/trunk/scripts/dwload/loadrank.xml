@@ -5,7 +5,7 @@
     <targetdb>
         jdbc:informix-sqli://172.16.20.25:1526/topcoder_dw:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=altec</targetdb>
     <load>
-        <classname>com.topcoder.utilities.dwload.TCLoadRank</classname>
+        <classname>com.topcoder.shared.util.dwload.TCLoadRank</classname>
         <parameterList>
             <parameter name="roundid" value="4500"/>
             <parameter name="fullload" value="true"/>
