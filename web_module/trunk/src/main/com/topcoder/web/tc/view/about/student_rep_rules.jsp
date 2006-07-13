@@ -35,7 +35,7 @@
 		<br><br>
 		<strong>TO ENTER</strong><br/>
 		If not already a member, register for TopCoder electronically at <a href="http://www.topcoder.com/" target="_blank">www.topcoder.com</a>.  Once registered at TopCoder, send an email to
-		Jessie D'Amato (<a href="mailto:jdamato@topcoder.com?subject=TopCoder Student Reps">jdamato@topcoder.com</a>) stating the following:
+		Jessie D'Amato Ford (<a href="mailto:jdamato@topcoder.com?subject=TopCoder Student Reps">jdamato@topcoder.com</a>) stating the following:
 
 		<ol>
 			<li>Include the name of the college/university you will be distributing flyers to.</li>
