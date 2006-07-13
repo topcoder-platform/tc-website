@@ -24,24 +24,24 @@
             
 <span class="bigTitle">Hotels near the TCCC06</span>
 <br><br>
-<A href="http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left">San Diego Marriott Mission Valley</A><br>
+<A href="/?t=sponsor&c=link&link=http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left" target="_blank">San Diego Marriott Mission Valley</A><br>
 8757 Rio San Diego Drive<br>
 San Diego, California 92108<br>
 800-842-5329
 <br><br>
-Several other hotels are located only a short walk from the <A href="http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left">San Diego Marriott Mission Valley</A>. We have included a representative sample for your convenience: 
+Several other hotels are located only a short walk from the <A href="/?t=sponsor&c=link&link=http://marriott.com/property/propertypage/sanmv?WT_Ref=mi_left" target="_blank">San Diego Marriott Mission Valley</A>. We have included a representative sample for your convenience: 
 <br><br>
-<A href="http://www.doubletree.com/en/dt/hotels/index.jhtml?ctyhocn=SDGO-DT">Doubletree Hotel San Diego Mission Valley</A><br>
+<A href="/?t=sponsor&c=link&link=http://www.doubletree.com/en/dt/hotels/index.jhtml?ctyhocn=SDGO-DT" target="_blank">Doubletree Hotel San Diego Mission Valley</A><br>
 7450 Hazard Center Drive<br>
 San Diego, CA 92108<br>
 (619)-297-5466
 <br><br>
-<A href="http://www.starwoodhotels.com/sheraton/search/hotel_detail.html?propertyID=127">Sheraton San Diego Hotel and Marina</A><br>
+<A href="/?t=sponsor&c=link&link=http://www.starwoodhotels.com/sheraton/search/hotel_detail.html?propertyID=127" target="_blank">Sheraton San Diego Hotel and Marina</A><br>
 1380 Harbor Island Drive<br>
 San Diego, CA 92101<br>
 (619) 291-2900
 <br><br>
-<A href="http://www.hanaleihotel.com/">Red Lion Hanalei Hotel San Diego</A><br>
+<A href="/?t=sponsor&c=link&link=http://www.hanaleihotel.com/" target="_blank">Red Lion Hanalei Hotel San Diego</A><br>
 2270 Hotel Circle N<br>
 San Diego, CA  92108<br>
 (619) 297-1101

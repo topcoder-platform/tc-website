@@ -22,10 +22,12 @@
 <!-- Body-->
    <tr valign="top">
       <td valign="top" align="center">
-      <div class="bodySpacer">
-<br>           
-<div align="left"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
-<br><br>
+<div class="spacerUBS">
+<br>
+<img src="/i/tournament/tccc06/ubs_logo.gif" align="left" alt="UBS" border="0" />
+</div>
+<br><br><br>
+<div class="bodySpacer">
 UBS is pleased to sponsor the 2006 TopCoder Collegiate Challenge. UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&amp;A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
 <br><br>
 The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges. We are looking for developers to join our team that can work on advanced trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
@@ -36,7 +38,7 @@ Become part of our exciting future at UBS. There are positions for extraordinary
 <br><br>
 <b>You &amp; Us. UBS.</b>
 <br><br>
-<a href="/?t=sponsor&c=link&link=http://www.ubs.com">www.ubs.com</a>
+<a href="/?t=sponsor&c=link&link=http://www.ubs.com" target="_blank">www.ubs.com</a>
 <br><br>
 <span class="smallText">* source: AutEx and a leading private industry survey 2005</span>
 <br><br>

@@ -371,6 +371,7 @@ Contestants who advance to the onsite Championship Round must complete the follo
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
 <li>Update member profile, including t-shirt size and address</li>
 <li>Submit member photo if one is not already on file with TopCoder</li>
+<li>Letter from your college/university on official stationary that states you are a current full time student.  The letter must be signed by an official university staff member and must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033 USA.</li>
 </ul>
 
 All prizes (cash prizes and participatory prizes) will be sent within 60 days of the Championship Round. In order for a cash prize to be sent, the designer/developer must fully finish his/her component (that is, final fixes must be completed before cash prizes will be sent). Unclaimed or undeliverable prizes will be forfeited. Competitors who do not submit the required information listed above by the applicable deadlines will forfeit their prizes. 

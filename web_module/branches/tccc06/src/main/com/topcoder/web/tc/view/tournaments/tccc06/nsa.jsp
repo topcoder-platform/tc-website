@@ -39,7 +39,7 @@ NSA looks forward to recruiting from the top competitors in the 2006 TopCoder Op
 <br><br>
 <span class="smallText">NSA is an Equal Opportunity Employer.</span>
 <br><br>
-<a href="/?t=sponsor&c=link&link=http://www.nsa.gov">www.nsa.gov</a>
+<a href="/?t=sponsor&c=link&link=http://www.nsa.gov" target="_blank">www.nsa.gov</a>
         </div>
       </td>
         

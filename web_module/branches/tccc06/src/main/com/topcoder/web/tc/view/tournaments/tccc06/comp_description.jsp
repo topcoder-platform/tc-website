@@ -42,7 +42,7 @@ San Diego Marriott Mission Valley, San Diego, California, USA
 <br><br>
 The competition is free and you must be 18 years or older as well as a matriculated full-time student at an accredited college or university to be eligible.
 <br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=comp_rules">rules and regulations</A> for full details.
+See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules">rules and regulations</A> for full details.
 <br><br>
 <%--
 <span class="bigTitle">How to Register for the Component Competition</span>
