@@ -15,7 +15,6 @@ import com.topcoder.web.tc.controller.request.membercontact.validation.HandleVal
 
 public class MemberContact extends HibernateProcessor {
     
-    public static String SUBJECT = "sbj";
     public static String TO_HANDLE = "th";
     public static String TEXT = "txt";
     public static String SEND_COPY = "sc";
@@ -29,7 +28,6 @@ public class MemberContact extends HibernateProcessor {
         }
 
         String toHandle = getRequest().getParameter(TO_HANDLE);
-        String subject = getRequest().getParameter(SUBJECT);
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
 
@@ -46,16 +44,16 @@ public class MemberContact extends HibernateProcessor {
             
             
             TCSEmailMessage mail = new TCSEmailMessage();
-            mail.setSubject(subject);
+            mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
             mail.setBody(message);
             mail.setToAddress(destinationEmail, TCSEmailMessage.TO); 
-            mail.setFromAddress(senderEmail);
+            mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
             EmailEngine.send(mail);
             
             if (sendCopy) {
-                mail.setSubject("[mail sent to " + toHandle + "] " + subject);
+                mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT_COPY.replaceAll("%", destination.getHandle()));
                 mail.setToAddress(senderEmail, TCSEmailMessage.TO); 
-                mail.setFromAddress(senderEmail);
+                mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
                 EmailEngine.send(mail);
             }
             getRequest().setAttribute(CONFIRM, "true");

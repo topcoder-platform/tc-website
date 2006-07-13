@@ -16,8 +16,7 @@ function validateHandle(send) {
 }
 
 function canSend() {
-   return document.f.<%= MemberContact.SUBJECT %>.value != "" &&
-           document.f.<%= MemberContact.TEXT %>.value != "" &&
+   return document.f.<%= MemberContact.TEXT %>.value != "" &&
            document.f.handleValid.value == "true";
 }
 
@@ -48,7 +47,6 @@ click here</a>
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
 <div id="validationHandle"> </div>
 <br/><br/>
-Subject: <input type='text' name='<%= MemberContact.SUBJECT %>' size='50' onKeyUp='showButton()' /> <br/><br/>
 
 <textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
 <br/><br/>
