@@ -54,11 +54,9 @@ AOL is where the power of the Internet and your individual potential converge to
 <span class="bodySubtitleAOL">Open Services &mdash; Dulles, Virginia</span><br>
 <b>Projects:</b> text classification and entity linking, content/user targeting system, syndication framework, profile system, and search. AOL's new Open Services initiative enables developers to build customized third-party applications, plug-ins and mashups based on AOL's leading products and services. More information on AOL's range of developer resources and open APIs, including Open AIM&#174;, AOL&#174; Music Now Web Services and MapQuest&#174; OpenAPI, can be found at <A href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank">http://developer.aol.com</A>.
 <br><br>
-<span class="bodySubtitleAOL">AOL/Parent Company Name:</span><br>
-Advertising.com<br>
-<b>Location/Name of site:</b><br>
-Headquarters: 1020 Hull Street, Baltimore, MD 21230</b><br>
-Mt View Office location: 888 Villa Street, Suite 300, Mountain View, CA 94041
+<span class="bodySubtitleAOL">AOL/Parent Company Name &mdash; Advertising.com</span><br>
+<b>Headquarters:</b> 1020 Hull Street, Baltimore, MD 21230</b><br>
+<b>Mt View Office location:</b> 888 Villa Street, Suite 300, Mountain View, CA 94041
 <br><br>
 Advertising.com, Inc., founded in 1998, is a leading provider of results-based interactive marketing services to advertisers, agencies and publishers. Advertising.com's extensive advertising network consists of inventory that the company purchases from web, search engine and affiliate publishers. Through this network, and its proprietary technologies, Advertising.com helps advertisers and their agencies develop, plan and execute innovative marketing programs that generate measurable results.
 <br><br>
