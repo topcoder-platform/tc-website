@@ -20,7 +20,7 @@ public class MemberContactEnable extends HibernateProcessor {
 
         if (enable) {
             UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                    getUser().getId(), Constants.MEMBER_CONTACT_PREFERENCE_ID);
+                    getUser().getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID);
             
             up.setValue("true");
             markForCommit();
