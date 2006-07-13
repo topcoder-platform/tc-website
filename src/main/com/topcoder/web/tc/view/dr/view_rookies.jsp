@@ -21,7 +21,7 @@
 
 <html>
 <head>
-    <title>Digital Run - Rookie Board</title>
+    <title>TopCoder Statistics</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -110,8 +110,6 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
-<div class="fixedWidthBody">
-
 <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="digital_run"/>
@@ -125,19 +123,21 @@
 <% } %>
 
 
-<div style="float:right; text-align:left; whitespace: no-wrap;">
-    <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
-    <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+<div class="fixedWidthBody">
+   <div style="float:right; text-align:left; whitespace: no-wrap;">
+       <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
+       <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+   </div>
+   <A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+   <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
+   <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
+   <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+   Development Cup Series ROTY Leaderboard
+   <% } else { %>
+   Design Cup Series ROTY Leaderboard<br>
+   <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+   <% } %>
 </div>
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
-<% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-Development Cup Series ROTY Leaderboard
-<% } else { %>
-Design Cup Series ROTY Leaderboard<br>
-<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
-<% } %>
 
 <br><br>
 
@@ -185,9 +185,9 @@ Please select a <strong>season</strong><br>
         </c:choose>
     </div>
 
-    <table class="stat" cellpadding="0" cellspacing="0" width="510">
+    <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-            <td class="title" colspan="6">
+            <td class="title" colspan="8">
                 <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
                 Development Cup Series Rookie of the Year Leaderboard
                 <% } else { %>
@@ -195,18 +195,29 @@ Please select a <strong>season</strong><br>
                 <% } %>
             </td>
         </tr>
+         <tr>
+            <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
+            <td class="headerC" colspan="4" style="border-right: 1px solid #999999;">Completed Contests</td>
+            <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">Current Contests</td>
+         </tr>
         <tr>
             <td class="headerC">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
             </td>
-            <td class="header" width="100%">
+            <td class="header" style="border-right: 1px solid #999999;" width="25%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
             </td>
             <td class="headerR" colspan="3">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
             </td>
-            <td class="headerR">
+            <td class="headerR" style="border-right: 1px solid #999999;" width="25%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10<br>Prize</a>*
+            </td>
+            <td class="headerR" width="25%" nowrap="nowrap">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br>Points</a>**
+            </td>
+            <td class="headerR" width="25%" nowrap="nowrap">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Potential Total<br>Points</a>**
             </td>
         </tr>
 
@@ -215,8 +226,8 @@ Please select a <strong>season</strong><br>
         <c:forEach items="${boardList}" var="boardRow">
             <tr class="<%=even?"dark":"light"%>">
                 <td class="valueC">${boardRow.rank}</td>
-                <td class="value" width="100%"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
-                    <c:if test="${boardRow.potential}">**</c:if></td>
+                <td class="value" style="border-right: 1px solid #999999;"><tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
+                    <c:if test="${boardRow.potential}">***</c:if></td>
                 <td class="valueC">
                     <c:if test="${boardRow.winTrip}">
                         <div class="container">
@@ -237,10 +248,16 @@ Please select a <strong>season</strong><br>
                         </div>
                     </c:if>
                 </td>
-                <td class="valueR">${boardRow.points}</td>
-                <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+                <td class="valueR"><c:if test="${boardRow.points>0}">
+                  <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a></td>
+                  </c:if></td>
+                <td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.placementPrize>0}">
                     <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
                 </c:if></td>
+                <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
+                    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
+                </c:if></td>
+                <td class="valueR">${boardRow.totalPoints}</td>
             </tr>
             <%i++;%>
             <%even = !even;%>
@@ -249,7 +266,8 @@ Please select a <strong>season</strong><br>
 
 <p class="small" align="left">
 * Prizes are based on current earned points and the dollar per point value for completed projects.  Current and future projects may affect the final results.<br>
-** has not yet passed review enough times this season to qualify as a rookie
+** Assuming first place finish for all current contests<br>
+*** Has not yet passed review enough times this season to qualify as a rookie
 </p>
 
     <div class="pagingBox">

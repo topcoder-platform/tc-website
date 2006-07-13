@@ -21,7 +21,7 @@ import java.util.List;
  * A processor to retrieve dr leader board.
  *
  * @author pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class LeaderBoard extends BaseBoard {
 
@@ -98,7 +98,16 @@ public class LeaderBoard extends BaseBoard {
      * @param designBoard true if its a design board (false if development)
      */
     private List processBoard(ResultSetContainer rsc, boolean designBoard) {
-        long topThirdAttempt = Math.round(Math.ceil(rsc.size() / 3.0));
+        long topThirdAttempt = 0;
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            if (((ResultSetRow) it.next()).getLongItem("total_points") > 0) {
+                topThirdAttempt++;
+            }
+        }
+
+        topThirdAttempt = Math.round(Math.ceil(topThirdAttempt / 3.0));
+
         long totalPoints = 0;
         long totalPointsThreshold = -1;
         long overallTopThirdPoints = 0;
@@ -124,7 +133,7 @@ public class LeaderBoard extends BaseBoard {
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("stage_id"), phase, row
                     .getLongItem("rank"), row.getLongItem("user_id"), row
                     .getStringItem("handle_lower"), totalPoints, inTopThird,
-                    false, inTopThird ? totalPoints : 0, 0, 0));
+                    false, inTopThird ? totalPoints : 0, 0, 0, row.getLongItem("outstanding_points")));
             i++;
         }
 
