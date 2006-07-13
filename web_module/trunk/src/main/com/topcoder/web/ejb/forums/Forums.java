@@ -9,4 +9,6 @@ public interface Forums extends EJBObject {
     public void createMatchForum(int roundID) throws EJBException, RemoteException;
 
     public String[] getCategoryNames() throws EJBException, RemoteException;
+    
+    public int getThreadMessageCount(int threadID) throws EJBException, RemoteException;
 }
