@@ -23,22 +23,23 @@
    <tr valign="top">
       <td valign="top" align="center">
       <div class="bodySpacer">
-            
-<div align="center"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
+<br>           
+<div align="left"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
 <br><br>
-UBS is pleased to become the first TopCoder Open sponsor from the financial services industry.  UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
+UBS is pleased to sponsor the 2006 TopCoder Collegiate Challenge. UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&amp;A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
 <br><br>
-The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges.  We are looking for developers to join our team that can work on advanced trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
+The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges. We are looking for developers to join our team that can work on advanced trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
 <br><br>
 At UBS, you'll have access to the resources and expertise of a global firm while enjoying the flexibility and autonomy of a start-up. The technology we build is responsible for trading every 1 in 9 shares globally*, managing trillions of dollars in assets, and trading across nearly every product and region around the globe.
 <br><br>
 Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs_confirm">Apply Now</a>
 <br><br>
-<b>You & Us. UBS.</b>
+<b>You &amp; Us. UBS.</b>
 <br><br>
 <a href="/?t=sponsor&c=link&link=http://www.ubs.com">www.ubs.com</a>
 <br><br>
 <span class="smallText">* source: AutEx and a leading private industry survey 2005</span>
+<br><br>
         </div>
       </td>
         
