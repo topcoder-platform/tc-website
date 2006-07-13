@@ -50,7 +50,7 @@ In Division 1, competitiors discovered the Easy and Medium problems to be easier
 10-15 minutes. On the contrary, the Hard problem clearly justified its 1000 points. Only 23 of 64 submits were successful.
 Two Moscow guys, <tc-webtag:handle coderId="14970299" context="algorithm"/> (who placed second) and
 <tc-webtag:handle coderId="10574855" context="algorithm"/> (who came in third), were overtaken by
-<tc-webtag:handle coderId="8357090" context="algorithm"/>like the Russian football team was bested by team Slovakia on the road to the FIFA World Cup 2006.
+<tc-webtag:handle coderId="8357090" context="algorithm"/> like the Russian football team was bested by team Slovakia on the road to the FIFA World Cup 2006.
 <br>
 <br>
 In Division 2, newcomer
