@@ -40,6 +40,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
+    5.3.9 - 2006.07.13
+    <ul>
+        <li>Fix problem details so that it doesn't crash the database</li>
+    </ul>
+</p>
+
+<p>
     5.3.8 - 2006.07.11
     <ul>
         <li>Fix bug in the password reminder system</li>
