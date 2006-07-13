@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * A simple bean for the rookie board.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
 
@@ -36,9 +36,11 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
      * @param points         The points to set.
      * @param winTrip        The winTrip to set.
      * @param placementPrize The placementPrize to set.
+     * @param potential      The potential to set.
+     * @param outstandingPoints The outstandingPoints to set.
      */
     public RookieBoardRow(long period, long phase, long rank, long userId, String userName, long points,
-                          boolean winTrip, double placementPrize, boolean potential) {
+                          boolean winTrip, double placementPrize, boolean potential, long outstandingPoints) {
         super();
         this.period = period;
         this.phase = phase;
@@ -48,6 +50,7 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
         this.points = points;
         this.placementPrize = placementPrize;
         this.potential = potential;
+        this.outstandingPoints = outstandingPoints;
     }
 
     /**

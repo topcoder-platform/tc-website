@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * Base implementation for the board rows.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public abstract class BaseBoardRow implements IBoardRow {
 
@@ -47,6 +47,11 @@ public abstract class BaseBoardRow implements IBoardRow {
      * Property containing the placementPrize
      */
     protected double placementPrize;
+
+    /**
+     * Property to store the outstanding points
+     */
+    protected long outstandingPoints;
 
     /**
      * Default constructor
@@ -151,5 +156,26 @@ public abstract class BaseBoardRow implements IBoardRow {
      */
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    /**
+     * @return Returns the outstandingPoints.
+     */
+    public long getOutstandingPoints() {
+        return outstandingPoints;
+    }
+
+    /**
+     * @param outstandingPoints The outstandingPoints to set.
+     */
+    public void setOutstandingPoints(long outstandingPoints) {
+        this.outstandingPoints = outstandingPoints;
+    }
+
+    /**
+     * @return Returns the total points.
+     */
+    public long getTotalPoints() {
+        return this.points + this.outstandingPoints;
     }
 }

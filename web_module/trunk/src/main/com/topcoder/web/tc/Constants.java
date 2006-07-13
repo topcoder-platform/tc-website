@@ -19,6 +19,7 @@ public class Constants implements WebConstants {
     public static String VIEW_LEADER_BOARD_PAGE;
     public static String VIEW_ROOKIE_BOARD_PAGE;
     public static String VIEW_COMPETITION_HISTORY_PAGE;
+    public static String VIEW_CURRENT_PROJECTS_PAGE;
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
 
     public static String LEADER_BOARD_COMMAND;

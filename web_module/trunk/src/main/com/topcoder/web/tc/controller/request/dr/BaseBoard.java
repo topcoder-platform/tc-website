@@ -27,7 +27,7 @@ import java.util.*;
  * Base implementation for the dr boards.
  *
  * @author pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public abstract class BaseBoard extends BaseProcessor {
     /**
@@ -39,6 +39,16 @@ public abstract class BaseBoard extends BaseProcessor {
      * The coder handle column
      */
     private static final String CODER_HANDLE_COLUMN = "2";
+
+    /**
+     * The outstanding points column
+     */
+    private static final String OUTSTANDING_POINTS_COLUMN = "6";
+
+    /**
+     * The total points column
+     */
+    private static final String TOTAL_POINTS_COLUMN = "7";
 
     /**
      * Child must implement businessProcessing.
@@ -167,6 +177,26 @@ public abstract class BaseBoard extends BaseProcessor {
             Collections.sort(boardResult, new Comparator() {
                 public int compare(Object arg0, Object arg1) {
                     return ((IBoardRow) arg0).getUserName().compareTo(((IBoardRow) arg1).getUserName());
+                }
+            });
+            if (invert) {
+                Collections.reverse(boardResult);
+            }
+        }
+        if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
+            Collections.sort(boardResult, new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                    return new Long(((IBoardRow) arg0).getOutstandingPoints()).compareTo(new Long(((IBoardRow) arg1).getOutstandingPoints()));
+                }
+            });
+            if (invert) {
+                Collections.reverse(boardResult);
+            }
+        }
+        if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
+            Collections.sort(boardResult, new Comparator() {
+                public int compare(Object arg0, Object arg1) {
+                    return new Long(((IBoardRow) arg0).getTotalPoints()).compareTo(new Long(((IBoardRow) arg1).getTotalPoints()));
                 }
             });
             if (invert) {
