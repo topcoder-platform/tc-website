@@ -15,7 +15,8 @@
   <tr valign="top">
         <td class="bodyText">
 
-		<h2>Official Contest Rules - 2006 TopCoder<sup>&#174;</sup> Collegiate Challenge Student Representative Contest</h2>
+		<span class="bigTitle">Official Contest Rules - 2006 TopCoder<sup>&#174;</sup> Collegiate Challenge Student Representative Contest</span>
+		<br><br>
 
 		<strong>NO PURCHASE NECESSARY TO ENTER OR WIN.  VOID WHERE PROHIBITED.</strong>
 		<br><br>
