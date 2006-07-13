@@ -8,6 +8,23 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.13.06<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm311">SRM 311 - Problem Set & Analysis</A></span><br><br>
+In Division 1, competitiors discovered the Easy and Medium problems to be easier than expected. Several coders solved them both in about
+10-15 minutes.      </td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm311">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505986" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><i>Mass High Tech</i> features TopCoder staff</span><br><br>
       <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
@@ -177,20 +194,6 @@ This SRM had a very difficult Division 1 problem set, along with an unusually ha
          <A href="/longcontest/?module=ViewOverview&rd=10083">results</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.05.06<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">kristofferrouge is the TCCC06 Logo Contest Winner!</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="14947661" /> for designing the winning logo submission.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">details</A>&#160;|&#160;
-         <A href="/tc?module=SurveyResults&sid=217">vote results</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506049" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
