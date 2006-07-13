@@ -14,6 +14,8 @@ public class Preference extends Base {
     public static final Integer TYPE_MULTIPLE_CHOICE = new Integer(2);
     public static final Integer TYPE_TEXT_FIELD = new Integer(3);
 
+    public static final Long MEMBER_CONTACT_PREFERENCE_ID = new Long(24);
+    
     private Long id;
     private Integer preferenceTypeId;
     private String name;

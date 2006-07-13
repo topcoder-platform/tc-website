@@ -337,19 +337,20 @@ public class User extends Base {
         userPreferences.add(userPreference);    
     }
     
-    public UserPreference getUserPreference(long preferenceId) {
-    	log.debug("User.getUpserPreference " + preferenceId);
+    public UserPreference getUserPreference(Long preferenceId) {
         for (Iterator it = userPreferences.iterator(); it.hasNext(); )
         {
             UserPreference up = (UserPreference) it.next();
-            log.debug("up=" + up.getValue());
-            if (up.getId().getPreference().getId().longValue() == preferenceId) {
-            	log.debug("found!");
+            if (up.getId().getPreference().getId().equals(preferenceId)) {
                 return up;
             }            
         }
         return null;
     }
-   
-
+ 
+    public boolean isMemberContactEnabled() {
+    	UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+    	return up == null? false : String.valueOf(true).equals(up.getValue());
+    }
+    
 }

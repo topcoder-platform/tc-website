@@ -343,6 +343,10 @@
     <tr>
         <td class="value">(fix this!)
             <%=  regUser.getUserProfile(24).getValue().equals("true")? "yes" : "no" %>,
+
+            <c:if test="${regUser.memberContactEnabled}">yes</c:if>
+            <c:if test="${!regUser.memberContactEnabled}">no</c:if>
+
         </td>
     </tr>
 </c:if>
