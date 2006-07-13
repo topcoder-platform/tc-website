@@ -43,6 +43,7 @@ public class FixActivationCodes {
                 ps = conn.prepareStatement(t);
                 ps1 = conn.prepareStatement(s);
                 int count = 0;
+                int count1 = 0;
                 rs = ps1.executeQuery();
                 while (rs.next()) {
                     try {
@@ -53,7 +54,9 @@ public class FixActivationCodes {
                             ps.setLong(2, userId);
                             count += ps.executeUpdate();
                         }
+                        count1++;
                         if (count % 25 == 0) System.out.println("" + count + " records updated");
+                        if (count1 % 25 == 0) System.out.println("" + count1 + " records processed");
                     } catch (Exception e) {
                         System.out.println("user " + userId);
                         e.printStackTrace();
