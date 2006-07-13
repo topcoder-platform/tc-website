@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * A simple bean for the leader board.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
 
@@ -44,10 +44,11 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @param pointsPrize    The pointsPrize to set.
      * @param placementPrize The placementPrize to set.
      * @param totalPrize     The totalPrize to set.
+     * @param outstandingPoints     The outstandingPoints to set.
      */
     public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, long points,
                           boolean topThird, boolean winTrip, double pointsPrize,
-                          double placementPrize, double totalPrize) {
+                          double placementPrize, double totalPrize, long outstandingPoints) {
         super();
         this.period = period;
         this.phase = phase;
@@ -58,6 +59,7 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         this.topThird = topThird;
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
+        this.outstandingPoints = outstandingPoints;
     }
 
     /**

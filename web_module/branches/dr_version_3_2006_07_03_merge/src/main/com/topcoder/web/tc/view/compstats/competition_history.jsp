@@ -121,7 +121,8 @@ z-index: 1;
     <% } %>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-    &#160;|&#160;Competition History
+ | Competition History
+ | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&ph=<%=phaseId%>" class="bcLink">Current Contests</A>
 </span>
 
 
@@ -153,7 +154,7 @@ z-index: 1;
                  </td></tr>
                  <tr>
                     <TD CLASS="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a></TD>
-                    <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a></TD>
+                    <TD CLASS="header" WIDTH="37%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a></TD>
                     <TD CLASS="headerR" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a></TD>
                     <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="12" includeParams="true"/>">Submissions</a></TD>
                     <TD CLASS="headerC" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Passed<br>Review</a></TD>
@@ -161,7 +162,7 @@ z-index: 1;
                     <TD CLASS="headerR" WIDTH="9%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a></TD>
                     <TD CLASS="headerC" WIDTH="9%">
                          <div id="container">
-                            <img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" />
+                            <A href="/tc?module=Static&d1=digital_run&d2=description"><img class="popper" src="/i/interface/emblem/digital_run.gif" alt="The Digital Run" border="0" id="popper0" onmouseover="popUp(this.id,'pop0')" onmouseout="popHide()" /></A>
                             <div id="pop0" class="popUp" style="width:90px;">The Digital Run</div>
                          </div>
                          <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
@@ -221,8 +222,8 @@ z-index: 1;
         <% } else { %>
             &#160;
         <% } %>
-    </div> 
-    
+    </div>
+
          <p><br></p>
          <!-- END BODY -->
 

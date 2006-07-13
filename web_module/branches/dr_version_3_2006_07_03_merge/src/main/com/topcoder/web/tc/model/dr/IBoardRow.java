@@ -9,7 +9,7 @@ package com.topcoder.web.tc.model.dr;
  * Interface for the board's row beans.
  *
  * @author pulky
- * @version 1.0
+ * @version 1.0.1
  */
 public interface IBoardRow {
 
@@ -88,4 +88,18 @@ public interface IBoardRow {
      */
     public abstract boolean isWinTrip();
 
+    /**
+     * @return Returns the outstandingPoints.
+     */
+    public long getOutstandingPoints();
+
+    /**
+     * @param outstandingPoints The outstandingPoints to set.
+     */
+    public void setOutstandingPoints(long outstandingPoints);
+
+    /**
+     * @return Returns the total points.
+     */
+    public long getTotalPoints();
 }
