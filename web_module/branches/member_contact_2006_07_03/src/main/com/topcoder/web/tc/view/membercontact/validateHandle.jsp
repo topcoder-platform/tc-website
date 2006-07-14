@@ -20,7 +20,7 @@
            <script type="text/javascript">
                document.f.handleValid.value = <c:out value="${result.valid}" />
                if (canSend()) {
-					<c:if test="${result.valid && !emtpy send}" >
+					<c:if test="${result.valid && send != null}" >
                        document.f.submit();
                     </c:if>                       
                }
