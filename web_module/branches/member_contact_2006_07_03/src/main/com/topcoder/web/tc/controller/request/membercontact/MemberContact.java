@@ -30,6 +30,7 @@ public class MemberContact extends HibernateProcessor {
         String toHandle = getRequest().getParameter(TO_HANDLE);
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
+        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         if (toHandle != null) {
             ValidationResult result = new HandleValidator().validate(new StringInput(toHandle));
@@ -37,7 +38,6 @@ public class MemberContact extends HibernateProcessor {
                 throw new Exception("Can't contact that user.");
             }
             
-            User sender  = DAOUtil.getFactory().getUserDAO().find(getUser().getUserName(), true, true);
             User destination = DAOUtil.getFactory().getUserDAO().find(toHandle, true, true);
             String senderEmail = sender.getPrimaryEmailAddress().getAddress();
             String destinationEmail = destination.getPrimaryEmailAddress().getAddress();
@@ -59,10 +59,7 @@ public class MemberContact extends HibernateProcessor {
             getRequest().setAttribute(CONFIRM, "true");
         }
         
-        String canReceive = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                new Long(getUser().getId()), Preference.MEMBER_CONTACT_PREFERENCE_ID).getValue();
-
-        getRequest().setAttribute(CAN_RECEIVE, canReceive);
+        getRequest().setAttribute(CAN_RECEIVE, String.valueOf(sender.isMemberContactEnabled()));
         
         setNextPage(Constants.MEMBER_CONTACT);
         setIsNextPageInContext(true);        
