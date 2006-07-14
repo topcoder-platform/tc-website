@@ -12,6 +12,16 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator;
 
+/**
+ * Processor for Member Contact page.
+ * This processor is used both for displaying the input page and for sending email.
+ * If there is no parameter TO_HANDLE, then it just displays the input page.
+ * If that parameter is present, it sends an email. 
+ * 
+ * @author cucu
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: July 14, 2006
+ */
 public class MemberContact extends HibernateProcessor {
     
     public static String TO_HANDLE = "th";
@@ -31,7 +41,11 @@ public class MemberContact extends HibernateProcessor {
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
+        // if a handle is specified, send an email
         if (toHandle != null) {
+        	
+        	// Check again that the user is valid, in case that someone has tweaked the jsp
+        	// or some kind of hack
             ValidationResult result = new HandleValidator().validate(new StringInput(toHandle));
             if (!result.isValid()) {
                 throw new Exception("Can't contact that user.");
@@ -41,7 +55,7 @@ public class MemberContact extends HibernateProcessor {
             String senderEmail = sender.getPrimaryEmailAddress().getAddress();
             String destinationEmail = destination.getPrimaryEmailAddress().getAddress();
             
-            
+            // send the original message
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
             mail.setBody(message);
@@ -49,6 +63,7 @@ public class MemberContact extends HibernateProcessor {
             mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
             EmailEngine.send(mail);
             
+            // send a copy to the user if requested
             if (sendCopy) {
                 mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT_COPY.replaceAll("%", destination.getHandle()));
                 mail.setToAddress(senderEmail, TCSEmailMessage.TO); 

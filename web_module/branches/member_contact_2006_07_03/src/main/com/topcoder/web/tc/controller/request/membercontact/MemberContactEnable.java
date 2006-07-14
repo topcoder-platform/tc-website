@@ -9,6 +9,15 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 
+/**
+ * Processor for Enabling Member Contact
+ * This processor is used both for display the page for enabling MC as well as for enabling it.
+ * If there is an ENABLE parameter, it enables in the DB, if not it just shows the page.
+ * 
+ * @author cucu
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: July 14, 2006
+ */
 public class MemberContactEnable extends HibernateProcessor {
     
     public static String ENABLE = "enable";
@@ -20,12 +29,13 @@ public class MemberContactEnable extends HibernateProcessor {
 
         boolean enable = getRequest().getParameter(ENABLE) != null;
 
-        
+        // if asked to enable MC, do the db work!
         if (enable) {
         	Long userId = new Long(getUser().getId()); 
             UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO()
             		.find(userId, Preference.MEMBER_CONTACT_PREFERENCE_ID);
             
+            // it could (but shouldn't) happen that the user doesn't have a UserPreference for MC.
             if (up == null) {
         		up = new UserPreference();
         		Preference p = DAOUtil.getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
@@ -39,7 +49,8 @@ public class MemberContactEnable extends HibernateProcessor {
             
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);                    
-        } else {
+        } else {        	
+        	// Just display the page to confirm enabling MC
             setNextPage(Constants.MEMBER_CONTACT_ENABLE);
             setIsNextPageInContext(true);                    
         }
