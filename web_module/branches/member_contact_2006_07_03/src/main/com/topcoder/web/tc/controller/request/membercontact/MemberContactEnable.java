@@ -5,6 +5,7 @@ import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 
@@ -19,11 +20,21 @@ public class MemberContactEnable extends HibernateProcessor {
 
         boolean enable = getRequest().getParameter(ENABLE) != null;
 
+        
         if (enable) {
-            UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(
-                    new Long(getUser().getId()), Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        	Long userId = new Long(getUser().getId()); 
+            UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO()
+            		.find(userId, Preference.MEMBER_CONTACT_PREFERENCE_ID);
             
-            up.setValue("true");
+            if (up == null) {
+        		up = new UserPreference();
+        		Preference p = DAOUtil.getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        		User user  = DAOUtil.getFactory().getUserDAO().find(userId);
+        		up.setId(new UserPreference.Identifier(user, p));
+        	}            
+            
+      		up.setValue(String.valueOf(true));
+      		
             markForCommit();
             
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);

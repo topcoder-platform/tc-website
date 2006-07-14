@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.reg.Constants;
 
 import java.util.*;
 
@@ -352,5 +353,5 @@ public class User extends Base {
     	UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
     	return up == null? false : String.valueOf(true).equals(up.getValue());
     }
-    
+        
 }
