@@ -212,7 +212,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                 int ratingCount = -1;
                 int posRatings = -1; 
                 int negRatings = -1; %> 
-            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap; word-wrap: break-word; ">
+            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
                   if (editCount > 0) { %> 
                       <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink" title="Last updated <tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d, yyyy 'at' h:mm a z"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
