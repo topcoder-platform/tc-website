@@ -41,6 +41,13 @@
 </jsp:include>
 
 <p>
+    5.3.10 - 2006.07.14
+    <ul>
+        <li>Fix default sorting of Digital Run scoreboard's columns</li>
+    </ul>
+</p>
+
+<p>
     5.3.9 - 2006.07.13
     <ul>
         <li>Fix problem details so that it doesn't crash the database</li>
