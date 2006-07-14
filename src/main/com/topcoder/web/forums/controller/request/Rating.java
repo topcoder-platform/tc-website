@@ -9,8 +9,6 @@ import com.jivesoftware.forum.RatingManagerFactory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
-import java.util.Iterator;
-
 /**
  * @author mtong
  *
