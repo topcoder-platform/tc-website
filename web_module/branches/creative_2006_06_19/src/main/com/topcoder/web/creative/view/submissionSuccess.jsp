@@ -35,7 +35,9 @@
 
       <div align="center">
          <div align="left" style="width:500px;">
-            Your have successfully uploaded your submission.
+            Your Submission Has Been Uploaded
+            <br><br>
+            Please allow 24 hours for processing. If your submission does not pass screening, you will receive an email with a list of any requirements that it failed to meet.
             <br><br>
             Thank you.
             <br><br>
