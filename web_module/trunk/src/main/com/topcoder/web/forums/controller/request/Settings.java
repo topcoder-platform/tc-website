@@ -49,13 +49,14 @@ public class Settings extends ForumsProcessor {
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
             String markWatchesRead = getRequest().getParameter("markWatchesRead");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
+            
             String showRatings = getRequest().getParameter("showRatings");
             String ratingHighlightThreshold = getRequest().getParameter("ratingHighlightThreshold");
             String ratingHighlightMinCount = getRequest().getParameter("ratingHighlightMinCount");
             String ratingCollapseThreshold = getRequest().getParameter("ratingCollapseThreshold");
             String ratingCollapseMinCount = getRequest().getParameter("ratingCollapseMinCount");
             String ratingCollapseMinMessages = getRequest().getParameter("ratingCollapseMinMessages");
-
+            
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
             checkMax(messagesPerPage, ForumConstants.maxMessagesPerPage, "jiveMessageRange", ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
