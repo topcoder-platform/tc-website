@@ -671,6 +671,7 @@ if (action != null) {
                     }
                 }
             }
+            log.debug("updateVersionInfo.jsp");
             componentManager.updateVersionInfo(ver, tcSubject, levelId);
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
@@ -735,6 +736,7 @@ if (action != null) {
                     verDateInfo.setAggregationCompleteDate(null);
                 }
 
+                log.debug("updateVersionDatesInfo.jsp");
                 componentManager.updateVersionDatesInfo(verDateInfo);
             }
 
@@ -842,6 +844,7 @@ if (action != null) {
                                                   request.getParameter("txtProductionDateComment")
                                                 );
 
+                log.debug("updateVersionDatesInfo.jsp2");
                 componentManager.updateVersionDatesInfo(verDateInfo);
             }
 

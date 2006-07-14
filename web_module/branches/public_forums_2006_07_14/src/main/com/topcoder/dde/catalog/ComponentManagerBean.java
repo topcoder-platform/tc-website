@@ -749,6 +749,7 @@ public class ComponentManagerBean
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
 
+        log.debug("updateVersionInfo!!!!!!!!");
 
         if (info == null) {
             throw new CatalogException(
@@ -867,14 +868,14 @@ public class ComponentManagerBean
                     throw new CatalogException(exception.toString());
                 }
             } else {
-                log.info("Updating public");
+                log.debug("Updating public");
                 // all forums are created, but the public attribute must be updated.
                 for (Iterator it=forums.iterator(); it.hasNext(); ) {
                     LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
 
                     RolePrincipal userRole = null;
                     try {
-                        log.info("Looking for forum: " + compForumXref.getForumId());
+                        log.debug("Looking for forum: " + compForumXref.getForumId());
 
                         PrincipalMgrRemote principalManager = principalmgrHome.create();
                         userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
@@ -884,10 +885,10 @@ public class ComponentManagerBean
                         perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
 
                         PolicyMgrRemote policyManager = policymgrHome.create();
-                        log.info("Remove permission");
+                        log.debug("Remove permission");
                         policyManager.removePermissions(userRole, perms, null);
 
-                        log.info("Add permission");
+                        log.debug("Add permission");
                         if (info.getPublicForum())
                             policyManager.addPermissions(userRole, perms, null);
                     } catch (ConfigManagerException exception) {
