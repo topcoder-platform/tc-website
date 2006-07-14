@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tac:taconiteRoot>
@@ -20,7 +22,8 @@
            <script type="text/javascript">
                document.f.handleValid.value = <c:out value="${result.valid}" />
                if (canSend()) {
-					<c:if test="${result.valid && send != null}" >
+               		<c:set value="<%=MemberContact.SEND%>" var="send"/>
+					<c:if test="${result.valid && cf:contains(param, send)" >
                        document.f.submit();
                     </c:if>                       
                }
