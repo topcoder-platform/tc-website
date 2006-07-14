@@ -167,6 +167,12 @@
     <br><br>
 </c:if>
 
+<c:set value="<%=RegistrationType.CREATIVE_ID%>" var="creative"/>
+<c:if test="${cf:contains(requestScope[regTypes], creative)}">
+    <div class="regHead">As a Registered Creative Competition Member</div>
+    <br><br>
+</c:if>
+
 <div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
     <tr>
