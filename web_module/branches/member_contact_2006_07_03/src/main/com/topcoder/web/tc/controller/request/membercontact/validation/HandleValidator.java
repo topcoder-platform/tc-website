@@ -10,6 +10,19 @@ import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 
+/**
+ * Validates wheter the user can receive a member contact.
+ * To pass the validation, the input must:
+ * - be not empty
+ * - be an existing handler
+ * - the handler must have the preference for member contact enabled
+ * - the status of the primary address for the user must be active
+ * 
+ * If any of those fails, the validation fail.
+ * 
+ * @author Owner
+ *
+ */
 public class HandleValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         

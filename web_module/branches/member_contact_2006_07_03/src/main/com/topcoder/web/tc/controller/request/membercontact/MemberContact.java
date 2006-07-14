@@ -73,7 +73,9 @@ public class MemberContact extends HibernateProcessor {
             getRequest().setAttribute(CONFIRM, "true");
         }
         
-        getRequest().setAttribute(CAN_RECEIVE, String.valueOf(sender.isMemberContactEnabled()));
+        if (sender.isMemberContactEnabled()) {
+        	getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
+        }
         
         setNextPage(Constants.MEMBER_CONTACT);
         setIsNextPageInContext(true);        

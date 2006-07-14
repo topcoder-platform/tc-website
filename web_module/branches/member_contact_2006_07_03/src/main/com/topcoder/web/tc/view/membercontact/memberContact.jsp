@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
-         com.topcoder.web.tc.Constants" %>
+         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+         
 <html>
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
@@ -26,19 +29,22 @@ function showButton() {
 
 
 </script>
-<% if (request.getAttribute(MemberContact.CONFIRM) != null) { %>
+<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
+<c:if test="${result.valid && cf:containsMapKey(requestScope, confirm)}" >
     <div style="font-weight:bold;color:green;">
        Your email was sent.
     </div>
-<% } %>
+</c:if>
 
 <form name='f' action='/tc?module=MemberContact' method='post' >
-<% if (!"true".equals(request.getAttribute(MemberContact.CAN_RECEIVE))) { %>
-To enable other members to contact you, 
-<a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
-click here</a>
-<br>
-<% } %>
+
+<c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
+<c:if test="${result.valid && cf:containsMapKey(requestScope, canReceive)}" >
+	To enable other members to contact you, 
+		<a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
+	click here</a>
+	<br>
+</c:if>
 <br>
 
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
