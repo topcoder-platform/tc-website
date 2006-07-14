@@ -57,15 +57,15 @@
                <tr>
                   <td class="Title" colspan="2">Payment breakdown</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Total Payment:</strong></td>
                   <td class="valueR">$1600.00</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>First Deliverable:</strong></td>
                   <td class="valueR">$1200.00</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Project Completion:</strong></td>
                   <td class="valueR">$400.00</td>
                </tr>
@@ -83,7 +83,7 @@
                <tr>
                   <td class="Title" colspan="2">Payment breakdown</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Total Payment:</strong></td>
                   <td class="valueR">$800.00</td>
                </tr>
@@ -114,19 +114,19 @@
                <tr>
                   <td class="Title" colspan="2">Payment breakdown</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Posting Date:</strong></td>
                   <td class="valueR">07.11.2006</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Initial Submission Due Date:</strong></td>
                   <td class="valueR">07.17.2006</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Winner Announced:</strong></td>
                   <td class="valueR">07.24.2006</td>
                </tr>
-               <tr>
+               <tr class="light">
                   <td class="value"><strong>Final Submission Due Date:</strong></td>
                   <td class="valueR">07.26.2006</td>
                </tr>
