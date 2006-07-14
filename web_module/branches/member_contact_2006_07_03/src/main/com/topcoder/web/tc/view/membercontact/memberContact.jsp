@@ -30,7 +30,7 @@ function showButton() {
 
 </script>
 <c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
-<c:if test="${result.valid && cf:containsMapKey(requestScope, confirm)}" >
+<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
     <div style="font-weight:bold;color:green;">
        Your email was sent.
     </div>
@@ -39,7 +39,7 @@ function showButton() {
 <form name='f' action='/tc?module=MemberContact' method='post' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
-<c:if test="${result.valid && cf:containsMapKey(requestScope, canReceive)}" >
+<c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
 	To enable other members to contact you, 
 		<a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
 	click here</a>
