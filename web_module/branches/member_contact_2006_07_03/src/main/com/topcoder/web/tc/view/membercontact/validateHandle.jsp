@@ -23,7 +23,7 @@
                document.f.handleValid.value = <c:out value="${result.valid}" />
                if (canSend()) {
                		<c:set value="<%=MemberContact.SEND%>" var="send"/>
-					<c:if test="${result.valid && cf:contains(param, send)" >
+					<c:if test="${result.valid && cf:contains(param, send)}" >
                        document.f.submit();
                     </c:if>                       
                }
