@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.membercontact.validation;
 
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.BasicResult;
@@ -28,6 +29,10 @@ public class HandleValidator implements Validator {
 
         if (!"true".equals(canReceive)) {
             return new BasicResult(false, "The user can't receive emails via Member Contact.");
+        }
+        
+        if (!user.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
+        	return new BasicResult(false, "The user doesn't have a valid email address.");
         }
         return BasicResult.SUCCESS;
     }
