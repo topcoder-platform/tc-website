@@ -19,6 +19,7 @@ import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.web.tc.model.dr.IBoardRow;
+import com.topcoder.web.common.model.SortInfo;
 
 import java.util.*;
 
@@ -203,6 +204,11 @@ public abstract class BaseBoard extends BaseProcessor {
                 Collections.reverse(boardResult);
             }
         }
+        SortInfo s = new SortInfo();
+        s.addDefault(Integer.parseInt(CODER_HANDLE_COLUMN), "asc");
+        s.addDefault(Integer.parseInt(OUTSTANDING_POINTS_COLUMN), "desc");
+        s.addDefault(Integer.parseInt(TOTAL_POINTS_COLUMN), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
     /**
