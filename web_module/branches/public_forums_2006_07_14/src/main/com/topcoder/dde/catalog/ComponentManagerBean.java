@@ -833,15 +833,15 @@ public class ComponentManagerBean
         // is moved directly from collaboration to development.
         if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
                 || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-            int numforums;
+            Collection forums;
             try {
-                numforums = compforumHome.findByCompVersIdAndType(versionId,
-                        Forum.SPECIFICATION).size();
+                forums = compforumHome.findByCompVersIdAndType(versionId,
+                        Forum.SPECIFICATION);
             } catch (FinderException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
-            if (numforums == 0) {
+            if (forums.size() == 0) {
                 try {
                     com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
                     try {
@@ -865,6 +865,48 @@ public class ComponentManagerBean
                 } catch (CreateException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(exception.toString());
+                }
+            } else {
+                log.info("Updating public");
+                // all forums are created, but the public attribute must be updated.
+                for (Iterator it=forums.iterator(); it.hasNext(); ) {
+                    LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
+
+                    RolePrincipal userRole = null;
+                    try {
+                        log.info("Looking for forum: " + compForumXref.getForumId());
+
+                        PrincipalMgrRemote principalManager = principalmgrHome.create();
+                        userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
+
+                        PermissionCollection perms = null;
+                        perms = new PermissionCollection();
+                        perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
+
+                        PolicyMgrRemote policyManager = policymgrHome.create();
+                        log.info("Remove permission");
+                        policyManager.removePermissions(userRole, perms, null);
+
+                        log.info("Add permission");
+                        if (info.getPublicForum())
+                            policyManager.addPermissions(userRole, perms, null);
+                    } catch (ConfigManagerException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                                "Failed to obtain configuration data: " + exception.toString());
+                    } catch (CreateException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                                "Failed to create security roles for forum: "
+                                + exception.toString());
+                    } catch (GeneralSecurityException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                                "Failed to create security roles for forum: "
+                                + exception.toString());
+                    } catch (RemoteException exception) {
+                        throw new EJBException(exception.toString());
+                    }
                 }
             }
         }
