@@ -39,11 +39,10 @@
       <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
       <tbody>
          <tr>
-            <td class="title" colspan="7">Active Contests</td>
+            <td class="title" colspan="6">Active Contests</td>
          </tr>
          <tr>
             <td class="header" colspan="2">Project</td>
-            <td class="headerC">Registrants</td>
             <td class="headerC">Registration ends</td>
             <td class="headerC">Submissions</td>
             <td class="headerR">Payment</td>
@@ -52,7 +51,6 @@
          <tr class="light">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
@@ -61,7 +59,6 @@
          <tr class="dark">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
@@ -70,7 +67,6 @@
          <tr class="light">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
@@ -79,7 +75,6 @@
          <tr class="dark">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
@@ -88,7 +83,6 @@
          <tr class="light">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
@@ -97,7 +91,6 @@
          <tr class="dark">
             <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
             <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register / Submit</button></td>
-            <td class="valueC"><A href="/?module=Static&d1=registrants">6</A></td>
             <td class="valueC">07.14.2006 09:00 AM EDT</td>   
             <td class="valueC">0</td>   
             <td class="valueR">$1,600.00</td>   
