@@ -13,7 +13,7 @@ public class Util {
         return c.contains(o);
     }
 
-    public static boolean contains(Map m, Object o) {
+    public static boolean containsMapKey(Map m, Object o) {
         return m.containsKey(o);
     }
 

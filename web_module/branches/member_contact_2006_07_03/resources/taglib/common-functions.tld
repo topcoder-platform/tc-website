@@ -22,10 +22,10 @@
         </function-signature>
     </function>
     <function>
-        <name>contains</name>
+        <name>containsMapKey</name>
         <function-class>com.topcoder.web.common.function.Util</function-class>
         <function-signature>
-            boolean contains(java.util.Map, java.lang.Object)
+            boolean containsMapKey(java.util.Map, java.lang.Object)
         </function-signature>
     </function>
 
