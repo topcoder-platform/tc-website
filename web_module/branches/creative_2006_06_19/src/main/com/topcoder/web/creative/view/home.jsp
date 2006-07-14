@@ -3,12 +3,12 @@
 
 <html>
 <head>
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>TopCoder FX</title>
-<link type="text/css" rel="stylesheet" href="/css/creative/main.css">
-<link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
-<link type="text/css" rel="stylesheet" href="/css/creative/coders.css">
+   <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <title>TopCoder FX</title>
+   <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
+   <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
+   <link type="text/css" rel="stylesheet" href="/css/creative/coders.css">
 </head>
 
 <body>
@@ -92,12 +92,7 @@
       <h3>Subtitle</h3>
       <div style="float:left; padding: 0px 10px 4px 0px;"><img src="/i/creative/placeholder.gif" alt="" style="display:block;" /></div>      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam <A href="#">consetetur</A>. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
    
-      <div class="foot">
-      <A href="">Home</A>
-       | <A href="">About TopCoder</A>
-       | <A href="">Contact Us</A>
-       | <A href="">Terms</A>
-      </div>
+      <jsp:include page="/creative_foot.jsp" />
    </div>
 </div>
 </body>
