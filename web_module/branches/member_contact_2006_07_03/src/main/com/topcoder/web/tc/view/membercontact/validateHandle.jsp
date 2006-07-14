@@ -1,43 +1,31 @@
-<%@ page language="java"
-         import="com.topcoder.web.common.validation.ValidationResult,
-         com.topcoder.web.common.validation.StringInput,
-         com.topcoder.web.tc.controller.request.membercontact.validation.HandleValidator,
-         com.topcoder.web.common.HibernateUtils,
-         com.topcoder.web.tc.controller.request.membercontact.MemberContact
-         " %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
-
-        <%
-        String handle = request.getParameter(MemberContact.TO_HANDLE);
-        HibernateUtils.begin();
-        ValidationResult result = new HandleValidator().validate(new StringInput(handle));
-        HibernateUtils.commit();
-        %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tac:taconiteRoot>
 
-
-<%   if(result.isValid()) {     %>
-            <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
-                    <div> </div>
-            </tac:replaceChildren>
-   <% } else { %>
-            <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
-                <div style="font-weight:bold;color:red;">
-                   <%= result.getMessage() %>
-                </div>
-            </tac:replaceChildren>
-    <% } %>
-        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
-            <script type="text/javascript">
-                document.f.handleValid.value = <%= result.isValid() %>;
-                if (canSend()) {
-                    <% if ((request.getParameter(MemberContact.SEND) != null) && result.isValid()) { %>
-                        document.f.submit();
-                    <% } %>
-                }
-                showButton();
-            </script>
+<c:choose>
+	<c:when test="${result.valid}">
+        <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
+                <div> </div>
         </tac:replaceChildren>
+	</c:when>
+	<c:otherwise>
+        <tac:replaceChildren contextNodeID="validationHandle" parseOnServer="true">
+            <div style="font-weight:bold;color:red;">
+               <c:out value="${result.message}" />
+            </div>
+        </tac:replaceChildren>	
+	</c:otherwise>
+</c:choose>
+       <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
+           <script type="text/javascript">
+               document.f.handleValid.value = <c:out value="${result.valid}" />
+               if (canSend()) {
+					<c:if test="${result.valid && !emtpy send}" >
+                       document.f.submit();
+                    </c:if>                       
+               }
+               showButton();
+           </script>
+       </tac:replaceChildren>
 
 </tac:taconiteRoot>
