@@ -73,7 +73,7 @@ public class MemberContact extends HibernateProcessor {
             getRequest().setAttribute(CONFIRM, "true");
         }
         
-        if (sender.isMemberContactEnabled()) {
+        if (!sender.isMemberContactEnabled()) {
         	getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
         }
         
