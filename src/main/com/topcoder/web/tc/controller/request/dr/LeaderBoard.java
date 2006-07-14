@@ -73,7 +73,7 @@ public class LeaderBoard extends BaseBoard {
         List leaderBoardResult = processBoard(rsc, designBoard);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        boolean invert = sortDir.equals("asc");
+        boolean invert = sortDir.equals("desc");
 
         // break prizes ties
         tieBreak(leaderBoardResult, designBoard ? designPlacementPrize : developmentPlacementPrize, invert,
