@@ -61,6 +61,9 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
+<%-- TCCC06 
+<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/promos/tccc06_promo.gif" border="0" ALT="TCCC06" /></A>
+--%>
 <%-- Digital Run --%>
 <map name="digital_run">
 <area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
@@ -71,6 +74,7 @@
 <area shape="rect" alt="" coords="382,141,477,154" href="/tc?module=RookieBoard&ph=113" />
 </map>
 <IMG SRC="/i/home/digital_run_071006.gif" border="0" ALT="The Digital Run" usemap="#digital_run"/>
+
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
