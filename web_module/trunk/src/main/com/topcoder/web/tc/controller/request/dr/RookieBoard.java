@@ -62,7 +62,7 @@ public class RookieBoard extends BaseBoard {
         List rookieBoardResult = processBoard(rsc, phase);
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        boolean invert = sortDir.equals("asc");
+        boolean invert = sortDir.equals("desc");
 
         // break prizes ties
         tieBreak(rookieBoardResult, (phase == 112) ? designPlacementPrize : developmentPlacementPrize, invert,
