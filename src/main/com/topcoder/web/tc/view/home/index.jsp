@@ -80,15 +80,15 @@
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
 <%-- Banners --%>
 <tr>
-    <td class="homeLeftBan"><A href="/tc"><img src="/i/home/tab_developercenter.gif" alt="Developer Center" border="0"/></A>
+    <td class="homeLeftBan"><A href="/tc"><img src="/i/home/tab_developercenter.gif" alt="Developer Center" border="0" style="display:block;" /></A>
     </td>
     <td class="homeGutter" rowspan=2>&#160;</td>
     <td class="homeCentBan">
-        <A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" alt="Corporate Services" border="0"/></A>
+        <A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" alt="Corporate Services" border="0" style="display:block;" /></A>
     </td>
     <td class="homeGutter" rowspan=2>&#160;</td>
     <td class="homeRightBan">
-        <A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" alt="News & Events" border="0"/></A>
+        <A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" alt="News & Events" border="0" style="display:block;" /></A>
     </td>
 </tr>
 <%-- Body --%>
@@ -97,7 +97,7 @@
 <td class="homeLeftCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"/></A>
+            <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
@@ -159,7 +159,7 @@
 <td class="homeCentCol">
     <table border="0" cellpadding="0" cellspacing="0">
         <tr><td class="homeBigPromo">
-            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/home/tcs.jpg" alt="TopCoder Software" border="0"/></A>
+            <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"><img src="/i/home/tcs.jpg" alt="TopCoder Software" border="0" style="display:block;" /></A>
         </td></tr>
     </table>
     <table border="0" cellpadding="0" cellspacing="0">
@@ -207,13 +207,13 @@
                         <A href="/movies/press/cnn_072405.mp4"><img src="/i/home/mov_cnn_072405.jpg" alt="TopCoder Movies" border="0" /></A>
             --%>
             <%-- WSJ 
-            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0"/></A>
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
             --%>
             <%-- Intel MTCS
-                        <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" /></A>
+                        <A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0"  style="display:block;" /></A>
             --%>
             <%-- employee referral --%>
-            <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0"/></A>
+            <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/emp_ref_062806_sm.gif" alt="TopCoder Employee Referral Program" border="0" style="display:block;" /></A>
             
         </td></tr>
     </table>
