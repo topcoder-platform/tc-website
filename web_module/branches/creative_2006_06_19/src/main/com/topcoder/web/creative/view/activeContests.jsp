@@ -21,9 +21,8 @@
    <jsp:param name="node" value="home"/>
 </jsp:include>
 
-<div class="content">
-
-   <div style="padding:20px;">
+<div class="contentOuter">
+   <div class="contentInner">
 
       <div class="breadcrumb">
          Active Contests

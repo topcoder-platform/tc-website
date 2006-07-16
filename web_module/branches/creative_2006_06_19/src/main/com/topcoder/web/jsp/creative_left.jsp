@@ -49,18 +49,18 @@ function flipMenu(myMenuName){
 
 
 
-<%-- STATIC HTML FOR REFERENCE
+<%-- STATIC HTML FOR REFERENCE--%>
 <div id="leftNav">
 
    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX" /></div>
    
    <ul>
-   <li class="highlight"><A href="../home/home.html">Home</A></li>
-   <li><A href="">Contests</A></li>
+   <li class="highlight"><A href="/?module=Static&d1=home">Home</A></li>
+   <li><A href="/?module=Static&d1=activeContests">Contests</A></li>
    <li><A href="">Terms & Conditions</A></li>
    <li><A href="">Forums</A></li>
    <li><A href="">Support</A></li>
    </ul>
 
 </div>
---%>
+
