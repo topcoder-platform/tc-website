@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
-<%@ taglib uri="nav.tld" prefix="nav" %>
+<%--<%@ taglib uri="nav.tld" prefix="nav" %>--%>
 
 <%
    /* m_name indicates the name of an expandable menu */
@@ -39,7 +39,9 @@ function flipMenu(myMenuName){
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX" /></div>
+<%--
    <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
+--%>
 </div>
 
 
@@ -47,8 +49,7 @@ function flipMenu(myMenuName){
 
 
 
-
-<%--
+<%-- STATIC HTML FOR REFERENCE
 <div id="leftNav">
 
    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX" /></div>
