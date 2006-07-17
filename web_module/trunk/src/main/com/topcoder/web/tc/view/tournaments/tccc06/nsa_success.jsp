@@ -27,7 +27,7 @@
 <br><br>
 Your application has been received.
 <br><br>
-If you would like to be contacted by NSA, please go to <A href="/?t=sponsor&c=link&link=http://www.nsa.gov/careers/" target="_blank">NSA's Careers Homepage</A> and apply online to register as an applicant.
+You will be contacted by a TopCoder Recruiter if you meet NSA's requirements. Thank you.
 <br><br><br><br><br><br>
 
         </div>

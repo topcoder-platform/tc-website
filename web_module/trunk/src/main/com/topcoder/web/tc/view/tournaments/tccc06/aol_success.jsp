@@ -26,7 +26,7 @@
 <div align="center"><img src="/i/tournament/tccc06/aol_logo.gif" alt="AOL" border="0" /></div>
 Your application has been received.
 <br><br>
-[??] If you would like to be contacted by AOL, please go to AOL's <A href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank">http://developer.aol.com</A> page and apply online to register as an applicant. [??]
+You will be contacted by a TopCoder Recruiter if you meet AOL's requirements. Thank you.
 <br><br><br><br><br><br>
 
         </div>
