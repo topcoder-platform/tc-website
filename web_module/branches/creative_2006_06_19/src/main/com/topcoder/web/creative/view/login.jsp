@@ -21,7 +21,9 @@
             } else return true;
         }
     </script>
-
+<jsp:include page="style.jsp">
+    <jsp:param name="key" value="tc_creative"/>
+</jsp:include>
 </head>
 
 <%
