@@ -21,10 +21,12 @@
 <!-- Body-->
    <tr valign="top">
       <td valign="top" align="center">
-      <div class="bodySpacer">
-<br>           
-<div align="left"><img src="/i/tournament/tccc06/ubs_logo.gif" alt="UBS" border="0" /></div>
-<br><br>
+<div class="spacerUBS">
+<br>
+<img src="/i/tournament/tccc06/ubs_logo.gif" align="left" alt="UBS" border="0" />
+</div>
+<br><br><br>
+<div class="bodySpacer">
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to UBS and you will be giving UBS permission to contact you about their current job opportunities.
 <br><br>
 <A href="/tc?module=JobHit&jid=340&jt=1">Submit</A>
