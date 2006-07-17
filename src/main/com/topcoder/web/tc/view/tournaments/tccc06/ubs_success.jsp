@@ -27,7 +27,7 @@
 <br><br>
 Your application has been received.
 <br><br>
-If you would like to be contacted by UBS, please go to UBS's <a href="/?t=sponsor&c=link&link=http://www.ubs.com/graduates" target="_blank">Career Candidates</a> page and apply online to register as an applicant.
+You will be contacted by a TopCoder Recruiter if you meet UBS's requirements. Thank you.
 <br><br><br><br><br><br>
 
         </div>
