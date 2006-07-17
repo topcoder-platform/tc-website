@@ -72,11 +72,10 @@ public class TCUser extends SimpleUserAdapter {
                 " select e.address as email" +
                         " , u.user_id " +
                         " , u.handle " +
-                        " , c.member_since " +
+                        " , u.create_date " +
                         " , p.path || i.file_name as image_path " +
-                        " from user u, email e, coder c, outer(coder_image_xref x, image i, path p) " +
-                        " where u.user_id = c.coder_id " +
-                        " and u.user_id = x.coder_id " +
+                        " from user u, email e, outer(coder_image_xref x, image i, path p) " +
+                        " where u.user_id = x.coder_id " +
                         " and u.user_id = e.user_id " +
                         " and e.primary_ind = 1 " +
                         " and x.image_id = i.image_id " +
@@ -116,7 +115,7 @@ public class TCUser extends SimpleUserAdapter {
             //we're not releasing anyone's name, so we'll just let the field go unset.
             //this.name = rs.getString("firstName") + " " + rs.getString("lastName");
             this.email = rs.getString("email");
-            this.creationDate = rs.getDate("member_since");
+            this.creationDate = rs.getDate("create_date");
             this.imagePath = rs.getString("image_path");
             //System.out.println("ID: " + this.ID + " | username: " + this.username +
             //		" | email: " + this.email + " | creationDate: " + this.creationDate +
