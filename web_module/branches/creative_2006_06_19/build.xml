@@ -112,9 +112,9 @@
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/DBServices.jar"/>
         <pathelement location="${jars.dir}/tc.jar"/>
-
-
     </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
 
     <target name="init">
         <mkdir dir="${classes}"/>
@@ -1173,7 +1173,7 @@
             <webinf dir="${resources}/reg">
                 <include name="jboss-web.xml"/>
             </webinf>
-            <classes dir="${resources}/hibernate">
+            <classes dir="${resources}/reg">
                 <include name="hibernate.cfg.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
@@ -1231,10 +1231,18 @@
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
+                <include name="style.jsp"/>
             </fileset>
             <webinf dir="${resources}/creative">
                 <include name="jboss-web.xml"/>
             </webinf>
+            <classes dir="${resources}/creative">
+                <include name="hibernate.cfg.xml"/>
+            </classes>
+            <classes dir="${resources}/hibernate">
+                <include name="com/topcoder/web/common/model/**/*.xml"/>
+                <include name="com/topcoder/web/creative/model/**/*.xml"/>
+            </classes>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
@@ -1317,21 +1325,31 @@
     </target>
 
     <target name="run_reg_tests" depends="compile_tests" description="run junit tests">
-        <!--        <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path"/>
-            <formatter type="xml"/>
-            <batchtest todir="${testclasses}">
-                <fileset dir="${testclasses}">
-                    <include name="com/topcoder/web/reg/**/*TestCase.class"/>
-                </fileset>
-            </batchtest>
-        </junit>
-        -->
-
         <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path"/>
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources/reg/"/>
+            </classpath>
             <formatter type="xml"/>
             <test name="com.topcoder.web.reg.RegTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+    <target name="run_creative_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources/creative/"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.creative.CreativeTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
@@ -1696,26 +1714,26 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
-            	<include name="com/topcoder/common/web/util/Conversion.class" />
-                <include name="com/topcoder/common/web/error/TCException.class" />
-                <include name="com/topcoder/common/web/data/Navigation.class" />
-                <include name="com/topcoder/common/web/data/User.class" />
-                <include name="com/topcoder/common/web/data/SecureObject.class" />
-                <include name="com/topcoder/common/web/data/PermissionAssignee.class" />
-                <include name="com/topcoder/common/web/data/UserType.class" />
-                <include name="com/topcoder/common/web/data/Browser.class" />
-                <include name="com/topcoder/common/web/data/Round.class" />
-                <include name="com/topcoder/web/common/**/*.class" />
+                <include name="com/topcoder/common/web/util/Conversion.class"/>
+                <include name="com/topcoder/common/web/error/TCException.class"/>
+                <include name="com/topcoder/common/web/data/Navigation.class"/>
+                <include name="com/topcoder/common/web/data/User.class"/>
+                <include name="com/topcoder/common/web/data/SecureObject.class"/>
+                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
+                <include name="com/topcoder/common/web/data/UserType.class"/>
+                <include name="com/topcoder/common/web/data/Browser.class"/>
+                <include name="com/topcoder/common/web/data/Round.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/web/forums/controller/*.class"/>
-            	<include name="com/topcoder/web/forums/controller/request/*.class"/>
-            	<include name="com/topcoder/web/forums/model/**/*.class"/>
+                <include name="com/topcoder/web/forums/controller/request/*.class"/>
+                <include name="com/topcoder/web/forums/model/**/*.class"/>
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
-            	<include name="com/topcoder/web/forums/*.class"/>
+                <include name="com/topcoder/web/forums/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
-        	<classes dir="${resources}/forums/tc">
-        		<include name="jive_init.xml" />
-        	</classes>
+            <classes dir="${resources}/forums/tc">
+                <include name="jive_init.xml"/>
+            </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
@@ -1729,9 +1747,9 @@
         </war>
         <antcall target="explode-forums"/>
     </target>
-	
-	
-	<target name="build-creative-forums" depends="">
+
+
+    <target name="build-creative-forums" depends="">
         <antcall target="war-creative-forums"/>
         <antcall target="package-TCUser"/>
         <antcall target="package-TCAuth"/>
@@ -1747,30 +1765,30 @@
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
-				<!-- included Creative jsps here -->
+                <!-- included Creative jsps here -->
             </fileset>
             <classes dir="${classes}">
-            	<include name="com/topcoder/common/web/util/Conversion.class" />
-                <include name="com/topcoder/common/web/error/TCException.class" />
-                <include name="com/topcoder/common/web/data/Navigation.class" />
-                <include name="com/topcoder/common/web/data/User.class" />
-                <include name="com/topcoder/common/web/data/SecureObject.class" />
-                <include name="com/topcoder/common/web/data/PermissionAssignee.class" />
-                <include name="com/topcoder/common/web/data/UserType.class" />
-                <include name="com/topcoder/common/web/data/Browser.class" />
-                <include name="com/topcoder/common/web/data/Round.class" />
-                <include name="com/topcoder/web/common/**/*.class" />
+                <include name="com/topcoder/common/web/util/Conversion.class"/>
+                <include name="com/topcoder/common/web/error/TCException.class"/>
+                <include name="com/topcoder/common/web/data/Navigation.class"/>
+                <include name="com/topcoder/common/web/data/User.class"/>
+                <include name="com/topcoder/common/web/data/SecureObject.class"/>
+                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
+                <include name="com/topcoder/common/web/data/UserType.class"/>
+                <include name="com/topcoder/common/web/data/Browser.class"/>
+                <include name="com/topcoder/common/web/data/Round.class"/>
+                <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/web/forums/controller/*.class"/>
-            	<include name="com/topcoder/web/forums/controller/request/*.class"/>
-            	<include name="com/topcoder/web/forums/controller/request/creative/*.class"/>
-            	<include name="com/topcoder/web/forums/model/**/*.class"/>
+                <include name="com/topcoder/web/forums/controller/request/*.class"/>
+                <include name="com/topcoder/web/forums/controller/request/creative/*.class"/>
+                <include name="com/topcoder/web/forums/model/**/*.class"/>
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
-            	<include name="com/topcoder/web/forums/*.class"/>
+                <include name="com/topcoder/web/forums/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
-        	<classes dir="${resources}/forums/creative">
-        		<include name="jive_init.xml" />
-        	</classes>
+            <classes dir="${resources}/forums/creative">
+                <include name="jive_init.xml"/>
+            </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
