@@ -206,7 +206,7 @@ function displayVotes(messageID, posVotes, negVotes) {
       <%   }   %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
       <tr>
-          <td class="rtHeader" colspan="2" width="100%">
+          <td class="rtHeader" colspan="2">
             <%  String msgBodyID = "msgBody" + message.getID();
                 String ratingsID = "ratings" + message.getID(); 
                 int ratingCount = -1;
