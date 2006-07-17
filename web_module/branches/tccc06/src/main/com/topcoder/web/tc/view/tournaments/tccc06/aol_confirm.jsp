@@ -27,8 +27,7 @@
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to AOL and you will be giving AOL permission to contact you about their current job opportunities.
 <br><br>
-<A href="">Submit</A>
-<%--<A href="/tc?module=JobHit&jid=326&jt=1">Submit</A>.--%>
+<A href="/tc?module=JobHit&jid=342&jt=1">Submit</A>
 <br><br><br><br><br><br>
 
         </div>
