@@ -410,7 +410,10 @@ public class ForumsUtil {
 					if (link.startsWith("/")) {		// relative
 						link = ApplicationServer.SERVER_NAME + link;
 					}
-					linkStr.append("<a href=\""+link+"\">"+linkNamesArr[i]+"</a>");
+					if (!link.startsWith("http://") && !link.startsWith("https://")) {
+						link = "http://" + link;
+					}
+					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
 					if (i<linkNamesArr.length-1) {
 						linkStr.append(" | ");
 					}
