@@ -35,4 +35,8 @@
   <link type="text/css" rel="stylesheet" href="/css/coders.css">
   <link type="text/css" rel="stylesheet" href="/css/stats.css">
   <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+<% } else if (key.equals("tc_creative")) { %>
+  <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
+  <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
+  <link type="text/css" rel="stylesheet" href="/css/coders.css">
 <% } %>
