@@ -27,7 +27,7 @@
 <br><br>
 Your application has been received.
 <br><br>
-If you would like to be contacted by NSA, please go to <A href="http://www.nsa.gov/careers/">NSA's Careers Homepage</A> and apply online to register as an applicant.
+If you would like to be contacted by NSA, please go to <A href="/?t=sponsor&c=link&link=http://www.nsa.gov/careers/" target="_blank">NSA's Careers Homepage</A> and apply online to register as an applicant.
 <br><br><br><br><br><br>
 
         </div>
