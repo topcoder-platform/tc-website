@@ -4,8 +4,11 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -51,26 +54,36 @@ public class MemberContact extends HibernateProcessor {
                 throw new Exception("Can't contact that user.");
             }
             
-            User destination = DAOUtil.getFactory().getUserDAO().find(toHandle, true, true);
+            User recipient  = DAOUtil.getFactory().getUserDAO().find(toHandle, true, true);
             String senderEmail = sender.getPrimaryEmailAddress().getAddress();
-            String destinationEmail = destination.getPrimaryEmailAddress().getAddress();
+            String recipientEmail = recipient.getPrimaryEmailAddress().getAddress();
             
             // send the original message
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT.replaceAll("%", sender.getHandle()));
             mail.setBody(message);
-            mail.setToAddress(destinationEmail, TCSEmailMessage.TO); 
+            mail.setToAddress(recipientEmail, TCSEmailMessage.TO); 
             mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
             EmailEngine.send(mail);
             
             // send a copy to the user if requested
             if (sendCopy) {
-                mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT_COPY.replaceAll("%", destination.getHandle()));
+                mail.setSubject(Constants.MEMBER_CONTACT_SUBJECT_COPY.replaceAll("%", recipient.getHandle()));
                 mail.setToAddress(senderEmail, TCSEmailMessage.TO); 
                 mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
                 EmailEngine.send(mail);
             }
             getRequest().setAttribute(CONFIRM, "true");
+            
+        	MemberContactMessage m = new MemberContactMessage();
+        	m.setSender(sender);
+        	m.setRecipient(recipient);
+        	m.setText(message);
+        	m.setCopy(sendCopy);
+        	
+            HibernateUtils.getSession().save(m);
+            
+            markForCommit();
         }
         
         if (!sender.isMemberContactEnabled()) {
