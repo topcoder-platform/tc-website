@@ -80,6 +80,7 @@ public class MemberContact extends HibernateProcessor {
         	m.setRecipient(recipient);
         	m.setText(message);
         	m.setCopy(sendCopy);
+        	m.setSentDate(new Date());
         	
             HibernateUtils.getSession().save(m);
             
