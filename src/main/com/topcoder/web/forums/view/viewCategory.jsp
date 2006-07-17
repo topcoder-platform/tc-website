@@ -165,8 +165,8 @@
             <%  if (forumCategory.getForumCount() > 0) { %>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
-                    <td class="rtHeader" width="80%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
-                    <td class="rtHeader" width="20%">T./M.</td>
+                    <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
+                    <td class="rtHeader">T./M.</td>
                     <td class="rtHeader" align="center" colspan="2" nowrap="nowrap"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
@@ -187,11 +187,11 @@
                             <% if (message.getUser() != null) { %>
                                 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                             <% } else { %>
-                                <td class="rtThreadCell"></td>
+                                <td class="rtThreadCell">&nbsp;</td>
                             <% } %>
                         <% } else { %>
-                            <td class="rtThreadCell"></td>
-                            <td class="rtThreadCell"></td>
+                            <td class="rtThreadCell">&nbsp;</td>
+                            <td class="rtThreadCell">&nbsp;</td>
                         <% } %>
                     </tr>
                 </tc-webtag:iterator>
@@ -247,7 +247,7 @@
                     <%  } else { %>
                     <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings. <%if (user!=null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><%}%></td>
                     <%  } %>
-                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
+                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="forumCategory" property="ID"/>"><img border="0" src="http://www.topcoder.com/i/interface/btn_rss.gif" alt="RSS" /></a></td>
                 </tr>
             </table>
 
