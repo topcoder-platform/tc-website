@@ -21,9 +21,11 @@ import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
+import com.topcoder.shared.common.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
+import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -391,5 +393,31 @@ public class ForumsUtil {
             }
         }
         return display.toString();
+    }
+    
+    // For creating links to news articles, match editorials and statistics pages, etc. in breadcrumb
+    public static String createLinkString(Forum forum) {
+        String linkNames = forum.getForumCategory().getProperty(ForumConstants.PROPERTY_LINK_NAMES);
+        StringBuffer linkStr = new StringBuffer();
+        if (linkNames != null) {
+        	String[] linkNamesArr = linkNames.split(",");
+        	if (linkNamesArr.length > 0) {
+        		linkStr.append("(");
+				for (int i=0; i<linkNamesArr.length; i++) {
+					String linkKey = (i==0) ? ForumConstants.PROPERTY_LINK : ForumConstants.PROPERTY_LINK+(i+1);
+					String link = forum.getProperty(linkKey);
+					if (link == null) return "";	// only display if well-formed
+					if (link.startsWith("/")) {		// relative
+						link = ApplicationServer.SERVER_NAME + link;
+					}
+					linkStr.append("<a href=\""+link+"\">"+linkNamesArr[i]+"</a>");
+					if (i<linkNamesArr.length-1) {
+						linkStr.append(" | ");
+					}
+				}
+				linkStr.append(")");
+        	}
+        }
+        return linkStr.toString();
     }
 }
