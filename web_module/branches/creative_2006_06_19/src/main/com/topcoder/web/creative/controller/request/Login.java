@@ -33,6 +33,7 @@ public class Login extends HibernateProcessor {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
+        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
 
 /*
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
@@ -78,7 +79,7 @@ public class Login extends HibernateProcessor {
                                     setIsNextPageInContext(false);
                                 }
                                 log.debug("on successful login, going to " + getNextPage());
-                                getAuthentication().login(new SimpleUser(0, username, password), false);
+                                getAuthentication().login(new SimpleUser(0, username, password), "on".equals(rememberUser.trim().toLowerCase()));
                                 return;
                             }
                         } else {
