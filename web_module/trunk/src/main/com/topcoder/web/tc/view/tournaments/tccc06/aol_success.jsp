@@ -24,6 +24,7 @@
       <div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tccc06/aol_logo.gif" alt="AOL" border="0" /></div>
+<br><br>
 Your application has been received.
 <br><br>
 You will be contacted by a TopCoder Recruiter if you meet AOL's requirements. Thank you.
