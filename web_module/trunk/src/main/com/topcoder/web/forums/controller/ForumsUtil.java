@@ -21,7 +21,7 @@ import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
-import com.topcoder.shared.common.ApplicationServer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
