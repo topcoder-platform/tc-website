@@ -33,7 +33,7 @@ public class Login extends HibernateProcessor {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
-        String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
+        String rememberUser = getRequest().getParameter(REMEMBER_USER);
 
 /*
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));

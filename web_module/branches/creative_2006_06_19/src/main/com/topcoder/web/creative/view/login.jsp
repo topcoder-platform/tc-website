@@ -21,9 +21,9 @@
             } else return true;
         }
     </script>
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_creative"/>
-</jsp:include>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
 </head>
 
 <%
@@ -70,6 +70,11 @@ will send your account activation code via email.
                     <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                 </td>
             </tr>
+            <tr valign="middle">
+                <td nowrap class="bodyText" colspan="3"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember
+                    Me</td>
+            </tr>
+
             <tr>
                 <td class="value">
                     &#160;
