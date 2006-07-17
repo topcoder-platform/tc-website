@@ -35,11 +35,13 @@
 
 <strong>Forgot your password?</strong><br>
 If you cannot remember your password
-<A href="<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click here</A> and we can send it
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click here</A> and we can
+send it
 to you via email.
 <br><br>
 <strong>New to TopCoder?</strong><br>
-<A href="${sessionInfo.secureAbsoluteServletPath}">Register now</A>. After you complete the registration process, we
+<A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete the registration process,
+we
 will send your account activation code via email.
 <br><br>
 
