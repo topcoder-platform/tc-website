@@ -41,9 +41,11 @@
 </jsp:include>
 
 <p>
-    5.3.10 - 2006.07.14
+    5.3.10 - 2006.07.xx
     <ul>
         <li>Fix default sorting of Digital Run scoreboard's columns</li>
+        <li>Fix bug in Marathon Match submission where a user could test examples, click browser back and then submit
+            but it would test examples again</li>
     </ul>
 </p>
 
