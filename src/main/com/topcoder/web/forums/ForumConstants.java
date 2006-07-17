@@ -50,6 +50,8 @@ public interface ForumConstants {
     public final static String PROPERTY_SORT = "sort";
     public final static String PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN = "showEmptyForumsOnMain";
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
+    public final static String PROPERTY_LINK_NAMES = "linkNames";
+    public final static String PROPERTY_LINK = "link";
 
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
