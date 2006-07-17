@@ -415,7 +415,7 @@ public class ForumsUtil {
 					}
 					linkStr.append("<a href=\""+link+"\" class=\"rtbcLink\">"+linkNamesArr[i]+"</a>");
 					if (i<linkNamesArr.length-1) {
-						linkStr.append(" | ");
+						linkStr.append("&#160;|&#160;");
 					}
 				}
 				linkStr.append(")");
