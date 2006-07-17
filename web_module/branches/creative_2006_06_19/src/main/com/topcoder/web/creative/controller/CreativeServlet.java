@@ -1,11 +1,14 @@
 package com.topcoder.web.creative.controller;
 
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+
+import java.util.MissingResourceException;
 
 /**
  * @author dok
@@ -19,4 +22,19 @@ public class CreativeServlet extends BaseServlet {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response,
                 BasicAuthentication.CREATIVE_SITE);
     }
+
+    protected String getProcessor(String key) {
+        String ret = super.getProcessor(key);
+        if (ret.equals(key)) {
+            //yuck, gonna throw errors all over the place
+            TCResourceBundle bundle = new TCResourceBundle("Creative");
+            try {
+                ret = bundle.getProperty(key);
+            } catch (MissingResourceException ignore) {
+                //just return what we got
+            }
+        }
+        return ret;
+    }
+
 }
