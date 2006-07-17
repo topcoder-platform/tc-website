@@ -3,7 +3,7 @@ CREATE TABLE member_contact_message (
     sender_id DECIMAL(10,0) NOT NULL,
     recipient_id DECIMAL(10,0) NOT NULL,
     message_text TEXT NOT NULL,
-    copy_ind DECIMAL(10,0) NOT NULL,
+    copy_ind DECIMAL(1,0) NOT NULL,
     sent_date DATETIME YEAR TO FRACTION DEFAULT CURRENT NOT NULL
 );
 
