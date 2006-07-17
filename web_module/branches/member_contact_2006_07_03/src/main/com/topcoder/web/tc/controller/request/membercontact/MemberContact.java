@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
+import java.util.Date;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
@@ -7,7 +9,6 @@ import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
