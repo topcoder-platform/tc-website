@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model">
+<hibernate-mapping package="com.topcoder.web.creative.model">
 
     <class name="SubmissionType" table="submission_type_lu" mutable="false">
         <id name="id" column="submission_type_id" access="field"/>

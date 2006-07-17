@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.creative.model">
+
+    <class name="Contest" table="contest">
+        <id name="id" column="contest_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">CREATIVE_CONTEST_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" access="field"/>
+        <many-to-one name="terms" column="terms_id" class="com.topcoder.web.common.model.TermsOfUse" access="field"/>
+        <property name="startTime" column="start_time" access="field"/>
+        <property name="endTime" column="end_time" access="field"/>
+    </class>
+</hibernate-mapping>

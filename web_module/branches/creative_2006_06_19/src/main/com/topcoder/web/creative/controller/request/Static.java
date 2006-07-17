@@ -2,6 +2,7 @@ package com.topcoder.web.creative.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.creative.Constants;
 
 /**
@@ -32,13 +33,7 @@ public class Static extends BaseProcessor {
     }
 
     public static boolean isLegal(String s) {
-        if (s == null) return false;
-        if (s.equals("")) return false;
-        char[] c = s.toCharArray();
-        for (int i = 0; i < c.length; i++)
-            if (0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
-                return false;
-        return true;
+        return StringUtils.containsOnly(s, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_", false);
     }
 
 

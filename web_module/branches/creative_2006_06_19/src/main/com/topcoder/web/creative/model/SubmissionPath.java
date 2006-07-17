@@ -7,7 +7,7 @@ import com.topcoder.web.common.model.Base;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 27, 2006
  */
-public class Path extends Base {
+public class SubmissionPath extends Base {
     private Long id;
     private String path;
 
