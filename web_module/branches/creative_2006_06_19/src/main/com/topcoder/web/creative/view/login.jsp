@@ -8,7 +8,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Registration</title>
+    <title>TopCoder Studio</title>
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -35,7 +35,21 @@
 
 <body>
 
-<strong>Forgot your password?</strong><br>
+<jsp:include page="creativeTop.jsp">
+    <jsp:param name="section" value="default"/>
+</jsp:include>
+
+<jsp:include page="creativeLeft.jsp">
+    <jsp:param name="node" value="home"/>
+</jsp:include>
+
+<div class="contentOuter">
+<div class="contentInner">
+
+   <h1>Login</h1>
+        <div align="center">
+            <div align="left" style="width:500px;">
+<strong>Forgot your password?</strong>
 If you cannot remember your password
 <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click here</A> and we can
 send it
@@ -52,10 +66,10 @@ will send your account activation code via email.
     <input type="hidden" name="module" value="Login">
 
     <div align="center">
-        <%= message %>
-        <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+        <span class="bigRed"><%= message %></span>
+        <table cellpadding="2" cellspacing="0" border="0">
             <tr>
-                <td class="name">
+                <td class="name" align="right">
                     Handle:
                 </td>
                 <td class="value">
@@ -63,36 +77,37 @@ will send your account activation code via email.
                 </td>
             </tr>
             <tr>
-                <td class="name">
+                <td class="name" align="right">
                     Password:
                 </td>
                 <td class="value">
                     <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                 </td>
             </tr>
-            <tr valign="middle">
-                <td nowrap class="bodyText" colspan="3"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember
+            <tr>
+                <td colspan="2" align="center"><input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember
                     Me</td>
             </tr>
 
             <tr>
-                <td class="value">
-                    &#160;
-                </td>
-                <td class="value">
-                    <a href="#" onclick="document.frmLogin.submit();return false;" class="bodyText">Login</a>
+                <td colspan="2" align="center">
+                    <button onclick="document.frmLogin.submit();return false;">Login</button>
                 </td>
             </tr>
         </table>
 
-        <p><br/></p>
+         <br><br>
 
         <script type="text/javascript">
             document.frmLogin.<%=Login.USER_NAME%>.focus();
         </script>
 
 </form>
+            </div>
+        </div>
 
-
+        <jsp:include page="/creativeFoot.jsp"/>
+    </div>
+</div>
 </body>
 </html>
