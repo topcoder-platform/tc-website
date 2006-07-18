@@ -32,17 +32,19 @@
             Calendar.setup(
             {
                 inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
-                ifFormat    : "%m %d, %Y",    // the date format
+                ifFormat    : "%a, %b %e, %Y [%I:%M %p]",    // the date format
                 button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
-                showsTime    : true
+                showsTime   : true,
+                cache       : true
             }
                     );
             Calendar.setup(
             {
                 inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
-                ifFormat    : "%m %d, %Y",    // the date format
+                ifFormat    : "%a, %b %e, %Y [%I:%M %p]",    // the date format
                 button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
-                showsTime    : true
+                showsTime    : true,
+                cache       : true
             }
                     );
         </script>
