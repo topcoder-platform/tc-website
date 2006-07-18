@@ -44,13 +44,15 @@
         Calendar.setup(
         {
             flat         : "startTimeCalendar", // ID of the parent element
-            flatCallback : dateChanged           // our callback function
+            flatCallback : dateChanged,         // our callback function
+            showsTime    : true
         }
                 );
         Calendar.setup(
         {
             flat         : "endTimeCalendar", // ID of the parent element
-            flatCallback : dateChanged           // our callback function
+            flatCallback : dateChanged,       // our callback function
+            showsTime    : true
         }
                 );
     </script>
