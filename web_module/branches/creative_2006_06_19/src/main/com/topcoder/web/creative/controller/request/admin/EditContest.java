@@ -63,6 +63,7 @@ public class EditContest extends HibernateProcessor {
             contest.setName(name);
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setStartTime(new Timestamp(sdf.parse(endTime).getTime()));
+            CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests");
             setIsNextPageInContext(false);
