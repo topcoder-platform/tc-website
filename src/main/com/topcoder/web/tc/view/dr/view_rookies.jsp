@@ -91,6 +91,13 @@
             padding: 6px;
             text-align: left;
         }
+         div.maxWidth {
+            /* recognized by everything but IE */
+            max-width:650px;
+            /* only recognized by IE, unfortunately it invalidates CSS */
+            /* if the body is wider than 1000, this div is 650, otherwise auto */
+            width:expression(document.body.clientWidth > 1024? "650px": "auto" );
+         }
     </style>
 </head>
 
@@ -110,6 +117,9 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<div align="center">
+   <div class="maxWidth">
+
 <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
 <jsp:include page="/page_title.jsp">
     <jsp:param name="image" value="digital_run"/>
@@ -124,7 +134,7 @@
 
 
 <div class="fixedWidthBody">
-   <div style="float:right; text-align:left; whitespace: no-wrap;">
+   <div style="float:right; text-align:left; white-space: nowrap;">
        <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
        <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
    </div>
@@ -141,7 +151,6 @@
 
 <br><br>
 
-<div align="center">
 <form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
@@ -198,7 +207,7 @@ Please select a <strong>season</strong><br>
          <tr>
             <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
             <td class="headerC" colspan="4" style="border-right: 1px solid #999999;">Completed Contests</td>
-            <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">Current Contests</td>
+            <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
          </tr>
         <tr>
             <td class="headerC">
@@ -253,7 +262,11 @@ Please select a <strong>season</strong><br>
                   </c:if></td>
                 <td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.placementPrize>0}">
                     <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-                </c:if></td>
+                </c:if>
+                 <c:if test="${boardRow.placementPrize==0}">
+                 &#160;
+                 </c:if>
+                </td>
                 <td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
                     <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
                 </c:if></td>
@@ -285,7 +298,7 @@ Please select a <strong>season</strong><br>
 </c:otherwise>
 </c:choose>
 </form>
-</div>
+   </div>
 </div>
 </TD>
 <td WIDTH="180" VALIGN="top">

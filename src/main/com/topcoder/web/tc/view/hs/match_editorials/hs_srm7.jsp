@@ -278,8 +278,7 @@ solutions pass, and force the coder to find an optimization.)
 
 <p>There are probably many ways to optimize this O(N<sup>5</sup>)
 solution, and let me describe one of them. The idea of this
-optimization belongs to <tc-webtag:handle coderId="251317"
-context="hs_algorithm"/>. First, sort the x-coordinates
+optimization belongs to <tc-webtag:handle coderId="251317" />. First, sort the x-coordinates
 of the given points and call them
 x<sub>0</sub>, x<sub>1</sub>, ..., x<sub>m</sub>.
 Next, sort the y-coordinates of the given points and
