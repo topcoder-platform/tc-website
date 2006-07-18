@@ -99,7 +99,16 @@ public class LeaderBoard extends BaseBoard {
                 conn.close();
                 close(ctx);
             }*/
-            Thread.sleep(50000);
+            log.debug("going to sleep... 1... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 2... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 3... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 4... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 5... ");
+            Thread.sleep(20000);
             tm.commit();
         } catch (Exception e) {
                 log.debug("Error transaction");
