@@ -18,7 +18,7 @@ public class ViewContest extends HibernateProcessor {
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
 
-        if ("".equals(StringUtils.checkNull(contestId))) {
+        if (!"".equals(StringUtils.checkNull(contestId))) {
             //load
             Contest contest = CreativeDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
 

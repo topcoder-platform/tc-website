@@ -54,7 +54,7 @@ public class EditContest extends HibernateProcessor {
             setIsNextPageInContext(true);
         } else {
             Contest contest;
-            if ("".equals(StringUtils.checkNull(contestId))) {
+            if (!"".equals(StringUtils.checkNull(contestId))) {
                 contest = CreativeDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             } else {
                 contest = new Contest();
