@@ -17,7 +17,7 @@
 <body>
 <div>
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitEditContest"/>
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <p>
             Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
