@@ -11,7 +11,7 @@
 </jsp:include>
 </head>
 
-<body>
+<body class="textarea">
 
    <div style="margin:20px;">
       <h2>H2</h2>
