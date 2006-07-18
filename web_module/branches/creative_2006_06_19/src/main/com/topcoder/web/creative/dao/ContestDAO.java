@@ -16,4 +16,6 @@ public interface ContestDAO {
 
     Contest find(Long id);
 
+    void saveOrUpdate(Contest c);
+
 }

@@ -25,4 +25,8 @@ public class ContestDAOHibernate extends Base implements ContestDAO {
     public Contest find(Long id) {
         return (Contest) super.find(Contest.class, id);
     }
+
+    public void saveOrUpdate(Contest c) {
+        super.saveOrUpdate(c);
+    }
 }
