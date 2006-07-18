@@ -2,6 +2,7 @@ package com.topcoder.web.creative.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.creative.dao.ContestDAO;
+import com.topcoder.web.creative.model.Contest;
 import org.hibernate.Query;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public class ContestDAOHibernate extends Base implements ContestDAO {
         Query q = session.createQuery(query.toString());
 
         return q.list();
+    }
+
+    public Contest find(Long id) {
+        return (Contest) super.find(Contest.class, id);
     }
 }

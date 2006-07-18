@@ -1,8 +1,11 @@
 package com.topcoder.web.creative.validation;
 
-import com.topcoder.web.common.validation.ValidationInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.common.validation.*;
+import com.topcoder.web.creative.Constants;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author dok
@@ -17,6 +20,29 @@ public class EndTimeValidator implements Validator {
     }
 
     public ValidationResult validate(ValidationInput input) {
+        ValidationResult ret = new TimeValidator().validate(input);
+        if (ret.isValid()) {
+            //check if end is before start
+            ValidationResult startResult = new TimeValidator().validate(new StringInput(startTime));
+            if (startResult.isValid()) {
+                SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
+                sdf.setLenient(false);
+                try {
+                    Date start = sdf.parse(startTime);
+                    Date end = sdf.parse((String) input.getInput());
+                    if (end.before(start) || end.equals(start)) {
+                        return new BasicResult(false, "The end time must be after the start time.");
+                    }
+                } catch (ParseException e) {
+                    //this shouldn't happen, but we'll handle it anyway
+                    return new BasicResult(false, "Either start or end time is invalid.");
+                }
+            } else {
+                return new BasicResult(false, "Unable to check if the end time is valid because the start time is not.");
+            }
+        } else {
+            return new BasicResult(false, "Please enter a valid end time.");
+        }
         return ValidationResult.SUCCESS;
     }
 }

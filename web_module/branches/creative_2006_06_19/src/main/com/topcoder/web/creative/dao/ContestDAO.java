@@ -1,5 +1,8 @@
 package com.topcoder.web.creative.dao;
 
+
+import com.topcoder.web.creative.model.Contest;
+
 import java.util.List;
 
 /**
@@ -10,5 +13,7 @@ import java.util.List;
 public interface ContestDAO {
 
     List getContests();
+
+    Contest find(Long id);
 
 }

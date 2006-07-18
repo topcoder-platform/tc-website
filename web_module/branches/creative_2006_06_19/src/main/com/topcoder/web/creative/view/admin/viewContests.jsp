@@ -1,4 +1,7 @@
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -13,7 +16,7 @@
 
 <body>
 
-<jsp:include page="../creative_top.jsp">
+<jsp:include page="../creativeTop.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
@@ -34,7 +37,7 @@
                         <td class="title" colspan="4">Contests</td>
                     </tr>
                     <tr>
-                        <td class="header" colspan="4"><a href="">add</a></td>
+                        <td class="header" colspan="4"><a href="/?module=AdminViewContest">add</a></td>
                     </tr>
                     <tr>
                         <td class="header">Name</td>
@@ -42,17 +45,24 @@
                         <td class="headerC">End</td>
                         <td class="headerC"></td>
                     </tr>
-                    <tr class="light">
-                        <td class="value"></td>
-                        <td class="valueC"></td>
-                        <td class="valueC"></td>
-                        <td class="valueC"><a href="">edit</a></td>
-                    </tr>
+                    <c:forEach items="${contests}" var="contest">
+                        <tr class="light">
+                            <td class="value">${contest.name}</td>
+                            <td class="valueC">
+                                <fmt:formatDate value="${contest.startTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
+                            <td class="valueC">
+                                <fmt:formatDate value="${contest.endTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
+                            <td class="valueC">
+                                <a href="/?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
                 </tbody>
             </table>
         </div>
 
-        <jsp:include page="/creative_foot.jsp"/>
+        <jsp:include page="../creativeFoot.jsp"/>
     </div>
 </div>
 </body>
