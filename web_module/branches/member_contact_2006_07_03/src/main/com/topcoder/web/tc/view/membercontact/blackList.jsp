@@ -8,7 +8,7 @@
 
 function blockHandle() {
     var ajaxRequest = new AjaxRequest('/tc?module=Static&d1=membercontact&d2=blockUser&block=true');
-    ajaxRequest.addFormElementsByName("handle");
+    ajaxRequest.addFormElementsById("handle");
     ajaxRequest.sendRequest();
 }
 
@@ -46,7 +46,7 @@ Blocked Users:<br>
 </table>
 <br>
 <br>
-Block anoter user: <input type="text" name='handle'/><input type='button' value='Block' onClick='blockHandle()'/>
+Block anoter user: <input type="text" name='handle' id='handle'/><input type='button' value='Block' onClick='blockHandle()'/>
 <br>
 <input type="submit" />
 </form>
