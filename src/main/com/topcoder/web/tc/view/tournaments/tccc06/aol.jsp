@@ -28,6 +28,10 @@
 </map>
 <div align="center"><IMG SRC="/i/tournament/tccc06/aol_landing.gif" border="0" ALT="Wanna Be an All-Star Coder" usemap="#aol"/></div>
 <br><br>
+<div class="bodySpacer">
+<span class="smallText">This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033. AOL LLC is not responsible for any aspect of the Tournament.</span>
+</div>
+<br><br>
       </td>
 
 <!-- Right Column-->
