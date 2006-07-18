@@ -23,10 +23,15 @@ import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
 import javax.ejb.CreateException;
+import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Map;
 
@@ -79,9 +84,25 @@ public class ProjectReviewApply extends Base {
                     //project, then people get register while we're still doing the selects to determine
                     //if one should be able to register.  both people end up coming up ok to register and we
                     //end up with more than one person in the same slot.
-                    ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-                    project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+                    //ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+                    //project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+
+                    // The project lock is taken out from the EJB and executed locally, since the JTA transaction wasn't
+                    // working right with jdbc within the ejb and the lock of the row was unsuccessfull.
+
+                    updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
+                    log.debug("going to sleep... 1... ");
+                    Thread.sleep(20000);
+                    log.debug("going to sleep... 2... ");
+                    Thread.sleep(20000);
+                    log.debug("going to sleep... 3... ");
+                    Thread.sleep(20000);
+                    log.debug("going to sleep... 4... ");
+                    Thread.sleep(20000);
+                    log.debug("going to sleep... 5... ");
+                    Thread.sleep(20000);
                     tm.commit();
                     if (log.isDebugEnabled()) {
                         log.debug("Commit transaction");
@@ -156,4 +177,28 @@ public class ProjectReviewApply extends Base {
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
     }
+
+    private void updateForLock(long projectId, String dataSource) {
+        log.debug("lock called on project " + projectId);
+        String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, projectId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            DBMS.close(ps);
+            DBMS.close(conn);
+            close(ctx);
+        }
+
+    }
+
 }
