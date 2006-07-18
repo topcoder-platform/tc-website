@@ -18,6 +18,11 @@
 <div>
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitEditContest"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <p>
+            <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+        </p>
+
         <p>
             <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
             <button id="trigger<%=Constants.START_TIME%>">Start</button>
