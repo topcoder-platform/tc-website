@@ -71,6 +71,7 @@
          </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10005">SRM 325</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL</A><br>
          9:00 PM
          </div>
       </td>
@@ -104,6 +105,7 @@
       <td class="value">11
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10006">SRM 326</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA</A><br>
          12:00 NOON
          </div>
       </td>

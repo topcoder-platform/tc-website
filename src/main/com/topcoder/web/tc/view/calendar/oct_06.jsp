@@ -60,6 +60,7 @@
       <td class="value">2
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10001">SRM 321</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
@@ -85,6 +86,7 @@
       <td class="value">9
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10002">SRM 322</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL</A><br>
          9:00 PM
          </div>
       </td>
@@ -132,6 +134,7 @@
          </div>
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10003">SRM 323</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg</A><br>
          11:00 AM
          </div>
       </td>
