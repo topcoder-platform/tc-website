@@ -49,6 +49,7 @@ Blocked Users:<br>
 Block anoter user: <input type="text" name='handle' id='handle'/><input type='button' value='Block' onClick='blockHandle()'/>
 <br>
 <input type="submit" />
-</form>
 <div id="messageDiv"> </div>
+</form>
+
 </html>
