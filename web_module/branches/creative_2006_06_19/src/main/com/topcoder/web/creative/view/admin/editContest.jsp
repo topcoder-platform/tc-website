@@ -1,5 +1,7 @@
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 <head>
@@ -14,49 +16,32 @@
 
 <body>
 <div>
-    This is the creative edit contest page
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitEditContest"/>
+        <tc-webtag:hiddenInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+        <button id="trigger<%=Constants.START_TIME%>">Start</button>
+        <button id="trigger<%=Constants.END_TIME%>">End</button>
 
-    <div id="startTimeCalendar">
-
-    </div>
-
-    <div id="endTimeCalendar">
-
-    </div>
-
-    <script type="text/javascript">
-        function dateChanged(calendar) {
-            // Beware that this function is called even if the end-user only
-            // changed the month/year.  In order to determine if a date was
-            // clicked you can use the dateClicked property of the calendar:
-            if (calendar.dateClicked) {
-                // OK, a date was clicked, redirect to /yyyy/mm/dd/index.php
-                var y = calendar.date.getFullYear();
-                var m = calendar.date.getMonth();
-                // integer, 0..11
-                var d = calendar.date.getDate();
-                // integer, 1..31
-                // redirect...
-                alert(y + "/" + m + "/" + d);
+        <script type="text/javascript">
+            Calendar.setup(
+            {
+                inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+                ifFormat    : "%m %d, %Y",    // the date format
+                button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+                showsTime    : true
             }
-        };
-
-        Calendar.setup(
-        {
-            flat         : "startTimeCalendar", // ID of the parent element
-            flatCallback : dateChanged,         // our callback function
-            showsTime    : true
-        }
-                );
-        Calendar.setup(
-        {
-            flat         : "endTimeCalendar", // ID of the parent element
-            flatCallback : dateChanged,       // our callback function
-            showsTime    : true
-        }
-                );
-    </script>
-
+                    );
+            Calendar.setup(
+            {
+                inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
+                ifFormat    : "%m %d, %Y",    // the date format
+                button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
+                showsTime    : true
+            }
+                    );
+        </script>
+    </form>
 
 </div>
 </body>
