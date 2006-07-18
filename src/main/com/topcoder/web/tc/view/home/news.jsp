@@ -8,6 +8,27 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.18.06<br>3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">TCHS SRM 7 - Problem Set & Analysis</A></span><br><br>
+One hundred thirty coders participated in the TCHS SRM 7. <tc-webtag:handle coderId="11972352"
+context="hs_algorithm"/> put on an impressive performance, getting
+the fastest times on all three problems,
+and leading the contest
+from start to finish.
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/myprasanna_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="159100" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506028" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.17.06<br>5:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,23 +199,6 @@ With the best overall score and with 3 successful submissions, <tc-webtag:handle
    <tr><td class="newsLinksCell">
          <tc-webtag:forumLink forumID="506066" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.06.06<br>10:05 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm309">SRM 309 - Problem Set & Analysis</A></span><br><br>
-This SRM had a very difficult Division 1 problem set, along with an unusually hard medium, resulting on most coders completing only the easy problem correctly.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm309">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505984" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 </table>
