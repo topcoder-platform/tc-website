@@ -14,11 +14,11 @@
 
 <body>
 
-<jsp:include page="creative_top.jsp">
+<jsp:include page="creativeTop.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
-<jsp:include page="creative_left.jsp">
+<jsp:include page="creativeLeft.jsp">
     <jsp:param name="node" value="home"/>
 </jsp:include>
 
@@ -144,7 +144,7 @@
         voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
         sanctus est Lorem ipsum dolor sit amet.
 
-        <jsp:include page="/creative_foot.jsp"/>
+        <jsp:include page="/creativeFoot.jsp"/>
     </div>
 </div>
 </body>

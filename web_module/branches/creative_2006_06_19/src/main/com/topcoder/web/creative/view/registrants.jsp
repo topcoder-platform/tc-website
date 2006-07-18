@@ -13,11 +13,11 @@
 
 <body>
 
-<jsp:include page="creative_top.jsp">
+<jsp:include page="creativeTop.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
-<jsp:include page="creative_left.jsp">
+<jsp:include page="creativeLeft.jsp">
     <jsp:param name="node" value="home"/>
 </jsp:include>
 
@@ -84,7 +84,7 @@
             </table>
         </div>
 
-        <jsp:include page="/creative_foot.jsp"/>
+        <jsp:include page="/creativeFoot.jsp"/>
     </div>
 </div>
 </body>
