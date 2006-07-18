@@ -13,6 +13,8 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.shared.util.ApplicationServer;
 
 import java.sql.Connection;
@@ -74,7 +76,11 @@ public class LeaderBoard extends BaseBoard {
             long projectId = 15653862;
             tm.begin();
             log.debug("lock called on project " + projectId);
-            String query = "update project set overview = ? where project_id = ? and cur_version = 1";
+
+            ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+            project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+
+/*            String query = "update project set overview = ? where project_id = ? and cur_version = 1";
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -92,7 +98,7 @@ public class LeaderBoard extends BaseBoard {
                 ps.close();
                 conn.close();
                 close(ctx);
-            }
+            }*/
             Thread.sleep(50000);
             tm.commit();
         } catch (Exception e) {
