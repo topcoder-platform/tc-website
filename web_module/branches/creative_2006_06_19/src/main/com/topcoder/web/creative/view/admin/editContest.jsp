@@ -56,6 +56,7 @@
                     ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                     button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
                     showsTime   : true,
+                    singleClick  : false,
                     cache       : true
                 }
                         );
@@ -65,6 +66,7 @@
                     ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                     button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
                     showsTime    : true,
+                    singleClick  : false,
                     cache       : true
                 }
                         );
