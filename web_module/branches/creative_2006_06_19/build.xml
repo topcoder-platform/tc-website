@@ -1225,6 +1225,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
+                <include name="nav.tld"/>
             </webinf>
             <fileset dir="${java}/com/topcoder/web/creative/view">
                 <include name="**/*.jsp"/>
