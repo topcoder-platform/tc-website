@@ -17,7 +17,10 @@ bl.setId(new MemberContactBlackList.Identifier(sender, blocked));
 bl.setBlocked(block);
 HibernateUtils.getSession().saveOrUpdate(bl);
 
+HibernateUtils.getSession().flush();
 HibernateUtils.commit();
+HibernateUtils.getSession().close(); // Unbind is automatic here
+
 
 %>
 
