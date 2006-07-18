@@ -1,14 +1,18 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.NavNode" %>
 <%@ page import="com.topcoder.web.common.model.NavTree" %>
-<%--<%@ taglib uri="nav.tld" prefix="nav" %>--%>
+<%@ page import="com.topcoder.web.creative.Constants" %>
+<%@ taglib uri="nav.tld" prefix="nav" %>
 
 <%
     /* m_name indicates the name of an expandable menu */
 
     NavTree nav = new NavTree();
-    nav.addRoot(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/", "Home", "home"));
+    nav.addRoot(new NavNode("/", "Home", "home"));
+    nav.addRoot(new NavNode("/?" + Constants.MODULE_KEY + "=Static&amp;d1=activeContests", "Contests", "contests"));
+    nav.addRoot(new NavNode("/", "Terms &amp; Conditions", "terms"));
+    nav.addRoot(new NavNode("/", "Forums", "forums"));
+    nav.addRoot(new NavNode("/", "Support", "support"));
     request.setAttribute("tree", nav);
 
 %>
@@ -37,21 +41,7 @@
 
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
-    <div class="logo"><img src="/i/clear.gif" width="150" height="60"  alt="TopCoder Studio"/></div>
-    <%--
-       <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
-    --%>
-
-
-<%-- STATIC HTML FOR REFERENCE--%>
-
-    <ul>
-        <li class="highlight"><A href="/?module=Static&d1=home">Home</A></li>
-        <li><A href="/?module=Static&d1=activeContests">Contests</A></li>
-        <li><A href="">Terms & Conditions</A></li>
-        <li><A href="">Forums</A></li>
-        <li><A href="">Support</A></li>
-    </ul>
-
+    <div class="logo"><img src="/i/clear.gif" width="150" height="60" alt="TopCoder Studio"/></div>
+    <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 </div>
 
