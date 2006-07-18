@@ -25,12 +25,12 @@
 
         <p>
             Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-            <button id="trigger<%=Constants.START_TIME%>">Start</button>
+            <button id="trigger<%=Constants.START_TIME%>">Set</button>
         </p>
 
         <p>
             Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-            <button id="trigger<%=Constants.END_TIME%>">End</button>
+            <button id="trigger<%=Constants.END_TIME%>">Set</button>
         </p>
 
         <script type="text/javascript">
