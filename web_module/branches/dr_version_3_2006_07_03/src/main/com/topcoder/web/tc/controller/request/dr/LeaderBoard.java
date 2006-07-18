@@ -77,10 +77,11 @@ public class LeaderBoard extends BaseBoard {
             tm.begin();
             log.debug("lock called on project " + projectId);
 
-            ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+/*            ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
             project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-
-/*            String query = "update project set overview = ? where project_id = ? and cur_version = 1";
+*/
+//            String query = "update project set overview = ? where project_id = ? and cur_version = 1";
+            String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
 
             Connection conn = null;
             PreparedStatement ps = null;
@@ -88,8 +89,8 @@ public class LeaderBoard extends BaseBoard {
             try {
                 conn = DBMS.getConnection(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
                 ps = conn.prepareStatement(query);
-                ps.setString(1, "bye!");
-                ps.setLong(2, projectId);
+  //              ps.setString(1, "bye!");
+                ps.setLong(1, projectId);
                 ps.executeUpdate();
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
@@ -98,7 +99,7 @@ public class LeaderBoard extends BaseBoard {
                 ps.close();
                 conn.close();
                 close(ctx);
-            }*/
+            }
             log.debug("going to sleep... 1... ");
             Thread.sleep(20000);
             log.debug("going to sleep... 2... ");
