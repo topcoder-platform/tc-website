@@ -12,7 +12,7 @@
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
-    <jsp:include page="style.jsp">
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_creative"/>
     </jsp:include>
 

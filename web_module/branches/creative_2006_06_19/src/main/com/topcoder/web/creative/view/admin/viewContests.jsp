@@ -9,9 +9,10 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder FX</title>
-    <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
-    <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
-    <link type="text/css" rel="stylesheet" href="/css/creative/coders.css">
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
+
 </head>
 
 <body>
