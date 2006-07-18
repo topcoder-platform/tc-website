@@ -7,14 +7,25 @@ package com.topcoder.web.tc.controller.request.dr;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
+import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.shared.util.ApplicationServer;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.ejb.EJBException;
+import javax.naming.InitialContext;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
  * <strong>Purpose</strong>:
@@ -55,6 +66,43 @@ public class LeaderBoard extends BaseBoard {
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
+
+
+        // for test purpose
+        TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+        try {
+            long projectId = 15653862;
+            tm.begin();
+            log.debug("lock called on project " + projectId);
+            String query = "update project set overview = ? where project_id = ? and cur_version = 1";
+
+            Connection conn = null;
+            PreparedStatement ps = null;
+            InitialContext ctx = null;
+            try {
+                conn = DBMS.getConnection(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+                ps = conn.prepareStatement(query);
+                ps.setString(1, "bye!");
+                ps.setLong(2, projectId);
+                ps.executeUpdate();
+                throw(new Exception("killing transaction"));
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw(new EJBException(e.getMessage()));
+            } finally {
+                ps.close();
+                conn.close();
+                close(ctx);
+            }
+            //tm.commit();
+        } catch (Exception e) {
+                log.debug("Error transaction");
+            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    log.debug("Rollback Transaction");
+                tm.rollback();
+            }
+        }
+
         // Prepare request for data retrieval
         ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
         if (log.isDebugEnabled()) {
@@ -84,6 +132,8 @@ public class LeaderBoard extends BaseBoard {
 
         // crop
         List resultBoard = cropResult(leaderBoardResult);
+
+
 
         getRequest().setAttribute("boardList", resultBoard);
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
