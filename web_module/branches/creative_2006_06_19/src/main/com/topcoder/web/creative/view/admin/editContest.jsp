@@ -39,7 +39,8 @@
                 inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
                 ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                 button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
-                showsTime   : true
+                showsTime   : true,
+                cache       : true
             }
                     );
             Calendar.setup(
@@ -47,7 +48,8 @@
                 inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
                 ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                 button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
-                showsTime    : true
+                showsTime    : true,
+                cache       : true
             }
                     );
         </script>
