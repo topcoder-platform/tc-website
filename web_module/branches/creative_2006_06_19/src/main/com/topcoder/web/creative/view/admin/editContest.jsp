@@ -20,16 +20,16 @@
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitEditContest"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
         <p>
-            <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+            Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
         </p>
 
         <p>
-            <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+            Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
             <button id="trigger<%=Constants.START_TIME%>">Start</button>
         </p>
 
         <p>
-            <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+            Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
             <button id="trigger<%=Constants.END_TIME%>">End</button>
         </p>
 
@@ -53,6 +53,10 @@
             }
                     );
         </script>
+
+        <p>
+            <a href="document.editForm.submit">Submit</a>
+        </p>
     </form>
 
 </div>
