@@ -48,10 +48,14 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new FileTypeDAOHibernate();
     }
 
+    public MemberContactMessageDAO getMemberContactMessageDAO() {
+        return new MemberContactMessageDAOHibernate();
+    }
+
     public NotificationDAO getNotificationDAO() {
         return new NotificationDAOHibernate();
     }
-    
+
 	public PreferenceDAO getPreferenceDAO() {
 		return new PreferenceDAOHibernate();
 	}

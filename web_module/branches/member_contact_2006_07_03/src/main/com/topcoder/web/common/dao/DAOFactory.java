@@ -26,6 +26,8 @@ public interface DAOFactory {
 
     FileTypeDAO getFileTypeDAO();
 
+    MemberContactMessageDAO getMemberContactMessageDAO();
+    
     NotificationDAO getNotificationDAO();
 
     PreferenceDAO getPreferenceDAO();

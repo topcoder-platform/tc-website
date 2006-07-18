@@ -9,6 +9,7 @@ import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.MemberContactBlackList;
 import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
@@ -83,7 +84,11 @@ public class MemberContact extends HibernateProcessor {
         	m.setCopy(sendCopy);
         	m.setSentDate(new Date());
         	
-            HibernateUtils.getSession().save(m);
+            DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
+            // Testing, erase it!
+            MemberContactBlackList bl = new MemberContactBlackList();
+            bl.setId(new MemberContactBlackList.Identifier(sender, recipient));
+            bl.setBlocked(true);
             
             markForCommit();
         }
