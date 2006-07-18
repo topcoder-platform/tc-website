@@ -91,6 +91,12 @@
             padding: 6px;
             text-align: left;
         }
+         #maxWidth {
+            max-width:650px;
+            /* only recognized by IE, unfortunately it invalidates CSS */
+            /* if the body is wider than 1024, this div is 650, otherwise auto */
+            width:expression(document.body.clientWidth > 1024? "650px": "auto" );
+         }
     </style>
 </head>
 
@@ -110,6 +116,8 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<div align="center">
+   <div id="maxWidth">
     <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
     <jsp:include page="/page_title.jsp">
         <jsp:param name="image" value="digital_run"/>
@@ -124,7 +132,7 @@
 
 
 <div class="fixedWidthBody">
-    <div style="float:right; text-align:left; whitespace: no-wrap;">
+    <div style="float:right; text-align:left; white-space: nowrap;">
         <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
         <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
     </div>
@@ -141,7 +149,6 @@ Design Cup Series Leaderboard<br>
 
 <br><br>
 
-<div align="center">
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
@@ -200,7 +207,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
             <tr>
                <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
                <td class="headerC" colspan="7" style="border-right: 1px solid #999999;">Completed Contests</td>
-               <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">Current Contests</td>
+               <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
             </tr>
             <tr>
                 <td class="headerC">
@@ -310,6 +317,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         The selected stage is underway and results will start coming in soon.
     </c:otherwise>
 </c:choose>
+   </div>
 </div>
 </TD>
 <td WIDTH="180" VALIGN="top">
