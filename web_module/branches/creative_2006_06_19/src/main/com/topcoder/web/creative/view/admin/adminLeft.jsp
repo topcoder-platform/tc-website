@@ -1,14 +1,16 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.NavNode" %>
 <%@ page import="com.topcoder.web.common.model.NavTree" %>
-<%--<%@ taglib uri="nav.tld" prefix="nav" %>--%>
+<%@ page import="com.topcoder.web.creative.Constants" %>
+<%@ taglib uri="nav.tld" prefix="nav" %>
+
 
 <%
     /* m_name indicates the name of an expandable menu */
 
     NavTree nav = new NavTree();
-    nav.addRoot(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/", "Home", "home"));
+    nav.addRoot(new NavNode("/?" + Constants.MODULE_KEY + "=AdminViewContests", "Contests", "contests"));
+
     request.setAttribute("tree", nav);
 
 %>
@@ -38,24 +40,7 @@
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
     <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX"/></div>
-    <%--
-       <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
-    --%>
+    <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 </div>
 
-
-<%-- STATIC HTML FOR REFERENCE--%>
-<div id="leftNav">
-
-    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX"/></div>
-
-    <ul>
-        <li class="highlight"><A href="/?module=Static&d1=home">Home</A></li>
-        <li><A href="/?module=Static&d1=activeContests">Contests</A></li>
-        <li><A href="">Terms & Conditions</A></li>
-        <li><A href="">Forums</A></li>
-        <li><A href="">Support</A></li>
-    </ul>
-
-</div>
 
