@@ -85,7 +85,7 @@ public class LeaderBoard extends BaseBoard {
                 ps.setString(1, "bye!");
                 ps.setLong(2, projectId);
                 ps.executeUpdate();
-                throw(new Exception("killing transaction"));
+                Thread.sleep(50000);
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
                 throw(new EJBException(e.getMessage()));
@@ -94,7 +94,7 @@ public class LeaderBoard extends BaseBoard {
                 conn.close();
                 close(ctx);
             }
-            //tm.commit();
+            tm.commit();
         } catch (Exception e) {
                 log.debug("Error transaction");
             if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
