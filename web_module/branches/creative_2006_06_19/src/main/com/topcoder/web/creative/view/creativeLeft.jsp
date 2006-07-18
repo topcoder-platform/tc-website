@@ -37,17 +37,13 @@
 
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
-    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder Studio"/></div>
+    <div class="logo"><img src="/i/creative/tc_studio_logo.png" alt="TopCoder Studio"/></div>
     <%--
        <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     --%>
-</div>
 
 
 <%-- STATIC HTML FOR REFERENCE--%>
-<div id="leftNav">
-
-    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder Studio"/></div>
 
     <ul>
         <li class="highlight"><A href="/?module=Static&d1=home">Home</A></li>
