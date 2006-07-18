@@ -12,52 +12,71 @@
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
+
 </head>
 
 <body>
-<div>
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
-        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-        <p>
-            Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
-        </p>
+<jsp:include page="../creativeTop.jsp">
+    <jsp:param name="section" value="default"/>
+</jsp:include>
 
-        <p>
-            Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-            <button id="trigger<%=Constants.START_TIME%>">Set</button>
-        </p>
+<jsp:include page="../creativeLeft.jsp">
+    <jsp:param name="node" value="home"/>
+</jsp:include>
 
-        <p>
-            Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-            <button id="trigger<%=Constants.END_TIME%>">Set</button>
-        </p>
+<div class="contentOuter">
+    <div class="contentInner">
 
-        <script type="text/javascript">
-            Calendar.setup(
-            {
-                inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
-                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
-                showsTime   : true,
-                cache       : true
-            }
-                    );
-            Calendar.setup(
-            {
-                inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
-                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
-                showsTime    : true,
-                cache       : true
-            }
-                    );
-        </script>
+        <h1>Edit Contest Details</h1>
 
-        <p>
-            <a href="#" onClick="document.editForm.submit();return false;">Submit</a>
-        </p>
-    </form>
+        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+            <p>
+                Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+            </p>
+
+            <p>
+                Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+                <button id="trigger<%=Constants.START_TIME%>">Set</button>
+            </p>
+
+            <p>
+                Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+                <button id="trigger<%=Constants.END_TIME%>">Set</button>
+            </p>
+
+            <script type="text/javascript">
+                Calendar.setup(
+                {
+                    inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+                    ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                    button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+                    showsTime   : true,
+                    cache       : true
+                }
+                        );
+                Calendar.setup(
+                {
+                    inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
+                    ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                    button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
+                    showsTime    : true,
+                    cache       : true
+                }
+                        );
+            </script>
+
+            <p>
+                <a href="#" onClick="document.editForm.submit();return false;">Submit</a>
+            </p>
+        </form>
+
+        <jsp:include page="../creativeFoot.jsp"/>
+    </div>
 
 </div>
 </body>
