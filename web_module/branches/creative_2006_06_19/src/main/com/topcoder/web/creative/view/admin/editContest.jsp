@@ -55,7 +55,7 @@
         </script>
 
         <p>
-            <a href="document.editForm.submit">Submit</a>
+            <a href="#" onClick="document.editForm.submit();return false;">Submit</a>
         </p>
     </form>
 
