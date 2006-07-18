@@ -4,6 +4,7 @@ com.topcoder.web.common.dao.*,
 com.topcoder.web.common.*
 "
 				 %>
+ <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%
 HibernateUtils.begin();
 	String handle = request.getParameter("handle");
@@ -19,3 +20,12 @@ HibernateUtils.getSession().saveOrUpdate(bl);
 HibernateUtils.commit();
 
 %>
+
+<tac:taconiteRoot>
+
+        <tac:replaceChildren contextNodeID="messageDiv" parseOnServer="true">
+            <div style="font-weight:bold;color:red;">
+               Done
+            </div>
+        </tac:replaceChildren>
+</tac:taconiteRoot>

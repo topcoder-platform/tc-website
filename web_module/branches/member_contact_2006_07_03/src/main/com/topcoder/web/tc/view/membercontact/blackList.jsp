@@ -50,5 +50,5 @@ Block anoter user: <input type="text" name='handle' id='handle'/><input type='bu
 <br>
 <input type="submit" />
 </form>
-
+<div id="messageDiv"> </div>
 </html>
