@@ -20,6 +20,11 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_PAGE;
 
+    public static final String START_TIME = "sttm";
+    public static final String END_TIME = "etm";
+    public static final String CONTEST_NAME = "ctname";
+
+    public static int MAX_CONTEST_NAME_LENGTH;
 
     static {
         initialize();
