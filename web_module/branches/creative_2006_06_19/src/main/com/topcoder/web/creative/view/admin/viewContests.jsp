@@ -13,7 +13,7 @@
 
 <body>
 
-<jsp:include page="../creativeTop.jsp">
+<jsp:include page="../creative_top.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
