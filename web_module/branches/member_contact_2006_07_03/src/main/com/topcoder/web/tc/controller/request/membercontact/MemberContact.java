@@ -89,6 +89,7 @@ public class MemberContact extends HibernateProcessor {
             MemberContactBlackList bl = new MemberContactBlackList();
             bl.setId(new MemberContactBlackList.Identifier(sender, recipient));
             bl.setBlocked(true);
+            HibernateUtils.getSession().saveOrUpdate(bl);
             
             markForCommit();
         }
