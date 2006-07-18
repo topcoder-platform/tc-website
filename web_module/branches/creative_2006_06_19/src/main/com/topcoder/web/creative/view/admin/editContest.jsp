@@ -18,10 +18,15 @@
 <div>
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitEditContest"/>
-        <tc-webtag:hiddenInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-        <tc-webtag:hiddenInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-        <button id="trigger<%=Constants.START_TIME%>">Start</button>
-        <button id="trigger<%=Constants.END_TIME%>">End</button>
+        <p>
+            <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+            <button id="trigger<%=Constants.START_TIME%>">Start</button>
+        </p>
+
+        <p>
+            <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+            <button id="trigger<%=Constants.END_TIME%>">End</button>
+        </p>
 
         <script type="text/javascript">
             Calendar.setup(
