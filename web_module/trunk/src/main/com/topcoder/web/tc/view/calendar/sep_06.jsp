@@ -126,6 +126,7 @@
       <td class="value">18
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=9999">SRM 319</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
@@ -169,6 +170,7 @@
       <td class="value">30
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10000">SRM 320</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs">UBS</A><br>
          12:00 NOON
          </div>
       </td>
