@@ -9,10 +9,16 @@
 <jsp:include page="style.jsp">
     <jsp:param name="key" value="tc_creative"/>
 </jsp:include>
+<style type="text/css">
+.bodySE{
+margin:0px;
+padding:0px;
+background: transparent url(/i/creative/layout/bodyNW.png) bottom right no-repeat;
+}
+</style>
 </head>
 
 <body>
-
 <jsp:include page="creativeTop.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>

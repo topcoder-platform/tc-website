@@ -37,7 +37,7 @@
 
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
-    <div class="logo"><img src="/i/creative/tc_studio_logo.png" alt="TopCoder Studio"/></div>
+    <div class="logo"><img src="/i/clear.gif" width="150" height="60"  alt="TopCoder Studio"/></div>
     <%--
        <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     --%>
