@@ -49,6 +49,7 @@
         <li>Fix bug in Marathon Match submission where a user could test examples, click browser back and then submit
             but it would test examples again</li>
         <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
+        <li>Fix the password reminder for people with ' in their name</li>
     </ul>
 </p>
 
