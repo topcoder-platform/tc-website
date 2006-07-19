@@ -64,7 +64,8 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<span class="bigTitle">Breaking software for fun and profit</span><br>
+<div style="float: right;"><tc-webtag:forumLink forumID="506068" message="Discuss this article" /></div>
+<span class="bigTitle">Breaking software for fun and profit</span>
 
       <p>
       By&#160;<tc-webtag:handle coderId="10353806" /><br>

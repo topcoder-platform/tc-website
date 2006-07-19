@@ -64,7 +64,8 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<span class="bigTitle">An Introduction to AJAX</span><br>
+<div style="float: right;"><tc-webtag:forumLink forumID="506072" message="Discuss this article" /></div>
+<span class="bigTitle">An Introduction to AJAX</span>
 
       <p>
       <img src="/i/m/39inam_mug.gif" alt="" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
