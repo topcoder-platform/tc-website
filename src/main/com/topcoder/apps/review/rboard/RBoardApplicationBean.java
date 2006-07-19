@@ -312,7 +312,14 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = ps.executeQuery();
 
             conn.setAutoCommit(false);
+
+            //we're doing this so that we can have something to sync on.  if we don't lock
+            //project, then people get register while we're still doing the selects to determine
+            //if one should be able to register.  both people end up coming up ok to register and we
+            //end up with more than one person in the same slot.
             updateForLock(conn, projectId);
+
+            long start = System.currentTimeMillis();
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
 
             insert(conn, "rboard_application",
@@ -357,6 +364,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
             }
             conn.commit();
+            log.info("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
