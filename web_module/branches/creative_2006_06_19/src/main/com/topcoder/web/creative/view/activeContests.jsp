@@ -35,7 +35,6 @@
 
         <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
         <div class="tableHolder">
-         <div class="pagingBox"><A href=""><< prev</A> | <A href="">next >></A></div>
             <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
                 <tbody>
                     <tr>
@@ -104,7 +103,6 @@
                     </tr>
                 </tbody>
             </table>
-         <div class="pagingBox"><A href=""><< prev</A> | <A href="">next >></A></div>
         </div>
 
         <jsp:include page="/creativeFoot.jsp"/>
