@@ -13,6 +13,8 @@
     nav.addRoot(new NavNode("/", "Terms &amp; Conditions", "terms"));
     nav.addRoot(new NavNode("/", "Forums", "forums"));
     nav.addRoot(new NavNode("/", "Support", "support"));
+    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_contests')", "Contests", "m_contests"));
+      nav.search("m_contests").addChild(new NavNode("/?" + Constants.MODULE_KEY + "=Static&amp;d1=activeContests", "Active Contests", "active_contests"));
     request.setAttribute("tree", nav);
 
 %>
