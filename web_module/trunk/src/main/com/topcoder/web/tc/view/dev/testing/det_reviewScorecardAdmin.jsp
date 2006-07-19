@@ -63,7 +63,7 @@ The tests in this competition will be concerned with creating, editing and viewi
 <li>JUnit</li>
 </ul>
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828276">here</A>.
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">here</A>.
 <br><br>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions.
@@ -99,7 +99,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Registration Phase:</td><td align="center">07.06.2006</td><td align="center">07.13.2006</td>
    </tr>
    <tr>
-      <td>Test Submission:</td><td align="center">07.06.2006</td><td align="center">07.19.2006</td>
+      <td>Test Submission:</td><td align="center">07.06.2006</td><td align="center">07.20.2006</td>
    </tr>
    <tr>
       <td>Test Case Screening:</td><td align="center">&#160;</td><td align="center">07.14.2006</td>
