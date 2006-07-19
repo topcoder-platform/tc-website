@@ -70,7 +70,7 @@ public class PasswordEmail extends Base {
 
     private static String clean(String string) {
         if (log.isDebugEnabled()) {
-            log.debug("in " + string);
+            log.debug("in |" + string + "|");
         }
         StringBuffer ret = new StringBuffer(string.length() + 10);
         for (int i = 0; i < string.length(); i++) {
@@ -79,7 +79,7 @@ public class PasswordEmail extends Base {
             } else ret.append(string.charAt(i));
         }
         if (log.isDebugEnabled()) {
-            log.debug("out " + ret.toString());
+            log.debug("out |" + ret.toString() + "|");
         }
         return ret.toString();
     }
