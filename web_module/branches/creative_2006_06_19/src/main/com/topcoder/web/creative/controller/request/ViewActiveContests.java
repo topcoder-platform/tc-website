@@ -23,7 +23,7 @@ public class ViewActiveContests extends BaseProcessor {
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
 
-        if (!"".equals(col) && "".equals(dir)) {
+        if (!"".equals(col) && !"".equals(dir)) {
             r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
