@@ -40,12 +40,14 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview"><img src="/i/tournament/tccc06/logo_contest_narrow.gif" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_narrow.gif" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
          <td width="100%">
          <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge</span>
          <br><br>
          November 14-18<br>
          San Diego, CA, USA<br>
+         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=about">Details</A>
+         <br>
          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc06&amp;d3=logo_overview">Logo Contest</A>
          </td>
       </tr>
