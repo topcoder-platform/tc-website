@@ -152,9 +152,10 @@ public class SessionInfo implements Serializable {
     }
 
     private String loadTimezone() throws Exception {
-        CachedDataAccess tzDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+        CachedDataAccess tzDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Request tzReq = new Request();
         tzReq.setContentHandle("user_timezone");
+        tzReq.setProperty(WebConstants.USER_ID, String.valueOf(getUserId()));
         return ((ResultSetContainer) tzDai.getData(tzReq).get("user_timezone")).getStringItem(0, "timezone_desc");
     }
 
