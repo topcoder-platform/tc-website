@@ -20,8 +20,8 @@ function blockHandle() {
 <td>
 Recent messages:<br>
 <select name='users' multiple size=10 width=200>
-<c:forEach items="${requestScope.recentUsers}" var="user">
-<option value="<c:out value="${user.id}" />"><c:out value="${user.handle}" /></option>
+<c:forEach items="${requestScope.recentUsers}" var="recentUser">
+<option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
 </c:forEach>
 </select>
 
@@ -35,8 +35,9 @@ Recent messages:<br>
 <td>
 Blocked Users:<br>
 <select name='blockedUsers' multiple size=10 width=200>
-<option>digibomb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-<option>theSpammer</option>
+<c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
+<option value="<c:out value="${blockedUser.id}" />"><c:out value="${blockedUser.handle}" /></option>
+</c:forEach>
 </select>
 
 </td>
