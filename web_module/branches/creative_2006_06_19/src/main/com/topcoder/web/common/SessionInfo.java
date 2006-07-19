@@ -144,7 +144,7 @@ public class SessionInfo implements Serializable {
             try {
                 timezone = loadTimezone();
             } catch (Exception e) {
-                timezone = TimeZone.getDefault().getDisplayName();
+                timezone = TimeZone.getDefault().getID();
                 log.error("Could not load timezone from db, using : " + timezone);
             }
         }
