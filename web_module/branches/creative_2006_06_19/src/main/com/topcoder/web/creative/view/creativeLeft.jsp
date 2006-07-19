@@ -1,4 +1,6 @@
 <%@ page language="java" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
 <%@ page import="com.topcoder.web.common.model.NavNode" %>
 <%@ page import="com.topcoder.web.common.model.NavTree" %>
 <%@ page import="com.topcoder.web.creative.Constants" %>
@@ -6,15 +8,15 @@
 
 <%
     /* m_name indicates the name of an expandable menu */
-
+    SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     NavTree nav = new NavTree();
-    nav.addRoot(new NavNode("/", "Home", "home"));
-    nav.addRoot(new NavNode("/?" + Constants.MODULE_KEY + "=ViewActiveContests", "Contests", "contests"));
-    nav.addRoot(new NavNode("/", "Terms &amp; Conditions", "terms"));
-    nav.addRoot(new NavNode("/", "Forums", "forums"));
-    nav.addRoot(new NavNode("/", "Support", "support"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Home", "home"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Contests", "contests"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Terms &amp; Conditions", "terms"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Forums", "forums"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Support", "support"));
     nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_contests')", "Contests", "m_contests"));
-    nav.search("m_contests").addChild(new NavNode("/?" + Constants.MODULE_KEY + "=ViewActiveContests", "Active Contests", "active_contests"));
+    nav.search("m_contests").addChild(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Active Contests", "active_contests"));
     request.setAttribute("tree", nav);
 
 %>

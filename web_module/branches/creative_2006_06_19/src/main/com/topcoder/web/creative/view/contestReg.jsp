@@ -28,7 +28,7 @@
         <div class="linkBox"><A href="">discuss this</A></div>
 
         <div class="breadcrumb">
-            <A href="/?module=Static&d1=activeContests">Active Contests</A>
+            <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A>
             > Contest Name
         </div>
 
@@ -38,9 +38,9 @@
             Please read through the following terms and then click <strong>"I Accept"</strong> when you're done.
             <br><br>
 
-            <form name="terms" method="POST" action="/?module=Static&d1=submit">
+            <form name="terms" method="POST" action="${sessionInfo.servletPath}?module=Static&d1=submit">
 
-                <iframe width="590" height="300" marginWidth="5" src="/?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
+                <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
 
                 <br><br>
                 <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->

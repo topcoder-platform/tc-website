@@ -3,19 +3,19 @@
 
 <html>
 <head>
-   <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   <title>TopCoder Studio</title>
-   <jsp:include page="style.jsp">
-       <jsp:param name="key" value="tc_creative"/>
-   </jsp:include>
-   <style type="text/css">
-   .bodySE{
-   margin:0px;
-   padding:0px;
-   background: transparent url(/i/creative/layout/bodyNW.png) bottom right no-repeat;
-   }
-   </style>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
+    <style type="text/css">
+        .bodySE {
+            margin: 0px;
+            padding: 0px;
+            background: transparent url( /i/creative/layout/bodyNW.png ) bottom right no-repeat;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 <div class="linkBox"><A href="">discuss this</A></div>
 
 <div class="breadcrumb">
-    <A href="/?module=Static&d1=activeContests">Active Contests</A>
+    <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A>
     > Contest Name
 </div>
 
@@ -175,7 +175,8 @@ gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 <br><br>
 
 <div class="header">Registration</div>
-<A href="/?module=Static&d1=contestReg">Register</A> for this project to get information necessary to submit a solution.
+<A href="${sessionInfo.servletPath}?module=Static&d1=contestReg">Register</A> for this project to get information
+necessary to submit a solution.
 <br><br>
 
 <div class="header">Upload Your Submission</div>

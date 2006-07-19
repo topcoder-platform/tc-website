@@ -1,4 +1,6 @@
 <%@ page language="java" %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
 <%@ page import="com.topcoder.web.common.model.NavNode" %>
 <%@ page import="com.topcoder.web.common.model.NavTree" %>
 <%@ page import="com.topcoder.web.creative.Constants" %>
@@ -8,8 +10,9 @@
 <%
     /* m_name indicates the name of an expandable menu */
 
+    SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     NavTree nav = new NavTree();
-    nav.addRoot(new NavNode("/?" + Constants.MODULE_KEY + "=AdminViewContests", "Contests", "contests"));
+    nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests", "Contests", "contests"));
 
     request.setAttribute("tree", nav);
 
