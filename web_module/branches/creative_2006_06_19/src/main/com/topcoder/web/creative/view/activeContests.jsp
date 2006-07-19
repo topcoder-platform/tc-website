@@ -1,14 +1,17 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_creative"/>
-</jsp:include>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
 </head>
 
 <body>
@@ -47,65 +50,28 @@
                         <td class="headerR">Payment</td>
                         <td class="headerC">Submit by</td>
                     </tr>
-                    <tr class="light">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
-                    <tr class="dark">
-                        <td class="value"><A href="/?module=Static&d1=projectDetails">Logo Design Project</A></td>
-                        <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">Register /
-                            Submit</button></td>
-                        <td class="valueC">07.14.2006 09:00 AM EDT</td>
-                        <td class="valueC">0</td>
-                        <td class="valueR">$1,600.00</td>
-                        <td class="valueC">07.17.2006 09:00 AM EDT</td>
-                    </tr>
+                    <% boolean even = true;%>
+                    <rsc:iterator list="<%=contests%>" id="resultRow">
+                        <tr class="<%=even?"dark":"light"%>">
+                            <td class="value"><A href="/?module=Static&d1=projectDetails">
+                                <rsc:item name="name" row="<%=resultRow%>"/></A></td>
+                            <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">
+                                Register /
+                                Submit</button></td>
+                            <td class="valueC">
+                                <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                            <td class="valueC">0</td>
+                            <td class="valueR">$1,600.00</td>
+                            <td class="valueC">
+                                <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                        </tr>
+                        <% even = !even;%>
+                    </rsc:iterator>
                 </tbody>
             </table>
         </div>
 
-        <jsp:include page="/creativeFoot.jsp"/>
+        <jsp:include page="creativeFoot.jsp"/>
     </div>
 </div>
 </body>
