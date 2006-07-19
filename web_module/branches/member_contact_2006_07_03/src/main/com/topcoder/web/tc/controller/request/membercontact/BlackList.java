@@ -34,7 +34,8 @@ public class BlackList extends HibernateProcessor {
 
 
     	List blockedUsers = blackListDAO.getBlockedUsers(user.getId());
-    		
+    	
+    	recentUsers.removeAll(blockedUsers);
     	getRequest().setAttribute("recentUsers", new ArrayList(recentUsers));
     	getRequest().setAttribute("blockedUsers", blockedUsers);
     	
