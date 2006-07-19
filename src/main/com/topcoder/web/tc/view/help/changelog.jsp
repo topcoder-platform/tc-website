@@ -48,6 +48,7 @@
         <li>Fix default sorting of Digital Run scoreboard's columns</li>
         <li>Fix bug in Marathon Match submission where a user could test examples, click browser back and then submit
             but it would test examples again</li>
+        <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
     </ul>
 </p>
 
