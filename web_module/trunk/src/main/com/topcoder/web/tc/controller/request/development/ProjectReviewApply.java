@@ -74,9 +74,9 @@ public class ProjectReviewApply extends Base {
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
-                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+//                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
-                    if (log.isDebugEnabled()) {
+/*                    if (log.isDebugEnabled()) {
                         log.debug("Begin transaction");
                     }
                     tm.begin();
@@ -91,9 +91,9 @@ public class ProjectReviewApply extends Base {
                     // working right with jdbc within the ejb and the lock of the row was unsuccessfull.
 
                     updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-
+*/
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
-                    log.debug("going to sleep... 1... ");
+/*                    log.debug("going to sleep... 1... ");
                     Thread.sleep(20000);
                     log.debug("going to sleep... 2... ");
                     Thread.sleep(20000);
@@ -106,12 +106,12 @@ public class ProjectReviewApply extends Base {
                     tm.commit();
                     if (log.isDebugEnabled()) {
                         log.debug("Commit transaction");
-                    }
+                    }*/
                     // Put the terms text in the request.
                     TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                     setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
                 } catch (Exception e) {
-                    if (log.isDebugEnabled()) {
+/*                    if (log.isDebugEnabled()) {
                         log.debug("Error transaction");
                     }
                     if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
@@ -119,7 +119,7 @@ public class ProjectReviewApply extends Base {
                             log.debug("Rollback Transaction");
                         }
                         tm.rollback();
-                    }
+                    }*/
                     throw e;
                 }
             } else {
@@ -177,28 +177,4 @@ public class ProjectReviewApply extends Base {
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(), phaseId);
     }
-
-    private void updateForLock(long projectId, String dataSource) {
-        log.debug("lock called on project " + projectId);
-        String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        InitialContext ctx = null;
-        try {
-            conn = DBMS.getConnection(dataSource);
-            ps = conn.prepareStatement(query);
-            ps.setLong(1, projectId);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
-        } finally {
-            DBMS.close(ps);
-            DBMS.close(conn);
-            close(ctx);
-        }
-
-    }
-
 }

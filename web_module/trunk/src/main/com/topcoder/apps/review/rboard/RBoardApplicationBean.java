@@ -302,10 +302,8 @@ public class RBoardApplicationBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             // gets project info
-            conn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
             Map projectInfo = getProjectInfo(projectId, conn);
             String prefix = buildPrefix(projectInfo);
-            conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 
             // gets UserRole info (First reviewer)
             ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
@@ -314,6 +312,7 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = ps.executeQuery();
 
             conn.setAutoCommit(false);
+            updateForLock(conn, projectId);
             validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
 
             insert(conn, "rboard_application",
@@ -357,6 +356,16 @@ public class RBoardApplicationBean extends BaseEJB {
             if (!reviewerInserted) {
                 throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
             }
+            log.debug("going to sleep... 1... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 2... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 3... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 4... ");
+            Thread.sleep(20000);
+            log.debug("going to sleep... 5... ");
+            Thread.sleep(20000);
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -804,5 +813,22 @@ public class RBoardApplicationBean extends BaseEJB {
             }
         }
         return result;
+    }
+
+    private void updateForLock(Connection conn, long projectId) {
+        log.debug("lock called on project " + projectId);
+        String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
+
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, projectId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            DBMS.close(ps);
+        }
     }
 }
