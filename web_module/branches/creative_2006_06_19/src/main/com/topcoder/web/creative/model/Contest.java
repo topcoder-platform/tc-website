@@ -1,7 +1,6 @@
 package com.topcoder.web.creative.model;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.TermsOfUse;
 
 import java.sql.Timestamp;
 
@@ -13,7 +12,6 @@ import java.sql.Timestamp;
 public class Contest extends Base {
     private Long id;
     private String name;
-    private TermsOfUse terms;
     private Timestamp startTime;
     private Timestamp endTime;
 
@@ -31,14 +29,6 @@ public class Contest extends Base {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public TermsOfUse getTerms() {
-        return terms;
-    }
-
-    public void setTerms(TermsOfUse terms) {
-        this.terms = terms;
     }
 
     public Timestamp getStartTime() {

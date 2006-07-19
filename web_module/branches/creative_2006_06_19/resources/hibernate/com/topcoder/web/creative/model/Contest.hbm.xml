@@ -12,7 +12,6 @@
             </generator>
         </id>
         <property name="name" access="field"/>
-        <many-to-one name="terms" column="terms_id" class="com.topcoder.web.common.model.TermsOfUse" access="field"/>
         <property name="startTime" column="start_time" access="field"/>
         <property name="endTime" column="end_time" access="field"/>
     </class>
