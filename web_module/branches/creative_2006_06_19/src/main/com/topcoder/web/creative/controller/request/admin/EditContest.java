@@ -26,7 +26,6 @@ public class EditContest extends HibernateProcessor {
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
         String startTime = getRequest().getParameter(Constants.START_TIME);
         String endTime = getRequest().getParameter(Constants.END_TIME);
-        String termsId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
 
         //validate
         ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
@@ -55,16 +54,23 @@ public class EditContest extends HibernateProcessor {
         } else {
             Contest contest;
             if (!"".equals(StringUtils.checkNull(contestId))) {
+                log.debug("existing contest");
                 contest = CreativeDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             } else {
+                log.debug("new contest");
                 contest = new Contest();
             }
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
             contest.setName(name);
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
+
             CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+            if (log.isDebugEnabled()) {
+                log.debug("id is: " + contest.getId());
+            }
             markForCommit();
+
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests");
             setIsNextPageInContext(false);
         }
