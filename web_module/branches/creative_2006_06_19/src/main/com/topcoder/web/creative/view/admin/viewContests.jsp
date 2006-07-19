@@ -38,7 +38,8 @@
                         <td class="title" colspan="4">Contests</td>
                     </tr>
                     <tr>
-                        <td class="header" colspan="4"><a href="/?module=AdminViewContest">add</a></td>
+                        <td class="header" colspan="4">
+                            <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
                     </tr>
                     <tr>
                         <td class="header">Name</td>
@@ -54,7 +55,7 @@
                             <td class="valueC">
                                 <fmt:formatDate value="${contest.endTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
                             <td class="valueC">
-                                <a href="/?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
                             </td>
                         </tr>
                     </c:forEach>
