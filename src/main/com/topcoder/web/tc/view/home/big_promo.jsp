@@ -14,10 +14,10 @@
 <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
 --%>
 
-<%-- TCCC06 
+<%-- TCCC06 --%>
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/promos/tccc06_promo.gif" border="0" ALT="TCCC06" /></A>
---%>
-<%-- Digital Run --%>
+
+<%-- Digital Run 
 <map name="digital_run">
 <area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
 <area shape="rect" alt="" coords="307,4,477,48" href="/tc?module=Static&d1=digital_run&d2=description" />
@@ -28,7 +28,7 @@
 </map>
 
 <IMG SRC="/i/home/digital_run_071006.gif" border="0" ALT="The Digital Run" usemap="#digital_run"/>
-
+--%>
 <%-- Marathon Matches
 <A href="/longcontest/?module=Static&d1=intel_overview"><IMG SRC="/i/home/intel_mtcs_banner.gif" border="0" ALT="Intel Multi-Threading Competition Series"/></A>
 --%>
