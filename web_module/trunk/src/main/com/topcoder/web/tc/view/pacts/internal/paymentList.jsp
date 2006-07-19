@@ -72,6 +72,7 @@
 		<td><b>Type</b></td>
 		<td><b>Method</b></td>
 		<td><b>Status</b></td>
+		<td><b>Client</b></td>
 		<td><b>Created</b></td>
 		<td><b>Reviewed</b></td>
 		</tr>
@@ -112,6 +113,11 @@
 			out.print("<td>"+type+"</td>\n");
 			out.print("<td>"+paymentList[n].getMethod()+"</td>\n");
 			out.print("<td>"+paymentList[n].getRecentStatus()+"</td>\n");
+			if (paymentList[n].getClient() != null && !paymentList[n].getClient().trim().equals("null")) {
+				out.print("<td>"+paymentList[n].getClient()+"</td>\n");
+			} else {
+				out.print("<td></td>\n");
+			}
 			out.print("<td>"+creationDateList[n]+"</td>\n");
 			if (paymentList[n].isReviewed()) out.print("<td>Yes</td>\n");
 			else out.print("<td>No</td>\n");
