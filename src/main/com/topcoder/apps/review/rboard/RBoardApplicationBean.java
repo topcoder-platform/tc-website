@@ -364,7 +364,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
             }
             conn.commit();
-            log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+            log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) + " milliseconds");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
