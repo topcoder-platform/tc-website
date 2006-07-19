@@ -65,16 +65,7 @@
       --%>
       </td>
       <td class="valueC">
-      <tc-webtag:handle coderId="22628476" /><br>
-      <tc-webtag:handle coderId="11787671" /><br>
-      <tc-webtag:handle coderId="15421107" /><br>
-      <tc-webtag:handle coderId="10336829" /><br>
-      <tc-webtag:handle coderId="8427398" /><br>
-      <tc-webtag:handle coderId="21934276" /><br>
-      <tc-webtag:handle coderId="21795406" /><br>
-      <tc-webtag:handle coderId="15247202" /><br>
-      <tc-webtag:handle coderId="22459674" /><br>
-      <tc-webtag:handle coderId="22628550" /><br>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewScorecardAdmin">standings</A>
       </td>
       <td class="valueC">
       07.13.2006 09:00 PM EST
