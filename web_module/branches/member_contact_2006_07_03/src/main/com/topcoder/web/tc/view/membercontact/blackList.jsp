@@ -20,7 +20,7 @@ function blockHandle() {
 <td>
 Recent messages:<br>
 <select name='users' multiple size=10 width=200>
-<c:forEach items="${requestScope.recentUsers}" var="recentUser">
+<c:forEach items="${requestScope.recentUsers}" var="${recentUser}">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
 </c:forEach>
 </select>
