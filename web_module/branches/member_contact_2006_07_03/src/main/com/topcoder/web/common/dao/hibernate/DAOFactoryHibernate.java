@@ -52,6 +52,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new MemberContactMessageDAOHibernate();
     }
 
+    public MemberContactBlackListDAO getMemberContactBlackListDAO() {
+        return new MemberContactBlackListDAOHibernate();
+    }
+
     public NotificationDAO getNotificationDAO() {
         return new NotificationDAOHibernate();
     }

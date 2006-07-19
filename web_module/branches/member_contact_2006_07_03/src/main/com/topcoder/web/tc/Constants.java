@@ -157,6 +157,9 @@ public class Constants implements WebConstants {
     
     public static String VALIDATE_HANDLE;
 
+    public static String BLACK_LIST;
+    public static String CHANGE_BLOCKED_STATUS;
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;

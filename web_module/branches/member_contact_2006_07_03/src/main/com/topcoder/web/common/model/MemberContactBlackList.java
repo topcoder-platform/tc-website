@@ -33,8 +33,8 @@ public class MemberContactBlackList extends Base {
 	
 
     public static class Identifier implements Serializable {
-    	private User user;
-    	private User blockedUser;
+    	private User user = null;
+    	private User blockedUser = null;
      	
         public User getBlockedUser() {
 			return blockedUser;
@@ -47,6 +47,9 @@ public class MemberContactBlackList extends Base {
 		}
 		public void setUser(User user) {
 			this.user = user;
+		}
+		
+		public Identifier() {			
 		}
 		
 		public Identifier(User user, User blockedUser) {

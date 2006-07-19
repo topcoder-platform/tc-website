@@ -27,6 +27,8 @@ public interface DAOFactory {
     FileTypeDAO getFileTypeDAO();
 
     MemberContactMessageDAO getMemberContactMessageDAO();
+
+    MemberContactBlackListDAO getMemberContactBlackListDAO();
     
     NotificationDAO getNotificationDAO();
 

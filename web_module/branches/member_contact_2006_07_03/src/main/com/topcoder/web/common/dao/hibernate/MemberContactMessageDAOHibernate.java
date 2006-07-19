@@ -1,10 +1,12 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
 import com.topcoder.web.common.model.MemberContactMessage;
-import com.topcoder.web.common.model.Preference;
 
 /**
  * @author cucu
@@ -27,6 +29,12 @@ public class MemberContactMessageDAOHibernate extends Base implements MemberCont
 
 	public void saveOrUpdate(MemberContactMessage m) {
 		super.saveOrUpdate(m);
+	}
+
+	public List getAllSendersToUser(Long userId) {
+    	Query q = session.createQuery("select distinct mcm.sender from MemberContactMessage mcm" +
+		  				" where mcm.recipient=" + userId);
+		return q.list();
 	}
 
 
