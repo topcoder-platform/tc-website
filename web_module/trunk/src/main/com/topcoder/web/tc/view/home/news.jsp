@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.19.06<br>12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></span><br><br>
+      The TCCC06 - with $200,000 in prizes - will be held November 15-17 in sunny San Diego, CA, USA. 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.18.06<br>3:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,17 +202,6 @@ With the best overall score and with 3 successful submissions, <tc-webtag:handle
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.06.06<br>11:05 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Competition systems downtime for scheduled maintenance: 07.07</span><br><br>
-      Tomorrow, July 7th, we will be performing some maintenance on our competition systems.  The maintenance window will start at 5PM EDT and last for approximately one hour.  During this time the Arena and Marathon systems may not be available.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506066" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
