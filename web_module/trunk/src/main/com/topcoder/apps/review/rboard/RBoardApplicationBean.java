@@ -302,8 +302,10 @@ public class RBoardApplicationBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             // gets project info
+            conn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
             Map projectInfo = getProjectInfo(projectId, conn);
             String prefix = buildPrefix(projectInfo);
+            conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
 
             // gets UserRole info (First reviewer)
             ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
