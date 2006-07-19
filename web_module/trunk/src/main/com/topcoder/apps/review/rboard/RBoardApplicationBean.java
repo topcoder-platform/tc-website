@@ -356,19 +356,8 @@ public class RBoardApplicationBean extends BaseEJB {
             if (!reviewerInserted) {
                 throw (new EJBException("Couldn't find UserRole rows for pid:" + projectId));
             }
-            log.info("going to sleep... 1... ");
-            Thread.sleep(20000);
-            log.info("going to sleep... 2... ");
-            Thread.sleep(20000);
-            log.info("going to sleep... 3... ");
-            Thread.sleep(20000);
-            log.info("going to sleep... 4... ");
-            Thread.sleep(20000);
-            log.info("going to sleep... 5... ");
-            Thread.sleep(20000);
             conn.commit();
         } catch (SQLException sqle) {
-            log.info("SQL error code:" + sqle.getErrorCode());
             DBMS.printSqlException(true, sqle);
             rollback(conn);
             throw new EJBException(sqle);
