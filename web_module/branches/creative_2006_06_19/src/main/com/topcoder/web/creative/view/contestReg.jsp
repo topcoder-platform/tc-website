@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -6,9 +7,9 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-<jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_creative"/>
-</jsp:include>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 
             <form name="terms" method="POST" action="/?module=Static&d1=submit">
 
-                <iframe width="590" height="300" marginWidth="5" src="/?module=Static&d1=contestRegContent"></iframe>
+                <iframe width="590" height="300" marginWidth="5" src="/?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
 
                 <br><br>
                 <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
