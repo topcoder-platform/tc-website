@@ -42,7 +42,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/tccc06_narrow.gif" alt="2006 TopCoder Collegiate Challenge" border="0" /></A><br></td>
          <td width="100%">
-         <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge</span>
+         <span class="bodySubtitle">2006 TopCoder&#174; Collegiate Challenge Sponsored by AOL</span>
          <br><br>
          November 14-18<br>
          San Diego, CA, USA<br>
