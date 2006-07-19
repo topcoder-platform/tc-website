@@ -68,7 +68,7 @@
       07.13.2006 09:00 PM EST
       </td>
       <td class="valueC">
-      07.20.2006 09:00 PM EST
+      07.19.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828276">discuss the project</A>
