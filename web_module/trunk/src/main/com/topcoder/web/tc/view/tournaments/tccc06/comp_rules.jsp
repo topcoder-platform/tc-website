@@ -48,7 +48,7 @@ TopCoder members meeting the following eligibility criteria are eligible to comp
 <li>Must currently be eligible for participation in TopCoder Component projects (i.e. not suspended from TopCoder); AND</li>
 <li>Must be matriculated full-time at an accredited college or university.</li>
 </ul>
-TopCoder members who are 18 years of age or older as of August 17, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of August 17, 2006 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
 Those members who are eligible to compete in both the Algorithm Competition of the TCCC and in the CDDC will be permitted to participate in both, and advance to the finals in both. In addition, members will be allowed to compete in both the design and development competitions of the TCCC. However, if one member participates in both the design and development competitions AND qualifies as one of the finalists in each, then the member will only be permitted to advance to the Championship round in one of the competitions. The following criteria will be used to determine to which competition the member will advance:
 <ol>
@@ -61,7 +61,7 @@ Employees of TopCoder, Inc. and of all official tournament sponsors, regardless 
 <a href="#top"><img src="/i/tournament/tccc06/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Placement Scoring</span>
 <br><br>
-Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. Note that only those registered for the tournament are considered when determining place and placement points. In order to receive placement points, a submission must pass the minimum component score of 70. Placement scoring is as follows:
+Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. Note that only those registered for the tournament are considered when determining place and placement points. In order to receive placement points, a submission must pass the minimum component score of 75. Placement scoring is as follows:
 <br /><br />
 <table width="300" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
@@ -282,7 +282,7 @@ All contestants who submit components that pass screening during at least one we
    <tr valign="top">
       <td class="sidebarText">1st place finisher* in the Championship Round</td>
       <td class="sidebarText" align="right">$25,000</td>
-      <td class="sidebarText" align="right">$15,00</td>
+      <td class="sidebarText" align="right">$15,000</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">2nd place finisher* in the Championship Round</td>
@@ -352,7 +352,7 @@ In order for onsite finalists to receive their onsite cash prize, they must firs
 <br><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to providing certain information to the title sponsor. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
 <br><br>
-<span class="bigRed">Contestants must not cheat. All ideas for any source code submitted must be the contestant's alone.  TopCoder uses the word “cheat” to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions.  TopCoder reserves the right, in its sole discretion, to remove any competitor from the tournament who it suspects has cheated.</span>
+<span class="bigRed">Contestants must not cheat. All ideas for any source code submitted must be the contestant's alone.  TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions.  TopCoder reserves the right, in its sole discretion, to remove any competitor from the tournament who it suspects has cheated.</span>
 <br><br>
 All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. 
 <br><br>
