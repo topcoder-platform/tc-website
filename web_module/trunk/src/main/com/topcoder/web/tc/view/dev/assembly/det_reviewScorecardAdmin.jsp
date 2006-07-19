@@ -68,7 +68,7 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22882889">here</A>.<br><br>
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">here</A>.<br><br>
 
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
