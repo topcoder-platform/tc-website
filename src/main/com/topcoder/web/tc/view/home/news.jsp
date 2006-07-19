@@ -10,7 +10,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.19.06<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></span><br><br>
-      The TCCC06 - with $200,000 in prizes - will be held November 15-17 in sunny San Diego, CA, USA. 
+      The TCCC06 - with $200,000 in prizes - will be held November 14-17 in sunny San Diego, CA, USA. 
       </td>
    </tr>
    <tr><td class="newsLinksCell">
