@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <html>
@@ -44,11 +46,18 @@
                         <td class="title" colspan="6">Active Contests</td>
                     </tr>
                     <tr>
-                        <td class="header" colspan="2">Project</td>
-                        <td class="headerC">Registration ends</td>
+
+                        <td class="header" colspan="2">
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
+                        </td>
+                        <td class="headerC">
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registration
+                                ends</a></td>
                         <td class="headerC">Submissions</td>
                         <td class="headerR">Payment</td>
-                        <td class="headerC">Submit by</td>
+                        <td class="headerC">
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
+                                by</a></td>
                     </tr>
                     <% boolean even = true;%>
                     <rsc:iterator list="<%=contests%>" id="resultRow">
