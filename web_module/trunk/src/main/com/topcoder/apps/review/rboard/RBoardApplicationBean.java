@@ -368,8 +368,8 @@ public class RBoardApplicationBean extends BaseEJB {
             Thread.sleep(20000);
             conn.commit();
         } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
             log.info("SQL error code:" + sqle.getErrorCode());
+            DBMS.printSqlException(true, sqle);
             rollback(conn);
             throw new EJBException(sqle);
         } catch (RBoardRegistrationException rbre) {
@@ -816,7 +816,7 @@ public class RBoardApplicationBean extends BaseEJB {
         return result;
     }
 
-    private void updateForLock(Connection conn, long projectId) {
+    private void updateForLock(Connection conn, long projectId) throws SQLException {
         log.debug("lock called on project " + projectId);
         String query = "update project set project_id = project_id where project_id = ? and cur_version = 1";
 
@@ -825,9 +825,6 @@ public class RBoardApplicationBean extends BaseEJB {
             ps = conn.prepareStatement(query);
             ps.setLong(1, projectId);
             ps.executeUpdate();
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
         } finally {
             DBMS.close(ps);
         }
