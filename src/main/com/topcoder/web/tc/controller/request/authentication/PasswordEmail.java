@@ -28,9 +28,9 @@ public class PasswordEmail extends Base {
             try {
                 Request r = new Request();
                 r.setContentHandle("password_email");
-                r.setProperty(Constants.FIRST_NAME, clean(firstName));
-                r.setProperty(Constants.LAST_NAME, clean(lastName));
-                r.setProperty(Constants.EMAIL, clean(email));
+                r.setProperty(Constants.FIRST_NAME, firstName);
+                r.setProperty(Constants.LAST_NAME, lastName);
+                r.setProperty(Constants.EMAIL, email);
                 ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("password_email");
                 if (rsc.isEmpty()) {
                     addError(Constants.FIRST_NAME, "Sorry, the information you supplied was not found.");
@@ -66,22 +66,6 @@ public class PasswordEmail extends Base {
             }
 
         }
-    }
-
-    private static String clean(String string) {
-        if (log.isDebugEnabled()) {
-            log.debug("in |" + string + "|");
-        }
-        StringBuffer ret = new StringBuffer(string.length() + 10);
-        for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) == '\'') {
-                ret.append("''");
-            } else ret.append(string.charAt(i));
-        }
-        if (log.isDebugEnabled()) {
-            log.debug("out |" + ret.toString() + "|");
-        }
-        return ret.toString();
     }
 
 
