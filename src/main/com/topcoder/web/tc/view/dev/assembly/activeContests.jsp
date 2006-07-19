@@ -61,7 +61,30 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewScorecardAdmin">results</A>--%>
       </td>
       <td class="valueC">
-      &#160;
+		(C) = Team Captain<br>
+
+		<b>Team PearlS</b><br>
+		<tc-webtag:handle coderId="266149" /> (C)<br>
+		<tc-webtag:handle coderId="21491618" /><br><br>
+		
+		<b>Team 719</b><br>
+		<tc-webtag:handle coderId="10336829" /> (C)<br>
+		<tc-webtag:handle coderId="22498968" /><br><br>
+		
+		<b>Team 3</b><br>
+		<tc-webtag:handle coderId="15704643" /> (C)<br>
+		<tc-webtag:handle coderId="22051578" /><br><br>
+		
+		<b>Team 4</b><br>
+		<tc-webtag:handle coderId="22628271" /> (C)<br><br>
+		
+		<b>Team BounceTheServer</b><br>
+		<tc-webtag:handle coderId="22033992" /> (C)<br>
+		<tc-webtag:handle coderId="7475084" /><br>
+		<tc-webtag:handle coderId="22628943" /><br><br>
+		
+		<b>Team TAG</b><br>
+		<tc-webtag:handle coderId="278460" />
       </td>
       <td class="valueC">
       07.21.2006 9:00 PM EST

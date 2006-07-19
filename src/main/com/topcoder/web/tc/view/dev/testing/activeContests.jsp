@@ -53,7 +53,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin Tests</A>
       </td>
       <td class="valueC">
+      &#160;
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Scorecard Admin Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       &#160;
@@ -62,16 +65,25 @@
       --%>
       </td>
       <td class="valueC">
-      &#160;
+      <tc-webtag:handle coderId="22628476" /><br>
+      <tc-webtag:handle coderId="11787671" /><br>
+      <tc-webtag:handle coderId="15421107" /><br>
+      <tc-webtag:handle coderId="10336829" /><br>
+      <tc-webtag:handle coderId="8427398" /><br>
+      <tc-webtag:handle coderId="21934276" /><br>
+      <tc-webtag:handle coderId="21795406" /><br>
+      <tc-webtag:handle coderId="15247202" /><br>
+      <tc-webtag:handle coderId="22459674" /><br>
+      <tc-webtag:handle coderId="22628550" /><br>
       </td>
       <td class="valueC">
       07.13.2006 09:00 PM EST
       </td>
       <td class="valueC">
-      07.19.2006 09:00 PM EST
+      07.20.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828276">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">discuss the project</A>
       </td>
    </tr>
 </table>
