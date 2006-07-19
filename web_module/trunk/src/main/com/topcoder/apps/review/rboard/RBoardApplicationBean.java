@@ -823,7 +823,7 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setLong(1, projectId);
             ps.executeUpdate();
         } finally {
-            DBMS.close(ps);
+            close(ps);
         }
     }
 }

@@ -47,8 +47,16 @@ import java.util.Map;
  * </ol>
  * </p>
  *
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Transaction management moved into RBoardApplication EJB.
+ * </li>
+ * </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -75,53 +83,44 @@ public class ProjectReviewApply extends Base {
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
 //                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-                try {
-/*                    if (log.isDebugEnabled()) {
-                        log.debug("Begin transaction");
-                    }
-                    tm.begin();
-                    //we're doing this so that we can have something to sync on.  if we don't lock
-                    //project, then people get register while we're still doing the selects to determine
-                    //if one should be able to register.  both people end up coming up ok to register and we
-                    //end up with more than one person in the same slot.
-                    //ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
-                    //project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+//                try {
+//                    if (log.isDebugEnabled()) {
+//                        log.debug("Begin transaction");
+//                    }
+//                    tm.begin();
+//                    //we're doing this so that we can have something to sync on.  if we don't lock
+//                    //project, then people get register while we're still doing the selects to determine
+//                    //if one should be able to register.  both people end up coming up ok to register and we
+//                    //end up with more than one person in the same slot.
+//                    //ProjectLocal project = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
+//                    //project.updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
-                    // The project lock is taken out from the EJB and executed locally, since the JTA transaction wasn't
-                    // working right with jdbc within the ejb and the lock of the row was unsuccessfull.
+//                    // Since 1.0.2
+//                    // The project lock was moved into the RBoardApplication EJB, this way it's transparent for the caller
+//                    // and always atomic and auto-excluding
+//                    updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
-                    updateForLock(projectId, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-*/
                     applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
-/*                    log.debug("going to sleep... 1... ");
-                    Thread.sleep(20000);
-                    log.debug("going to sleep... 2... ");
-                    Thread.sleep(20000);
-                    log.debug("going to sleep... 3... ");
-                    Thread.sleep(20000);
-                    log.debug("going to sleep... 4... ");
-                    Thread.sleep(20000);
-                    log.debug("going to sleep... 5... ");
-                    Thread.sleep(20000);
-                    tm.commit();
-                    if (log.isDebugEnabled()) {
-                        log.debug("Commit transaction");
-                    }*/
+//                  tm.commit();
+//                    if (log.isDebugEnabled()) {
+//                        log.debug("Commit transaction");
+//                    }
+
                     // Put the terms text in the request.
                     TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
                     setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-                } catch (Exception e) {
-/*                    if (log.isDebugEnabled()) {
-                        log.debug("Error transaction");
-                    }
-                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                        if (log.isDebugEnabled()) {
-                            log.debug("Rollback Transaction");
-                        }
-                        tm.rollback();
-                    }*/
-                    throw e;
-                }
+//                } catch (Exception e) {
+//                    if (log.isDebugEnabled()) {
+//                        log.debug("Error transaction");
+//                    }
+//                    if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+//                        if (log.isDebugEnabled()) {
+//                            log.debug("Rollback Transaction");
+//                        }
+//                        tm.rollback();
+//                    }
+//                    throw e;
+//                }
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
