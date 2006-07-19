@@ -62,11 +62,12 @@
                     <% boolean even = true;%>
                     <rsc:iterator list="<%=contests%>" id="resultRow">
                         <tr class="<%=even?"dark":"light"%>">
-                            <td class="value"><A href="/?module=Static&d1=projectDetails">
+                            <td class="value"><A href="${sessionInfo.servletPath}?module=Static&d1=projectDetails">
                                 <rsc:item name="name" row="<%=resultRow%>"/></A></td>
-                            <td class="valueC"><button onClick="window.location='/?module=Static&d1=contestReg'">
-                                Register /
-                                Submit</button></td>
+                            <td class="valueC">
+                                <button onClick="window.location='${sessionInfo.servletPath}?module=Static&d1=contestReg'">
+                                    Register /
+                                    Submit</button></td>
                             <td class="valueC">
                                 <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                             <td class="valueC">0</td>
