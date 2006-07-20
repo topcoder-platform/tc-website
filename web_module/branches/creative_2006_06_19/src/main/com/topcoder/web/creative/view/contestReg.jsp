@@ -50,7 +50,7 @@
                 <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
                     <br/></tc-webtag:errorIterator></span>
-                <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
+                <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                 <br><br>
                 <button name="submit" value="submit" type="submit">Submit</button>
                 <br><br>
