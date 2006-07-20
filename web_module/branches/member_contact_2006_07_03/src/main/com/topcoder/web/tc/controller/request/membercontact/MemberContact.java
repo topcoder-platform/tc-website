@@ -85,11 +85,6 @@ public class MemberContact extends HibernateProcessor {
         	m.setSentDate(new Date());
         	
             DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
-            // Testing, erase it!
-            MemberContactBlackList bl = new MemberContactBlackList();
-            bl.setId(new MemberContactBlackList.Identifier(sender, recipient));
-            bl.setBlocked(true);
-            HibernateUtils.getSession().saveOrUpdate(bl);
             
             markForCommit();
         }

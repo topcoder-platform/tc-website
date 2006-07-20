@@ -106,7 +106,7 @@ function save()
 Users that recently <br>
 sent you messages or <br>
 that were previously blocked:<br>
-(needs rewording!)
+(needs rewording!)<br>
 <select name='users' multiple size=10 width=200>
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
