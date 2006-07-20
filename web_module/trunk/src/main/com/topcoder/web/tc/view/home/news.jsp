@@ -49,7 +49,7 @@ from start to finish.
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506028" message="discuss this" />&#160;|&#160;
+       <tc-webtag:forumLink forumID="506029" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
