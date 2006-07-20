@@ -59,7 +59,13 @@ import java.util.*;
  * </li>
  * </ol>
  *
- * @version 1.0.1
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Version admin tool was fixed to allow post-creation public forum flag changes.
+ * </li>
+ *
+ * @version 1.0.2
  * @author Albert Mao, pulky
  * @see     ComponentManager
  * @see     ComponentManagerHome
@@ -833,15 +839,15 @@ public class ComponentManagerBean
         // is moved directly from collaboration to development.
         if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
                 || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-            int numforums;
+            Collection forums;
             try {
-                numforums = compforumHome.findByCompVersIdAndType(versionId,
-                        Forum.SPECIFICATION).size();
+                forums = compforumHome.findByCompVersIdAndType(versionId,
+                        Forum.SPECIFICATION);
             } catch (FinderException exception) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
             }
-            if (numforums == 0) {
+            if (forums.size() == 0) {
                 try {
                     com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
                     try {
@@ -865,6 +871,48 @@ public class ComponentManagerBean
                 } catch (CreateException exception) {
                     ejbContext.setRollbackOnly();
                     throw new CatalogException(exception.toString());
+                }
+            } else {
+                log.debug("Updating public flag");
+                // all forums are created, but the public attribute must be updated.
+                for (Iterator it=forums.iterator(); it.hasNext(); ) {
+                    LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
+
+                    RolePrincipal userRole = null;
+                    try {
+                        log.debug("Looking for forum: " + compForumXref.getForumId());
+
+                        PrincipalMgrRemote principalManager = principalmgrHome.create();
+                        userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
+
+                        PermissionCollection perms = null;
+                        perms = new PermissionCollection();
+                        perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
+
+                        PolicyMgrRemote policyManager = policymgrHome.create();
+                        log.debug("Remove public permission");
+                        policyManager.removePermissions(userRole, perms, null);
+
+                        if (info.getPublicForum()) {
+                            log.debug("Add public permission");
+                            policyManager.addPermissions(userRole, perms, null);
+                        }
+                    } catch (ConfigManagerException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                            "Failed to obtain configuration data: " + exception.toString());
+                    } catch (CreateException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                            "Failed to make forum public: " + exception.toString());
+                    } catch (GeneralSecurityException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new CatalogException(
+                            "Failed to make forum public: " + exception.toString());
+                    } catch (RemoteException exception) {
+                        ejbContext.setRollbackOnly();
+                        throw new EJBException(exception.toString());
+                    }
                 }
             }
         }
