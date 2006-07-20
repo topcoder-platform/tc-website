@@ -21,7 +21,7 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
     }
 
     public SubmissionDAO getSubmissionDAO() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new SubmissionDAOHibernate();
     }
 
     public SubmissionReviewDAO getSubmissionReviewDAO() {
