@@ -10,9 +10,13 @@
 
 	<c:when test="${cf:containsMapKey(requestScope, id)}" >
        <tac:replaceChildren contextNodeID="blockHandleResult" parseOnServer="true">
+		    <div style="font-weight:bold;color:red;">
+		       User FOUND!
+		    </div>
+
            <script type="text/javascript">
            alert("has id!");
-		       addBlockedUser('<c:out value="${requestScope.id}" />', '<c:out value="${requestScope.handle}" />');
+		       //addBlockedUser('<c:out value="${requestScope.id}" />', '<c:out value="${requestScope.handle}" />');
            </script>
 	    </tac:replaceChildren>
 	</c:when>
