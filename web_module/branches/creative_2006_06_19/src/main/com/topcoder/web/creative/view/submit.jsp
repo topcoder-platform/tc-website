@@ -50,7 +50,7 @@
                         <br><br>
                         <button name="submit" value="submit" type="submit">Submit</button>
                         <br><br>
-                        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><%=err%>
+                        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
                             <br></tc-webtag:errorIterator></span>
                     </form>
                 </div>

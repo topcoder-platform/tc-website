@@ -47,8 +47,12 @@ public class Submit extends HibernateProcessor {
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 //not registered
-                setNextPage("/contestReg.jsp");
-                setIsNextPageInContext(true);
+                StringBuffer buf = new StringBuffer(50);
+                buf.append(getSessionInfo().getServletPath());
+                buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
+                buf.append(Constants.CONTEST_ID + "=").append(contestId);
+                setNextPage(buf.toString());
+                setIsNextPageInContext(false);
             } else {
                 //registered
 

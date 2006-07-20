@@ -1,6 +1,8 @@
 package com.topcoder.web.creative.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.creative.Constants;
 
 /**
  * @author dok
@@ -9,6 +11,13 @@ import com.topcoder.web.common.BaseProcessor;
  */
 public class ViewRegistration extends BaseProcessor {
     protected void businessProcessing() throws Exception {
+        Long contestId;
+        try {
+            contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
+        } catch (NumberFormatException e) {
+            throw new NavigationException("Invalid Contest Specified");
+        }
+        setDefault(Constants.CONTEST_ID, contestId.toString());
         setNextPage("/contestReg.jsp");
         setIsNextPageInContext(true);
     }

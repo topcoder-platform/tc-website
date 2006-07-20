@@ -1,9 +1,7 @@
 package com.topcoder.web.creative.controller.request;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -11,21 +9,16 @@ import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOFactory;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Contest;
+import com.topcoder.web.creative.model.ContestRegistration;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmission extends HibernateProcessor {
-    //check if they're registered
-    //if not, go to reg page
-    //if so, go to submission page
-
+public class Register extends HibernateProcessor {
     protected void dbProcessing() throws Exception {
-        if (userLoggedIn()) {
-            CreativeDAOFactory cFactory = CreativeDAOUtil.getFactory();
-            DAOFactory factory = DAOUtil.getFactory();
+        if ("POST".equals(getRequest().getMethod())) {
             Long contestId;
             try {
                 contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
@@ -33,26 +26,41 @@ public class ViewSubmission extends HibernateProcessor {
                 throw new NavigationException("Invalid Contest Specified");
             }
 
+            CreativeDAOFactory cFactory = CreativeDAOUtil.getFactory();
+            DAOFactory factory = DAOUtil.getFactory();
+
             Contest c = cFactory.getContestDAO().find(contestId);
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-                //not registered
-                StringBuffer buf = new StringBuffer(50);
-                buf.append(getSessionInfo().getServletPath());
-                buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-                buf.append(Constants.CONTEST_ID + "=").append(contestId);
-                setNextPage(buf.toString());
-                setIsNextPageInContext(false);
+                if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
+
+                    ContestRegistration cr = new ContestRegistration();
+                    cr.setContest(c);
+                    cr.setUser(u);
+                    cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+                    cr.getId().setContest(c);
+                    cr.getId().setUser(u);
+
+                    CreativeDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+
+                    markForCommit();
+                } else {
+                    addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+                }
+            }
+
+            if (hasErrors()) {
+                setDefault(Constants.CONTEST_ID, contestId.toString());
+                setNextPage("/contestReg.jsp");
             } else {
-                //registered
                 setDefault(Constants.CONTEST_ID, contestId.toString());
                 setNextPage("/submit.jsp");
                 setIsNextPageInContext(true);
             }
 
         } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            throw new NavigationException("Invalid request type.");
         }
 
     }

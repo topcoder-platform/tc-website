@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -45,13 +45,18 @@
                 <br><br>
                 <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
                 <!-- resulting page from click has value at the end of the URL, which is pointless.  Feel free to use any html/js element/method but i want the nice looking button -->
-                <button name="submit" value="submit" type="submit">I Accept</button>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
+                    <br/></tc-webtag:errorIterator></span>
+                <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
                 <br><br>
-                <span class="bigRed">Error text</span>
+                <button name="submit" value="submit" type="submit">Submit</button>
+                <br><br>
+
+
             </form>
         </div>
 
-        <jsp:include page="/creativeFoot.jsp"/>
+        <jsp:include page="creativeFoot.jsp"/>
     </div>
 </div>
 </body>
