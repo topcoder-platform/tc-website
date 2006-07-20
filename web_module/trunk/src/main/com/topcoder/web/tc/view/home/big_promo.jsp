@@ -22,7 +22,7 @@
 <map name="tccc_rep">
 <area shape="rect" alt="" coords="1,1,211,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="213,1,498,76" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
- <area shape="rect" alt="" coords="213,74,498,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps" />
+<area shape="rect" alt="" coords="213,74,498,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps" />
 </map>
 
 <IMG SRC="/i/home/promos/tccc06_rep_promo.gif" border="0" ALT="TCCC06" usemap="#tccc_rep" />

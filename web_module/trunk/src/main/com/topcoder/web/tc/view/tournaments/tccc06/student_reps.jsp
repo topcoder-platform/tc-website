@@ -27,7 +27,7 @@
 It's that time of year again - time to start advertising for the 2006 TopCoder Collegiate Challenge, Sponsored by AOL.  We want participation in the TCCC06 to reach record levels, and we need your help in order to make that happen. TopCoder wants Student Representatives for colleges and universities world wide!
 <br><br>
 <span class="bodySubtitle">What would your responsibilities be as a Student Rep?</span><br>
-Your sole responsibility would be to help increase the number of participants in the 2006 TopCoder Collegiate Challenge. To help you achieve that goal, TopCoder will provide you with flyers to hand out to your classmates around campus.
+Your sole responsibility would be to help increase the number of participants in the 2006 TopCoder Collegiate Challenge. To help you achieve that goal, TopCoder will provide you with flyers to hand out to your classmates around campus. Click <A href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc06&d3=flyer_front','comp',380,530);">here</A> to see the flyer.
 <br><br>
 <span class="bodySubtitle">What do you get for being a Student Rep?</span><br>
 <ol>
@@ -40,7 +40,7 @@ Your sole responsibility would be to help increase the number of participants in
 <li><A href="mailto:jdamato@topcoder.com">Contact us</A> if you're interested in advertising for TopCoder on your campus*.</li>
 <li>Include the name of the college/university you will be distributing flyers to.</li>
 <li>Include your TopCoder handle.</li>
-<li>Include your postal mailing address in the e-mail. This will be the address where the flyers are sent.</li>
+<li>Include your full name and postal mailing address in the e-mail. This will be the address where the flyers are sent.</li>
 </ol>
 
 *There is no limit to the amount of Reps on one campus.  You don't even have to be a college/university student to participate!
