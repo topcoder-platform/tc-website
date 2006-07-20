@@ -99,10 +99,6 @@
       <td class="value">8
       </td>
       <td class="value">9
-         <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 3 Deadline</A></strong><br>
-         9:00 AM
-         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -136,7 +132,7 @@
          1:00 PM PST
          </div>
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Room 1</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Room 2</A></strong><br>
          4:00 PM PST
          </div>
          <div class="long">
@@ -146,7 +142,7 @@
       </td>
       <td class="value">16
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Room 1</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=onsite_schedule">Algo Room 3</A></strong><br>
          9:00 AM PST
          </div>
          <div class="tccc06">

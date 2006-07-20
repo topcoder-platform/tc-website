@@ -71,6 +71,7 @@
       <td class="value">5
          <div class="tccc06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2A</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa">NSA</A><br>
          7:00 AM
          </div>
          <div class="tccc06">
@@ -87,6 +88,7 @@
       <td class="value">7
          <div class="tccc06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2B</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg">Bloomberg</A><br>
          1:00 PM
          </div>
       </td>
@@ -111,14 +113,11 @@
          </div>
          <div class="tccc06">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2C</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=ubs">UBS</A><br>
          9:00 PM
          </div>
       </td>
       <td class="value">12
-         <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 1 Deadline</A></strong><br>
-         9:00 AM
-         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -191,10 +190,6 @@
          </div>
       </td>
       <td class="value">26
-         <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 2 Deadline</A></strong><br>
-         9:00 AM
-         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
