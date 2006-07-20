@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
+import com.topcoder.util.log.Log;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -20,8 +21,9 @@ public class BlockHandle extends HibernateProcessor {
     		getRequest().setAttribute(ID, blockUser.getId());
     	}
     	              
+    	log.debug("forward to:"  + Constants.BLOCK_HANDLE);
         setNextPage(Constants.BLOCK_HANDLE);
-        setIsNextPageInContext(false);        
+        setIsNextPageInContext(true);        
     }
 
 }

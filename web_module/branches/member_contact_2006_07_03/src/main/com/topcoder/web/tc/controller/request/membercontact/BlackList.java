@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
@@ -79,6 +80,8 @@ public class BlackList extends HibernateProcessor {
         getRequest().setAttribute(SAVED, String.valueOf(true));
 
         markForCommit();
+        
+        HibernateUtils.getSession().flush();
 
     }
 	private static class UserHandleComparator implements Comparator {
