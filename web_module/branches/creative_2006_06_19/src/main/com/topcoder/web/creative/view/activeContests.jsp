@@ -65,7 +65,7 @@
                             <td class="value"><A href="${sessionInfo.servletPath}?module=Static&d1=projectDetails">
                                 <rsc:item name="name" row="<%=resultRow%>"/></A></td>
                             <td class="valueC">
-                                <button onClick="window.location='${sessionInfo.servletPath}?module=Static&d1=contestReg'">
+                                <button onClick="window.location='${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="${resultRow}"/>'">
                                     Register /
                                     Submit</button></td>
                             <td class="valueC">
