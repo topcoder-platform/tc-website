@@ -194,10 +194,10 @@
       <td class="value">30
       </td>
       <td class="value">31
-         <%--<div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">Component Competition Registration Begins</A></strong><br>
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Registration Begins</A></strong><br>
          9:00 AM
-         </div>--%>
+         </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10061">TCHS SRM 9 - Alpha</A></strong><br>
          7:00 PM

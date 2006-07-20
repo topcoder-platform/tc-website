@@ -129,6 +129,10 @@
          </div>
       </td>
       <td class="value">17
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 1 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -159,6 +163,10 @@
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 1 Deadline & Week 2 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -178,6 +186,10 @@
       <td class="value">27
       </td>
       <td class="value">28
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Competition Registration Begins</A></strong><br>
+         9:00 AM
+         </div>
          <div class="hs">
          <strong><A href="/tc?module=MatchDetails&rd=10065">TCHS SRM 13 - Alpha</A></strong><br>
          7:00 PM
@@ -192,6 +204,10 @@
       <td class="value">30
       </td>
       <td class="value">31
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 2 Deadline & Week 3 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
