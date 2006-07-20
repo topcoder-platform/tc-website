@@ -8,7 +8,7 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.20.06<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.20.06<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Representative for the TCCC06?</A></span><br><br>
       Find out more details about how to become a Student Representative at your school, and how to get flyers to help you promote the Tournament.
       </td>
