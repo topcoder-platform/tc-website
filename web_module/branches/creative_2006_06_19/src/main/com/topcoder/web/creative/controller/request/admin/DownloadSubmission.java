@@ -15,7 +15,7 @@ import java.io.FileInputStream;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class RetrieveSubmission extends HibernateProcessor {
+public class DownloadSubmission extends HibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;
