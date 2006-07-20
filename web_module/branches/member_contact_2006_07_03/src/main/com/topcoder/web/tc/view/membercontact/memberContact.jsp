@@ -36,7 +36,7 @@ function showButton() {
     </div>
 </c:if>
 
-<form name='f' action='/tc?module=MemberContact' method='get' >
+<form name='f' action='/tc?module=MemberContact' method='post' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
