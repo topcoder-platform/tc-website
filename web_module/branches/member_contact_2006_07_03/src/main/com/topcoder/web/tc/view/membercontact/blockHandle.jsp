@@ -16,7 +16,6 @@
 
            <script type="text/javascript">
            alert("has id!");
-		       //addBlockedUser('<c:out value="${requestScope.id}" />', '<c:out value="${requestScope.handle}" />');
            </script>
 	    </tac:replaceChildren>
 	</c:when>
