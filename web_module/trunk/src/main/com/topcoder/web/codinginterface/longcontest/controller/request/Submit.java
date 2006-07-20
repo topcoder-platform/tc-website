@@ -410,6 +410,9 @@ public class Submit extends Base {
         ret.add(CPPLanguage.CPP_LANGUAGE);
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
+        if (com.topcoder.shared.util.ApplicationServer.ENVIRONMENT != com.topcoder.shared.util.ApplicationServer.PROD) {
+            ret.add(PythonLanguage.PYTHON_LANGUAGE);
+        }
         return ret;
     }
 
