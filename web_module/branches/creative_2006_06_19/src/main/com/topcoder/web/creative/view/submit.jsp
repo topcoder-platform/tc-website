@@ -38,7 +38,7 @@
             <div align="left" style="width:500px;">
                 Thank you for accepting the terms of the contest. Please use the form below to upload your submission:
                 <br><br>
-                The maximum file size per submission is <font size="+4">XXXXXXXXXXXXXXXX</font> MB.
+                The maximum file size per submission is 2MB.
                 <br><br>
 
                 <div align="center">
