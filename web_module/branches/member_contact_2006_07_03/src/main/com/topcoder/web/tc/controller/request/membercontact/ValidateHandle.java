@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
 import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.tc.Constants;
@@ -18,7 +20,9 @@ public class ValidateHandle extends HibernateProcessor {
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(MemberContact.TO_HANDLE);
         
-        ValidationResult result = new HandleValidator().validate(new StringInput(handle));
+        User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        
+        ValidationResult result = new HandleValidator(user).validate(new StringInput(handle));
     	
         getRequest().setAttribute("result", result);        
 

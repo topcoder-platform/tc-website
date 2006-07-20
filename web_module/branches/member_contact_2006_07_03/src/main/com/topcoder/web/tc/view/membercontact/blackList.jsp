@@ -71,6 +71,7 @@ function unblock() {
 
 function addBlockedUser(id, handle)
 {
+alert(handle);
 	document.f.blockedUsers.options.add(new Option(handle, id, false));
 }
 

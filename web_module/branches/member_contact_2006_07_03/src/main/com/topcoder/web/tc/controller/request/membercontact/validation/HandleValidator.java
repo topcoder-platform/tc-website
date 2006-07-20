@@ -1,7 +1,9 @@
 package com.topcoder.web.tc.controller.request.membercontact.validation;
 
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.MemberContactBlackList;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.BasicResult;
@@ -17,6 +19,7 @@ import com.topcoder.web.common.validation.Validator;
  * - be an existing handler
  * - the handler must have the preference for member contact enabled
  * - the status of the primary address for the user must be active
+ * - the receipt must not have blocked the user.
  * 
  * If any of those fails, the validation fail.
  * 
@@ -24,6 +27,12 @@ import com.topcoder.web.common.validation.Validator;
  *
  */
 public class HandleValidator implements Validator {
+	private User sender;
+	
+	public HandleValidator(User sender) {
+		this.sender = sender;
+	}
+	
     public ValidationResult validate(ValidationInput input) {
         
         ValidationResult nret = new NonEmptyValidator("Please enter an user name.").validate(input);
@@ -47,6 +56,13 @@ public class HandleValidator implements Validator {
         if (!user.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
         	return new BasicResult(false, "The user doesn't have a valid email address.");
         }
+        
+        MemberContactBlackListDAO memberContactDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();
+		MemberContactBlackList m = memberContactDAO.findOrCreate(sender, user);
+		if (m.isBlocked()) {
+			return new BasicResult(false, "The user has blocked your messages.");
+		}
+		
         return BasicResult.SUCCESS;
     }
 }
