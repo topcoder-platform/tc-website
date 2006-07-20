@@ -58,7 +58,7 @@ public class HandleValidator implements Validator {
         }
         
         MemberContactBlackListDAO memberContactDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();
-		MemberContactBlackList m = memberContactDAO.findOrCreate(sender, user);
+		MemberContactBlackList m = memberContactDAO.findOrCreate(user, sender);
 		if (m.isBlocked()) {
 			return new BasicResult(false, "The user has blocked your messages.");
 		}

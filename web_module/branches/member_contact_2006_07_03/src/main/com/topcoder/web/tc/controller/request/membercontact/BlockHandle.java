@@ -12,7 +12,7 @@ public class BlockHandle extends HibernateProcessor {
 	
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(HANDLE);
-    	User blockUser  = DAOUtil.getFactory().getUserDAO().find(handle, false, false);
+    	User blockUser  = DAOUtil.getFactory().getUserDAO().find(handle, true, true);
     	
     	getRequest().setAttribute(HANDLE, handle);
     	
