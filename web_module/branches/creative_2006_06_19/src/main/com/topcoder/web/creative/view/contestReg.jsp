@@ -19,7 +19,7 @@
 </jsp:include>
 
 <jsp:include page="creativeLeft.jsp">
-    <jsp:param name="node" value="home"/>
+    <jsp:param name="node" value="active_contests"/>
 </jsp:include>
 
 <div class="contentOuter">
