@@ -11,12 +11,12 @@
     SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Home", "home"));
-    nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Contests", "contests"));
+    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_contests')", "Contests", "m_contests"));
+      nav.search("m_contests").addChild(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Active Contests", "active_contests"));
+      nav.search("m_contests").addChild(new NavNode("#", "Past Contests", "past_contests"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Terms &amp; Conditions", "terms"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Forums", "forums"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Support", "support"));
-    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this,'m_contests')", "Contests", "m_contests"));
-    nav.search("m_contests").addChild(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Active Contests", "active_contests"));
     request.setAttribute("tree", nav);
 
 %>
