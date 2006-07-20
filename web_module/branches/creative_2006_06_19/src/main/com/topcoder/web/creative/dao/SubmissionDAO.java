@@ -9,4 +9,6 @@ import com.topcoder.web.creative.model.Submission;
  */
 public interface SubmissionDAO {
     void saveOrUpdate(Submission s);
+
+    Submission find(Long id);
 }

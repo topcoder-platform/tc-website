@@ -13,4 +13,8 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
     public void saveOrUpdate(Submission s) {
         super.saveOrUpdate(s);
     }
+
+    public Submission find(Long id) {
+        return (Submission) super.find(Submission.class, id);
+    }
 }
