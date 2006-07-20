@@ -47,7 +47,7 @@ public class UpdateBlocked extends HibernateProcessor {
         markForCommit();
                
         setNextPage(Constants.BLACK_LIST);
-        setIsNextPageInContext(true);        
+        setIsNextPageInContext(false);        
     }
 
 }

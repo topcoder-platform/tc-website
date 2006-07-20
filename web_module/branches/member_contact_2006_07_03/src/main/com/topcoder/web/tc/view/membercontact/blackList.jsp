@@ -1,3 +1,6 @@
+<%@ page language="java"
+         import="com.topcoder.web.tc.controller.request.membercontact.BlackList" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -66,6 +69,10 @@ function unblock() {
 	if (!selected) alert("Please select one or more users to unblock");
 }
 
+function addBlockedUser(id, handle)
+{
+alert(handle);
+}
 function getNewElements(initial, current)
 {
 	var newElements = new Array();
@@ -92,7 +99,7 @@ function save()
     var b = getNewElements(iniBlocked, document.f.blockedUsers.options).join("&b=");
     if (b != "") b = "&b=" + b;
 	    
-    document.f.action = "/tc?module=UpdateBlocked" + ub + b;
+    document.f.action = "/tc?module=BlackList" + ub + b;
 	document.f.submit();
 }
 
@@ -100,6 +107,14 @@ function save()
 </script>
 
 <form name="f" method="post">
+
+<c:set value="<%=BlackList.SAVED%>" var="saved"/>
+<c:if test="${cf:containsMapKey(requestScope, saved)}" >
+    <div style="font-weight:bold;color:green;">
+       The blocked list was saved.
+    </div>
+</c:if>
+
 <table>
 <tr>
 <td>
@@ -139,7 +154,9 @@ Block another user: <input type="text" name='handle' id='handle'/>
 
 <input type="button" value="Save" onClick="save()" />
 
-<div id="messageDiv"> </div>
+<div id="blockHandleResult">
+</div>
+
 </form>
 
 </html>
