@@ -102,6 +102,11 @@ public class Submit extends HibernateProcessor {
                     SubmissionPath p = new SubmissionPath();
                     p.setPath(buf.toString());
 
+                    File directory = new File(buf.toString());
+                    if (!directory.exists()) {
+                        directory.mkdirs();
+                    }
+
                     String ext = file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.'));
 
                     //root/submissions/contest_id/user_id/time.pdf
