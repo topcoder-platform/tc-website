@@ -71,8 +71,9 @@ function unblock() {
 
 function addBlockedUser(id, handle)
 {
-alert(handle);
+	document.f.blockedUsers.options.add(new Option(handle, id, false));
 }
+
 function getNewElements(initial, current)
 {
 	var newElements = new Array();
