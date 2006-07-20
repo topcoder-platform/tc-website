@@ -36,7 +36,7 @@ function showButton() {
     </div>
 </c:if>
 
-<form name='f' action='/tc?module=MemberContact' method='post' >
+<form name='f' action='/tc?module=MemberContact' method='get' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
@@ -46,7 +46,7 @@ function showButton() {
 	<br>
 </c:if>
 <br>
-To avoid certain members to contact you, go to <a href='/tc?module=BlackList'>black list</a>page.
+To avoid certain members to contact you, go to <a href='/tc?module=BlackList'>black list</a> page.
 <br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
