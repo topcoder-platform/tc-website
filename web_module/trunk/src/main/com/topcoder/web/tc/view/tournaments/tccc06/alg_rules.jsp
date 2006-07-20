@@ -362,7 +362,7 @@ All contestants who advance to the onsite tournament rounds must complete the fo
    <li>If TopCoder already has a notarized affidavit and a tax form on file for a contestant, that contestant may affirm the affidavit online.  No hardcopy needs to be sent to TopCoder.</li>
    </ul>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
-<li>Letter from your college/university on official stationary that states you are a current full time student.  The letter must be signed by an official university staff member and must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033 USA.</li>
+<li>Letter from your college/university on official stationary that states you are/were a full time student as of September 7, 2006 OR a photocopy of your International Student Identity Card (ISIC) that shows you are/were a full time student as of September 7, 2006. If sending a letter, it must be written in English and signed by an official university staff member. If sending a photocopy of your ISIC, it must list the name of your college or university. If the card is not in English, you must provide a translation to English with the photocopy. Necessary documents must be sent directly to TopCoder, Inc., Attn: Jessie D'Amato Ford, 703 Hebron Avenue, Glastonbury, CT, 06033, USA.</li>
 </ul>
 Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist.  In that case, the next highest scorer from Online Round #3 will advance.
 <br><br>

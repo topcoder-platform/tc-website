@@ -24,7 +24,7 @@
             
 <span class="bigTitle">Student Representatives</span>
 <br><br>
-It's that time of year again - time to start advertising for the 2006 TopCoder Collegiate Challenge, Sponsored by AOL&#174;.  We want participation in the TCCC06 to reach record levels, and we need your help in order to make that happen. TopCoder wants Student Representatives for colleges and universities world wide!
+It's that time of year again - time to start advertising for the 2006 TopCoder Collegiate Challenge, Sponsored by AOL.  We want participation in the TCCC06 to reach record levels, and we need your help in order to make that happen. TopCoder wants Student Representatives for colleges and universities world wide!
 <br><br>
 <span class="bodySubtitle">What would your responsibilities be as a Student Rep?</span><br>
 Your sole responsibility would be to help increase the number of participants in the 2006 TopCoder Collegiate Challenge. To help you achieve that goal, TopCoder will provide you with flyers to hand out to your classmates around campus.
