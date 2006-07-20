@@ -6,15 +6,71 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
+var iniUsers = new Array();
+
+var i = 0;
+<c:forEach items="${requestScope.recentUsers}" var="recentUser">
+iniUsers[i++] = "<c:out value="${recentUser.id}" />";
+</c:forEach>
+
+
+
+var iniBlocked = new Array();
+i = 0;
+<c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
+iniBlocked[i++] = "<c:out value="${blockedUser.id}" />";
+</c:forEach>
+
 function blockHandle() {
     var ajaxRequest = new AjaxRequest('/tc?module=Static&d1=membercontact&d2=blockUser&block=true');
     ajaxRequest.addFormElementsById("handle");
     ajaxRequest.sendRequest();
 }
 
+function block() {
+	for(var i = 0; i < document.f.users.length; i++)
+		if (document.f.users.options[i].selected) {
+			document.f.blockedUsers.options.add(document.f.users.options[i]);
+			i--;
+		}
+
+}
+
+function getNewElements(initial, current)
+{
+	var newElements = new Array();
+	for (var i=0; i < current.length; i++) {
+		var found = false;
+		for (var j = 0; j < initial.length; j++) {
+
+			if (current[i].value == initial[j]) {
+				found = true;
+			}
+		}
+		if (!found) newElements.push(current[i].value);
+
+	}
+	return newElements;
+
+}
+
+function save()
+{
+	var ub = getNewElements(iniUsers, document.f.users.options).join("&ub=");
+	if (ub != "") ub = "&ub=" + ub;
+
+    var b = getNewElements(blockedUsers, document.f.blockedUsers.options).join("&b=");
+    if (b != "") b = "&b=" + b;
+	
+    
+    document.f.action = "/tc?module=UpdateBlocked" + ub + b;
+	document.f.submit();
+}
+
+
 </script>
 
-<form action="/tc?module=Static&d1=membercontact&d2=memberContactEnable">
+<form name="f" method="post">
 <table>
 <tr>
 <td>
@@ -47,7 +103,9 @@ Blocked Users:<br>
 <br>
 Block anoter user: <input type="text" name='handle' id='handle'/><input type='button' value='Block' onClick='blockHandle()'/>
 <br>
-<input type="submit" />
+
+<input type="button" value="Save" onClick="save()" />
+
 <div id="messageDiv"> </div>
 </form>
 

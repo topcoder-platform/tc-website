@@ -2,7 +2,7 @@ package com.topcoder.web.common.dao;
 
 import java.util.List;
 
-import com.topcoder.web.common.model.MemberContactBlackList;
+import com.topcoder.web.common.model.MemberContactBlackList; 
 import com.topcoder.web.common.model.User;
 
 /**
