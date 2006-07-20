@@ -33,7 +33,14 @@ function block() {
 			document.f.blockedUsers.options.add(document.f.users.options[i]);
 			i--;
 		}
+}
 
+function unblock() {
+	for(var i = 0; i < document.f.blockedUsers.length; i++)
+		if (document.f.blockedUsers.options[i].selected) {
+			document.f.users.options.add(document.f.blockedUsers.options[i]);
+			i--;
+		}
 }
 
 function getNewElements(initial, current)
@@ -59,10 +66,9 @@ function save()
 	var ub = getNewElements(iniUsers, document.f.users.options).join("&ub=");
 	if (ub != "") ub = "&ub=" + ub;
 
-    var b = getNewElements(blockedUsers, document.f.blockedUsers.options).join("&b=");
+    var b = getNewElements(iniBlocked, document.f.blockedUsers.options).join("&b=");
     if (b != "") b = "&b=" + b;
-	
-    
+	    
     document.f.action = "/tc?module=UpdateBlocked" + ub + b;
 	document.f.submit();
 }
@@ -83,9 +89,9 @@ Recent messages:<br>
 
 </td>
 <td valign='center'>
-<input type='button' value='Block &gt;'/>
+<input type='button' value='Block &gt;' onClick='block()' />
 <br>
-<input type='button' value='&lt; Unblock'/>
+<input type='button' value='&lt; Unblock' onClick='unblock()' />
 </td>
 
 <td>
