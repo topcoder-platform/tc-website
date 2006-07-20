@@ -53,10 +53,10 @@ public class Register extends HibernateProcessor {
             if (hasErrors()) {
                 setDefault(Constants.CONTEST_ID, contestId.toString());
                 setNextPage("/contestReg.jsp");
+                setIsNextPageInContext(true);
             } else {
                 setDefault(Constants.CONTEST_ID, contestId.toString());
                 setNextPage("/submit.jsp");
-                setIsNextPageInContext(true);
             }
 
         } else {
