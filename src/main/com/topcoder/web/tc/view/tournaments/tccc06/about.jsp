@@ -35,6 +35,8 @@ Calling all college students! Welcome to the 2006 TopCoder Collegiate Challenge 
 <li>Component Development Competition
 <ul><li>Registration begins July 31, 2006</li></ul></li>
 </ul>
+Not a TopCoder Member? You need to be one to participate. <A href="/reg">Join now.</A>
+<br><br>
 <span class="bodySubtitle">TCCC Competitors:</span><br>
 All registered TopCoder members over the age of 18 who are matriculated full time at an accredited college or university may compete.
 <br><br>

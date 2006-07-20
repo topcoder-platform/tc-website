@@ -14,8 +14,18 @@
 <div align="center"><IMG SRC="/i/home/tco06_links.gif" border="0" ALT="2006 TopCoder Open" usemap="#tco06_links" /></div>
 --%>
 
-<%-- TCCC06 --%>
+<%-- TCCC06 
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/promos/tccc06_promo.gif" border="0" ALT="TCCC06" /></A>
+--%>
+
+<%-- TCCC06 student rep --%>
+<map name="tccc_rep">
+<area shape="rect" alt="" coords="1,1,211,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="213,1,498,76" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+ <area shape="rect" alt="" coords="213,74,498,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps" />
+</map>
+
+<IMG SRC="/i/home/promos/tccc06_rep_promo.gif" border="0" ALT="TCCC06" usemap="#tccc_rep" />
 
 <%-- Digital Run 
 <map name="digital_run">
