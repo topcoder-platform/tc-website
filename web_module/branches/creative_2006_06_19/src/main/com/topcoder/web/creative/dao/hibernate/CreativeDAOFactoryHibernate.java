@@ -12,6 +12,10 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
         return new ContestDAOHibernate();
     }
 
+    public ContestRegistrationDAO getContestRegistrationDAO() {
+        return new ContestRegistrationDAOHibernate();
+    }
+
     public SubmissionPathDAO getPathDAO() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
@@ -22,5 +26,9 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
 
     public SubmissionReviewDAO getSubmissionReviewDAO() {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public SubmissionTypeDAO getSubmissionTypeDAO() {
+        return new SubmissionTypeDAOHibernate();
     }
 }

@@ -23,11 +23,15 @@ public class Constants implements WebConstants {
     public static final String START_TIME = "sttm";
     public static final String END_TIME = "etm";
     public static final String CONTEST_NAME = "ctname";
+    public static final String SUBMISSION = "sbm";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
     public static int CONTEST_TERMS_OF_USE_ID;
+    public static String ROOT_STORAGE_PATH;
+    public static String SUBMISSIONS_DIRECTORY_NAME;
+    public static String DOCUMENTS_DIRECTORY_NAME;
 
     static {
         initialize();

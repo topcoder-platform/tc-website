@@ -1,6 +1,7 @@
 package com.topcoder.web.creative.model;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -16,6 +17,7 @@ public class Submission extends Base {
     private String systemFileName;
     private SubmissionPath path;
     private SubmissionType type;
+    private FileType fileType;
 
     public Long getId() {
         return id;
@@ -71,6 +73,14 @@ public class Submission extends Base {
 
     public void setType(SubmissionType type) {
         this.type = type;
+    }
+
+    public FileType getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(FileType fileType) {
+        this.fileType = fileType;
     }
 
 

@@ -1,5 +1,8 @@
 package com.topcoder.web.creative;
 
+import com.topcoder.web.creative.dao.ContestDAOTestCase;
+import com.topcoder.web.creative.dao.ContestRegistrationDAOTestCase;
+import com.topcoder.web.creative.dao.SubmissionTypeDAOTestCase;
 import com.topcoder.web.creative.validation.ContestNameValidatorTestCase;
 import com.topcoder.web.creative.validation.EndTimeValidatorTestCase;
 import com.topcoder.web.creative.validation.StartTimeValidatorTestCase;
@@ -16,9 +19,9 @@ public class CreativeTests extends TCHibernateTestCase {
     public static Test suite() {
         final TestSuite suite = new TestSuite();
 
-/*
+        suite.addTest(new TestSuite(ContestRegistrationDAOTestCase.class));
         suite.addTest(new TestSuite(ContestDAOTestCase.class));
-*/
+        suite.addTest(new TestSuite(SubmissionTypeDAOTestCase.class));
 
         suite.addTest(new TestSuite(TimeValidatorTestCase.class));
         suite.addTest(new TestSuite(EndTimeValidatorTestCase.class));

@@ -8,6 +8,9 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Jun 27, 2006
  */
 public class SubmissionType extends Base {
+
+    public static final Integer INITIAL_CONTEST_SUBMISSION_TYPE = new Integer(1);
+
     private Integer id;
     private String description;
 

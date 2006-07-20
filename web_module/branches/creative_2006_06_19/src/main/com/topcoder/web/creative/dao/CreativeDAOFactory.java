@@ -8,10 +8,14 @@ package com.topcoder.web.creative.dao;
 public interface CreativeDAOFactory {
     ContestDAO getContestDAO();
 
+    ContestRegistrationDAO getContestRegistrationDAO();
+
     SubmissionPathDAO getPathDAO();
 
     SubmissionDAO getSubmissionDAO();
 
     SubmissionReviewDAO getSubmissionReviewDAO();
+
+    SubmissionTypeDAO getSubmissionTypeDAO();
 
 }
