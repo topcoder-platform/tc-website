@@ -39,7 +39,7 @@
             <br><br>
 
             <form name="terms" method="POST" action="${sessionInfo.servletPath}">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmission"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 
