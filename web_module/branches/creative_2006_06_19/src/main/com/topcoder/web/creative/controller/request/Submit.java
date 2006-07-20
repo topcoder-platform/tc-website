@@ -89,15 +89,15 @@ public class Submit extends HibernateProcessor {
 
                     StringBuffer buf = new StringBuffer(80);
                     buf.append(Constants.ROOT_STORAGE_PATH);
-                    buf.append(File.pathSeparator);
+                    buf.append(System.getProperty("file.separator"));
                     buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
-                    buf.append(File.pathSeparator);
+                    buf.append(System.getProperty("file.separator"));
                     buf.append(c.getId());
-                    buf.append(File.pathSeparator);
+                    buf.append(System.getProperty("file.separator"));
                     buf.append(u.getHandle().toLowerCase());
                     buf.append("_");
                     buf.append(u.getId());
-                    buf.append(File.pathSeparator);
+                    buf.append(System.getProperty("file.separator"));
 
                     SubmissionPath p = new SubmissionPath();
                     p.setPath(buf.toString());
