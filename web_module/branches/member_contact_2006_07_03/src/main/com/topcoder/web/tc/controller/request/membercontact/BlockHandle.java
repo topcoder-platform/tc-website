@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import com.topcoder.util.log.Log;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
