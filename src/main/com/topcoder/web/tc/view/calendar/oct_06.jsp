@@ -69,6 +69,14 @@
       <td class="value">4
       </td>
       <td class="value">5
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2A</A></strong><br>
+         7:00 AM
+         </div>
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 1 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -77,6 +85,10 @@
       <td class="value">6
       </td>
       <td class="value">7
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2B</A></strong><br>
+         1:00 PM
+         </div>
       </td>
    </tr>
    
@@ -97,8 +109,16 @@
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 6</A></strong><br>
          12:00 NOON
          </div>
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 2C</A></strong><br>
+         9:00 PM
+         </div>
       </td>
       <td class="value">12
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 1 Deadline</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -107,6 +127,11 @@
       <td class="value">13
       </td>
       <td class="value">14
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_schedule">Algo Online Elimination Round 3</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol">AOL</A><br>
+         1:00 PM
+         </div>
       </td>
    </tr>
    
@@ -128,6 +153,10 @@
          </div>
       </td>
       <td class="value">19
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 2 Projects Posted</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -162,6 +191,10 @@
          </div>
       </td>
       <td class="value">26
+         <div class="tccc06">
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Online Round 2 Deadline</A></strong><br>
+         9:00 AM
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
