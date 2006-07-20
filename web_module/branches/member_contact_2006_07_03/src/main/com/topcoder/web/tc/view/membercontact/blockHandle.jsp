@@ -15,7 +15,7 @@
 		    </div>
 
            <script type="text/javascript">
-           alert("has id!");
+           alert('has id!');
            </script>
 	    </tac:replaceChildren>
 	</c:when>
