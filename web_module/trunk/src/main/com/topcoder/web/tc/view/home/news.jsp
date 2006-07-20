@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.20.06<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Rep for the TCCC06?</A></span><br><br>
+      Find out more details about how to become a Student Rep at your school, and how to get flyers to help you promote the Tournament.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">details</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.19.06<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></span><br><br>
       The TCCC06 - with $200,000 in prizes - will be held November 14-17 in sunny San Diego, CA, USA. 
@@ -184,7 +197,7 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%---------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>9:35 PM</td>
       <td class="newsTextCell">
@@ -193,7 +206,7 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
 This match continued the streak of Burunduks. 
 With the best overall score and with 3 successful submissions, <tc-webtag:handle coderId="21468741" context="algorithm"/> took first place
       </td>
-      <td class="newsPhoto"><%--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><!--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>-->by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -201,7 +214,7 @@ With the best overall score and with 3 successful submissions, <tc-webtag:handle
        <tc-webtag:forumLink forumID="506027" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
-
+-----------------%>
 
 </table>
 <br><br>
