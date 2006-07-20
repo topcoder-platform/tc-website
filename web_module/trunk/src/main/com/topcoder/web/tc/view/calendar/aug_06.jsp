@@ -164,7 +164,7 @@
       </td>
       <td class="value">24
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 1 Deadline & Week 2 Projects Posted</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 2 Projects Posted</A></strong><br>
          9:00 AM
          </div>
          <div class="des_dev">
@@ -205,7 +205,7 @@
       </td>
       <td class="value">31
          <div class="tccc06">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 2 Deadline & Week 3 Projects Posted</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_schedule">CDDC Week 3 Projects Posted</A></strong><br>
          9:00 AM
          </div>
          <div class="des_dev">
