@@ -40,7 +40,7 @@ Your sole responsibility would be to help increase the number of participants in
 <li><A href="mailto:jdamato@topcoder.com">Contact us</A> if you're interested in advertising for TopCoder on your campus*.</li>
 <li>Include the name of the college/university you will be distributing flyers to.</li>
 <li>Include your TopCoder handle.</li>
-<li>Include your mailing address in the e-mail. This will be the address where the flyers are sent.</li>
+<li>Include your postal mailing address in the e-mail. This will be the address where the flyers are sent.</li>
 </ol>
 
 *There is no limit to the amount of Reps on one campus.  You don't even have to be a college/university student to participate!
