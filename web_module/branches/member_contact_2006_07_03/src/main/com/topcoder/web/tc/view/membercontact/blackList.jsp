@@ -47,11 +47,25 @@ function blockHandle(handle) {
 
 }
 
+function insertOrder(sel, option)
+{
+	handleLower = option.text.toLowerCase();
+	var i;
+
+	for (i = sel.length - 1; i >= 0; i--) {
+		if (handleLower > sel.options[i].text.toLowerCase()) break;
+		var x = sel.options[i];;
+		sel.options[i] = new Option('','',false);
+		sel.options[i+1] = x;
+	}
+	sel.options[i+1]=option;
+}
+
 function block() {
     var selected = false;
 	for(var i = 0; i < document.f.users.length; i++)
 		if (document.f.users.options[i].selected) {
-			document.f.blockedUsers.options.add(document.f.users.options[i]);
+			insertOrder(document.f.blockedUsers, document.f.users.options[i]) ;
 			i--;
 			selected = true;
 		}
@@ -62,7 +76,7 @@ function unblock() {
     var selected = false;
 	for(var i = 0; i < document.f.blockedUsers.length; i++)
 		if (document.f.blockedUsers.options[i].selected) {
-			document.f.users.options.add(document.f.blockedUsers.options[i]);
+			insertOrder(document.f.users, document.f.blockedUsers.options[i]) ;
 			i--;
 			selected = true;
 	}
@@ -71,7 +85,7 @@ function unblock() {
 
 function addBlockedUser(id, handle)
 {
-	document.f.blockedUsers.options.add(new Option(handle, id, false));
+	insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;	
 }
 
 function getNewElements(initial, current)
