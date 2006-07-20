@@ -102,7 +102,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Test Submission:</td><td align="center">07.06.2006</td><td align="center">07.20.2006</td>
    </tr>
    <tr>
-      <td>Test Case Screening:</td><td align="center">&#160;</td><td align="center">07.14.2006</td>
+      <td>Test Case Screening:</td><td align="center">&#160;</td><td align="center">07.21.2006</td>
    </tr>
 </table>
 </div>
