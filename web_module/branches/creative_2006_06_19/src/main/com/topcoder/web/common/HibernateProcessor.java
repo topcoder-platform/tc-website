@@ -41,9 +41,11 @@ public abstract class HibernateProcessor extends BaseProcessor {
         } catch (Exception e) {
 //            log.debug("printing the stack from base");
             //e.printStackTrace();
+            exceptionCallBack();
             handleException(e);
             throw e;
         } catch (Throwable ex) {
+            exceptionCallBack();
             handleException(ex);
             throw new Exception(ex);
         }
@@ -135,6 +137,15 @@ public abstract class HibernateProcessor extends BaseProcessor {
             getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, null);
 
         }
+
+    }
+
+    /**
+     * This method should be implemented by child classes if they
+     * need to do some processing in the case that there is an exception while
+     * attempting to persist data etc.  The default implementation is empty
+     */
+    protected void exceptionCallBack() {
 
     }
 
