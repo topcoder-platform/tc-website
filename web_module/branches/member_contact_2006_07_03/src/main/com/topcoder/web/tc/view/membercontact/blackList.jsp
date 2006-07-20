@@ -71,7 +71,6 @@ function unblock() {
 
 function addBlockedUser(id, handle)
 {
-alert(handle);
 	document.f.blockedUsers.options.add(new Option(handle, id, false));
 }
 
@@ -155,6 +154,8 @@ Block another user: <input type="text" name='handle' id='handle'/>
 <br>
 
 <input type="button" value="Save" onClick="save()" />
+Discard changes and go back to <a href='/tc?module=MemberContact'>Member Contact</a>page.
+<br>
 
 <div id="blockHandleResult">
 </div>

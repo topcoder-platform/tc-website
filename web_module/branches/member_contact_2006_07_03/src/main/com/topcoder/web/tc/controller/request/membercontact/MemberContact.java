@@ -51,7 +51,7 @@ public class MemberContact extends HibernateProcessor {
         	
         	// Check again that the user is valid, in case that someone has tweaked the jsp
         	// or some kind of hack
-            ValidationResult result = new HandleValidator().validate(new StringInput(toHandle));
+            ValidationResult result = new HandleValidator(sender).validate(new StringInput(toHandle));
             if (!result.isValid()) {
                 throw new Exception("Can't contact that user.");
             }

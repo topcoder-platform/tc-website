@@ -46,7 +46,8 @@ function showButton() {
 	<br>
 </c:if>
 <br>
-
+To avoid certain members to contact you, go to <a href='/tc?module=BlackList'>black list</a>page.
+<br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
