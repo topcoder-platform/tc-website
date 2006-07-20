@@ -42,21 +42,21 @@
                             <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
                     </tr>
                     <tr>
+                        <td class="headerC"></td>
                         <td class="header">Name</td>
                         <td class="headerC">Start</td>
                         <td class="headerC">End</td>
-                        <td class="headerC"></td>
                     </tr>
                     <c:forEach items="${contests}" var="contest">
                         <tr class="light">
+                            <td class="valueC">
+                                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                            </td>
                             <td class="value">${contest.name}</td>
                             <td class="valueC">
                                 <fmt:formatDate value="${contest.startTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
                             <td class="valueC">
                                 <fmt:formatDate value="${contest.endTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
-                            <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
-                            </td>
                         </tr>
                     </c:forEach>
 
