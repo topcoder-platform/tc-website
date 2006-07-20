@@ -21,26 +21,49 @@ i = 0;
 iniBlocked[i++] = "<c:out value="${blockedUser.id}" />";
 </c:forEach>
 
-function blockHandle() {
-    var ajaxRequest = new AjaxRequest('/tc?module=Static&d1=membercontact&d2=blockUser&block=true');
+function blockHandle(handle) {
+	handle = handle.toLowerCase();
+
+	for(var i = 0; i < document.f.users.length; i++) {
+		if (document.f.users.options[i].text.toLowerCase() == handle) {
+			document.f.blockedUsers.options.add(document.f.users.options[i]);
+			return;
+		}
+	}
+
+	for(var i = 0; i < document.f.blockedUsers.length; i++) {
+		if (document.f.blockedUsers.options[i].text.toLowerCase() == handle) {
+			alert("The user is already blocked");
+			return;
+		}
+	}
+
+    var ajaxRequest = new AjaxRequest('/tc?module=BlockHandle');
     ajaxRequest.addFormElementsById("handle");
     ajaxRequest.sendRequest();
+
 }
 
 function block() {
+    var selected = false;
 	for(var i = 0; i < document.f.users.length; i++)
 		if (document.f.users.options[i].selected) {
 			document.f.blockedUsers.options.add(document.f.users.options[i]);
 			i--;
+			selected = true;
 		}
+	if (!selected) alert("Please select one or more users to block");
 }
 
 function unblock() {
+    var selected = false;
 	for(var i = 0; i < document.f.blockedUsers.length; i++)
 		if (document.f.blockedUsers.options[i].selected) {
 			document.f.users.options.add(document.f.blockedUsers.options[i]);
 			i--;
-		}
+			selected = true;
+	}
+	if (!selected) alert("Please select one or more users to unblock");
 }
 
 function getNewElements(initial, current)
@@ -80,7 +103,10 @@ function save()
 <table>
 <tr>
 <td>
-Recent messages:<br>
+Users that recently <br>
+sent you messages or <br>
+that were previously blocked:<br>
+(needs rewording!)
 <select name='users' multiple size=10 width=200>
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
@@ -107,7 +133,8 @@ Blocked Users:<br>
 </table>
 <br>
 <br>
-Block anoter user: <input type="text" name='handle' id='handle'/><input type='button' value='Block' onClick='blockHandle()'/>
+Block another user: <input type="text" name='handle' id='handle'/>
+<input type='button' value='Block'  onClick='blockHandle(document.f.handle.value)'/>
 <br>
 
 <input type="button" value="Save" onClick="save()" />
