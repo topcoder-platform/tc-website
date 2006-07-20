@@ -26,19 +26,23 @@ public class UpdateBlocked extends HibernateProcessor {
         
         User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-		for (int i = 0; i < block.length; i++) {
-			User blockedUser = DAOUtil.getFactory().getUserDAO().find(block[i], true, true);
-			MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
-			m.setBlocked(true);
-			memberContactDAO.saveOrUpdate(m);
-		}
-
-		for (int i = 0; i < unblock.length; i++) {
-			User blockedUser = DAOUtil.getFactory().getUserDAO().find(unblock[i], true, true);
-			MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
-			m.setBlocked(false);
-			memberContactDAO.saveOrUpdate(m);
-		}
+        if (block != null) {
+			for (int i = 0; i < block.length; i++) {
+				User blockedUser = DAOUtil.getFactory().getUserDAO().find(Long.parseLong(block[i]));
+				MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
+				m.setBlocked(true);
+				memberContactDAO.saveOrUpdate(m);
+			}
+        }
+        
+        if (unblock != null) {
+			for (int i = 0; i < unblock.length; i++) {
+				User blockedUser = DAOUtil.getFactory().getUserDAO().find(Long.parseLong(unblock[i]));
+				MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
+				m.setBlocked(false);
+				memberContactDAO.saveOrUpdate(m);
+			}
+        }
 
         markForCommit();
                
