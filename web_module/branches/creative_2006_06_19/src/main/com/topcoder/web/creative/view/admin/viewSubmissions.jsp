@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -52,19 +53,20 @@
 
                         <tr class="light">
                             <td class="valueC">
-                                details
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetails&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
                             </td>
                             <td class="valueC">
                                 <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
                             </td>
                             <td class="valueC">
-                                <rsc:item name="original_file_name" row="<%=resultRow%>"/>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                    <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
                             </td>
                             <td class="valueC">
-                                <rsc:item name="submit_date" row="<%=resultRow%>"/>
+                                <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
                             </td>
                             <td class="valueC">
-                                <rsc:item name="review_date" row="<%=resultRow%>"/>
+                                <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
                             </td>
                             <td class="valueC">
                                 <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
