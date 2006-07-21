@@ -31,14 +31,14 @@
 
         <div class="tableHolder">
             <p>
-                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">back
-                    to submissions</a></p>
 
-            <p>Contest: ${submission.contest.name}</p>
-
-            <p>Submitter: ${submission.submitter.handle}</p>
-
-            <p>File Name: ${submission.originalFileName}</p>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a> &gt;
+                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
+                &gt;
+                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">submissions</a>
+                &gt;
+                ${submission.submitter.handle} - ${submission.originalFileName}
+            </p>
 
             <p>Reviewer: ${submissionReview.reviewer.handle}</p>
 
