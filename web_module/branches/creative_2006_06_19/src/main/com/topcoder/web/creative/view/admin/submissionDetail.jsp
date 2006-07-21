@@ -30,28 +30,34 @@
         <h1>Submission Detail</h1>
 
         <div class="tableHolder">
-            <p>
+            <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
+                <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
 
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a> &gt;
-                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
-                &gt;
-                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">submissions</a>
-                &gt;
-                ${submission.submitter.handle} - ${submission.originalFileName}
-            </p>
+                <p>
 
-            <p>
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
-                    Submission</a>
-            </p>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a> &gt;
+                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
+                    &gt;
+                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">submissions</a>
+                    &gt;
+                    ${submission.submitter.handle} - ${submission.originalFileName}
+                </p>
 
-            <p>Reviewer: ${submissionReview.reviewer.handle}</p>
+                <p>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
+                        Submission</a>
+                </p>
+
+                <p>Reviewer: ${submissionReview.reviewer.handle}</p>
 
 
-            <p>Status:
-                <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
+                <p>Status:
+                    <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
 
-            <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/></p>
+                <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/></p>
+                <button name="submit" value="submit" type="submit">Submit</button>
+            </form>
         </div>
 
         <jsp:include page="../creativeFoot.jsp"/>
