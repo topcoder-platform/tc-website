@@ -16,6 +16,7 @@ import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.tc.Constants;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -177,8 +178,14 @@ public final class MainServlet extends BaseServlet {
             }
             //************************ sponsor ************************
             else if (requestTask.equals("sponsor")) {
-                fetchRegularPage(request, response,
-                        "/tc?module=LinkTracking%26link=" + request.getParameter("link") + "%26refer=" + request.getParameter("refer"), false);
+                request.setAttribute(Constants.MODULE_KEY, request.getParameter("LinkTracking"));
+                if (request.getParameter("link") != null) {
+                    request.setAttribute("link", request.getParameter("link"));
+                }
+                if (request.getParameter("refer") != null) {
+                    request.setAttribute("refer", request.getParameter("refer"));
+                }
+                fetchRegularPage(request, response, "/tc", true);
                 return;
             }
             //************************ time ************************
