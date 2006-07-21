@@ -31,4 +31,8 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
     public SubmissionTypeDAO getSubmissionTypeDAO() {
         return new SubmissionTypeDAOHibernate();
     }
+
+    public ReviewStatusDAO getReviewStatusDAO() {
+        return new ReviewStatusDAOHibernate();
+    }
 }

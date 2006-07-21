@@ -5,24 +5,25 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.QueryRequest;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.creative.Constants;
+import com.topcoder.web.creative.dao.CreativeDAOUtil;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmissions extends BaseProcessor {
+public class ViewSubmissions extends HibernateProcessor {
 
     //allow for filters
     //allow for paging
     //allow for sorting
 
-    protected void businessProcessing() throws Exception {
+    protected void dbProcessing() throws Exception {
         Long contestId;
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE)).trim().toLowerCase();
         Integer status = null;
@@ -82,6 +83,8 @@ public class ViewSubmissions extends BaseProcessor {
 
         SortInfo info = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, info);
+
+        getRequest().setAttribute("contest", CreativeDAOUtil.getFactory().getContestDAO().find(contestId));
 
         setNextPage("/viewSubmissions.jsp");
         setIsNextPageInContext(true);

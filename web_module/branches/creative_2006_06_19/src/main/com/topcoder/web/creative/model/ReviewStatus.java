@@ -8,6 +8,8 @@ import com.topcoder.web.common.model.Base;
  *          Create Date: Jun 27, 2006
  */
 public class ReviewStatus extends Base {
+    public static final Integer PASSED = new Integer(1);
+    public static final Integer FAILED = new Integer(2);
     private Integer id;
     private String description;
 

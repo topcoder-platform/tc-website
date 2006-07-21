@@ -18,4 +18,6 @@ public interface CreativeDAOFactory {
 
     SubmissionTypeDAO getSubmissionTypeDAO();
 
+    ReviewStatusDAO getReviewStatusDAO();
+
 }
