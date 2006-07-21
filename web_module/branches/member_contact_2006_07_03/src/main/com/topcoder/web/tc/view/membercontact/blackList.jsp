@@ -27,7 +27,6 @@ iniBlocked[i++] = "<c:out value="${blockedUser.id}" />";
 function blockHandle(handle) {
     if (document.f.blockBtn.disabled) return;
     
-    document.f.blockBtn.disabled = true;
 
     handle = handle.toLowerCase();
 
@@ -44,6 +43,8 @@ function blockHandle(handle) {
             return;
         }
     }
+
+    document.f.blockBtn.disabled = true;
 
     var ajaxRequest = new AjaxRequest('/tc?module=BlockHandle');
     ajaxRequest.addFormElementsById("handle");
