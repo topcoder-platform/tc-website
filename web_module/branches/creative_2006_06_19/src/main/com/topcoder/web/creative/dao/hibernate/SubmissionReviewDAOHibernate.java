@@ -13,4 +13,8 @@ public class SubmissionReviewDAOHibernate extends Base implements SubmissionRevi
     public SubmissionReview find(Long id) {
         return (SubmissionReview) super.find(SubmissionReview.class, id);
     }
+
+    public void saveOrUpdate(SubmissionReview s) {
+        super.saveOrUpdate(s);
+    }
 }

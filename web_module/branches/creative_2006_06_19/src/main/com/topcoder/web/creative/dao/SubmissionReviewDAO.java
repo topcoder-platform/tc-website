@@ -9,4 +9,6 @@ import com.topcoder.web.creative.model.SubmissionReview;
  */
 public interface SubmissionReviewDAO {
     SubmissionReview find(Long id);
+
+    void saveOrUpdate(SubmissionReview s);
 }

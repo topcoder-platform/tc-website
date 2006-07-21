@@ -22,6 +22,7 @@ public class CreativeTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(SubmissionTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SubmissionDAOTestCase.class));
         suite.addTest(new TestSuite(ReviewStatusDAOTestCase.class));
+        suite.addTest(new TestSuite(SubmissionReviewDAOTestCase.class));
 
         suite.addTest(new TestSuite(TimeValidatorTestCase.class));
         suite.addTest(new TestSuite(EndTimeValidatorTestCase.class));
