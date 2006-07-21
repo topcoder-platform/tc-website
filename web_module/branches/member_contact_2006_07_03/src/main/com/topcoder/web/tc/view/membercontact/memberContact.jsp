@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
+         import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
+                 com.topcoder.web.tc.controller.request.membercontact.Helper,
+         " %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -77,14 +79,7 @@ function keyPress(e) {
 <span class="bigTitle">Member Contact</span>
 <br><br>
 
-<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
-<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
-    <div style="font-weight:bold;color:green;">
-       Your email was sent.
-    </div>
-</c:if>
-
-<c:set value="<%=MemberContact.NOT_RATED%>" var="notRated"/>
+<c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
         <div style="font-weight:bold;color:red;">
@@ -92,6 +87,14 @@ function keyPress(e) {
         </div>
      </c:when>
      <c:otherwise>
+
+<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
+<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
+    <div style="font-weight:bold;color:green;">
+       Your email was sent.
+    </div>
+</c:if>
+
      
 <form name='f' action='/tc?module=MemberContact' method='post' >
 

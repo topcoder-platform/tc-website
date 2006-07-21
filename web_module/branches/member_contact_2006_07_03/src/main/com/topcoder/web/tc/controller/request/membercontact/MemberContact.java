@@ -2,12 +2,7 @@ package com.topcoder.web.tc.controller.request.membercontact;
 
 import java.util.Date;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.HibernateProcessor;
@@ -38,29 +33,17 @@ public class MemberContact extends HibernateProcessor {
     public static String CONFIRM = "conf";
     public static String SEND = "send";
     public static String CAN_RECEIVE = "cr";
-    public static String NOT_RATED = "nr";
 
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-		Request r = new Request();
-		r.setContentHandle("coder_all_ratings");
-
-		r.setProperty("cr", getUser().getId() + "");
-
-        DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-		ResultSetContainer ratings = (ResultSetContainer) dai.getData(r).get("coder_all_ratings");
-
-		if (ratings.getIntItem(0, "algorithm_rating") <= 0 &&
-			ratings.getIntItem(0, "design_rating") <= 0 &&
-			ratings.getIntItem(0, "development_rating") <= 0 &&
-			ratings.getIntItem(0, "hs_algorithm_rating") <= 0) {
-
-			getRequest().setAttribute(NOT_RATED, String.valueOf(false));
+		if (!Helper.isRated(getUser().getId())) {
+			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
 	        setNextPage(Constants.MEMBER_CONTACT);
 	        setIsNextPageInContext(true);
+	        return;
 		}
 
 

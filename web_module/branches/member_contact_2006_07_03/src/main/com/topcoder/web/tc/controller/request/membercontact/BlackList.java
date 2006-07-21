@@ -28,6 +28,13 @@ public class BlackList extends HibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+		if (!Helper.isRated(getUser().getId())) {
+			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
+	        setNextPage(Constants.MEMBER_CONTACT);
+	        setIsNextPageInContext(true);
+	        return;
+		}
+
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         updateBlocked(user);
