@@ -33,6 +33,7 @@ public class LinkTrackingTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         StringBuffer buf = new StringBuffer(100);
+        buf.append("http://");
         buf.append(ApplicationServer.SERVER_NAME);
         buf.append("/tc?module=LinkTracking&link=");
         buf.append(StringUtils.replace(link, "&", "%26"));
