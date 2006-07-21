@@ -937,5 +937,26 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>linkTracking</name>
+        <tag-class>com.topcoder.web.common.tag.LinkTrackingTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>link</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>refer</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
 </taglib>
