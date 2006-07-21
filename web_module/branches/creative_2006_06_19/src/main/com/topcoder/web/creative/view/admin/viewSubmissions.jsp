@@ -92,7 +92,7 @@
 
                             <tr class="light">
                                 <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetails&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
                                 </td>
                                 <td class="valueC">
                                     <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
