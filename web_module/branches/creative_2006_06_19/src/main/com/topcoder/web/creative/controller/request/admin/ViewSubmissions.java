@@ -27,6 +27,7 @@ public class ViewSubmissions extends HibernateProcessor {
         Long contestId;
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE)).trim().toLowerCase();
         Integer status = null;
+        boolean unMarkedOnly = false;
 
         try {
             contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
@@ -35,7 +36,9 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         try {
-            if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))) {
+            unMarkedOnly = "null".equals(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
+            if (!unMarkedOnly && !"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID))))
+            {
                 status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
             }
         } catch (NumberFormatException e) {
@@ -67,7 +70,9 @@ public class ViewSubmissions extends HibernateProcessor {
         if (!"".equals(handle)) {
             query.append(" and u.handle_lower = ").append(handle);
         }
-        if (status != null) {
+        if (unMarkedOnly) {
+            query.append(" and sr.review_status_id is null");
+        } else if (status != null) {
             query.append(" and sr.review_status_id = ").append(status);
         }
 
@@ -88,6 +93,11 @@ public class ViewSubmissions extends HibernateProcessor {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, info);
 
         getRequest().setAttribute("contest", CreativeDAOUtil.getFactory().getContestDAO().find(contestId));
+        getRequest().setAttribute("reviewStatuses", CreativeDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
+        setDefault(Constants.CONTEST_ID, contestId.toString());
+        if (!"".equals(handle)) {
+            setDefault(Constants.HANDLE, handle);
+        }
 
         setNextPage("/admin/viewSubmissions.jsp");
         setIsNextPageInContext(true);
