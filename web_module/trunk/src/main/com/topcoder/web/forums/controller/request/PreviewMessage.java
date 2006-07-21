@@ -10,7 +10,6 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
@@ -46,10 +45,6 @@ public class PreviewMessage extends ForumsProcessor {
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
-        
-        log.info("*** subject: " + subject);
-        log.info("*** body: " + body);
-        log.info("*** textareaBody: " + textareaBody);
         
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
