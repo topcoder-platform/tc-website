@@ -177,7 +177,9 @@ public final class MainServlet extends BaseServlet {
             }
             //************************ sponsor ************************
             else if (requestTask.equals("sponsor")) {
-                HTMLString = TaskSponsor.process(request, response, htmlMaker, nav, document);
+                fetchRegularPage(request, response,
+                        "/tc?module=LinkTracking&link=" + request.getParameter("link") + "&refer=" + request.getParameter("refer"), false);
+                return;
             }
             //************************ time ************************
             else if (requestTask.equals("time")) {
