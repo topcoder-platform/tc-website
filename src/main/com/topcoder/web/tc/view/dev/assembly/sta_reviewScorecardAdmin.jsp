@@ -125,6 +125,18 @@
       </td>
    </tr>
    <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team 7
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="10529347" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      &#160;
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 </td>
 <!-- Center Column Ends -->
