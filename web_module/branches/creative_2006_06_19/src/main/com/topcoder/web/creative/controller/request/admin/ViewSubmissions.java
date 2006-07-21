@@ -35,8 +35,7 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         try {
-            if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))
-            {
+            if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))) {
                 status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
             }
         } catch (NumberFormatException e) {
