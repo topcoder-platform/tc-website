@@ -88,7 +88,7 @@ function keyPress(e) {
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
         <div style="font-weight:bold;color:red;">
-=           You must be a rated member (in either algorithm or component competitions) to contact other members.
+           You must be a rated member (in either algorithm or component competitions) to contact other members.
         </div>
      </c:when>
      <c:otherwise>
