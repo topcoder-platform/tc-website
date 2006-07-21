@@ -40,7 +40,13 @@
                 ${submission.submitter.handle} - ${submission.originalFileName}
             </p>
 
+            <p>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
+                    Submission</a>
+            </p>
+
             <p>Reviewer: ${submissionReview.reviewer.handle}</p>
+
 
             <p>Status:
                 <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
