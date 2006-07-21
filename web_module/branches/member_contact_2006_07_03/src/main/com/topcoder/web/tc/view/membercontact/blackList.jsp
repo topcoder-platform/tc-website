@@ -124,8 +124,8 @@ function keyPress(e) {
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-     blockHandle(document.f.handle.value);
-     return false;
+       blockHandle(document.f.handle.value);
+       return false;
     } else return true;
   }
 
@@ -173,7 +173,7 @@ Blocked Users:<br>
 </table>
 <br>
 <br>
-Block another user: <input type="text" name='handle' id='handle' onkeypress="keyPress(event)"/>
+Block another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
 <input type='button' value='Block'  onClick='blockHandle(document.f.handle.value)'/>
 <br>
 
