@@ -4,6 +4,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 
 
@@ -35,50 +37,87 @@
 
         <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
         <div class="tableHolder">
-            <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
-                <tbody>
-                    <tr>
-                        <td class="title" colspan="7">Submissions for ${contest.name}</td>
-                    </tr>
-                    <tr>
-                        <td class="headerC"></td>
-                        <td class="header">Submitter</td>
-                        <td class="headerC">Submission</td>
-                        <td class="headerC">Submit Date</td>
-                        <td class="headerC">Review Date</td>
-                        <td class="headerC">Reviewer</td>
-                        <td class="headerC">Status</td>
-                    </tr>
-                    <rsc:iterator list="<%=submissions%>" id="resultRow">
+            <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
+                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-                        <tr class="light">
-                            <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetails&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
-                            </td>
-                            <td class="valueC">
-                                <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
-                            </td>
-                            <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
-                            </td>
-                            <td class="valueC">
-                                <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                            </td>
-                            <td class="valueC">
-                                <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                            </td>
-                            <td class="valueC">
-                                <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
-                            </td>
-                            <td class="valueC">
-                                <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
+                <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <td class="title" colspan="7">Submissions for ${contest.name}</td>
+                        </tr>
+                        <tr>
+                            <td class="title" colspan="7">Filter by Handle:
+                                <tc-webtag:textInput name="<%=Constants.HANDLE%>"/></td>
+                        </tr>
+                        <c:forEach items="${reviewStatuses}" var="reviewStatus">
+                            <tr>
+                                <td colspan="7">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}">Filter
+                                        by ${reviewStatus.description}</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        <tr>
+                            <td colspan="7">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null">Filter
+                                    by ${reviewStatus.description}</a>
                             </td>
                         </tr>
-                    </rsc:iterator>
 
-                </tbody>
-            </table>
+                        <tr>
+                            <td class="headerC"></td>
+                            <td class="header">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submitter</a>
+                            </td>
+                            <td class="headerC">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+                            </td>
+                            <td class="headerC">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
+                                    Date</a>
+                            </td>
+                            <td class="headerC">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Review
+                                    Date</a>
+                            </td>
+                            <td class="headerC">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Reviewer</a>
+                            </td>
+                            <td class="headerC">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+                            </td>
+                        </tr>
+                        <rsc:iterator list="<%=submissions%>" id="resultRow">
+
+                            <tr class="light">
+                                <td class="valueC">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetails&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+                                </td>
+                                <td class="valueC">
+                                    <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
+                                </td>
+                                <td class="valueC">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                        <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+                                </td>
+                                <td class="valueC">
+                                    <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                                </td>
+                                <td class="valueC">
+                                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                                </td>
+                                <td class="valueC">
+                                    <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
+                                </td>
+                                <td class="valueC">
+                                    <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
+                                </td>
+                            </tr>
+                        </rsc:iterator>
+
+                    </tbody>
+                </table>
         </div>
 
         <jsp:include page="../creativeFoot.jsp"/>
