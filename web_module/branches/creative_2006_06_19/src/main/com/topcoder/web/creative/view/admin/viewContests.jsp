@@ -35,13 +35,14 @@
             <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
                 <tbody>
                     <tr>
-                        <td class="title" colspan="4">Contests</td>
+                        <td class="title" colspan="5">Contests</td>
                     </tr>
                     <tr>
-                        <td class="header" colspan="4">
+                        <td class="header" colspan="5">
                             <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
                     </tr>
                     <tr>
+                        <td class="headerC"></td>
                         <td class="headerC"></td>
                         <td class="header">Name</td>
                         <td class="headerC">Start</td>
@@ -51,6 +52,9 @@
                         <tr class="light">
                             <td class="valueC">
                                 <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                            </td>
+                            <td class="valueC">
+                                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
                             </td>
                             <td class="value">${contest.name}</td>
                             <td class="valueC">
