@@ -180,9 +180,11 @@ public final class MainServlet extends BaseServlet {
                 StringBuffer buf = new StringBuffer(100);
                 buf.append("/tc?").append(Constants.MODULE_KEY).append("=LinkTracking");
                 if (request.getParameter("link") != null) {
+                    buf.append("&link=");
                     buf.append(request.getParameter("link"));
                 }
                 if (request.getParameter("refer") != null) {
+                    buf.append("&refer=");
                     buf.append(request.getParameter("refer"));
                 }
                 fetchRegularPage(request, response, buf.toString(), false);
