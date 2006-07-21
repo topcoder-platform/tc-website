@@ -73,7 +73,7 @@
             </script>
 
             <p>
-                <a href="#" onClick="document.editForm.submit();return false;">Submit</a>
+                <button name="submit" value="submit" type="submit">Submit</button>
             </p>
         </form>
 
