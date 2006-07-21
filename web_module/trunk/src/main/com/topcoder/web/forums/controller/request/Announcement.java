@@ -17,7 +17,7 @@ import com.jivesoftware.forum.Forum;
 /**
  * @author mtong
  *
- * Processor providing data related to a message's revision history.
+ * Processor providing data for an announcement.
  */
 public class Announcement extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
