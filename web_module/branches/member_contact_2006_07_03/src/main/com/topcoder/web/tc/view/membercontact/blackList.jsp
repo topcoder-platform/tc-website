@@ -25,21 +25,25 @@ iniBlocked[i++] = "<c:out value="${blockedUser.id}" />";
 </c:forEach>
 
 function blockHandle(handle) {
-	handle = handle.toLowerCase();
+    if (document.f.blockBtn.disabled) return;
+    
+    document.f.blockBtn.disabled = true;
 
-	for(var i = 0; i < document.f.users.length; i++) {
-		if (document.f.users.options[i].text.toLowerCase() == handle) {
-			document.f.blockedUsers.options.add(document.f.users.options[i]);
-			return;
-		}
-	}
+    handle = handle.toLowerCase();
 
-	for(var i = 0; i < document.f.blockedUsers.length; i++) {
-		if (document.f.blockedUsers.options[i].text.toLowerCase() == handle) {
-			alert("The user is already blocked");
-			return;
-		}
-	}
+    for(var i = 0; i < document.f.users.length; i++) {
+        if (document.f.users.options[i].text.toLowerCase() == handle) {
+            document.f.blockedUsers.options.add(document.f.users.options[i]);
+            return;
+        }
+    }
+
+    for(var i = 0; i < document.f.blockedUsers.length; i++) {
+        if (document.f.blockedUsers.options[i].text.toLowerCase() == handle) {
+            alert("The user is already blocked");
+            return;
+        }
+    }
 
     var ajaxRequest = new AjaxRequest('/tc?module=BlockHandle');
     ajaxRequest.addFormElementsById("handle");
@@ -49,73 +53,74 @@ function blockHandle(handle) {
 
 function insertOrder(sel, option)
 {
-	handleLower = option.text.toLowerCase();
-	var i;
+    handleLower = option.text.toLowerCase();
+    var i;
 
-	for (i = sel.length - 1; i >= 0; i--) {
-		if (handleLower > sel.options[i].text.toLowerCase()) break;
-		var x = sel.options[i];;
-		sel.options[i] = new Option('','',false);
-		sel.options[i+1] = x;
-	}
-	sel.options[i+1]=option;
+    for (i = sel.length - 1; i >= 0; i--) {
+        if (handleLower > sel.options[i].text.toLowerCase()) break;
+        var x = sel.options[i];;
+        sel.options[i] = new Option('','',false);
+        sel.options[i+1] = x;
+    }
+    sel.options[i+1]=option;
 }
 
 function block() {
     var selected = false;
-	for(var i = 0; i < document.f.users.length; i++)
-		if (document.f.users.options[i].selected) {
-			insertOrder(document.f.blockedUsers, document.f.users.options[i]) ;
-			i--;
-			selected = true;
-		}
-	if (!selected) alert("Please select one or more users to block");
+    for(var i = 0; i < document.f.users.length; i++)
+        if (document.f.users.options[i].selected) {
+            insertOrder(document.f.blockedUsers, document.f.users.options[i]) ;
+            i--;
+            selected = true;
+        }
+    if (!selected) alert("Please select one or more users to block");
 }
 
 function unblock() {
     var selected = false;
-	for(var i = 0; i < document.f.blockedUsers.length; i++)
-		if (document.f.blockedUsers.options[i].selected) {
-			insertOrder(document.f.users, document.f.blockedUsers.options[i]) ;
-			i--;
-			selected = true;
-	}
-	if (!selected) alert("Please select one or more users to unblock");
+    for(var i = 0; i < document.f.blockedUsers.length; i++)
+        if (document.f.blockedUsers.options[i].selected) {
+            insertOrder(document.f.users, document.f.blockedUsers.options[i]) ;
+            i--;
+            selected = true;
+    }
+    if (!selected) alert("Please select one or more users to unblock");
 }
 
 function addBlockedUser(id, handle)
 {
-	insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;	
+    insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;   
+    document.f.blockBtn.disabled = false;
 }
 
 function getNewElements(initial, current)
 {
-	var newElements = new Array();
-	for (var i=0; i < current.length; i++) {
-		var found = false;
-		for (var j = 0; j < initial.length; j++) {
+    var newElements = new Array();
+    for (var i=0; i < current.length; i++) {
+        var found = false;
+        for (var j = 0; j < initial.length; j++) {
 
-			if (current[i].value == initial[j]) {
-				found = true;
-			}
-		}
-		if (!found) newElements.push(current[i].value);
+            if (current[i].value == initial[j]) {
+                found = true;
+            }
+        }
+        if (!found) newElements.push(current[i].value);
 
-	}
-	return newElements;
+    }
+    return newElements;
 
 }
 
 function save()
 {
-	var ub = getNewElements(iniUsers, document.f.users.options).join("&ub=");
-	if (ub != "") ub = "&ub=" + ub;
+    var ub = getNewElements(iniUsers, document.f.users.options).join("&ub=");
+    if (ub != "") ub = "&ub=" + ub;
 
     var b = getNewElements(iniBlocked, document.f.blockedUsers.options).join("&b=");
     if (b != "") b = "&b=" + b;
-	    
+        
     document.f.action = "/tc?module=BlackList" + ub + b;
-	document.f.submit();
+    document.f.submit();
 }
 
 function keyPress(e) {
@@ -174,7 +179,7 @@ Blocked Users:<br>
 <br>
 <br>
 Block another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
-<input type='button' value='Block'  onClick='blockHandle(document.f.handle.value)'/>
+<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
 <br>
 
 <input type="button" value="Save" onClick="save()" />
