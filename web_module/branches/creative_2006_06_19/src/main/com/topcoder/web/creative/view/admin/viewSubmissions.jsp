@@ -33,7 +33,7 @@
 <div class="contentOuter">
     <div class="contentInner">
 
-        <h1>Contest List</h1>
+        <h1>Submission List</h1>
 
         <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
         <div class="tableHolder">
@@ -47,7 +47,7 @@
                             <td class="title" colspan="7">Submissions for ${contest.name}</td>
                         </tr>
                         <tr>
-                            <td class="title" colspan="7">Show submissions by (Enter Handle):
+                            <td colspan="7">Show submissions by (Enter Handle):
                                 <tc-webtag:textInput name="<%=Constants.HANDLE%>"/></td>
                         </tr>
                         <c:forEach items="${reviewStatuses}" var="reviewStatus">
