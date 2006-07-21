@@ -90,7 +90,7 @@ function keyPress(e) {
         <div style="font-weight:bold;color:red;">
            You must be a rated member (either algorithm or component) to contact members.
         </div>
-     <c:/when>
+     </c:when>
      <c:otherwise>
      
 <form name='f' action='/tc?module=MemberContact' method='post' >
