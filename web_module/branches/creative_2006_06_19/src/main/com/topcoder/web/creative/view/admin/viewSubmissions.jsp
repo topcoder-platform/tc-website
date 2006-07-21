@@ -53,14 +53,14 @@
                         <c:forEach items="${reviewStatuses}" var="reviewStatus">
                             <tr>
                                 <td colspan="7">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.MODULE_KEY%>=${contest.id}">Filter
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Filter
                                         by ${reviewStatus.description}</a>
                                 </td>
                             </tr>
                         </c:forEach>
                         <tr>
                             <td colspan="7">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.MODULE_KEY%>=${contest.id}">Filter
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Filter
                                     by ${reviewStatus.description}</a>
                             </td>
                         </tr>
