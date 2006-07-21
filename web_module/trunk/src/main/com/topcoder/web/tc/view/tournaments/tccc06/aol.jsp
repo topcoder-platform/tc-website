@@ -1,5 +1,6 @@
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
     <jsp:include page="/script.jsp"/>
@@ -24,8 +25,8 @@
         <td valign="top" align="center">
             <br>
             <map name="aol">
-                <area shape="rect" alt="" coords="436,442,530,455" href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank"/>
-                <area shape="rect" alt="" coords="489,515,595,527" href="/?t=sponsor&c=link&link=http://www.topcoder.com/aolrecruiting"/>
+                <area shape="rect" alt="" coords="436,442,530,455" href="<tc-webtag:linkTracking link="http://developer.aol.com"/>" target="_blank"/>
+                <area shape="rect" alt="" coords="489,515,595,527" href="<tc-webtag:linkTracking link="http://www.topcoder.com/aolrecruiting"/>"/>
             </map>
 
             <div align="center">
