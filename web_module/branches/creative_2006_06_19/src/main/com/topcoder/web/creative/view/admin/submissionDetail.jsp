@@ -30,6 +30,10 @@
         <h1>Submission Detail</h1>
 
         <div class="tableHolder">
+            <p>
+                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">back
+                    to submissions</a></p>
+
             <p>Contest: ${submission.contest.name}</p>
 
             <p>Submitter: ${submission.submitter.handle}</p>
