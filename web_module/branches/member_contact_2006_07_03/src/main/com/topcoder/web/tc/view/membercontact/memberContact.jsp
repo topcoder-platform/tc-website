@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
-                 com.topcoder.web.tc.controller.request.membercontact.Helper,
-         " %>
+                 com.topcoder.web.tc.controller.request.membercontact.Helper"
+          %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
