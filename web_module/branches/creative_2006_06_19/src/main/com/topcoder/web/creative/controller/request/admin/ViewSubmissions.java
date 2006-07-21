@@ -61,7 +61,13 @@ public class ViewSubmissions extends HibernateProcessor {
         query.append(" , s.submission_id");
         query.append(" from submission s");
         query.append(" , user u");
-        query.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
+        if (unMarkedOnly || status == null) {
+            query.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
+        } else {
+            query.append(" , submission_review sr");
+            query.append(" , user u1");
+            query.append(" , review_status_lu rs");
+        }
         query.append(" where u.user_id = s.submitter_id");
         query.append("  and sr.submission_id = s.submission_id");
         query.append("  and sr.reviewer_id = u1.user_id");
