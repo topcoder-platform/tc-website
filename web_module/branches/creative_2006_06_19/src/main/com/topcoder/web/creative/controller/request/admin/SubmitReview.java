@@ -67,6 +67,7 @@ public class SubmitReview extends HibernateProcessor {
             buf.append(getSessionInfo().getServletPath());
             buf.append("?" + Constants.MODULE_KEY + "=AdminViewSubmissions&");
             buf.append(Constants.CONTEST_ID + "=").append(s.getContest().getId());
+            buf.append("&").append(Constants.REVIEW_STATUS_ID).append("=null");
             setNextPage(buf.toString());
             setIsNextPageInContext(false);
 
