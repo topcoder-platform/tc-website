@@ -68,7 +68,7 @@ public class ViewSubmissions extends HibernateProcessor {
         query.append("  and sr.review_status_id = rs.review_status_id");
         query.append("  and s.contest_id = ").append(contestId);
         if (!"".equals(handle)) {
-            query.append(" and u.handle_lower = ").append(handle);
+            query.append(" and u.handle_lower = '").append(handle).append("'");
         }
         if (unMarkedOnly) {
             query.append(" and sr.review_status_id is null");
