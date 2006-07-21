@@ -84,6 +84,15 @@ function keyPress(e) {
     </div>
 </c:if>
 
+<c:set value="<%=MemberContact.NOT_RATED%>" var="notRated"/>
+<c:choose>
+    <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
+        <div style="font-weight:bold;color:red;">
+           You must be a rated member (either algorithm or component) to contact members.
+        </div>
+     <c:/when>
+     <c:otherwise>
+     
 <form name='f' action='/tc?module=MemberContact' method='post' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
@@ -95,6 +104,7 @@ function keyPress(e) {
 </c:if>
 <br>
 To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+<br>
 <br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
@@ -112,7 +122,8 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <div id="runJS">
 </div>
 </form>
-
+     </c:otherwise>
+</c:choose>
 <br><br>
         </td>
 <!-- Center Column Ends -->
