@@ -184,43 +184,41 @@ function keyPress(e) {
 
 <table>
 <tr>
-<td>
-Users that recently <br>
+<td width="250">
+Users who recently <br>
 sent you messages or <br>
-that were previously blocked:<br>
-(needs rewording!)<br>
-<select name='users' multiple size=10 width=200>
+who were previously blocked:<br>
+<select name='users' multiple size="10" width="250">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
 </c:forEach>
 </select>
-
 </td>
+
 <td valign='center'>
-<input type='button' value='Block &gt;' onClick='block()' />
+<input type='button' value='Block &gt;' onClick='block()' style="width: 90px;" />
 <br>
-<input type='button' value='&lt; Unblock' onClick='unblock()' />
+<input type='button' value='&lt; Unblock' onClick='unblock()' style="width: 90px;" />
 </td>
 
-<td>
+<td width="250">
 Blocked Users:<br>
-<select name='blockedUsers' multiple size=10 width=200>
+<select name='blockedUsers' multiple size="10" width="250">
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
 <option value="<c:out value="${blockedUser.id}" />"><c:out value="${blockedUser.handle}" /></option>
 </c:forEach>
 </select>
-
 </td>
 </tr>
 </table>
 <br>
 <br>
 Block another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
-<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
+&#160;<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
 <br>
-
-<input type="button" value="Save" onClick="save()" />
-<a href='/tc?module=MemberContact'>Cancel</a>
+<br>
+<input type="button" value="Save" onClick="save()" style="width: 65px;" />&#160;
+<input type="button" value="Cancel" href="/tc?module=MemberContact" style="width: 65px;" />
 <br>
 
 <div id="blockHandleResult">
