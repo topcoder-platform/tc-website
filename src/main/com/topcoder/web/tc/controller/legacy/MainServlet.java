@@ -181,7 +181,7 @@ public final class MainServlet extends BaseServlet {
                 buf.append("/tc?").append(Constants.MODULE_KEY).append("=LinkTracking");
                 if (request.getParameter("link") != null) {
                     buf.append("&link=");
-                    buf.append(request.getParameter("link"));
+                    buf.append(StringUtils.replace(request.getParameter("link"), "&", "%26"));
                 }
                 if (request.getParameter("refer") != null) {
                     buf.append("&refer=");
