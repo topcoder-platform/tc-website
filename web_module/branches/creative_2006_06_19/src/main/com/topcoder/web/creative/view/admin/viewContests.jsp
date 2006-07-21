@@ -47,6 +47,7 @@
                         <td class="header">Name</td>
                         <td class="headerC">Start</td>
                         <td class="headerC">End</td>
+                        <td class="headerC">Last Submission Date</td>
                     </tr>
                     <c:forEach items="${contests}" var="contest">
                         <tr class="light">
@@ -61,6 +62,8 @@
                                 <fmt:formatDate value="${contest.startTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
                             <td class="valueC">
                                 <fmt:formatDate value="${contest.endTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
+                            <td class="valueC">
+                            </td>
                         </tr>
                     </c:forEach>
 
