@@ -23,7 +23,7 @@ import javax.naming.InitialContext;
 /**
  * @author mtong
  *
- * Processor providing data related to a message's revision history.
+ * Processor providing data for a message's revision history.
  */
 public class RevisionHistory extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
