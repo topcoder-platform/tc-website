@@ -35,7 +35,10 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         try {
-            status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
+            if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))
+            {
+                status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
+            }
         } catch (NumberFormatException e) {
             throw new NavigationException("Invalid Review Status Specified");
         }
