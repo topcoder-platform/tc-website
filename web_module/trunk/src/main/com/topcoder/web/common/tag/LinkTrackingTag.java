@@ -15,16 +15,17 @@ import java.io.IOException;
 public class LinkTrackingTag extends TagSupport {
     private String link = "";
     private String refer = "";
-    private String cssclass = "";
+    private String styleClass = "";
 
 
     public void setLink(String link) {
         this.link = link;
     }
 
-    public void setCSSClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String styleClass) {
+        this.styleClass = styleClass;
     }
+
 
     public void setRefer(String refer) {
         this.refer = refer;
@@ -48,7 +49,7 @@ public class LinkTrackingTag extends TagSupport {
     public int doEndTag() throws JspException {
         this.link = "";
         this.refer = "";
-        this.cssclass = "";
+        this.styleClass = "";
         return super.doEndTag();
     }
 
