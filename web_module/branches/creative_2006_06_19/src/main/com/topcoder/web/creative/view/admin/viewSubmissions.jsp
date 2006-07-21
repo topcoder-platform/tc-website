@@ -67,25 +67,26 @@
 
                         <tr>
                             <td class="headerC"></td>
+                            <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
                             <td class="header">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submitter</a>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submitter</a>
                             </td>
                             <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
                             </td>
                             <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
                                     Date</a>
                             </td>
                             <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Review
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Review
                                     Date</a>
                             </td>
                             <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Reviewer</a>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Reviewer</a>
                             </td>
                             <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
                             </td>
                         </tr>
                         <rsc:iterator list="<%=submissions%>" id="resultRow">
