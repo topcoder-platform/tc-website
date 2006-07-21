@@ -34,7 +34,6 @@ import java.util.zip.GZIPOutputStream;
 
 public final class MainServlet extends BaseServlet {
 
-
     private String ERROR_PAGE = null;
     private HTMLRenderer htmlMaker;
     //private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
@@ -178,14 +177,15 @@ public final class MainServlet extends BaseServlet {
             }
             //************************ sponsor ************************
             else if (requestTask.equals("sponsor")) {
-                request.setAttribute(Constants.MODULE_KEY, request.getParameter("LinkTracking"));
+                StringBuffer buf = new StringBuffer(100);
+                buf.append("/tc?").append(Constants.MODULE_KEY).append("=LinkTracking");
                 if (request.getParameter("link") != null) {
-                    request.setAttribute("link", request.getParameter("link"));
+                    buf.append(request.getParameter("link"));
                 }
                 if (request.getParameter("refer") != null) {
-                    request.setAttribute("refer", request.getParameter("refer"));
+                    buf.append(request.getParameter("refer"));
                 }
-                fetchRegularPage(request, response, "/tc", true);
+                fetchRegularPage(request, response, buf.toString(), false);
                 return;
             }
             //************************ time ************************
