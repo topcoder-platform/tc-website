@@ -27,6 +27,17 @@ function showButton() {
     document.f.submitBtn.disabled=!canSend();
 }
 
+function keyPress(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+       document.f.<%= MemberContact.TEXT %>.focus();
+       return false;
+    } else return true;
+  }
+
 
 </script>
 <c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
@@ -40,10 +51,10 @@ function showButton() {
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-	To enable other members to contact you, 
-		<a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
-	click here</a>
-	<br>
+    To enable other members to contact you, 
+        <a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
+    click here</a>
+    <br>
 </c:if>
 <br>
 To avoid certain members to contact you, go to <a href='/tc?module=BlackList'>black list</a> page.
@@ -51,7 +62,7 @@ To avoid certain members to contact you, go to <a href='/tc?module=BlackList'>bl
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
-To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' />
+To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' />
 <div id="validationHandle"> </div>
 <br/><br/>
 
