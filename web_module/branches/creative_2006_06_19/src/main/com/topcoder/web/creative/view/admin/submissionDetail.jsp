@@ -1,16 +1,51 @@
+<%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Creative</title>
+    <title>TopCoder FX</title>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="tc_creative"/>
+    </jsp:include>
+
 </head>
 
 <body>
-<div>
-    This is the creative submission detail page
+
+<jsp:include page="../creativeTop.jsp">
+    <jsp:param name="section" value="default"/>
+</jsp:include>
+
+<jsp:include page="adminLeft.jsp">
+    <jsp:param name="node" value="home"/>
+</jsp:include>
+
+<div class="contentOuter">
+    <div class="contentInner">
+
+        <h1>Submission Detail</h1>
+
+        <div class="tableHolder">
+            <p>Contest: ${submission.contest.name}</p>
+
+            <p>Submitter: ${submission.submitter.handle}</p>
+
+            <p>File Name: ${submission.originalFileName}</p>
+
+            <p>Reviewer: ${submissionReview.reviewer.handle}</p>
+
+            <p>Status:
+                <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
+
+            <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/></p>
+        </div>
+
+        <jsp:include page="../creativeFoot.jsp"/>
+    </div>
 </div>
 </body>
 </html>

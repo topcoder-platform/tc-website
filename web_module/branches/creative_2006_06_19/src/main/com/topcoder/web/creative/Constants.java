@@ -26,6 +26,7 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION = "sbm";
     public static final String SUBMISSION_ID = "sbmid";
     public static final String REVIEW_STATUS_ID = "rstid";
+    public static final String SUBMISSION_REVIEW_TEXT = "sbmrtx";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
