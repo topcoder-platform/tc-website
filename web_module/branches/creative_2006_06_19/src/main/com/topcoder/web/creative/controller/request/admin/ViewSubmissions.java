@@ -88,7 +88,7 @@ public class ViewSubmissions extends HibernateProcessor {
 
         getRequest().setAttribute("contest", CreativeDAOUtil.getFactory().getContestDAO().find(contestId));
 
-        setNextPage("/viewSubmissions.jsp");
+        setNextPage("/admin/viewSubmissions.jsp");
         setIsNextPageInContext(true);
 
     }
