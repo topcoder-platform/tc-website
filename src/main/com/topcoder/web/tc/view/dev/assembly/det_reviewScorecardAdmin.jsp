@@ -119,9 +119,9 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
-<%--Registration is closed.--%>
+Registration is closed.
 
-To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Online Review Scorecard Admin">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
+<%--To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Online Review Scorecard Admin">AssemblyCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
 <li>First & Last Name</li>
@@ -134,7 +134,7 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
    </ul>
 <li>Name of Assembly Competition in which you would like to participate</li>
 </ul>
-
+--%>
 <br><br>
 <div class="sectionHeader">Submission</div>
 Once your team has working code you are ready to submit, you can do so by emailing your source code to <A href="mailto:AssemblySubmissions@topcoder.com">AssemblySubmissions@topcoder.com</A> by the end of the Competition Phase.  Your team can submit code as many times as you wish before the submission deadline without any penalties.  The code that was last submitted before the deadline will be used as your final submission.
