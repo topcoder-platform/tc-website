@@ -72,8 +72,10 @@
       </td>
       <td class="valueC" nowrap="nowrap">
 
+      <%--
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
+      --%>
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">discuss the project</A>
       </td>
    </tr>
