@@ -187,8 +187,8 @@ function keyPress(e) {
 <td width="250">
 Users who recently <br>
 sent you messages or <br>
-who were previously blocked:<br>
-<select name='users' multiple size="10" width="250">
+who were previously<br> blocked:<br>
+<select name='users' multiple size="10" style="width: 250px;">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
 </c:forEach>
@@ -203,7 +203,7 @@ who were previously blocked:<br>
 
 <td width="250">
 Blocked Users:<br>
-<select name='blockedUsers' multiple size="10" width="250">
+<select name='blockedUsers' multiple size="10" style="width: 250px;">
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
 <option value="<c:out value="${blockedUser.id}" />"><c:out value="${blockedUser.handle}" /></option>
 </c:forEach>
