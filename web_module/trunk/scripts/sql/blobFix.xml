@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
   <blobFix>
-    <sourcedb>jdbc:informix-sqli://172.16.214.52:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec</sourcedb>
+    <sourcesList>
+        <source name = "topcoder_dw" value = "jdbc:informix-sqli://172.16.214.52:1526/topcoder_dw:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
+    </sourcesList>  
     <blobColumn>problem_text</blobColumn>
     <table>problem</table>
     <regex>http://[\\w]+\\.[\\w]+\\.[\\w]+\\.[\\w]+/</regex>
