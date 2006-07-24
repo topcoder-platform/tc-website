@@ -119,7 +119,7 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
 <br/><br/>
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
-<br/>
+<br/><br/>
 
 <input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/>
 <div id="runJS">
@@ -127,7 +127,7 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 </form>
      </c:otherwise>
 </c:choose>
-<br><br>
+<br><br><br><br>
         </td>
 <!-- Center Column Ends -->
 

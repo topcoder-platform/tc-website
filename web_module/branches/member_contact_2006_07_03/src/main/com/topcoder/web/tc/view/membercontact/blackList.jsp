@@ -172,7 +172,8 @@ function keyPress(e) {
 
 <span class="bigTitle">Member Contact</span>
 <br><br>
-
+<span class="bodySubtitle">Black List</span>
+<br><br>
 <form name="f" method="post">
 
 <c:set value="<%=BlackList.SAVED%>" var="saved"/>
@@ -214,19 +215,19 @@ Blocked Users:<br>
 </table>
 <br>
 <br>
-Block another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
+Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
 &#160;<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
 <br>
 <br>
-<input type="button" value="Save" onClick="save()" style="width: 65px;" />&#160;
-<A href="/tc?module=MemberContact"><input type="button" value="Cancel" style="width: 65px;" /></A>
+<input type="button" value="Save" onClick="save()" style="width: 60px;" />&#160;
+<input type="button" value="Cancel" onClick="/tc?module=MemberContact" style="width: 60px;" />
 <br>
 
 <div id="blockHandleResult">
 </div>
 
 </form>
-<br><br>
+<br><br><br><br>
         </td>
 <!-- Center Column Ends -->
 
