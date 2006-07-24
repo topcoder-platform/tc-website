@@ -78,7 +78,8 @@ function keyPress(e) {
 
 <span class="bigTitle">Member Contact</span>
 <br><br>
-
+<span class="bodySubtitle">Send a Message:</span>
+<br>
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
@@ -113,9 +114,8 @@ To block certain members from contacting you, go to the <a href='/tc?module=Blac
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' />
-<div id="validationHandle"> </div>
-<br/>(enter member handle only)
-<br/>
+<div id="validationHandle"> </div> &#160; <span class="smallText">(enter member handle only)</span>
+<br/><br/>
 
 <textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
 <br/><br/>
