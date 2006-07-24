@@ -57,7 +57,8 @@
       <br><tc-webtag:handle coderId="21491618" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
+      <br>did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -70,7 +71,8 @@
       <br><tc-webtag:handle coderId="22498968" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      Submitted
+      <br>did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -82,7 +84,7 @@
       <tc-webtag:handle coderId="22628271" /> (Team Captain)
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -96,7 +98,9 @@
       <br><tc-webtag:handle coderId="22628943" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
+      <br>did not submit
+      <br>did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -108,7 +112,7 @@
       <tc-webtag:handle coderId="278460" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -120,7 +124,7 @@
       <tc-webtag:handle coderId="10529347" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -132,7 +136,7 @@
       <tc-webtag:handle coderId="10425804" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -144,7 +148,7 @@
       <tc-webtag:handle coderId="10697386" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
