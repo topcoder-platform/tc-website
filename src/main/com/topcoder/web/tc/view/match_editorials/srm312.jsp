@@ -42,22 +42,19 @@
 <span class="bodySubtitle">SRM 312</span><br>Saturday, July 22, 2006
 <br><br>
 
-<h2>Match summary</h2> 
-
+<h2>Match summary</h2>
 <p>Division 1 coders faced a 250-pointer that didn't stop them for long, but that was definitely not the case with the 500-pointer and the 1050-pointer. 
-Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks for 4 successful challenges!</p>
+Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks to 4 successful challenges!</p>
 <p>As the coding proceeded, most of the coders managed to submit the 500-pointer, many managed to resubmit it, too. In the closing minutes
 several 1050's were in, although not for long. The challenge phase saw more than a half of 1050's and 500's go down, completely
 changing the standings. So did the systests. In the end <tc-webtag:handle coderId="16056363" context="algorithm"/> was followed by 
-<tc-webtag:handle coderId="21239681" context="algorithm"/> (thanks to his amazingly fast 500-pointer submission) and
 <tc-webtag:handle coderId="8416646" context="algorithm"/> (another 4 successful challenges here). The only coder
-solving the 1050-pointer, <tc-webtag:handle coderId="8394868" context="algorithm"/>, came 4th.
+solving the 1050-pointer, <tc-webtag:handle coderId="8394868" context="algorithm"/>, came 3rd.
 Surprisingly, targets
 could not book places on the top of the standings today. </p>
 <p>Division 2 coders faced a geometry-oriented set, with both 500-pointer and 1050-pointer having geometric origin. 
-That couldn't trick the trio of newcomers, <tc-webtag:handle coderId="22628829" context="algorithm"/>, 
-<tc-webtag:handle coderId="22628459" context="algorithm"/> and 
-<tc-webtag:handle coderId="22627696" context="algorithm"/>, taking the top three spots from 
+That couldn't trick the duo of newcomers, <tc-webtag:handle coderId="22628829" context="algorithm"/> and 
+<tc-webtag:handle coderId="22627696" context="algorithm"/>, taking the top two spots from 
 regular div2 competitors.</p>
  
 <H1>
@@ -113,7 +110,7 @@ The Problems
 <p>This problem was pretty straightforward. The solution should carefully
 address several different cases: where x is 1 through 10, where x is 11 through 19,
 where x ends in 0, and the remaining x's. For an implementation of this
-approach, see <tc-webtag:handle coderId="11818890" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249239&rd=9992&pm=6584&cr=11818890">solution</a>.</p>
+approach, see <tc-webtag:handle coderId="11818890" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249239&rd=9992&pm=6584&cr=11818890">solution</a>.</p>
 
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=6498&amp;rd=9992" name="6498">ParallelepipedUnion</a></b>
@@ -208,7 +205,7 @@ of the fact that coordinates were integer and not more than 100. We separate the
 entire space into unit cubes, and for each unit cube check if it belongs to at
 least one of the parallelepipeds. Then the volume of the union is the total 
 number of such unit cubes. For an implementation of this
-approach, see <tc-webtag:handle coderId="251074" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249209&rd=9992&pm=6498&cr=251074">solution</a>.</p>
+approach, see <tc-webtag:handle coderId="251074" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249209&rd=9992&pm=6498&cr=251074">solution</a>.</p>
 <p>Second approach was based on the formula for the volume of a parallelepiped:
 the volume of a parallelepiped is a product of lengths of three edges going from
 any its vertex. When transformed to the xyz-form, it becomes 
@@ -226,7 +223,7 @@ deduce now that the intersection is specified by the inequalities
 max(x1,x3)&le;x&le;min(x2,x4), max(y1,y3)&le;y&le;min(y2,y4), max(z1,z3)&le;z&le;max(z2,z4),
 also following the same pattern. For an implementation of this
 approach, see <tc-webtag:handle coderId="8355516" context="algorithm"/>'s 
-<a href="http://www.topcoder.com/stat?c=problem_solution&rm=249223&rd=9992&pm=6498&cr=8355516">solution</a>.</p>
+<a href="/stat?c=problem_solution&rm=249223&rd=9992&pm=6498&cr=8355516">solution</a>.</p>
 
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=6493&amp;rd=9992" name="6493">PizzaDivision</a></b> </font> <A href="Javascript:openProblemRating(6493)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=505987" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
@@ -273,7 +270,7 @@ approach, see <tc-webtag:handle coderId="8355516" context="algorithm"/>'s
 </table></blockquote>
 <p>For all the geometric stuff required for this problem refer to
 <tc-webtag:handle coderId="159052" context="algorithm"/>'s 
-<a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=geometry1">tutorial</a>.</p>
+<a href="/tc?module=Static&d1=tutorials&d2=geometry1">tutorial</a>.</p>
 <p>Let's follow the solution for this problem step-by-step. First, we need a 
 function that checks whether two given points are mirror images of each other
 for the given cut. It can be easily seen what we can only consider cuts passing
@@ -312,7 +309,7 @@ The latter formula for finding the direction vector also works when X=Y. </p>
 just check all the possible direction vectors with both coordinates integer and not 
 exceeding 1000 by absolute value. To understand why this is enough, reread
 the previous paragraph :)</p>
-<p>See <tc-webtag:handle coderId="22627696" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249237&rd=9992&pm=6493&cr=22627696">solution</a> for an implementation of the
+<p>See <tc-webtag:handle coderId="22627696" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249237&rd=9992&pm=6493&cr=22627696">solution</a> for an implementation of the
 former approach.</p>
 <p>It seems intuitive (and I can't find a counterexample) that the answer for this problem
 is always -1,0,1,2 or 4. I have an idea how to prove it, related to irrationality of e<sup>&pi;i/n</sup> 
@@ -376,7 +373,7 @@ and one with vertices {D,E,F}. Strongly connected components have several useful
 being each cycle in the graph belongs entirely to one of the strongly connected components. An easy
 way to find strongly connected components is Floyd-Warshall's algorithm (see 
 <tc-webtag:handle coderId="268851" context="algorithm"/>' 
-<a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3#floydWarshall">tutorial</a>).</p>
+<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3#floydWarshall">tutorial</a>).</p>
 <p>Let's separate all edges of the graph into two groups: <i>internal</i> edges are between vertices in
 the same strongly connected component, <i>external</i> edges are all others.
 Consider any strongly connected component in our graph without any incoming external edges. Let's call
@@ -403,7 +400,7 @@ build it, and repeat this process until the cost of the cheapest station left is
 average cost. That completes the solution for this problem. The proof of this 'greedy' part is left to the reader,
 as this proof goes just along the lines of the proof above about taking the cheapest station in each
 starter component.</p>
-<p>See <tc-webtag:handle coderId="9906220" context="algorithm"/>'s <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249214&rd=9992&pm=6501&cr=9906220">solution</a> for an implementation of this approach.</p>
+<p>See <tc-webtag:handle coderId="9906220" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=249214&rd=9992&pm=6501&cr=9906220">solution</a> for an implementation of this approach.</p>
 <p>Coders taking part in the match have found many other solutions for this problem, check the 
 <a href="http://forums.topcoder.com/?module=Thread&threadID=512163">forum</a> for some of those.</p>
 
@@ -521,7 +518,7 @@ in this case. A DP solution could be formulated in different terms, but it is es
 the same as the recursive approach with memoization, so one could choose the way he likes to implement
 more. Writing the state of that DP formally (that is, writing formally what 'rec' returns) and inventing
 a way to store the 'bottomline' are left as good exercises for the reader.</p>
-<p>See <tc-webtag:handle coderId="8394868" context="algorithm"/>'s only passing <a href="http://www.topcoder.com/stat?c=problem_solution&rm=249215&rd=9992&pm=6482&cr=8394868">solution</a> 
+<p>See <tc-webtag:handle coderId="8394868" context="algorithm"/>'s only passing <a href="/stat?c=problem_solution&rm=249215&rd=9992&pm=6482&cr=8394868">solution</a> 
 as an example of another possible approach, moving row-by-row instead of moving cell-by-cell. It is slower, but
 could be optimized to pass, too.</p>
 
