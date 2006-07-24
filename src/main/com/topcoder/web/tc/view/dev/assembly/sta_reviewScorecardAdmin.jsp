@@ -76,19 +76,6 @@
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      Team 3
-      </td>
-      <td class="value">
-      <tc-webtag:handle coderId="15704643" /> (Team Captain)
-      <br><tc-webtag:handle coderId="22051578" />
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      &#160;
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
       Team 4
       </td>
       <td class="value">
