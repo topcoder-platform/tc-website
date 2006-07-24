@@ -36,13 +36,13 @@
 <span class="bigTitle">Member Contact</span>
 <br><br>
 Do you want to enable other members to contact you?
-
+<br>
 <form action="/tc" >
 <input type="hidden" name="enable" value="true">
 <input type="hidden" name="module" value="MemberContactEnable">
 
 <input type="submit" value="Enable">
-<input type="button" value="Cancel" onClick="window.close()">
+<input type="button" value="Cancel" href="/tc?module=MemberContact">
 </form>
 
 <br><br>
