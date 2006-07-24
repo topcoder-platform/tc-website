@@ -13,7 +13,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm312">SRM 312 - Problem Set & Analysis</A></span><br><br>
 Division 1 coders faced a 250-pointer that didn't stop them for long, but that was definitely not the case with the 500-pointer and the 1050-pointer. 
-Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks for 4 successful challenges!
+Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks to 4 successful challenges!
       </td>
       <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
       </td>
