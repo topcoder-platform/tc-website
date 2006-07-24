@@ -6,6 +6,23 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=072406">How long will this take, anyway?</A></span><br><br>
+      It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=features&d2=072406">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506078" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.24.06<br>9:20 AM</td>
@@ -185,7 +202,7 @@ presented in the contest.
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%-----------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>10:20 AM</td>
       <td class="newsTextCell">
@@ -203,7 +220,7 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%---------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.10.06<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -215,7 +232,7 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-
+-----------------%>
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
