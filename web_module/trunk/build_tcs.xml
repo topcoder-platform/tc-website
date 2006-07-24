@@ -101,8 +101,6 @@
             source="1.4"
             target="1.4"
             >
-            <include name="com/topcoder/web/common/SoftwareComponent.java" />
-            <include name="com/topcoder/web/common/DefaultPriceComponent.java" />
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes.dir}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes.dir}"/>
