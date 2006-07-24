@@ -184,11 +184,10 @@ function keyPress(e) {
 
 <table>
 <tr>
-<td width="250">
-Users who recently <br>
-sent you messages or <br>
-who were previously<br> blocked:<br>
-<select name='users' multiple size="10" style="width: 250px;">
+<td>
+Users who recently sent you messages<br>
+or who were previously blocked:<br>
+<select name='users' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
 </c:forEach>
@@ -201,9 +200,9 @@ who were previously<br> blocked:<br>
 <input type='button' value='&lt; Unblock' onClick='unblock()' style="width: 90px;" />
 </td>
 
-<td width="250">
+<td>
 Blocked Users:<br>
-<select name='blockedUsers' multiple size="10" style="width: 250px;">
+<select name='blockedUsers' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
 <option value="<c:out value="${blockedUser.id}" />"><c:out value="${blockedUser.handle}" /></option>
 </c:forEach>
