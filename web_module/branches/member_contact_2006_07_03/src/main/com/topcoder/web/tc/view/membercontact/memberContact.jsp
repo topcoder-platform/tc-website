@@ -78,7 +78,7 @@ function keyPress(e) {
 
 <span class="bigTitle">Member Contact</span>
 <br><br>
-<span class="bodySubtitle">Send a Message:</span>
+<span class="bodySubtitle">Send a Message</span>
 <br>
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
@@ -95,26 +95,21 @@ function keyPress(e) {
        Your email was sent.
     </div>
 </c:if>
-
      
 <form name='f' action='/tc?module=MemberContact' method='post' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-    To enable other members to contact you, 
-        <a href='/tc?module=MemberContactEnable' target="_blank" onClick="window.open(this.href, this.target, 'width=200,height=150,resizable=no,toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no'); return false;">
-    click here</a>
+    To enable other members to contact you, click <a href='/tc?module=MemberContactEnable'>here</a>
     <br>
 </c:if>
-<br>
-To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
-<br>
-<br>
+<br><br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' />
-<div id="validationHandle"> </div> &#160; <span class="smallText">(enter member handle only)</span>
+<div id="validationHandle"> </div>
+<span class="smallText">(enter member handle only)</span>
 <br/><br/>
 
 <textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
@@ -128,6 +123,10 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 </form>
      </c:otherwise>
 </c:choose>
+
+To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+<br>
+
 <br><br><br><br>
         </td>
 <!-- Center Column Ends -->
