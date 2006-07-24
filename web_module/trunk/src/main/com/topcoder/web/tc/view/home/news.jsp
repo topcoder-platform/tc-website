@@ -8,6 +8,24 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.24.06<br>9:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm312">SRM 312 - Problem Set & Analysis</A></span><br><br>
+Division 1 coders faced a 250-pointer that didn't stop them for long, but that was definitely not the case with the 500-pointer and the 1050-pointer. 
+Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks for 4 successful challenges!
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm312">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505987" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.20.06<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Representative for the TCCC06?</A></span><br><br>
       Find out more details about how to become a Student Representative at your school, and how to get flyers to help you promote the Tournament.
@@ -197,24 +215,6 @@ problem that startled quite a lot of coders, and a hard problem worth only 900 p
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%---------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>9:35 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm5">TCHS SRM 5 - Problem Set & Analysis</A></span><br><br>
-This match continued the streak of Burunduks. 
-With the best overall score and with 3 successful submissions, <tc-webtag:handle coderId="21468741" context="algorithm"/> took first place
-      </td>
-      <td class="newsPhoto"><!--<img src="/i/m/brett1479_big.jpg" alt="" width="55" height="61"/><br>-->by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm5">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506027" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
------------------%>
 
 </table>
 <br><br>
