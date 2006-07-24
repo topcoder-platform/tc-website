@@ -202,7 +202,7 @@ blocked:<br>
 </td>
 
 <td>
-<br>
+<br><br>
 Blocked Users:<br>
 <select name='blockedUsers' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
