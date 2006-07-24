@@ -114,7 +114,8 @@ To block certain members from contacting you, go to the <a href='/tc?module=Blac
 
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' />
 <div id="validationHandle"> </div>
-<br/><br/>
+<br/>(enter member handle only)
+<br/>
 
 <textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
 <br/><br/>

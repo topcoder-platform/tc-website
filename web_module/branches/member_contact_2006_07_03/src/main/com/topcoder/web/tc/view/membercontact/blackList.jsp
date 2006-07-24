@@ -173,7 +173,7 @@ function keyPress(e) {
 <span class="bigTitle">Member Contact</span>
 <br><br>
 <span class="bodySubtitle">Black List</span>
-<br><br>
+<br>
 <form name="f" method="post">
 
 <c:set value="<%=BlackList.SAVED%>" var="saved"/>
@@ -183,6 +183,7 @@ function keyPress(e) {
     </div>
 </c:if>
 
+<br>
 <table>
 <tr>
 <td>
@@ -219,8 +220,8 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160;<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
 <br>
 <br>
-<input type="button" value="Save" onClick="save()" style="width: 60px;" />&#160;
-<input type="button" value="Cancel" onClick="/tc?module=MemberContact" style="width: 60px;" />
+<input type="button" value="Save" onClick="save()" style="width: 50px;" />&#160;
+<input type="button" value="Back" onClick="/tc?module=MemberContact" style="width: 50px;" />
 <br>
 
 <div id="blockHandleResult">
