@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=072406">How long will this take, anyway?</A></span><br><br>
@@ -202,37 +202,6 @@ presented in the contest.
        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%-----------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>10:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm310">SRM 310 - Problem Set & Analysis</A></span><br><br>
-Division 1 saw an interesting match, with a reasonably easy 250 pointer, a not-so-standard medium
-problem that startled quite a lot of coders, and a hard problem worth only 900 points.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm310">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505985" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%---------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.10.06<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Syntax Highlighter and other features added to the arena</span><br><br>
-      We've added full syntax highlighting support to the standard editor and challenge views in the arena, along with several other features which you can find in the arena change log.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506067" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
------------------%>
 </table>
 <br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
