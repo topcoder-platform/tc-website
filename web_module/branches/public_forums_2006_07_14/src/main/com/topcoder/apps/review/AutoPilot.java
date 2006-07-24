@@ -6,10 +6,13 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.apps.review.rboard.RBoardPayment;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.date.workdays.WorkdaysUnitOfTime;
 import com.topcoder.web.common.model.DefaultPriceComponent;
 import java.util.Date;
@@ -523,6 +526,7 @@ public class AutoPilot {
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
+            RBoardPayment rBoardPayment = EJBHelper.getRBoardPayment();
             UserManagerLocal userManager = EJBHelper.getUserManager();
             DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
@@ -570,6 +574,9 @@ public class AutoPilot {
             DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
                     levelId, count, passedCount,
                             project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
+
+            ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
+                    112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
 
             // check project for reviewers
             UserRole[] participants = project.getParticipants();

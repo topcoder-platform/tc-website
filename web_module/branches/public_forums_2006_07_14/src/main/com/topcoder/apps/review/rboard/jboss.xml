@@ -5,5 +5,9 @@
       <ejb-name>RBoardApplication</ejb-name>
       <jndi-name>com.topcoder.apps.review.rboard.RBoardApplicationHome</jndi-name>
     </session>
+    <session>
+      <ejb-name>RBoardPayment</ejb-name>
+      <jndi-name>com.topcoder.apps.review.rboard.RBoardPaymentHome</jndi-name>
+    </session>
   </enterprise-beans>
 </jboss>
