@@ -185,8 +185,9 @@ function keyPress(e) {
 <table>
 <tr>
 <td>
-Users who recently sent you messages<br>
-or who were previously blocked:<br>
+Users who recently sent you<br>
+messages or who were previously<br>
+blocked:<br>
 <select name='users' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
