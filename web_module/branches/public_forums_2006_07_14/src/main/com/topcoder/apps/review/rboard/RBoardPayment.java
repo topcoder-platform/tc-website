@@ -27,6 +27,6 @@ import java.sql.Timestamp;
  * @version 1.0.1
  */
 public interface RBoardPayment extends EJBObject {
-    ResultSetContainer getPayments(long projectId, long phaseId, String dataSource);
+    ResultSetContainer getPayments(long projectId, long phaseId, String dataSource) throws  RemoteException;
 }
 

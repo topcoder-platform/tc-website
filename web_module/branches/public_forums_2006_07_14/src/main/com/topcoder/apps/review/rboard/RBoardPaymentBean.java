@@ -4,6 +4,7 @@
 
 package com.topcoder.apps.review.rboard;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +49,7 @@ public class RBoardPaymentBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(RBoardPaymentBean.class);
 
-    public ResultSetContainer getPayments(long projectId, long phaseId, String dataSource) {
+    public ResultSetContainer getPayments(long projectId, long phaseId, String dataSource) throws RemoteException {
         Connection conn = null;
 
         try {
