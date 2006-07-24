@@ -22,7 +22,7 @@
        <tc-webtag:forumLink forumID="506078" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-
+ 
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.24.06<br>9:20 AM</td>
