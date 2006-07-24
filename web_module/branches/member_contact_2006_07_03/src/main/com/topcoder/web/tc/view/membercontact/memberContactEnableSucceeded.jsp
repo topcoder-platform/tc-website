@@ -35,10 +35,11 @@
 
 <span class="bigTitle">Member Contact</span>
 <br><br>
-Member Contact is enabled now. All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
-<br>
+Member Contact is enabled now.<br>
+All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
+<br><br>
 <form>
-<input type="button" value="OK" href="/tc?module=MemberContact" /> 
+<A href="/tc?module=MemberContact"><input type="button" value="OK" /></A>
 </form>
 
 <br><br>

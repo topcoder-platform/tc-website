@@ -219,7 +219,7 @@ Block another user: <input type="text" name='handle' id='handle' onkeypress="ret
 <br>
 <br>
 <input type="button" value="Save" onClick="save()" style="width: 65px;" />&#160;
-<input type="button" value="Cancel" href="/tc?module=MemberContact" style="width: 65px;" />
+<A href="/tc?module=MemberContact"><input type="button" value="Cancel" style="width: 65px;" /></A>
 <br>
 
 <div id="blockHandleResult">
