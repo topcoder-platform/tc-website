@@ -137,6 +137,30 @@
       </td>
    </tr>
    <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team 8
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="10425804" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      &#160;
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      Team 9
+      </td>
+      <td class="value">
+      <tc-webtag:handle coderId="10697386" />
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      &#160;
+      </td>
+   </tr>
+   <% even = !even;%>
 </table>
 </td>
 <!-- Center Column Ends -->
