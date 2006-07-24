@@ -103,7 +103,7 @@ function keyPress(e) {
     To enable other members to contact you, click <a href='/tc?module=MemberContactEnable'>here</a>
     <br>
 </c:if>
-<br><br>
+<br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
