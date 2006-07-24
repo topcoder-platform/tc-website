@@ -575,8 +575,15 @@ public class AutoPilot {
                     levelId, count, passedCount,
                             project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
 
+            System.out.println("Retrieving payments...");
             ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
                     112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+            if (rsc == null) {
+                System.out.println("Null rsc...");
+            } else {
+                System.out.println("Retrieved..." + rsc.size());
+            }
+
 
             // check project for reviewers
             UserRole[] participants = project.getParticipants();
