@@ -19,6 +19,13 @@ public class Helper {
 	
     public static String NOT_RATED = "nr";
 
+    /**
+     * Returns whether a user is rated in either algorithm or component competitions.
+     * 
+     * @param userId the user to check.
+     * @return whether a user is rated in either algorithm or component competitions.
+     * @throws Exception
+     */
 	public static boolean isRated(long userId) throws Exception {
 		Request r = new Request();
 		r.setContentHandle("coder_all_ratings");

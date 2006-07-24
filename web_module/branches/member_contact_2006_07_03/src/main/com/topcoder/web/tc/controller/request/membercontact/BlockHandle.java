@@ -5,6 +5,14 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
+/**
+ * This method is called when the user requests a handle to be blocked.
+ * It looks up the id for the handle, and if not found lefts the attribute as null.
+ * Despite his name, it doesn't do the actual blocking of the handle.
+ * 
+ * @author cucu
+ *
+ */
 public class BlockHandle extends HibernateProcessor {
        
 	public static final String HANDLE = "handle"; 
@@ -20,8 +28,6 @@ public class BlockHandle extends HibernateProcessor {
     	} else {
     		getRequest().setAttribute(HANDLE, handle);
     	}
-    	              
-    	log.debug("forward to:"  + Constants.BLOCK_HANDLE);
         setNextPage(Constants.BLOCK_HANDLE);
         setIsNextPageInContext(true);        
     }
