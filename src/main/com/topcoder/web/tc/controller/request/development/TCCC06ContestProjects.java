@@ -10,7 +10,7 @@ import com.topcoder.shared.util.DBMS;
 public class TCCC06ContestProjects extends StatBase {
 
     String getCommandName() {
-        return "tcc06_contest_projects";
+        return "tccc06_contest_projects";
     }
 
     String getDataSourceName() {
