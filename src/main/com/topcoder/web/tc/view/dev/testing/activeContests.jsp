@@ -50,6 +50,66 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewTests">Online Review Tests</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Tests">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewTests">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewTests">standings</A>
+      --%>
+      </td>
+      <td class="valueC">
+      08.02.2006 09:00 PM EST
+      </td>
+      <td class="valueC">
+      08.04.2006 09:00 PM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="#">discuss the project</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectAdmin">Online Review Project Admin and Details Tests</A>
+      </td>
+      <td class="valueC">
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Project Admin and Details Tests">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectAdmin">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectAdmin">standings</A>
+      --%>
+      </td>
+      <td class="valueC">
+      0X.XX.2006 09:00 PM EST
+      </td>
+      <td class="valueC">
+      0X.XX.2006 09:00 PM EST
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <A href="#">discuss the project</A>
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin Tests</A>
       </td>
       <td class="valueC">
@@ -77,6 +137,7 @@
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">discuss the project</A>
       </td>
    </tr>
+   <% even = !even;%>
 </table>
 
 </td>
