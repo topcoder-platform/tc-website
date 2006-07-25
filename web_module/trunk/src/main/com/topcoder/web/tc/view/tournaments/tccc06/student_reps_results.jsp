@@ -19,7 +19,7 @@
 <jsp:include page="links.jsp">
     <jsp:param name="tabLev1" value="overview"/>
     <jsp:param name="tabLev2" value="student_reps"/>
-    <jsp:param name="tabLev3" value=""/>
+    <jsp:param name="tabLev3" value="results"/>
 </jsp:include>
 
 
