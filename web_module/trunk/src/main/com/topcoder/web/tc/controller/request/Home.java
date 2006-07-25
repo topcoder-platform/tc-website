@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO06AlgorithmTerms;
-import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC06AlgorithmTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
 public class Home extends Base {
 
@@ -84,12 +84,12 @@ public class Home extends Base {
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
 
-            TCO06ComponentTerms compTerms = new TCO06ComponentTerms();
+            TCCC06ComponentTerms compTerms = new TCCC06ComponentTerms();
             compTerms.setRequest(getRequest());
             compTerms.setResponse(getResponse());
             compTerms.setAuthentication(getAuthentication());
 
-            TCO06AlgorithmTerms algoTerms = new TCO06AlgorithmTerms();
+            TCCC06AlgorithmTerms algoTerms = new TCCC06AlgorithmTerms();
             algoTerms.setRequest(getRequest());
             algoTerms.setResponse(getResponse());
             algoTerms.setAuthentication(getAuthentication());
@@ -103,7 +103,6 @@ public class Home extends Base {
             throw new TCWebException(e);
         }
     }
-
 
     //**********************************************
     //* member stuff
