@@ -50,6 +50,7 @@
             but it would test examples again</li>
         <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
         <li>Fix the password reminder for people with ' in their name</li>
+        <li>Make GPA, GPA Scale and resume fields in registration process not appear as required.</li>
     </ul>
 </p>
 
