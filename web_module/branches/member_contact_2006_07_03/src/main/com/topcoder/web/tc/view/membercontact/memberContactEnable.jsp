@@ -31,6 +31,11 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="member_contact"/>
+    <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
 <div class="fixedWidthBody">
 
 <span class="bigTitle">Member Contact</span>
@@ -41,8 +46,8 @@ Do you want to enable other members to contact you?
 <input type="hidden" name="enable" value="true" />
 <input type="hidden" name="module" value="MemberContactEnable" />
 
-<input type="submit" value="Enable" />
-<A href="/tc?module=MemberContact"><input type="button" value="Cancel" /></A>
+<%-- <input type="submit" value="Enable" /> --%>
+<A href="">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>

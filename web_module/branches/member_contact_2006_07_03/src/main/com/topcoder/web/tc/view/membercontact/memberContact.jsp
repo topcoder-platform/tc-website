@@ -66,13 +66,18 @@ function keyPress(e) {
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value="contact"/>
+                <jsp:param name="node" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
+
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="member_contact"/>
+    <jsp:param name="title" value="Send a Message"/>
+</jsp:include>
 
 <div class="fixedWidthBody">
 
@@ -83,19 +88,12 @@ function keyPress(e) {
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
-        <div style="font-weight:bold;color:red;">
+        <span class="bigRed">
            You must be a rated member (in either algorithm or component competitions) to contact other members.
-        </div>
+        </span>
      </c:when>
      <c:otherwise>
 
-<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
-<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
-    <div style="font-weight:bold;color:green;">
-       Your email was sent.
-    </div>
-</c:if>
-     
 <form name='f' action='/tc?module=MemberContact' method='post' >
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
@@ -117,17 +115,26 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
-<input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/>
+<%-- added text link instead 
+<input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/> --%>
+<A href="">Send</A>
+
 <div id="runJS">
 </div>
 </form>
+
+<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
+<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
+    <span class="bigRed">
+       Your email was sent.
+    </span>
+</c:if>
+     
      </c:otherwise>
 </c:choose>
-
-To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
-
-<br><br><br><br>
+To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+<br><br><br><br><br>
         </td>
 <!-- Center Column Ends -->
 

@@ -168,20 +168,21 @@ function keyPress(e) {
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="member_contact"/>
+    <jsp:param name="title" value="Black List"/>
+</jsp:include>
+
 <div class="fixedWidthBody">
 
+<%-- need these with page title include? 
 <span class="bigTitle">Member Contact</span>
 <br><br>
 <span class="bodySubtitle">Black List</span>
 <br>
-<form name="f" method="post">
+--%>
 
-<c:set value="<%=BlackList.SAVED%>" var="saved"/>
-<c:if test="${cf:containsMapKey(requestScope, saved)}" >
-    <div style="font-weight:bold;color:green;">
-       The blocked list was saved.
-    </div>
-</c:if>
+<form name="f" method="post">
 
 <br>
 <table>
@@ -198,9 +199,14 @@ blocked:<br>
 </td>
 
 <td valign='center'>
+<A href="">Block &gt;</A><br>
+<A href="">&lt; Unblock</A>
+
+<%-- added text links instead
 <input type='button' value='Block &gt;' onClick='block()' style="width: 90px;" />
 <br>
 <input type='button' value='&lt; Unblock' onClick='unblock()' style="width: 90px;" />
+--%>
 </td>
 
 <td>
@@ -217,15 +223,30 @@ Blocked Users:<br>
 <br>
 <br>
 Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
-&#160;<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/>
+&#160; <A href="">Block</A>
+
+<%-- added text link instead
+<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/> 
+--%>
 <br>
 <br>
+<A href="">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
+
+<%-- added text links instead
 <input type="button" value="Save" onClick="save()" style="width: 50px;" />&#160;
 <input type="button" value="Back" onClick="/tc?module=MemberContact" style="width: 50px;" />
+--%>
 <br>
 
 <div id="blockHandleResult">
 </div>
+
+<c:set value="<%=BlackList.SAVED%>" var="saved"/>
+<c:if test="${cf:containsMapKey(requestScope, saved)}" >
+    <span class="bigRed">
+       The blocked list was saved.
+    </span>
+</c:if>
 
 </form>
 <br><br><br><br>

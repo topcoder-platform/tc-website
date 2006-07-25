@@ -31,6 +31,11 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="member_contact"/>
+    <jsp:param name="title" value="&#160;"/>
+</jsp:include>
+
 <div class="fixedWidthBody">
 
 <span class="bigTitle">Member Contact</span>
@@ -39,7 +44,7 @@ Member Contact is enabled now.<br>
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
 <form>
-<A href="/tc?module=MemberContact"><input type="button" value="OK" /></A>
+<A href="/tc?module=MemberContact">OK</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
