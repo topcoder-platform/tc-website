@@ -92,9 +92,9 @@ function unblock() {
     for(var i = 0; i < document.f.blockedUsers.length; i++)
         if (document.f.blockedUsers.options[i].selected) {
             insertOrder(document.f.users, document.f.blockedUsers.options[i]) ;
-            i--;
             selected = true;
     }
+    
     if (!selected) alert("Please select one or more users to unblock");
     
     for(var i = document.f.blockedUsers.length-1; i>= 0; i--)
