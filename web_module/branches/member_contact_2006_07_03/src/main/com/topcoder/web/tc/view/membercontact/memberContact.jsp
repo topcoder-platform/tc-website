@@ -123,7 +123,7 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
 <c:if test="${cf:containsMapKey(requestScope, confirm)}" >
     <span class="bigRed">
-       Your email was sent.
+       Your message was sent.
     </span>
 </c:if>
      

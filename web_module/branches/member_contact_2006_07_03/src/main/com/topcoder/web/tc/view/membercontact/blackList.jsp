@@ -231,7 +231,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 
 <input type="button" value="Save" onClick="save()" style="width: 50px;" />&#160;
 <input type="button" value="Back" onClick="/tc?module=MemberContact" style="width: 50px;" />
-<br>
+<br><br>
 
 <div id="blockHandleResult">
 </div>
@@ -239,7 +239,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 <c:set value="<%=BlackList.SAVED%>" var="saved"/>
 <c:if test="${cf:containsMapKey(requestScope, saved)}" >
     <span class="bigRed">
-       The blocked list was saved.
+       The blocked user list was saved.
     </span>
 </c:if>
 

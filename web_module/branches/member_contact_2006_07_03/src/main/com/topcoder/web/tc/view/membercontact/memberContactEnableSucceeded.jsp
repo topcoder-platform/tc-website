@@ -38,11 +38,10 @@
 
 <div class="fixedWidthBody">
 
-<span class="bodySubtitle">Member Contact</span>
+<span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
 Member Contact is enabled now.<br>
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
-<br><br>
 <form>
 <A href="/tc?module=MemberContact">OK</A>
 </form>
