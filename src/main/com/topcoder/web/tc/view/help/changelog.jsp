@@ -51,6 +51,8 @@
         <li>Another attempt to improve the ACIDity of the reviewer reg process</li>
         <li>Fix the password reminder for people with ' in their name</li>
         <li>Make GPA, GPA Scale and resume fields in registration process not appear as required.</li>
+        <li>Add tccc06 component competition registration</li>
+        <li>Add tccc06 component results code</li>
     </ul>
 </p>
 
