@@ -20,12 +20,7 @@
 </c:choose>
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
            <script type="text/javascript">
-               if (canSend()) {
-                    <c:set value="<%=MemberContact.SEND%>" var="send"/>
-                    <c:if test="${result.valid && cf:containsMapKey(param, send)}" >
-                       document.f.submit();
-                    </c:if>
-               }
+               document.f.handleValid.value = <c:out value="${result.valid}" />;
                
            </script>
        </tac:replaceChildren>
