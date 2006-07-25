@@ -48,7 +48,7 @@ public class TCCC06AlgorithmTerms extends TermsBase {
         Request r = new Request();
         r.setContentHandle("tccc06_eligibility");
         r.setProperty("cr", String.valueOf(getUser().getId()));
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("tccco06_eligibility");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("tccc06_eligibility");
         if (log.isDebugEnabled()) {
             log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
         }
