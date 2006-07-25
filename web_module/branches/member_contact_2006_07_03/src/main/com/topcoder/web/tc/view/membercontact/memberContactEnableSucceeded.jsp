@@ -40,7 +40,7 @@
 
 <span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
-Member Contact is enabled now.<br>
+<span class="bigRed">Member Contact is enabled now.</span><br>
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <form>
 <A href="/tc?module=MemberContact">OK</A>
