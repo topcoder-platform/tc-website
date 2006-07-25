@@ -126,9 +126,9 @@ public class FixedPriceComponent extends DefaultPriceComponent {
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
 
-            showPayments(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]),
-                    Boolean.parseBoolean(args[4]), Float.parseFloat(args[5]),
-                    Float.parseFloat(args[6]));
+            showPayments(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]),
+                    Boolean.parseBoolean(args[3]), Float.parseFloat(args[4]),
+                    Float.parseFloat(args[5]));
         }
     }
 }
