@@ -192,14 +192,15 @@ blocked:<br>
 </td>
 
 <td valign='center'>
+<%-- use text link instead of buttons
+
 <A href="">Block &gt;</A><br>
 <A href="">&lt; Unblock</A>
+--%>
 
-<%-- added text links instead
 <input type='button' value='Block &gt;' onClick='block()' style="width: 90px;" />
 <br>
 <input type='button' value='&lt; Unblock' onClick='unblock()' style="width: 90px;" />
---%>
 </td>
 
 <td>
@@ -216,19 +217,20 @@ Blocked Users:<br>
 <br>
 <br>
 Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
-&#160; <A href="">Block</A>
+&#160; 
 
-<%-- added text link instead
+<%-- use text link instead of button
+<A href="">Block</A> --%>
 <input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/> 
---%>
-<br>
-<br>
-<A href="">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
 
-<%-- added text links instead
+<br>
+<br>
+<%-- use text link instead of buttons
+<A href="">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
+--%>
+
 <input type="button" value="Save" onClick="save()" style="width: 50px;" />&#160;
 <input type="button" value="Back" onClick="/tc?module=MemberContact" style="width: 50px;" />
---%>
 <br>
 
 <div id="blockHandleResult">
@@ -242,6 +244,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 </c:if>
 
 </form>
+</div>
 <br><br><br><br>
         </td>
 <!-- Center Column Ends -->

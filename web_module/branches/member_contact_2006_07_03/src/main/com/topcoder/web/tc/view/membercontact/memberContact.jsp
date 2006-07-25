@@ -79,6 +79,8 @@ function keyPress(e) {
     <jsp:param name="title" value="Send a Message"/>
 </jsp:include>
 
+<div class="fixedWidthBody">
+
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >
@@ -109,9 +111,10 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
-<%-- added text link instead 
-<input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/> --%>
+<%-- use text link instead of button
 <A href="">Send</A>
+--%>
+<input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/> 
 
 <div id="runJS">
 </div>
@@ -129,6 +132,7 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <br>
 To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br><br><br><br>
+</div>
         </td>
 <!-- Center Column Ends -->
 

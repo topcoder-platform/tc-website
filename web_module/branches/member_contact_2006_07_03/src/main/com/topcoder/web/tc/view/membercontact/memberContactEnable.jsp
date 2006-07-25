@@ -36,6 +36,8 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
+<div class="fixedWidthBody">
+
 <span class="bodySubtitle">Member Contact</span>
 <br><br>
 Do you want to enable other members to contact you?
@@ -45,11 +47,11 @@ Do you want to enable other members to contact you?
 <input type="hidden" name="module" value="MemberContactEnable" />
 
 <%-- <input type="submit" value="Enable" /> --%>
-<A href="">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
+<A href="/tc?module=MemberContactEnableSucceeded">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+</div>
         </td>
 <!-- Center Column Ends -->
 

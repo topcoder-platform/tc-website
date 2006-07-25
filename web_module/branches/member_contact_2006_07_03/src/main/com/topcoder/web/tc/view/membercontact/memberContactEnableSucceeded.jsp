@@ -36,6 +36,8 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
+<div class="fixedWidthBody">
+
 <span class="bodySubtitle">Member Contact</span>
 <br><br>
 Member Contact is enabled now.<br>
@@ -46,7 +48,7 @@ All members will be able to contact you, unless you block their access on the <a
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+</div>
         </td>
 <!-- Center Column Ends -->
 
