@@ -49,7 +49,7 @@ All members will be able to contact you, unless you block their access on the <a
 <input type="hidden" name="module" value="MemberContactEnable" />
 
 <%-- <input type="submit" value="Enable" /> --%>
-<A href="tc?module=Static&d1=membercontact&d2=memberContactEnableSucceeded">Enable</A> &#160; <A href="tc?module=Static&d1=membercontact&d2=memberContact">Cancel</A>
+<A href="/tc?module=Static&d1=membercontact&d2=memberContactEnableSucceeded">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
