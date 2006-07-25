@@ -44,7 +44,7 @@
     <tr><td><img src="/i/messageBoxTop.gif" width="180" height="11" border="0"/></td></tr>
     <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"/></td></tr>
 </table>
-<table cellspacing="0" cellpadding="0" class="messageBoxFrame">
+<table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
     <tr>
         <td class="tccc06Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/message.gif" alt="TCCC06" border="0"/></A>
