@@ -42,6 +42,6 @@ public class TCCC06ComponentTerms extends TCCC06AlgorithmTerms {
         }
     }
 }
-}
 
-        }
+
+
