@@ -10,38 +10,34 @@
 %>
 
 <style type="text/css">
-.tccc06Message
-{
-color: #FFFFFF;
-font-size: 11px;
-font-weight: normal;
-padding: 5px;
-background: #003333 url(/i/tournament/tccc06/message_bg.gif) top center repeat-x;);
-}
+    .tccc06Message {
+        color: #FFFFFF;
+        font-size: 11px;
+        font-weight: normal;
+        padding: 5px;
+        background: #003333 url( /i/tournament/tccc06/message_bg.gif ) top center repeat-x;
+    );
+    }
 
-A.tccc06MessageLink:link
-{
-color: #A0DA4D;
-text-decoration: underline;
-}
+    A.tccc06MessageLink:link {
+        color: #A0DA4D;
+        text-decoration: underline;
+    }
 
-A.tccc06MessageLink:visited
-{
-color: #269696;
-text-decoration: underline;
-}
+    A.tccc06MessageLink:visited {
+        color: #269696;
+        text-decoration: underline;
+    }
 
-A.tccc06MessageLink:hover
-{
-color: #C0F377;
-text-decoration: none;
-}
+    A.tccc06MessageLink:hover {
+        color: #C0F377;
+        text-decoration: none;
+    }
 
-A.tccc06MessageLink:active
-{
-color: #C0F377;
-text-decoration: underline;
-}
+    A.tccc06MessageLink:active {
+        color: #C0F377;
+        text-decoration: underline;
+    }
 </style>
 
 <table border="0" cellspacing="0" cellpadding="0" width="180">
@@ -61,7 +57,7 @@ text-decoration: underline;
             You are not registered for the <strong>TCCC Algorithm Competition</strong>, click
             <a href="/tc?module=TCCC06AlgorithmTerms" class="tccc06MessageLink">here</a> to register.<br/>
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC.
+            Sorry, you are not eligible to register for the TCCC Algorithm Competition.
             <% }
             }
             }%>
@@ -74,7 +70,7 @@ text-decoration: underline;
             You are not registered for the <strong>TCCC Component Competition</strong>, click
             <a href="/tc?module=TCCC06ComponentTerms" class="tccc06MessageLink">here</a> to register.
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC.
+            Sorry, you are not eligible to register for the TCCC Component Competition.
             <% }
             }
             } %>
