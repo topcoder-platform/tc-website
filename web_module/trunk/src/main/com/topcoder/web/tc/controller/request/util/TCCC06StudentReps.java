@@ -18,7 +18,7 @@ public class TCCC06StudentReps extends Base {
 
             getRequest().setAttribute("studentRepList", getDataAccess().getData(r).get("tccc06_student_reps"));
 
-            setNextPage("/tournaments/tccc06/student_rep_results.jsp");
+            setNextPage("/tournaments/tccc06/student_reps_results.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
