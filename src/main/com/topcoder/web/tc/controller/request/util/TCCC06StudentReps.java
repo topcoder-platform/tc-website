@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
 /**
@@ -19,7 +18,7 @@ public class TCCC06StudentReps extends Base {
 
             getRequest().setAttribute("studentRepList", getDataAccess().getData(r).get("tccc06_student_reps"));
 
-            setNextPage(Constants.TCCC05_STUDENT_REPS);
+            setNextPage("/tournaments/tccc06/student_rep_results.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
             throw e;
