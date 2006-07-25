@@ -67,7 +67,6 @@
                             <li><a href="/tc?module=Static&d1=about&d2=tcs_salesdirector">TopCoder Salesperson</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=int_project_manager">Internal Project Manager</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=int_developer">Internal Developer</A></li>
-                            <li><a href="/tc?module=Static&d1=about&d2=placement_agent">Placement Agent</a></li>
                         </ul>
                     </td>
                 </tr>
