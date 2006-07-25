@@ -8,18 +8,17 @@
     <jsp:include page="/script.jsp"/>
 
     <title>2006 TopCoder Open - Computer Programming Tournament</title>
-    <link type="text/css" rel="stylesheet" href="/css/TCO06style.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
             color: #FFFFFF;
-            background: #032F6B;
-            padding: 0px;
-            margin: 0px;
+            background: #003333;
         }
     </STYLE>
 </head>
 
-<body class="termsBody">
+<body class="termsBody" style="margin:5px;">
 
 <c:import url="${sessionInfo.servletPath}">
     <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
