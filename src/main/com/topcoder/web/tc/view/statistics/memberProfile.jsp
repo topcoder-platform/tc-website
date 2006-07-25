@@ -105,7 +105,8 @@ This member has not yet been rated in a competition.
              <% if (rscCoderData.getIntItem(0, "has_achievements")>0) { %>
              <tr><td class="cat" colspan="2"><A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A></td>
              <% } %>
-            <tr><td class="cat" colspan="2"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A></td>
+            <tr><td class="cat"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A></td>
+                <td class="cat"><A href="/tc?module=MemberContact">[Contact this member]</A></td>
          </table>
       </td>
       <td class="quoteCell">
