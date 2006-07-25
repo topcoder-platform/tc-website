@@ -101,7 +101,7 @@ function keyPress(e) {
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
-To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' />
+To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="requestScope.th" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(enter member handle only)</span>
 <br/><br/>

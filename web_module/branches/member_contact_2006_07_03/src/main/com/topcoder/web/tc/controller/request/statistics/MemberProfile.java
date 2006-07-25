@@ -175,6 +175,12 @@ public class MemberProfile extends Base {
 
                 }
             }
+
+            boolean memberContactEnabled = false;
+            if(rsc.getItem(0, "member_contact_enabled").getResultData() != null) {
+            	memberContactEnabled = rsc.getBooleanItem(0, "member_contact_enabled");
+            }
+
             getRequest().setAttribute("resultMap", result);
             
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
@@ -183,6 +189,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
+            getRequest().setAttribute("memberContacEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("tab", tab);
             
             setNextPage(Constants.MEMBER_PROFILE);

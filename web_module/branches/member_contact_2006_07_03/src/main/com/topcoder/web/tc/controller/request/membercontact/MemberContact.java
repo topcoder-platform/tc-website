@@ -53,7 +53,7 @@ public class MemberContact extends HibernateProcessor {
         User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         // if a handle is specified, send an email
-        if (toHandle != null) {
+        if (toHandle != null && message != null) {
 
         	// Check again that the user is valid, in case that someone has tweaked the jsp
         	// or some kind of hack
