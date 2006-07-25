@@ -63,11 +63,11 @@ function insertOrder(sel, option)
 
     for (i = sel.length - 1; i >= 0; i--) {
         if (handleLower > sel.options[i].text.toLowerCase()) break;
-        var x = sel.options[i];;
-        sel.options[i] = new Option('','',false);
-        sel.options[i+1] = x;
     }
-    sel.options[i+1]=option;
+
+    var o = new Option(option.text, option.value, false);
+
+    sel.options.add(o, i+1);
 }
 
 function block() {
@@ -75,10 +75,16 @@ function block() {
     for(var i = 0; i < document.f.users.length; i++)
         if (document.f.users.options[i].selected) {
             insertOrder(document.f.blockedUsers, document.f.users.options[i]) ;
-            i--;
             selected = true;
         }
+        
     if (!selected) alert("Please select one or more users to block");
+    
+    for(var i = document.f.users.length-1; i>= 0; i--)
+        if (document.f.users.options[i].selected) {
+            document.f.users.remove(i);
+        }
+    
 }
 
 function unblock() {
@@ -90,6 +96,12 @@ function unblock() {
             selected = true;
     }
     if (!selected) alert("Please select one or more users to unblock");
+    
+    for(var i = document.f.blockedUsers.length-1; i>= 0; i--)
+        if (document.f.blockedUsers.options[i].selected) {
+            document.f.blockedUsers.remove(i);
+        }
+
 }
 
 function addBlockedUser(id, handle)
