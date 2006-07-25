@@ -79,12 +79,6 @@ function keyPress(e) {
     <jsp:param name="title" value="Send a Message"/>
 </jsp:include>
 
-<div class="fixedWidthBody">
-
-<span class="bigTitle">Member Contact</span>
-<br><br>
-<span class="bodySubtitle">Send a Message</span>
-<br>
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
     <c:when test="${cf:containsMapKey(requestScope, notRated)}" >

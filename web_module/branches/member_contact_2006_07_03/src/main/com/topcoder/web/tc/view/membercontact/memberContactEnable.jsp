@@ -36,9 +36,7 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div class="fixedWidthBody">
-
-<span class="bigTitle">Member Contact</span>
+<span class="bodySubtitle">Member Contact</span>
 <br><br>
 Do you want to enable other members to contact you?
 <br><br>

@@ -175,13 +175,6 @@ function keyPress(e) {
 
 <div class="fixedWidthBody">
 
-<%-- need these with page title include? 
-<span class="bigTitle">Member Contact</span>
-<br><br>
-<span class="bodySubtitle">Black List</span>
-<br>
---%>
-
 <form name="f" method="post">
 
 <br>
