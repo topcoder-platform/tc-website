@@ -42,6 +42,7 @@
 <br><br>
 <span class="bigRed">Member Contact is enabled now.</span><br>
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
+<br><br>
 <form>
 <A href="/tc?module=MemberContact">OK</A>
 </form>
