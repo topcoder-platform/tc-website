@@ -53,6 +53,7 @@
         <li>Make GPA, GPA Scale and resume fields in registration process not appear as required.</li>
         <li>Add tccc06 component competition registration</li>
         <li>Add tccc06 component results code</li>
+        <li>Add tccc06 student rep results</li>
     </ul>
 </p>
 
