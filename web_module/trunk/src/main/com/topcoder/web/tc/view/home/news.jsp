@@ -9,6 +9,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.25.06<br>12:05 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">TCHS SRM 8 - Problem Set & Analysis</A></span><br><br>
+Three questions with a few hidden tricks resulted in 83 failed solutions out of a total of 207 submissions for TCHS SRM 8, the second in the Delta Quadrant.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275640" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506030" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -183,24 +200,6 @@ The High School matches are heating up, with quite a lot of registrants and yet 
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.10.06<br>11:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_6">Intel&#174; Multi-Threading Competition 6 - Analysis</A></span><br><br>
-Bin packing problems are very common and a lot of research information is
-available on the subject, as it is yet another NP Complete problem that was
-presented in the contest.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/JacoCronje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="283329" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_6">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506055" message="discuss this" />&#160;|&#160;
-       <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
