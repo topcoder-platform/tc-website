@@ -51,7 +51,7 @@
       <tc-webtag:handle coderId="22628476" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -60,7 +60,7 @@
       <tc-webtag:handle coderId="11787671" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -69,7 +69,7 @@
       <tc-webtag:handle coderId="15421107" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -78,7 +78,7 @@
       <tc-webtag:handle coderId="10336829" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      submitted
       </td>
    </tr>
    <% even = !even;%>
@@ -87,7 +87,7 @@
       <tc-webtag:handle coderId="8427398" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -96,7 +96,7 @@
       <tc-webtag:handle coderId="21934276" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -105,7 +105,7 @@
       <tc-webtag:handle coderId="21795406" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -114,7 +114,7 @@
       <tc-webtag:handle coderId="15247202" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -123,7 +123,7 @@
       <tc-webtag:handle coderId="22459674" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
@@ -132,7 +132,7 @@
       <tc-webtag:handle coderId="22628550" />
       </td>
       <td class="valueC" nowrap="nowrap">
-      &#160;
+      did not submit
       </td>
    </tr>
    <% even = !even;%>
