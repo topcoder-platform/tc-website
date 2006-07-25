@@ -175,6 +175,7 @@ public class Constants implements WebConstants {
     public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
     public static int TCO05_EVENT_ID;
     public static final int TCO06_EVENT_ID = 5;
+    public static final int TCCC06_EVENT_ID = 6;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
     public static final int TCO06_ALGORITHM_TERMS_OF_USE_ID = 20383;
@@ -182,6 +183,8 @@ public class Constants implements WebConstants {
     public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
     public static final int TCO06_SPONSOR_COMPANY_QUESTION_ID = 31;
     public static final int TCO06_SPONSOR_TERMS_ID = 20388;
+    public static final int TCCC06_ALGORITHM_TERMS_OF_USE_ID = 20504;
+    public static final int TCCC06_COMPONENT_TERMS_OF_USE_ID = 20503;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
