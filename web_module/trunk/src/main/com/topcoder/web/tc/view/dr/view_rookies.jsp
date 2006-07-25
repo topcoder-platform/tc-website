@@ -279,7 +279,7 @@ Please select a <strong>season</strong><br>
 
 <p class="small" align="left">
 * Prizes are based on current earned points and the dollar per point value for completed projects.  Current and future projects may affect the final results.<br>
-** Assuming first place finish for all current contests<br>
+** Assuming first place finish with all current contests with all competitors passing review<br>
 *** Has not yet passed review enough times this season to qualify as a rookie
 </p>
 

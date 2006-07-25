@@ -300,7 +300,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         </table>
 <p class="small" align="left">
 * Prizes are based on current earned points and the dollar per point value for completed projects.  Current and future projects may affect the final results.<br>
-** Assuming first place finish for all current contests
+** Assuming first place finish with all current contests with all competitors passing review
 </p>
 
         <div class="pagingBox" style="width:300px;">
