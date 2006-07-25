@@ -97,8 +97,6 @@ public class RegFieldHelper {
         secondaryCompStudentFields.add(Constants.REFERRAL_CODER);
         secondaryCompStudentFields.add(Constants.REFERRAL_OTHER);
 
-        requiredSecondaryCompStudentFields.add(Constants.GPA);
-        requiredSecondaryCompStudentFields.add(Constants.GPA_SCALE);
         requiredSecondaryCompStudentFields.add(Constants.VISIBLE_SCHOOL);
         requiredSecondaryCompStudentFields.add(Constants.SCHOOL_NAME);
         requiredSecondaryCompStudentFields.add(Constants.SCHOOL_CITY);
