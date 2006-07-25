@@ -18,5 +18,9 @@
         </tac:replaceChildren>
     </c:otherwise>
 </c:choose>
+       <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
+           <script type="text/javascript">
+           </script>
+       </tac:replaceChildren>
 
 </tac:taconiteRoot>
