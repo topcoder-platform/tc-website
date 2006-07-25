@@ -48,12 +48,12 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rul
 <span class="bigTitle">How to Register for the Component Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO Component Design and Development Competition.
+Click <A href="/tc?module=TCCC06ComponentTerms">here</A> to register for the TCCC Component Design and Development Competition.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href="/tc?module=TCO06ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
+Click <A href="/tc?module=TCCC06ComponentTerms">here</A> to register for the TCCC Component Design and Development Competition
 --%>
         </div>
       </td>
