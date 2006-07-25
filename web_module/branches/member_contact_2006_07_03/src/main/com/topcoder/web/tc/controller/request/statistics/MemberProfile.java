@@ -178,7 +178,7 @@ public class MemberProfile extends Base {
 
             boolean memberContactEnabled = false;
             if(rsc.getItem(0, "member_contact_enabled").getResultData() != null) {
-            	memberContactEnabled = rsc.getBooleanItem(0, "member_contact_enabled");
+            	memberContactEnabled = "true".equals(rsc.getStringItem(0, "member_contact_enabled"));
             }
 
             getRequest().setAttribute("resultMap", result);
