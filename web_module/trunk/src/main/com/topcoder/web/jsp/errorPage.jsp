@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="java.util.Date" %>
 <%@ page language="java"
          session="true"
          isErrorPage="true"
@@ -63,6 +64,7 @@
       <br><br>
       If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+       <%=new Date().toString()%>
    </span></b>
     </div>
 </div>
