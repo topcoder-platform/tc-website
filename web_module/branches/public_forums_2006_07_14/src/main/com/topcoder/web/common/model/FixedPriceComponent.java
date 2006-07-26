@@ -43,27 +43,27 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     }
 
     public float getReviewPrice() {
-        return secondaryFixedPayment;
+        return Math.round(secondaryFixedPayment);
     }
 
     public float getAggregationCost() {
-        return super.getAggregationCost() * primaryAdjustmentFactor;
+        return Math.round(super.getAggregationCost() * primaryAdjustmentFactor);
     }
 
     public float getScreeningCost() {
-        return super.getScreeningCost() * primaryAdjustmentFactor;
+        return Math.round(super.getScreeningCost() * primaryAdjustmentFactor);
     }
 
     public float getFinalReviewCost() {
-        return super.getFinalReviewCost() * primaryAdjustmentFactor;
+        return Math.round(super.getFinalReviewCost() * primaryAdjustmentFactor);
     }
 
     public float getCoreReviewCost() {
-        return super.getCoreReviewCost() * primaryAdjustmentFactor;
+        return Math.round(super.getCoreReviewCost() * primaryAdjustmentFactor);
     }
 
     public float getPrimaryReviewPrice() {
-        return primaryFixedPayment > 0 ? primaryFixedPayment : super.getPrimaryReviewPrice();
+        return Math.round(primaryFixedPayment > 0 ? primaryFixedPayment : super.getPrimaryReviewPrice());
     }
 
     private void setPrimaryFixedPayment(float amount) {
