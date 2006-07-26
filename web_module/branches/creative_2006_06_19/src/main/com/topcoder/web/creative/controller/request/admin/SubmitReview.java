@@ -1,8 +1,13 @@
 package com.topcoder.web.creative.controller.request.admin;
 
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.ReviewStatus;
@@ -16,13 +21,10 @@ import com.topcoder.web.creative.model.SubmissionReview;
  */
 public class SubmitReview extends HibernateProcessor {
     protected void dbProcessing() throws Exception {
-        //get submission id
-        //get review text
-        //todo get flag regarding sending email
-
 
         Long submissionId;
         Integer status = null;
+        String response = StringUtils.checkNull(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
 
         try {
             submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
@@ -63,6 +65,18 @@ public class SubmitReview extends HibernateProcessor {
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
             CreativeDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
             markForCommit();
+
+            closeConversation();
+            //have to wrap up the last stuff, and get into new stuff.  we don't want
+            //sending email to be in the transaction
+            beginCommunication();
+
+            User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+            if (!"".equals(response) && u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
+                sendEmail(u.getPrimaryEmailAddress().getAddress(), response, s.getOriginalFileName(), u.getHandle());
+            }
+
             StringBuffer buf = new StringBuffer(50);
             buf.append(getSessionInfo().getServletPath());
             buf.append("?" + Constants.MODULE_KEY + "=AdminViewSubmissions&");
@@ -73,6 +87,27 @@ public class SubmitReview extends HibernateProcessor {
 
         }
 
-
     }
+
+    private void sendEmail(String address, String text, String fileName, String handle) throws Exception {
+
+        TCSEmailMessage mail = new TCSEmailMessage();
+        mail.setSubject("Your submission " + fileName + " has been reviewed");
+        StringBuffer msgText = new StringBuffer(3000);
+
+        msgText.append("Hello ");
+        msgText.append(handle);
+        msgText.append(",\n\n");
+        msgText.append(text);
+
+
+        msgText.append("Regards,\n\nTopCoder Studio");
+
+        mail.setBody(msgText.toString());
+        mail.addToAddress(address, TCSEmailMessage.TO);
+
+        mail.setFromAddress("creativeservice@topcoder.com");
+        EmailEngine.send(mail);
+    }
+
 }
