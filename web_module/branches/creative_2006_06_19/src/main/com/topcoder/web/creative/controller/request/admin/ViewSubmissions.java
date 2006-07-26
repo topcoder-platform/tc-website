@@ -106,7 +106,24 @@ public class ViewSubmissions extends HibernateProcessor {
 
         r.addQuery("submissions", query.toString());
 
+        String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        if (start.equals(""))
+            start = "1";
+        r.setProperty("submissions" + DataAccessConstants.START_RANK, start);
+
+        String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
+        if (end.equals(""))
+            end = String.valueOf(Constants.VIEW_SUBMISSIONS_SCROLL_SIZE);
+
+        if (Integer.parseInt(end) - Integer.parseInt(start) > (Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1)) {
+            r.setProperty("submissions" + DataAccessConstants.END_RANK,
+                    String.valueOf(Integer.parseInt(start) + Constants.VIEW_SUBMISSIONS_SCROLL_SIZE - 1));
+        } else {
+            r.setProperty("submissions" + DataAccessConstants.END_RANK, end);
+        }
+
         getRequest().setAttribute("submissions", dai.getData(r).get("submissions"));
+
 
         SortInfo info = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, info);
