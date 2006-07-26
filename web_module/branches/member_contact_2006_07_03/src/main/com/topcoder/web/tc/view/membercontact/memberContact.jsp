@@ -54,7 +54,7 @@ function keyPress(e) {
   }
 
 function init() {
-<c:if test="${cf:containsMapKey(paramScope, th)}" >
+<c:if test="${not empty !param.th}" >
 	validateHandle(false);
     document.f.<%= MemberContact.TEXT %>.focus();	
 </c:if>
