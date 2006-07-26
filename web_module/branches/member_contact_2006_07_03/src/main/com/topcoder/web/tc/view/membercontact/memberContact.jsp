@@ -15,12 +15,19 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
+var prevCanSend = false;
+
 function canSend() {
    return document.f.<%= MemberContact.TEXT %>.value != "" &&
            document.f.handleValid.value == "true";
 }
 
 function showLink() {
+    if (prevCanSend != canSend()) {
+       alert("validate");
+	    prevCanSend = canSend();
+    }
+    /*
     var txt;
 	if (canSend()) {
 		txt = '<A href="javascript:validateHandle(true)">Send</A>';
@@ -28,6 +35,7 @@ function showLink() {
 		txt = 'Send';
 	}
 	document.getElementById('sendDiv').innerHTML = txt;
+	*/
 }
 
 function afterRequest() 
