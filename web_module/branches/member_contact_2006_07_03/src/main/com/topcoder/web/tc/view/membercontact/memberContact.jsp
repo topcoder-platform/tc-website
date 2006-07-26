@@ -21,7 +21,7 @@ function canSend() {
 }
 
 function showButton() {
-    document.f.submitBtn.disabled=!canSend();
+//    document.f.submitBtn.disabled=!canSend();
 }
 
 function afterRequest() 

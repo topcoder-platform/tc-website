@@ -182,8 +182,8 @@ public class MemberProfile extends Base {
             r.setProperty("cr", coderId);
 
             DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
-            Map result2 = dai.getData(r);
-            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled");
+            Map result2 = dai2.getData(r);
+            ResultSetContainer rsc2 = (ResultSetContainer) result2.get("member_contact_enabled");
 
             boolean memberContactEnabled = false;
             if(rsc2.size() > 0) {
