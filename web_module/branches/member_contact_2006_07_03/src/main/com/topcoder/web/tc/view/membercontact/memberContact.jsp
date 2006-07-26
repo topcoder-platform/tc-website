@@ -25,7 +25,7 @@ function showLink() {
 	if (canSend()) {
 		txt = '<A href="javascript:validateHandle(true)">Send</A>';
 	} else {
-		txt = 'Send;
+		txt = 'Send';
 	}
 	document.getElementById('sendDiv').innerHTML = txt;
 }
