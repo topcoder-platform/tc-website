@@ -10,15 +10,16 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
+import java.util.Iterator;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  *
