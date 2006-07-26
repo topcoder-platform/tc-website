@@ -39,17 +39,17 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=061906"><strong>How to prepare for an Assembly Competition</strong></A>, by <tc-webtag:handle coderId="16096823"/><br>
-What does it take for you and your team to ace TopCoder's next Assembly Competition? The winner of the very first Assembly contest tells all&#8230;</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=061206"><strong>Creating Use Case and Sequence Diagrams</strong></A>, by <tc-webtag:handle coderId="151743"/><br>
-This article provides an overview of use case and sequence diagrams, including how they are created, how they influence design, and how they help developers and users.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=xmiDocumenter"><strong>Using XMI Documenter</strong></a>, by <tc-webtag:handle coderId="15664457" context="development"/><br>
-This article will show how the XMI Documenter component can be used to build an XMI documentation editor which can be used as a replacement for the somewhat sub-optimal documentation editing features of Poseidon.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=072406"><strong>How long will this take, anyway?</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=071706"><strong>An Introduction to AJAX</strong></A>, by <tc-webtag:handle coderId="14995087"/><br>
+AJAX (Asynchronous JavaScript and XML) is the latest boom in the Web development world.&#8230;This article will explore the basics of AJAX programming and then build on it using practical examples.</li>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=071006"><strong>Breaking software for fun and profit</strong></a>, by <tc-webtag:handle coderId="10353806" context="development"/><br>
+Were you the type of child who took apart your parents' appliance to see how they worked? If you like seeing how things work &mdash; and finding ways to make them stop &mdash; then testing might be for you.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=060204"><strong>Java for C++ coders, and vice versa</strong></A>, by <tc-webtag:handle coderId="251184" /><br>
-Three out of the four languages used in TopCoder competitions derive from a common language, C. But there are still differences (and similarities) between C++, Java, and C#. In this feature, I will point out the more significant, and interesting, features that distinguish these three languages&#8230;</li>
+<li><A href="/tc?module=Static&d1=features&d2=040104"><strong>Dynamic Programming</strong></A>, by <tc-webtag:handle coderId="299177" /><br>
+If you were to survey the reds, you would probably find that 9 out of 10 of them recommend the study of dynamic programming as one of the best ways to improve your rating&#8230; and the 10th doesn't only because he makes it a policy never to help future competitors!</li>
 </ul>
 <br>
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br>
