@@ -50,36 +50,49 @@ public class ViewSubmissions extends HibernateProcessor {
 
 
         StringBuffer query = new StringBuffer();
-        query.append("select u.handle as submitter_handle");
-        query.append(" , s.submitter_id");
-        query.append(" , s.original_file_name");
-        query.append(" , s.create_date as submit_date");
-        query.append(" , sr.modify_date as review_date");
-        query.append(" , u1.handle as reviewer_handle");
-        query.append(" , sr.reviewer_id");
-        query.append(" , rs.review_status_desc");
-        query.append(" , s.submission_id");
-        query.append(" from submission s");
-        query.append(" , user u");
+
         if (unMarkedOnly || status == null) {
-            query.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
+            query.append(" select u.handle as submitter_handle ");
+            query.append(" , s.submitter_id ");
+            query.append(" , s.original_file_name ");
+            query.append(" , s.create_date as submit_date ");
+            query.append(" , s.submission_id ");
+            query.append(" from submission s ");
+            query.append(" , user u ");
+            query.append(" where s.submitter_id = u.user_id ");
+            query.append(" and not exists (select '1'  ");
+            query.append(" from submission_review ");
+            query.append(" where submission_id = s.submission_id)");
         } else {
-            query.append(" , submission_review sr");
-            query.append(" , user u1");
-            query.append(" , review_status_lu rs");
-        }
-        query.append(" where u.user_id = s.submitter_id");
-        query.append("  and sr.submission_id = s.submission_id");
-        query.append("  and sr.reviewer_id = u1.user_id");
-        query.append("  and sr.review_status_id = rs.review_status_id");
-        query.append("  and s.contest_id = ").append(contestId);
-        if (!"".equals(handle)) {
-            query.append(" and u.handle_lower = '").append(handle).append("'");
-        }
-        if (unMarkedOnly) {
-            query.append(" and sr.review_status_id is null");
-        } else if (status != null) {
-            query.append(" and sr.review_status_id = ").append(status);
+            query.append("select u.handle as submitter_handle");
+            query.append(" , s.submitter_id");
+            query.append(" , s.original_file_name");
+            query.append(" , s.create_date as submit_date");
+            query.append(" , sr.modify_date as review_date");
+            query.append(" , u1.handle as reviewer_handle");
+            query.append(" , sr.reviewer_id");
+            query.append(" , rs.review_status_desc");
+            query.append(" , s.submission_id");
+            query.append(" from submission s");
+            query.append(" , user u");
+            if (status == null) {
+                query.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
+            } else {
+                query.append(" , submission_review sr");
+                query.append(" , user u1");
+                query.append(" , review_status_lu rs");
+            }
+            query.append(" where u.user_id = s.submitter_id");
+            query.append("  and sr.submission_id = s.submission_id");
+            query.append("  and sr.reviewer_id = u1.user_id");
+            query.append("  and sr.review_status_id = rs.review_status_id");
+            query.append("  and s.contest_id = ").append(contestId);
+            if (!"".equals(handle)) {
+                query.append(" and u.handle_lower = '").append(handle).append("'");
+            }
+            if (status != null) {
+                query.append(" and sr.review_status_id = ").append(status);
+            }
         }
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -104,6 +117,7 @@ public class ViewSubmissions extends HibernateProcessor {
         if (!"".equals(handle)) {
             setDefault(Constants.HANDLE, handle);
         }
+        getRequest().setAttribute("unMarkedOnly", Boolean.valueOf(unMarkedOnly));
 
         setNextPage("/admin/viewSubmissions.jsp");
         setIsNextPageInContext(true);
