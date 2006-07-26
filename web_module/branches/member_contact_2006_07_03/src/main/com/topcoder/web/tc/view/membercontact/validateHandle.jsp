@@ -19,16 +19,10 @@
     </c:otherwise>
 </c:choose>
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
-           <script id="s" type="text/javascript">
-               document.f.handleValid.value = <c:out value="${result.valid}" />;
-               if (canSend()) {
-                    <c:set value="<%=MemberContact.SEND%>" var="send"/>
-                    <c:if test="${result.valid && cf:containsMapKey(param, send)}" >
-                       document.f.submit();
-                    </c:if>
-               }
-                showButton();                          
-           </script>
+       <div>
+	       	<input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${result.valid}" />" />
+	       	<input type="hidden" id="doSend" name="doSend" value="<c:out value="${cf:containsMapKey(param, send)}" />" />       
+       </div>
        </tac:replaceChildren>
 
 </tac:taconiteRoot>

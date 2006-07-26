@@ -15,15 +15,6 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
-function validateHandle(send) {
-    var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
-    if (send) {
-        ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
-    }
-    ajaxRequest.sendRequest();
-}
-
 function canSend() {
    return document.f.<%= MemberContact.TEXT %>.value != "" &&
            document.f.handleValid.value == "true";
@@ -31,6 +22,24 @@ function canSend() {
 
 function showButton() {
     document.f.submitBtn.disabled=!canSend();
+}
+
+function afterRequest() 
+{
+    showButton();                          
+    if (canSend() && document.f.doSend.value =="true") {
+            document.f.submit();
+    }
+}
+
+function validateHandle(send) {
+    var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
+    ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
+    if (send) {
+        ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
+    }
+    ajaxRequest.setPostRequest(afterRequest);
+    ajaxRequest.sendRequest();
 }
 
 function keyPress(e) {
@@ -45,7 +54,7 @@ function keyPress(e) {
   }
 
 function init() {
-<c:if test="${cf:containsMapKey(param, th)}" >
+<c:if test="${cf:containsMapKey(paramScope, th)}" >
 	validateHandle(false);
     document.f.<%= MemberContact.TEXT %>.focus();	
 </c:if>
@@ -105,7 +114,6 @@ function init() {
 </c:if>
 <br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
-<input type="hidden" id="handleValid" name="handleValid" value="false" />
 
 To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
@@ -123,6 +131,8 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/> 
 
 <div id="runJS">
+<input type="hidden" id="handleValid" name="handleValid" value="false" />
+<input type="hidden" id="doSend" name="doSend" value="false" />       
 </div>
 </form>
 
