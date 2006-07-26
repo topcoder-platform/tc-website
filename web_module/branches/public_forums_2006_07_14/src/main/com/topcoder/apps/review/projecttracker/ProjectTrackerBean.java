@@ -339,7 +339,8 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_resp_id, rur.login_id, " +
                                 "rur.r_user_role_v_id, " +
                                 "pinf.payment, pinf.payment_stat_id, " +
-                                "pinf.payment_info_v_id " +
+                                "pinf.payment_info_v_id, " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = 20845595) as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "comp_catalog cc, comp_versions cv, " +
                                 "comp_categories ccat, categories cat, categories pcat, " +
