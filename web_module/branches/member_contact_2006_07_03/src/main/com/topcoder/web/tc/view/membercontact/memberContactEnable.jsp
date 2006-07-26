@@ -45,10 +45,7 @@ Do you want to enable other members to contact you?
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
 <form action="/tc" >
-<input type="hidden" name="enable" value="true" />
-<input type="hidden" name="module" value="MemberContactEnable" />
-
-<A href="/tc?module=MemberContactEnable">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
+<A href="/tc?module=MemberContactEnable&enable=true">Enable</A> &#160; <A href="/tc?module=MemberContact">Cancel</A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
