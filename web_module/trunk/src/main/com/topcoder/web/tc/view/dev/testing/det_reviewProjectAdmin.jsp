@@ -53,15 +53,17 @@ TopCoder will modify their current Online Review Admin tool to enhance the Onlin
 Although the application will be initially used by TopCoder, it should be built so that it is generic enough for any organization to use.
 <br><br>
 <span class="bodySubtitle">Competition Overview</span><br>
-This assembly competition will consist of creating projects, editing projects, viewing projects, performing various project operations (i.e. performing submission, screenings, uploading test cases), ending phases and posting deliverables.
+The tests in this competition will be concerned with creating projects, editing projects, viewing projects, performing various project operations (i.e. performing submission, screenings, uploading test cases), ending phases and posting deliverables.
 <br><br>
+<div align="right"><A href="/tc?module=Static&d1=features&d2=071006"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+
 <div class="sectionHeader">Technologies</div>
 <ul>
 <li>HTMLUnit (required)</li>
 <li>JUnit</li>
 </ul>
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="">here</A>.
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23053483">here</A>.
 <br><br>
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate teams with first and second place submissions.
@@ -86,7 +88,7 @@ If you do not reside in the United States:
 <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
 </ul>
 <div class="sectionHeader">Timeline</div>
-All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00PM EST.
+All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00 AM EST.
 <br><br>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
