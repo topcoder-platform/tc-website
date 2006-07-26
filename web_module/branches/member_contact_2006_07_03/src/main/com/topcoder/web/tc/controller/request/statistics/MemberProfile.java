@@ -189,7 +189,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
-            getRequest().setAttribute("memberContacEnabled", new Boolean(memberContactEnabled));
+            getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("tab", tab);
             
             setNextPage(Constants.MEMBER_PROFILE);
