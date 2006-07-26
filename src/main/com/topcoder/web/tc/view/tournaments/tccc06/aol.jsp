@@ -35,6 +35,10 @@
             <br><br>
 
             <div class="bodySpacer">
+               <div align="center">
+               <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">SRM 312 Chat Transcript</A>
+               </div>
+               <br><br>
                 <span class="smallText">* The TopCoder Collegiate Challenge is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the Challenge.</span>
             </div>
             <br><br>
