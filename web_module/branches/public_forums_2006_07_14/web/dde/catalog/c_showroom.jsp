@@ -105,18 +105,22 @@
                 + "                <td width=\"25\" class=\"catalogText\"><img src=\"" + getStatusIcon((int) comps[i].getPhase()) + "\" alt=\"\" width=\"25\" height=\"17\" border=\"0\" /></td>\n"
                 + "                <td width=\"5\" class=\"catalogText\"><img src=\"/images/clear.gif\" alt=\"\" width=\"5\" height=\"5\" border=\"0\"/></td>\n"
                 + "                <td width=\"35\" class=\"catalogText\">";
-            switch (catalog) {
-                case 0:
-                    rv += "<img src=\"/images/javaSm.gif\" alt=\"\" border=\"0\" />";
-                    break;
-                case 1:
-                    rv += "<img src=\"/images/netSm.gif\" alt=\"\" border=\"0\" />";
-                    break;
-                case 2:
-                    rv += "<img src=\"/images/flashSm.gif\" alt=\"\" border=\"0\" />";
-                    break;
-                default:
-                    break;
+            if (comps[i].getAolComponent()) {
+                rv += "<img src=\"/images/aolSm.gif\" alt=\"\" border=\"0\" />";
+            } else {
+                switch (catalog) {
+                    case 0:
+                        rv += "<img src=\"/images/javaSm.gif\" alt=\"\" border=\"0\" />";
+                        break;
+                    case 1:
+                        rv += "<img src=\"/images/netSm.gif\" alt=\"\" border=\"0\" />";
+                        break;
+                    case 2:
+                        rv += "<img src=\"/images/flashSm.gif\" alt=\"\" border=\"0\" />";
+                        break;
+                    default:
+                        break;
+                }
             }
             rv += "</td>\n"
                 + "                <td width=\"5\" class=\"catalogText\"><img src=\"/images/clear.gif\" alt=\"\" width=\"5\" height=\"5\" border=\"0\"/></td>\n"
