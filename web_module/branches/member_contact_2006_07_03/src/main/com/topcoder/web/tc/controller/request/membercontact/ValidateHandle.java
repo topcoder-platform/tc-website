@@ -25,7 +25,7 @@ public class ValidateHandle extends HibernateProcessor {
         
         ValidationResult handleValidation = new HandleValidator(user).validate(new StringInput(handle));
         ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
-        	.validate(new StringInput(MemberContact.TO_HANDLE));
+        	.validate(new StringInput(MemberContact.TEXT));
         
         getRequest().setAttribute("handleValidation", handleValidation);        
         getRequest().setAttribute("textValidation", textValidation);
