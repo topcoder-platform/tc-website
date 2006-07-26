@@ -39,9 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<%--
-<tr class="bodyText"><td nowrap="nowrap">03.16.06 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=ubs_chat_031606">UBS TCO06 Round 3 chat session transcript</A></td></tr>
---%>
+<tr class="bodyText"><td nowrap="nowrap">07.26.06 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.20.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Rep for the TCCC06?</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.19.06 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.05.06 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=logo_winner">kristofferrouge is the TCCC06 Logo Contest Winner!</A></td></tr>
