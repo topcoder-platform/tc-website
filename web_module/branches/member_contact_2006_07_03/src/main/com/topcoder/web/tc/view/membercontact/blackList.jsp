@@ -21,7 +21,7 @@ iniUsers[i++] = "<c:out value="${recentUser.id}" />";
 </c:forEach>
 
 
-
+var blockDisabled = false;
 var iniBlocked = new Array();
 i = 0;
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
@@ -29,7 +29,7 @@ iniBlocked[i++] = "<c:out value="${blockedUser.id}" />";
 </c:forEach>
 
 function blockHandle(handle) {
-    if (document.f.blockBtn.disabled) return;
+    if (blockDisabled) return;
     
 
     handle = handle.toLowerCase();
@@ -48,7 +48,7 @@ function blockHandle(handle) {
         }
     }
 
-    document.f.blockBtn.disabled = true;
+    blockDisabled = true;
 
     var ajaxRequest = new AjaxRequest('/tc?module=BlockHandle');
     ajaxRequest.addFormElementsById("handle");
@@ -107,7 +107,7 @@ function unblock() {
 function addBlockedUser(id, handle)
 {
     insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;   
-    document.f.blockBtn.disabled = false;
+    blockDisabled= false;
 }
 
 function getNewElements(initial, current)
