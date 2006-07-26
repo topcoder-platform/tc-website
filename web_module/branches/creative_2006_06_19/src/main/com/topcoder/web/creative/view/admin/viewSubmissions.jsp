@@ -81,6 +81,12 @@
             show submissions that are unmarked</a>
     </td>
 </tr>
+<tr>
+    <td colspan="7">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">show
+            all submissions</a>
+    </td>
+</tr>
 
 <tr>
     <td colspan="7">
