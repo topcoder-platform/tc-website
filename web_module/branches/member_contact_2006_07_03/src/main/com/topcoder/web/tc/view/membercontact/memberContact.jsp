@@ -20,13 +20,19 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
-function showButton() {
-//    document.f.submitBtn.disabled=!canSend();
+function showLink() {
+    var txt;
+	if (canSend()) {
+		txt = '<A href="javascript:validateHandle(true)">Send</A>';
+	} else {
+		txt = 'Send;
+	}
+	document.getElementById('sendDiv').innerHTML = txt;
 }
 
 function afterRequest() 
 {
-    showButton();                          
+    showLink();                          
     if (canSend() && document.f.doSend.value =="true") {
             document.f.submit();
     }
@@ -121,14 +127,14 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <span class="smallText">(enter member handle only)</span>
 <br/><br/>
 
-<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showButton()'></textarea>
+<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showLink()'></textarea>
 <br/><br/>
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
-<A name="submitBtn" href="javascript:validateHandle(true)">Send</A>
 
-<!--  input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/ --> 
+<div id="sendDiv">
+</div>
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
