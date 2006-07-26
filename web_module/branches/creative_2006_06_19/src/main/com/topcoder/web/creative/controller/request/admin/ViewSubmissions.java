@@ -27,7 +27,7 @@ public class ViewSubmissions extends HibernateProcessor {
         Long contestId;
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE)).trim().toLowerCase();
         Integer status = null;
-        boolean unMarkedOnly = false;
+        boolean unMarkedOnly;
 
         try {
             contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
@@ -37,8 +37,8 @@ public class ViewSubmissions extends HibernateProcessor {
 
         try {
             unMarkedOnly = "null".equals(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
-            if (!unMarkedOnly && !"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID))))
-            {
+            if (!unMarkedOnly &&
+                    !"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))) {
                 status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
             }
         } catch (NumberFormatException e) {
@@ -51,7 +51,7 @@ public class ViewSubmissions extends HibernateProcessor {
 
         StringBuffer query = new StringBuffer();
 
-        if (unMarkedOnly || status == null) {
+        if (unMarkedOnly) {
             query.append(" select u.handle as submitter_handle ");
             query.append(" , s.submitter_id ");
             query.append(" , s.original_file_name ");
