@@ -133,7 +133,7 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         getRequest().setAttribute("submissions", dai.getData(r).get("submissions"));
-        getRequest().setAttribute("count", ((ResultSetContainer) dai.getData(r).get("county")).getItem(0, 0));
+        getRequest().setAttribute("count", ((ResultSetContainer) dai.getData(r).get("count")).getItem(0, 0));
 
 
         SortInfo info = new SortInfo();
