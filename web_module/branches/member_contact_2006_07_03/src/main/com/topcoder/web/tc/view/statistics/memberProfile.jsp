@@ -104,7 +104,7 @@ This member has not yet been rated in a competition.
             <% }%>
             <tr><td class="cat" colspan="2">
             <% if(memberContactEnabled) { %>
-	            <A href="/tc?module=MemberContact&th="<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
+	            <A href="/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
             <% } %>
             <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A><br>
              <% if (rscCoderData.getIntItem(0, "has_achievements")>0) { %>

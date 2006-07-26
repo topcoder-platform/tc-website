@@ -45,17 +45,18 @@ public class MemberContact extends HibernateProcessor {
 	        setIsNextPageInContext(true);
 	        return;
 		}
+        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
+		/*
 
         String toHandle = getRequest().getParameter(TO_HANDLE);
         String message = getRequest().getParameter(TEXT);
         boolean sendCopy = getRequest().getParameter(SEND_COPY) != null;
-        User sender  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         // if a handle is specified, send an email
         if (toHandle != null && message != null) {
 
-        	// Check again that the user is valid, in case that someone has tweaked the jsp
+			// Check again that the user is valid, in case that someone has tweaked the jsp
         	// or some kind of hack
             ValidationResult result = new HandleValidator(sender).validate(new StringInput(toHandle));
             if (!result.isValid()) {
@@ -94,7 +95,7 @@ public class MemberContact extends HibernateProcessor {
 
             markForCommit();
         }
-
+*/
         if (!sender.isMemberContactEnabled()) {
         	getRequest().setAttribute(CAN_RECEIVE, String.valueOf(true));
         }
