@@ -21,7 +21,7 @@
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
        <div>
 	       	<input type="hidden" id="handleValid" name="handleValid" value="<c:out value="${result.valid}" />" />
-	       	<input type="hidden" id="doSend" name="doSend" value="<c:out value="${not empty param.send)}" />" />       
+	       	<input type="hidden" id="doSend" name="doSend" value="<c:out value="${not empty param.send}" />" />       
        </div>
        </tac:replaceChildren>
 
