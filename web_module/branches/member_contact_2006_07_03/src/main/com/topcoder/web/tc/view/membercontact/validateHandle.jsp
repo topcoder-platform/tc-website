@@ -19,7 +19,7 @@
     </c:otherwise>
 </c:choose>
        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
-           <script type="text/javascript">
+           <script id="s" type="text/javascript">
                document.f.handleValid.value = <c:out value="${result.valid}" />;
                if (canSend()) {
                     <c:set value="<%=MemberContact.SEND%>" var="send"/>
