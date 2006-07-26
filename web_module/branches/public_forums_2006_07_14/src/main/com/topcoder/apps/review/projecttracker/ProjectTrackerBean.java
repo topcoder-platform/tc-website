@@ -153,6 +153,7 @@ public class ProjectTrackerBean implements SessionBean {
                 boolean responseDuringAppeals = rs.getBoolean(16);
                 boolean aolComponent = (rs.getObject(17) != null);
 
+                System.out.println("aolComponent" + aolComponent);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
