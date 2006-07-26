@@ -25,12 +25,18 @@
 </logic:notEqual>
 					</td>
 					<td width="5%">
-<logic:equal name="project" property="project.catalog" value="Java">
-						<img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
+
+<logic:equal name="project" property="project.aolComponent" value="true">
+                                <img src="/images/aolSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
-<logic:equal name="project" property="project.catalog" value=".NET">
-						<img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
-</logic:equal>
+<logic:notEqual name="project" property="project.aolComponent" value="true">
+    <logic:equal name="project" property="project.catalog" value="Java">
+    						<img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
+    </logic:equal>
+    <logic:equal name="project" property="project.catalog" value=".NET">
+    						<img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
+    </logic:equal>
+</logic:notEqual>
 					</td>
 					<td width="40%" nowrap class="tableHeader">
 						<strong><bean:write name="project" property="name" /></strong>

@@ -25,9 +25,10 @@
 </logic:notEqual>
 					</td>
                     <td width="5%">
-
+<strong><bean:write name="project" property="project.aolComponent" /></strong>
+    
 <logic:equal name="project" property="project.aolComponent" value="true">
-                                <img src="/images/aolSm.gif" alt="" border="0">
+                                <img src="/images/aolSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:notEqual name="project" property="project.aolComponent" value="true">
     <logic:equal name="project" property="project.catalog" value="Java">

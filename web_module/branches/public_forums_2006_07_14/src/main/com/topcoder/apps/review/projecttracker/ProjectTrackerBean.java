@@ -153,8 +153,6 @@ public class ProjectTrackerBean implements SessionBean {
                 boolean responseDuringAppeals = rs.getBoolean(16);
                 boolean aolComponent = (rs.getObject(17) != null);
 
-                System.out.println("aolComponent" + aolComponent);
-
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
 
@@ -232,6 +230,9 @@ public class ProjectTrackerBean implements SessionBean {
                         requestor.getUserId(), projectVersionId, levelId, autopilot,
                         responseDuringAppeals, aolComponent);
                 project.setCatalog(catalogName);
+
+                System.out.println("aolComponent" + project.getAolComponent());
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
