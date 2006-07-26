@@ -108,7 +108,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><span class="bigRed">AOL_Shawn</span></td><td class="light"><span class="bigRed">dskloet: aimpages.com</span></td></tr>
 <tr><td class="dark"><b>Turning</b></td><td class="dark">diecast: Is there any intern opportunity in AOL</td></tr>
 <tr><td class="light"><span class="bigRed">AOL_Carl</span></td><td class="light"><span class="bigRed">You will have an opportunity to meet with The developers and recruiting team at the finals in San Deigo</span></td></tr>
-<tr><td class="dark"><span class="bigRed">AOL_Naveed</span></td><td class="dark"><span class="bigRed">by visiting http://www.corp.aol.com/careers/index.html</span></td></tr>
+<tr><td class="dark"><span class="bigRed">AOL_Naveed</span></td><td class="dark"><span class="bigRed">by visiting http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol</span></td></tr>
 <tr><td class="light"><span class="bigRed">AOL_Shawn</span></td><td class="light"><span class="bigRed">Yes, we have an intern program.</span></td></tr>
 <tr><td class="dark"><span class="bigRed">AOL_Naveed</span></td><td class="dark"><span class="bigRed">rag</span></td></tr>
 <tr><td class="light"><b>S_A_R_O_J</b></td><td class="light">AOL_Naveed: what are the products or areas AOL covers in bangalore</td></tr>
@@ -148,7 +148,6 @@ padding: 3px 5px 3px 5px;
 <tr><td class="light"><span class="bigRed">AOL_Naveed</span></td><td class="light"><span class="bigRed">here is the list of http://about.aol.com/international_services</span></td></tr>
 <tr><td class="dark"><b>diecast</b></td><td class="dark">AOL_Shawn: I applied for a job there yesterday and I was curious</td></tr>
 <tr><td class="light"><span class="bigRed">AOL_Shawn</span></td><td class="light"><span class="bigRed">diecast: Cool!</span></td></tr>
-<tr><td class="dark"><span class="bigRed">AOL_Carl</span></td><td class="dark"><span class="bigRed">You can talk to me directly about opportunities. ccoppadge11@aol.com</span></td></tr>
 <tr><td class="light"><b>diecast</b></td><td class="light">AOL_Shawn: Part of the MCI exodus lol</td></tr>
 <tr><td class="dark"><b>maksdamir</b></td><td class="dark">zmaks: hi</td></tr>
 <tr><td class="light"><b>raghibkhan_786</b></td><td class="light">AOL_Naveed: you ar spending so much in organising the TCCC '06 .do you have any requirements reagarding the numbers of employees you will recruit??</td></tr>
@@ -193,7 +192,7 @@ padding: 3px 5px 3px 5px;
 <tr><td class="dark"><span class="bigRed">AOL_Shawn</span></td><td class="dark"><span class="bigRed">Boxley is written C++ but it also sports a JavaScript API.</span></td></tr>
 <tr><td class="light"><b>prayanks</b></td><td class="light">AOL_Carl: If I'm from Bangalore, but want a job in one of the offices outside of India in AOL is it possible? How do I  go about it ?</td></tr>
 <tr><td class="dark"><span class="bigRed">AOL_Naveed</span></td><td class="dark"><span class="bigRed">here is more detail on AOL India office</span></td></tr>
-<tr><td class="light"><span class="bigRed">AOL_Naveed</span></td><td class="light"><span class="bigRed">http://aolcareers.com/india/teams.shtml</span></td></tr>
+<tr><td class="light"><span class="bigRed">AOL_Naveed</span></td><td class="light"><span class="bigRed">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol</span></td></tr>
 <tr><td class="dark"><b>ashish_bhatia</b></td><td class="dark">AO does AOL</td></tr>
 <tr><td class="light"><b>S_A_R_O_J</b></td><td class="light">AOL_Carl: and how soon would we be hearing from AOL ??</td></tr>
 <tr><td class="dark"><b>SystemCoder</b></td><td class="dark">Are you guys going to continue to offer development contests after sponsoring the TCCC?</td></tr>
@@ -237,11 +236,9 @@ padding: 3px 5px 3px 5px;
 <tr><td class="dark"><b>otoc</b></td><td class="dark">AOL_Carl: thx</td></tr>
 <tr><td class="light"><span class="bigRed">AOL_Shawn</span></td><td class="light"><span class="bigRed">S_A_R_O_J: Well be sure to toss us a resume, then.  Do you have a site that features your work that i can check out</span></td></tr>
 <tr><td class="dark"><span class="bigRed">AOL_Shawn</span></td><td class="dark"><span class="bigRed">S_A_R_O_J: ?</span></td></tr>
-<tr><td class="light"><b>otoc</b></td><td class="light">AOL_Carl: can I have your AOL handle? I'm using one now :)</td></tr>
 <tr><td class="dark"><b>wliu</b></td><td class="dark">Is there data mining work in AOL?</td></tr>
 <tr><td class="light"><b>FreeDian</b></td><td class="light">AOL_Naveed: what is the most popular programming language in AOL? and what about script language?</td></tr>
 <tr><td class="dark"><b>S_A_R_O_J</b></td><td class="dark">AOL_Shawn: well ... its an intranet of sierra atlantic :)</td></tr>
-<tr><td class="light"><span class="bigRed">AOL_Carl</span></td><td class="light"><span class="bigRed">carlcoppadge11@aol.com</span></td></tr>
 <tr><td class="dark"><b>otoc</b></td><td class="dark">AOL_Carl: thx a lot, nice to talk with you</td></tr>
 <tr><td class="light"><span class="bigRed">AOL_Carl</span></td><td class="light"><span class="bigRed">same</span></td></tr>
 <tr><td class="dark"><b>cyberjag</b></td><td class="dark">when will boxley be released ?</td></tr>
