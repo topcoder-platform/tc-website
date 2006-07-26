@@ -21,8 +21,8 @@ public class TCCC06AlgorithmTerms extends TermsBase {
 
     public Calendar getBeginning() {
         Calendar beginning = Calendar.getInstance();
-        beginning.set(2006, Calendar.FEBRUARY, 13, 9, 0);
-        //beginning.set(2006, Calendar.AUGUST, 28, 9, 0);
+        //beginning.set(2006, Calendar.FEBRUARY, 13, 9, 0);
+        beginning.set(2006, Calendar.AUGUST, 28, 9, 0);
         return beginning;
     }
 
