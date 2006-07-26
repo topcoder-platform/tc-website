@@ -43,6 +43,10 @@ public class ComponentSummary implements java.io.Serializable {
     private double price;
     private long status;
 
+    private boolean aolComponent;
+
+
+
     public long getRootCategory() {
         return rootCategory;
     }
@@ -53,7 +57,7 @@ public class ComponentSummary implements java.io.Serializable {
     ComponentSummary(long compId, long verId, long ver, String name,
                      String versionLabel, String comments, String shortDescription,
                      String description, long phase, Date phaseDate, double price,
-                     long status, long rootCategory) {
+                     long status, long rootCategory, boolean aolComponent) {
         componentId = compId;
         versionId = verId;
         version = ver;
@@ -67,6 +71,7 @@ public class ComponentSummary implements java.io.Serializable {
         this.price = price;
         this.status = status;
         this.rootCategory = rootCategory;
+        this.aolComponent = aolComponent;
     }
 
 
@@ -178,6 +183,21 @@ public class ComponentSummary implements java.io.Serializable {
      */
     public long getStatus() {
         return status;
+    }
+
+
+    /**
+     * @return true if it's an aol component
+     */
+    public boolean getAolComponent() {
+        return aolComponent;
+    }
+
+    /**
+     * @param aolComponent True if it's an aol component
+     */
+    public void setAolComponent(boolean aolComponent) {
+        this.aolComponent = aolComponent;
     }
 
     /**

@@ -138,9 +138,13 @@
         Flag odd = new Flag(true);
         for (int i = 0; i < comps.length; i++) {
             int catalog = -1;
-            if (comps[i].getRootCategory() == javaId) catalog = 0;
-            else if (comps[i].getRootCategory() == netId) catalog = 1;
-            else if (comps[i].getRootCategory() == flashId) catalog = 2;
+            if (comps[i].getAolComponent()) {
+                catalog = 3;
+            } else {
+                if (comps[i].getRootCategory() == javaId) catalog = 0;
+                else if (comps[i].getRootCategory() == netId) catalog = 1;
+                else if (comps[i].getRootCategory() == flashId) catalog = 2;
+            }
             rv += "<tr valign=\"top\">\n"
                 + "    <td class=\"catalogText" + (odd.getValue() ? "Odd" : "Even" ) + "\">\n"
                 + "        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n"
@@ -157,6 +161,9 @@
                         break;
                     case 2:
                         rv += "<img src=\"/images/flashSm.gif\" alt=\"\" border=\"0\" />";
+                        break;
+                    case 3:
+                        rv += "<img src=\"/images/aolSm.gif\" alt=\"\" border=\"0\" />";
                         break;
                     default:
                         break;

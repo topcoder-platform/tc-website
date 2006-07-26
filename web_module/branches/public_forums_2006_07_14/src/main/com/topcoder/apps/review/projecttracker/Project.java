@@ -554,7 +554,7 @@ public class Project implements Serializable {
     }
 
     /**
-     * @param catalog True if it's an aol component
+     * @param aolComponent True if it's an aol component
      */
     public void setAolComponent(boolean aolComponent) {
         this.aolComponent = aolComponent;

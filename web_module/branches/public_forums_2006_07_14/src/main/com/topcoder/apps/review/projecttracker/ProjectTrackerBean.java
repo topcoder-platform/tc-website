@@ -69,7 +69,7 @@ public class ProjectTrackerBean implements SessionBean {
     private DocumentManagerLocal documentManager;
     private IdGen idGen;
 
-    private final String THUNDERBIRD_EXTENSION_CAT_ID = "22774808";
+    private static final String THUNDERBIRD_EXTENSION_CAT_ID = "22774808";
 
     //private ComponentManagerHome componentManagerHome;
 
