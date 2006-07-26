@@ -22,38 +22,31 @@ function canSend() {
            document.f.handleValid.value == "true";
 }
 
-function showLink() {
-    if (prevCanSend != canSend()) {
-       alert("validate");
-	    prevCanSend = canSend();
-    }
-    /*
-    var txt;
-	if (canSend()) {
-		txt = '<A href="javascript:validateHandle(true)">Send</A>';
-	} else {
-		txt = 'Send';
-	}
-	document.getElementById('sendDiv').innerHTML = txt;
-	*/
-}
 
-function afterRequest() 
-{
-    showLink();                          
-    if (canSend() && document.f.doSend.value =="true") {
-            document.f.submit();
-    }
-}
 
-function validateHandle(send) {
+function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
     ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
+    ajaxRequest.addFormElementsById("<%= MemberContact.TEXT %>");    
     if (send) {
         ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
     }
     ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
+}
+
+function textChanged() {
+    if (prevCanSend != canSend()) {
+		validate(false);
+	    prevCanSend = canSend();
+    }
+}
+
+function afterRequest() 
+{
+    if (canSend() && document.f.doSend.value == "true") {
+        document.f.submit();
+    }
 }
 
 function keyPress(e) {
@@ -70,7 +63,7 @@ function keyPress(e) {
 function init() {
     document.f.<%= MemberContact.TO_HANDLE %>.focus();
 <c:if test="${not empty param.th}" >
-	validateHandle(false);
+	validate(false);
     document.f.<%= MemberContact.TEXT %>.focus();	
 </c:if>
 }
@@ -130,18 +123,18 @@ function init() {
 <br>
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 
-To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(enter member handle only)</span>
 <br/><br/>
 
-<textarea name='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='showLink()'></textarea>
+<textarea name='<%= MemberContact.TEXT %>' id='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
 <br/><br/>
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
 
-<div id="sendDiv">
+<div id="sendLink">
 </div>
 
 <div id="runJS">
