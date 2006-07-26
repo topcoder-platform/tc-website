@@ -24,17 +24,17 @@ import java.util.Map;
  *
  * @author rfairfax
  */
-public class MemberProfile extends Base { 
-    
+public class MemberProfile extends Base {
+
     protected void businessProcessing() throws TCWebException {
         try {
-            //step 1, get the base data used for the top section           
+            //step 1, get the base data used for the top section
             if(!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
             }
-            
+
             String coderId = getRequest().getParameter("cr");
-            
+
             Request r = new Request();
             r.setContentHandle("member_profile");
             r.setProperty("cr", coderId);
@@ -42,7 +42,7 @@ public class MemberProfile extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("Coder_Data");
-            
+
             //here we want to get the current tab, then load data for that tab
             boolean hasAlg = false;
             boolean hasHS = false;
@@ -51,17 +51,17 @@ public class MemberProfile extends Base {
             boolean hasDev = false;
             boolean hasLong = false;
 
-            
+
             int algRating = 0;
             int hsRating = 0;
             int desRating = 0;
             int devRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
-            
+
             if(rsc.size() != 0) {
-            
-                if((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {                    
+
+                if((rsc.getItem(0, "rating").getResultData() != null) && (rsc.getIntItem(0, "rating") != 0)) {
                     hasAlg = true;
                     algRating = rsc.getIntItem(0, "rating");
                 }
@@ -83,7 +83,7 @@ public class MemberProfile extends Base {
 
                 log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
                 hasLong=rsc.getStringItem(0, "has_long_comp").equals("1");
-                
+
                 registeredHS = rsc.getIntItem(0, "hs_registered") == 1;
 
                 //get the selected tab
@@ -123,7 +123,7 @@ public class MemberProfile extends Base {
                         r.setContentHandle("Coder_hs_Data");
                         r.setProperty("cr", coderId);
                         r.setProperty("ratid", "2");
-                        
+
                         dai = getDataAccess(true);
                         Map algoData = dai.getData(r);
                         Iterator it = algoData.keySet().iterator();
@@ -131,7 +131,7 @@ public class MemberProfile extends Base {
                             String key = (String) it.next();
                             result.put(key, algoData.get(key));
                         }
-                                                                    
+
                 } else if(tab.equals("des")) {
                     //load des data from Coder_Des_Data
                     r = new Request();
@@ -176,13 +176,21 @@ public class MemberProfile extends Base {
                 }
             }
 
+			r = new Request();
+            r.setContentHandle("member_contact_enabled");
+            r.setProperty("cr", coderId);
+
+            DataAccessInt dai2 = getDataAccess(DMBS.OLTP_DATASOURCE_NAME, true);
+            Map result2 = dai.getData(r);
+            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled");
+
             boolean memberContactEnabled = false;
-            if(rsc.getItem(0, "member_contact_enabled").getResultData() != null) {
-            	memberContactEnabled = "true".equals(rsc.getStringItem(0, "member_contact_enabled"));
+            if(rsc2.size() > 0) {
+            	memberContactEnabled = "true".equals(rsc2.getStringItem(0, "member_contact_enabled"));
             }
 
             getRequest().setAttribute("resultMap", result);
-            
+
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasHS", new Boolean(hasHS));
             getRequest().setAttribute("registeredHS", new Boolean(registeredHS));
@@ -191,7 +199,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("tab", tab);
-            
+
             setNextPage(Constants.MEMBER_PROFILE);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
@@ -200,5 +208,5 @@ public class MemberProfile extends Base {
             throw new TCWebException(e);
         }
     }
-    
+
 }
