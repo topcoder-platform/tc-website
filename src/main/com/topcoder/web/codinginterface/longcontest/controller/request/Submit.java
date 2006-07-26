@@ -182,7 +182,7 @@ public class Submit extends Base {
                     request.setAttribute(Constants.CODE, code);
                 }
                 log.debug("set message in request to " + message);
-                request.setAttribute(Constants.LANGUAGES, getLanguages());
+                request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
                 setNextPage(Constants.SUBMISSION_JSP);
                 if (isNearEnd(rid)) {
                     request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + NEAR_END);
@@ -196,7 +196,7 @@ public class Submit extends Base {
                 if (language <= 0) {
                     log.debug("set message in request to please select a language");
                     request.setAttribute(Constants.MESSAGE, "Please select a language.");
-                    request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
@@ -217,7 +217,7 @@ public class Submit extends Base {
                     if (language > 0) {
                         setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                     }
-                    request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
                     request.setAttribute(Constants.MESSAGE, tRes.getMessage());
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
@@ -304,7 +304,7 @@ public class Submit extends Base {
                     } else {
                         request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
                     }
-                    request.setAttribute(Constants.LANGUAGES, getLanguages());
+                    request.setAttribute(Constants.LANGUAGES, getLanguages(roundTypeID));
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                 } else {
@@ -404,14 +404,17 @@ public class Submit extends Base {
 
 
     //todo this may need to be modified if in the future we limit which languages are available
-    protected static List getLanguages() {
+    protected static List getLanguages(int roundType) {
         List ret = new ArrayList(4);
         ret.add(JavaLanguage.JAVA_LANGUAGE);
         ret.add(CPPLanguage.CPP_LANGUAGE);
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
-        if (com.topcoder.shared.util.ApplicationServer.ENVIRONMENT != com.topcoder.shared.util.ApplicationServer.PROD) {
-            ret.add(PythonLanguage.PYTHON_LANGUAGE);
+        if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.LONG_ROUND_TYPE_ID) {
+            if (com.topcoder.shared.util.ApplicationServer.ENVIRONMENT != com.topcoder.shared.util.ApplicationServer.PROD)
+            {
+                ret.add(PythonLanguage.PYTHON_LANGUAGE);
+            }
         }
         return ret;
     }
