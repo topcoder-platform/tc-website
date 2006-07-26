@@ -68,6 +68,9 @@ public class ProjectTrackerBean implements SessionBean {
     private DataSource dataSource;
     private DocumentManagerLocal documentManager;
     private IdGen idGen;
+
+    private final String THUNDERBIRD_EXTENSION_CAT_ID = "22774808";
+
     //private ComponentManagerHome componentManagerHome;
 
     /**
@@ -340,7 +343,7 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_user_role_v_id, " +
                                 "pinf.payment, pinf.payment_stat_id, " +
                                 "pinf.payment_info_v_id, " +
-                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = 20845595) as aol_brand " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "comp_catalog cc, comp_versions cv, " +
                                 "comp_categories ccat, categories cat, categories pcat, " +
@@ -379,7 +382,7 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_user_role_v_id,  " +
                                 "pinf.payment, pinf.payment_stat_id, " +
                                 "pinf.payment_info_v_id, " +
-                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = 20845595) as aol_brand " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "r_user_role rur,  " +
                                 "comp_catalog cc, comp_versions cv, " +
