@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.creative.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -17,6 +18,22 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_creative"/>
     </jsp:include>
+    <script language="JavaScript"><!--
+    function next() {
+        document.problemListForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.problemListForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.problemListForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+        document.problemListForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.problemListForm.submit();
+    }
+    function previous() {
+        document.problemListForm.<%=DataAccessConstants.START_RANK%>.value =<%=submissions.getStartRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.problemListForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getEndRow()-Constants.VIEW_SUBMISSIONS_SCROLL_SIZE%>;
+        document.problemListForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+        document.problemListForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+        document.problemListForm.submit();
+    }
+    //--></script>
 
 </head>
 
@@ -64,6 +81,14 @@
             show submissions that are unmarked</a>
     </td>
 </tr>
+
+<tr>
+    <td colspan="7">
+        <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    </td>
+</tr>
+
 
 <tr>
     <td class="headerC"></td>
@@ -163,6 +188,12 @@
         </td>
     </tr>
 </rsc:iterator>
+<tr>
+    <td colspan="7">
+        <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+        | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+    </td>
+</tr>
 
 </tbody>
 </table>
