@@ -31,98 +31,145 @@
 </jsp:include>
 
 <div class="contentOuter">
-    <div class="contentInner">
+<div class="contentInner">
 
-        <h1>Submission List</h1>
+<h1>Submission List</h1>
 
-        <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
-        <div class="tableHolder">
-            <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
-                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+<%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
+<div class="tableHolder">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-                <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
-                    <tbody>
-                        <tr>
-                            <td class="title" colspan="7">Submissions for ${contest.name}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="7">Show submissions by (Enter Handle):
-                                <tc-webtag:textInput name="<%=Constants.HANDLE%>"/></td>
-                        </tr>
-                        <c:forEach items="${reviewStatuses}" var="reviewStatus">
-                            <tr>
-                                <td colspan="7">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-                                        show submissions that ${reviewStatus.description}</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        <tr>
-                            <td colspan="7">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
-                                    show submissions that are unmarked</a>
-                            </td>
-                        </tr>
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+<tbody>
+<tr>
+    <td class="title" colspan="7">Submissions for ${contest.name}</td>
+</tr>
+<tr>
+    <td colspan="7">Show submissions by (Enter Handle):
+        <tc-webtag:textInput name="<%=Constants.HANDLE%>"/></td>
+</tr>
+<c:forEach items="${reviewStatuses}" var="reviewStatus">
+    <tr>
+        <td colspan="7">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=${reviewStatus.id}&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
+                show submissions that ${reviewStatus.description}</a>
+        </td>
+    </tr>
+</c:forEach>
+<tr>
+    <td colspan="7">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
+            show submissions that are unmarked</a>
+    </td>
+</tr>
 
-                        <tr>
-                            <td class="headerC"></td>
-                            <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
-                            <td class="header">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submitter</a>
-                            </td>
-                            <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
-                            </td>
-                            <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
-                                    Date</a>
-                            </td>
-                            <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Review
-                                    Date</a>
-                            </td>
-                            <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Reviewer</a>
-                            </td>
-                            <td class="headerC">
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
-                            </td>
-                        </tr>
-                        <rsc:iterator list="<%=submissions%>" id="resultRow">
+<tr>
+    <td class="headerC"></td>
+    <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
+    <td class="header">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submitter</a>
+    </td>
+    <td class="headerC">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+    </td>
+    <td class="headerC">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submit_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
+            Date</a>
+    </td>
+    <td class="headerC">
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                Review Date
+            </c:when>
+            <c:otherwise>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_date")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Review
+                    Date</a>
+            </c:otherwise>
+        </c:choose>
 
-                            <tr class="light">
-                                <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
-                                </td>
-                                <td class="valueC">
-                                    <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
-                                </td>
-                                <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                        <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
-                                </td>
-                                <td class="valueC">
-                                    <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                                </td>
-                                <td class="valueC">
-                                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                                </td>
-                                <td class="valueC">
-                                    <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
-                                </td>
-                                <td class="valueC">
-                                    <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
-                                </td>
-                            </tr>
-                        </rsc:iterator>
+    </td>
+    <td class="headerC">
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                Reviewer
+            </c:when>
+            <c:otherwise>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("reviewer_handle")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Reviewer</a>
+            </c:otherwise>
+        </c:choose>
 
-                    </tbody>
-                </table>
-        </div>
 
-        <jsp:include page="../creativeFoot.jsp"/>
-    </div>
+    </td>
+    <td class="headerC">
+        <c:choose>
+            <c:when test="${unMarkedOnly}">
+                Status
+            </c:when>
+            <c:otherwise>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("review_status_desc")+1%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+            </c:otherwise>
+        </c:choose>
+
+    </td>
+</tr>
+<rsc:iterator list="<%=submissions%>" id="resultRow">
+
+    <tr class="light">
+        <td class="valueC">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+        </td>
+        <td class="valueC">
+            <rsc:item name="submitter_handle" row="<%=resultRow%>"/>
+        </td>
+        <td class="valueC">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
+        </td>
+        <td class="valueC">
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${unMarkedOnly}">
+                    &#160;
+                </c:when>
+                <c:otherwise>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                </c:otherwise>
+            </c:choose>
+
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${unMarkedOnly}">
+                    &#160;
+                </c:when>
+                <c:otherwise>
+                    <rsc:item name="reviewer_handle" row="<%=resultRow%>"/>
+                </c:otherwise>
+            </c:choose>
+        </td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${unMarkedOnly}">
+                    &#160;
+                </c:when>
+                <c:otherwise>
+                    <rsc:item name="review_status_desc" row="<%=resultRow%>"/>
+                </c:otherwise>
+            </c:choose>
+        </td>
+    </tr>
+</rsc:iterator>
+
+</tbody>
+</table>
+</div>
+
+<jsp:include page="../creativeFoot.jsp"/>
+</div>
 </div>
 </body>
 </html>
