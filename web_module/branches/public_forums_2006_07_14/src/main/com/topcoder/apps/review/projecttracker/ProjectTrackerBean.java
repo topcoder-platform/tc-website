@@ -118,7 +118,7 @@ public class ProjectTrackerBean implements SessionBean {
                             "pcat.category_name catalog_name," +
                             "p.level_id, " +
                             "p.autopilot_ind, " +
-                            "p.response_during_appeals_ind  " +
+                            "p.response_during_appeals_ind, " +
                             "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
