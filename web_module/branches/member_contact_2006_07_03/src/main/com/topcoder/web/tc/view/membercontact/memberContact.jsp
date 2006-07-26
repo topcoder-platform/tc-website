@@ -44,6 +44,12 @@ function keyPress(e) {
     } else return true;
   }
 
+function init() {
+<c:if test="${cf:containsMapKey(param, th)}" >
+	validateHandle(false);
+    document.f.<%= MemberContact.TEXT %>.focus();	
+</c:if>
+}
 
 </script>
 
@@ -54,7 +60,7 @@ function keyPress(e) {
 
 </head>
 
-<body>
+<body onLoad="init()">
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -101,7 +107,7 @@ function keyPress(e) {
 <input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
 
-To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${requestScope.th}" />'/>
+To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validateHandle(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(enter member handle only)</span>
 <br/><br/>
