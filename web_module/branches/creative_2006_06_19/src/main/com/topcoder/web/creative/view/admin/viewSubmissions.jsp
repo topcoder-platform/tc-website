@@ -66,7 +66,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
 <tbody>
 <tr>
-    <td class="title" colspan="7">Showing <%=submissions.size()%> Submissions for ${contest.name}</td>
+    <td class="title" colspan="7">Showing ${count} Submissions for ${contest.name}</td>
 </tr>
 <tr>
     <td colspan="7">Show submissions by (Enter Handle):

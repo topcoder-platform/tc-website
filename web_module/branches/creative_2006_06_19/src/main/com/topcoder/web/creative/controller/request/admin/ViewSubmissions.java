@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
@@ -49,7 +50,10 @@ public class ViewSubmissions extends HibernateProcessor {
         DataAccessInt dai = new QueryDataAccess(DBMS.CREATIVE_DATASOURCE_NAME);
 
 
-        StringBuffer query = new StringBuffer();
+        StringBuffer query = new StringBuffer(300);
+        StringBuffer countQuery = new StringBuffer(300);
+        StringBuffer from = new StringBuffer(200);
+        countQuery.append(" select count(*) ");
 
         if (unMarkedOnly) {
             query.append(" select u.handle as submitter_handle ");
@@ -57,12 +61,14 @@ public class ViewSubmissions extends HibernateProcessor {
             query.append(" , s.original_file_name ");
             query.append(" , s.create_date as submit_date ");
             query.append(" , s.submission_id ");
-            query.append(" from submission s ");
-            query.append(" , user u ");
-            query.append(" where s.submitter_id = u.user_id ");
-            query.append(" and not exists (select '1'  ");
-            query.append(" from submission_review ");
-            query.append(" where submission_id = s.submission_id)");
+
+            from.append(" from submission s ");
+            from.append(" , user u ");
+            from.append(" where s.submitter_id = u.user_id ");
+            from.append(" and not exists (select '1'  ");
+            from.append(" from submission_review ");
+            from.append(" where submission_id = s.submission_id)");
+
         } else {
             query.append("select u.handle as submitter_handle");
             query.append(" , s.submitter_id");
@@ -73,27 +79,30 @@ public class ViewSubmissions extends HibernateProcessor {
             query.append(" , sr.reviewer_id");
             query.append(" , rs.review_status_desc");
             query.append(" , s.submission_id");
-            query.append(" from submission s");
-            query.append(" , user u");
+
+            from.append(" from submission s");
+            from.append(" , user u");
             if (status == null) {
-                query.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
+                from.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
             } else {
-                query.append(" , submission_review sr");
-                query.append(" , user u1");
-                query.append(" , review_status_lu rs");
+                from.append(" , submission_review sr");
+                from.append(" , user u1");
+                from.append(" , review_status_lu rs");
             }
-            query.append(" where u.user_id = s.submitter_id");
-            query.append("  and sr.submission_id = s.submission_id");
-            query.append("  and sr.reviewer_id = u1.user_id");
-            query.append("  and sr.review_status_id = rs.review_status_id");
-            query.append("  and s.contest_id = ").append(contestId);
+            from.append(" where u.user_id = s.submitter_id");
+            from.append("  and sr.submission_id = s.submission_id");
+            from.append("  and sr.reviewer_id = u1.user_id");
+            from.append("  and sr.review_status_id = rs.review_status_id");
+            from.append("  and s.contest_id = ").append(contestId);
             if (!"".equals(handle)) {
-                query.append(" and u.handle_lower = '").append(handle).append("'");
+                from.append(" and u.handle_lower = '").append(handle).append("'");
             }
             if (status != null) {
-                query.append(" and sr.review_status_id = ").append(status);
+                from.append(" and sr.review_status_id = ").append(status);
             }
         }
+        query.append(from);
+        countQuery.append(from);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -105,6 +114,7 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         r.addQuery("submissions", query.toString());
+        r.addQuery("count", countQuery.toString());
 
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
@@ -123,6 +133,7 @@ public class ViewSubmissions extends HibernateProcessor {
         }
 
         getRequest().setAttribute("submissions", dai.getData(r).get("submissions"));
+        getRequest().setAttribute("count", ((ResultSetContainer) dai.getData(r).get("county")).getItem(0, 0));
 
 
         SortInfo info = new SortInfo();
