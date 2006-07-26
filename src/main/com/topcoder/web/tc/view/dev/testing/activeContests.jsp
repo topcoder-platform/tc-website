@@ -39,15 +39,17 @@
 
 <div align="right"><A href="/tc?module=Static&d1=dev&d2=testing&d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="7">Active Software Testing Contests</td></tr>
+   <tr><td class="title" colspan="8">Active Software Testing Contests</td></tr>
    <tr>
       <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Competitors</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">1st Place</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+   <%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectAdmin">Online Review Project Admin and Details Tests</A>
@@ -57,24 +59,25 @@
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectAdmin">results</A>
-      --%>
+      -->
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectAdmin">standings</A>
-      --%>
+      -->
+      </td>
+      <td class="valueC">$2,000</td>
+      <td class="valueC">
+      08.04.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      08.04.2006 09:00 PM EST
-      </td>
-      <td class="valueC">
-      08.07.2006 09:00 PM EST
+      08.07.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="#">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23053483">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -87,27 +90,29 @@
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectReview">results</A>
-      --%>
+      -->
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectReview">standings</A>
-      --%>
+      -->
+      </td>
+      <td class="valueC">$1,500</td>
+      <td class="valueC">
+      08.04.2006 9:00 AM EST
       </td>
       <td class="valueC">
-      08.04.2006 09:00 PM EST
-      </td>
-      <td class="valueC">
-      08.07.2006 09:00 PM EST
+      08.07.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="#">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23053515">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
+   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin Tests</A>
@@ -127,14 +132,15 @@
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewScorecardAdmin">standings</A>
       </td>
+      <td class="valueC">$700</td>
       <td class="valueC">
-      07.13.2006 09:00 PM EST
+      07.13.2006 9:00 PM EST
       </td>
       <td class="valueC">
-      07.20.2006 09:00 PM EST
+      07.20.2006 9:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22828294">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
