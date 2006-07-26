@@ -231,8 +231,6 @@ public class ProjectTrackerBean implements SessionBean {
                         responseDuringAppeals, aolComponent);
                 project.setCatalog(catalogName);
 
-                System.out.println("aolComponent" + project.getAolComponent());
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
