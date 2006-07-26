@@ -65,6 +65,7 @@ public class ViewSubmissions extends HibernateProcessor {
             from.append(" from submission s ");
             from.append(" , user u ");
             from.append(" where s.submitter_id = u.user_id ");
+            from.append("  and s.contest_id = ").append(contestId);
             from.append(" and not exists (select '1'  ");
             from.append(" from submission_review ");
             from.append(" where submission_id = s.submission_id)");
