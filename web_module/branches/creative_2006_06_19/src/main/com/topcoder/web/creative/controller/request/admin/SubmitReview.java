@@ -99,6 +99,7 @@ public class SubmitReview extends HibernateProcessor {
         msgText.append(handle);
         msgText.append(",\n\n");
         msgText.append(text);
+        msgText.append("\n\n");
 
 
         msgText.append("Regards,\n\nTopCoder Studio");
@@ -106,7 +107,7 @@ public class SubmitReview extends HibernateProcessor {
         mail.setBody(msgText.toString());
         mail.addToAddress(address, TCSEmailMessage.TO);
 
-        mail.setFromAddress("creativeservice@topcoder.com");
+        mail.setFromAddress("studioreview@topcoder.com");
         EmailEngine.send(mail);
     }
 
