@@ -62,7 +62,7 @@ public abstract class ReviewAction extends BaseAction {
             // Call the business logic
             forwards.addForward(mapping.findForward(Constants.SUCCESS_KEY));
             SecurityEnabledUser user = new SecurityEnabledUser(155846, "gt494", "gt494", "gt494", "gt494", null, new TCSubject(155846));
-            info = new UserProjectInfo(1, null, null, null, null, null, null, null);
+            info = new UserProjectInfo(1, null, null, null, null, null, null, null, false);
             result = executeLogic(mapping, form, request, response, errors, forwards,
                     new OnlineReviewProjectData(user, info));
             request.getSession().setAttribute("public", "public");

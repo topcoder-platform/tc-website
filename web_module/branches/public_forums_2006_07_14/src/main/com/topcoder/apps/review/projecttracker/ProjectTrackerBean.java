@@ -377,7 +377,8 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_resp_id, rur.login_id, " +
                                 "rur.r_user_role_v_id,  " +
                                 "pinf.payment, pinf.payment_stat_id, " +
-                                "pinf.payment_info_v_id " +
+                                "pinf.payment_info_v_id, " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = 20845595) as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "r_user_role rur,  " +
                                 "comp_catalog cc, comp_versions cv, " +
@@ -423,6 +424,7 @@ public class ProjectTrackerBean implements SessionBean {
                     Date endDate = rs.getDate(10);
                     long piVersionId = rs.getLong(11);
                     String catalogName = rs.getString(12);
+                    boolean aolComponent = (rs.getObject(22) != null);
 
 
                     Phase phase = phaseManager.getPhase(phaseId);
@@ -443,7 +445,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ProjectStatus projectStatus = projectStatusManager.getProjectStatus(projectStatId);
 
                     UserProjectInfo userProjectInfo = new UserProjectInfo(projectId, name, version, null,
-                            phaseInstance, projectType, winner, projectStatus);
+                            phaseInstance, projectType, winner, projectStatus, aolComponent);
                     userProjectInfo.setCatalog(catalogName);
 
                     projectInfoList.add(userProjectInfo);

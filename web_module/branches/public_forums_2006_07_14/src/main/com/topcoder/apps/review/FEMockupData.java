@@ -466,7 +466,7 @@ public final class FEMockupData {
                                 phaseInstances[i],
                                 projectTypes[i / 5],
                                 users[0],
-                                projectStatuses[0]);
+                                projectStatuses[0], false);
             }
 
             // Projects

@@ -15,8 +15,8 @@ import java.io.Serializable;
  * and minimise storage needs as these objects are stored in a user's session.
  * </p>
  *
- * @author FatClimber
- * @version 1.0
+ * @author FatClimber, pulky
+ * @version 1.0.1
  */
 public class UserProjectInfo implements Serializable {
     private long id;
@@ -29,6 +29,7 @@ public class UserProjectInfo implements Serializable {
 
     private ProjectStatus projectStatus;
     private String catalog;
+    private boolean aolComponent;
 
     /**
      * Creates a new UserProjectInfo object.
@@ -41,7 +42,7 @@ public class UserProjectInfo implements Serializable {
      * @param projectType DOCUMENT ME!
      */
     public UserProjectInfo(long id, String name, String version, UserRole[] userRole, PhaseInstance phaseInstance,
-                           ProjectType projectType, User winner, ProjectStatus projectStatus) {
+                           ProjectType projectType, User winner, ProjectStatus projectStatus, boolean aolComponent) {
         this.id = id;
         this.name = name;
         this.version = version;
@@ -51,6 +52,7 @@ public class UserProjectInfo implements Serializable {
         this.winner = winner;
 
         this.projectStatus = projectStatus;
+        this.aolComponent = aolComponent;
     }
 
     /**
@@ -151,6 +153,21 @@ public class UserProjectInfo implements Serializable {
      */
     public ProjectStatus getProjectStatus() {
         return projectStatus;
+    }
+
+
+    /**
+     * @return true if it's an aol component
+     */
+    public boolean getAolComponent() {
+        return aolComponent;
+    }
+
+    /**
+     * @param catalog True if it's an aol component
+     */
+    public void setAolComponent(boolean aolComponent) {
+        this.aolComponent = aolComponent;
     }
 
     /**
