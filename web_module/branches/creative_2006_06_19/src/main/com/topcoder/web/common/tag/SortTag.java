@@ -41,7 +41,7 @@ public class SortTag extends TagSupport {
 
     public void setExcludeParams(String exclude) {
         //log.debug("exclude is " + exclude);
-        StringTokenizer st = new StringTokenizer(exclude, ";,");
+        StringTokenizer st = new StringTokenizer(exclude, ";, ");
         while (st.hasMoreTokens()) {
             excludeParams.add(st.nextToken());
         }
