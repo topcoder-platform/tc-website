@@ -35,7 +35,7 @@ public class HandleValidator implements Validator {
 	
     public ValidationResult validate(ValidationInput input) {
         
-        ValidationResult nret = new NonEmptyValidator("Please enter an user name.").validate(input);
+        ValidationResult nret = new NonEmptyValidator("Please enter a user name.").validate(input);
         
         if (!nret.isValid()) {
             return nret;

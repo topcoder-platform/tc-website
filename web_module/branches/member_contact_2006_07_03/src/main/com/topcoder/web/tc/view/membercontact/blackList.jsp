@@ -204,17 +204,8 @@ blocked:<br>
 </td>
 
 <td valign='center'>
-<%-- use text link instead of buttons
-
-<A href="">Block &gt;</A><br>
-<A href="">&lt; Unblock</A>
---%>
-
-<input type='button' value='Block &gt;' onClick='block()' style="width: 90px;" />
-<br>
-<input type='button' value='&lt; Unblock' onClick='unblock()' style="width: 90px;" />
-</td>
-
+<A href="javascript:block()">Block &gt;</A><br>
+<A href="javascript:unblock()">&lt; Unblock</A>
 <td>
 <br><br>
 Blocked Users:<br>
@@ -231,18 +222,14 @@ Blocked Users:<br>
 Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
 &#160; 
 
-<%-- use text link instead of button
-<A href="">Block</A> --%>
-<input type='button' value='Block' name='blockBtn' onClick='blockHandle(document.f.handle.value)'/> 
+
+<A href="javascript:blockHandle(document.f.handle.value)">Block</A>
 
 <br>
 <br>
-<%-- use text link instead of buttons
-<A href="">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
---%>
+<A href="javascript:save()">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
 
-<input type="button" value="Save" onClick="save()" style="width: 50px;" />&#160;
-<input type="button" value="Back" onClick="/tc?module=MemberContact" style="width: 50px;" />
+
 <br><br>
 
 <div id="blockHandleResult">

@@ -54,6 +54,7 @@ function keyPress(e) {
   }
 
 function init() {
+    document.f.<%= MemberContact.TO_HANDLE %>.focus();
 <c:if test="${not empty param.th}" >
 	validateHandle(false);
     document.f.<%= MemberContact.TEXT %>.focus();	
@@ -125,10 +126,9 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 <input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
-<%-- use text link instead of button
-<A href="">Send</A>
---%>
-<input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/> 
+<A name="submitBtn" href="javascript:validateHandle(true)">Send</A>
+
+<!--  input type='button' name="submitBtn" value='Send' onClick="validateHandle(true)" disabled="true"/ --> 
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
