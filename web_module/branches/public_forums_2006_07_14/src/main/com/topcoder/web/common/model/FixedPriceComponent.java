@@ -15,15 +15,11 @@ import com.topcoder.shared.util.logging.Logger;
 public class FixedPriceComponent extends DefaultPriceComponent {
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
-    private boolean primaryAlsoReviewer = true;
-
     private float primaryFixedPayment = 0;
 
     private float secondaryFixedPayment = 0;
 
     private float primaryAdjustmentFactor = 0;
-
-    private float secondaryAdjustmentFactor = 0;
 
     protected FixedPriceComponent() {
     }
@@ -36,20 +32,18 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     }
 
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
-            boolean primaryAlsoReviewer, float primaryFixedPayment, float secondaryFixedPayment)  {
+           float primaryFixedPayment, float secondaryFixedPayment)  {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
 
-        this.primaryAlsoReviewer = primaryAlsoReviewer;
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
 
         log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryAlsoReviewer: " + primaryAlsoReviewer +
-                " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
     }
 
     public float getReviewPrice() {
-        return super.getReviewPrice() * secondaryAdjustmentFactor;
+        return secondaryFixedPayment;
     }
 
     public float getAggregationCost() {
@@ -78,25 +72,21 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         float oldTotal = super.getAggregationCost();
         oldTotal += super.getScreeningCost();
         oldTotal += super.getFinalReviewCost();
-        oldTotal += primaryAlsoReviewer ? super.getCoreReviewCost() : super.getReviewPrice();
+        oldTotal += super.getCoreReviewCost();
 
         this.primaryAdjustmentFactor = amount / oldTotal;
     }
 
     private void setSecondaryFixedPayment(float amount) {
         this.secondaryFixedPayment = amount;
-
-        this.secondaryAdjustmentFactor = amount / super.getReviewPrice();
     }
 
-    public static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
-            boolean primaryAlsoReviewer, float primaryFixedPayment, float secondaryFixedPayment) {
+    private static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
+            float primaryFixedPayment, float secondaryFixedPayment) {
 
         FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1,
-                submissionCount,
-                submissionsPassedScreening,
-                phaseId, primaryAlsoReviewer,
-                primaryFixedPayment, secondaryFixedPayment);
+                submissionCount, submissionsPassedScreening,
+                phaseId, primaryFixedPayment, secondaryFixedPayment);
 
         DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1,
                 submissionCount,
@@ -104,31 +94,29 @@ public class FixedPriceComponent extends DefaultPriceComponent {
                 phaseId);
 
         System.out.println("submissionCount: " + submissionCount + " submissionPassedScreening: " +
-                submissionsPassedScreening + " phaseId: " + phaseId + " primaryAlsoReviewer: " + primaryAlsoReviewer +
-                " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+                submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
 
-        System.out.println("Item / Old / new:");
-        System.out.println("Aggregation / " + dpc.getAggregationCost() + " / " + fpc.getAggregationCost());
-        System.out.println("Screening / " + dpc.getScreeningCost() + " / " + fpc.getScreeningCost());
-        System.out.println("Final review / " + dpc.getFinalReviewCost() + " / " + fpc.getFinalReviewCost());
-        System.out.println("review primary / " + dpc.getCoreReviewCost() + " / " + fpc.getCoreReviewCost());
-        System.out.println("review secondary / " + dpc.getReviewPrice() + " / " + fpc.getReviewPrice());
+        System.out.println("Item ; Old ; new:");
+        System.out.println("Aggregation ; " + dpc.getAggregationCost() + " ; " + fpc.getAggregationCost());
+        System.out.println("Screening ; " + dpc.getScreeningCost() + " ; " + fpc.getScreeningCost());
+        System.out.println("Final review ; " + dpc.getFinalReviewCost() + " ; " + fpc.getFinalReviewCost());
+        System.out.println("review primary ; " + dpc.getCoreReviewCost() + " ; " + fpc.getCoreReviewCost());
+        System.out.println("review secondary ; " + dpc.getReviewPrice() + " ; " + fpc.getReviewPrice());
 
         System.out.println("------------------------------------------------------------");
     }
 
     public static void main(String[] args) {
-        if (args.length != 6) {
+        if (args.length != 5) {
             System.out.println("usage: java " + FixedPriceComponent.class.toString() + " " +
                     "<numSubmissions> <numSubmissionPassScreening> <phaseId> " +
-                    "<primaryAlsoReviewer> <primaryFixedPayment> <secondaryFixedPayment>");
+                    "<primaryFixedPayment> <secondaryFixedPayment>");
             System.out.println("dev phaseId " + DEV_PHASE);
             System.out.println("design phaseId " + DESIGN_PHASE);
         } else {
 
             showPayments(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]),
-                    Boolean.parseBoolean(args[3]), Float.parseFloat(args[4]),
-                    Float.parseFloat(args[5]));
+                    Float.parseFloat(args[3]), Float.parseFloat(args[4]));
         }
     }
 }
