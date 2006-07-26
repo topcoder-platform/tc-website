@@ -52,7 +52,7 @@
                         <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarHandle">
-                                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/></td>
+                                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' darkBG="true"/></td>
                                 <td class="sidebarText"><rsc:item name="school_name" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align="center">
                                     <rsc:item name="total_count" row="<%=resultRow%>"/></td>
