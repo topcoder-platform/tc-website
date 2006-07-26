@@ -63,6 +63,8 @@ public class Project implements Serializable {
     private boolean autopilot;
     private boolean responseDuringAppeals;
 
+    private boolean aolComponent;
+
     /**
      * Creates a new Project object.
      *
@@ -84,7 +86,7 @@ public class Project implements Serializable {
         User projectManager, User winner, PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole,
             String notes, String overView, ProjectType projectType, ProjectStatus projectStatus,
                 boolean notificationSent, long screeningTemplateId, long reviewTemplateId, long requestorId,
-                    long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals) {
+                    long versionId, long levelId, boolean autopilot, boolean responseDuringAppeals, boolean aolComponent) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -108,6 +110,7 @@ public class Project implements Serializable {
         this.levelId = levelId;
         this.autopilot = autopilot;
         this.responseDuringAppeals = responseDuringAppeals;
+        this.aolComponent = aolComponent;
     }
 
     /**
@@ -542,6 +545,21 @@ public class Project implements Serializable {
     public void setCatalog(String catalog) {
         this.catalog = catalog;
     }
+
+    /**
+     * @return true if it's an aol component
+     */
+    public boolean getAolComponent() {
+        return aolComponent;
+    }
+
+    /**
+     * @param catalog True if it's an aol component
+     */
+    public void setAolComponent(boolean aolComponent) {
+        this.aolComponent = aolComponent;
+    }
+
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)

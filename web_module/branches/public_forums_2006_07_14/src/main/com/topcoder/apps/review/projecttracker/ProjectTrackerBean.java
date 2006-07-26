@@ -119,6 +119,7 @@ public class ProjectTrackerBean implements SessionBean {
                             "p.level_id, " +
                             "p.autopilot_ind, " +
                             "p.response_during_appeals_ind  " +
+                            "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
                             "comp_categories ccat, categories cat, categories pcat " +
@@ -150,6 +151,8 @@ public class ProjectTrackerBean implements SessionBean {
                 long levelId = rs.getLong(14);
                 boolean autopilot = rs.getBoolean(15);
                 boolean responseDuringAppeals = rs.getBoolean(16);
+                boolean aolComponent = (rs.getObject(17) != null);
+
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -226,7 +229,7 @@ public class ProjectTrackerBean implements SessionBean {
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
                         requestor.getUserId(), projectVersionId, levelId, autopilot,
-                        responseDuringAppeals);
+                        responseDuringAppeals, aolComponent);
                 project.setCatalog(catalogName);
             }
         } catch (SQLException e) {

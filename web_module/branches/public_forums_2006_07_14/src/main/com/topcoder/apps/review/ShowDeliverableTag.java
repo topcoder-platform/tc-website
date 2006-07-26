@@ -266,7 +266,7 @@ public class ShowDeliverableTag extends BaseTag {
                         // Create a project to hold the projectId that will be used by getFinalReview
                         Project project = new Project(projectId, 0, 0, 0, null, null, null, null, null, null,
                                                         roles, null, null, null, null, false,
-                                                        0, 0, 0, 0, 0, false, false);
+                                                        0, 0, 0, 0, 0, false, false, false);
 
                         finalReview = documentManager.getFinalReview(project, false, new TCSubject(user.getId()));
 
