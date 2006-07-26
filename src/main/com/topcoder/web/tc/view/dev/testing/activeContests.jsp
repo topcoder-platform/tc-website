@@ -50,28 +50,28 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewTests">Online Review Tests</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectReview">Online Review Project Review Tests</A>
       </td>
       <td class="valueC">
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Tests">register</A>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Project Review Tests">register</A>
       </td>
       <td class="valueC">
       &#160;
       <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewTests">results</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectReview">results</A>
       --%>
       </td>
       <td class="valueC">
       &#160;
       <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewTests">standings</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectReview">standings</A>
       --%>
-      </td>
-      <td class="valueC">
-      08.02.2006 09:00 PM EST
       </td>
       <td class="valueC">
       08.04.2006 09:00 PM EST
+      </td>
+      <td class="valueC">
+      08.07.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="#">discuss the project</A>
@@ -98,10 +98,10 @@
       --%>
       </td>
       <td class="valueC">
-      0X.XX.2006 09:00 PM EST
+      08.04.2006 09:00 PM EST
       </td>
       <td class="valueC">
-      0X.XX.2006 09:00 PM EST
+      08.07.2006 09:00 PM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="#">discuss the project</A>
