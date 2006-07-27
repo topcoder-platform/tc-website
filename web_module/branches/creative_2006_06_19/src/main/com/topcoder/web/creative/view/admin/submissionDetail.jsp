@@ -23,8 +23,8 @@
                      "You will be notified of the contest results via email.\n\n" +
                      "Best of luck to you at the Studio!";
         var failed = "Unfortunately, your TopCoder Studio submission has failed review for the following reason(s):\n\n" +
-                     "You may fix and resubmit your work before " +
-                     "<tc-webtag:format object="${submission.contest.endTime}" format="MM.dd.yyyy hh:mm a z"/>.\n\n"+
+                     "You may fix and resubmit your work before the submission deadline (" +
+                     "<tc-webtag:format object="${submission.contest.endTime}" format="MM.dd.yyyy hh:mm a z" timeZone="${submission.submitter.timeZone.description}"/>).\n\n"+
                      "Best of luck to you at the Studio!";
             function choose() {
                var text = getValue("document.reviewForm", "${reviewText}");
