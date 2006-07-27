@@ -14,7 +14,8 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.date.workdays.WorkdaysUnitOfTime;
-import com.topcoder.web.common.model.DefaultPriceComponent;
+import com.topcoder.web.common.model.FixedPriceComponent;
+
 import java.util.Date;
 
 /**
@@ -568,22 +569,28 @@ public class AutoPilot {
                 return new SuccessResult();
 
             // only permitted levels
-            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ?
-                    DefaultPriceComponent.LEVEL2 : DefaultPriceComponent.LEVEL1;
+            int levelId = ((new Long(project.getLevelId())).intValue() == FixedPriceComponent.LEVEL2) ?
+                    FixedPriceComponent.LEVEL2 : FixedPriceComponent.LEVEL1;
 
-            DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
-                    levelId, count, passedCount,
-                            project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
+            float primaryFixedPayment = 0;
+            float secondaryFixedPayment = 0;
 
-            System.out.println("Retrieving payments...");
             ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
                     112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
-            if (rsc == null) {
-                System.out.println("Null rsc...");
-            } else {
-                System.out.println("Retrieved..." + rsc.size());
+            if (rsc != null) {
+                for (int i = 0; i < rsc.size(); i++) {
+                    if (rsc.getIntItem(i, "primary") == 1) {
+                        primaryFixedPayment = rsc.getFloatItem(i, "amount");
+                    } else {
+                        secondaryFixedPayment = rsc.getFloatItem(i, "amount");
+                    }
+                }
             }
 
+            FixedPriceComponent fpc = new FixedPriceComponent(
+                    levelId, count, passedCount,
+                    project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113,
+                    primaryFixedPayment, secondaryFixedPayment);
 
             // check project for reviewers
             UserRole[] participants = project.getParticipants();
@@ -610,15 +617,14 @@ public class AutoPilot {
                 // for the screening.
                 float amountToPay = 0;
                 if (roleId == Role.ID_AGGREGATOR)
-                    amountToPay = defaultPriceComponent.getAggregationCost();
+                    amountToPay = fpc.getAggregationCost();
                 else if (roleId == Role.ID_PRIMARY_SCREENER)
-                    amountToPay = defaultPriceComponent.getScreeningCost();
+                    amountToPay = fpc.getScreeningCost();
                 else if (roleId == Role.ID_FINAL_REVIEWER)
-                    amountToPay = defaultPriceComponent.getFinalReviewCost();
+                    amountToPay = fpc.getFinalReviewCost();
                 else if (roleId == Role.ID_REVIEWER)
                     amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ?
-                            defaultPriceComponent.getCoreReviewCost() :
-                                defaultPriceComponent.getReviewPrice();
+                            fpc.getCoreReviewCost() : fpc.getReviewPrice();
 
                 // update payment info.
                 if (amountToPay > 0) {
