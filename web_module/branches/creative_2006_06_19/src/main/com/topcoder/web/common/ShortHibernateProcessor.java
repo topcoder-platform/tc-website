@@ -30,7 +30,6 @@ public abstract class ShortHibernateProcessor extends LongHibernateProcessor {
             */
             beginCommunication();
             dbProcessing();
-            closeConversation();
         } catch (Exception e) {
             exceptionCallBack();
             handleException(e);
@@ -40,6 +39,10 @@ public abstract class ShortHibernateProcessor extends LongHibernateProcessor {
             handleException(ex);
             throw new Exception(ex);
         }
+    }
+
+    public void postProcessing() throws Exception {
+        closeConversation();
     }
 
 }
