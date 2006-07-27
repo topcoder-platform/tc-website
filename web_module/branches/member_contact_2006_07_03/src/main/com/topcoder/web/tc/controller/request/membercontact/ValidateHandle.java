@@ -20,12 +20,13 @@ public class ValidateHandle extends HibernateProcessor {
 	
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(MemberContact.TO_HANDLE);
+        String text = getRequest().getParameter(MemberContact.TO_HANDLE);
         
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         
         ValidationResult handleValidation = new HandleValidator(user).validate(new StringInput(handle));
         ValidationResult textValidation = new NonEmptyValidator("Please enter the message text.")
-        	.validate(new StringInput(MemberContact.TEXT));
+        	.validate(new StringInput(text));
         
         getRequest().setAttribute("handleValidation", handleValidation);        
         getRequest().setAttribute("textValidation", textValidation);
