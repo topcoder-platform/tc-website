@@ -232,7 +232,7 @@ Blocked Users:<br>
 </table>
 <br>
 <br>
-Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
+Enter another user: <input type="text" name='handle' id='handle' style="height: 18" onkeypress="return keyPress(event);"/>
 &#160; 
 
 
