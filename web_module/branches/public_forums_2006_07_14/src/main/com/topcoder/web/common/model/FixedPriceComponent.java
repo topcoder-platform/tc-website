@@ -13,7 +13,7 @@ import com.topcoder.shared.util.logging.Logger;
  * @version 1.0.0
  */
 public class FixedPriceComponent extends DefaultPriceComponent {
-    private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
+    private static Logger log = Logger.getLogger(FixedPriceComponent.class);
 
     private float primaryFixedPayment = 0;
 
@@ -27,7 +27,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId)  {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
 
-        log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId);
     }
 
@@ -38,12 +38,12 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
 
-        log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
     }
 
     public float getReviewPrice() {
-        return Math.round(secondaryFixedPayment);
+        return Math.round(secondaryFixedPayment > 0 ? secondaryFixedPayment : super.getReviewPrice());
     }
 
     public float getAggregationCost() {
