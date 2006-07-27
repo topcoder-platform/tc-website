@@ -1,6 +1,6 @@
 package com.topcoder.web.creative.controller.request;
 
-import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.TermsOfUse;
@@ -11,7 +11,7 @@ import com.topcoder.web.creative.Constants;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 19, 2006
  */
-public class Terms extends HibernateProcessor {
+public class Terms extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         Integer termsId = new Integer(StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID)));

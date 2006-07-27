@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class Login extends HibernateProcessor {
+public class Login extends ShortHibernateProcessor {
 
 
     public static final String USER_ID = "userid";

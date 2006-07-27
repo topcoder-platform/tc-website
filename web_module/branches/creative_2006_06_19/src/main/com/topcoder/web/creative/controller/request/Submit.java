@@ -2,10 +2,10 @@ package com.topcoder.web.creative.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.FileType;
@@ -26,7 +26,7 @@ import java.io.FileOutputStream;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Submit extends HibernateProcessor {
+public class Submit extends ShortHibernateProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {

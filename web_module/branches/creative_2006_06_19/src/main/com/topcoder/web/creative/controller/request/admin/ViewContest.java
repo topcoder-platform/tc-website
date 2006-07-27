@@ -1,6 +1,6 @@
 package com.topcoder.web.creative.controller.request.admin;
 
-import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2006
  */
-public class ViewContest extends HibernateProcessor {
+public class ViewContest extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);

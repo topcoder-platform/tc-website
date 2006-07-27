@@ -1,9 +1,9 @@
 package com.topcoder.web.creative.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -17,7 +17,7 @@ import com.topcoder.web.creative.model.Contest;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmission extends HibernateProcessor {
+public class ViewSubmission extends ShortHibernateProcessor {
     //check if they're registered
     //if not, go to reg page
     //if so, go to submission page

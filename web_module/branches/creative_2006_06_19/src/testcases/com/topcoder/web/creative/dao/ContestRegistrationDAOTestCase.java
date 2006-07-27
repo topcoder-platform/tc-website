@@ -41,8 +41,21 @@ public class ContestRegistrationDAOTestCase extends TCHibernateTestCase {
     }
 
     public void testFind() {
-        Contest c = CreativeDAOUtil.getFactory().getContestDAO().find(new Long(1120));
+        Contest c = new Contest();
+        c.setName("gp contest " + System.currentTimeMillis());
+        c.setStartTime(new Timestamp(new Date().getTime()));
+        c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
+        CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
+        ContestRegistration cr = new ContestRegistration();
+        cr.setContest(c);
+        cr.setUser(dok);
+        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+        cr.getId().setContest(c);
+        cr.getId().setUser(dok);
+
+        CreativeDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+
         ContestRegistration new1 = CreativeDAOUtil.getFactory().getContestRegistrationDAO().find(c, dok);
         assertFalse("new contest reg entry not created", new1 == null);
     }

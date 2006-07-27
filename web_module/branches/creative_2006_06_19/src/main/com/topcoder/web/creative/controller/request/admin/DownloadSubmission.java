@@ -1,7 +1,7 @@
 package com.topcoder.web.creative.controller.request.admin;
 
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Submission;
@@ -15,7 +15,7 @@ import java.io.FileInputStream;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class DownloadSubmission extends HibernateProcessor {
+public class DownloadSubmission extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
         Long submissionId;

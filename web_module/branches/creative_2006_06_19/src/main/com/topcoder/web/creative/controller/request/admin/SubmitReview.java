@@ -2,8 +2,8 @@ package com.topcoder.web.creative.controller.request.admin;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
@@ -19,7 +19,7 @@ import com.topcoder.web.creative.model.SubmissionReview;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 21, 2006
  */
-public class SubmitReview extends HibernateProcessor {
+public class SubmitReview extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
 
         Long submissionId;
