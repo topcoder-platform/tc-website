@@ -20,7 +20,7 @@ public class ValidateHandle extends HibernateProcessor {
 	
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(MemberContact.TO_HANDLE);
-        String text = getRequest().getParameter(MemberContact.TO_HANDLE);
+        String text = getRequest().getParameter(MemberContact.TEXT);
         
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         
