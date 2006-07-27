@@ -11,9 +11,9 @@
     <c:when test="${cf:containsMapKey(requestScope, id)}" >
        <tac:replaceChildren contextNodeID="blockHandleResult" parseOnServer="true">
 	       <div>
-            <input type="hidden" name="handleFound" value="true" />
-            <input type="hidden" name="blockId" value='<c:out value="${requestScope.id}" />' />
-            <input type="hidden" name="blockHandle" value='<c:out value="${requestScope.handle}" />' />            
+            <input type="hidden" name="handleFound" id="handleFound" value="true" />
+            <input type="hidden" name="blockId" id="blockId" value='<c:out value="${requestScope.id}" />' />
+            <input type="hidden" name="blockHandle" id="blockHandle" value='<c:out value="${requestScope.handle}" />' />            
             </div>
         </tac:replaceChildren>
     </c:when>
@@ -21,9 +21,7 @@
         <tac:replaceChildren contextNodeID="blockHandleResult" parseOnServer="true">
             <div style="font-weight:bold;color:red;">
                User not found.
-                <input type="hidden" name="handleFound" value="false" />
-	            <input type="hidden" name="blockId" value='' />
-    	        <input type="hidden" name="blockHandle" value='' />            
+                <input type="hidden" name="handleFound" id="handleFound" value="false" />
             </div>
             
         </tac:replaceChildren>

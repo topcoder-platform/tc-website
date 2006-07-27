@@ -37,6 +37,7 @@ function blockHandle(handle) {
     for(var i = 0; i < document.f.users.length; i++) {
         if (document.f.users.options[i].text.toLowerCase() == handle) {
             document.f.blockedUsers.options.add(document.f.users.options[i]);
+            document.f.handle.value='';            
             return;
         }
     }
@@ -242,10 +243,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 <br><br>
 
 <div id="blockHandleResult">
-        <input type="hidden" name="handleFound" value="false" />
-        <input type="hidden" name="blockId" value='' />
-        <input type="hidden" name="blockHandle" value='' />            
-
+        <input type="hidden" name="handleFound" id="handleFound" value="false" />
 </div>
 
 <c:set value="<%=BlackList.SAVED%>" var="saved"/>
