@@ -21,8 +21,8 @@ public class BlockHandle extends HibernateProcessor {
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(HANDLE);
     	User blockUser  = DAOUtil.getFactory().getUserDAO().find(handle, true, true);
-    	
-    	if (blockUser != null) {    		
+
+    	if (blockUser != null && blockUser.getCoder() != null) {    		
     		getRequest().setAttribute(ID, blockUser.getId());
     		getRequest().setAttribute(HANDLE, blockUser.getHandle());
     	} else {

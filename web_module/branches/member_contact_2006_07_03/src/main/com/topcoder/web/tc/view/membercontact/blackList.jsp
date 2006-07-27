@@ -216,10 +216,10 @@ Gray List:<br>
 </td>
 
 <td valign='center'>
-<A href="javascript:block()"></A><br>
-<input type="image" name="Block" src="i/interface/btn_block_arrow.gif" border="0" onClick="block(); return false;" />
+<A href="javascript:block()" class="bodyText"><img src="i/interface/btn_block_arrow.gif" border="0"/></A>
 <br>
-<input type="image" name="Unblock" src="i/interface/btn_unblock_arrow.gif" border="0" onClick="unblock(); return false;" />
+<A href="javascript:unblock()" class="bodyText"><img src="i/interface/btn_unblock_arrow.gif" border="0"/></A>
+
 <td>
 Blocked Users:<br>
 <select name='blockedUsers' multiple size="10" style="width: 180px;">
@@ -236,16 +236,17 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160; 
 
 
-<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value); return false;" />
+<A href="javascript:blockHandle(document.f.handle.value);" class="bodyText"><img src="i/interface/btn_block.gif" border="0"/></A>
+
 <br>
 <div id="blockHandleResult">
         <input type="hidden" name="handleFound" id="handleFound" value="false" />
 </div>
 
 <br>
-<input type="image" name="Save" src="i/interface/btn_save.gif" border="0" onClick="save()" />
+<A href="javascript:save()" class="bodyText"><img src="i/interface/btn_save.gif" border="0"/></A>
 &#160; 
-<input type="image" name="Back" src="i/interface/btn_back.gif" border="0" onClick="window.location='/tc?module=MemberContact';return false;" />
+<A href="/tc?module=MemberContact" class="bodyText"><img src="i/interface/btn_back.gif" border="0"/></A>
 
 <br><br>
 

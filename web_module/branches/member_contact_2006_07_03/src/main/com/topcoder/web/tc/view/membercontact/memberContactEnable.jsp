@@ -46,13 +46,13 @@ Once this is enabled, all rated TopCoder members will be able to send email mess
 unless you block access for specific members on the <a href='/tc?module=BlackList'>black list</a> page.  
 TopCoder member contact email messages will be sent to the email address listed in your TopCoder profile.
 <br><br>
-<form action="/tc" >
+<form action="/tc" name="f">
 <input type="hidden" name="enable" value="true" />
 <input type="hidden" name="module" value="MemberContactEnable" />
 
-<input type="image" src="i/interface/btn_ok.gif" border="0"/>
+<A href="javascript:document.f.submit()" class="bodyText"><img src="i/interface/btn_ok.gif" border="0"/></A>
 &#160;
-<input type="image" src="i/interface/btn_cancel.gif" border="0" onClick="window.location='/tc?module=MemberContact'; return false;">
+<A href="/tc?module=MemberContact" class="bodyText"><img src="i/interface/btn_cancel.gif" border="0"/></A>
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>

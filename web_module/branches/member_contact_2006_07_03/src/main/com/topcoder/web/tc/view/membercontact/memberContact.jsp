@@ -16,12 +16,12 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
+var prevCanSend = false;
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
            document.f.handleValid.value == "true";
 }
-
 
 
 function validate(send) {
@@ -36,17 +36,27 @@ function validate(send) {
 }
 
 function textChanged() {
-//	document.f.btnSend.disabled = !canSend();
+    if (prevCanSend != canSend()) {
+		validate(false);
+	    prevCanSend = canSend();
+    }
 }
 
 function afterRequest() 
 {
-//    document.f.btnSend.disabled = !canSend();
     if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
-    }
-    
+    }    
 }
+
+
+function canSend() {
+   return document.f.<%= SendMail.TEXT %>.value != "" &&
+           document.f.handleValid.value == "true";
+}
+
+
+
 
 function keyPress(e) {
     var keycode;
@@ -138,8 +148,9 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
 <br/><br/>
 
-
-<input type="image" id="btnSend" name="btnSend" src="i/interface/btn_send.gif" border="0"  onClick="validate(true)" disabled="true"/>
+<div id="btnSendDiv">
+<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send_disabled.gif" border="0"/></A>
+</div>
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
