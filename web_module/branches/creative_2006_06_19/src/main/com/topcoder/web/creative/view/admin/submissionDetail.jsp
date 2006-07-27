@@ -13,7 +13,7 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_creative"/>
     </jsp:include>
-
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
