@@ -16,7 +16,6 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
 
-var prevCanSend = false;
 
 function canSend() {
    return document.f.<%= SendMail.TEXT %>.value != "" &&
@@ -37,17 +36,16 @@ function validate(send) {
 }
 
 function textChanged() {
-    if (prevCanSend != canSend()) {
-		validate(false);
-	    prevCanSend = canSend();
-    }
+	document.f.btnSend.disabled = !canSend();
 }
 
 function afterRequest() 
 {
+    document.f.btnSend.disabled = !canSend();
     if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
     }
+    
 }
 
 function keyPress(e) {
@@ -135,8 +133,7 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
 <br/><br/>
 
 
-<div id="sendLink">
-</div>
+<input type="button" id="btnSend" name="btnSend" value="Send" onClick="validate(true)" />
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
