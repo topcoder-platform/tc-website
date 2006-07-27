@@ -141,7 +141,7 @@ public class SubmitReview extends ShortHibernateProcessor {
         mail.setBody(msgText.toString());
         mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);
 
-        mail.setFromAddress("studioreview@topcoder.com");
+        mail.setFromAddress("studioadmin@topcoder.com", "TopCoder Studio Admin");
         EmailEngine.send(mail);
     }
 
