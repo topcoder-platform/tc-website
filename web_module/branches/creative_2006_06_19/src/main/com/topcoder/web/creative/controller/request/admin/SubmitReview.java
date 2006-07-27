@@ -2,17 +2,24 @@ package com.topcoder.web.creative.controller.request.admin;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.ReviewStatus;
 import com.topcoder.web.creative.model.Submission;
 import com.topcoder.web.creative.model.SubmissionReview;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * @author dok
@@ -60,7 +67,8 @@ public class SubmitReview extends ShortHibernateProcessor {
                 sr = new SubmissionReview();
                 sr.setSubmission(s);
             }
-            sr.setReviewer(DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
+            User reviewer = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+            sr.setReviewer(reviewer);
             sr.setStatus(rs);
             sr.setText(getRequest().getParameter(Constants.SUBMISSION_REVIEW_TEXT));
             CreativeDAOUtil.getFactory().getSubmissionReviewDAO().saveOrUpdate(sr);
@@ -74,7 +82,7 @@ public class SubmitReview extends ShortHibernateProcessor {
             User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
             if (!"".equals(response) && u.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                sendEmail(u.getPrimaryEmailAddress().getAddress(), response, s.getOriginalFileName(), u.getHandle());
+                sendEmail(u, response, s.getOriginalFileName(), rs, reviewer);
             }
 
             StringBuffer buf = new StringBuffer(50);
@@ -89,23 +97,49 @@ public class SubmitReview extends ShortHibernateProcessor {
 
     }
 
-    private void sendEmail(String address, String text, String fileName, String handle) throws Exception {
+    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer) throws Exception {
 
         TCSEmailMessage mail = new TCSEmailMessage();
-        mail.setSubject("Your submission " + fileName + " has been reviewed");
+        if (ReviewStatus.PASSED.equals(status.getId())) {
+            mail.setSubject("Your TopCoder(R) Studio submission submission passed review");
+        } else if (ReviewStatus.FAILED.equals(status.getId())) {
+            mail.setSubject("Your TopCoder(R) Studio submission submission failed review");
+        } else {
+            throw new Exception("Invalid review status: " + status.getId());
+        }
+
         StringBuffer msgText = new StringBuffer(3000);
 
-        msgText.append("Hello ");
-        msgText.append(handle);
+        msgText.append("Dear ");
+        msgText.append(submitter.getHandle());
         msgText.append(",\n\n");
+        msgText.append("This email is in regards to your submission ");
+        msgText.append(fileName);
+        msgText.append(" at ");
+
+        ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
+        formatter.setFormatMethodForClass(Calendar.class,
+                new CalendarDateFormatMethod("MM.dd.yyyy hh:mm a z"), true);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date(System.currentTimeMillis()));
+        cal.setTimeZone(TimeZone.getTimeZone(submitter.getTimeZone().getDescription()));
+
+        msgText.append(formatter.format(cal));
+        msgText.append("\n\n");
         msgText.append(text);
         msgText.append("\n\n");
 
 
-        msgText.append("Regards,\n\nTopCoder Studio");
+        msgText.append("Sincerely,\n");
+        msgText.append(reviewer.getFirstName());
+        msgText.append(" ");
+        msgText.append(reviewer.getLastName());
+        msgText.append("\n");
+        msgText.append("TopCoder Studio");
 
         mail.setBody(msgText.toString());
-        mail.addToAddress(address, TCSEmailMessage.TO);
+        mail.addToAddress(submitter.getPrimaryEmailAddress().getAddress(), TCSEmailMessage.TO);
 
         mail.setFromAddress("studioreview@topcoder.com");
         EmailEngine.send(mail);
