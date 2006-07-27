@@ -78,7 +78,7 @@
 
 
                 <p>Status:
-                    <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
+                    <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/></p>
 
                 <p>
                     Dear ${submission.submitter.handle},<br/><br/>
