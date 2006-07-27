@@ -116,6 +116,7 @@ function addBlockedUser(id, handle)
 {
     insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;   
     blockDisabled= false;
+    document.f.handle.value='';
 }
 
 function getNewElements(initial, current)
@@ -241,6 +242,10 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 <br><br>
 
 <div id="blockHandleResult">
+        <input type="hidden" name="handleFound" value="false" />
+        <input type="hidden" name="blockId" value='' />
+        <input type="hidden" name="blockHandle" value='' />            
+
 </div>
 
 <c:set value="<%=BlackList.SAVED%>" var="saved"/>
