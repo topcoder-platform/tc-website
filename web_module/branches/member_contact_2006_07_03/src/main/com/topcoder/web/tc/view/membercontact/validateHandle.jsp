@@ -1,4 +1,3 @@
-<%@ page import="com.topcoder.web.tc.controller.request.membercontact.MemberContact" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,7 +21,7 @@
     <c:when test="${textValidation.valid && handleValidation.valid}">
         <tac:replaceChildren contextNodeID="btnSendDiv" parseOnServer="true">
                 <div>
-                	<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
+                	<img src="/i/interface/btn_send.gif" border="0"/>
                 </div>
         </tac:replaceChildren>
     </c:when>

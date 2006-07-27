@@ -149,7 +149,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
 <br/><br/>
 
 <div id="btnSendDiv">
-<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send_disabled.gif" border="0"/></A>
+<img src="/i/interface/btn_send_disabled.gif" border="0"/>
 </div>
 
 <div id="runJS">
