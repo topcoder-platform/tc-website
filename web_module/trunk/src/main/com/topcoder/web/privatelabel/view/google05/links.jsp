@@ -4,72 +4,71 @@
 <%
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
-
-<font size="-1">
+<div class="googleTopNav">
 <!-- Overview tab -->
             <% if (selectedTab.equals("overview")) {%>
-                 <font color="006633">Overview</font> &nbsp;|&nbsp;
+                 <span class="navOn">Overview</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=overview">Overview</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=overview">Overview</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- Schedule tab -->
             <% if (selectedTab.equals("schedule")) {%>
-                 <font color="006633">Schedule</font> &nbsp;|&nbsp;
+                 <span class="navOn">Schedule</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=schedule">Schedule</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=schedule">Schedule</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- Rules tab -->
             <% if (selectedTab.equals("rules")) {%>
-                 <font color="006633">Rules</font> &nbsp;|&nbsp;
+                 <span class="navOn">Rules</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=rules">Rules</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=rules">Rules</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- Registration tab -->
 <%--
 
             <% if (selectedTab.equals("registration")) {%>
-                 <font color="006633">Registration</font> &nbsp;|&nbsp;
+                 <span class="navOn">Registration</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
             <% } %>
 --%>
 
 <!-- Instructions tab -->
             <% if (selectedTab.equals("instructions")) {%>
-                 <font color="006633">Instructions</font> &nbsp;|&nbsp;
+                 <span class="navOn">Instructions</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=instructions">Instructions</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=instructions">Instructions</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- FAQ tab -->
             <% if (selectedTab.equals("faq")) {%>
-                 <font color="006633">FAQ</font> &nbsp;|&nbsp;
+                 <span class="navOn">FAQ</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=faq">FAQ</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=faq">FAQ</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
-                 <font color="006633">Advancers</font> &nbsp;|&nbsp;
+                 <span class="navOn">Advancers</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=advancers">Advancers</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=advancers">Advancers</a> &nbsp;|&nbsp;
             <% } %>
             
 
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>
-                 <font color="006633">Competition Arena</font> &nbsp;|&nbsp;
+                 <span class="navOn">Competition Arena</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a href="/pl/?module=Static&d1=google05&d2=arena">Competition Arena</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=arena">Competition Arena</a> &nbsp;|&nbsp;
             <% } %>
 
 <!-- Google Groups  tab -->
             <% if (selectedTab.equals("forum")) {%>
-               <font color="006633">Code Jam Group</font>
+               <span class="navOn">Code Jam Group</span>
             <% } else { %>
-               <a href="/?t=sponsor&c=link&link=http://groups-beta.google.com/group/google-code?hl=en&refer=gcj05site" target="_blank">Code Jam Group</a>
+               <a class="navLink" href="/?t=sponsor&c=link&link=http://groups.google.com/group/Code-Jam-2006" target="_blank">Code Jam Group</a>
             <% } %>
-</font>
+</div>
