@@ -55,7 +55,13 @@
                 <p>Status:
                     <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description"/></p>
 
-                <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/></p>
+                <p>Dear ${submission.submitter.handle},
+                    This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
+                    <tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/>
+                    Sincerely,<br/>
+                    ${currentUser.firstName} ${currentUser.lastName}<br/>
+                    TopCoder Studio
+                </p>
                 <button name="submit" value="submit" type="submit">Submit</button>
             </form>
         </div>
