@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
-import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -23,7 +23,7 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends HibernateProcessor {
+abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
     private DAOFactory factory = null;

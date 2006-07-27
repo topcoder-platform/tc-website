@@ -6,6 +6,7 @@ package com.topcoder.web.common.model;
  *          Create Date: May 16, 2006
  */
 public class FileType extends Base {
+    public static final Integer ADOBE_ACROBAT_TYPE_ID = new Integer(3);
     private Integer id;
     private String description;
     private String mimeType;

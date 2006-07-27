@@ -421,7 +421,7 @@ public class RegFieldHelper {
                     if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompProFields);
+                            ret.addAll(requiredSecondaryCompProFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompProFields);
@@ -440,7 +440,7 @@ public class RegFieldHelper {
                     if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompStudentFields);
+                            ret.addAll(requiredSecondaryCompStudentFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompStudentFields);

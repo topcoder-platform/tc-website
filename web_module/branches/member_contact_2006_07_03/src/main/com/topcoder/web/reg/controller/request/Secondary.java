@@ -19,12 +19,12 @@ import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.Phone;
 import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -82,6 +82,11 @@ public class Secondary extends Base {
                         if (secondaryFields.isEmpty()) {
                             getRequest().setAttribute(Constants.FIELDS, fields);
                             setNextPage("/confirm.jsp");
+                            HashSet h = new HashSet();
+                            for (Iterator it = getRequestedTypes().iterator(); it.hasNext();) {
+                                h.add(((RegistrationType) it.next()).getId());
+                            }
+                            getRequest().setAttribute(Constants.REG_TYPES, h);
                             setIsNextPageInContext(true);
                         } else {
                             //set the fields in the user object
@@ -157,6 +162,7 @@ public class Secondary extends Base {
                 a.setState(getFactory().getStateDAO().find((String) params.get(Constants.STATE_CODE)));
             }
         } else {
+            a.setState(null);
             if (fields.contains(Constants.PROVINCE)) {
                 a.setProvince((String) params.get(Constants.PROVINCE));
             }
