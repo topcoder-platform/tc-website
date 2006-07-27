@@ -102,9 +102,12 @@ function init() {
 </jsp:include>
 
 <div class="fixedWidthBody">
+<br>
 The Member Contact area allows you to send an email to other rated TopCoder members only.*  You can access this message area by clicking the "Send a message" link 
-on members' profile pages. Use the message form below to contact the member of your choice. You will need to enter the member's TopCoder handle. There is no limit on the length of your message.
+on members' profile pages. Use the message form below to contact the member of your choice. You will need to enter the member's TopCoder handle. There is no limit 
+on the length of your message. To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
+<span class="bodySubtitle">Send a message:</span><br>
 
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
@@ -125,7 +128,7 @@ on members' profile pages. Use the message form below to contact the member of y
 <br>
 <input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(Enter TopCoder member handle only)</span>
 <br/><br/>
@@ -152,9 +155,7 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
      
      </c:otherwise>
 </c:choose>
-<br>
-To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
-<br><br><br>
+<br><br><br><br>
 * All messages sent to TopCoder members from the member contact area will be logged and may be occasionally reviewed. 
 Using the member contact function for any commercial purposes is strictly prohibited. Any TopCoder member who deems a member 
 contact message from another TopCoder member to be inappropriate is encouraged to report this activity at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
