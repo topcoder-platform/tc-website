@@ -214,8 +214,10 @@ blocked:<br>
 </td>
 
 <td valign='center'>
-<A href="javascript:block()">Block &gt;</A><br>
-<A href="javascript:unblock()">&lt; Unblock</A>
+<A href="javascript:block()"></A><br>
+<input type="button" value="Block &gt;" width="100" onClick="block()">
+<br>
+<input type="button" value="&lt; Unblock" width="100" onClick="unblock()">
 <td>
 <br><br>
 Blocked Users:<br>
@@ -233,12 +235,12 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160; 
 
 
-<A href="javascript:blockHandle(document.f.handle.value)">Block</A>
-
+<input type="button" value="Block" width="100" onClick="blockHandle(document.f.handle.value))">
 <br>
 <br>
-<A href="javascript:save()">Save</A> &#160; <A href="/tc?module=MemberContact">Back</A>
-
+<input type="button" value="Save" width="100" onClick="save()">
+&#160; 
+<input type="button" value="Back" width="100" onClick="window.location='/tc?module=MemberContact'">
 
 <br><br>
 

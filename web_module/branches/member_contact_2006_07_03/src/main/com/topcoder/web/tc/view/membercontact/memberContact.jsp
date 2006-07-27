@@ -133,7 +133,7 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
 <br/><br/>
 
 
-<input type="button" id="btnSend" name="btnSend" value="Send" onClick="validate(true)" />
+<input type="button" id="btnSend" name="btnSend" value="Send" onClick="validate(true)" disabled="true"/>
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />

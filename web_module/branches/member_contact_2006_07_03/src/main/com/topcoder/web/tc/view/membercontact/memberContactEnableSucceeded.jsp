@@ -44,7 +44,7 @@
 All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
 <form>
-<A href="/tc?module=MemberContact">OK</A>
+<input type="button" value="Ok" width="100" onClick="window.location='/tc?module=MemberContact'">
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
