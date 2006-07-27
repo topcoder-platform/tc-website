@@ -1,5 +1,6 @@
 package com.topcoder.web.common;
 
+import com.topcoder.shared.util.logging.Logger;
 import org.hibernate.Session;
 
 /**
@@ -16,6 +17,7 @@ import org.hibernate.Session;
  *          Create Date: May 17, 2006
  */
 public abstract class LongHibernateProcessor extends BaseProcessor {
+    protected static final Logger log = Logger.getLogger(LongHibernateProcessor.class);
     public static final String HIBERNATE_SESSION_KEY = "hibernate_session";
     public static final String END_OF_CONVERSATION_FLAG = "end_of_conversation";
     public static final String ACTIVE_CONVERSATION_FLAG = "active_conversation";

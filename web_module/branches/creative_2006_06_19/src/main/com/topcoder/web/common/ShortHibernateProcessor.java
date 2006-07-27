@@ -1,5 +1,7 @@
 package com.topcoder.web.common;
 
+import com.topcoder.shared.util.logging.Logger;
+
 /**
  * This implementation uses the session-per-thread strategy.
  * Therefore, it's appropriate when you have some data you would like to
@@ -14,6 +16,7 @@ package com.topcoder.web.common;
  *          Create Date: Jul 27, 2006
  */
 public abstract class ShortHibernateProcessor extends LongHibernateProcessor {
+    protected static final Logger log = Logger.getLogger(ShortHibernateProcessor.class);
 
     protected void businessProcessing() throws Exception {
         log.debug("sessionid: " + getRequest().getSession().getId());
@@ -42,6 +45,7 @@ public abstract class ShortHibernateProcessor extends LongHibernateProcessor {
     }
 
     public void postProcessing() throws Exception {
+        log.debug("post processing called");
         closeConversation();
     }
 
