@@ -18,6 +18,9 @@
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
         <!--
+        function trim(String s) {
+
+        }
         var passed = "I am happy to inform you that your TopCoder Studio submission has passed the initial review.  " +
                      "It will be presented to the client and may be chosen as the winner.\n\n" +
                      "You will be notified of the contest results via email.\n\n" +
@@ -27,7 +30,8 @@
                      "<tc-webtag:format object="${submission.contest.endTime}" format="MM.dd.yyyy hh:mm a z"/>.\n\n"+
                      "Best of luck to you at the Studio!";
             function choose() {
-               if ( getValue("document.reviewForm", "${reviewText}").length>0) {
+               var text = getValue("document.reviewForm", "${reviewText}");
+               if ( text==null || text.length==0) {
                     if (getValue("document.reviewForm", "${reviewStatus}")==<%=ReviewStatus.PASSED%>) {
                         putValue("document.reviewForm", "${reviewText}", passed);
                     } else if (getValue("document.reviewForm", "${reviewStatus}")==<%=ReviewStatus.FAILED%>) {
@@ -86,7 +90,7 @@
                     This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
                 </p>
 
-                <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="5" cols="40"/></p>
+                <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="10" cols="80"/></p>
 
                 <p>
                     Sincerely,<br/>
