@@ -202,7 +202,7 @@ The Gray List consists of members who have either recently sent you messages, or
 member below.
 <br><br>
 <span class="bodySubtitle">Edit your Black List:</span>
-<br>
+<br><br>
 
 <table>
 <tr>
