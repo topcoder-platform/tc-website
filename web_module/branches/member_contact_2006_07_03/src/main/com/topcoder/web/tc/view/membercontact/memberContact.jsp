@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
          import="com.topcoder.web.tc.controller.request.membercontact.MemberContact,
+		         com.topcoder.web.tc.controller.request.membercontact.SendMail,
                  com.topcoder.web.tc.controller.request.membercontact.Helper"
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
@@ -18,7 +19,7 @@
 var prevCanSend = false;
 
 function canSend() {
-   return document.f.<%= MemberContact.TEXT %>.value != "" &&
+   return document.f.<%= SendMail.TEXT %>.value != "" &&
            document.f.handleValid.value == "true";
 }
 
@@ -26,10 +27,10 @@ function canSend() {
 
 function validate(send) {
     var ajaxRequest = new AjaxRequest('/tc?module=ValidateHandle');
-    ajaxRequest.addFormElementsById("<%= MemberContact.TO_HANDLE %>");
-    ajaxRequest.addFormElementsById("<%= MemberContact.TEXT %>");    
+    ajaxRequest.addFormElementsById("<%= SendMail.TO_HANDLE %>");
+    ajaxRequest.addFormElementsById("<%= SendMail.TEXT %>");    
     if (send) {
-        ajaxRequest.addFormElementsById("<%= MemberContact.SEND %>");
+        ajaxRequest.addFormElementsById("<%= SendMail.SEND %>");
     }
     ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
@@ -55,16 +56,16 @@ function keyPress(e) {
     else if (e) keycode = e.which;
     else return true;
     if (keycode == 13) {
-       document.f.<%= MemberContact.TEXT %>.focus();
+       document.f.<%= SendMail.TEXT %>.focus();
        return false;
     } else return true;
   }
 
 function init() {
-    document.f.<%= MemberContact.TO_HANDLE %>.focus();
+    document.f.<%= SendMail.TO_HANDLE %>.focus();
 <c:if test="${not empty param.th}" >
 	validate(false);
-    document.f.<%= MemberContact.TEXT %>.focus();	
+    document.f.<%= SendMail.TEXT %>.focus();	
 </c:if>
 }
 
@@ -121,16 +122,16 @@ function init() {
     <br>
 </c:if>
 <br>
-<input type="hidden" id="<%= MemberContact.SEND %>" name="<%= MemberContact.SEND %>" value="true" />
+<input type="hidden" id="<%= SendMail.SEND %>" name="<%= SendMail.SEND %>" value="true" />
 
-To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberContact.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
+To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
 <span class="smallText">(enter member handle only)</span>
 <br/><br/>
 
-<textarea name='<%= MemberContact.TEXT %>' id='<%= MemberContact.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
+<textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
 <br/><br/>
-<input type='checkbox' name='<%= MemberContact.SEND_COPY %>' />Send a copy to myself.
+<input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to myself.
 <br/><br/>
 
 
@@ -143,8 +144,7 @@ To: <input type='text' name='<%= MemberContact.TO_HANDLE %>' id='<%= MemberConta
 </div>
 </form>
 
-<c:set value="<%=MemberContact.CONFIRM%>" var="confirm"/>
-<c:if test="${cf:containsMapKey(requestScope, confirm)}" >
+<c:if test="${not empty param.confirm)}" >
     <span class="bigRed">
        Your message was sent.
     </span>

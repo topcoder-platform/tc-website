@@ -63,6 +63,7 @@ function afterRequest()
     if (document.f.handleFound.value == "true") {
         addBlockedUser(document.f.blockId.value,document.f.blockHandle.value);
     }
+    blockDisabled = false;    
 }
 
 function insertOrder(sel, option)
@@ -116,7 +117,6 @@ function unblock() {
 function addBlockedUser(id, handle)
 {
     insertOrder(document.f.blockedUsers, new Option(handle, id, false)) ;   
-    blockDisabled= false;
     document.f.handle.value='';
 }
 

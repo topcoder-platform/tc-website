@@ -28,9 +28,7 @@ public class SendMail extends HibernateProcessor {
     public static String TO_HANDLE = "th";
     public static String TEXT = "txt";
     public static String SEND_COPY = "sc";
-    public static String CONFIRM = "conf";
     public static String SEND = "send";
-    public static String CAN_RECEIVE = "cr";
 
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
@@ -76,7 +74,6 @@ public class SendMail extends HibernateProcessor {
             mail.setFromAddress(Constants.MEMBER_CONTACT_FROM_ADDRESS);
             EmailEngine.send(mail);
         }
-        getRequest().setAttribute(CONFIRM, String.valueOf(true));
 
     	MemberContactMessage m = new MemberContactMessage();
     	m.setSender(sender);
@@ -91,7 +88,7 @@ public class SendMail extends HibernateProcessor {
 
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 
-        setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=MemberContact");
+        setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=MemberContact&" + MemberContact.CONFIRM + "=true");
         setIsNextPageInContext(false);
     }
 
