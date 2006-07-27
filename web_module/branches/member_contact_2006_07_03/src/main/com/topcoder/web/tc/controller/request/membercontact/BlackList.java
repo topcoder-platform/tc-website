@@ -7,8 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
@@ -17,13 +17,12 @@ import com.topcoder.web.tc.Constants;
 
 /**
  * Processor for member contact black list.
- * If parameters "b" and/or "ub" are found, those users are blocked/unblocked.
- * Then, a list of recent users and blocked users are built for the jsp page to display.  
+ * A list of recent users and blocked users are built for the jsp page to display.  
  * 
  * @author cucu
  *
  */
-public class BlackList extends HibernateProcessor {
+public class BlackList extends ShortHibernateProcessor {
     
     public static String SAVED = "saved";
     public static String RECENT_USERS = "recentUsers";

@@ -6,9 +6,9 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.User;
@@ -23,7 +23,7 @@ import com.topcoder.web.tc.controller.request.membercontact.validation.HandleVal
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: July 26, 2006
  */
-public class SendMail extends HibernateProcessor {
+public class SendMail extends ShortHibernateProcessor {
 
     public static String TO_HANDLE = "th";
     public static String TEXT = "txt";
@@ -83,8 +83,6 @@ public class SendMail extends HibernateProcessor {
     	m.setSentDate(new Date());
 
         DAOUtil.getFactory().getMemberContactMessageDAO().saveOrUpdate(m);
-
-        markForCommit();
 
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
 

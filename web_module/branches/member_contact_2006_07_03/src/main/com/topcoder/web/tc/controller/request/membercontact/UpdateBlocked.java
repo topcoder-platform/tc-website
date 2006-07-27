@@ -2,10 +2,9 @@ package com.topcoder.web.tc.controller.request.membercontact;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HibernateProcessor;
-import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.model.MemberContactBlackList;
@@ -17,7 +16,7 @@ import com.topcoder.web.tc.Constants;
  * @author cucu
  *
  */
-public class UpdateBlocked extends HibernateProcessor {
+public class UpdateBlocked extends ShortHibernateProcessor {
     
     public static String BLOCK = "b";
     public static String UNBLOCK = "ub";
@@ -64,9 +63,6 @@ public class UpdateBlocked extends HibernateProcessor {
         // attribute used to display a message confirming that data was saved.
         getRequest().setAttribute(BlackList.SAVED, String.valueOf(true));
 
-        markForCommit();
-        
-        HibernateUtils.getSession().flush();
         
         setNextPage(nextPage);
         setIsNextPageInContext(false);

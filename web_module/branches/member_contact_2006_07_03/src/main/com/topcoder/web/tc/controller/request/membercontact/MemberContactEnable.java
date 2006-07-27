@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.HibernateProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
@@ -18,7 +18,7 @@ import com.topcoder.web.tc.Constants;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: July 14, 2006
  */
-public class MemberContactEnable extends HibernateProcessor {
+public class MemberContactEnable extends ShortHibernateProcessor {
     
     public static String ENABLE = "enable";
     
@@ -45,16 +45,13 @@ public class MemberContactEnable extends HibernateProcessor {
             
       		up.setValue(String.valueOf(true));
       		
-            markForCommit();
-            
             setNextPage(Constants.MEMBER_CONTACT_ENABLE_SUCCEEDED);
             setIsNextPageInContext(true);                    
         } else {        	
         	// Just display the page to confirm enabling MC
             setNextPage(Constants.MEMBER_CONTACT_ENABLE);
             setIsNextPageInContext(true);                    
-        }
-        
+        }        
     }
 
 

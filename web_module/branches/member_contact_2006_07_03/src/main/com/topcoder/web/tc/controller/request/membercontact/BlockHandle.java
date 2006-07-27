@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
@@ -13,7 +13,7 @@ import com.topcoder.web.tc.Constants;
  * @author cucu
  *
  */
-public class BlockHandle extends HibernateProcessor {
+public class BlockHandle extends ShortHibernateProcessor {
        
 	public static final String HANDLE = "handle"; 
 	public static final String ID = "id";

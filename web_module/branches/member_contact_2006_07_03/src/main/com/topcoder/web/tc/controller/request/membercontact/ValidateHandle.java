@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import com.topcoder.web.common.HibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.NonEmptyValidator;
@@ -16,7 +16,7 @@ import com.topcoder.web.tc.controller.request.membercontact.validation.HandleVal
  * 
  * @author cucu
  */
-public class ValidateHandle extends HibernateProcessor {
+public class ValidateHandle extends ShortHibernateProcessor {
 	
     protected void dbProcessing() throws Exception {
         String handle = getRequest().getParameter(SendMail.TO_HANDLE);
