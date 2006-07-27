@@ -144,7 +144,7 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
 </div>
 </form>
 
-<c:if test="${not empty param.confirm}" >
+<c:if test="${not empty param.conf}" >
     <span class="bigRed">
        Your message was sent.
     </span>
