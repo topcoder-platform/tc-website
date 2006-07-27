@@ -113,13 +113,13 @@ public class SubmitReview extends ShortHibernateProcessor {
         msgText.append("Dear ");
         msgText.append(submitter.getHandle());
         msgText.append(",\n\n");
-        msgText.append("This email is in regards to your submission ");
+        msgText.append("This email is in regard to your  ");
         msgText.append(fileName);
-        msgText.append(" at ");
+        msgText.append(" submitted on ");
 
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
         formatter.setFormatMethodForClass(Calendar.class,
-                new CalendarDateFormatMethod("MM.dd.yyyy hh:mm a z"), true);
+                new CalendarDateFormatMethod("EEEE, MMMM d, yyyy at hh:mm a z"), true);
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date(System.currentTimeMillis()));
