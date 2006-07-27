@@ -49,7 +49,6 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-   <%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectAdmin">Online Review Project Admin and Details Tests</A>
@@ -59,15 +58,15 @@
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectAdmin">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectAdmin">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$2,000</td>
       <td class="valueC">
@@ -90,15 +89,15 @@
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectReview">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectReview">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$1,500</td>
       <td class="valueC">
@@ -112,7 +111,6 @@
       </td>
    </tr>
    <% even = !even;%>
-   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin Tests</A>
