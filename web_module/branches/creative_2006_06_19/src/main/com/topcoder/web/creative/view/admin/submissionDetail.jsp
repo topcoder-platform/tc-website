@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.creative.Constants" %>
+<%@ page import="com.topcoder.web.creative.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -11,6 +12,30 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_creative"/>
     </jsp:include>
+
+    <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>
+    <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
+    <script language="javascript" type="text/javascript">
+        <!--
+        var passed = "I am happy to inform you that your TopCoder Studio submission has passed the initial review.  " +
+                     "It will be presented to the client and may be chosen as the winner.\n\n" +
+                     "You will be notified of the contest results via email.\n\n" +
+                     "Best of luck to you at the Studio!";
+        var failed = "Unfortunately, your TopCoder Studio submission has failed review for the following reason(s):\n\n" +
+                     "You may fix and resubmit your work before " +
+                     "<tc-webtag:format object="${submission.contest.endTime}" format="MM.dd.yyyy hh:mm a z"/>.\n\n"+
+                     "Best of luck to you at the Studio!";
+            function choose() {
+               if ( getValue("document.reviewForm", "${reviewText}").length>0) {
+                    if (getValue("document.reviewForm", ${reviewStatus})==<%=ReviewStatus.PASSED%>) {
+                        putValue("document.reviewForm", "${reviewText}", passed);
+                    } else if (getValue("document.reviewForm", ${reviewStatus})==<%=ReviewStatus.FAILED%>) {
+                        putValue("document.reviewForm", "${reviewText}", failed);
+                    }
+                }
+            }
+        -->
+    </script>
 
 </head>
 
