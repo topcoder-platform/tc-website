@@ -104,7 +104,10 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td>Team Creation:</td><td align="right">07.11.2006</td><td align="right">07.21.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">07.19.2006</td><td align="right">07.27.2006</td>
+      <td>Competition Phase:</td><td align="right">07.19.2006</td><td align="right">07.28.2006</td>
+   </tr>
+   <tr>
+      <td>&#160;</td><td align="right">&#160;</td><td align="right">9:00 AM EST</td>
    </tr>
    <tr>
       <td>Test Challenge Phase:</td><td align="right">07.28.2006</td><td align="right">07.31.2006</td>
