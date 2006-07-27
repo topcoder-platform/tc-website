@@ -2,6 +2,7 @@ package com.topcoder.web.creative.controller.request.admin;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.SubmissionReview;
@@ -24,6 +25,7 @@ public class ViewSubmissionDetail extends ShortHibernateProcessor {
         getRequest().setAttribute("submission", CreativeDAOUtil.getFactory().getSubmissionDAO().find(submissionId));
         SubmissionReview submissionReview = CreativeDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
         getRequest().setAttribute("reviewStatuses", CreativeDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses());
+        getRequest().setAttribute("currentUser", DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
 
         if (submissionReview != null) {
             getRequest().setAttribute("submissionReview", submissionReview);
