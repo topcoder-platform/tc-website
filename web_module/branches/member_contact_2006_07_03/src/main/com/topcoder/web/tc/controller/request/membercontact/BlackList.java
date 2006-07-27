@@ -8,12 +8,10 @@ import java.util.TreeSet;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.HibernateProcessor;
-import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
-import com.topcoder.web.common.model.MemberContactBlackList;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
 
@@ -36,13 +34,6 @@ public class BlackList extends HibernateProcessor {
         if (!userIdentified()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        //  The user must be a rated member to access this page.
-		if (!Helper.isRated(getUser().getId())) {
-			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
-	        setNextPage(Constants.MEMBER_CONTACT);
-	        setIsNextPageInContext(true);
-	        return;
-		}
 
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         

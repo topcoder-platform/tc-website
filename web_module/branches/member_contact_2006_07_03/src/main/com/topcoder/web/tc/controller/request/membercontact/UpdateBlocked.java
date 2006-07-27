@@ -1,11 +1,5 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HibernateProcessor;
@@ -14,7 +8,6 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
-import com.topcoder.web.common.dao.MemberContactMessageDAO;
 import com.topcoder.web.common.model.MemberContactBlackList;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.Constants;
@@ -38,14 +31,6 @@ public class UpdateBlocked extends HibernateProcessor {
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);        
         String nextPage = info.getServletPath() + "?" + Constants.MODULE_KEY + "=BlackList&" + BlackList.SAVED + "=true";
         
-        //  The user must be a rated member to access this page.
-		if (!Helper.isRated(getUser().getId())) {
-			getRequest().setAttribute(Helper.NOT_RATED, String.valueOf(false));
-	        setNextPage(nextPage);
-	        setIsNextPageInContext(false);
-	        return;
-		}
-
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         String block[] = getRequest().getParameterValues(BLOCK);
