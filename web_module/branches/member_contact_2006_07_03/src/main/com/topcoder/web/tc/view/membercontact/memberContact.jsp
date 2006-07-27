@@ -156,7 +156,7 @@ To: &#160; <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.
      </c:otherwise>
 </c:choose>
 <br><br><br><br>
-* All messages sent to TopCoder members from the member contact area will be logged and may be occasionally reviewed. 
+* All messages sent to TopCoder members from the Member Contact area will be logged and may be occasionally reviewed. 
 Using the member contact function for any commercial purposes is strictly prohibited. Any TopCoder member who deems a member 
 contact message from another TopCoder member to be inappropriate is encouraged to report this activity at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 <br><br><br>

@@ -196,12 +196,18 @@ function keyPress(e) {
 <div class="fixedWidthBody">
 
 <form name="f" method="post">
-
 <br>
+The Black List of the Member Contact area allows you to block specific TopCoder members from being able to contact you. Use the form below to block unwanted messages.
+The Gray List consists of members who have either recently sent you messages, or are members who you have previously blocked. You may also enter the handle of any other
+member below.
+<br><br>
+<span class="bodySubtitle">Edit your Black List:</span>
+<br>
+
 <table>
 <tr>
 <td>
-Gray List*:<br>
+Gray List:<br>
 <select name='users' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
@@ -250,8 +256,6 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 </c:if>
 
 </form>
-<br><br><br>
-* The Gray List consists of members who have either recently sent you messages from the member contact area, or are members who you have previously blocked.
 
 </div>
 <br><br><br><br>
