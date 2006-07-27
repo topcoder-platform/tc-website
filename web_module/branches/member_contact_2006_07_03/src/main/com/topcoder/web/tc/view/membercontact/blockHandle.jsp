@@ -10,19 +10,18 @@
 
     <c:when test="${cf:containsMapKey(requestScope, id)}" >
        <tac:replaceChildren contextNodeID="blockHandleResult" parseOnServer="true">
-           <script type="text/javascript">
-               addBlockedUser('<c:out value="${requestScope.id}" />', '<c:out value="${requestScope.handle}" />');
-           </script>
+            <input type="hidden" name="handleFound" value="true" />
+            <input type="hidden" name="blockId" value='<c:out value="${requestScope.id}" />' />
+            <input type="hidden" name="blockHandle" value='<c:out value="${requestScope.handle}" />' />            
         </tac:replaceChildren>
     </c:when>
     <c:otherwise>
         <tac:replaceChildren contextNodeID="blockHandleResult" parseOnServer="true">
             <div style="font-weight:bold;color:red;">
                User not found.
+               <input type="hidden" name="handleFound" value="false" />
             </div>
-            <script type="text/javascript">
-                document.f.blockBtn.disabled = false;            
-            </script>
+            
         </tac:replaceChildren>
     </c:otherwise>
 </c:choose>

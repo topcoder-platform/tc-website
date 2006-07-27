@@ -52,8 +52,16 @@ function blockHandle(handle) {
 
     var ajaxRequest = new AjaxRequest('/tc?module=BlockHandle');
     ajaxRequest.addFormElementsById("handle");
+    ajaxRequest.setPostRequest(afterRequest);
     ajaxRequest.sendRequest();
 
+}
+
+function afterRequest() 
+{
+    if (document.f.handleFound.value == "true") {
+        addBlockedUser(document.f.blockId.value,document.f.blockHandle.value);
+    }
 }
 
 function insertOrder(sel, option)
