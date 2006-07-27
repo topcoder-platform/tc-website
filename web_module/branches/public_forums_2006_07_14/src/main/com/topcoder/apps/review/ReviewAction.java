@@ -1,5 +1,5 @@
-/**
- * Copyright ?2003, TopCoder, Inc. All rights reserved
+/*
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review;
@@ -17,12 +17,22 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
+ * <p>
  * Extends from <strong>BaseAction</strong> that provides validity checking.
+ * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the <code>UserProjectInfo</code> class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky
+ * @version 1.0.1
  */
-
 public abstract class ReviewAction extends BaseAction {
 
     // --------------------------------------------------------- Public Methods
