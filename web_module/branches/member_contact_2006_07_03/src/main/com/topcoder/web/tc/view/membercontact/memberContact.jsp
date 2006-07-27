@@ -36,12 +36,12 @@ function validate(send) {
 }
 
 function textChanged() {
-	document.f.btnSend.disabled = !canSend();
+//	document.f.btnSend.disabled = !canSend();
 }
 
 function afterRequest() 
 {
-    document.f.btnSend.disabled = !canSend();
+//    document.f.btnSend.disabled = !canSend();
     if (canSend() && document.f.doSend.value == "true") {
         document.f.submit();
     }

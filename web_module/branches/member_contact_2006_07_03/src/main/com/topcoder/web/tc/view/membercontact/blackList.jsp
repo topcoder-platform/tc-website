@@ -6,7 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Member Contact</title>
+<title>Black List</title>
          
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript">
@@ -217,9 +217,9 @@ Gray List:<br>
 
 <td valign='center'>
 <A href="javascript:block()"></A><br>
-<input type="image" name="Block" src="i/interface/btn_block_arrow.gif" border="0" onClick="block()" />
+<input type="image" name="Block" src="i/interface/btn_block_arrow.gif" border="0" onClick="block(); return false;" />
 <br>
-<input type="image" name="Unblock" src="i/interface/btn_unblock_arrow.gif" border="0" onClick="unblock()" />
+<input type="image" name="Unblock" src="i/interface/btn_unblock_arrow.gif" border="0" onClick="unblock(); return false;" />
 <td>
 Blocked Users:<br>
 <select name='blockedUsers' multiple size="10" style="width: 180px;">
@@ -236,7 +236,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160; 
 
 
-<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value))" />
+<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value)); return false;" />
 <br>
 <div id="blockHandleResult">
         <input type="hidden" name="handleFound" id="handleFound" value="false" />
@@ -245,7 +245,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 <br>
 <input type="image" name="Save" src="i/interface/btn_save.gif" border="0" onClick="save()" />
 &#160; 
-<input type="image" name="Back" src="i/interface/btn_back.gif" border="0" onClick="window.location='/tc?module=MemberContact'" />
+<input type="image" name="Back" src="i/interface/btn_back.gif" border="0" onClick="window.location='/tc?module=MemberContact';return false;" />
 
 <br><br>
 
