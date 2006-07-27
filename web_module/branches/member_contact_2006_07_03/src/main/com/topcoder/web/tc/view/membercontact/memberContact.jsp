@@ -102,6 +102,9 @@ function init() {
 </jsp:include>
 
 <div class="fixedWidthBody">
+The Member Contact area allows you to send an email to other rated TopCoder members only.*  You can access this message area by clicking the "Send a message" link 
+on members' profile pages. Use the message form below to contact the member of your choice. You will need to enter the member's TopCoder handle. There is no limit on the length of your message.
+<br><br>
 
 <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
 <c:choose>
