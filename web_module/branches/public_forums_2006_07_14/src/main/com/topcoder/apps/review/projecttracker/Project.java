@@ -24,16 +24,19 @@ import java.net.URL;
  * </p>
  *
  * <p>
- * Version 1.0.2 Change notes:
+ * Version 1.0.2/3 Change notes:
  * <ol>
  * <li>
- * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the class.
+ * </li>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the class.
  * </li>
  * </ol>
  * </p>
  *
  * @author FatClimber, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class Project implements Serializable {
     private long id;

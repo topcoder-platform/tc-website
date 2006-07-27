@@ -51,16 +51,19 @@ import java.util.List;
  * This is the concrete implementation of the ProjectTracker interface.
  *
  * <p>
- * Version 1.0.2 Change notes:
+ * Version 1.0.2/3 Change notes:
  * <ol>
  * <li>
  * Class updated due to the addition of <code>response_during_appeals_ind</code> to the project table.
+ * </li>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> to the Project and UserProjectInfo classes.
  * </li>
  * </ol>
  * </p>
  *
  * @author TCSDeveloper, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class ProjectTrackerBean implements SessionBean {
     private Logger log;

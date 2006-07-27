@@ -1,12 +1,6 @@
 /*
- * ComponentSummary.java
- * 26 August 2002
- * 1.0
- *
- * Copyright (c) 2002, TopCoder, Inc.
- * All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 
 package com.topcoder.dde.catalog;
 
@@ -22,8 +16,17 @@ import java.util.Date;
  * version, version label, comments, phase, phase date, and price) pertain to a
  * particular version of the component.
  *
- * @version 1.0, 26 August 2002
- * @author  Albert Mao
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author Albert Mao, pulky
+ * @version 1.0.1
  * @see     Catalog
  * @see     ComponentManager
  */

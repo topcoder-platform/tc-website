@@ -1,8 +1,5 @@
 /*
- * UserProjectInfo.java
- *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
- *
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -10,13 +7,20 @@ import java.io.Serializable;
 
 
 /**
- * <p>
  * A lightweight version of the Project which is provided to speed performance
  * and minimise storage needs as these objects are stored in a user's session.
+ *
+ * <p>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the class.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author FatClimber, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class UserProjectInfo implements Serializable {
     private long id;

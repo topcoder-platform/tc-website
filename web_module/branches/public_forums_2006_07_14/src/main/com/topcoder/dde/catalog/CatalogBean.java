@@ -72,8 +72,15 @@ import java.util.Date;
  * </li>
  * </ol>
  *
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> to the Project, ComponentSummary and UserProjectInfo classes.
+ * </li>
+ * </ol>
+ *
  * @author Albert Mao, pulky
- * @version 1.0.2
+ * @version 1.0.3
  * @see     Catalog
  * @see     CatalogHome
  */
