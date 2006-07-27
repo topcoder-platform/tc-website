@@ -275,7 +275,7 @@
                                                                          format="MM.dd.yyyy" ifNull="unknown*"/></TD>
 
         <TD class="<%=even?"statLt":"statDk"%>" align="right">
-            <% if (reviewers.isEmpty()) { %>
+            <% if (resultRow.getItem("screening_score").getResultData() == null) { %>
             <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
             <% } else { %>
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
