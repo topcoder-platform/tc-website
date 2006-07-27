@@ -27,8 +27,6 @@ import com.topcoder.web.tc.Constants;
  */
 public class BlackList extends HibernateProcessor {
     
-    public static String BLOCK = "b";
-    public static String UNBLOCK = "ub";
     public static String SAVED = "saved";
     public static String RECENT_USERS = "recentUsers";
     public static String BLOCKED_USERS = "blockedUsers";
@@ -48,8 +46,6 @@ public class BlackList extends HibernateProcessor {
 
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
-        // save data if necessary
-        updateBlocked(user);
         
         // recentUsers are the users who sent messages to that user and/or where previously in the black list
         // but aren't thre now.
@@ -72,48 +68,6 @@ public class BlackList extends HibernateProcessor {
         setIsNextPageInContext(true);        
     }
 
-    /**
-     * Updates the blocked list of the user, blocking the parameters "b" and 
-     * unblocking the parameters "ub".
-     * 
-     * @param user owner of the list.
-     */
-    private void updateBlocked(User user) {
-        String block[] = getRequest().getParameterValues(BLOCK);
-        String unblock[] = getRequest().getParameterValues(UNBLOCK);
-
-        if (block == null && unblock == null) {
-        	return;
-        }
-        MemberContactBlackListDAO memberContactDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();
-        
-        // Block users
-        if (block != null) {
-			for (int i = 0; i < block.length; i++) { 
-				User blockedUser = DAOUtil.getFactory().getUserDAO().find(new Long(block[i]));
-				MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
-				m.setBlocked(true);
-				memberContactDAO.saveOrUpdate(m);
-			}
-        }
-        
-        // Unblock users
-        if (unblock != null) {
-			for (int i = 0; i < unblock.length; i++) {
-				User blockedUser = DAOUtil.getFactory().getUserDAO().find(new Long(unblock[i]));
-				MemberContactBlackList m = memberContactDAO.findOrCreate(user, blockedUser);
-				m.setBlocked(false);
-				memberContactDAO.saveOrUpdate(m);
-			}
-        }
-        
-        // attribute used to display a message confirming that data was saved.
-        getRequest().setAttribute(SAVED, String.valueOf(true));
-
-        markForCommit();
-        
-        HibernateUtils.getSession().flush();
-    }
     
 	private static class UserHandleComparator implements Comparator {
 

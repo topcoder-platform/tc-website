@@ -1,5 +1,3 @@
-<%@ page language="java"
-         import="com.topcoder.web.tc.controller.request.membercontact.BlackList" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
@@ -146,7 +144,7 @@ function save()
     var b = getNewElements(iniBlocked, document.f.blockedUsers.options).join("&b=");
     if (b != "") b = "&b=" + b;
         
-    document.f.action = "/tc?module=BlackList" + ub + b;
+    document.f.action = "/tc?module=UpdateBlocked" + ub + b;
     document.f.submit();
 }
 
@@ -215,9 +213,9 @@ blocked:<br>
 
 <td valign='center'>
 <A href="javascript:block()"></A><br>
-<input type="button" value="Block &gt;" width="100" onClick="block()">
+<input type="button" value="Block &gt;" onClick="block()" style="width: 100px;">
 <br>
-<input type="button" value="&lt; Unblock" width="100" onClick="unblock()">
+<input type="button" value="&lt; Unblock" onClick="unblock()" style="width: 100px;">
 <td>
 <br><br>
 Blocked Users:<br>
@@ -233,6 +231,9 @@ Blocked Users:<br>
 <br>
 Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
 &#160; 
+<div id="blockHandleResult">
+        <input type="hidden" name="handleFound" id="handleFound" value="false" />
+</div>
 
 
 <input type="button" value="Block" width="100" onClick="blockHandle(document.f.handle.value))">
@@ -244,12 +245,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 
 <br><br>
 
-<div id="blockHandleResult">
-        <input type="hidden" name="handleFound" id="handleFound" value="false" />
-</div>
-
-<c:set value="<%=BlackList.SAVED%>" var="saved"/>
-<c:if test="${cf:containsMapKey(requestScope, saved)}" >
+<c:if test="${not empty param.saved}" >
     <span class="bigRed">
        The blocked user list was saved.
     </span>
