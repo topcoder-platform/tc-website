@@ -107,6 +107,7 @@ public class Main extends Base {
                 if (nots != null) {
                     getRequest().setAttribute("notifications", nots);
                 }
+
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());

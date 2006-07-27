@@ -236,7 +236,7 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160; 
 
 
-<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value)); return false;" />
+<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value); return false;" />
 <br>
 <div id="blockHandleResult">
         <input type="hidden" name="handleFound" id="handleFound" value="false" />

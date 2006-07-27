@@ -50,9 +50,9 @@ TopCoder member contact email messages will be sent to the email address listed 
 <input type="hidden" name="enable" value="true" />
 <input type="hidden" name="module" value="MemberContactEnable" />
 
-<input type="image" src="i/interface/btn_ok.gif" border="0" />
+<input type="image" src="i/interface/btn_ok.gif" border="0"/>
 &#160;
-<input type="image" src="i/interface/btn_cancel.gif" border="0" onClick="window.location='/tc?module=MemberContact'">
+<input type="image" src="i/interface/btn_cancel.gif" border="0" onClick="window.location='/tc?module=MemberContact'; return false;">
 </form>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
