@@ -579,7 +579,7 @@ public class AutoPilot {
                     112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
             if (rsc != null) {
                 for (int i = 0; i < rsc.size(); i++) {
-                    if (rsc.getIntItem(i, "primary") == 1) {
+                    if (rsc.getIntItem(i, "primary_ind") == 1) {
                         primaryFixedPayment = rsc.getFloatItem(i, "amount");
                     } else {
                         secondaryFixedPayment = rsc.getFloatItem(i, "amount");
