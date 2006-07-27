@@ -45,10 +45,9 @@ public class BlackList extends HibernateProcessor {
 		}
 
         User user = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-
         
         // recentUsers are the users who sent messages to that user and/or where previously in the black list
-        // but aren't thre now.
+        // but aren't there now.
     	Set recentUsers = new TreeSet(new UserHandleComparator());
 
         MemberContactBlackListDAO blackListDAO = DAOUtil.getFactory().getMemberContactBlackListDAO();

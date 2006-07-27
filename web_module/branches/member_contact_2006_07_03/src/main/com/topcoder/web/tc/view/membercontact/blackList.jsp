@@ -231,13 +231,14 @@ Blocked Users:<br>
 <br>
 Enter another user: <input type="text" name='handle' id='handle' onkeypress="return keyPress(event);"/>
 &#160; 
-<div id="blockHandleResult">
-        <input type="hidden" name="handleFound" id="handleFound" value="false" />
-</div>
 
 
 <input type="button" value="Block" width="100" onClick="blockHandle(document.f.handle.value))">
 <br>
+<div id="blockHandleResult">
+        <input type="hidden" name="handleFound" id="handleFound" value="false" />
+</div>
+
 <br>
 <input type="button" value="Save" width="100" onClick="save()">
 &#160; 
