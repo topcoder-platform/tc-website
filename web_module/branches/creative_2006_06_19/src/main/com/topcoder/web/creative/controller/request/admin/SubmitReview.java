@@ -119,7 +119,7 @@ public class SubmitReview extends ShortHibernateProcessor {
 
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
         formatter.setFormatMethodForClass(Calendar.class,
-                new CalendarDateFormatMethod("EEEE, MMMM d, yyyy at hh:mm a z"), true);
+                new CalendarDateFormatMethod("EEEE, MMMM d, yyyy 'at' hh:mm a z"), true);
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date(System.currentTimeMillis()));
