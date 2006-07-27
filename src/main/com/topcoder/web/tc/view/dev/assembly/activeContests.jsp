@@ -68,7 +68,7 @@
       07.21.2006 9:00 PM EST
       </td>
       <td class="valueC">
-      07.28.2006 9:00 AM EST
+      08.02.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
 
