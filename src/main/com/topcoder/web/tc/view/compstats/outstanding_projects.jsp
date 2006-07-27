@@ -159,7 +159,7 @@ z-index: 1;
      <%even=!even;%>
      </rsc:iterator>
   </TABLE>
-* Assuming first place finish for all current contests
+* Assuming first place finish with all current contests with all competitors passing review
 
          <p><br></p>
          <!-- END BODY -->
