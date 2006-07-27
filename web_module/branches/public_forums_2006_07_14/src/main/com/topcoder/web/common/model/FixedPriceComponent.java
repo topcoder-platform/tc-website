@@ -19,7 +19,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     private float secondaryFixedPayment = 0;
 
-    private float primaryAdjustmentFactor = 0;
+    private float primaryAdjustmentFactor = 1;
 
     protected FixedPriceComponent() {
     }
@@ -74,7 +74,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         oldTotal += super.getFinalReviewCost();
         oldTotal += super.getCoreReviewCost();
 
-        this.primaryAdjustmentFactor = amount / oldTotal;
+        this.primaryAdjustmentFactor = amount > 0 ? (amount / oldTotal) : 1;
     }
 
     private void setSecondaryFixedPayment(float amount) {
