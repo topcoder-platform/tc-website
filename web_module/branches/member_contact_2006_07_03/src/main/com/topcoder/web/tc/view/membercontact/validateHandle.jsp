@@ -21,14 +21,14 @@
     <c:when test="${textValidation.valid && handleValidation.valid}">
         <tac:replaceChildren contextNodeID="btnSendDiv" parseOnServer="true">
                 <div>
-                	<img src="/i/interface/btn_send.gif" border="0"/>
+                	<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send.gif" border="0"/></A>
                 </div>
         </tac:replaceChildren>
     </c:when>
     <c:otherwise>
         <tac:replaceChildren contextNodeID="btnSendDiv" parseOnServer="true">
             <div>
-                	<A href="javascript:validate(true)" class="bodyText"><img src="/i/interface/btn_send_disabled.gif" border="0"/></A>
+                	<img src="/i/interface/btn_send_disabled.gif" border="0"/>
            </div>
         </tac:replaceChildren>
     </c:otherwise>
