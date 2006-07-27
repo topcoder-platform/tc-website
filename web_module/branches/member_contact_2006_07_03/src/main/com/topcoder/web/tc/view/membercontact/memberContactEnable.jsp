@@ -40,15 +40,17 @@
 
 <span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
-Do you want to enable other members to contact you?
+Are you sure you want to enable other rated TopCoder members to contact you?
 <br><br>
-All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
+Once this is enabled, all rated TopCoder members will be able to send email messages to you, 
+unless you block access for specific members on the <a href='/tc?module=BlackList'>black list</a> page.  
+TopCoder member contact email messages will be sent to the email address listed in your TopCoder profile.
 <br><br>
 <form action="/tc" >
 <input type="hidden" name="enable" value="true" />
 <input type="hidden" name="module" value="MemberContactEnable" />
 
-<input type="submit" value="Enable" />
+<input type="submit" value="Ok" />
 &#160;
 <input type="button" value="Cancel" width="100" onClick="window.location='/tc?module=MemberContact'">
 </form>

@@ -116,7 +116,7 @@ function init() {
 
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
-    To enable other members to contact you, click <a href='/tc?module=MemberContactEnable'>here</a>
+	To enable other rated TopCoder members to contact you, <a href='/tc?module=MemberContactEnable'>click here</a>
     <br>
 </c:if>
 <br>
@@ -124,12 +124,12 @@ function init() {
 
 To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HANDLE %>' size='12' onBlur='validate(false)' onkeypress='return keyPress(event);' value='<c:out value="${param.th}" />'/>
 <div id="validationHandle"> </div>
-<span class="smallText">(enter member handle only)</span>
+<span class="smallText">(Enter TopCoder member handle only)</span>
 <br/><br/>
 
 <textarea name='<%= SendMail.TEXT %>' id='<%= SendMail.TEXT %>' cols='50' rows='10' onKeyUp='textChanged()'></textarea>
 <br/><br/>
-<input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to myself.
+<input type='checkbox' name='<%= SendMail.SEND_COPY %>' />Send a copy to the email address in my TopCoder profile.
 <br/><br/>
 
 
@@ -150,9 +150,16 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
      </c:otherwise>
 </c:choose>
 <br>
-To block certain members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br><br><br><br>
 </div>
+
+* All messages sent to TopCoder members from the member contact area will be 
+logged and may be occasionally reviewed.  
+Using the member contact function for any commercial purposes is strictly prohibited.  
+Any TopCoder member who deems a member contact message from another TopCoder member to be 
+inappropriate is encouraged to report this activity at service@topcoder.com .
+
         </td>
 <!-- Center Column Ends -->
 
