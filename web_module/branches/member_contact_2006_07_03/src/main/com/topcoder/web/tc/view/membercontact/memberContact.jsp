@@ -133,7 +133,7 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
 <br/><br/>
 
 
-<input type="button" id="btnSend" name="btnSend" value="Send" onClick="validate(true)" disabled="true"/>
+<input type="image" id="btnSend" name="btnSend" src="i/interface/btn_send.gif" border="0"  onClick="validate(true)" disabled="true"/>
 
 <div id="runJS">
 <input type="hidden" id="handleValid" name="handleValid" value="false" />
@@ -151,14 +151,13 @@ To: <input type='text' name='<%= SendMail.TO_HANDLE %>' id='<%= SendMail.TO_HAND
 </c:choose>
 <br>
 To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
-<br><br><br><br><br>
+<br><br><br>
+* All messages sent to TopCoder members from the member contact area will be logged and may be occasionally reviewed. 
+Using the member contact function for any commercial purposes is strictly prohibited. Any TopCoder member who deems a member 
+contact message from another TopCoder member to be inappropriate is encouraged to report this activity at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+<br><br><br>
 </div>
 
-* All messages sent to TopCoder members from the member contact area will be 
-logged and may be occasionally reviewed.  
-Using the member contact function for any commercial purposes is strictly prohibited.  
-Any TopCoder member who deems a member contact message from another TopCoder member to be 
-inappropriate is encouraged to report this activity at service@topcoder.com .
 
         </td>
 <!-- Center Column Ends -->

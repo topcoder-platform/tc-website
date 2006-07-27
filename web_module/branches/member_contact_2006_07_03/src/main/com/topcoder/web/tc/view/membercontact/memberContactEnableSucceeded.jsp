@@ -41,7 +41,7 @@
 <span class="bodySubtitle">Enable Member Contact</span>
 <br><br>
 <span class="bigRed">Member Contact is enabled now.</span><br>
-All members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
+All rated TopCoder members will be able to contact you, unless you block their access on the <a href='/tc?module=BlackList'>black list</a> page.
 <br><br>
 <form>
 <A href="/tc?module=MemberContact">Go to Member Contact</A>

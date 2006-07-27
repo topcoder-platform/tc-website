@@ -201,9 +201,7 @@ function keyPress(e) {
 <table>
 <tr>
 <td>
-Users who recently sent you<br>
-messages or who were previously<br>
-blocked:<br>
+Gray List*:<br>
 <select name='users' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.recentUsers}" var="recentUser">
 <option value="<c:out value="${recentUser.id}" />"><c:out value="${recentUser.handle}" /></option>
@@ -213,11 +211,10 @@ blocked:<br>
 
 <td valign='center'>
 <A href="javascript:block()"></A><br>
-<input type="button" value="Block &gt;" onClick="block()" style="width: 100px;">
+<input type="image" name="Block" src="i/interface/btn_block_arrow.gif" border="0" onClick="block()" />
 <br>
-<input type="button" value="&lt; Unblock" onClick="unblock()" style="width: 100px;">
+<input type="image" name="Unblock" src="i/interface/btn_unblock_arrow.gif" border="0" onClick="unblock()" />
 <td>
-<br><br>
 Blocked Users:<br>
 <select name='blockedUsers' multiple size="10" style="width: 180px;">
 <c:forEach items="${requestScope.blockedUsers}" var="blockedUser">
@@ -233,16 +230,16 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 &#160; 
 
 
-<input type="button" value="Block" width="100" onClick="blockHandle(document.f.handle.value))">
+<input type="image" name="handleblock" src="i/interface/btn_block.gif" border="0" onClick="blockHandle(document.f.handle.value))" />
 <br>
 <div id="blockHandleResult">
         <input type="hidden" name="handleFound" id="handleFound" value="false" />
 </div>
 
 <br>
-<input type="button" value="Save" width="100" onClick="save()">
+<input type="image" name="Save" src="i/interface/btn_save.gif" border="0" onClick="save()" />
 &#160; 
-<input type="button" value="Back" width="100" onClick="window.location='/tc?module=MemberContact'">
+<input type="image" name="Back" src="i/interface/btn_back.gif" border="0" onClick="window.location='/tc?module=MemberContact'" />
 
 <br><br>
 
@@ -253,6 +250,9 @@ Enter another user: <input type="text" name='handle' id='handle' onkeypress="ret
 </c:if>
 
 </form>
+<br><br><br>
+* The Gray List consists of members who have either recently sent you messages from the member contact area, or are members who you have previously blocked.
+
 </div>
 <br><br><br><br>
         </td>
