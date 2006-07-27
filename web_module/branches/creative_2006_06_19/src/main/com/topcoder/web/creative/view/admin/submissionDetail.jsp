@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.creative.model.ReviewStatus" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -27,9 +28,9 @@
                      "Best of luck to you at the Studio!";
             function choose() {
                if ( getValue("document.reviewForm", "${reviewText}").length>0) {
-                    if (getValue("document.reviewForm", ${reviewStatus})==<%=ReviewStatus.PASSED%>) {
+                    if (getValue("document.reviewForm", "${reviewStatus}")==<%=ReviewStatus.PASSED%>) {
                         putValue("document.reviewForm", "${reviewText}", passed);
-                    } else if (getValue("document.reviewForm", ${reviewStatus})==<%=ReviewStatus.FAILED%>) {
+                    } else if (getValue("document.reviewForm", "${reviewStatus}")==<%=ReviewStatus.FAILED%>) {
                         putValue("document.reviewForm", "${reviewText}", failed);
                     }
                 }
