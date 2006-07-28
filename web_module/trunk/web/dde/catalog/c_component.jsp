@@ -300,7 +300,7 @@
                                             %><td><img src="/images/catalog/catpg_flash_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         case 3:
-                                            %><td><img src="/images/catalog/catpg_AOL_logo.gif" alt="" border="0" /></td><%
+                                            %><td style="padding-right:20px;"><img src="/images/catalog/catpg_AOL_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         default:
                                             %><td></td><%
