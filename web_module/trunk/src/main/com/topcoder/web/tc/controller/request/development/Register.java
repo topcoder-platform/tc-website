@@ -75,6 +75,9 @@ public class Register extends ViewRegistration {
                         }
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
+                        if (log.isDebugEnabled()) {
+                            log.debug("reged: " + isRegisteredForTournament + " confirmed: " + isConfirmed);
+                        }
                         if (isRegisteredForTournament || isConfirmed) {
                             if (log.isDebugEnabled()) {
                                 log.debug("either they are registered, or they've confirmed they don't want to");
