@@ -172,6 +172,7 @@ public class ViewRegistration extends Base {
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
         ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        log.debug("they " + (ret ? "are" : "are not") + " registered");
         return ret;
     }
 
