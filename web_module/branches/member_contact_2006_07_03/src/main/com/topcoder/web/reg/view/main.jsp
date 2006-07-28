@@ -399,7 +399,9 @@
         <td class="value">
             <tc-webtag:chkBox name="<%=Constants.MEMBER_CONTACT%>"/>Other users will be able to contact me.
             <br>
-            To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+            <c:if test="${not regUser.new}">            
+	            To block specific TopCoder members from contacting you, go to the <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
+            </c:if>
         </td>
     </tr>
 </c:if>
