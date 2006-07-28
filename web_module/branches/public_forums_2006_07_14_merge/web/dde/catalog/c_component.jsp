@@ -264,15 +264,19 @@
 <%
     int refCatalog = -1;
     String catalogName = "No";
-    if (javaCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 0;
-        catalogName = "Java";
-    } else if (netCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 1;
-        catalogName = ".NET";
-    } else if (flashCategory.getId() == details.getSummary().getRootCategory()) {
-        refCatalog = 2;
-        catalogName = "Flash";
+    if (details.getSummary().getAolComponent()) {
+        refCatalog = 3;
+    } else {
+        if (javaCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 0;
+            catalogName = "Java";
+        } else if (netCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 1;
+            catalogName = ".NET";
+        } else if (flashCategory.getId() == details.getSummary().getRootCategory()) {
+            refCatalog = 2;
+            catalogName = "Flash";
+        }
     }
 %>
 
@@ -294,6 +298,9 @@
                                             break;
                                         case 2:
                                             %><td><img src="/images/catalog/catpg_flash_logo.gif" alt="" border="0" /></td><%
+                                            break;
+                                        case 3:
+                                            %><td><img src="/images/catalog/catpg_AOL_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         default:
                                             %><td></td><%
