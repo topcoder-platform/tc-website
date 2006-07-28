@@ -9,6 +9,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.28.06<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm313">SRM 313 - Problem Set & Analysis</A></span><br><br>
+SRM 313 attracted 928 participants from 62 different countries.
+Division 1 featured a surprisingly difficult medium problem that got the drop on almost 400 of the competitors.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm313">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505988" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.26.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></span><br><br>
       AOL recently held a chat session in the arena, just prior to SRM 312.  Here's the chat transcript.
@@ -178,23 +196,6 @@ In Division 1, competitiors discovered the Easy and Medium problems to be easier
        <A href="/tc?module=Static&d1=pressroom&d2=pr_071206">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506069" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.11.06<br>12:35 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm6">TCHS SRM 6 - Problem Set & Analysis</A></span><br><br>
-The High School matches are heating up, with quite a lot of registrants and yet another match with a reasonably hard medium.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/myprasanna_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13366203" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm6">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506028" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 

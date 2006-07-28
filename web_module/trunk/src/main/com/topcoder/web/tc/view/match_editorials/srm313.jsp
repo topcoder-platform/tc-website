@@ -55,7 +55,7 @@ so it will be easier to write funny introductions.<br>
 </p>
 <p>
 SRM 313 attracted 928 participants from 62 different countries.
-Division 1 featured a surprisingly difficult medium problem that got the drop on almost 400 he competitors, while the other
+Division 1 featured a surprisingly difficult medium problem that got the drop on almost 400 of the competitors, while the other
 two problems in that division were pretty standard. In division 2, the problem set turned out to
 be pretty balanced, leaving a final table with a surprising continuity in scores
 that almost had no big holes.
