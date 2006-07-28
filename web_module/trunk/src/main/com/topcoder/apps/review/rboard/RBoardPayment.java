@@ -12,19 +12,10 @@ import java.rmi.RemoteException;
 import java.sql.Timestamp;
 
 /**
- * RBoard EJB remote interface.
+ * RBoardPayment EJB remote interface.
  *
- * <p>
- * Version 1.0.1 Change notes:
- * <ol>
- * <li>
- * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
- * </li>
- * </ol>
- * </p>
- *
- * @author dok, pulky
- * @version 1.0.1
+ * @author pulky
+ * @version 1.0.0
  */
 public interface RBoardPayment extends EJBObject {
     ResultSetContainer getPayments(long projectId, long phaseId, String dataSource) throws  RemoteException;

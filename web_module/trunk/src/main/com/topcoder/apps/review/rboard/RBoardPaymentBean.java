@@ -40,7 +40,7 @@ import com.topcoder.shared.util.logging.Logger;
 /**
  * Implementation of the RBoardPayment EJB.
  *
- * Simple EJB for rboard_payment table lookup.
+ * Simple EJB for rboard_payment table.
  *
  * @author pulky
  * @version 1.0.0

@@ -56,8 +56,14 @@ import java.util.Date;
  * </li>
  * </ol>
  *
+ * Version 1.0.4 Change notes:
+ * <ol>
+ * <li>
+ * Automated reviewer's payment resize (screening-review phase advance) when info is found in rboard_payment.
+ * </li>
+ * </ol>
  * @author rfairfax, pulky
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class AutoPilot {
 
@@ -575,6 +581,7 @@ public class AutoPilot {
             float primaryFixedPayment = 0;
             float secondaryFixedPayment = 0;
 
+            // resize payments if there is info in rboard_payment
             ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
                     112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
             if (rsc != null) {
