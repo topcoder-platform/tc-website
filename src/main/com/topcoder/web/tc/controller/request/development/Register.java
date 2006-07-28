@@ -21,6 +21,7 @@ import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SurveyResponse;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -56,11 +57,13 @@ public class Register extends ViewRegistration {
 
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
+            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+            boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (agreed && !hasErrors()) {
                 getRequest().getSession().setAttribute("responses", responses);
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
-                    if (isTournamentTime()) {
+                    if (isTournamentTime() && isStudent) {
                         boolean isRegisteredForTournament = getRequest().getAttribute("notRegistered") == null;
                         boolean isConfirmed = getRequest().getParameter("confirm") != null;
                         if (isRegisteredForTournament || isConfirmed) {
