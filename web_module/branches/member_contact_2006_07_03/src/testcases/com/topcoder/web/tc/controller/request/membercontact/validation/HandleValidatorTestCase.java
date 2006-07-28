@@ -41,6 +41,9 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
         
         // cucu blocks user chronoewk
         u = ud.find("chronoewk", true, true);
+        up = DAOUtil.getFactory().getUserPreferenceDAO().find(u.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        up.setValue(String.valueOf(true));
+        DAOUtil.getFactory().getUserPreferenceDAO().saveOrUpdate(up);
         MemberContactBlackList bl = DAOUtil.getFactory().getMemberContactBlackListDAO().findOrCreate(user, u);
         bl.setBlocked(true);
         DAOUtil.getFactory().getMemberContactBlackListDAO().saveOrUpdate(bl);
