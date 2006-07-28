@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.3.11 - 2006.07.xx
+    <ul>
+        <li>Adjust component registration process so that it prompts the user regarding registering for the tccc</li>
+    </ul>
+</p>
+
+<p>
     5.3.10 - 2006.07.26
     <ul>
         <li>Fix default sorting of Digital Run scoreboard's columns</li>
