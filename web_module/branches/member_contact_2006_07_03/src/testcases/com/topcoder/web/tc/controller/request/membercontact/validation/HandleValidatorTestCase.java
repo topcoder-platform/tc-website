@@ -31,12 +31,16 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
         up.setValue(String.valueOf(false));
         DAOUtil.getFactory().getUserPreferenceDAO().saveOrUpdate(up);
 
-        // user with inactive email
+        // user with mc enabled but inactive email
         u = ud.find("bertman", true, true);
+        up = DAOUtil.getFactory().getUserPreferenceDAO().find(u.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        up.setValue(String.valueOf(true));
+        DAOUtil.getFactory().getUserPreferenceDAO().saveOrUpdate(up);
         u.getPrimaryEmailAddress().setStatusId(Email.STATUS_ID_UNACTIVE);
         ud.saveOrUpdate(u);
         
-        // cucu blocks bertman
+        // cucu blocks user chronoewk
+        u = ud.find("chronoewk", true, true);
         MemberContactBlackList bl = DAOUtil.getFactory().getMemberContactBlackListDAO().findOrCreate(user, u);
         bl.setBlocked(true);
         DAOUtil.getFactory().getMemberContactBlackListDAO().saveOrUpdate(bl);
@@ -58,7 +62,6 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
     }
 
     public void testMemberContactInvalidAddress() {
-    	// TODO: choose an appropiate handle
         assertFalse("validated a handle with invalid email address", 
         		validator.validate(new StringInput("bertman")).isValid());
     }
