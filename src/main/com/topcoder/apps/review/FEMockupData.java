@@ -17,16 +17,19 @@ import java.util.GregorianCalendar;
  * </p>
  *
  * <p>
- * Version 1.0.2 Change notes:
+ * Version 1.0.2/3 Change notes:
  * <ol>
  * <li>
  * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the <code>Project</code> class.
  * </li>
  * </ol>
  * </p>
  *
  * @author TCSDEVELOPER, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public final class FEMockupData {
 
@@ -466,7 +469,7 @@ public final class FEMockupData {
                                 phaseInstances[i],
                                 projectTypes[i / 5],
                                 users[0],
-                                projectStatuses[0]);
+                                projectStatuses[0], false);
             }
 
             // Projects
@@ -484,7 +487,7 @@ public final class FEMockupData {
                                 "notes notes notes",
                                 "overview overview overview",
                                 userProjectInfos[i].getProjectType(),
-                                projectStatuses[0], true, -1, -1, 1, 1, 100, false, false);
+                                projectStatuses[0], true, -1, -1, 1, 1, 100, false, false, false);
             }
 
             // Test case reviews

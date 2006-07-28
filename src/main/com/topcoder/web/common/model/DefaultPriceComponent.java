@@ -39,7 +39,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
         this();
-        log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
+        log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId);
         this.phaseId = phaseId;
         if (levelId == LEVEL1) {
@@ -203,7 +203,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return aggregation task's cost
-     * 
+     *
      * @since 1.0.1
      * @return The cost of the aggregation task
      */
@@ -221,7 +221,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return screening task's cost
-     * 
+     *
      * @since 1.0.1
      * @return The cost of the screening task
      */
@@ -239,7 +239,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return final review task's cost
-     * 
+     *
      * @since 1.0.1
      * @return The cost of the final review task
      */
@@ -257,7 +257,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return core review cost
-     * 
+     *
      * @since 1.0.1
      * @return The cost of the core review
      */

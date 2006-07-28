@@ -28,16 +28,19 @@ import java.util.List;
  * </p>
  *
  * <p>
- * Version 1.0.2 Change notes:
+ * Version 1.0.2/3 Change notes:
  * <ol>
  * <li>
  * Class updated due to the addition of <code>responseDuringAppeals</code> attribute to the <code>Project</code> class.
+ * </li>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the <code>Project</code> class.
  * </li>
  * </ol>
  * </p>
  *
  * @author TCSDEVELOPER, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class ShowDeliverableTag extends BaseTag {
 
@@ -266,7 +269,7 @@ public class ShowDeliverableTag extends BaseTag {
                         // Create a project to hold the projectId that will be used by getFinalReview
                         Project project = new Project(projectId, 0, 0, 0, null, null, null, null, null, null,
                                                         roles, null, null, null, null, false,
-                                                        0, 0, 0, 0, 0, false, false);
+                                                        0, 0, 0, 0, 0, false, false, false);
 
                         finalReview = documentManager.getFinalReview(project, false, new TCSubject(user.getId()));
 

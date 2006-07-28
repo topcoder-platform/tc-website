@@ -6,12 +6,16 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.apps.review.rboard.RBoardPayment;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.date.workdays.WorkdaysUnitOfTime;
-import com.topcoder.web.common.model.DefaultPriceComponent;
+import com.topcoder.web.common.model.FixedPriceComponent;
+
 import java.util.Date;
 
 /**
@@ -523,6 +527,7 @@ public class AutoPilot {
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
 
+            RBoardPayment rBoardPayment = EJBHelper.getRBoardPayment();
             UserManagerLocal userManager = EJBHelper.getUserManager();
             DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
@@ -564,12 +569,28 @@ public class AutoPilot {
                 return new SuccessResult();
 
             // only permitted levels
-            int levelId = ((new Long(project.getLevelId())).intValue() == DefaultPriceComponent.LEVEL2) ?
-                    DefaultPriceComponent.LEVEL2 : DefaultPriceComponent.LEVEL1;
+            int levelId = ((new Long(project.getLevelId())).intValue() == FixedPriceComponent.LEVEL2) ?
+                    FixedPriceComponent.LEVEL2 : FixedPriceComponent.LEVEL1;
 
-            DefaultPriceComponent defaultPriceComponent = new DefaultPriceComponent(
+            float primaryFixedPayment = 0;
+            float secondaryFixedPayment = 0;
+
+            ResultSetContainer rsc = rBoardPayment.getPayments(project.getId(), project.getProjectType().getId() == ProjectType.ID_DESIGN ?
+                    112 : 113, DBMS.TCS_JTS_OLTP_DATASOURCE_NAME);
+            if (rsc != null) {
+                for (int i = 0; i < rsc.size(); i++) {
+                    if (rsc.getIntItem(i, "primary_ind") == 1) {
+                        primaryFixedPayment = rsc.getFloatItem(i, "amount");
+                    } else {
+                        secondaryFixedPayment = rsc.getFloatItem(i, "amount");
+                    }
+                }
+            }
+
+            FixedPriceComponent fpc = new FixedPriceComponent(
                     levelId, count, passedCount,
-                            project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113);
+                    project.getProjectType().getId() == ProjectType.ID_DESIGN ? 112 : 113,
+                    primaryFixedPayment, secondaryFixedPayment);
 
             // check project for reviewers
             UserRole[] participants = project.getParticipants();
@@ -596,15 +617,14 @@ public class AutoPilot {
                 // for the screening.
                 float amountToPay = 0;
                 if (roleId == Role.ID_AGGREGATOR)
-                    amountToPay = defaultPriceComponent.getAggregationCost();
+                    amountToPay = fpc.getAggregationCost();
                 else if (roleId == Role.ID_PRIMARY_SCREENER)
-                    amountToPay = defaultPriceComponent.getScreeningCost();
+                    amountToPay = fpc.getScreeningCost();
                 else if (roleId == Role.ID_FINAL_REVIEWER)
-                    amountToPay = defaultPriceComponent.getFinalReviewCost();
+                    amountToPay = fpc.getFinalReviewCost();
                 else if (roleId == Role.ID_REVIEWER)
                     amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ?
-                            defaultPriceComponent.getCoreReviewCost() :
-                                defaultPriceComponent.getReviewPrice();
+                            fpc.getCoreReviewCost() : fpc.getReviewPrice();
 
                 // update payment info.
                 if (amountToPay > 0) {
