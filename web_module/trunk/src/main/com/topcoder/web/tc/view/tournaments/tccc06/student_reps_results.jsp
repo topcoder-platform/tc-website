@@ -39,9 +39,6 @@
                         <td class="sidebarTitle" width="25%">
                             Handle
                         </td>
-                        <td class="sidebarTitle" width="35%">
-                            School
-                        </td>
                         <td class="sidebarTitle" align="center" width="20%">
                             # of Referrals
                         </td>
@@ -53,7 +50,6 @@
                             <tr>
                                 <td class="sidebarHandle">
                                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' darkBG="true"/></td>
-                                <td class="sidebarText"><rsc:item name="school_name" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align="center">
                                     <rsc:item name="total_count" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align="center">
