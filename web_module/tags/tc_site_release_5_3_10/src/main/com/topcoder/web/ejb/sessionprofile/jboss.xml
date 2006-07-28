@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>SessionProfile</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
+        <resource-ref>
+            <res-ref-name>jts_datasource_name</res-ref-name>
+            <resource-name>jts_datasource_name</resource-name>
+        </resource-ref>
+        <resource-ref>
+            <res-ref-name>datasource_name</res-ref-name>
+            <resource-name>datasource_name</resource-name>
+        </resource-ref>
+
+    </session>
+      <session>
+        <ejb-name>SessionProfileProblem</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</jndi-name>
+          <resource-ref>
+              <res-ref-name>jts_datasource_name</res-ref-name>
+              <resource-name>jts_datasource_name</resource-name>
+          </resource-ref>
+          <resource-ref>
+              <res-ref-name>datasource_name</res-ref-name>
+              <resource-name>datasource_name</resource-name>
+          </resource-ref>
+
+      </session>
+      <session>
+        <ejb-name>SessionProfileLanguage</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome</jndi-name>
+          <resource-ref>
+              <res-ref-name>jts_datasource_name</res-ref-name>
+              <resource-name>jts_datasource_name</resource-name>
+          </resource-ref>
+          <resource-ref>
+              <res-ref-name>datasource_name</res-ref-name>
+              <resource-name>datasource_name</resource-name>
+          </resource-ref>
+
+      </session>
+
+  </enterprise-beans>
+    <resource-managers>
+        <resource-manager res-class="">
+            <res-name>jts_datasource_name</res-name>
+            <res-jndi-name>java:JTS_SCREENING_OLTP</res-jndi-name>
+        </resource-manager>
+        <resource-manager res-class="">
+            <res-name>datasource_name</res-name>
+            <res-jndi-name>java:SCREENING_OLTP</res-jndi-name>
+        </resource-manager>
+    </resource-managers>
+
+</jboss>
