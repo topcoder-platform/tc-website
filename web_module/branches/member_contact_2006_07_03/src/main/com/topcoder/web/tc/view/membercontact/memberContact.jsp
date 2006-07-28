@@ -115,7 +115,9 @@ function init() {
 <br>
 The Member Contact area allows you to send an email to other TopCoder members.*  You can access this message area by clicking the "Send a message" link 
 on members' profile pages. Use the message form below to contact the member of your choice. You will need to enter the member's TopCoder handle. There is no limit 
-on the length of your message. To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
+on the length of your message. 
+<br><br>
+To block specific TopCoder members from contacting you, go to the <a href='/tc?module=BlackList'>black list</a> page.
 <br>
 <c:set value="<%=MemberContact.CAN_RECEIVE%>" var="canReceive"/>
 <c:if test="${cf:containsMapKey(requestScope, canReceive)}" >
