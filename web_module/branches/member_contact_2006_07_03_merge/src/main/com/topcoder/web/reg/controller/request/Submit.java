@@ -12,11 +12,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.SecurityGroup;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.SecurityGroup;
-import com.topcoder.web.reg.model.User;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;

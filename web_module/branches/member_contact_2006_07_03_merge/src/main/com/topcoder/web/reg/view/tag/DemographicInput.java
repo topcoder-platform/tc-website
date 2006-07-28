@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.view.tag;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.DemographicAnswer;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.tag.BaseTag;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.model.DemographicAnswer;
-import com.topcoder.web.reg.model.DemographicQuestion;
 
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
@@ -130,7 +130,8 @@ public class DemographicInput extends BaseTag {
                         s.append(" selected");
                     }
                 } else {
-                    if (getDefaultValue() != null && ((List) getDefaultValue()).contains(String.valueOf(answer.getId()))) {
+                    if (getDefaultValue() != null && ((List) getDefaultValue()).contains(String.valueOf(answer.getId())))
+                    {
                         s.append(" selected");
                     }
                 }
@@ -148,7 +149,7 @@ public class DemographicInput extends BaseTag {
         this.styleClass = null;
         this.question = null;
         this.showMulti = true;
-        this.onchange=null;
+        this.onchange = null;
 
     }
 

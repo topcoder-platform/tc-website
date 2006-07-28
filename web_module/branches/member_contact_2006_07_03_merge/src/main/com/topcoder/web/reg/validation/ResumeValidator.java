@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
 import com.topcoder.web.reg.Constants;
 
 import java.util.List;
@@ -18,17 +18,17 @@ public class ResumeValidator implements Validator {
         String fileType;
         String fileName;
 
-        file = (byte[])((List)input.getInput()).get(0);
-        fileType = (String)((List)input.getInput()).get(1);
-        fileName = (String)((List)input.getInput()).get(2);
+        file = (byte[]) ((List) input.getInput()).get(0);
+        fileType = (String) ((List) input.getInput()).get(1);
+        fileName = (String) ((List) input.getInput()).get(2);
 
-        if (file==null) {
+        if (file == null) {
             return ValidationResult.SUCCESS;
         } else {
-            if (file.length==0) {
+            if (file.length == 0) {
                 return new BasicResult(false, "Please choose a non empty file.");
             }
-            if (Util.getFactory().getFileTypeDAO().find(fileType)==null) {
+            if (DAOUtil.getFactory().getFileTypeDAO().find(fileType) == null) {
                 return new BasicResult(false, "Couldn't recognize the specified file type.");
             } else {
                 StringInput fInput = new StringInput(fileName);

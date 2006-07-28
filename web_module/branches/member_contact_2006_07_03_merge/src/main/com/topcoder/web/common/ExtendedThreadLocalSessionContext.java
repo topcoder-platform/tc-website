@@ -1,12 +1,11 @@
-package com.topcoder.web.reg.controller;
+package com.topcoder.web.common;
 
-import org.hibernate.engine.SessionFactoryImplementor;
-import org.hibernate.context.ThreadLocalSessionContext;
-import org.hibernate.SessionFactory;
-import org.hibernate.FlushMode;
-import org.hibernate.classic.Session;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.model.Image;
+import org.hibernate.FlushMode;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+import org.hibernate.context.ThreadLocalSessionContext;
+import org.hibernate.engine.SessionFactoryImplementor;
 
 /**
  * Trivial implementation of a session-per-conversation context.

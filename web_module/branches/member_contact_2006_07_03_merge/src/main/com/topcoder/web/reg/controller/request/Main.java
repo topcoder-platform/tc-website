@@ -2,11 +2,11 @@ package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.*;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,11 +42,6 @@ public class Main extends Base {
 
             if (requestedTypes.isEmpty()) {
                 addError(Constants.REGISTRATION_TYPE, "You have not selected to register for any aspect of TopCoder.");
-            }
-            if (!u.getAgreedToSiteTerms()) {
-                if (!"on".equals(getTrimmedParameter(Constants.TERMS_OF_USE_ID))) {
-                    addError(Constants.TERMS_OF_USE_ID, "In order to continue, you must agree to the terms of use.");
-                }
             }
             //todo if they are attempting to register for high school, and they are not eligible,
             //todo give them a message saying they are not eligible to register for highschool
@@ -106,22 +101,21 @@ public class Main extends Base {
 
                 setMainDefaults(u);
 
-                u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                log.debug("has site terms: " + u.getAgreedToSiteTerms());
                 setRegUser(u);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(requestedTypes);
                 if (nots != null) {
                     getRequest().setAttribute("notifications", nots);
                 }
+
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
                 getRequest().setAttribute(Constants.FIELDS,
                         RegFieldHelper.getMainFieldSet(requestedTypes, getRegUser()));
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(requestedTypes, getRegUser());
-                log.debug("found " + reqFields.size() + " required fields");
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
+                getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

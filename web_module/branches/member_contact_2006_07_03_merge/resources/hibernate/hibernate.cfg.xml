@@ -5,73 +5,79 @@
 
 <hibernate-configuration>
 
-<!--
-    <session-factory>
--->
+    <!--
+        <session-factory>
+    -->
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
         <!-- for testing-->
-<!--
-        <property name="connection.username">coder</property>
-        <property name="connection.password">altec</property>
-        <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
-        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
--->
+        <!--
+                <property name="connection.username">coder</property>
+                <property name="connection.password">altec</property>
+                <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
+                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+        -->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
-        <property name="current_session_context_class">com.topcoder.web.reg.controller.ExtendedThreadLocalSessionContext</property>
+        <property name="current_session_context_class">
+            com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
 
 
-<!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
-        <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
-        <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
--->
+        <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
+                <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+                <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+        -->
 
 
         <!-- Echo all executed SQL to stdout -->
-<!--
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
--->
+        <!--
+                <property name="show_sql">true</property>
+                <property name="format_sql">true</property>
+        -->
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
-        <mapping resource="com/topcoder/web/reg/model/Address.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/AlgoRating.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/AlgoRatingType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Coder.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/CoderImage.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/CoderReferral.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/CoderType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Company.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Contact.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Country.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/CurrentSchool.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/DemographicAnswer.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/DemographicAssignment.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/DemographicQuestion.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/DemographicResponse.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Email.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/FileType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Image.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Notification.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Path.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Phone.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/RegistrationType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Referral.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Resume.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/School.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/SchoolType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/SecurityGroup.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/State.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/Team.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/TeamType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/TermsOfUse.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/TimeZone.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/User.hbm.xml"/>
-        <mapping resource="com/topcoder/web/reg/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/AlgoRating.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/AlgoRatingType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderReferral.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Company.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Contact.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Country.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CurrentSchool.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicAnswer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicAssignment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicResponse.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Team.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TeamType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TermsOfUse.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>        
     </session-factory>
 
 </hibernate-configuration>

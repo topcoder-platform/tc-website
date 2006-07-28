@@ -1,7 +1,7 @@
 package com.topcoder.web.privatelabel.view.tag;
 
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -31,8 +31,8 @@ public class DemographicQuestionText extends TagSupport {
     }
 
     public int doEndTag() throws JspException {
-        response=null;
-        questions=null;
+        response = null;
+        questions = null;
         return super.doEndTag();
     }
 }

@@ -1,7 +1,7 @@
-package com.topcoder.web.reg;
+package com.topcoder.web.common;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.model.TCInterceptor;
+import com.topcoder.web.common.model.TCInterceptor;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
@@ -122,17 +122,17 @@ public class HibernateUtils {
      * @return the session factory
      */
     public static SessionFactory getFactory() {
-        SessionFactory ret=null;
+        SessionFactory ret = null;
         String sfName = configuration.getProperty(Environment.SESSION_FACTORY_NAME);
-        if (sessionFactory!=null) {
+        if (sessionFactory != null) {
             ret = sessionFactory;
         } else if (sfName != null) {
-                log.debug("Looking up SessionFactory in JNDI.");
-                try {
-                    ret = (SessionFactory) new InitialContext().lookup(sfName);
-                } catch (NamingException ex) {
-                    throw new RuntimeException(ex);
-                }
+            log.debug("Looking up SessionFactory in JNDI.");
+            try {
+                ret = (SessionFactory) new InitialContext().lookup(sfName);
+            } catch (NamingException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         if (ret == null)
             throw new IllegalStateException("SessionFactory not available.");

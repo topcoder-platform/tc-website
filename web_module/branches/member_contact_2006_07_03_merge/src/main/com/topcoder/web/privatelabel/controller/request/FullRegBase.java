@@ -2,9 +2,9 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -14,6 +14,7 @@ import java.util.*;
 /**
  * Provides some basic functionality for the different processors
  * involved in a registration process.
+ *
  * @author gpaul 06.26.2003
  */
 public abstract class FullRegBase extends SimpleRegBase {

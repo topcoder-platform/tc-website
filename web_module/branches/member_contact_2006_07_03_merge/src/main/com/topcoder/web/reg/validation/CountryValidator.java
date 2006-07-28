@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.Country;
 
 /**
  * @author dok
@@ -13,7 +13,7 @@ public class CountryValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         ValidationResult ret = new NonEmptyValidator("Please enter your country.").validate(input);
         if (ret.isValid()) {
-            Country c = Util.getFactory().getCountryDAO().find((String) input.getInput());
+            Country c = DAOUtil.getFactory().getCountryDAO().find((String) input.getInput());
             if (c == null) {
                 return new BasicResult(false, "Please choose a valid country.");
             } else {

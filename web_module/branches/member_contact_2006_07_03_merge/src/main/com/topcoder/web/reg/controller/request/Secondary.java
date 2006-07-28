@@ -1,16 +1,30 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.AlgoRating;
+import com.topcoder.web.common.model.AlgoRatingType;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.Notification;
+import com.topcoder.web.common.model.Phone;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.TimeZone;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.*;
-import com.topcoder.web.reg.model.TimeZone;
-
-import java.util.*;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -43,6 +57,8 @@ public class Secondary extends Base {
                                 setDefault((String) me.getKey(), me.getValue());
                             }
                         }
+
+                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
                         }
@@ -56,6 +72,7 @@ public class Secondary extends Base {
                         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
+                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
@@ -236,6 +253,20 @@ public class Secondary extends Base {
             u.setNotifications(new HashSet((List) params.get(Constants.NOTIFICATION)));
         }
 
+        if (fields.contains(Constants.MEMBER_CONTACT)) {
+            UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+            String value = String.valueOf(params.get(Constants.MEMBER_CONTACT) != null);
+            if (up == null) {
+                up = new UserPreference();
+                Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+                up.setId(new UserPreference.Identifier(u, p));
+                up.setValue(value);
+                u.addUserPreference(up);
+            } else {
+                up.setValue(value);
+            }
+        }
+
         if (fields.contains(Constants.COMP_COUNTRY_CODE)) {
             u.getCoder().setCompCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COMP_COUNTRY_CODE)));
         }
@@ -276,7 +307,7 @@ public class Secondary extends Base {
             u.getCoder().addRating(tcRating);
         }
 
-
+        u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
         setRegUser(u);
     }
 }
