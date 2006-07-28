@@ -135,12 +135,14 @@ public class ViewRegistration extends Base {
 
         if (isTournamentTime()) {
             if (log.isDebugEnabled()) {
-
                 log.debug("tourny time");
             }
             Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
             boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (isStudent) {
+                if (log.isDebugEnabled()) {
+                    log.debug("yes, they're a student");
+                }
                 if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
                     getRequest().setAttribute("notRegistered", "true");
                 }
