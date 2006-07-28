@@ -39,12 +39,12 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
         u.getPrimaryEmailAddress().setStatusId(Email.STATUS_ID_UNACTIVE);
         ud.saveOrUpdate(u);
         
-        // cucu blocks user chronoewk
+        // chronoewk blocks user cucu
         u = ud.find("chronoewk", true, true);
         up = DAOUtil.getFactory().getUserPreferenceDAO().find(u.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID);
         up.setValue(String.valueOf(true));
         DAOUtil.getFactory().getUserPreferenceDAO().saveOrUpdate(up);
-        MemberContactBlackList bl = DAOUtil.getFactory().getMemberContactBlackListDAO().findOrCreate(user, u);
+        MemberContactBlackList bl = DAOUtil.getFactory().getMemberContactBlackListDAO().findOrCreate(u, user);
         bl.setBlocked(true);
         DAOUtil.getFactory().getMemberContactBlackListDAO().saveOrUpdate(bl);
         
