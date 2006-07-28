@@ -13,6 +13,7 @@ import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
+import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -131,12 +132,18 @@ public class ViewRegistration extends Base {
             }
         }
         //just adding the date check to hold off on the db hit when we don't need it
+
         if (isTournamentTime()) {
             if (log.isDebugEnabled()) {
+
                 log.debug("tourny time");
             }
-            if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
-                getRequest().setAttribute("notRegistered", "true");
+            Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
+            boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
+            if (isStudent) {
+                if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
+                    getRequest().setAttribute("notRegistered", "true");
+                }
             }
         }
     }
