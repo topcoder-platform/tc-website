@@ -1,11 +1,11 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.reg.Constants;
 
 import java.util.Iterator;
 
@@ -19,13 +19,13 @@ public class Selection extends Base {
     protected void registrationProcessing() throws Exception {
 
         boolean newReg = true;
-        if (getRequest().getParameter(Constants.NEW_REG)!=null) {
+        if (getRequest().getParameter(Constants.NEW_REG) != null) {
             newReg = String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.NEW_REG));
         }
 
         //set up the user object we're gonna use
         User u = getRegUser();
-        if (u==null) {
+        if (u == null) {
             u = new User();
             setRegUser(u);
         }
@@ -41,7 +41,8 @@ public class Selection extends Base {
                 //they're updating their info, and they're logged in, so here we go
                 getRequest().setAttribute("registrationTypeList", getFactory().getRegistrationTypeDAO().getRegistrationTypes());
                 RegistrationType rt;
-                for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();) {
+                for (Iterator it = new UserDAOHibernate().find(new Long(getUser().getId())).getRegistrationTypes().iterator(); it.hasNext();)
+                {
                     rt = (RegistrationType) it.next();
                     setDefault(Constants.REGISTRATION_TYPE + rt.getId(), String.valueOf(true));
                 }

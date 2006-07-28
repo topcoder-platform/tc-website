@@ -384,6 +384,29 @@
     </tr>
 </c:if>
 
+<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
+<c:if test="${cf:contains(fields, memberContact)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.MEMBER_CONTACT%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, memberContact)}">*</c:if> Enable Member Contact:
+        </td>
+        <td class="value">
+            <tc-webtag:chkBox name="<%=Constants.MEMBER_CONTACT%>"/>Other users will be able to contact me.
+            <br>
+            <c:if test="${not regUser.new}">            
+	            To block specific TopCoder members from contacting you, go to the <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
+            </c:if>
+        </td>
+    </tr>
+</c:if>
+
+
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
     <tr>
@@ -492,6 +515,19 @@
 * = required
 
 <br><br>
+
+
+<c:if test="${!cf:contains(regUser.terms, regTerms)}">
+    <strong>Terms of Use</strong>
+    <br>
+    <IFRAME SRC="/tc?<%=Constants.MODULE_KEY%>=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.REG_TERMS_ID%>" WIDTH="100%" HEIGHT="200"></IFRAME>
+    <div align="center">
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${termsId}">${err}
+            <br/></tc-webtag:errorIterator></span>
+        <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_OF_USE_ID%>"/>I agree
+        <br><br>
+    </div>
+</c:if>
 
 <div align="center">
     <a href="#" onclick="document.mainForm.submit();return false;">Submit</a>

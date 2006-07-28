@@ -1,68 +1,59 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.model.Base;
-
 public class DemographicAnswer extends Base implements Comparable {
-    private long questionId;
-    private long answerId;
+    public static final String DECLINE = "Decline to Answer";
+    public static final String FREE_FORM = "Free Form";
+    private Long id;
+
+    private DemographicQuestion question;
     private String text;
-    private int sort;
+    private Integer sort;
+    private String status;
 
-    public static final DemographicAnswer DELINE = new DemographicAnswer(-1, "Decline to Answer");
-
-    public DemographicAnswer() {
+    public Long getId() {
+        return id;
     }
 
-    private DemographicAnswer(long id, String text) {
-        setAnswerId(id);
-        setText(text);
-    }
-
-    public Object clone() throws OutOfMemoryError {
-        DemographicAnswer ret = new DemographicAnswer();
-        ret.setAnswerId(answerId);
-        ret.setQuestionId(questionId);
-        ret.setText(text);
-        ret.setSort(sort);
-        return ret;
-    }
-
-    public long getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(long questionId) {
-        this.questionId = questionId;
-    }
-
-    public long getAnswerId() {
-        return answerId;
-    }
-
-    public void setAnswerId(long answerId) {
-        this.answerId = answerId;
+    public DemographicQuestion getQuestion() {
+        return question;
     }
 
     public String getText() {
         return text;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setQuestion(DemographicQuestion question) {
+        this.question = question;
+    }
+
     public void setText(String text) {
         this.text = text;
     }
 
-    public int getSort() {
-        return sort;
-    }
-
-    public void setSort(int sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
-    public int compareTo(Object o) {
-        DemographicAnswer other = (DemographicAnswer) o;
-        return new Integer(getSort()).compareTo(new Integer(other.getSort()));
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 
+    public int compareTo(Object o) {
+        DemographicAnswer other = (DemographicAnswer) o;
+        return sort.compareTo(other.getSort());
+    }
 }

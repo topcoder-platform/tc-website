@@ -1,5 +1,7 @@
 package com.topcoder.web.reg;
 
+import com.topcoder.web.common.HibernateUtils;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -8,16 +10,11 @@ package com.topcoder.web.reg;
 public class DetachedTestCase extends TCHibernateTestCase {
 
 
-
-
-
     public void testRollback() {
         HibernateUtils.begin();
         HibernateUtils.rollback();
         assertTrue("got here without exception", true);
     }
-
-
 
 
 }

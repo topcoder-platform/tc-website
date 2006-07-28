@@ -5,7 +5,8 @@ CREATE TABLE member_contact_message (
     message_text TEXT NOT NULL,
     copy_ind DECIMAL(1,0) NOT NULL,
     sent_date DATETIME YEAR TO FRACTION DEFAULT CURRENT NOT NULL
-);
+) extent size 50000 next size 50000
+lock mode page;
 
 ALTER TABLE member_contact_message ADD CONSTRAINT PRIMARY KEY (member_contact_message_id)
     CONSTRAINT member_contact_message_pk;

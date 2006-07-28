@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.validation;
 
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.SchoolType;
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.SchoolType;
 
 import java.util.Set;
 
@@ -14,6 +14,7 @@ import java.util.Set;
 public class SchoolTypeValidator implements Validator {
 
     Set types;
+
     public SchoolTypeValidator(Set registrationTypes) {
         types = registrationTypes;
     }
@@ -27,13 +28,13 @@ public class SchoolTypeValidator implements Validator {
             } catch (NumberFormatException e) {
                 return new BasicResult(false, "Please choose a valid school type.");
             }
-            SchoolType c = Util.getFactory().getSchoolTypeDAO().find(i);
+            SchoolType c = DAOUtil.getFactory().getSchoolTypeDAO().find(i);
             if (c == null) {
                 return new BasicResult(false, "Please choose a valid school type.");
             } else {
-                if (types.contains(Util.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                if (types.contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
                     if (!i.equals(SchoolType.HIGH_SCHOOL)) {
-                         return new BasicResult(false, "You must choose the High School you are currently attending in order to registration for High School Competitions");
+                        return new BasicResult(false, "You must choose the High School you are currently attending in order to registration for High School Competitions");
                     }
                 }
                 return ValidationResult.SUCCESS;

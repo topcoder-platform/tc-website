@@ -10,15 +10,16 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
+import java.util.Iterator;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
-
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author rfairfax
@@ -27,8 +28,8 @@ public class MemberProfile extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            //step 1, get the base data used for the top section           
-            if (!hasParameter("cr")) {
+            //step 1, get the base data used for the top section
+            if(!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
             }
 
@@ -132,7 +133,6 @@ public class MemberProfile extends Base {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
-
                 } else if (tab.equals("des")) {
                     //load des data from Coder_Des_Data
                     r = new Request();
@@ -176,6 +176,20 @@ public class MemberProfile extends Base {
 
                 }
             }
+
+            r = new Request();
+            r.setContentHandle("member_contact_enabled");
+            r.setProperty("cr", coderId);
+
+            DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+            Map result2 = dai2.getData(r);
+            ResultSetContainer rsc2 = (ResultSetContainer) result2.get("member_contact_enabled");
+
+            boolean memberContactEnabled = false;
+            if(rsc2.size() > 0) {
+                memberContactEnabled = "true".equals(rsc2.getStringItem(0, "value"));
+            }
+
             getRequest().setAttribute("resultMap", result);
 
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
@@ -184,6 +198,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
+            getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("tab", tab);
 
             setNextPage(Constants.MEMBER_PROFILE);

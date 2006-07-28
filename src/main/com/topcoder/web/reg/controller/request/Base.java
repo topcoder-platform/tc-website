@@ -1,15 +1,18 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.dao.DAOFactory;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.reg.model.*;
 import com.topcoder.web.reg.validation.*;
 
 import java.io.IOException;
@@ -20,9 +23,10 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends HibernateProcessor {
+abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
+    private DAOFactory factory = null;
 
     protected void dbProcessing() throws Exception {
         registrationProcessing();
@@ -137,6 +141,8 @@ abstract class Base extends HibernateProcessor {
         ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
+        ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
+        ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
@@ -187,6 +193,12 @@ abstract class Base extends HibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
+
+        ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
+                new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
+        if (!termsResults.isValid()) {
+            addError(Constants.TERMS_OF_USE_ID, termsResults.getMessage());
+        }
 
         if (fields.contains(Constants.EMAIL_CONFIRM)) {
             ValidationResult emailConfirmResult = new EmailConfirmValidator(
@@ -287,6 +299,9 @@ abstract class Base extends HibernateProcessor {
         for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
+        
+        setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
+        
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
             if (u.getContact().getCompany() != null) {
@@ -636,6 +651,12 @@ abstract class Base extends HibernateProcessor {
         return getFactory().getReferralDAO().getReferrals(s);
     }
 
+    protected DAOFactory getFactory() {
+        if (factory == null) {
+            factory = DAOUtil.getFactory();
+        }
+        return factory;
+    }
 
     /**
      * Should be implemented by child classes to handle all the actual processing

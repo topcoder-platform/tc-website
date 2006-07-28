@@ -8,11 +8,8 @@ package com.topcoder.web.corp.model;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.util.List;
-
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class SearchModel extends BaseModel {
 
@@ -27,34 +24,24 @@ public class SearchModel extends BaseModel {
     private long start;
     private long end;
 
-    private List questions;
-    private List responses;
 
-    /** Creates a new instance of SearchModel */
+    /**
+     * Creates a new instance of SearchModel
+     */
     public SearchModel() {
         firstName = "";
         lastName = "";
         emailAddress = "";
         total = 0;
         userId = 0;
-        questions = null;
-        responses = null;
     }
 
-    public void setResponses(List l) {
-        responses = l;
+    public ResultSetContainer getRsc() {
+        return rsc;
     }
 
-    public List getResponses() {
-        return responses;
-    }
-
-    public void setQuestions(List l) {
-        questions = l;
-    }
-
-    public List getQuestions() {
-        return questions;
+    public void setRsc(ResultSetContainer rsc) {
+        this.rsc = rsc;
     }
 
     public void setStart(long i) {

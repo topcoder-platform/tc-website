@@ -1,9 +1,9 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.web.common.model.SchoolType;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.model.SchoolType;
-import com.topcoder.web.reg.model.User;
 
 import java.util.ArrayList;
 

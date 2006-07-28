@@ -61,6 +61,7 @@
                 <include name="move.xml"/>
                 <include name="build.xml"/>
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/classes.jar"/>
             </fileset>
         </jar>
@@ -91,6 +92,7 @@
 
         <copy todir="${tempMoveDir}" file="build/wars/techassess.war"/>
         <copy todir="${tempMoveDir}" file="lib/bin/shared.jar"/>
+        <copy todir="${tempMoveDir}" file="lib/bin/tcwebcommon.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${tempMoveDir}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
@@ -102,6 +104,7 @@
             <fileset dir="${tempMoveDir}">
                 <include name="techassess.war"/>
                 <include name="shared.jar"/>
+                <include name="tcwebcommon.jar"/>
                 <include name="reconnect.jar"/>
                 <include name="Screening.jar"/>
                 <include name="ProblemServices.jar"/>
@@ -175,6 +178,7 @@
                 <include name="build/ejb_jars/messagehistory.jar"/>
                 <include name="build/ejb_jars/forums.jar"/>
                 <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="build.xml"/>
             </fileset>
         </jar>
@@ -192,6 +196,7 @@
 
         <copy todir="${backupDirectory}" file="build/wars/techassess.war"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/shared.jar"/>
+        <copy todir="${backupDirectory}" file="${jboss_home}/server/default/lib/tcwebcommon.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/reconnect.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ProblemServices.jar"/>
         <copy todir="${backupDirectory}" file="${jboss_home}/server/default/deploy/ScreeningServices.jar"/>
@@ -207,6 +212,7 @@
         <unjar src="techassess.jar" dest="${tempDeployDir}"/>
         <copy overwrite="true" todir="${war_dir}" file="${tempDeployDir}/techassess.war"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/shared.jar"/>
+        <copy overwrite="true" todir="${jboss_home}/server/default/lib" file="${tempDeployDir}/tcwebcommon.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/reconnect.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy" file="${tempDeployDir}/ProblemServices.jar"/>
         <copy overwrite="true" todir="${jboss_home}/server/default/deploy"

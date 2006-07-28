@@ -1,6 +1,6 @@
 package com.topcoder.web.reg.view.tag;
 
-import com.topcoder.web.reg.model.DemographicResponse;
+import com.topcoder.web.common.model.DemographicResponse;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -23,7 +23,7 @@ public class DemographicQuestionText extends TagSupport {
     }
 
     public int doEndTag() throws JspException {
-        response=null;
+        response = null;
         return super.doEndTag();
     }
 }

@@ -2,10 +2,10 @@ package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.*;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -30,12 +30,12 @@ public class UserNameValidator implements Validator {
             if (sret.isValid()) {
                 String handle = (String) input.getInput();
                 //if they're new, or if they are changing their user name
-                ValidationResult hret  = null;
+                ValidationResult hret = null;
                 if (u.isNew() || (!u.isNew() && !u.getHandle().equals(input.getInput()))) {
                     //log.debug("in here");
-                    hret = new BasicResult(Util.getFactory().getUserDAO().find(handle, true) == null, "Please choose another user name.");
+                    hret = new BasicResult(DAOUtil.getFactory().getUserDAO().find(handle, true) == null, "Please choose another user name.");
                 }
-                if (hret==null || hret.isValid()) {
+                if (hret == null || hret.isValid()) {
                     if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
                         ret = new BasicResult(false, "Your user name may contain only letters, numbers and " + Constants.PUNCTUATION);
                     } else if (StringUtils.containsOnly(handle, Constants.PUNCTUATION, false)) {

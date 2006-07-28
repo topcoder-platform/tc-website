@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.validation;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.*;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.model.Address;
-import com.topcoder.web.reg.model.User;
 
 /**
  * @author dok
@@ -36,7 +36,7 @@ public class DemogFreeFormValidator implements Validator {
             } else {
                 return eret;
             }
-        } else if (input.getInput()==null) {
+        } else if (input.getInput() == null) {
             //this means they didn't have to answer the question, so they're good to go
             return ValidationResult.SUCCESS;
         } else {

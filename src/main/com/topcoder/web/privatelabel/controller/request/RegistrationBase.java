@@ -10,20 +10,21 @@ import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.DemographicQuestion;
-import com.topcoder.web.common.model.DemographicAnswer;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.DemographicAnswer;
+import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.*;
 
 /**
  * Provides some functionality that is basic to all registration
  * processors.
+ *
  * @author gpaul 06.26.2003
  */
 public abstract class RegistrationBase extends BaseProcessor {
@@ -40,7 +41,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
-            if (getRequestParameter(Constants.COMPANY_ID)==null) {
+            if (getRequestParameter(Constants.COMPANY_ID) == null) {
                 throw new TCWebException("company id missing");
             }
             //gotta do first just in case makeRegInfo() needs the database
@@ -59,8 +60,9 @@ public abstract class RegistrationBase extends BaseProcessor {
             throw new TCWebException(e);
         }
     }
+
     protected TCResourceBundle getBundle() {
-        if (bundle==null) {
+        if (bundle == null) {
             bundle = new TCResourceBundle("PrivateLabel", getLocale());
             String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
             log.debug("create bundle for language " + loc);
@@ -74,7 +76,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     }
 
     protected Locale getLocale() {
-        if (locale==null) {
+        if (locale == null) {
             String loc = StringUtils.checkNull(getRequest().getParameter(Constants.LOCALE));
             log.debug("create locale for language " + loc);
             if ("".equals(loc)) {
@@ -92,7 +94,6 @@ public abstract class RegistrationBase extends BaseProcessor {
 //        regInfo = null;
         //p.removeObject(Constants.REGISTRATION_INFO);
 
-
         //we'll jus wipe the whole session out.
         getRequest().getSession().invalidate();
     }
@@ -100,6 +101,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     /**
      * makeRegInfo() will be called before registrationProcessing()
      * is called in child classes.
+     *
      * @return SimpleRegInfo
      */
     protected abstract SimpleRegInfo makeRegInfo() throws Exception;
@@ -107,6 +109,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     /**
      * subclasses must implement this method to do their
      * request processing.  this is where the meat goes.
+     *
      * @throws TCWebException
      */
     protected abstract void registrationProcessing() throws TCWebException;
@@ -231,7 +234,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     }
 
 
-   protected Map getFileTypes(String db) throws Exception {
+    protected Map getFileTypes(String db) throws Exception {
         Request r = new Request();
         r.setContentHandle("file_types");
         Map qMap = getDataAccess(db, true).getData(r);
@@ -259,6 +262,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     /**
      * get a map of questions.  key is a Long containing the question id.  value is the
      * DemographicQuestion object.
+     *
      * @param db
      * @return
      * @throws Exception
@@ -268,7 +272,7 @@ public abstract class RegistrationBase extends BaseProcessor {
         if (locale.getLanguage().equals(Locale.US.getLanguage())) {
             r.setContentHandle("demographic_question_list");
         } else {
-            r.setContentHandle(locale.getLanguage()+"_demographic_question_list");
+            r.setContentHandle(locale.getLanguage() + "_demographic_question_list");
         }
         r.setProperty("ct", String.valueOf(coderTypeId));
         r.setProperty("cm", String.valueOf(companyId));
@@ -289,7 +293,7 @@ public abstract class RegistrationBase extends BaseProcessor {
     protected Map getQuestions() {
         try {
             if (questions == null)
-                questions = getQuestions(transDb,((FullRegInfo) regInfo).getCoderType(),
+                questions = getQuestions(transDb, ((FullRegInfo) regInfo).getCoderType(),
                         Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)), getLocale());
         } catch (Exception e) {
 
@@ -313,7 +317,7 @@ public abstract class RegistrationBase extends BaseProcessor {
         if (locale.getLanguage().equals(Locale.US.getLanguage())) {
             r.setContentHandle("demographic_answer_list");
         } else {
-            r.setContentHandle(locale.getLanguage()+"_demographic_answer_list");
+            r.setContentHandle(locale.getLanguage() + "_demographic_answer_list");
         }
         r.setProperty("dq", String.valueOf(ret.getId()));
         r.setProperty("db", String.valueOf(db));

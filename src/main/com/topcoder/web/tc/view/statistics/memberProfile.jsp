@@ -42,6 +42,7 @@
 
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data");
   boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
+  boolean memberContactEnabled = ((Boolean)request.getAttribute("memberContactEnabled")).booleanValue();
 %>
 
 <% if(rscCoderData.size() == 0) {%>
@@ -101,11 +102,15 @@ This member has not yet been rated in a competition.
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
             <tr><td class="cat">School:</td><td class="stat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
             <% }%>
-            <tr><td class="cat" colspan="2">&#160;</td></tr>
+            <tr><td class="cat" colspan="2">
+            <% if(memberContactEnabled) { %>
+	            <A href="/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
+            <% } %>
+            <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A><br>
              <% if (rscCoderData.getIntItem(0, "has_achievements")>0) { %>
-             <tr><td class="cat" colspan="2"><A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A></td>
+             <A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A>
              <% } %>
-            <tr><td class="cat" colspan="2"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A></td>
+            </td></tr>
          </table>
       </td>
       <td class="quoteCell">
