@@ -19,7 +19,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCO06ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
 import java.util.*;
 
@@ -142,7 +142,7 @@ public class ViewRegistration extends Base {
     }
 
     protected boolean isTournamentTime() {
-        TCO06ComponentTerms t = new TCO06ComponentTerms();
+        TCCC06ComponentTerms t = new TCCC06ComponentTerms();
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         return now.before(t.getEnd()) && now.after(t.getBeginning());
@@ -162,7 +162,7 @@ public class ViewRegistration extends Base {
     protected boolean isRegisteredForTournament() throws Exception {
         boolean ret = false;
         UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCO06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
         return ret;
     }
 
