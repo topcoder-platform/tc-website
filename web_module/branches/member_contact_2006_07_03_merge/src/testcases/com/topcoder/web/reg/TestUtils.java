@@ -1,13 +1,13 @@
 package com.topcoder.web.reg;
 
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.*;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.*;
 
 import java.sql.Timestamp;
-import java.util.Iterator;
-import java.util.HashSet;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -19,9 +19,9 @@ public class TestUtils {
         Coder ret = null;
 
         ret = new Coder();
-        ret.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
+        ret.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
         ret.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        ret.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+        ret.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
 /*
         School s = Util.getFactory().getSchoolDAO().find(new Long(775));//MIT
@@ -30,14 +30,13 @@ public class TestUtils {
         s.setCoder(ret);
         s.setName("some school");
         s.setShortName("ss");
-        s.setType(Util.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
-
+        s.setType(DAOUtil.getFactory().getSchoolTypeDAO().find(SchoolType.COLLEGE));
 
         //todo add address
         Address a = new Address();
         a.setCity("mycity");
-        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
-        a.setState(Util.getFactory().getStateDAO().find("CO"));
+        a.setCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
+        a.setState(DAOUtil.getFactory().getStateDAO().find("CO"));
         a.setProvince("myprovince");
         s.setAddress(a);
 
@@ -54,27 +53,24 @@ public class TestUtils {
         Team t = new Team();
         t.setName(s.getName());
         t.setSchool(s);
-        t.setType(Util.getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
+        t.setType(DAOUtil.getFactory().getTeamTypeDAO().find(TeamType.HIGH_SCHOOL_TYPE));
 
         ret.addTeam(t);
 
 
         AlgoRating hs = new AlgoRating();
-        hs.setType(Util.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.HIGH_SCHOOL));
+        hs.setType(DAOUtil.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.HIGH_SCHOOL));
         hs.setCoder(ret);
         hs.getId().setCoder(ret);
         hs.getId().setType(hs.getType());
         ret.addRating(hs);
 
         AlgoRating tc = new AlgoRating();
-        tc.setType(Util.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.TC));
+        tc.setType(DAOUtil.getFactory().getAlgoRatingTypeDAO().find(AlgoRatingType.TC));
         tc.setCoder(ret);
         tc.getId().setCoder(ret);
         tc.getId().setType(tc.getType());
         ret.addRating(tc);
-
-
-
 
 
         return ret;
@@ -103,8 +99,8 @@ public class TestUtils {
         a.setAddress3("address3");
         a.setAddressTypeId(Address.HOME_TYPE_ID);
         a.setCity("city");
-        a.setState(Util.getFactory().getStateDAO().find("CO"));
-        a.setCountry(Util.getFactory().getCountryDAO().find("840"));
+        a.setState(DAOUtil.getFactory().getStateDAO().find("CO"));
+        a.setCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
         a.setProvince("province");
         a.setPostalCode("zip");
         ret.addAddress(a);
@@ -122,28 +118,28 @@ public class TestUtils {
         p.setPrimary(Boolean.TRUE);
         ret.addPhoneNumber(p);
 
-        for (Iterator it = Util.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
+        for (Iterator it = DAOUtil.getFactory().getNotificationDAO().getNotifications().iterator(); it.hasNext();) {
             ret.addNotification((Notification) it.next());
         }
 
-        ret.setTimeZone(Util.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
+        ret.setTimeZone(DAOUtil.getFactory().getTimeZoneDAO().find(java.util.TimeZone.getDefault()));
 
 
         HashSet regTypes = new HashSet();
-        regTypes.add(Util.getFactory().getRegistrationTypeDAO().find(new Integer(1)));
-        List assignments = Util.getFactory().getDemographicAssignmentDAO().getAssignments(
-                Util.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
+        regTypes.add(DAOUtil.getFactory().getRegistrationTypeDAO().find(new Integer(1)));
+        List assignments = DAOUtil.getFactory().getDemographicAssignmentDAO().getAssignments(
+                DAOUtil.getFactory().getCoderTypeDAO().find(new Integer(1)), ret.getHomeAddress().getState(), regTypes);
         DemographicAssignment da;
         DemographicResponse dr;
         ArrayList responses = new ArrayList();
         for (Iterator it = assignments.iterator(); it.hasNext();) {
-            da = (DemographicAssignment)it.next();
+            da = (DemographicAssignment) it.next();
             if (da.getQuestion().isMultipleSelect()) {
                 for (Iterator it1 = da.getQuestion().getAnswers().iterator(); it1.hasNext();) {
                     dr = new DemographicResponse();
                     dr.setUser(ret);
                     dr.setQuestion(da.getQuestion());
-                    dr.setAnswer((DemographicAnswer)it1.next());
+                    dr.setAnswer((DemographicAnswer) it1.next());
                     //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                     responses.add(dr);
                 }
@@ -152,14 +148,14 @@ public class TestUtils {
                 dr.setUser(ret);
                 dr.setQuestion(da.getQuestion());
                 Iterator it1 = da.getQuestion().getAnswers().iterator();
-                dr.setAnswer((DemographicAnswer)it1.next());
+                dr.setAnswer((DemographicAnswer) it1.next());
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                 responses.add(dr);
             } else if (da.getQuestion().isFreeForm()) {
                 dr = new DemographicResponse();
                 dr.setUser(ret);
                 dr.setQuestion(da.getQuestion());
-                dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
+                dr.setAnswer(DAOUtil.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                 dr.setResponse("hell");
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                 responses.add(dr);
