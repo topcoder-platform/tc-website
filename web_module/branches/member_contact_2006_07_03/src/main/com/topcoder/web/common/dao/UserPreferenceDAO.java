@@ -12,7 +12,7 @@ import com.topcoder.web.common.model.UserPreference;
 public interface UserPreferenceDAO {
 
 	UserPreference find(User user, Preference preference);
-	UserPreference find(Long userId, Long preferenceId);
-
+	UserPreference find(Long userId, Long preferenceId);	
+	void saveOrUpdate(UserPreference u);
 
 }

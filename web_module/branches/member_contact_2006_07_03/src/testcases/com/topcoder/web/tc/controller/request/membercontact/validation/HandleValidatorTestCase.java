@@ -1,7 +1,12 @@
 package com.topcoder.web.tc.controller.request.membercontact.validation;
 
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Country;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.MemberContactBlackList;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
@@ -16,7 +21,28 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
 
     public void setUp() {
         super.setUp();
-        validator = new HandleValidator(DAOUtil.getFactory().getUserDAO().find("cucu", true, true));
+        UserDAO ud = DAOUtil.getFactory().getUserDAO();
+
+        User user = ud.find("cucu", true, true);
+        
+        // user with member contact disabled 
+        User u = ud.find("anees", true, true);
+        UserPreference up = DAOUtil.getFactory().getUserPreferenceDAO().find(u.getId(), Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        up.setValue(String.valueOf(false));
+        DAOUtil.getFactory().getUserPreferenceDAO().saveOrUpdate(up);
+
+        // user with inactive email
+        u = ud.find("bertman", true, true);
+        u.getPrimaryEmailAddress().setStatusId(Email.STATUS_ID_UNACTIVE);
+        ud.saveOrUpdate(u);
+        
+        // cucu blocks bertman
+        MemberContactBlackList bl = DAOUtil.getFactory().getMemberContactBlackListDAO().findOrCreate(user, u);
+        bl.setBlocked(true);
+        DAOUtil.getFactory().getMemberContactBlackListDAO().saveOrUpdate(bl);
+        
+        
+        validator = new HandleValidator(user);
     }
 
     public void testEmpty() {
@@ -28,18 +54,16 @@ public class HandleValidatorTestCase extends TCHibernateTestCase {
     }
 
     public void testMemberContactDisabled() {
-    	// TODO: choose an appropiate handle
-        assertFalse("validated a handle with MC disabled", validator.validate(new StringInput("chronoewk")).isValid());
+        assertFalse("validated a handle with MC disabled", validator.validate(new StringInput("anees")).isValid());
     }
 
     public void testMemberContactInvalidAddress() {
     	// TODO: choose an appropiate handle
         assertFalse("validated a handle with invalid email address", 
-        		validator.validate(new StringInput("chronoewk")).isValid());
+        		validator.validate(new StringInput("bertman")).isValid());
     }
 
     public void testMemberContactBlocked() {
-    	// TODO: choose an appropiate handle
         assertFalse("validated a handle that is blocked", validator.validate(new StringInput("chronoewk")).isValid());
     }
 

@@ -4,6 +4,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.UserPreferenceDAO;
+import com.topcoder.web.common.model.MemberContactMessage;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
@@ -34,6 +35,9 @@ public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDA
     	return (UserPreference) q.uniqueResult();
     }
     
+	public void saveOrUpdate(UserPreference up) {
+		super.saveOrUpdate(up);
+	}
     
 
 
