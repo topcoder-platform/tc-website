@@ -1,26 +1,27 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.Country;
-import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: May 12, 2006
  */
-public class StateValidatorTestCase extends TCHibernateTestCase  {
+public class StateValidatorTestCase extends TCHibernateTestCase {
 
     private Country us;
     private Country india;
+
     public void setUp() {
         super.setUp();
-        us = Util.getFactory().getCountryDAO().getUS();
-        india = Util.getFactory().getCountryDAO().find("356");
+        us = DAOUtil.getFactory().getCountryDAO().getUS();
+        india = DAOUtil.getFactory().getCountryDAO().find("356");
     }
 
-   public void testStateNull() {
+    public void testStateNull() {
         boolean gotException = false;
         try {
             new StateValidator(us).validate(new StringInput(null)).isValid();

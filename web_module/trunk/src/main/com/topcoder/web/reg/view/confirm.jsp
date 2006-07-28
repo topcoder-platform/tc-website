@@ -1,13 +1,12 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
-<%@ page import="com.topcoder.web.reg.model.RegistrationType" %>
+<%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="reg-tags" prefix="rt" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -331,6 +330,19 @@
             </td>
         </tr>
     </c:forEach>
+</c:if>
+
+<c:set value="<%=Constants.MEMBER_CONTACT%>" var="memberContact"/>
+<c:if test="${cf:contains(fields, memberContact)}">
+    <tr>
+        <td class="name">
+            Member Contact Enabled:
+        </td>
+        <td class="value">
+            <c:if test="${regUser.memberContactEnabled}">yes</c:if>
+            <c:if test="${!regUser.memberContactEnabled}">no</c:if>
+        </td>
+    </tr>
 </c:if>
 
 

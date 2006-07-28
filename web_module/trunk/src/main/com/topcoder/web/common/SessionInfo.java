@@ -10,10 +10,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
@@ -30,6 +27,7 @@ public class SessionInfo implements Serializable {
     private boolean isLoggedIn = false;
     private int memberCount = -1;
     private boolean knownUser = false;
+    private String timezone = null;
 
     /**
      * group may be:
@@ -147,13 +145,32 @@ public class SessionInfo implements Serializable {
         return memberCount;
     }
 
+    public String getTimezone() {
+        if (timezone == null) {
+            try {
+                timezone = loadTimezone();
+            } catch (Exception e) {
+                timezone = TimeZone.getDefault().getID();
+                log.error("Could not load timezone from db, using : " + timezone);
+            }
+        }
+        return timezone;
+    }
+
+    private String loadTimezone() throws Exception {
+        CachedDataAccess tzDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Request tzReq = new Request();
+        tzReq.setContentHandle("user_timezone");
+        tzReq.setProperty(WebConstants.USER_ID, String.valueOf(getUserId()));
+        return ((ResultSetContainer) tzDai.getData(tzReq).get("user_timezone")).getStringItem(0, "timezone_desc");
+    }
+
     private int loadMemberCount() throws Exception {
         CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
         countDai.setExpireTime(15 * 60 * 1000);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
-        int result = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
-        return result;
+        return ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
     }
 
 

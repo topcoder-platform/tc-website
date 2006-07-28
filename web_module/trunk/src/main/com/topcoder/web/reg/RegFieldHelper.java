@@ -1,11 +1,11 @@
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.reg.dao.RegistrationTypeDAO;
-import com.topcoder.web.reg.dao.Util;
-import com.topcoder.web.reg.model.CoderType;
-import com.topcoder.web.reg.model.RegistrationType;
-import com.topcoder.web.reg.model.User;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.User;
 
 import java.util.*;
 
@@ -63,6 +63,7 @@ public class RegFieldHelper {
         mainCompFields.add(Constants.EMAIL_CONFIRM);
         mainCompFields.add(Constants.QUOTE);
         mainCompFields.add(Constants.NOTIFICATION);
+        mainCompFields.add(Constants.MEMBER_CONTACT);
         mainCompFields.add(Constants.COMP_COUNTRY_CODE);
         mainCompFields.add(Constants.CODER_TYPE);
         mainCompFields.add(Constants.TIMEZONE);
@@ -307,7 +308,7 @@ public class RegFieldHelper {
             currentTypes = user.getRegistrationTypes();
         }
 
-        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
+        RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType curr;
@@ -403,7 +404,7 @@ public class RegFieldHelper {
         Set ret = new HashSet();
         Set currentTypes = user.getRegistrationTypes();
 
-        RegistrationTypeDAO dao = Util.getFactory().getRegistrationTypeDAO();
+        RegistrationTypeDAO dao = DAOUtil.getFactory().getRegistrationTypeDAO();
 
         List allRegTypes = dao.getRegistrationTypes();
         RegistrationType corp = dao.getCorporateType();
@@ -415,10 +416,10 @@ public class RegFieldHelper {
             if (regTypes.contains(curr) && currentTypes.contains(curr)) {
                 //must be an update
                 if (curr.getId().equals(RegistrationType.COMPETITION_ID)) {
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompProFields);
+                            ret.addAll(requiredSecondaryCompProFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompProFields);
@@ -434,10 +435,10 @@ public class RegFieldHelper {
                             ret.remove(Constants.TITLE);
                         }
                     } else
-                    if (user.getCoder().getCoderType().equals(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
+                    if (user.getCoder().getCoderType().equals(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT)))
                     {
                         if (required) {
-                            ret.addAll(secondaryCompStudentFields);
+                            ret.addAll(requiredSecondaryCompStudentFields);
                             ret.remove(Constants.REFERRAL);
                         } else {
                             ret.addAll(secondaryCompStudentFields);

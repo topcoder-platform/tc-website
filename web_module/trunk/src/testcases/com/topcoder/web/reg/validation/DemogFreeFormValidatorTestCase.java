@@ -1,10 +1,10 @@
 package com.topcoder.web.reg.validation;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.model.User;
-import com.topcoder.web.reg.dao.Util;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 /**
  * @author dok
@@ -14,35 +14,36 @@ import com.topcoder.web.common.validation.ValidationResult;
 public class DemogFreeFormValidatorTestCase extends TCHibernateTestCase {
 
     public void testAnswerNullDeclineEnabled() {
-        User u = Util.getFactory().getUserDAO().find("dok",true);
-        u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("VT"));
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
+        u.getHomeAddress().setState(DAOUtil.getFactory().getStateDAO().find("VT"));
         DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
-        ValidationResult r =d.validate(new StringInput(null));
+        ValidationResult r = d.validate(new StringInput(null));
         log.debug(r.getMessage());
         assertTrue("didn't allow null response from a decline state", r.isValid());
     }
 
     public void testAnswerNullDeclineDisabled() {
-        User u = Util.getFactory().getUserDAO().find("dok", true);
-        u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("CO"));
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
+        u.getHomeAddress().setState(DAOUtil.getFactory().getStateDAO().find("CO"));
         DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
         assertFalse("allowed null response from a non-decline state", d.validate(new StringInput(null)).isValid());
     }
 
     public void testAnswerNullNotRequired() {
-        User u = Util.getFactory().getUserDAO().find("dok", true);
-        u.getHomeAddress().setState(Util.getFactory().getStateDAO().find("CO"));
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
+        u.getHomeAddress().setState(DAOUtil.getFactory().getStateDAO().find("CO"));
         DemogFreeFormValidator d = new DemogFreeFormValidator(u, false);
         assertTrue("didn't allow null response on unrequired question", d.validate(new StringInput(null)).isValid());
     }
 
     public void testMaxLength() {
-        User u = Util.getFactory().getUserDAO().find("dok", true);
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
         DemogFreeFormValidator d = new DemogFreeFormValidator(u, true);
         assertFalse("validated a response that was too long", d.validate(new StringInput("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).isValid());
     }
+
     public void testMaxLengthNotRequired() {
-        User u = Util.getFactory().getUserDAO().find("dok", true);
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
         DemogFreeFormValidator d = new DemogFreeFormValidator(u, false);
         assertFalse("validated a response that was too long", d.validate(new StringInput("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")).isValid());
     }

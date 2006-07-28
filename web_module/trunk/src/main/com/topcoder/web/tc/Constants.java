@@ -96,7 +96,6 @@ public class Constants implements WebConstants {
     public static String ANSWER_PREFIX;
     public static String MESSAGE;
 
-
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SCHULZE_RESULTS;
@@ -153,6 +152,20 @@ public class Constants implements WebConstants {
 
     public static String MEMBER_PROFILE;
 
+    public static String MEMBER_CONTACT;
+
+    public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
+    public static String MEMBER_CONTACT_ENABLE;
+    
+    public static String MEMBER_CONTACT_FROM_ADDRESS;
+    public static String MEMBER_CONTACT_SUBJECT;
+    public static String MEMBER_CONTACT_SUBJECT_COPY;
+    
+    public static String VALIDATE_HANDLE;
+
+    public static String BLACK_LIST;
+    public static String BLOCK_HANDLE;
+    
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;

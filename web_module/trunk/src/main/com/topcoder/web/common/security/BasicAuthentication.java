@@ -45,6 +45,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
     public static final Resource TECH_ASSESS_SITE = new SimpleResource("techassess");
     public static final Resource LONG_CONTEST_SITE = new SimpleResource("lc");
+    public static final Resource CREATIVE_SITE = new SimpleResource("creative");
 
     private boolean knownUser = false;
 

@@ -211,6 +211,9 @@ public abstract class BaseServlet extends HttpServlet {
                 if (!response.isCommitted()) {
                     fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                 }
+                //if there is an exception in post processing, and we've already started writting the response
+                //we're not going to be able to forward to the error page.
+                rp.postProcessing();
 
             } catch (Throwable e) {
                 handleException(request, response, e);
