@@ -1,12 +1,6 @@
 /*
- * ComponentSummary.java
- * 26 August 2002
- * 1.0
- *
- * Copyright (c) 2002, TopCoder, Inc.
- * All rights reserved.
+ * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-
 
 package com.topcoder.dde.catalog;
 
@@ -22,8 +16,17 @@ import java.util.Date;
  * version, version label, comments, phase, phase date, and price) pertain to a
  * particular version of the component.
  *
- * @version 1.0, 26 August 2002
- * @author  Albert Mao
+ * <p>
+ * Version 1.0.1 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> attribute to the class.
+ * </li>
+ * </ol>
+ * </p>
+ *
+ * @author Albert Mao, pulky
+ * @version 1.0.1
  * @see     Catalog
  * @see     ComponentManager
  */
@@ -43,6 +46,10 @@ public class ComponentSummary implements java.io.Serializable {
     private double price;
     private long status;
 
+    private boolean aolComponent;
+
+
+
     public long getRootCategory() {
         return rootCategory;
     }
@@ -53,7 +60,7 @@ public class ComponentSummary implements java.io.Serializable {
     ComponentSummary(long compId, long verId, long ver, String name,
                      String versionLabel, String comments, String shortDescription,
                      String description, long phase, Date phaseDate, double price,
-                     long status, long rootCategory) {
+                     long status, long rootCategory, boolean aolComponent) {
         componentId = compId;
         versionId = verId;
         version = ver;
@@ -67,6 +74,7 @@ public class ComponentSummary implements java.io.Serializable {
         this.price = price;
         this.status = status;
         this.rootCategory = rootCategory;
+        this.aolComponent = aolComponent;
     }
 
 
@@ -178,6 +186,21 @@ public class ComponentSummary implements java.io.Serializable {
      */
     public long getStatus() {
         return status;
+    }
+
+
+    /**
+     * @return true if it's an aol component
+     */
+    public boolean getAolComponent() {
+        return aolComponent;
+    }
+
+    /**
+     * @param aolComponent True if it's an aol component
+     */
+    public void setAolComponent(boolean aolComponent) {
+        this.aolComponent = aolComponent;
     }
 
     /**

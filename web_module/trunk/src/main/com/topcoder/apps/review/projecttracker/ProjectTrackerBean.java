@@ -51,16 +51,19 @@ import java.util.List;
  * This is the concrete implementation of the ProjectTracker interface.
  *
  * <p>
- * Version 1.0.2 Change notes:
+ * Version 1.0.2/3 Change notes:
  * <ol>
  * <li>
  * Class updated due to the addition of <code>response_during_appeals_ind</code> to the project table.
+ * </li>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> to the Project and UserProjectInfo classes.
  * </li>
  * </ol>
  * </p>
  *
  * @author TCSDeveloper, pulky
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class ProjectTrackerBean implements SessionBean {
     private Logger log;
@@ -68,6 +71,9 @@ public class ProjectTrackerBean implements SessionBean {
     private DataSource dataSource;
     private DocumentManagerLocal documentManager;
     private IdGen idGen;
+
+    private static final String THUNDERBIRD_EXTENSION_CAT_ID = "22774808";
+
     //private ComponentManagerHome componentManagerHome;
 
     /**
@@ -115,7 +121,8 @@ public class ProjectTrackerBean implements SessionBean {
                             "pcat.category_name catalog_name," +
                             "p.level_id, " +
                             "p.autopilot_ind, " +
-                            "p.response_during_appeals_ind  " +
+                            "p.response_during_appeals_ind, " +
+                            "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                             "FROM project p, comp_versions cv, " +
                             "comp_catalog cc, " +
                             "comp_categories ccat, categories cat, categories pcat " +
@@ -147,6 +154,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long levelId = rs.getLong(14);
                 boolean autopilot = rs.getBoolean(15);
                 boolean responseDuringAppeals = rs.getBoolean(16);
+                boolean aolComponent = (rs.getObject(17) != null);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
@@ -223,8 +231,9 @@ public class ProjectTrackerBean implements SessionBean {
                         projectStatus, notificationSent,
                         templateId[0], templateId[1],
                         requestor.getUserId(), projectVersionId, levelId, autopilot,
-                        responseDuringAppeals);
+                        responseDuringAppeals, aolComponent);
                 project.setCatalog(catalogName);
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -339,7 +348,8 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_resp_id, rur.login_id, " +
                                 "rur.r_user_role_v_id, " +
                                 "pinf.payment, pinf.payment_stat_id, " +
-                                "pinf.payment_info_v_id " +
+                                "pinf.payment_info_v_id, " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "comp_catalog cc, comp_versions cv, " +
                                 "comp_categories ccat, categories cat, categories pcat, " +
@@ -377,7 +387,8 @@ public class ProjectTrackerBean implements SessionBean {
                                 "rur.r_resp_id, rur.login_id, " +
                                 "rur.r_user_role_v_id,  " +
                                 "pinf.payment, pinf.payment_stat_id, " +
-                                "pinf.payment_info_v_id " +
+                                "pinf.payment_info_v_id, " +
+                                "(select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
                                 "FROM project p, phase_instance pi, " +
                                 "r_user_role rur,  " +
                                 "comp_catalog cc, comp_versions cv, " +
@@ -423,6 +434,7 @@ public class ProjectTrackerBean implements SessionBean {
                     Date endDate = rs.getDate(10);
                     long piVersionId = rs.getLong(11);
                     String catalogName = rs.getString(12);
+                    boolean aolComponent = (rs.getObject(22) != null);
 
 
                     Phase phase = phaseManager.getPhase(phaseId);
@@ -443,7 +455,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ProjectStatus projectStatus = projectStatusManager.getProjectStatus(projectStatId);
 
                     UserProjectInfo userProjectInfo = new UserProjectInfo(projectId, name, version, null,
-                            phaseInstance, projectType, winner, projectStatus);
+                            phaseInstance, projectType, winner, projectStatus, aolComponent);
                     userProjectInfo.setCatalog(catalogName);
 
                     projectInfoList.add(userProjectInfo);

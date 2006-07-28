@@ -72,14 +72,23 @@ import java.util.Date;
  * </li>
  * </ol>
  *
+ * Version 1.0.3 Change notes:
+ * <ol>
+ * <li>
+ * Class updated due to the addition of <code>aolComponent</code> to the Project, ComponentSummary and UserProjectInfo classes.
+ * </li>
+ * </ol>
+ *
  * @author Albert Mao, pulky
- * @version 1.0.2
+ * @version 1.0.3
  * @see     Catalog
  * @see     CatalogHome
  */
 public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(CatalogBean.class);
+
+    private static final String THUNDERBIRD_EXTENSION_CAT_ID = "22774808";
 
     private static final String
             CONFIG_NAMESPACE = "com.topcoder.dde.catalog.CatalogBean";
@@ -227,7 +236,10 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 ver.getVersionText().trim(),
                 ver.getComments(), comp.getShortDesc(), comp.getDescription(),
                 ver.getPhaseId(), new Date(ver.getPhaseTime().getTime()),
-                ver.getPrice(), comp.getStatusId(), comp.getRootCategory());
+                ver.getPrice(), comp.getStatusId(), comp.getRootCategory(),
+                false);
+
+                //TODO get aolComponent info from DB.
     }
 
     public CatalogSearchView search(String searchtext, Map options)
@@ -327,7 +339,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("       comp.status_id, v.comp_vers_id,            ");
         query.append("       v.version, v.version_text, v.phase_id,     ");
         query.append("       v.phase_time, v.price, v.comments,         ");
-        query.append("       comp.root_category_id                      ");
+        query.append("       comp.root_category_id,                     ");
+        query.append("      (select category_id from comp_categories where component_id = comp.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
         query.append("  FROM comp_categories x, comp_versions v,        ");
         query.append("       comp_catalog comp, categories cat          ");
         query.append(" WHERE v.component_id = comp.component_id         ");
@@ -423,7 +436,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 hashedResults.put(new Long(rs.getLong(1)), new ComponentSummary(rs.getLong(1),
                         rs.getLong(6), rs.getLong(7), rs.getString(3), rs.getString(8),
                         rs.getString(12), rs.getString(2), rs.getString(4), rs.getLong(9),
-                        rs.getDate(10), rs.getDouble(11), rs.getLong(5), rs.getLong(13)));
+                        rs.getDate(10), rs.getDouble(11), rs.getLong(5), rs.getLong(13),
+                        (rs.getObject(14) != null)));
             }
 
             rs.close();
@@ -843,7 +857,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("       comp.status_id, v.comp_vers_id,        ");
         query.append("       v.version, v.version_text, v.phase_id, ");
         query.append("       v.phase_time, v.price, v.comments,     ");
-        query.append("       comp.root_category_id                  ");
+        query.append("       comp.root_category_id,                 ");
+        query.append("       (select category_id from comp_categories where component_id = comp.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
         query.append("  FROM comp_categories x, comp_versions v,    ");
         query.append("       comp_catalog comp                      ");
         query.append(" WHERE x.component_id = comp.component_id     ");
@@ -863,7 +878,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 components.add(new ComponentSummary(rs.getLong(1), rs.getLong(6),
                         rs.getLong(7), rs.getString(3), rs.getString(8), rs.getString(12),
                         rs.getString(2), rs.getString(4), rs.getLong(9), rs.getDate(10),
-                        rs.getDouble(11), rs.getLong(5), rs.getLong(13)));
+                        rs.getDouble(11), rs.getLong(5), rs.getLong(13), (rs.getObject(14) != null)));
             }
 
         } finally {
@@ -910,7 +925,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         query.append("       comp.status_id, v.comp_vers_id,            ");
         query.append("       v.version, v.version_text, v.phase_id,     ");
         query.append("       v.phase_time, v.price, v.comments,         ");
-        query.append("       comp.root_category_id                      ");
+        query.append("       comp.root_category_id,                     ");
+        query.append("       (select category_id from comp_categories where component_id = comp.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
         query.append("  FROM comp_versions v, comp_catalog comp,        ");
         query.append("       categories cat                             ");
         query.append(" WHERE v.version = comp.current_version           ");
@@ -935,7 +951,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 components.add(new ComponentSummary(rs.getLong(1), rs.getLong(6),
                         rs.getLong(7), rs.getString(3), rs.getString(8), rs.getString(12),
                         rs.getString(2), rs.getString(4), rs.getLong(9), rs.getDate(10),
-                        rs.getDouble(11), rs.getLong(5), rs.getLong(13)));
+                        rs.getDouble(11), rs.getLong(5), rs.getLong(13), (rs.getObject(14) != null)));
             }
 
         } finally {
@@ -1031,7 +1047,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("       c.description, c.function_desc, c.status_id,    ");
             query.append("       v.comp_vers_id, v.version, v.version_text,      ");
             query.append("       v.phase_id, v.phase_time, v.price, v.comments,  ");
-            query.append("       c.root_category_id                              ");
+            query.append("       c.root_category_id,                             ");
+            query.append("       (select category_id from comp_categories where component_id = c.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
             query.append("  FROM comp_catalog c, comp_versions v                 ");
             query.append(" WHERE v.component_id = c.component_id                 ");
             query.append("   AND c.component_id = ?                              ");
@@ -1056,7 +1073,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                             rs.getLong(8), rs.getString(3), rs.getString(9),
                             rs.getString(13), rs.getString(2), rs.getString(4),
                             rs.getLong(10), rs.getDate(11), rs.getDouble(12),
-                            rs.getLong(6), rs.getLong(14));
+                            rs.getLong(6), rs.getLong(14), (rs.getObject(15) != null));
                     versionInfo = new ComponentVersionInfo(rs.getLong(7), rs.getLong(8),
                             rs.getString(9), rs.getString(13), rs.getLong(10),
                             rs.getDate(11), rs.getDouble(12));
@@ -1285,7 +1302,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("       c2.component_name, v2.version_text, v2.comments, ");
             query.append("       c2.short_desc, c2.description, v2.phase_id,      ");
             query.append("       v2.phase_time, v2.price, c2.status_id,           ");
-            query.append("       c2.root_category_id                              ");
+            query.append("       c2.root_category_id,                             ");
+            query.append("       (select category_id from comp_categories where component_id = c2.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
             query.append("  FROM comp_dependencies d, comp_catalog c1,            ");
             query.append("       comp_catalog c2, comp_versions v1,               ");
             query.append("       comp_versions v2                                 ");
@@ -1312,7 +1330,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                             rs.getLong(2), rs.getLong(3), rs.getString(4),
                             rs.getString(5), rs.getString(6), rs.getString(7),
                             rs.getString(8), rs.getLong(9), rs.getDate(10),
-                            rs.getDouble(11), rs.getLong(12), rs.getLong(13)));
+                            rs.getDouble(11), rs.getLong(12), rs.getLong(13),(rs.getObject(14) != null)));
 
                 dependencies = (ComponentSummary[]) list.toArray(new ComponentSummary[0]);
 
@@ -1361,6 +1379,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             " , cv.price " +
             " , cc.status_id " +
             " , cc.root_category_id " +
+            " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
             " from comp_catalog cc " +
             " , comp_versions cv " +
             " where cc.status_id = ? " +
@@ -1396,7 +1415,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                         rs.getDate("phase_time"),
                         rs.getDouble("price"),
                         rs.getLong("Status_id"),
-                        rs.getLong("root_category_id")));
+                        rs.getLong("root_category_id"),
+                        (rs.getObject("aol_brand") != null)));
             }
             Collections.sort(ret, new Comparators.ComponentSummarySorter());
             return ret;
@@ -1491,6 +1511,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             " , cv.price " +
             " , cc.status_id " +
             " , cc.root_category_id " +
+            " , (select category_id from comp_categories where component_id = cc.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand " +
             " from comp_catalog cc " +
             " , comp_versions cv " +
             " where cc.component_id = ? " +
@@ -1537,7 +1558,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                         rs.getDate("phase_time"),
                         rs.getDouble("price"),
                         rs.getLong("Status_id"),
-                        rs.getLong("root_category_id"));
+                        rs.getLong("root_category_id"),
+                        (rs.getObject("aol_brand") != null));
             } else {
                 throw new CatalogException("Couldn't find component " + componentId);
             }
