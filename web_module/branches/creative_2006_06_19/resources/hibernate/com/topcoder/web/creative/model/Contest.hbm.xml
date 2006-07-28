@@ -14,5 +14,14 @@
         <property name="name" access="field"/>
         <property name="startTime" column="start_time" access="field"/>
         <property name="endTime" column="end_time" access="field"/>
+        <set name="prizes" cascade="save-update" inverse="true" access="field" order-by="place asc">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestPrize"/>
+        </set>
+        <set name="config" cascade="save-update" inverse="true" access="field">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestConfig"/>
+        </set>
+
     </class>
 </hibernate-mapping>
