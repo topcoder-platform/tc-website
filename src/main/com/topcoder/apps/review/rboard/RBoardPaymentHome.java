@@ -8,12 +8,11 @@ import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
 /**
- * Home iterface for the RBoard EJB.
+ * Home iterface for the RBoardPayment EJB.
  *
- * @author dok, pulky
+ * @author pulky
  * @version 1.0.0
  */
-
 public interface RBoardPaymentHome extends javax.ejb.EJBHome {
     public static final String EJB_REF_NAME = "com.topcoder.apps.review.rboard.RBoardPaymentHome";
 
