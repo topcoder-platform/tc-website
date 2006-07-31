@@ -17,7 +17,10 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -29,7 +32,11 @@ public class TCO06CompRegistrants extends Base {
         Request r = new Request();
         r.setContentHandle("tco06_comp_registrants");
 
-        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
+        TCCC06ComponentTerms terms = new TCCC06ComponentTerms();
+        Calendar now = Calendar.getInstance();
+        now.setTime(new Date());
+        //cache it if reg has ended
+        Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, now.after(terms.getEnd())).getData(r);
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("tco06_comp_registrants");
 
