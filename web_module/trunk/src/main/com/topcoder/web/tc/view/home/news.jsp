@@ -8,6 +8,27 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.31.06<br>7:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=MemberContact">Member Contacting now available</A>
+      </span><br><br>
+Have you ever wanted to send a message to another TopCoder member
+without using the forums or the TopCoder Arena?  Well, now you can.
+Rated TopCoder members now have the ability to send email messages to
+other members who have elected to receive such messages.  If you wish to
+allow other rated TopCoder members to send email messages to you, update
+your TopCoder member profile and check the box labeled <strong>"Enable Member
+Contact"</strong>.  Your email address will not be revealed to other members. You must be rated in at
+least one of TopCoder's rating categories to send email messages.  Any member who has enabled messages will have a <strong>"Send a
+message"</strong> link in their Member Profile.  You can also use <A href="/tc?module=MemberContact">this form</A> to send messages.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=MemberContact">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506080" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.31.06<br>1:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,23 +199,6 @@ from start to finish.
        <A href="/tc?module=Static&d1=features&d2=071706">article</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506072" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.13.06<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm311">SRM 311 - Problem Set & Analysis</A></span><br><br>
-In Division 1, competitiors discovered the Easy and Medium problems to be easier than expected. Several coders solved them both in about
-10-15 minutes.      </td>
-      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm311">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505986" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
