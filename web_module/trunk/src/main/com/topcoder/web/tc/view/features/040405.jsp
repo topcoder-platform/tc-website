@@ -90,7 +90,7 @@ The submission deadline is looming and you won't be able to submit in time - wha
 <span class=bodySubtitle>Forums again</span><br/>
 The last advice that I'd like to give is to encourage you to use the forums throughout the design process.  I really feel that most designers fail here.  Questions about the specification will naturally arise as you are concentrating on the details.  Be sure to ask those questions to get the official PM response.  If you do not and simply make an assumption about some point, that assumption (whether right or wrong) will generally appear in the review.  Had the designer asked the PM about the issue during the design, then the issue would not arise in the review or if it did, the designer has recourse in pointing out the forum message to the reviewer.
 <br><br>
-<span class=bodySubtitle>What's coming up�</span><br/>
+<span class=bodySubtitle>What's coming up?</span><br/>
 Over the next two weeks we'll start exploring the appeals phase by pointing out some of the common ways designers appeal decisions (both the good and the bad ways).  We'll then wrap up the series by explaining the final fixes phase and what lessons you should take away from the whole experience.
 <br/><br/>
 <A href="/tc?module=Static&d1=features&d2=041105">...continue to Section 2</A>
