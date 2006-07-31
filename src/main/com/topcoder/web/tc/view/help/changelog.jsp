@@ -43,13 +43,9 @@
 </jsp:include>
 
 <p>
-    5.4 - 2006.07.31
+    5.4.0 - 2006.07.31
     <ul>
         <li>Added Member Contact pages to send mails to other members and a black list.</li>
-    </ul>
-
-    5.3.11 - 2006.07.xx
-    <ul>
         <li>Adjust component registration process so that it prompts the user regarding registering for the tccc</li>
     </ul>
 </p>
