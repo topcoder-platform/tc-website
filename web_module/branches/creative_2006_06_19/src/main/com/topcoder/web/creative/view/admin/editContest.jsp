@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.creative.Constants" %>
+<%@ page import="com.topcoder.web.creative.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -28,31 +30,41 @@
 </jsp:include>
 
 <div class="contentOuter">
-    <div class="contentInner">
+<div class="contentInner">
 
-        <h1>Edit Contest Details</h1>
+<h1>Edit Contest Details</h1>
 
-        <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
-            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-            <p>
-                Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
-            </p>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-            <p>
-                Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-                <button id="trigger<%=Constants.START_TIME%>">Set</button>
-            </p>
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+</p>
 
-            <p>
-                Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-                <button id="trigger<%=Constants.END_TIME%>">Set</button>
-            </p>
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+    <button id="trigger<%=Constants.START_TIME%>">Set</button>
+</p>
 
-            <script type="text/javascript">
-                Calendar.setup(
-                {
-                    inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
+                    <br/></tc-webtag:errorIterator></span>
+
+    Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+    <button id="trigger<%=Constants.END_TIME%>">Set</button>
+</p>
+
+
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
                     ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                     button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
                     showsTime   : true,
@@ -70,15 +82,65 @@
                     cache       : true
                 }
                         );
-            </script>
+                -->
+</script>
 
-            <p>
-                <button name="submit" value="submit" type="submit">Submit</button>
-            </p>
-        </form>
 
-        <jsp:include page="../creativeFoot.jsp"/>
-    </div>
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
+
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    Contest Overview: <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+</p>
+
+
+<script language="javascript" type="text/javascript">
+    <!--
+var defaultOverview= "This is the default overview text.  We need to come up with a real default text.";
+var overviewText = getValue("document.editForm", "${overviewText}");
+                       if ( text==null || text.length==0) {
+                         putValue("document.editForm", "${overviewText}", defaultOverview);
+                        }
+                -->
+</script>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
+
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
+                    <br/></tc-webtag:errorIterator></span>
+    Prize Description: <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+</p>
+
+<script language="javascript" type="text/javascript">
+    <!--
+var defaultPrizeDesc= "This is the default text for the prize description.  We need to come up with real default text";
+var prizeDesc = getValue("document.editForm", "${prizeDesc}");
+                       if ( text==null || text.length==0) {
+                         putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
+                        }
+                -->
+</script>
+
+<c:forEach begin="1" end="${prizeCount}" var="curr">
+    <p>
+
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.PRIZE_PLACE%>${curr}">${err}
+                        <br/></tc-webtag:errorIterator></span>
+
+        Prize ${curr}: <tc-webtag:textInput name="<%=Constants.PRIZE_PLACE%>${curr}"/>
+    </p>
+
+</c:forEach>
+
+<p>
+    <button name="submit" value="submit" type="submit">Submit</button>
+</p>
+</form>
+
+<jsp:include page="../creativeFoot.jsp"/>
+</div>
 
 </div>
 </body>

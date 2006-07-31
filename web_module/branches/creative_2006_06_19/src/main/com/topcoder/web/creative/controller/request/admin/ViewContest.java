@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Contest;
+import com.topcoder.web.creative.model.ContestProperty;
 
 import java.text.SimpleDateFormat;
 
@@ -25,6 +26,12 @@ public class ViewContest extends ShortHibernateProcessor {
             getRequest().setAttribute("contest", contest);
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
+            getRequest().setAttribute("prizeCount", new Integer(contest.getPrizes().size()));
+
+            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
+                    contest.getOverview().getValue());
+            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
+                    contest.getPrizeDescription().getValue());
 
             setDefault(Constants.CONTEST_ID, contest.getId());
             setDefault(Constants.CONTEST_NAME, contest.getName());

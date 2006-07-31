@@ -1,8 +1,12 @@
 package com.topcoder.web.creative.model;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.creative.dao.CreativeDAOUtil;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -14,6 +18,8 @@ public class Contest extends Base {
     private String name;
     private Timestamp startTime;
     private Timestamp endTime;
+    private Set config = new HashSet();
+    private Set prizes = new HashSet();
 
     public Long getId() {
         return id;
@@ -46,4 +52,47 @@ public class Contest extends Base {
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
+
+    public Set getConfig() {
+        return config;
+    }
+
+    public void setConfig(Set config) {
+        this.config = config;
+    }
+
+    public Set getPrizes() {
+        return prizes;
+    }
+
+    public void setPrizes(Set prizes) {
+        this.prizes = prizes;
+    }
+
+    public void addConfig(ContestConfig config) {
+        this.config.add(config);
+    }
+
+    public void addPrize(ContestPrize prize) {
+        this.prizes.add(prize);
+    }
+
+    public ContestConfig getConfig(ContestProperty property) {
+        boolean found = false;
+        ContestConfig ret = null;
+        for (Iterator it = config.iterator(); it.hasNext() && !found;) {
+            ret = (ContestConfig) it.next();
+            found = ret.getProperty().equals(property);
+        }
+        return ret;
+    }
+
+    public ContestConfig getOverview() {
+        return getConfig(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
+    }
+
+    public ContestConfig getPrizeDescription() {
+        return getConfig(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
+    }
+
 }

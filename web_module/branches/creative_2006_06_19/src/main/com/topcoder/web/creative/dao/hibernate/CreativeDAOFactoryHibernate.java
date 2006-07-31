@@ -12,6 +12,10 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
         return new ContestDAOHibernate();
     }
 
+    public ContestPropertyDAO getContestPropertyDAO() {
+        return new ContestPropertyDAOHibernate();
+    }
+
     public ContestRegistrationDAO getContestRegistrationDAO() {
         return new ContestRegistrationDAOHibernate();
     }
