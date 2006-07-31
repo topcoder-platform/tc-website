@@ -31,8 +31,7 @@
             <div class="bodySpacer">
 
                 <span class="bigTitle">Algorithm Competition Registrants</span>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br>
+                <br><br>
                 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
                     <tbody><tr>
                         <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
@@ -61,6 +60,7 @@
                             <%even = !even;%>
                         </rsc:iterator>
                 </table>
+                <br><br>
             </div>
         </td>
 
