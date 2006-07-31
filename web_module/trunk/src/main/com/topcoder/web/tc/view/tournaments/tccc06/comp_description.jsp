@@ -45,6 +45,7 @@ The competition is free and you must be 18 years or older as well as a matricula
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_rules">rules and regulations</A> for full details.
 <br><br>
 <%--
+--%>
 <span class="bigTitle">How to Register for the Component Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
@@ -54,7 +55,6 @@ Click <A href="/tc?module=TCCC06ComponentTerms">here</A> to register for the TCC
 Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
 Click <A href="/tc?module=TCCC06ComponentTerms">here</A> to register for the TCCC Component Design and Development Competition
---%>
         </div>
       </td>
         
