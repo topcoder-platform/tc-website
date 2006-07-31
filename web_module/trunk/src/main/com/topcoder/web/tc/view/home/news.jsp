@@ -20,7 +20,7 @@ allow other rated TopCoder members to send email messages to you, update
 your TopCoder member profile and check the box labeled <strong>"Enable Member
 Contact"</strong>.  Your email address will not be revealed to other members. You must be rated in at
 least one of TopCoder's rating categories to send email messages.  Any member who has enabled messages will have a <strong>"Send a
-message"</strong> link in their Member Profile.  You can also use <A href="/tc?module=MemberContact">this form</A> to send messages.
+message"</strong> link in their Member Profile.  You can also use <A href="/tc?module=MemberContact">this link</A> to send messages.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=MemberContact">view</A>&#160;|&#160;
