@@ -18,11 +18,11 @@
     <b>
         TopCoder Reporting II
     </b>
-</font
+</font>
 <br/>
 <br/>
 <br/>
-<a href=<%=Constants.SERVLET_ADDR%>><<back to regular reporting page< a><br/><br/>
+<a href="<%=Constants.SERVLET_ADDR%>">&lt;&lt;back to regular reporting page</a><br/><br/>
 <br/>
 
 <ul>
