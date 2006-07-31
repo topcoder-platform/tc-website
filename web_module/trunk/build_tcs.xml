@@ -93,14 +93,14 @@
 
     <target name="compile_shared" depends="init">
         <javac
-            srcdir="${shared.src.dir}"
-            destdir="${classes.dir}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${shared.src.dir}"
+                destdir="${classes.dir}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes.dir}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes.dir}"/>
@@ -116,41 +116,42 @@
 
     <target name="compile" depends="init,jar_shared">
         <javac
-            srcdir="${java.dir}"
-            destdir="${classes.dir}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
+                srcdir="${java.dir}"
+                destdir="${classes.dir}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
             <include name="com/topcoder/apps/**"/>
             <include name="com/topcoder/dde/**"/>
             <include name="com/topcoder/project/**"/>
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
-            <include name="com/topcoder/web/common/*" />
-            <include name="com/topcoder/web/common/tag/HandleTag.java" />
-            <include name="com/topcoder/web/common/model/**" />
-            <include name="com/topcoder/web/common/security/**" />
+            <include name="com/topcoder/web/common/*"/>
+            <include name="com/topcoder/web/common/tag/HandleTag.java"/>
+            <include name="com/topcoder/web/common/model/IdGenerator.java"/>
+            <include name="com/topcoder/web/common/model/**"/>
+            <include name="com/topcoder/web/common/security/**"/>
         </javac>
     </target>
 
     <target name="compile_onsite" depends="init,jar_shared">
         <javac
-            srcdir="${java.dir}"
-            destdir="${classes.dir}"
-            classpathref="class.path"
-            deprecation="${deprecation}"
-            debug="${debug}"
-            source="1.4"
-            target="1.4"
-            >
-            <include name="com/topcoder/web/onsite/**" />
-            <include name="com/topcoder/web/common/**" />
+                srcdir="${java.dir}"
+                destdir="${classes.dir}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.4"
+                target="1.4"
+                >
+            <include name="com/topcoder/web/onsite/**"/>
+            <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/web/ejb/project/**"/>
-            <exclude name="com/topcoder/web/common/tag/ForumLinkTag.java" />
+            <exclude name="com/topcoder/web/common/tag/ForumLinkTag.java"/>
         </javac>
     </target>
 
@@ -274,9 +275,10 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/RolePrincipal.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/TCPrincipal.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/TCSubject.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>                
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+            <zipfileset dir="${classes.dir}"
+                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
@@ -285,7 +287,8 @@
     </target>
 
     <target name="build-sars" depends="compile">
-        <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/cacherefresher/**">
+        <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}"
+             includes="com/topcoder/apps/review/cacherefresher/**">
             <metainf dir="${java.dir}/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
         </jar>
 
@@ -513,7 +516,7 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/project/*.class"/>
             <metainf dir="${java.dir}/com/topcoder/web/ejb/project" includes="*.xml"/>
         </jar>
-        
+
         <antcall target="war-onsite"/>
     </target>
 
