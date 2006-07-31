@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -45,11 +46,7 @@
 
 <body>
 <div align="center" style="padding:6px 0px 6px; 0px;">
-    <%--TOPCODER LOGO--%>
-    <%--<A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>--%>
-    <%--OR--%>
-    <%--TOPCODER CREATIVE LOGO--%>
-    <A href="CREATIVE CONTEST HOM"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
+    <A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
 </div>
 
 <div align="center">
