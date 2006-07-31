@@ -98,12 +98,12 @@
             <% } else { %>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_description"><img src="/i/tournament/tccc06/tabs/L2_detailsOff.gif" alt="" border="0" /></A></td>
             <% } %>
+            <%--
             <% if (tabLev2.equals("registrants")) {%>
                <td class="nav"><A href="/tc?module=TCCC06AlgRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
             <% } else { %>
                <td class="nav"><A href="/tc?module=TCCC06AlgRegistrants"><img src="/i/tournament/tccc06/tabs/L2_registrantsOff.gif" alt="" border="0" /></A></td>
             <% } %>
-            <%--
             <% if (tabLev2.equals("advancers")) {%>
                <td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=alg_bracket"><img src="/i/tournament/tccc06/tabs/L2_advancersOn.gif" alt="" border="0" /></A></td>
             <% } else { %>
@@ -184,9 +184,7 @@
                --%>
                <% } else if (tabLev2.equals("student_reps")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps"><% if (tabLev3.equals("details")) {%><img src="/i/tournament/tccc06/tabs/L3_detailsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_detailsOff.gif" border="0" /><% } %></a></td>
-               <%--
                   <td class="subnav"><a href="/tc?module=TCCC06StudentReps"><% if (tabLev3.equals("results")) {%><img src="/i/tournament/tccc06/tabs/L3_resultsOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_resultsOff.gif" border="0" /><% } %></a></td>
-               --%>
                <% } else if (tabLev2.equals("sponsors")) {%>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol"><% if (tabLev3.equals("aol")) {%><img src="/i/tournament/tccc06/tabs/L3_aolOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_aolOff.gif" border="0" /><% } %></a></td>
                   <td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg"><% if (tabLev3.equals("bloomberg")) {%><img src="/i/tournament/tccc06/tabs/L3_bloombergOn.gif" border="0" /><% } else { %><img src="/i/tournament/tccc06/tabs/L3_bloombergOff.gif" border="0" /><% } %></a></td>
