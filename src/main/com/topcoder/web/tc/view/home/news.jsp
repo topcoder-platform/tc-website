@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.31.06<br>1:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=prototypePattern">Prototype Pattern</A></span><br><br>
+      Design patterns are similar to algorithms for developers.  A design pattern provides a reusable structure or approach to solve a common design problem.  This article will introduce you to a creational pattern called the "Prototype Pattern."</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=tutorials&d2=prototypePattern">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506079" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -180,22 +195,6 @@ In Division 1, competitiors discovered the Easy and Medium problems to be easier
        <A href="/tc?module=Static&d1=match_editorials&d2=srm311">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505986" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.12.06<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><i>Mass High Tech</i> features TopCoder staff</span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/mht_logo.gif" width="68" height="38" alt="Mass High Tech" border="0"/></div>
-      The latest issue of <i>Mass High Tech</i> names TheFaxman one of the six best programmers in New England, and features an article from FogleBird on identifying talented developers.  
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus1.html">Code Commanders</A>&#160;|&#160;
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus6.html">TheFaxman Codeth</A>&#160;|&#160;
-       <A href="http://masshightech.bizjournals.com/masshightech/stories/2006/07/10/focus8.html">Identifying Best Developers</A><br>
-       <tc-webtag:forumLink forumID="506070" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
 

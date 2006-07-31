@@ -76,7 +76,8 @@
                <a href="/tc?module=Static&d1=tutorials&d2=strategyPattern"><strong>The Strategy Pattern</strong></a><br>
                <a href="/tc?module=Static&d1=tutorials&d2=decoratorPattern"><strong>The Decorator Pattern</strong></a><br>
                <a href="/tc?module=Static&d1=tutorials&d2=adapterPattern"><strong>Adapter Pattern</strong></a><br>
-               <a href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern"><strong>Parallel Patterns: WaveFront Pattern</strong></a><br></td>
+               <a href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern"><strong>Parallel Patterns: WaveFront Pattern</strong></a><br>
+               <a href="/tc?module=Static&d1=tutorials&d2=prototypePattern"><strong>Prototype Pattern</strong></a><br></td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="15664457" context="development"/></td>
