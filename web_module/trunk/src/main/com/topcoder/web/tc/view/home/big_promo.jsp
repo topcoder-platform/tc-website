@@ -18,7 +18,7 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/promos/tccc06_promo.gif" border="0" ALT="TCCC06" /></A>
 --%>
 
-<%-- TCCC06 student rep --%>
+<%-- TCCC06 student rep 
 <map name="tccc_rep">
 <area shape="rect" alt="" coords="1,1,211,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
 <area shape="rect" alt="" coords="213,1,498,76" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
@@ -26,6 +26,15 @@
 </map>
 
 <IMG SRC="/i/home/promos/tccc06_rep_promo.gif" border="0" ALT="TCCC06" usemap="#tccc_rep" />
+--%>
+<%-- TCCC06 CDDC REG & DIGITAL RUN --%>
+
+<map name="tccc_cddc_dr">
+<area shape="rect" alt="" coords="1,1,249,118" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="1,120,249,149" href="/tc?module=TCCC06ComponentTerms" />
+<area shape="rect" alt="" coords="251,1,499,149" href="/tc?module=Static&d1=digital_run&d2=description" />
+</map>
+<IMG SRC="/i/home/tccc06_cddc_reg_digital_run.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
 
 <%-- Digital Run 
 <map name="digital_run">

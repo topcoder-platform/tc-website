@@ -61,29 +61,14 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<%-- TCCC06 
-<A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><IMG SRC="/i/home/promos/tccc06_promo.gif" border="0" ALT="TCCC06" /></A>
---%>
-<%-- TCCC06 student rep --%>
-<map name="tccc_rep">
-<area shape="rect" alt="" coords="1,1,211,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="213,1,498,76" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
-<area shape="rect" alt="" coords="213,74,498,149" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps" />
-</map>
+<%-- TCCC06 CDDC REG & DIGITAL RUN --%>
 
-<IMG SRC="/i/home/promos/tccc06_rep_promo.gif" border="0" ALT="TCCC06" usemap="#tccc_rep" />
-
-<%-- Digital Run 
-<map name="digital_run">
-<area shape="rect" alt="" coords="1,1,279,154" href="/tc?module=Static&d1=digital_run&d2=description" />
-<area shape="rect" alt="" coords="307,4,477,48" href="/tc?module=Static&d1=digital_run&d2=description" />
-<area shape="rect" alt="" coords="348,53,477,87" href="/tc?&ph=112&module=LeaderBoard" />
-<area shape="rect" alt="" coords="382,89,477,101" href="/tc?module=RookieBoard&ph=112" />
-<area shape="rect" alt="" coords="310,109,477,140" href="/tc?&ph=113&module=LeaderBoard" />
-<area shape="rect" alt="" coords="382,141,477,154" href="/tc?module=RookieBoard&ph=113" />
+<map name="tccc_cddc_dr">
+<area shape="rect" alt="" coords="1,1,249,118" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about" />
+<area shape="rect" alt="" coords="1,120,249,149" href="/tc?module=TCCC06ComponentTerms" />
+<area shape="rect" alt="" coords="251,1,499,149" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
-<IMG SRC="/i/home/digital_run_071006.gif" border="0" ALT="The Digital Run" usemap="#digital_run"/>
---%>
+<IMG SRC="/i/home/tccc06_cddc_reg_digital_run.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
         </td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
