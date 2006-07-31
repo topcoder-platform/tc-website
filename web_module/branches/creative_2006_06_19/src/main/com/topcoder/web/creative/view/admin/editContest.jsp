@@ -124,12 +124,13 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </script>
 
 <c:forEach begin="1" end="${prizeCount}" var="curr">
+    <c:set value="<%=Constants.PRIZE_PLACE%>${curr}" var="prizeParam"/>
     <p>
 
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.PRIZE_PLACE%>${curr}">${err}
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeParam}">${err}
                         <br/></tc-webtag:errorIterator></span>
 
-        Prize ${curr}: <tc-webtag:textInput name="<%=Constants.PRIZE_PLACE%>${curr}"/>
+        Prize ${curr}: <tc-webtag:textInput name="${prizeParam}"/>
     </p>
 
 </c:forEach>
