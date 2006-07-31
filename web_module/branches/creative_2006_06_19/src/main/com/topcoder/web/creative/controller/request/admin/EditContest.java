@@ -48,7 +48,13 @@ public class EditContest extends ShortHibernateProcessor {
         }
 
         String overview = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT);
+        if (log.isDebugEnabled()) {
+            log.debug("overview is : " + overview);
+        }
         String prizeDesc = getRequest().getParameter(Constants.PRIZE_DESCRIPTION + ContestProperty.PRIZE_DESCRIPTION);
+        if (log.isDebugEnabled()) {
+            log.debug("prize desc is : " + prizeDesc);
+        }
 
         ValidationResult overviewResult = new ContestOverviewValidator().validate(new StringInput(overview));
         if (!overviewResult.isValid()) {
