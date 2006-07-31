@@ -93,12 +93,6 @@
     </servlet>
 
     <servlet>
-        <servlet-name>Registration</servlet-name>
-        <servlet-class>com.topcoder.web.tc.controller.legacy.reg.servlet.Controller</servlet-class>
-    </servlet>
-
-
-    <servlet>
         <servlet-name>graph</servlet-name>
         <servlet-class>com.topcoder.web.tc.controller.legacy.GraphServlet</servlet-class>
     </servlet>
@@ -244,17 +238,6 @@
         <servlet-name>card</servlet-name>
         <url-pattern>/card</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Registration</servlet-name>
-        <url-pattern>/Registration</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>jobposting</servlet-name>
-        <url-pattern>/jobposting</url-pattern>
-    </servlet-mapping>
-
 
     <error-page>
         <error-code>404</error-code>
