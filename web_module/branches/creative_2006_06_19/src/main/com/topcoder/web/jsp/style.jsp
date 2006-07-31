@@ -39,4 +39,9 @@
   <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
   <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
   <link type="text/css" rel="stylesheet" href="/css/coders.css">
+<% } else if (key.equals("tc_creative_forums")) { %>
+  <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
+  <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
+  <link type="text/css" rel="stylesheet" href="/css/creative/forums.css">
+  <link type="text/css" rel="stylesheet" href="/css/coders.css">
 <% } %>
