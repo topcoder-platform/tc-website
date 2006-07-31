@@ -100,7 +100,7 @@ Calendar.setup(
     <!--
 var defaultOverview= "This is the default overview text.  We need to come up with a real default text.";
 var overviewText = getValue("document.editForm", "${overviewText}");
-                       if ( text==null || text.length==0) {
+                       if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
                         }
                 -->
@@ -118,7 +118,7 @@ var overviewText = getValue("document.editForm", "${overviewText}");
     <!--
 var defaultPrizeDesc= "This is the default text for the prize description.  We need to come up with real default text";
 var prizeDesc = getValue("document.editForm", "${prizeDesc}");
-                       if ( text==null || text.length==0) {
+                       if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
                         }
                 -->
