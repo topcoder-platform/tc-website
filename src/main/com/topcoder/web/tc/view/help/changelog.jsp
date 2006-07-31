@@ -47,6 +47,7 @@
     <ul>
         <li>Added Member Contact pages to send mails to other members and a black list.</li>
         <li>Adjust component registration process so that it prompts the user regarding registering for the tccc</li>
+        <li>Add code to list the registrants for the algorithm and component portions of the tccc06</li>
     </ul>
 </p>
 
