@@ -49,7 +49,7 @@
     <%--<A href="http://<%=ApplicationServer.SERVER_NAME%>"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>--%>
     <%--OR--%>
     <%--TOPCODER CREATIVE LOGO--%>
-    <A href="CREATIVE CONTEST HOM"><img src="/i/registration/tc_creative_logo.gif" alt="TopCoder Creative" border="0"/></A>
+    <A href="CREATIVE CONTEST HOM"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
 </div>
 
 <div align="center">
