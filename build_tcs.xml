@@ -82,9 +82,7 @@
         <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
 
         <!-- can't figure out how to not compile the dependencie, so i'm putting this in the classpath-->
-        <!--
-                <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
-        -->
+        <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
 
     </path>
 
@@ -140,12 +138,14 @@
             <include name="com/topcoder/web/common/tag/HandleTag.java"/>
             <include name="com/topcoder/web/common/model/**"/>
             <include name="com/topcoder/web/common/security/**"/>
-            <exclude name="com/topcoder/web/common/model/IdGenerator.java"/>
-            <exclude name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
-            <exclude name="com/topcoder/web/common/model/ShortHibernateProcessor.java"/>
-            <exclude name="com/topcoder/web/common/model/HibernateUtils.java"/>
-            <exclude name="com/topcoder/web/common/ExtendedThreadLocalSessionContext.java"/>
-            <exclude name="com/topcoder/web/common/model/TCInterceptor.java"/>
+            <!--
+                        <exclude name="com/topcoder/web/common/model/IdGenerator.java"/>
+                        <exclude name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
+                        <exclude name="com/topcoder/web/common/model/ShortHibernateProcessor.java"/>
+                        <exclude name="com/topcoder/web/common/model/HibernateUtils.java"/>
+                        <exclude name="com/topcoder/web/common/ExtendedThreadLocalSessionContext.java"/>
+                        <exclude name="com/topcoder/web/common/model/TCInterceptor.java"/>
+            -->
 
         </javac>
     </target>
