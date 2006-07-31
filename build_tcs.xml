@@ -136,6 +136,8 @@
             <include name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
             <include name="com/topcoder/web/common/model/ShortHibernateProcessor.java"/>
             <include name="com/topcoder/web/common/model/HibernateUtils.java"/>
+            <include name="com/topcoder/web/common/ExtendedThreadLocalSessionContext.java"/>
+            <include name="com/topcoder/web/common/model/TCInterceptor.java"/>
             <include name="com/topcoder/web/common/model/**"/>
             <include name="com/topcoder/web/common/security/**"/>
         </javac>
