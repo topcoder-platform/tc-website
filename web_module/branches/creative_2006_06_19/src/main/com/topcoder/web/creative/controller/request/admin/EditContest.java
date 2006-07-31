@@ -117,22 +117,32 @@ public class EditContest extends ShortHibernateProcessor {
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
 
-            ContestConfig conf1 = new ContestConfig();
-            conf1.setContest(contest);
-            conf1.setProperty(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
-            conf1.setValue(overview);
-            conf1.getId().setContest(contest);
-            conf1.getId().setProperty(conf1.getProperty());
+            ContestConfig overviewConfig;
+            if (contest.isNew() || contest.getOverview() == null) {
+                overviewConfig = new ContestConfig();
+                overviewConfig.setContest(contest);
+                overviewConfig.setProperty(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
+                overviewConfig.getId().setContest(contest);
+                overviewConfig.getId().setProperty(overviewConfig.getProperty());
+                contest.addConfig(overviewConfig);
+            } else {
+                overviewConfig = contest.getOverview();
+            }
+            overviewConfig.setValue(overview);
 
-            ContestConfig conf2 = new ContestConfig();
-            conf2.setContest(contest);
-            conf2.setProperty(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
-            conf2.setValue(prizeDesc);
-            conf2.getId().setContest(contest);
-            conf2.getId().setProperty(conf2.getProperty());
 
-            contest.addConfig(conf1);
-            contest.addConfig(conf2);
+            ContestConfig prizeConfig;
+            if (contest.isNew() || contest.getPrizeDescription() == null) {
+                prizeConfig = new ContestConfig();
+                prizeConfig.setContest(contest);
+                prizeConfig.setProperty(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
+                prizeConfig.getId().setContest(contest);
+                prizeConfig.getId().setProperty(overviewConfig.getProperty());
+                contest.addConfig(prizeConfig);
+            } else {
+                prizeConfig = contest.getPrizeDescription();
+            }
+            prizeConfig.setValue(prizeDesc);
 
 
             Map.Entry me1;
