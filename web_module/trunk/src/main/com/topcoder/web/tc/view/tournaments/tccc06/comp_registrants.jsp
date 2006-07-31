@@ -32,8 +32,7 @@
         <td valign="top" align="center">
             <div class="bodySpacer">
                 <span class="bigTitle">Component Design and Development Competition Registrants</span>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <br><br><br>
+                <br><br>
                 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
                     <tbody><tr>
                         <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
@@ -62,6 +61,7 @@
                         </rsc:iterator>
 
                 </table>
+                <br><br>
             </div>
         </td>
 
