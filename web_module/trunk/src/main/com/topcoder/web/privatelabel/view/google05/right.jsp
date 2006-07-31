@@ -24,13 +24,13 @@
       <span class="redSubtitle">Important Dates</span>
       <br/><br/>
       <b>Registration Starts</b><br/>
-      Monday, July 25th
+      Monday, August 14th
       <br/><br/>
       <b>Qualification Round</b><br/>
-      Monday, August 22nd
+      Tuesday, September 5th
       <br/><br/>
       <b>Championship Round</b><br/>
-      Friday, September 23rd
+      Friday, October 27th
       </td>
    </tr>
    <tr>

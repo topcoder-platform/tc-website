@@ -51,7 +51,7 @@
          <jsp:include page="right.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
 
 Want a chance at $200,000?  Here's how:  Google Code Jam 2006.  This competition is a chance for you to use your skills and compete against top programmers from all over the world.
 <br><br><br>
@@ -180,9 +180,9 @@ The top 250 participants in Round 2 will receive a "Google Code Jam 2006" t-shir
 </table>
 <br>
 
-         <br/><br/>
+         <br><br>
          To find out more detailed information about the Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
-         <br/><br/>
+         <br><br>
          </div>
       </td>
       <td width="49%">&#160;</td>
