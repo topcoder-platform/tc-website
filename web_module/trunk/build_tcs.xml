@@ -135,6 +135,7 @@
             <include name="com/topcoder/web/common/model/IdGenerator.java"/>
             <include name="com/topcoder/web/common/model/LongHibernateProcessor.java"/>
             <include name="com/topcoder/web/common/model/ShortHibernateProcessor.java"/>
+            <include name="com/topcoder/web/common/model/HibernateUtils.java"/>
             <include name="com/topcoder/web/common/model/**"/>
             <include name="com/topcoder/web/common/security/**"/>
         </javac>
