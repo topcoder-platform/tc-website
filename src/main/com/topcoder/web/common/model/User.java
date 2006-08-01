@@ -1,7 +1,6 @@
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.reg.Constants;
 
 import java.util.*;
 
@@ -320,38 +319,42 @@ public class User extends Base {
 
     public boolean hasTerms(Long termsId) {
         boolean found = false;
+        TermsOfUse t;
         for (Iterator it = getTerms().iterator(); it.hasNext() && !found;) {
-            found = termsId.equals(((TermsOfUse) it.next()).getId());
+            t = (TermsOfUse) it.next();
+            if (log.isDebugEnabled()) {
+                log.debug("terms: " + t.getId());
+            }
+            found = termsId.equals(t.getId());
         }
         return found;
     }
 
-	public Set getUserPreferences() {
-		return Collections.unmodifiableSet(userPreferences);
-	}
-
-	public void setUserPreferences(Set userPreferences) {
-		this.userPreferences = userPreferences;
-	}
-    
-    public void addUserPreference(UserPreference userPreference) {
-        userPreferences.add(userPreference);    
+    public Set getUserPreferences() {
+        return Collections.unmodifiableSet(userPreferences);
     }
-    
+
+    public void setUserPreferences(Set userPreferences) {
+        this.userPreferences = userPreferences;
+    }
+
+    public void addUserPreference(UserPreference userPreference) {
+        userPreferences.add(userPreference);
+    }
+
     public UserPreference getUserPreference(Long preferenceId) {
-        for (Iterator it = userPreferences.iterator(); it.hasNext(); )
-        {
+        for (Iterator it = userPreferences.iterator(); it.hasNext();) {
             UserPreference up = (UserPreference) it.next();
             if (up.getId().getPreference().getId().equals(preferenceId)) {
                 return up;
-            }            
+            }
         }
         return null;
     }
- 
+
     public boolean isMemberContactEnabled() {
-    	UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-    	return up == null? false : String.valueOf(true).equals(up.getValue());
+        UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        return up == null ? false : String.valueOf(true).equals(up.getValue());
     }
-        
+
 }
