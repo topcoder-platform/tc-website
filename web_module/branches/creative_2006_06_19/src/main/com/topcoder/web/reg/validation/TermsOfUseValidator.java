@@ -21,7 +21,7 @@ public class TermsOfUseValidator implements Validator {
     }
 
     public ValidationResult validate(ValidationInput input) {
-        if (!u.hasTerms(new Long(Constants.REG_TERMS_ID))) {
+        if (!u.hasTerms(new Integer(Constants.REG_TERMS_ID))) {
             return new BasicResult("on".equals(input.getInput()), "In order to continue, you must agree to the terms of use.");
         } else {
             return ValidationResult.SUCCESS;
