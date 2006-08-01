@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.01.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></span><br><br>
+      The results of the TCCC06 Referral Program are now posted. Check back often to view updates.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=TCCC06StudentReps">full story</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.01.06<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,27 +193,6 @@ Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed hi
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.18.06<br>3:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">TCHS SRM 7 - Problem Set & Analysis</A></span><br><br>
-One hundred thirty coders participated in the TCHS SRM 7. <tc-webtag:handle coderId="11972352"
-context="hs_algorithm"/> put on an impressive performance, getting
-the fastest times on all three problems,
-and leading the contest
-from start to finish.
-      </td>
-      <td class="newsPhoto"><%--<img src="/i/m/myprasanna_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="159100" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506029" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 
