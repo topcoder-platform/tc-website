@@ -26,7 +26,6 @@ public class ViewContest extends ShortHibernateProcessor {
             getRequest().setAttribute("contest", contest);
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
-            getRequest().setAttribute("prizeCount", new Integer(contest.getPrizes().size()));
 
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
                     contest.getOverview().getValue());
