@@ -44,12 +44,12 @@
 
 <h2>Match summary</h2>
 <p>
-Submission rates today were pretty high - more than 90 percents contestants submitted 
+Submission rates were pretty high - more than 90% of the contestants submitted the
 first two problems and more than a half of them submitted the hard.
 Most of hards were down after the first couple of minutes of the challenge phase,
 giving some points to strong challengers. 
 After the system tests, <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> took home his second HS SRM win with 
-<tc-webtag:handle coderId="14886245" context="hs_algorithm"/> and <tc-webtag:handle coderId="22378820" context="hs_algorithm"/> rounding the top three.
+<tc-webtag:handle coderId="14886245" context="hs_algorithm"/> and <tc-webtag:handle coderId="22378820" context="hs_algorithm"/> rounding out the top three.
 </p>
  
 <H1>
