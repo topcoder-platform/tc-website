@@ -49,24 +49,28 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_reviewReview">Online Review Review</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Online Review Review">register</A>
-      <%--registration closed--%>
+      
+      <!-- change comments back
+      
+      <!--registration closed-->
       </td>
       <td class="valueC">
       &#160;
-      <%-- 
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewReview">results</A>--%>
+      <!-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewReview">results</A>-->
       </td>
       <td class="valueC">
       &#160;
-      <%-- 
+      <!-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewReview">standings</A>
-      --%>
+      -->
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
@@ -76,10 +80,10 @@
       08.XX.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <%--
+      <!--
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
-      --%>
+      -->
       <A href="">discuss</A>
       </td>
    </tr>
@@ -90,18 +94,18 @@
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Online Review Project Admin and Details">register</A>
-      <%--registration closed--%>
+      <!--registration closed-->
       </td>
       <td class="valueC">
       &#160;
-      <%-- 
-      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewProjectAdmin">results</A>--%>
+      <!-- 
+      <A href="/tc?module=Static&d1=dev&d2=assembly&d3=res_reviewProjectAdmin">results</A>-->
       </td>
       <td class="valueC">
       &#160;
-      <%-- 
+      <!-- 
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewProjectAdmin">standings</A>
-      --%>
+      -->
       </td>
       <td class="valueC">$8,000</td>
       <td class="valueC">
@@ -111,14 +115,15 @@
       08.XX.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <%--
+      <!--
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
-      --%>
+      -->
       <A href="">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
+--%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_reviewScorecardAdmin">Online Review Scorecard Admin</A>
@@ -151,7 +156,7 @@
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">discuss</A>
       </td>
    </tr>
-   <% even = !even;%>
+<%--   <% even = !even;%> --%>
 
 </table>
 
