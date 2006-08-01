@@ -238,8 +238,174 @@ public class LongContestComponentRenderer extends BaseRenderer implements Elemen
 
 
 
+        /* Library */
+        String[] exposedMethodNames = problemComponent.getAllExposedMethodNames();
+        DataType[][] exposedAllParamTypes = problemComponent.getAllExposedParamTypes();
+        String[][] exposedAllParamNames = problemComponent.getAllExposedParamNames();
+        DataType[] exposedReturnTypes = problemComponent.getAllExposedReturnTypes();
+        
+        if(exposedMethodNames.length != 0) {
+
+            buf.append("<tr><td colspan=\"2\"");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">&#160;</td></tr>");
+            buf.append("<tr>");
+            buf.append("<td colspan=\"2\"");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            appendTag(buf, SECTION_HEADER, "Available Libraries");
+            buf.append("</td>");
+            buf.append("</tr>");
+            buf.append("<tr>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append(LEFT_MARGIN);
+            buf.append("</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append("<table>");
+            buf.append("<tr>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">Class:</td>");
+            buf.append("<td");
+            if (getTdClass() != null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
+            buf.append(problemComponent.getExposedClassName());
+            buf.append("</td>");
+            buf.append("</tr>");
 
 
+            for (int i=0; i<exposedMethodNames.length; i++) {
+                buf.append("<tr><td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+
+                buf.append(">Method:</td>");
+                buf.append("<td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
+                buf.append(exposedMethodNames[i]);
+                buf.append("</td>");
+                buf.append("</tr>");
+                buf.append("<tr><td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">Parameters:</td>");
+                buf.append("<td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
+                DataType[] paramTypes = exposedAllParamTypes[i];
+                for (int j = 0; j < paramTypes.length; j++) {
+                    if (j > 0)
+                        buf.append(", ");
+                    buf.append(new DataTypeRenderer(paramTypes[j]).toHTML(language));
+                }
+                buf.append("</td>");
+                buf.append("</tr>");
+                buf.append("<tr><td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">Returns:</td>");
+                buf.append("<td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
+                buf.append(new DataTypeRenderer(exposedReturnTypes[i]).toHTML(language));
+
+                buf.append("</td>");
+                buf.append("</tr>");
+                buf.append("<tr><td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">Sample Call:</td>");
+                buf.append("<td");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
+                buf.append(encodeHTML(language.exampleExposedCall(
+                                        problemComponent.getExposedClassName(),
+                                        exposedMethodNames[i],
+                                        exposedAllParamNames[i])));
+                buf.append("</td>");
+                buf.append("</tr>");
+                buf.append("<tr><td colspan=\"2\"");
+                if (getTdClass() != null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                if (i==methodCount-1) {
+                    buf.append(">(be sure your method");
+                    if (methodCount>2) {
+                        buf.append("s are");
+                    } else {
+                        buf.append("is");
+                    }
+                    buf.append(" public)</td></tr>");
+                }
+                if (methodCount>2&&i<methodCount-1) {
+                    buf.append("<tr><td>&nbsp;</td></tr>");
+                }
+            }
+
+            buf.append("</table>");
+            buf.append("</td>");
+            buf.append("</tr>");
+
+        }
 
 
         /* Spec */
