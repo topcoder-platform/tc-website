@@ -55,6 +55,8 @@ Although the application will be initially used by TopCoder, it should be built 
 <span class="bodySubtitle">Competition Overview</span><br>
 This assembly competition will consist of performing screening, reviews, appeals, appeals response, aggregation, aggregation review, final review and approval. This project will also consist of viewing screenings, reviews, appeals, appeals response, aggregation, aggregation review, final reviews, approval and composite reviews.
 <br><br>
+<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+
 <div class="sectionHeader">Technologies</div>
 Each team will be responsible for creating their working environment. The working environment requirement details for this application are outlined in the Application Requirements Specification located in the documentation bundle. An overview of the environment requirements are listed below:
 <ul>
@@ -138,7 +140,7 @@ To sign up as a Team Captain or a Free Agent, send an email to <A href="mailto:A
 <li>Team you wish to work with (not necessary for Team Captains and optional for Free Agents)</li>
 <li>Percentage of team earnings desired</li>
    <ul>
-   <li>Note that for the Time Tracker competition, all team members, including the Team Captain, will receive an equal percentage of the prize money.</li>
+   <li>Note that for the Online Review competition, all team members, including the Team Captain, will receive an equal percentage of the prize money.</li>
    </ul>
 </ul>
 

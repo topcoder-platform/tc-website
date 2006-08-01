@@ -39,10 +39,11 @@
 
 <div align="right"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=instructions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0" /></A></div>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-   <tr><td class="title" colspan="7">Active Software Assembly Contests</td></tr>
+   <tr><td class="title" colspan="8">Active Software Assembly Contests</td></tr>
    <tr>
       <td class="tableHeader" colspan="3" nowrap="nowrap">Contest</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Teams</td>
+      <td class="tableHeader" align="center" nowrap="nowrap">1st Place</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Register By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Submit By</td>
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
@@ -67,6 +68,7 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewReview">standings</A>
       --%>
       </td>
+      <td class="valueC">$8,000</td>
       <td class="valueC">
       08.XX.2006 9:00 AM EST
       </td>
@@ -78,7 +80,7 @@
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
       --%>
-      <A href="">discuss the project</A>
+      <A href="">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -101,6 +103,7 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewProjectAdmin">standings</A>
       --%>
       </td>
+      <td class="valueC">$8,000</td>
       <td class="valueC">
       08.XX.2006 9:00 AM EST
       </td>
@@ -112,7 +115,7 @@
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
       --%>
-      <A href="">discuss the project</A>
+      <A href="">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
@@ -132,6 +135,7 @@
       <td class="valueC">
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=sta_reviewScorecardAdmin">standings</A>
       </td>
+      <td class="valueC">$5,000</td>
       <td class="valueC">
       07.21.2006 9:00 PM EST
       </td>
@@ -144,7 +148,7 @@
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
       <br>
       --%>
-      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">discuss the project</A>
+      <A href="https://software.topcoder.com/forum/c_forum.jsp?f=22883020">discuss</A>
       </td>
    </tr>
    <% even = !even;%>
