@@ -2,60 +2,76 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google05.css"/>
-<title>Google Code Jam 2005, Powered by TopCoder</title>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
+<title>Google Code Jam 2006, Powered by TopCoder</title>
+
 <jsp:include page="../script.jsp" />
 </head>
 <body>
 
 
-<table border=0 width=100% cellpadding=0 cellspacing=0>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
    <tr>
       <td width="49%">&#160;</td>
-      <td align=center>
-         <table border=0 width=100% cellpadding=0 cellspacing=0>
+      <td align="center">
+         <table border="0" width="100%" cellpadding="0" cellspacing="0">
             <tr>
                <td width="49%"></td>
-               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td valign="bottom" align="center"><img border=0 src="/i/events/google2006/codejamLogo.gif" alt="Google Code Jam logo"></td>
                <td width="49%"></td>
             </tr>
          </table>
       </td>
       <td width="49%"></td>
    </tr>
+   
+   <!-- Tab bar links-->
    <tr>
-      <td width="49%">&#160;</td>
-      <td>
-         <div class=greenBigBox>
-
-         <!-- Tab bar links-->
-         <div align=center>
+      <td colspan="3">
+         <div align="center">
          <jsp:include page="links.jsp" >
          <jsp:param name="selectedTab" value="overview"/>
          </jsp:include>
+         <br/>
          </div>
+      </td>
+   </tr>
 
-         <br/><br/>
+   <tr>
+      <td width="49%">&#160;</td>
 
-         <span class="bigTitle">Google&#153; Code Jam 2005</span>
-         <span valign=top>
+   <!-- content -->
+      <td>
+         <div class="pageLayout">
+
+         <span class="bigBluetitle">Google&#153; Code Jam 2006</span>
+         <span valign="top">
          <jsp:include page="right.jsp" />
          </span>
 
-         <br/><br/>
+         <br><br>
 
-It's back!  The Google&#153; Code Jam 2005 is now offering the best coders in the world a chance to compete for $155,000!  Have you got what it takes?  Can you take the pressure?  Know how to solve problems? Know algorithms?
+Want a chance at $200,000?  Here's how:  Google Code Jam 2006.  This competition is a chance for you to use your skills and compete against top programmers from all over the world.
+<br><br><br>
+<span class="subTitle">What is the Google Code Jam 2006?</span>
 <br><br>
-If you answered yes to one or more of the above, then the Google&#153; Code Jam 2005 is right up your alley.  Join coders from around the world in this intense competition that requires all your mind has to offer.
+The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. 
 <br><br>
-Not only will you be in your glory of coding, but there are prizes for it too!  It's more than just $155,000 but a chance to work for the hottest tech company, Google.
+The competition is available in five programming languages - Java, C++, C#, VB.net and Python. 
 <br><br>
-<span class="greenSubtitle">This is how it works:</span>
+Learn how to participate by reading the <a href="/pl/?&module=Static&d1=google06&d2=instructions">instructions</a>.  
+<br><br><br>
+<span class="subTitle">When is the competition?</span>
 <br><br>
-The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.
+Registration for the Google Code Jam 2006 is open from Monday, August 14, 2006 at 9:00AM EDT (GMT/UTC -4) through Tuesday, September 5, 2006 at 9:00AM EDT (GMT/UTC -4). There is no limit to the number of registrants for the competition, but only the top 1,000 scorers from the Qualification Round will advance to Round 1 of the Code Jam on September 14. 
 <br><br>
-The competition is available in four programming languages - Java, C++, C#, and VB.
+The competitors with the top 500 scores from Round 1 will advance to compete in Round 2. 
 <br><br>
+The competitors with the top 100 scores from Round 2 will be invited to compete for $200,000 in cash and prizes at the onsite Championship Round at the Google Office in New York City, New York, United States. 
+<br><br>
+<%--
 Here's the line-by-line documentation:
 <br><br>
 <div class="indented">
@@ -72,88 +88,113 @@ Here's the line-by-line documentation:
    Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
 </div>
 <br><br>
-<span class="greenSubtitle">Here's what you'll need to know:</span>
-<br><br>
-Registration for the Google&#153; Code Jam 2005 is open from Monday, July 25, 2005 to Friday, August 19, 2005.  Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam on August 29th.
-<br><br>
-<table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+--%>
+
+<table width="500" class="box" align="center" style="clear:right;">
    <tr>
-      <td class="sidebarTitle" width="30%">Date</td>
-      <td class="sidebarTitle" width="20%">Time*</td>
-
-      <td class="sidebarTitle" width="50%">Status</td>
+      <td class="boxTitle" width="33%">Date</td>
+      <td class="boxTitle" width="17%">Time*</td>
+      <td class="boxTitle" width="50%">Status</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Monday, July 25</td>
-      <td class="sidebarText">9:00 AM</td>
-      <td class="sidebarText">Registration Opens</td>
-   </tr>
-
-   <tr valign="top">
-      <td class="sidebarText" nowrap>Friday, August 19</td>
-      <td class="sidebarText">5:00 PM</td>
-      <td class="sidebarText">Registration Closes</td>
+      <td class="boxText">Monday, August 14</td>
+      <td class="boxText">9:00 AM</td>
+      <td class="boxText">Registration Opens</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Monday, August 22</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round begins</td>
+      <td class="boxText" nowrap>Tuesday, September 5</td>
+      <td class="boxText">9:00 AM</td>
+      <td class="boxText">Registration Closes</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Tuesday, August 23</td>
-      <td class="sidebarText">12:00 PM (noon)</td>
-      <td class="sidebarText">Qualification Round ends</td>
+      <td class="boxText" nowrap>Tuesday, September 5</td>
+      <td class="boxText">12:00 PM (noon)</td>
+      <td class="boxText">Qualification Round begins</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Monday, August 29</td>
-      <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 1 - 500 participants</td>
+      <td class="boxText" nowrap>Wednesday, September 6</td>
+      <td class="boxText">12:00 PM (noon)</td>
+      <td class="boxText">Qualification Round ends</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Thursday, September 1</td>
-      <td class="sidebarText">9:00 PM</td>
-      <td class="sidebarText">Round 2 - 250 participants</td>
+      <td class="boxText" nowrap>Thursday, September 14</td>
+      <td class="boxText">10:00 AM</td>
+      <td class="boxText">Round 1 - 1,000 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText">Friday, September 23</td>
-      <td class="sidebarText">TBD</td>
-      <td class="sidebarText">Championship Round - 100 participants</td>
+      <td class="boxText" nowrap>Tuesday, September 19</td>
+      <td class="boxText">10:00 AM</td>
+      <td class="boxText">Round 2 - 500 participants</td>
    </tr>
 
    <tr valign="top">
-      <td class="sidebarText" colspan="3">*All times are Eastern Daylight Time</td>
+      <td class="boxText">Friday, October 27**</td>
+      <td class="boxText">TBD</td>
+      <td class="boxText">Championship Round - 100 participants</td>
+   </tr>
+
+   <tr valign="top">
+      <td class="boxText" colspan="3">*All times are denoted as EDT (GMT/UTC -4)<br>
+      ** The Championship Round date is subject to change with or without prior notice.</td>
    </tr>
 </table>
 
 <br><br>
-The competitors with the top 250 scores from Round 1 will advance to Round 2 on September 1st. The top 100 performers in Round 2 will be invited to compete for $155,000 in cash prizes in the Championship Round onsite at the Googleplex (Mountain View, CA) on September 23rd.
+<span class="subTitle">What can you win?</span>
 <br><br>
-<span class="greenSubtitle">Prizes</span>
+The top 250 participants in Round 2 will receive a "Google Code Jam 2006" t-shirt. All 100 finalists who compete in the Championship Round will receive prizes as follows:
 <br><br>
-The 500 participants in Round 1 will receive a "Google&#153; Code Jam 2005" t-shirt. All 100 finalists that compete in the Championship Round will receive a cash prize as follows:
-<br><br>
-<div class=indented>
-   <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
-   <tr><td><b>1st place finisher - Tournament Champion</td><td align="right">&#160;&#160;&#160;$10,000</b></td></tr>
-   <tr><td>2nd to 10th place</td><td align="right">$5,000</td></tr>
-   <tr><td>11th to 25th place</td><td align="right">$2,500</td></tr>
-   <tr><td>26th to 50th place</td><td align="right">$1,000</td></tr>
-   <tr><td>51st to 100th place</td><td align="right">$750</td></tr>
-   </table>
-</div>
+<table width="250" class="box" align="center" style="clear:right;">
+   <tr valign="top">
+      <td class="boxTitle">Competitor(s)</td>
+      <td class="boxTitle">Prize*</td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" nowrap="nowrap"><b>First Place</b></td>
+      <td class="boxText"><b>$10,000</b></td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" nowrap="nowrap">2nd - 10th Place </td>
+      <td class="boxText">$5,000</td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" nowrap="nowrap">11th - 25th Place</td>
+      <td class="boxText">$2,500</td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" nowrap="nowrap">26th - 50th Place</td>
+      <td class="boxText">$1000</td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" nowrap="nowrap">51st - 100th Place</td>
+      <td class="boxText">$750</td>
+   </tr>
+   <tr valign="top">
+      <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
+   </tr>
+</table>
+<br>
 
-         <br/><br/>
-         To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
+         <br><br>
+         To find out more detailed information about the Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+         <br><br>
          </div>
       </td>
       <td width="49%">&#160;</td>
    <tr>
+   <tr>
+      <td colspan="3">
+         <div align="center">
+         <jsp:include page="foot.jsp" />
+         </div>
+      </td>
+   </tr>
+
 </table>
-<jsp:include page="foot.jsp" />
 </body>
 </html>
