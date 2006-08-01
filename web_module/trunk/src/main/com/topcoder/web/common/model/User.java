@@ -317,7 +317,7 @@ public class User extends Base {
         terms.add(t);
     }
 
-    public boolean hasTerms(Long termsId) {
+    public boolean hasTerms(Integer termsId) {
         boolean found = false;
         TermsOfUse t;
         for (Iterator it = getTerms().iterator(); it.hasNext() && !found;) {
