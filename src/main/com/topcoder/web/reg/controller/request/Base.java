@@ -299,9 +299,9 @@ abstract class Base extends LongHibernateProcessor {
         for (Iterator it = u.getNotifications().iterator(); it.hasNext();) {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
-        
+
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
-        
+
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
             if (u.getContact().getCompany() != null) {
