@@ -8,16 +8,14 @@ import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Contest;
 import com.topcoder.web.creative.model.ContestConfig;
-import com.topcoder.web.creative.model.ContestPrize;
 import com.topcoder.web.creative.model.ContestProperty;
-import com.topcoder.web.creative.validation.*;
+import com.topcoder.web.creative.validation.ContestNameValidator;
+import com.topcoder.web.creative.validation.ContestOverviewValidator;
+import com.topcoder.web.creative.validation.EndTimeValidator;
+import com.topcoder.web.creative.validation.StartTimeValidator;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * @author dok
@@ -51,7 +49,7 @@ public class EditContest extends ShortHibernateProcessor {
         if (log.isDebugEnabled()) {
             log.debug("overview is : " + overview);
         }
-        String prizeDesc = getRequest().getParameter(Constants.PRIZE_DESCRIPTION + ContestProperty.PRIZE_DESCRIPTION);
+        String prizeDesc = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION);
         if (log.isDebugEnabled()) {
             log.debug("prize desc is : " + prizeDesc);
         }
@@ -66,41 +64,11 @@ public class EditContest extends ShortHibernateProcessor {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDescResult.getMessage());
         }
 
-        Enumeration paramNames = getRequest().getParameterNames();
-        String param;
-        HashMap prizes = new HashMap();
-        while (paramNames.hasMoreElements()) {
-            param = (String) paramNames.nextElement();
-            if (param.startsWith(Constants.PRIZE_PLACE)) {
-                String place = param.substring(Constants.PRIZE_PLACE.length());
-                if (prizes.containsKey(place)) {
-                    addError(param, "Duplicate prize");
-                } else {
-                    prizes.put(place, getRequest().getParameter(param));
-                }
-            }
-        }
-
-        Map.Entry me;
-        for (Iterator it = prizes.entrySet().iterator(); it.hasNext();) {
-            me = (Map.Entry) it.next();
-            ValidationResult prizeResult = new PrizeValidator().validate(new StringInput((String) me.getValue()));
-            if (!prizeResult.isValid()) {
-                addError(Constants.PRIZE_PLACE + me.getKey(), prizeResult.getMessage());
-            }
-        }
 
         if (hasErrors()) {
 
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overview);
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDesc);
-
-            getRequest().setAttribute("prizeCount", new Integer(prizes.size()));
-            Map.Entry me1;
-            for (Iterator it = prizes.entrySet().iterator(); it.hasNext();) {
-                me1 = (Map.Entry) it.next();
-                setDefault(Constants.PRIZE_PLACE + me1.getKey(), me1.getValue());
-            }
 
             setDefault(Constants.CONTEST_ID, contestId);
             setDefault(Constants.CONTEST_NAME, name);
@@ -131,10 +99,13 @@ public class EditContest extends ShortHibernateProcessor {
                 overviewConfig.setContest(contest);
                 overviewConfig.setProperty(overviewProperty);
                 overviewConfig.getId().setContest(contest);
-                overviewConfig.getId().setProperty(overviewConfig.getProperty());
+                overviewConfig.getId().setProperty(overviewProperty);
                 contest.addConfig(overviewConfig);
             } else {
                 overviewConfig = contest.getConfig(overviewProperty);
+            }
+            if (log.isDebugEnabled()) {
+                log.debug("setting value to " + overview);
             }
             overviewConfig.setValue(overview);
 
@@ -147,26 +118,15 @@ public class EditContest extends ShortHibernateProcessor {
                 prizeConfig.setContest(contest);
                 prizeConfig.setProperty(prizeProperty);
                 prizeConfig.getId().setContest(contest);
-                prizeConfig.getId().setProperty(prizeConfig.getProperty());
+                prizeConfig.getId().setProperty(prizeProperty);
                 contest.addConfig(prizeConfig);
             } else {
                 prizeConfig = contest.getConfig(prizeProperty);
             }
-            prizeConfig.setValue(prizeDesc);
-
-
-            Map.Entry me1;
-            for (Iterator it = prizes.entrySet().iterator(); it.hasNext();) {
-                me1 = (Map.Entry) it.next();
-                ContestPrize cp = new ContestPrize();
-                cp.setAmount(new Float((String) me1.getValue()));
-                cp.setPlace(new Integer((String) me1.getKey()));
-                cp.setContest(contest);
-                cp.getId().setContest(contest);
-                cp.getId().setPlace(cp.getPlace());
-                contest.addPrize(cp);
+            if (log.isDebugEnabled()) {
+                log.debug("setting value to " + prizeDesc);
             }
-
+            prizeConfig.setValue(prizeDesc);
 
             CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             if (log.isDebugEnabled()) {
