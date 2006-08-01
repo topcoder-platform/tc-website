@@ -1,8 +1,8 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SchoolType;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.model.SchoolType;
 
 /**
  * @author dok
