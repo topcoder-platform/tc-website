@@ -8,6 +8,24 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.01.06<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm9">TCHS SRM 9 - Problem Set & Analysis</A></span><br><br>
+Submission rates were pretty high - more than 90% of the contestants submitted the
+first two problems and more than a half of them submitted the hard.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm9">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506031" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.31.06<br>7:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/tc?module=MemberContact">Member Contacting now available</A>
@@ -183,22 +201,6 @@ from start to finish.
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm7">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506029" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.17.06<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=071706">An Introduction to AJAX</A></span><br><br>
-       AJAX (Asynchronous JavaScript and XML) is the latest boom in the Web development world.&#8230;This article will explore the basics of AJAX programming and then build on it using practical examples.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=071706">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506072" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 
