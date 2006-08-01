@@ -1,7 +1,7 @@
 package com.topcoder.web.creative.controller.request;
 
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
@@ -12,8 +12,8 @@ import com.topcoder.web.creative.model.Contest;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2006
  */
-public class ViewContestDetails extends BaseProcessor {
-    protected void businessProcessing() throws Exception {
+public class ViewContestDetails extends ShortHibernateProcessor {
+    protected void dbProcessing() throws Exception {
         //todo only allow the viewing of active contests..contests with appropriate status for normal users
         //todo admins can view projects with other statii
 
