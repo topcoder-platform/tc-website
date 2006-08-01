@@ -38,13 +38,13 @@
                     </tr>
                         <tr class="advHeader">
                             <td align="left" width="50%">
-                                <a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
+                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
                             </td>
                             <td align="left" width="50%">
-                                <a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                             </td>
                             <td align="right" width="50%">
-                                <a href="/tc?module=TCO06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
                             </td>
                         </tr>
                         <%boolean even = false;%>

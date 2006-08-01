@@ -39,12 +39,12 @@
                     </tr>
                         <tr class="advHeader">
                             <td align="left" width="50%">
-                                <a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
+                                <a href="/tc?module=TCCC06CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
                             <td align="right" width="25%">
-                                <a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="2"/>">Design Rating</a>
+                                <a href="/tc?module=TCCC06CompRegistrants<tc-webtag:sort column="2"/>">Design Rating</a>
                             </td>
                             <td align="right" width="25%">
-                                <a href="/tc?module=TCO06CompRegistrants<tc-webtag:sort column="3"/>">Development
+                                <a href="/tc?module=TCCC06CompRegistrants<tc-webtag:sort column="3"/>">Development
                                     Rating</a></td>
                         </tr>
                         <%boolean even = false;%>
