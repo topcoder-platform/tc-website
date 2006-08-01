@@ -46,11 +46,11 @@
       <td>
          <div class="pageLayout">
 
-         <span class="bigBluetitle">Google&#153; Code Jam 2006</span>
          <span valign="top">
          <jsp:include page="right.jsp" />
          </span>
 
+         <span class="bigBluetitle">Google&#153; Code Jam 2006</span>
          <br><br>
 
 Want a chance at $200,000?  Here's how:  Google Code Jam 2006.  This competition is a chance for you to use your skills and compete against top programmers from all over the world.
@@ -110,13 +110,13 @@ Here's the line-by-line documentation:
 
    <tr valign="top">
       <td class="boxText" nowrap>Tuesday, September 5</td>
-      <td class="boxText">12:00 PM (noon)</td>
+      <td class="boxText">12:00 PM (Noon)</td>
       <td class="boxText">Qualification Round begins</td>
    </tr>
 
    <tr valign="top">
       <td class="boxText" nowrap>Wednesday, September 6</td>
-      <td class="boxText">12:00 PM (noon)</td>
+      <td class="boxText">12:00 PM (Noon)</td>
       <td class="boxText">Qualification Round ends</td>
    </tr>
 

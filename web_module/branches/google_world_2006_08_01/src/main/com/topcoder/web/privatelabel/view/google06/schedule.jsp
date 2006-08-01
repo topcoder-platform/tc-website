@@ -47,12 +47,13 @@
       <td>
          <div class="pageLayout">
 
-         <span class="bigBluetitle">Schedule</span>
          <span valign="top">
          <jsp:include page="right.jsp" />
          </span>
 
+         <span class="bigBluetitle">Schedule</span>
          <br><br>
+         
          <!-- Qualification Rounds begins -->
          <span class="subTitle">Qualification Round</span>
          <br><br>
