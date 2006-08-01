@@ -387,18 +387,6 @@ public class LongContestComponentRenderer extends BaseRenderer implements Elemen
                     buf.append(getTdClass());
                     buf.append("\"");
                 }
-                if (i==methodCount-1) {
-                    buf.append(">(be sure your method");
-                    if (methodCount>2) {
-                        buf.append("s are");
-                    } else {
-                        buf.append("is");
-                    }
-                    buf.append(" public)</td></tr>");
-                }
-                if (methodCount>2&&i<methodCount-1) {
-                    buf.append("<tr><td>&nbsp;</td></tr>");
-                }
             }
 
             buf.append("</table>");
