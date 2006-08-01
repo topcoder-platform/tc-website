@@ -30,7 +30,7 @@
         <td valign="top" align="center">
             <div class="bodySpacer">
 
-                <span class="bigTitle">Student Representatives</span>
+                <span class="bigTitle">Student Rep Referral Leaderboard</span>
                 <br><br>
                 Here are the results of the TCCC06 Referral Program. Check back often for updates.
                 <br><br>
