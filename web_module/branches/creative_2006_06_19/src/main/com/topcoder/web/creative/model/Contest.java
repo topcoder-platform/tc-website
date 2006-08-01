@@ -84,7 +84,11 @@ public class Contest extends Base {
             ret = (ContestConfig) it.next();
             found = ret.getProperty().equals(property);
         }
-        return ret;
+        if (found) {
+            return ret;
+        } else {
+            return null;
+        }
     }
 
     public ContestConfig getOverview() {
