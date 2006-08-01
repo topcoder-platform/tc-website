@@ -30,6 +30,7 @@ public class Constants implements WebConstants {
     public static final String CONTEST_PROPERTY = "ctprop";
     public static final String PRIZE_DESCRIPTION = "przdesc";
     public static final String PRIZE_PLACE = "prpl";
+    public static final String PRIZE_VALUE = "prvl";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
