@@ -132,12 +132,12 @@ gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             <tr class="light">
                 <td class="value"><strong>Start Date:</strong></td>
                 <td class="valueR">
-                    <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timeZone}"/></td>
+                    <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
             </tr>
             <tr class="light">
                 <td class="value"><strong>End Date:</strong></td>
                 <td class="valueR">
-                    <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timeZone}"/></td>
+                    <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
             </tr>
         </tbody>
     </table>
