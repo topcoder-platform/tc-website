@@ -352,6 +352,11 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless a notarized affidavit is already on file with TopCoder)</li>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
 </ul>
+All contestants who advance to Round 3 must complete the following items by 10:00 AM EDT on Saturday, October 14, 2006 in order to be eligible as an onsite finalist:
+<ul>
+<li>Update your profile</li>
+<li>Please submit a head shot by emailing <A href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</A>, if we do not have one on file for you.</li>
+</ul>
 All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 8:00 AM EDT on Wednesday, October 18, 2006:
 <ul>
 <li>Competitor Questionnaire - the questions and responses may be published in the 2006 TopCoder Collegiate Challenge program</li>
