@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">08.01.06 10:45 AM - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">TCCC06 Student Rep Results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">08.01.06 10:45 AM - </td><td width="100%"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.31.06 9:00 AM - </td><td width="100%"><A href="/tc?module=TCCC06ComponentTerms">TCCC06 CDDC registration is now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.26.06 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.20.06 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Rep for the TCCC06?</A></td></tr>
