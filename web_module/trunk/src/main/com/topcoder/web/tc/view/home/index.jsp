@@ -218,23 +218,27 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">July
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">August
                 Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-                <b>07/05</b> - TCHS SRM 5 - 7 PM<br><br>
-                <b>07/06</b> - SRM 310 - 9 PM<br><br>
-                <b>07/10</b> - TCHS SRM 6 - 2 PM<br><br>
-                <b>07/12</b> - SRM 311 - 7 AM<br><br>
-                <b>07/12</b> - Marathon Match 3 - 12 NOON<br><br>
-                <b>07/17</b> - TCHS SRM 7 - 10 AM<br><br>
-                <b>07/19</b> - Intel Multi-Threading Competition 7 - 12 NOON<br><br>
-                <b>07/22</b> - SRM 312 - 12 NOON<br><br>
-                <b>07/24</b> - TCHS SRM 8 - 6 AM<br><br>
-                <b>07/26</b> - SRM 313 - 11 AM<br><br>
-                <b>07/31</b> - TCHS SRM 9 - 7 PM<br><br>
+                <b>08/03</b> - SRM 314 - 7 AM<br><br>
+                <b>08/07</b> - TCHS SRM 10 - 2 PM<br><br>
+                <b>08/09</b> - Marathon Match 4 - 12 NOON<br><br>
+                <b>08/09</b> - SRM 315 - AOL - 9 PM<br><br>
+                <b>08/14</b> - TCHS SRM 11 - 10 AM<br><br>
+                <b>08/16</b> - Intel Multi-Threading Competition 8 - 12 NOON<br><br>
+                <b>08/17</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
+                <b>08/19</b> - SRM 316 - UBS - 12 NOON<br><br>
+                <b>08/21</b> - TCHS SRM 12 - 6 AM<br><br>
+                <b>08/24</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
+                <b>08/24</b> - SRM 317 - Bloomberg - 11 AM<br><br>
+                <b>08/28</b> - Algorithm Competition Registration Begins - 9 AM<br><br>
+                <b>08/28</b> - TCHS SRM 13 - 7 PM<br><br>
+                <b>08/29</b> - SRM 318 - NSA - 9 PM<br><br>
+                <b>08/31</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
             </td>
         </tr>
 
