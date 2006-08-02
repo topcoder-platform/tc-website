@@ -177,7 +177,7 @@ public class Constants {
         DB_LIST.add(new DatabaseBean(DBMS.TCS_DW_DATASOURCE_NAME, "TCS Data Warehouse"));
         DB_LIST.add(new DatabaseBean(DBMS.CORP_OLTP_DATASOURCE_NAME, "Corporate"));
         DB_LIST.add(new DatabaseBean(DBMS.SCREENING_OLTP_DATASOURCE_NAME, "Screening"));
-        DB_LIST.add(new DatabaseBean(DBMS.STUDIO_DATASOURCE_NAME, "Creative"));
+        DB_LIST.add(new DatabaseBean(DBMS.STUDIO_DATASOURCE_NAME, "TC Studio"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_OLTP", "Google"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_DW", "Google DW"));
         DB_LIST.add(new DatabaseBean("java:/GOOGLE_CHINA_OLTP", "Google China"));
