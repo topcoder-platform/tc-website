@@ -59,7 +59,7 @@ public class Prize extends Base implements Comparable {
 
     public int compareTo(Object o) {
         Prize other = (Prize) o;
-        return getPlace().compareTo(other);
+        return getPlace().compareTo(other.getPlace());
     }
 }
 
