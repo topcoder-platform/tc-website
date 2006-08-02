@@ -56,8 +56,6 @@
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
                 ${document.originalFileName}</a> <br/>
     </c:forEach>
-
-    Specification available <A href="">here</A>.
     <br><br>
 
     <div class="header">Payment</div>
