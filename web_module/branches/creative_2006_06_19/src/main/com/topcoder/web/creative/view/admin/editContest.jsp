@@ -37,36 +37,36 @@
 <h1>Edit Contest Details</h1>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
-<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditContest"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-<p>
+    <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
-</p>
+        Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+    </p>
 
-<p>
+    <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-    <button id="trigger<%=Constants.START_TIME%>">Set</button>
-</p>
+        Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+        <button id="trigger<%=Constants.START_TIME%>">Set</button>
+    </p>
 
-<p>
+    <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
                     <br/></tc-webtag:errorIterator></span>
 
-    Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-    <button id="trigger<%=Constants.END_TIME%>">Set</button>
-</p>
+        Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+        <button id="trigger<%=Constants.END_TIME%>">Set</button>
+    </p>
 
 
-<script language="javascript" type="text/javascript">
-    <!--
-Calendar.setup(
-{
- inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+    <script language="javascript" type="text/javascript">
+        <!--
+    Calendar.setup(
+    {
+     inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
                     ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
                     button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
                     showsTime   : true,
@@ -85,65 +85,51 @@ Calendar.setup(
                 }
                         );
                 -->
-</script>
+    </script>
 
 
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
+    <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.CONTEST_OVERVIEW_TEXT%>" var="overviewText"/>
 
-<p>
+    <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Overview: <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
-</p>
+        Contest Overview: <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+    </p>
 
 
-<script language="javascript" type="text/javascript">
-    <!--
-var defaultOverview= "This is the default overview text.  We need to come up with a real default text.";
-var overviewText = getValue("document.editForm", "${overviewText}");
+    <script language="javascript" type="text/javascript">
+        <!--
+    var defaultOverview= "This is the default overview text.  We need to come up with a real default text.";
+    var overviewText = getValue("document.editForm", "${overviewText}");
                        if ( overviewText==null || overviewText.length==0) {
                          putValue("document.editForm", "${overviewText}", defaultOverview);
                         }
                 -->
-</script>
+    </script>
 
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
+    <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PRIZE_DESCRIPTION%>" var="prizeDesc"/>
 
-<p>
+    <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Prize Description: <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
-</p>
+        Prize Description: <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    </p>
 
-<script language="javascript" type="text/javascript">
-    <!--
-var defaultPrizeDesc= "TopCoder Studio will compensate the member with the first place submission, as selected "+
-"by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
-"the winning submission has been received by TopCoder Studio.";
-var prizeDesc = getValue("document.editForm", "${prizeDesc}");
+    <script language="javascript" type="text/javascript">
+        <!--
+    var defaultPrizeDesc= "TopCoder Studio will compensate the member with the first place submission, as selected "+
+    "by the client.  The payment will be distributed in one full installment once the final vector-based version of " +
+    "the winning submission has been received by TopCoder Studio.";
+    var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                        if ( prizeDesc==null || prizeDesc.length==0) {
                          putValue("document.editForm", "${prizeDesc}", defaultPrizeDesc);
                         }
                 -->
-</script>
+    </script>
 
-
-<c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
-<c:forEach begin="1" end="${prizeCount}" var="curr">
-    <c:set value="${prizePlace+curr}" var="prizeParam"/>
     <p>
-
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeParam}">${err}
-                        <br/></tc-webtag:errorIterator></span>
-
-        Prize ${curr}: <tc-webtag:textInput name="${prizeParam}"/>
+        <button name="submit" value="submit" type="submit">Save</button>
     </p>
-
-</c:forEach>
-
-<p>
-    <button name="submit" value="submit" type="submit">Save</button>
-</p>
 </form>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
@@ -189,13 +175,17 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 
 <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm">
+<c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm" enctype="multipart/form-data">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
     <p>
-    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${dsc}">${err}
+    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
         <br/></tc-webtag:errorIterator></span>
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
+            <br/></tc-webtag:errorIterator></span>
+        <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
         <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
     </p>
 </form>
