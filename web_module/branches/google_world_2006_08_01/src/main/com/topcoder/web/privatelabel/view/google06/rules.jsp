@@ -132,7 +132,7 @@ After each round of competition, the top scorers will be identified and will adv
 <div class="indented">
 <b>Round 1 (online)</b>
 <ul>
-<li>Up to 1,0500 coders will compete in Round 1. The 500 highest scoring competitors will advance to Round 2. Each coder must have positive points to advance, so if there are less than 500 competitors who score positive points, only those competitors with a positive point total will advance.</li>
+<li>Up to 1,000 coders will compete in Round 1. The 500 highest scoring competitors will advance to Round 2. Each coder must have positive points to advance, so if there are less than 500 competitors who score positive points, only those competitors with a positive point total will advance.</li>
 </ul>
 
 <b>Round 2 (online)</b>
@@ -142,7 +142,7 @@ After each round of competition, the top scorers will be identified and will adv
 
 <b>NOTE:</b> In the event of a tie for any advancing position (positive points only), all tied coders will advance to the Championship Round.
 </div>
-
+<br>
 <b>Competition Round Structure</b><br>
 Round 1, Round 2 and the Championship Round (excluding the Qualification Round) consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and System Testing Phase. (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase of the Qualification Round.)
 <ul>
@@ -154,9 +154,7 @@ Round 1, Round 2 and the Championship Round (excluding the Qualification Round) 
 <b>Onsite Championship Round</b><br>
 Up to 100 advancers from Round 2 will compete in the onsite Championship Round of the tournament being held on Friday, October 27, 2006.
 <br><br>
-If you need a visa to travel to the United States, it is in your interest to make an appointment with the embassy early. TopCoder will provide visa letters to advancers from Round 1 if they request one. 
-<br><br>
-All contestants must confirm their attendance for the onsite round no later than Friday, October 6, 2006 at 5PM EDT (GMT/UTC -4). That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time. If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Round 2.  To confirm your attendance to the finals, please email Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A>.
+If you need a visa to travel to the United States, it is in your interest to make an appointment with the embassy early. TopCoder will provide visa letters to round 2 advancers. Round 2 advancers who need assistance can contact Jessie D'Amato Ford at <A href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</A> for a visa letter.
 <br><br>
 Google will contact all finalists for travel information and will provide all travel accommodations for each finalist to attend the Championship Round. In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from the onsite round facility. All other expenses are the responsibility of the contestant.
 <br><br>
@@ -204,7 +202,7 @@ The top 250 scores from Round 2 will receive a "Google Code Jam" t-shirt. In add
 <span class="subTitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of Google and TopCoder, which are final, binding and conclusive in all matters. Also, by participating in this tournament, you consent to providing certain information to Google for recruiting purposes. Such information shall include your registration information and your competition statistics.
 <br><br>
-<span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's alone. In this case, the word “cheat” means collaboration of any sort &mdash; including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in the competition. TopCoder and Google reserve the right, in their sole discretion, to remove any competitor from the tournament who they suspect has cheated.</span>
+<span class="bigRed">Contestants must not cheat. All ideas for code and/or challenge submitted must be the contestant's alone. In this case, the word "cheat" means collaboration of any sort &mdash; including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in the competition. TopCoder and Google reserve the right, in their sole discretion, to remove any competitor from the tournament who they suspect has cheated.</span>
 <br><br>
 Winners in each round of competition will be those competitors that are the top scorers. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. 
 <br><br>
@@ -213,7 +211,7 @@ Prizewinners will be announced upon completion of the Championship Round. Any pr
 <li>Affidavit of Eligibility and Liability and Publicity Release</li>
 <li>Applicable tax form, if necessary</li>
 </ul>
-Prizes will be announced onsite upon receipt of the documents identified above. All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive. Unclaimed or undeliverable prizes will not be awarded. 
+Prizes will be announced onsite upon receipt of the documents identified above. All t-shirts will be sent by Google after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive. Unclaimed or undeliverable prizes will not be awarded.
 <br><br>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder. 
 <br><br>
@@ -233,7 +231,7 @@ The tournament is void in whole or in part where prohibited by law.
 This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (<A href="/?t=sponsor&c=link&link=http://www.google.com">http://www.google.com</A>) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
 
          <br><br>
-         To find out more detailed information about the Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google&#153; Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
          <br><br>
          </div>
       </td>

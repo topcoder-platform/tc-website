@@ -181,7 +181,7 @@ The top 250 participants in Round 2 will receive a "Google Code Jam 2006" t-shir
 <br>
 
          <br><br>
-         To find out more detailed information about the Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+         To find out more detailed information about the Google&#153; Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
          <br><br>
          </div>
       </td>

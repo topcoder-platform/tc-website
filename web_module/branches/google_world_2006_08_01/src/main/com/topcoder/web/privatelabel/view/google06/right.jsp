@@ -40,13 +40,16 @@
    </tr>
    <tr>
       <td align="center" nowrap="nowrap">
-      <span class="insetHeader">$155,000 in<br/>Cash Prizes!</span>
+      <span class="insetHeader">$165,000 in<br/>Cash Prizes!</span>
       <br/><br/>
+      <span class="prizes">
       <b>1st Place - $10,000</b><br/>
       2nd to 10th Place - $5,000<br/>
       11th to 25th Place - $2,500<br/>
       26th to 50th Place - $1,000<br/>
       51st to 100th Place - $750
+      </span>
+      <br>
       </td>
    </tr>
 </table>

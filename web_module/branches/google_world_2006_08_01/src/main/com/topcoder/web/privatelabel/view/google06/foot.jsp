@@ -1,5 +1,5 @@
 <div class="footerHolder">
-<font face="Verdana">
+<font face="Verdana,Arial,Sans-serif">
 &copy;2006 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">About Google</a> -
