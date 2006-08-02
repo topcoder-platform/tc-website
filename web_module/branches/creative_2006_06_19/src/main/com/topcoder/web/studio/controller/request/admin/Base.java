@@ -15,13 +15,18 @@ import java.text.SimpleDateFormat;
  */
 public abstract class Base extends ShortHibernateProcessor {
 
+    protected void loadGeneralEditContestData() {
+        getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
+        getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
+
+    }
+
     protected void loadEditContestData(Contest contest) {
         if (contest == null) {
             throw new IllegalArgumentException("null contest specified");
         }
+        loadGeneralEditContestData();
         getRequest().setAttribute("contest", contest);
-        getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
-        getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 

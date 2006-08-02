@@ -19,7 +19,8 @@ public class ViewContest extends Base {
             //load
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             loadEditContestData(contest);
-
+        } else {
+            loadGeneralEditContestData();
         }
         setNextPage("/admin/editContest.jsp");
         setIsNextPageInContext(true);
