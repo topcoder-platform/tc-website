@@ -1,11 +1,17 @@
 package com.topcoder.web.studio.controller.request;
 
+import com.topcoder.security.TCPrincipal;
+import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestStatus;
+
+import java.util.Iterator;
 
 /**
  * @author dok
@@ -14,9 +20,6 @@ import com.topcoder.web.studio.model.Contest;
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
-        //todo only allow the viewing of active contests..contests with appropriate status for normal users
-        //todo admins can view projects with other statii
-
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
@@ -28,11 +31,28 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 throw new NavigationException("Invalid contest specified");
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
-            getRequest().setAttribute("contest", contest);
+
+            if (ContestStatus.ACTIVE.equals(contest.getStatus().getId()) || isAdmin()) {
+                getRequest().setAttribute("contest", contest);
+            } else {
+                throw new NavigationException("Invalid contest specified.");
+            }
+
 
             setNextPage("/contestDetails.jsp");
             setIsNextPageInContext(true);
         }
 
     }
+
+    private boolean isAdmin() throws Exception {
+        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
+        boolean found = false;
+        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
+            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
+        }
+        return found;
+    }
+
+
 }
