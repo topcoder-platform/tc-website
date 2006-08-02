@@ -35,10 +35,10 @@
             <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
                 <tbody>
                     <tr>
-                        <td class="title" colspan="5">Contests</td>
+                        <td class="title" colspan="6">Contests</td>
                     </tr>
                     <tr>
-                        <td class="header" colspan="5">
+                        <td class="header" colspan="6">
                             <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
                     </tr>
                     <tr>
