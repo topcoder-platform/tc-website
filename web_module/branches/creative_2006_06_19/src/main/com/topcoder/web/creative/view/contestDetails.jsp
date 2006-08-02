@@ -65,14 +65,14 @@
     <c:choose>
         <c:when test="${fn:length(contest.prizes)==1}">
             <c:forEach items="${contest.prizes}" var="prize">
-                <strong>Winning Designer: <fmt:formatNumber value="${prize}" type="currency"/></strong>
+                <strong>Winning Designer: <fmt:formatNumber value="${prize.amount}" type="currency"/></strong>
             </c:forEach>
             <br><br>
         </c:when>
         <c:otherwise>
             <% int i = 1;%>
             <c:forEach items="${contest.prizes}" var="prize">
-                <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize}" type="currency"/></strong>
+                <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize.amount}" type="currency"/></strong>
             </c:forEach>
             <br><br>
         </c:otherwise>
