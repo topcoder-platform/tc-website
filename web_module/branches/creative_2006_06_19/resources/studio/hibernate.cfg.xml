@@ -16,7 +16,7 @@
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
-        <property name="connection.datasource">java:/JTS_CREATIVE_OLTP</property>
+        <property name="connection.datasource">java:/JTS_STUDIO_OLTP</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
