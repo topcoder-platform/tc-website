@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.model;
 
+import com.topcoder.web.common.model.Base;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +9,7 @@ import java.io.Serializable;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 28, 2006
  */
-public class ContestConfig {
+public class ContestConfig extends Base {
     Contest contest;
     ContestProperty property;
     String value;

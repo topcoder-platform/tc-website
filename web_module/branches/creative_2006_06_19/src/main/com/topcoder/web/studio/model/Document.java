@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.model;
 
+import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.FileType;
 
 import java.util.Collections;
@@ -10,7 +11,7 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
-public class Document {
+public class Document extends Base {
     private Long id;
     private Set contests;
     private String originalFileName;

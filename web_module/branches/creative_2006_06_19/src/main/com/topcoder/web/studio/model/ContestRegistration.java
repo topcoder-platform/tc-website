@@ -1,5 +1,6 @@
 package com.topcoder.web.studio.model;
 
+import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 
@@ -10,7 +11,7 @@ import java.io.Serializable;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 19, 2006
  */
-public class ContestRegistration {
+public class ContestRegistration extends Base {
     private Contest contest;
     private User user;
     private TermsOfUse terms;
