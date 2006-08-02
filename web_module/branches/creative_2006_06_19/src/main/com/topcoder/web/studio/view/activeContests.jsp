@@ -43,7 +43,7 @@
             <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
                 <tbody>
                     <tr>
-                        <td class="title" colspan="6">Active Contests</td>
+                        <td class="title" colspan="5">Active Contests</td>
                     </tr>
                     <tr>
 
@@ -53,8 +53,6 @@
                         <td class="headerC">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registration
                                 ends</a></td>
-                        <td class="headerC">Submissions</td>
-                        <td class="headerR">Payment</td>
                         <td class="headerC">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submit
                                 by</a></td>
@@ -71,8 +69,6 @@
                                     Submit</button></td>
                             <td class="valueC">
                                 <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
-                            <td class="valueC">0</td>
-                            <td class="valueR">$1,600.00</td>
                             <td class="valueC">
                                 <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                         </tr>
