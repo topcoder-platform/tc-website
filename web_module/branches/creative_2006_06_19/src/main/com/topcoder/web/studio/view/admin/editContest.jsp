@@ -138,6 +138,11 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                         }
                 -->
 </script>
+
+<p>
+    <button name="submit" value="submit" type="submit">Save</button>
+</p>
+
 <c:if test="${contest!=null && !contest.new}">
     <p>
         Click
@@ -145,9 +150,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         to see what the contest details page will look like (only saved changed will be viewable).
     </p>
 </c:if>
-<p>
-    <button name="submit" value="submit" type="submit">Save</button>
-</p>
+
+
 </form>
 
 <br/><br/>
