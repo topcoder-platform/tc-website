@@ -147,7 +147,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.PRIZE_PLACE%>"/>
 
@@ -159,7 +159,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
 
