@@ -28,7 +28,7 @@
 </jsp:include>
 
 <jsp:include page="adminLeft.jsp">
-    <jsp:param name="node" value="home"/>
+    <jsp:param name="node" value="create_contest"/>
 </jsp:include>
 
 <div class="contentOuter">

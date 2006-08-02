@@ -13,7 +13,7 @@
     SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     NavTree nav = new NavTree();
     nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests", "Contests", "contests"));
-
+    nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContest", "Create Contest", "create_contest"));
     request.setAttribute("tree", nav);
 
 %>
@@ -42,7 +42,6 @@
 
 <!--node is <%=request.getParameter("node")%> -->
 <div id="leftNav">
-    <div class="logo"><img src="/i/creative/tcfx_logo_temp.gif" alt="TopCoder FX"/></div>
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
 </div>
 
