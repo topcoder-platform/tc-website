@@ -30,18 +30,7 @@
       <jsp:include page="categoriesHeader.jsp" />
    </td>
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-<form name="formSearch" method="post" action="/">
-<input type="hidden" name="module" value="Search" />
-<input type="hidden" name="status" value="search" />
-<input type="hidden" name="scope" value="all" />
-<input type="hidden" name="dateRange" value="all" />
-<input type="hidden" name="mode" value="basic" />
-<input name="query" size="20" maxlength="100" value="" id="query" type="text">
-<input name="Search" value="Search" type="submit" alt="Search" onclick="">
-<br>
-<A href="?module=Search" class="rtbcLink">Advanced Search</A>
-
-</form>
+      <jsp:include page="searchHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" valign="top">
       <a href="?module=Watch&amp;type=1&amp;ID=509704&amp;view=tree&amp;cmd=add" class="rtbcLink">Watch Thread</a>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
