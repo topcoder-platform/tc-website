@@ -7,7 +7,6 @@ import com.topcoder.shared.dataAccess.QueryRequest;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.creative.Constants;
@@ -18,11 +17,7 @@ import com.topcoder.web.creative.dao.CreativeDAOUtil;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class ViewSubmissions extends ShortHibernateProcessor {
-
-    //allow for filters
-    //allow for paging
-    //allow for sorting
+public class ViewSubmissions extends Base {
 
     protected void dbProcessing() throws Exception {
         Long contestId;

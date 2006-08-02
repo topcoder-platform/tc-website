@@ -5,8 +5,8 @@ import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.creative.TCHibernateTestCase;
 import com.topcoder.web.creative.model.Contest;
+import com.topcoder.web.creative.model.FilePath;
 import com.topcoder.web.creative.model.Submission;
-import com.topcoder.web.creative.model.SubmissionPath;
 import com.topcoder.web.creative.model.SubmissionType;
 
 /**
@@ -25,7 +25,7 @@ public class SubmissionDAOTestCase extends TCHibernateTestCase {
         s.setFileType(DAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
         s.setOriginalFileName("kickin");
         s.setSystemFileName("kicking it");
-        SubmissionPath p = new SubmissionPath();
+        FilePath p = new FilePath();
         p.setPath("stuff");
         s.setPath(p);
         s.setType(CreativeDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));

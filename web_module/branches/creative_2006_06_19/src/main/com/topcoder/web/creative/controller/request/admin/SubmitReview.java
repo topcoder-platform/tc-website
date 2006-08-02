@@ -5,7 +5,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
@@ -26,7 +25,7 @@ import java.util.TimeZone;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 21, 2006
  */
-public class SubmitReview extends ShortHibernateProcessor {
+public class SubmitReview extends Base {
     protected void dbProcessing() throws Exception {
 
         Long submissionId;

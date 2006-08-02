@@ -20,6 +20,7 @@ public class Contest extends Base {
     private Timestamp endTime;
     private Set config = new HashSet();
     private Set prizes = new HashSet();
+    private Set documents = new HashSet();
 
     public Long getId() {
         return id;
@@ -97,6 +98,18 @@ public class Contest extends Base {
 
     public ContestConfig getPrizeDescription() {
         return getConfig(CreativeDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
+    }
+
+    public Set getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(Set documents) {
+        this.documents = documents;
+    }
+
+    public void addDocument(Document document) {
+        this.documents.add(document);
     }
 
 }

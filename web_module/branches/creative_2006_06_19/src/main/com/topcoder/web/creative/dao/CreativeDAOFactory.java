@@ -12,13 +12,15 @@ public interface CreativeDAOFactory {
 
     ContestRegistrationDAO getContestRegistrationDAO();
 
-    SubmissionPathDAO getPathDAO();
+    DocumentDAO getDocumentDAO();
 
     SubmissionDAO getSubmissionDAO();
 
     SubmissionReviewDAO getSubmissionReviewDAO();
 
     SubmissionTypeDAO getSubmissionTypeDAO();
+
+    DocumentTypeDAO getDocumentTypeDAO();
 
     ReviewStatusDAO getReviewStatusDAO();
 

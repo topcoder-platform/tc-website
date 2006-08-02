@@ -4,6 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -141,10 +142,34 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </c:forEach>
 
 <p>
-    <button name="submit" value="submit" type="submit">Submit</button>
+    <button name="submit" value="submit" type="submit">Save</button>
 </p>
 </form>
 
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.PRIZE_PLACE%>"/>
+
+    <c:forEach items="${contest.prizes}" var="prize">
+        Place: ${prize.place} Prize: <fmt:formatNumber value="${prize.amount}" type="currency"/>
+        <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">Remove</button>
+        <br/>
+    </c:forEach>
+</form>
+
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+
+    <c:forEach items="${contest.documents}" var="document">
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                ${document.originalFileName}</a>
+        <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">Remove</button>
+        <br/>
+    </c:forEach>
+</form>
 <jsp:include page="../creativeFoot.jsp"/>
 </div>
 

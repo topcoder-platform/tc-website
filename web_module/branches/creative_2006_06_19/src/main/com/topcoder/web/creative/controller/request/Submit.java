@@ -14,8 +14,8 @@ import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOFactory;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Contest;
+import com.topcoder.web.creative.model.FilePath;
 import com.topcoder.web.creative.model.Submission;
-import com.topcoder.web.creative.model.SubmissionPath;
 import com.topcoder.web.creative.model.SubmissionType;
 
 import java.io.File;
@@ -99,7 +99,7 @@ public class Submit extends ShortHibernateProcessor {
                     buf.append(u.getId());
                     buf.append(System.getProperty("file.separator"));
 
-                    SubmissionPath p = new SubmissionPath();
+                    FilePath p = new FilePath();
                     p.setPath(buf.toString());
 
                     File directory = new File(buf.toString());

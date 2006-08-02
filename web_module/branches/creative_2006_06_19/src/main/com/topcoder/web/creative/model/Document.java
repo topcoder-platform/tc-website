@@ -1,23 +1,24 @@
 package com.topcoder.web.creative.model;
 
-import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.FileType;
-import com.topcoder.web.common.model.User;
+
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 27, 2006
+ *          Create Date: Aug 1, 2006
  */
-public class Submission extends Base {
+public class Document {
     private Long id;
-    private User submitter;
-    private Contest contest;
+    private Set contests;
     private String originalFileName;
     private String systemFileName;
     private FilePath path;
-    private SubmissionType type;
     private FileType fileType;
+    private DocumentType type;
+
 
     public Long getId() {
         return id;
@@ -27,20 +28,12 @@ public class Submission extends Base {
         this.id = id;
     }
 
-    public User getSubmitter() {
-        return submitter;
+    public Set getContests() {
+        return Collections.unmodifiableSet(contests);
     }
 
-    public void setSubmitter(User submitter) {
-        this.submitter = submitter;
-    }
-
-    public Contest getContest() {
-        return contest;
-    }
-
-    public void setContest(Contest contest) {
-        this.contest = contest;
+    public void setContests(Set contests) {
+        this.contests = contests;
     }
 
     public String getOriginalFileName() {
@@ -67,14 +60,6 @@ public class Submission extends Base {
         this.path = path;
     }
 
-    public SubmissionType getType() {
-        return type;
-    }
-
-    public void setType(SubmissionType type) {
-        this.type = type;
-    }
-
     public FileType getFileType() {
         return fileType;
     }
@@ -83,5 +68,12 @@ public class Submission extends Base {
         this.fileType = fileType;
     }
 
+    public DocumentType getType() {
+        return type;
+    }
+
+    public void setType(DocumentType type) {
+        this.type = type;
+    }
 
 }

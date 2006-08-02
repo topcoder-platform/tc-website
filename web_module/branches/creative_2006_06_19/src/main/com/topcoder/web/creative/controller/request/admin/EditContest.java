@@ -66,6 +66,7 @@ public class EditContest extends ShortHibernateProcessor {
 
 
         if (hasErrors()) {
+            getRequest().setAttribute("docTypes", CreativeDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
 
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overview);
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDesc);

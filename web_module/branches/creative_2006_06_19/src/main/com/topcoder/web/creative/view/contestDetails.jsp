@@ -45,102 +45,108 @@
 <h1>Project Details</h1>
 
 <div align="center">
-    <div style="width:510px;" align="left">
+<div style="width:510px;" align="left">
 
-        <div class="header">Overview</div>
-        ${contest.overview.value}
-        <br><br>
-        <strong>Documentation</strong><br>
-        Specification available <A href="">here</A>.
-        <br><br>
+    <div class="header">Overview</div>
+    ${contest.overview.value}
+    <br><br>
+    <strong>Documentation</strong><br>
+    <c:forEach items="${contest.documents}" var="document">
+        ${document.type.description}:
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                ${document.originalFileName}</a> <br/>
+    </c:forEach>
 
-        <div class="header">Payment</div>
-        ${contest.prizeDescription.value}
-        <br><br>
+    Specification available <A href="">here</A>.
+    <br><br>
 
-        <c:choose>
-            <c:when test="${fn:length(contest.prizes)==1}">
-                <c:forEach items="${contest.prizes}" var="prize">
-                    <strong>Winning Designer: <fmt:formatNumber value="${prize}" type="currency"/></strong>
-                </c:forEach>
-                <br><br>
-            </c:when>
-            <c:otherwise>
-                <% int i = 1;%>
-                <c:forEach items="${contest.prizes}" var="prize">
-                    <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize}" type="currency"/></strong>
-                </c:forEach>
-                <br><br>
-            </c:otherwise>
-        </c:choose>
+    <div class="header">Payment</div>
+    ${contest.prizeDescription.value}
+    <br><br>
 
-
-        <div class="header">Eligibility</div>
-
-        <p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
-            In addition, you must fit into one of the following categories.
-        </p>
-
-        <p>If you reside in the United States, you must be either:</p>
-        <ul>
-            <li>A US Citizen</li>
-            <li>A Lawful Permanent Resident of the US</li>
-            <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-                permitting unrestricted employment in the U.S.</li>
-        </ul>
-
-        <p>If you do not reside in the United States:</p>
-        <ul>
-            <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will
-                not need to do anything to become authorized)</li>
-        </ul>
+    <c:choose>
+        <c:when test="${fn:length(contest.prizes)==1}">
+            <c:forEach items="${contest.prizes}" var="prize">
+                <strong>Winning Designer: <fmt:formatNumber value="${prize}" type="currency"/></strong>
+            </c:forEach>
+            <br><br>
+        </c:when>
+        <c:otherwise>
+            <% int i = 1;%>
+            <c:forEach items="${contest.prizes}" var="prize">
+                <strong>Prize <%=i++%>: <fmt:formatNumber value="${prize}" type="currency"/></strong>
+            </c:forEach>
+            <br><br>
+        </c:otherwise>
+    </c:choose>
 
 
-        <br><br>
+    <div class="header">Eligibility</div>
 
-        <div class="header">Timeline</div>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-        dolore
-        magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        sadipscing
-        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-        vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-        dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-        et
-        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd
-        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        <br><br>
+    <p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
+        In addition, you must fit into one of the following categories.
+    </p>
 
+    <p>If you reside in the United States, you must be either:</p>
+    <ul>
+        <li>A US Citizen</li>
+        <li>A Lawful Permanent Resident of the US</li>
+        <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
+            permitting unrestricted employment in the U.S.</li>
+    </ul>
 
-        <div align="center">
-            <table cellpadding="0" cellspacing="0" class="stat" width="250">
-                <tbody>
-                    <tr class="light">
-                        <td class="value"><strong>Start Date:</strong></td>
-                        <td class="valueR">
-                            <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value"><strong>End Date:</strong></td>
-                        <td class="valueR">
-                            <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <br><br>
+    <p>If you do not reside in the United States:</p>
+    <ul>
+        <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will
+            not need to do anything to become authorized)</li>
+    </ul>
 
 
-        <div class="header">Upload Your Submission</div>
-        <br><br>
-        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</A>
+    <br><br>
 
+    <div class="header">Timeline</div>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+    dolore
+    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+    sadipscing
+    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+    vero eos et
+    accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+    dolor sit
+    amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+    et
+    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd
+    gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    <br><br>
+
+
+    <div align="center">
+        <table cellpadding="0" cellspacing="0" class="stat" width="250">
+            <tbody>
+                <tr class="light">
+                    <td class="value"><strong>Start Date:</strong></td>
+                    <td class="valueR">
+                        <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                </tr>
+                <tr class="light">
+                    <td class="value"><strong>End Date:</strong></td>
+                    <td class="valueR">
+                        <tc-webtag:format object="${contest.endTime}" format="EEEE, MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
+    <br><br>
+
+
+    <div class="header">Upload Your Submission</div>
+    <br><br>
+    <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</A>
+
+</div>
 </div>
 
 <jsp:include page="creativeFoot.jsp"/>

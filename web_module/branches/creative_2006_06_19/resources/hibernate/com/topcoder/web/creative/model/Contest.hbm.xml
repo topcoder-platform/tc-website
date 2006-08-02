@@ -22,6 +22,11 @@
             <key column="contest_id" not-null="true"/>
             <one-to-many class="ContestConfig"/>
         </set>
+        <set name="documents" table="contest_document_xref" cascade="all" access="field">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="document_id" class="Document"/>
+        </set>
+
 
     </class>
 </hibernate-mapping>

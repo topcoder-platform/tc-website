@@ -5,7 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.creative.Constants;
 import com.topcoder.web.creative.dao.CreativeDAOUtil;
 import com.topcoder.web.creative.model.Contest;
-import com.topcoder.web.creative.model.ContestPrize;
+import com.topcoder.web.creative.model.Document;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -15,36 +15,39 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
-public class RemovePrize extends Base {
+public class RemoveDocument extends Base {
 
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
+        String documentId = getRequest().getParameter(Constants.DOCUMENT_ID);
 
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
+        } else if ("".equals(StringUtils.checkNull(documentId))) {
+            throw new NavigationException("No document specified");
         } else {
             Contest contest = CreativeDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
-            String place = StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_PLACE));
 
-            boolean found = false;
-            Set prizes = contest.getPrizes();
+            Set docs = contest.getDocuments();
+            Document curr;
             if (log.isDebugEnabled()) {
-                log.debug("size before: " + prizes.size());
+                log.debug("size before: " + docs.size());
             }
-            ContestPrize curr;
-            for (Iterator it = prizes.iterator(); it.hasNext() && !found;) {
-                curr = (ContestPrize) it.next();
-                if (place.equals((curr).getPlace().toString())) {
-                    prizes.remove(curr);
+            boolean found = false;
+            for (Iterator it = docs.iterator(); it.hasNext() && !found;) {
+                curr = (Document) it.next();
+                if (curr.getId().equals(new Long(documentId))) {
+                    docs.remove(curr);
                     found = true;
                 }
             }
             if (log.isDebugEnabled()) {
-                log.debug("size after: " + prizes.size());
+                log.debug("size after: " + docs.size());
             }
             if (!found) {
-                throw new NavigationException("Could not find the prize specified " + contestId + " " + place);
+                throw new NavigationException("Could not find the document specified " + contestId + " " + documentId);
             }
+
 
             CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();

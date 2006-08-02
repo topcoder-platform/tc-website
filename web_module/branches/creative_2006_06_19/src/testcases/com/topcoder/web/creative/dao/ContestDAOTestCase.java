@@ -1,13 +1,13 @@
 package com.topcoder.web.creative.dao;
 
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.FileType;
 import com.topcoder.web.creative.TCHibernateTestCase;
-import com.topcoder.web.creative.model.Contest;
-import com.topcoder.web.creative.model.ContestConfig;
-import com.topcoder.web.creative.model.ContestPrize;
-import com.topcoder.web.creative.model.ContestProperty;
+import com.topcoder.web.creative.model.*;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -134,6 +134,33 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         assertTrue("did not create contst", c1 != null);
         assertFalse("did not create prizes", c1.getPrizes().isEmpty());
         assertFalse("did not create config", c1.getConfig().isEmpty());
+
+    }
+
+    public void testSaveWithDocuments() {
+        Contest c = new Contest();
+        c.setName("gp contest " + System.currentTimeMillis());
+        c.setStartTime(new Timestamp(new Date().getTime()));
+        c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
+
+        Document d = new Document();
+        d.setFileType(DAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
+        d.setOriginalFileName("somecrap.pdf");
+        FilePath p = new FilePath();
+        p.setPath("stuff");
+        d.setPath(p);
+        d.setSystemFileName("systemcrap");
+        d.setType(CreativeDAOUtil.getFactory().getDocumentTypeDAO().find(DocumentType.SPECIFICTION));
+
+        c.addDocument(d);
+
+        CreativeDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
+        Contest c1 = CreativeDAOUtil.getFactory().getContestDAO().find(c.getId());
+        Document found = null;
+        for (Iterator it = c1.getDocuments().iterator(); it.hasNext();) {
+            found = (Document) it.next();
+        }
+        assertTrue("couldn't find the new document", "somecrap.pdf".equals(found.getOriginalFileName()));
 
     }
 

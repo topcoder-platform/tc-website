@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.creative.model">
 
-    <class name="SubmissionPath" table="path">
+    <class name="FilePath" table="path">
         <id name="id" column="path_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">CREATIVE_PATH_SEQ</param>

@@ -20,8 +20,8 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
         return new ContestRegistrationDAOHibernate();
     }
 
-    public SubmissionPathDAO getPathDAO() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    public DocumentDAO getDocumentDAO() {
+        return new DocumentDAOHibernate();
     }
 
     public SubmissionDAO getSubmissionDAO() {
@@ -34,6 +34,10 @@ public class CreativeDAOFactoryHibernate implements CreativeDAOFactory {
 
     public SubmissionTypeDAO getSubmissionTypeDAO() {
         return new SubmissionTypeDAOHibernate();
+    }
+
+    public DocumentTypeDAO getDocumentTypeDAO() {
+        return new DocumentTypeDAOHibernate();
     }
 
     public ReviewStatusDAO getReviewStatusDAO() {
