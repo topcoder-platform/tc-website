@@ -112,7 +112,7 @@ public class SubmitReview extends Base {
         msgText.append("Dear ");
         msgText.append(submitter.getHandle());
         msgText.append(",\n\n");
-        msgText.append("This email is in regard to your  ");
+        msgText.append("This email is in regard to ");
         msgText.append(fileName);
         msgText.append(" submitted on ");
 
