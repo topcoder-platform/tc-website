@@ -6,6 +6,7 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.TCHibernateTestCase;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestRegistration;
+import com.topcoder.web.studio.model.ContestStatus;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class ContestRegistrationDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
         ContestRegistration cr = new ContestRegistration();
@@ -45,6 +47,7 @@ public class ContestRegistrationDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
         ContestRegistration cr = new ContestRegistration();

@@ -1,7 +1,6 @@
 package com.topcoder.web.studio;
 
-import com.topcoder.web.studio.dao.*;
-import com.topcoder.web.studio.validation.*;
+import com.topcoder.web.studio.dao.ContestDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -16,6 +15,7 @@ public class StudioTests extends TCHibernateTestCase {
 
 
         suite.addTest(new TestSuite(ContestDAOTestCase.class));
+/*
         suite.addTest(new TestSuite(ContestRegistrationDAOTestCase.class));
         suite.addTest(new TestSuite(SubmissionTypeDAOTestCase.class));
         suite.addTest(new TestSuite(SubmissionDAOTestCase.class));
@@ -27,6 +27,7 @@ public class StudioTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(StartTimeValidatorTestCase.class));
         suite.addTest(new TestSuite(ContestNameValidatorTestCase.class));
         suite.addTest(new TestSuite(PlaceValidatorTestCase.class));
+*/
 
         return suite;
     }

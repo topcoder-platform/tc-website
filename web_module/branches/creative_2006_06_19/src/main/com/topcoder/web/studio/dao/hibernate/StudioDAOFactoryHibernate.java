@@ -16,6 +16,10 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
         return new ContestPropertyDAOHibernate();
     }
 
+    public ContestStatusDAO getContestStatusDAO() {
+        return new ContestStatusDAOHibernate();
+    }
+
     public ContestRegistrationDAO getContestRegistrationDAO() {
         return new ContestRegistrationDAOHibernate();
     }

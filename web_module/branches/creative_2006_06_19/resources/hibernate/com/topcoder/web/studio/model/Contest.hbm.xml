@@ -26,6 +26,7 @@
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
+        <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
 
 
     </class>

@@ -45,6 +45,7 @@
                         <td class="headerC"></td>
                         <td class="headerC"></td>
                         <td class="header">Name</td>
+                        <td class="header">Status</td>
                         <td class="headerC">Start</td>
                         <td class="headerC">End</td>
                     </tr>
@@ -57,6 +58,7 @@
                                 <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
                             </td>
                             <td class="value">${contest.name}</td>
+                            <td class="value">${contest.status.description}</td>
                             <td class="valueC">
                                 <fmt:formatDate value="${contest.startTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
                             <td class="valueC">

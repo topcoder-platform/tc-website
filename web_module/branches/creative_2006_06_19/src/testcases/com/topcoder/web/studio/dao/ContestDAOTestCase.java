@@ -27,6 +27,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
         StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
         Contest c1 = StudioDAOUtil.getFactory().getContestDAO().find(c.getId());
         assertTrue("did not create contst", c1 != null);
@@ -38,6 +39,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         ContestConfig conf1 = new ContestConfig();
         conf1.setContest(c);
@@ -89,6 +91,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         ContestConfig conf1 = new ContestConfig();
         conf1.setContest(c);
@@ -134,6 +137,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setName("gp contest " + System.currentTimeMillis());
         c.setStartTime(new Timestamp(new Date().getTime()));
         c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60 * 24 * 20));
+        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         Document d = new Document();
         d.setFileType(DAOUtil.getFactory().getFileTypeDAO().find(FileType.ADOBE_ACROBAT_TYPE_ID));
@@ -156,5 +160,11 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
 
     }
 
+
+    public void testLoad() {
+        List l = StudioDAOUtil.getFactory().getContestDAO().getContests();
+        Contest c = StudioDAOUtil.getFactory().getContestDAO().find(((Contest) l.get(0)).getId());
+        assertFalse("prizes was null", c.getPrizes() == null);
+    }
 
 }

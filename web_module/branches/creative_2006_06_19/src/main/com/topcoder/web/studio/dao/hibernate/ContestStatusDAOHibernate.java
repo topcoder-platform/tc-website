@@ -1,0 +1,17 @@
+package com.topcoder.web.studio.dao.hibernate;
+
+import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.studio.dao.ContestStatusDAO;
+import com.topcoder.web.studio.model.ContestStatus;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Aug 2, 2006
+ */
+public class ContestStatusDAOHibernate extends Base implements ContestStatusDAO {
+
+    public ContestStatus find(Integer id) {
+        return (ContestStatus) super.find(ContestStatus.class, id);
+    }
+}

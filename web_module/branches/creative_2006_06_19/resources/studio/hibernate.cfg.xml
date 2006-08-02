@@ -6,12 +6,12 @@
 <hibernate-configuration>
 
     <!--
-        <session-factory>
-            <property name="connection.username">coder</property>
-            <property name="connection.password">altec</property>
-            <property name="connection.url">
-                jdbc:informix-sqli://65.112.118.221:1526/creative_oltp:INFORMIXSERVER=devinformix10_shm</property>
-            <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+            <session-factory>
+                <property name="connection.username">coder</property>
+                <property name="connection.password">altec</property>
+                <property name="connection.url">
+                    jdbc:informix-sqli://65.112.118.221:1526/creative_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
     -->
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
@@ -74,6 +74,7 @@
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>

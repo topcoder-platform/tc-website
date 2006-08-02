@@ -8,7 +8,10 @@ package com.topcoder.web.studio.dao;
 public interface StudioDAOFactory {
     ContestDAO getContestDAO();
 
+
     ContestPropertyDAO getContestPropertyDAO();
+
+    ContestStatusDAO getContestStatusDAO();
 
     ContestRegistrationDAO getContestRegistrationDAO();
 

@@ -4,9 +4,7 @@ import com.topcoder.web.common.model.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -19,8 +17,9 @@ public class Contest extends Base {
     private Timestamp startTime;
     private Timestamp endTime;
     private Set config = new HashSet();
-    private Set prizes = new HashSet();
+    private SortedSet prizes = new TreeSet();
     private Set documents = new HashSet();
+    private ContestStatus status;
 
     public Long getId() {
         return id;
@@ -62,11 +61,11 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public Set getPrizes() {
+    public SortedSet getPrizes() {
         return prizes;
     }
 
-    public void setPrizes(Set prizes) {
+    public void setPrizes(SortedSet prizes) {
         this.prizes = prizes;
     }
 
@@ -111,5 +110,14 @@ public class Contest extends Base {
     public void addDocument(Document document) {
         this.documents.add(document);
     }
+
+    public ContestStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ContestStatus status) {
+        this.status = status;
+    }
+
 
 }
