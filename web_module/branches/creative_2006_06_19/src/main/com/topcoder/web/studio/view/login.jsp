@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
-<%@ page import="com.topcoder.web.reg.controller.request.Login" %>
+<%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
