@@ -22,7 +22,7 @@
             <key column="contest_id" not-null="true"/>
             <many-to-many column="document_id" class="Document"/>
         </set>
-        <set name="prizes" table="contest_prize_xref" cascade="all" access="field" order-by="place asc">
+        <set name="prizes" table="contest_prize_xref" cascade="all" access="field" sort="natural">
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
