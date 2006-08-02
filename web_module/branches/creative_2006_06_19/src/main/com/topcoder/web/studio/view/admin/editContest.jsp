@@ -101,7 +101,9 @@ Calendar.setup(
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Overview: <br/><tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+    Contest Overview: You may include HTML, the content entered here is exactly what will be inserted into the contest
+    details page.<br/>
+    <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
 
@@ -120,7 +122,9 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Prize Description: <br/><tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    Prize Description: You may include HTML, the content entered here is exactly what will be inserted into the contest
+    details page.
+    <br/><tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
 <script language="javascript" type="text/javascript">
@@ -134,9 +138,11 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                         }
                 -->
 </script>
-<c:if test="${contest!=null}">
+<c:if test="${!contest.new}">
     <p>
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">Preview</a>
+        Clikc
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">here</a>
+        to see what the contest details page will look like (only saved changed will be viewable).
     </p>
 </c:if>
 <p>
