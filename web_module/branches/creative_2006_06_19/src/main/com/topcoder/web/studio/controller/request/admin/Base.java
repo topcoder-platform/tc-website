@@ -21,6 +21,7 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         getRequest().setAttribute("contest", contest);
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
+        getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
