@@ -1,4 +1,4 @@
-package com.topcoder.web.creative;
+package com.topcoder.web.studio;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HibernateUtils;

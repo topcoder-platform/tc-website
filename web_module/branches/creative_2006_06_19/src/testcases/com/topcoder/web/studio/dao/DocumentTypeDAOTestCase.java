@@ -1,7 +1,7 @@
-package com.topcoder.web.creative.dao;
+package com.topcoder.web.studio.dao;
 
-import com.topcoder.web.creative.TCHibernateTestCase;
-import com.topcoder.web.creative.model.DocumentType;
+import com.topcoder.web.studio.TCHibernateTestCase;
+import com.topcoder.web.studio.model.DocumentType;
 
 /**
  * @author dok
@@ -11,7 +11,7 @@ import com.topcoder.web.creative.model.DocumentType;
 public class DocumentTypeDAOTestCase extends TCHibernateTestCase {
     public void testFind() {
         assertFalse("could not find type " + DocumentType.SPECIFICTION,
-                CreativeDAOUtil.getFactory().getDocumentTypeDAO().find(DocumentType.SPECIFICTION) == null);
+                StudioDAOUtil.getFactory().getDocumentTypeDAO().find(DocumentType.SPECIFICTION) == null);
 
     }
 }

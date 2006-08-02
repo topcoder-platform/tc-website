@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="tc_creative"/>
     </jsp:include>
 </head>
 
@@ -19,7 +19,7 @@
 </jsp:include>
 
 <jsp:include page="left.jsp">
-    <jsp:param name="node" value="home"/>
+    <jsp:param name="node" value="active_contests"/>
 </jsp:include>
 
 <div class="contentOuter">

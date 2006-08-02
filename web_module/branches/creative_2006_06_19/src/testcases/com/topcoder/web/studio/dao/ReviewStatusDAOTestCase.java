@@ -1,7 +1,7 @@
-package com.topcoder.web.creative.dao;
+package com.topcoder.web.studio.dao;
 
-import com.topcoder.web.creative.TCHibernateTestCase;
-import com.topcoder.web.creative.model.ReviewStatus;
+import com.topcoder.web.studio.TCHibernateTestCase;
+import com.topcoder.web.studio.model.ReviewStatus;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import java.util.List;
 public class ReviewStatusDAOTestCase extends TCHibernateTestCase {
     public void testFind() {
         assertFalse("couldn't find passed status",
-                CreativeDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED) == null);
+                StudioDAOUtil.getFactory().getReviewStatusDAO().find(ReviewStatus.PASSED) == null);
     }
 
     public void testGetReviewStatuses() {
-        List l = CreativeDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses();
+        List l = StudioDAOUtil.getFactory().getReviewStatusDAO().getReviewStatuses();
         assertFalse("couldn't find list of review status", l == null || l.isEmpty());
     }
 

@@ -1,7 +1,7 @@
-package com.topcoder.web.creative.validation;
+package com.topcoder.web.studio.validation;
 
 import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.creative.TCHibernateTestCase;
+import com.topcoder.web.studio.TCHibernateTestCase;
 
 /**
  * @author dok

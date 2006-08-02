@@ -1,7 +1,7 @@
-package com.topcoder.web.creative.dao;
+package com.topcoder.web.studio.dao;
 
-import com.topcoder.web.creative.TCHibernateTestCase;
-import com.topcoder.web.creative.model.SubmissionType;
+import com.topcoder.web.studio.TCHibernateTestCase;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author dok
@@ -11,7 +11,7 @@ import com.topcoder.web.creative.model.SubmissionType;
 public class SubmissionTypeDAOTestCase extends TCHibernateTestCase {
     public void testFind() {
         assertFalse("could not find type " + SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE,
-                CreativeDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE) == null);
+                StudioDAOUtil.getFactory().getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE) == null);
 
     }
 }

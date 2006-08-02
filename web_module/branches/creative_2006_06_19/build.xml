@@ -1198,7 +1198,7 @@
     </target>
 
 
-    <target name="compile-creative" depends="jar_shared,init">
+    <target name="compile-studio" depends="jar_shared,init">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -1208,17 +1208,17 @@
                 source="1.4"
                 target="1.4"
                 >
-            <include name="com/topcoder/web/creative/**"/>
+            <include name="com/topcoder/web/studio/**"/>
             <!--
                         <include name="com/topcoder/web/common/**"/>
             -->
         </javac>
     </target>
 
-    <target name="war-creative" depends="compile-creative">
-        <war warfile="${war.dir}/creative.war" webxml="${resources}/creative/web.xml">
+    <target name="war-studio" depends="compile-studio">
+        <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
-                <include name="com/topcoder/web/creative/**/*.class"/>
+                <include name="com/topcoder/web/studio/**/*.class"/>
                 <!--
                                 <include name="com/topcoder/web/common/**/*.class"/>
                 -->
@@ -1228,22 +1228,22 @@
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
             </webinf>
-            <fileset dir="${java}/com/topcoder/web/creative/view">
+            <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
                 <include name="style.jsp"/>
             </fileset>
-            <webinf dir="${resources}/creative">
+            <webinf dir="${resources}/studio">
                 <include name="jboss-web.xml"/>
             </webinf>
-            <classes dir="${resources}/creative">
+            <classes dir="${resources}/studio">
                 <include name="hibernate.cfg.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
-                <include name="com/topcoder/web/creative/model/**/*.xml"/>
+                <include name="com/topcoder/web/studio/model/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
@@ -1252,17 +1252,17 @@
         </war>
     </target>
 
-    <target name="deploy-creative" depends="war-creative">
-        <antcall target="expand-creative"/>
+    <target name="deploy-studio" depends="war-studio">
+        <antcall target="expand-studio"/>
     </target>
 
-    <target name="expand-creative" depends="">
-        <delete file="${jboss_home}/server/all/deploy/creative.war"/>
-        <unwar src="${war.dir}/creative.war" dest="${jboss_home}/server/all/deploy/creative.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/creative.war/META-INF"/>
+    <target name="expand-studio" depends="">
+        <delete file="${jboss_home}/server/all/deploy/studio.war"/>
+        <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/all/deploy/studio.war/" overwrite="yes"/>
+        <delete dir="${jboss_home}/server/all/deploy/studio.war/META-INF"/>
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
-                <include name="Creative.properties"/>
+                <include name="Studio.properties"/>
             </fileset>
         </copy>
 
@@ -1344,14 +1344,14 @@
         </junitreport>
     </target>
 
-    <target name="run_creative_tests" depends="compile_tests" description="run junit tests">
+    <target name="run_studio_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
                 <pathelement path="${class.path}"/>
-                <pathelement location="resources/creative/"/>
+                <pathelement location="resources/studio/"/>
             </classpath>
             <formatter type="xml"/>
-            <test name="com.topcoder.web.creative.CreativeTests" todir="${testclasses}"/>
+            <test name="com.topcoder.web.studio.StudioTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">

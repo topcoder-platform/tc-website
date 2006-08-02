@@ -1,9 +1,9 @@
-package com.topcoder.web.creative.validation;
+package com.topcoder.web.studio.validation;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.creative.Constants;
-import com.topcoder.web.creative.TCHibernateTestCase;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.TCHibernateTestCase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
