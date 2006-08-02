@@ -9,6 +9,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
+import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.validation.ContestNameValidator;
 import com.topcoder.web.studio.validation.ContestOverviewValidator;
 import com.topcoder.web.studio.validation.EndTimeValidator;
@@ -31,6 +32,7 @@ public class EditContest extends ShortHibernateProcessor {
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
         String startTime = getRequest().getParameter(Constants.START_TIME);
         String endTime = getRequest().getParameter(Constants.END_TIME);
+        String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
 
         //validate
         ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
@@ -66,12 +68,32 @@ public class EditContest extends ShortHibernateProcessor {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDescResult.getMessage());
         }
 
+        ContestStatus status = null;
+        if ("".equals(StringUtils.checkNull(contestStatusId))) {
+            addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+        } else {
+            status = StudioDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
+            if (status == null) {
+                addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+            }
+        }
+
 
         if (hasErrors()) {
             getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
+            getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
 
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT, overview);
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION, prizeDesc);
+
+            if (!"".equals(StringUtils.checkNull(contestId))) {
+                setDefault(Constants.CONTEST_STATUS_ID,
+                        StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId)).getStatus().getId());
+            } else if (status != null) {
+                setDefault(Constants.CONTEST_STATUS_ID, contestStatusId);
+            } else {
+                setDefault(Constants.CONTEST_STATUS_ID, ContestStatus.UNACTIVE);
+            }
 
             setDefault(Constants.CONTEST_ID, contestId);
             setDefault(Constants.CONTEST_NAME, name);
@@ -93,6 +115,7 @@ public class EditContest extends ShortHibernateProcessor {
             contest.setName(name);
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
+            contest.setStatus(status);
 
             ContestConfig overviewConfig;
             ContestProperty overviewProperty =

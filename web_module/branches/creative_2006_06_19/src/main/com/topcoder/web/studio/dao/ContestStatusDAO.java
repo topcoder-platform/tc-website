@@ -2,6 +2,8 @@ package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.studio.model.ContestStatus;
 
+import java.util.List;
+
 
 /**
  * @author dok
@@ -10,4 +12,6 @@ import com.topcoder.web.studio.model.ContestStatus;
  */
 public interface ContestStatusDAO {
     ContestStatus find(Integer id);
+
+    List getContestStatuses();
 }
