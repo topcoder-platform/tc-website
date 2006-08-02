@@ -35,6 +35,7 @@ public class Constants implements WebConstants {
     public static final String DOCUMENT_ID = "docid";
     public static final String DOCUMENT_TYPE_ID = "doctid";
     public static final String DOCUMENT = "doc";
+    public static final long CONTEST_ADMIN_ROLE_ID = 2040;
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
