@@ -49,8 +49,8 @@
 </p>
 
 <p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
+    Status:        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
+    <br/></tc-webtag:errorIterator></span>
     <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id" textField="description"/>
 </p>
 
@@ -101,7 +101,7 @@ Calendar.setup(
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Overview: <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
+    Contest Overview: <br/><tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
 
@@ -120,7 +120,7 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Prize Description: <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    Prize Description: <br/><tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
 <script language="javascript" type="text/javascript">
@@ -139,6 +139,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     <button name="submit" value="submit" type="submit">Save</button>
 </p>
 </form>
+
+<br/><br/>
 
 <div class="header">Prizes</div>
 
@@ -172,6 +174,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <button name="submit" value="submit" type="submit">Add</button>
     </p>
 </form>
+<br/><br/>
 
 <div class="header">Documentation</div>
 
