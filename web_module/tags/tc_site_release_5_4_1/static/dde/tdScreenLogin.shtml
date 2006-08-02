@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body" marginheight="0" marginwidth="0">
+<form action="#" method="#">
+<!--start logo/tag-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr><td width="240" height="88" align="left" bgcolor="#000000"><a href="index.shtml"><img src="images/tcs_logo_onblack2.gif" alt="TopCoder Software" width="240" height="88" border="0"/></a></td></tr>
+</table>
+<!--end logo/tag-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#cc0000">
+<tr>
+	<td width="10%" align="center" valign="middle" class="topNav">&#160;<a href="index.shtml" class="topNav">HOME</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>
+	<td width="10%" align="center" valign="middle" class="topNav">&#160;<a href="aboutIndex.shtml" class="topNav">ABOUT</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="compIndex.shtml" class="topNav">COMPONENTS</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="catalogIndex.shtml" class="topNav">CATALOG</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>
+	<td width="15%" align="center"v class="topNav">&#160;<a href="collaborationIndex.shtml" class="topNav">COLLABORATE</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="resourcesIndex.shtml" class="topNav">RESOURCES</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="images/clear.gif" alt="" width="1" heigth="18" border="0"/></td>	
+	<td width="20%" align="center" valign="middle" class="topNav" bgcolor="#FF9900">&#160;<a href="tdScreenLogin.shtml" class="topNav"><strong>TEST&#160;DRIVE</strong></a>&#160;</td>	
+	<!-- <td width="124" bgcolor="#000000"><img src="images/clear.gif" alt="" width="209" height="21" border="0"/><img src="images/topNavEnd.gif" alt="" width="209" height="23" border="0"/></td> -->
+</tr>
+<tr>
+	<td colspan="13" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+</tr>
+
+
+<!-- <tr>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="209" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+</tr> -->
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td colspan="2" align="left" bgcolor="#b2b2b2"><img src="images/testdriveLargeHead2.gif" alt="" width="600" height="48" border="0"/></td>
+	<!--r col-->
+	<td rowspan="2" width="150" valign="top" bgcolor="#547584">
+	<img src="images/clear.gif" alt="" width="150" height="1" border="0"/>
+	<!--="includes/rColTDStep1.shtml"-->
+	</td>
+<tr>
+	<!--l col-->
+	<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="i/lColGraphic.gif" class="leftColText">
+	<img src="images/clear.gif" alt="" width="140" height="1" border="0"/><br/>
+	</td>
+	<!--m col-->
+	<td width="100%" valign="top" bgcolor="#b2b2b2">
+	<img src="images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+	<table width="100%" border="0" cellpadding="4" cellspacing="3" align="center" bgcolor="#b2b2b2">
+<tr><td colspan="2" align="left" class="bodyText">
+<strong>Test Drive requires login.</strong><BR>
+Registered users please login to proceed. 
+New users may register using the form below.</td>
+</tr>
+<tr>
+	<td colspan="2" class="bodyText" bgcolor="#666666" height="15"><strong><FONT COLOR="#FFFFFF">Login</FONT></strong></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Username</td>
+	<td width="450" align="left"><input type="text" name="username" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Password</td>
+	<td width="450" align="left"><input type="text" name="password" size="30" maxlength="100"></td>
+</tr>
+<tr><td colspan="2" height="48" valign="bottom" align="center"><input type="submit" name="#" value=" Enter " class="formButton"><br/><br/></td></tr>
+<tr><td colspan="2"><img src="images/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+<tr>
+	<td colspan="2" class="bodyText" bgcolor="#666666" height="15"><strong><FONT COLOR="#FFFFFF">Register</FONT></strong></td>
+</tr>
+<tr><td colspan="2" align="left" class="bodyText">
+Please complete the form to receive your Test Drive username and password.</td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">First Name</td>
+	<td width="450" align="left"><input type="text" name="firstname" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Last Name</td>
+	<td width="450" align="left"><input type="text" name="lastname" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Company</td>
+	<td width="450" align="left"><input type="text" name="company" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Email</td>
+	<td width="450" align="left"><input type="text" name="email" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Phone</td>
+	<td width="450" align="left"><input type="text" name="phone" size="3" maxlength="3">&#160;-&#160;
+	<input type="text" name="phone" size="3" maxlength="3">&#160;-&#160;
+	<input type="text" name="phone" size="4" maxlength="4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="bodyText"><HR></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Username</td>
+	<td width="450" align="left"><input type="text" name="username" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Password</td>
+	<td width="450" align="left"><input type="text" name="password" size="30" maxlength="100"></td>
+</tr>
+<tr>
+	<td width="150" height="32" align="left" class="bodyText">Retype Password</td>
+	<td width="450" align="left"><input type="text" name="password2" size="30" maxlength="100"></td>
+</tr>
+<tr><td colspan="2" height="48" valign="bottom" align="center"><input type="submit" name="#" value=" Send " class="formButton"><br/><br/></td></tr>
+<tr><td colspan="2"><a href="tdScreen1.shtml" class="bodyText">next screen</a><BR><img src="images/clear.gif" alt="" width="1" height="100" border="0"/></td></tr>
+</table>
+
+	</td>
+</tr>
+<tr>
+	<td colspan="4" align="center">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td width="151"><img src="images/clear.gif" alt="" width="151" height="1" border="0"/></td>
+	<td width="85" align="center" class="footer"><a href="index.shtml" class="footer">Home</a></td>
+	<td width="85" align="center" class="footer"><a href="aboutIndex.shtml" class="footer">About</a></td>
+	<td width="85" align="center" class="footer"><a href="contactIndex.shtml" class="footer">Contact&#160;Us</a></td>
+	<td width="85" align="center" class="footer"><a href="privacyIndex.shtml" class="footer">Privacy</a></td>
+	<td width="85" align="center" class="footer"><a href="termsIndex.shtml" class="footer">Terms</a></td>
+	<td width="250"><img src="images/clear.gif" alt="" width="250" height="1" border="0"/></td>
+</tr>
+</table>
+
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
