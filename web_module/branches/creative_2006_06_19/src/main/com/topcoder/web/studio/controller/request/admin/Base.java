@@ -38,6 +38,8 @@ public abstract class Base extends ShortHibernateProcessor {
             setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
                     contest.getPrizeDescription().getValue());
         }
+        setDefault(Constants.CONTEST_STATUS_ID,
+                contest.getStatus().getId());
 
         setDefault(Constants.CONTEST_ID, contest.getId());
         setDefault(Constants.CONTEST_NAME, contest.getName());

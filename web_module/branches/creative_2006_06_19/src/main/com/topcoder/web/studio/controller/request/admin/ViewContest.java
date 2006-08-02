@@ -4,6 +4,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestStatus;
 
 /**
  * @author dok
@@ -20,6 +21,7 @@ public class ViewContest extends Base {
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             loadEditContestData(contest);
         } else {
+            setDefault(Constants.CONTEST_STATUS_ID, ContestStatus.UNACTIVE);
             loadGeneralEditContestData();
         }
         setNextPage("/admin/editContest.jsp");
