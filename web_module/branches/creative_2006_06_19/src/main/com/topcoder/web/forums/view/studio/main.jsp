@@ -27,8 +27,7 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td class="categoriesBox" style="padding-right: 20px;">
-<A class="rtLinkBold" href="http://forums.topcoder.com/?module=Category&categoryID=13">Round Tables</A><br>
-<A class="rtLinkBold" href="http://forums.topcoder.com/?module=Category&categoryID=14">Creative Contests</A><br>
+      <jsp:include page="categoriesHeader.jsp" />
    </td>
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
 <form name="formSearch" method="post" action="/">
