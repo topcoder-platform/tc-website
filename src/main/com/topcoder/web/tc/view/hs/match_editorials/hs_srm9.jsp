@@ -174,9 +174,9 @@ If we want to uncompress a string s, the basic cases are the following ones:
 The uncompression of a letter is just the same letter, and to uncompress the tail of s we recursively call method uncompress(s.substring(1)).
 To get the final return value, we append the result of the recursive call to the first character.
 </li>
-<li>s ends with a letter. Similarly to the previous case, we uncompress the string s without the last character and append this character to the result.</li>
-<li>If s doesn't match any of the cases mentioned above, we are sure that s starts and ends with brackets (like "[D<i>tail</i>]"). 
-To compute the answer, we discard both brackets, find the tail of the remaining substring, recursively uncompress it, and add to the answer D times.
+<li>If s starts with an opening bracket, we need to find the corresponding closing bracket. 
+We iterate through the characters of s counting opening and closing brackets, and stop when the number of the closing brackets is equal to the number of opening brackets.
+Now we process the string inside the brackets in the way it described in the statement and append the uncompressed tail of string s.
 </li>
 </il>
 
@@ -185,23 +185,24 @@ Java implementation of this approach follows:
 <pre>
     public String uncompress(String s) {
         // Empty string
-        if (s.length() == 0)
-            return "";
-        int N = s.length();
+        if (s.length() == 0) return "";
 
+        char c = s.charAt(0);
         // s starts with a letter
-        if (Character.isLetter(s.charAt(0)))
-            return s.charAt(0) + uncompress(s.substring(1));
-
-        // s ends with a letter
-        if (Character.isLetter(s.charAt(N - 1)))
-            return uncompress(s.substring(0, N - 1)) + s.charAt(N - 1);
-
-        // s starts and ends with a bracket
+        if (Character.isLetter(c))
+            return c + uncompress(s.substring(1));
+        // We are looking for the correspondent bracket.
+        int cnt = 1;
+        int i = 0;
+        do {
+            i++;
+            if (s.charAt(i) == '[') cnt++;
+            if (s.charAt(i) == ']') cnt--;
+        } while (cnt > 0);
         String ans = "";
-        String part = uncompress(s.substring(2, N - 1));
-        for (int i = 0; i < s.charAt(1) - '0'; i++) ans += part;
-        return ans;
+        String temp = uncompress(s.substring(2, i));
+        for (int j = 0; j < (s.charAt(1) - '0'); j++) ans += temp;
+        return ans + uncompress(s.substring(i + 1));
     }
 </pre>
 
