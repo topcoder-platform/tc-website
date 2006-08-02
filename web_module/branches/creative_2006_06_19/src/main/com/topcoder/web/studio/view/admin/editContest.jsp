@@ -134,7 +134,11 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                         }
                 -->
 </script>
-
+<c:if test="${contest!=null}">
+    <p>
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">Preview</a>
+    </p>
+</c:if>
 <p>
     <button name="submit" value="submit" type="submit">Save</button>
 </p>
