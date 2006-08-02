@@ -138,8 +138,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                         }
                 -->
 </script>
-${contest.new}
-<c:if test="${!contest.new}">
+<c:if test="${contest!=null && !contest.new}">
     <p>
         Click
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">here</a>
