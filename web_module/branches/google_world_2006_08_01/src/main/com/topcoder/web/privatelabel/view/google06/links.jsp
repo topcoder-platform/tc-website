@@ -27,14 +27,13 @@
             <% } %>
 
 <!-- Registration tab -->
-<%--
 
             <% if (selectedTab.equals("registration")) {%>
                  <span class="navOn">Registration</span> &nbsp;|&nbsp;
             <% } else { %>
-                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
+                  <a class="navLink" href="/pl/?module=Static&d1=google06&d2=reg">Registration</a> &nbsp;|&nbsp;
             <% } %>
---%>
+
 
 <!-- Instructions tab -->
             <% if (selectedTab.equals("instructions")) {%>
@@ -49,14 +48,14 @@
             <% } else { %>
                   <a class="navLink" href="/pl/?module=Static&d1=google06&d2=faq">FAQ</a> &nbsp;|&nbsp;
             <% } %>
-
+<%--
 <!-- Advancers tab -->
             <% if (selectedTab.equals("advancers")) {%>
                  <span class="navOn">Advancers</span> &nbsp;|&nbsp;
             <% } else { %>
                   <a class="navLink" href="/pl/?module=Static&d1=google06&d2=advancers">Advancers</a> &nbsp;|&nbsp;
             <% } %>
-            
+--%>            
 
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>

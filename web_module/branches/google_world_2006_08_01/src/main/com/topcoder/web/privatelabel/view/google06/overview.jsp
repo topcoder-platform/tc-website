@@ -53,7 +53,7 @@
          <span class="bigBluetitle">Google&#153; Code Jam 2006</span>
          <br><br>
 
-Want a chance at $200,000?  Here's how:  Google Code Jam 2006.  This competition is a chance for you to use your skills and compete against top programmers from all over the world.
+Want a chance at $165,000?  Here's how:  Google Code Jam 2006.  This competition is a chance for you to use your skills and compete against top programmers from all over the world.
 <br><br><br>
 <span class="subTitle">What is the Google Code Jam 2006?</span>
 <br><br>
@@ -69,7 +69,7 @@ Registration for the Google Code Jam 2006 is open from Monday, August 14, 2006 a
 <br><br>
 The competitors with the top 500 scores from Round 1 will advance to compete in Round 2. 
 <br><br>
-The competitors with the top 100 scores from Round 2 will be invited to compete for $200,000 in cash and prizes at the onsite Championship Round at the Google Office in New York City, New York, United States. 
+The competitors with the top 100 scores from Round 2 will be invited to compete for $165,000 in cash and prizes at the onsite Championship Round at the Google Office in New York City, New York, United States. 
 <br><br>
 <%--
 Here's the line-by-line documentation:
