@@ -1,5 +1,23 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
+    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
+    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
+    response.setHeader( "Pragma", "no-cache" ); %>
+
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.forums.controller.ForumsUtil,
+                 com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.Forum,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,
+                 java.util.*"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
 <head>
@@ -7,18 +25,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>TopCoder Studio</title>
 
-<jsp:include page="../style.jsp">
+<jsp:include page="style.jsp">
     <jsp:param name="key" value="tc_creative_forums"/>
 </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="top.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
-<jsp:include page="../left.jsp">
+<jsp:include page="left.jsp">
     <jsp:param name="node" value="forums"/>
 </jsp:include>
 
@@ -151,7 +169,7 @@ The five most recent forums are displayed for each category other than Round Tab
 </div>
 
 
-        <jsp:include page="../foot.jsp"/>
+        <jsp:include page="foot.jsp"/>
     </div>
 </div>
 </body>
