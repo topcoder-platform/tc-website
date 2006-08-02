@@ -45,7 +45,7 @@
 </form>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
 <tr>
@@ -68,7 +68,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=244237" class="rtLinkOld">General Discussion</A>
       <br/><div class="rtDescIndent">Discuss anything "TopCoder" that doesn't fit into the other categories.  </div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">765&#160;/&#160;9278      </td>
+      <td class="rtThreadCell" style="width: 80px;">765&nbsp;/&nbsp;9278      </td>
       <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 10:48 AM</b>      </td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=343655" class="coderText">Uranium-235</a>      </td>
    </tr>
@@ -76,7 +76,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=7166" class="rtLinkOld">Bugs, Suggestions and General Feedback</A>
       <br/><div class="rtDescIndent">Report bugs, request enhancements, provide general feedback on existing functionality.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">2206&#160;/&#160;10679      </td>
+      <td class="rtThreadCell" style="width: 80px;">2206&nbsp;/&nbsp;10679      </td>
       <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 9:24 AM</b>      </td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=132456" class="coderTextOrange">dok</a>      </td>
    </tr>
@@ -84,7 +84,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505803" class="rtLinkBold">Educational Discussion</A>
       <br/><div class="rtDescIndent">Give and get helpful advice.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">315&#160;/&#160;2572      </td>
+      <td class="rtThreadCell" style="width: 80px;">315&nbsp;/&nbsp;2572      </td>
       <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 6:23 AM</b>      </td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=15447970" class="coderText">rajkon</a>      </td>
    </tr>
@@ -92,7 +92,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=327735" class="rtLinkBold">Getting Started in TopCoder Studio Creative Competitions</A>
       <br/><div class="rtDescIndent">Check here for help and advice on getting started as a competitor.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">180&#160;/&#160;1282      </td>
+      <td class="rtThreadCell" style="width: 80px;">180&nbsp;/&nbsp;1282      </td>
       <td class="rtThreadCell" style="width: 190px;"><b>Sat, Jun 24 2006 at 8:05 PM</b>      </td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a>      </td>
    </tr>
@@ -112,7 +112,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505983" class="rtLinkBold">TC Studio 308</A>
       </td>
-      <td class="rtThreadCell" style="width: 80px;">3&#160;/&#160;18      </td>
+      <td class="rtThreadCell" style="width: 80px;">3&nbsp;/&nbsp;18      </td>
       <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 11:29 AM</b></td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=9958883" class="coderText">Minilek</a></td>
    </tr>
@@ -120,7 +120,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505982" class="rtLinkBold">TC Studio 307</A>
       </td>
-      <td class="rtThreadCell" style="width: 80px;">16&#160;/&#160;147</td>
+      <td class="rtThreadCell" style="width: 80px;">16&nbsp;/&nbsp;147</td>
       <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 8:28 AM</b></td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=19786437" class="coderText">dskloet</a></td>
    </tr>
@@ -128,7 +128,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505607" class="rtLinkBold">TC Studio 168</A>
       </td>
-      <td class="rtThreadCell" style="width: 80px;">1&#160;/&#160;1</td>
+      <td class="rtThreadCell" style="width: 80px;">1&nbsp;/&nbsp;1</td>
       <td class="rtThreadCell" style="width: 190px;"><b>Sun, Jun 25 2006 at 5:54 PM</b>
       </td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=343655" class="coderText">Uranium-235</a></td>
@@ -137,7 +137,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505584" class="rtLinkOld">TC Studio 148</A>
       </td>
-      <td class="rtThreadCell" style="width: 80px;">2&#160;/&#160;9</td>
+      <td class="rtThreadCell" style="width: 80px;">2&nbsp;/&nbsp;9</td>
       <td class="rtThreadCell" style="width: 190px;"><b>Wed, Jun 21 2006 at 12:31 AM</b></td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=22265897" class="coderText">NEG</a></td>
    </tr>
@@ -145,7 +145,7 @@
       <td class="rtThreadCellWrap">
       <A href="?module=ThreadList&forumID=505740" class="rtLinkBold">TC Studio 249</A>
       </td>
-      <td class="rtThreadCell" style="width: 80px;">1&#160;/&#160;5</td>
+      <td class="rtThreadCell" style="width: 80px;">1&nbsp;/&nbsp;5</td>
       <td class="rtThreadCell" style="width: 190px;"><b>Fri, Jun 16 2006 at 6:20 PM</b></td>
       <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=260828" class="coderText">Larry</a></td>
    </tr>

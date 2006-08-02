@@ -45,11 +45,17 @@
 </form>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+      <a href="?module=Watch&amp;type=1&amp;ID=509704&amp;view=tree&amp;cmd=add" class="rtbcLink">Watch Thread</a>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+      View:
+      <A href="?module=Thread&threadID=509704&mc=63&view=flat" class="rtbcLink">Flat</A>&nbsp;&nbsp;|
+      <span class="currentPage">Threaded</span>&nbsp;&nbsp;|
+      <A href="?module=Thread&threadID=509704&mc=63&view=tree" class="rtbcLink">Tree</A><br>
+      <A href="?module=Thread&threadID=512258&start=0&mc=58&view=tree" class="rtbcLink">Previous Thread</A>
+      &nbsp;|&nbsp;<A href="?module=Thread&threadID=511911&start=0&mc=15&view=tree" class="rtbcLink">Next Thread</A>
     </td>
 </tr>
 <tr>
-   <td colspan="2" style="padding-bottom:3px;"><strong>
+   <td colspan="3" style="padding-bottom:3px;"><strong>
       <A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >
       <A href="?module=Category&categoryID=13&mc=68059" class="rtbcLink">Round Tables</A> >
       <A href="?module=ThreadList&forumID=244237&mc=10360" class="rtbcLink">General Discussion</A> >
@@ -150,7 +156,7 @@
 1000 post party!
 <br>
 <A href="?module=Thread&threadID=512258&start=0&mc=58" class="rtbcLink">Previous Thread</A>
-&#160;|&#160;
+&nbsp;|&nbsp;
 <A href="?module=Thread&threadID=511911&start=0&mc=15" class="rtbcLink">Next Thread</A>
 </strong>
 </div>

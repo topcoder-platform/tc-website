@@ -45,7 +45,7 @@
 </form>
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
 <tr>
@@ -82,9 +82,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=7364893" class="coderText">rgrig</a></td>
     
-   <td class="rtThreadCell" align="right">46&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">1383&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1383&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553430" class="rtLinkNew">Wed, Aug 2 2006 at 9:35 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
@@ -104,8 +104,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=8520396" class="coderTextOrange">bettylee74</a></td>
     
-   <td class="rtThreadCell" align="right">56&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">917&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">917&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553421" class="rtLinkNew">Wed, Aug 2 2006 at 9:13 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=251184" class="coderText">dplass</a></td>
@@ -125,9 +125,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
     
-   <td class="rtThreadCell" align="right">36&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">827&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">827&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553420" class="rtLinkNew">Wed, Aug 2 2006 at 9:12 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
@@ -147,8 +147,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=15062676" class="coderText">sinn_md</a></td>
     
-   <td class="rtThreadCell" align="right">39&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">1422&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">1422&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553402" class="rtLinkNew">Wed, Aug 2 2006 at 8:38 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a></td>
@@ -168,9 +168,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21931776" class="coderText">einstein41389</a></td>
     
-   <td class="rtThreadCell" align="right">15&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">1305&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1305&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553390" class="rtLinkNew">Wed, Aug 2 2006 at 7:44 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21464956" class="coderText">d000hg</a></td>
@@ -190,8 +190,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
     
-   <td class="rtThreadCell" align="right">1&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">117&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">117&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553238" class="rtLinkNew">Tue, Aug 1 2006 at 2:37 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21414577" class="coderText">michaelr</a></td>
@@ -211,9 +211,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14846952" class="coderText">cep21</a></td>
     
-   <td class="rtThreadCell" align="right">11&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">267&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">267&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553213" class="rtLinkNew">Tue, Aug 1 2006 at 1:17 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14846952" class="coderText">cep21</a></td>
@@ -233,8 +233,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21494813" class="coderText">dhoni</a></td>
     
-   <td class="rtThreadCell" align="right">1&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">61&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">61&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553186" class="rtLinkNew">Tue, Aug 1 2006 at 11:23 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=284038" class="coderText">aussie</a></td>
@@ -254,9 +254,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21931776" class="coderText">einstein41389</a></td>
     
-   <td class="rtThreadCell" align="right">35&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">1656&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1656&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=553005" class="rtLinkNew">Mon, Jul 31 2006 at 4:59 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
@@ -276,8 +276,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14822038" class="coderText">Nikaustr</a></td>
     
-   <td class="rtThreadCell" align="right">18&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">316&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">316&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552992" class="rtLinkNew">Sun, Jul 30 2006 at 8:06 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14822038" class="coderText">Nikaustr</a></td>
@@ -297,9 +297,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14949023" class="coderText">god_shiva</a></td>
     
-   <td class="rtThreadCell" align="right">3&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">192&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">192&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552978" class="rtLinkNew">Sun, Jul 30 2006 at 5:35 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14949023" class="coderText">god_shiva</a></td>
@@ -319,8 +319,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22063254" class="coderText">webgoudarzi</a></td>
     
-   <td class="rtThreadCell" align="right">16&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">359&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">359&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552950" class="rtLinkNew">Sun, Jul 30 2006 at 12:48 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=303185" class="coderText">Cosmin.ro</a></td>
@@ -340,9 +340,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22063254" class="coderText">webgoudarzi</a></td>
     
-   <td class="rtThreadCell" align="right">57&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">1543&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">1543&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552923" class="rtLinkNew">Sun, Jul 30 2006 at 2:22 AM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=275640" class="coderText">sql_lall</a></td>
@@ -362,8 +362,8 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=8416646" class="coderText">Kawigi</a></td>
     
-   <td class="rtThreadCell" align="right">62&#160;&#160;&#160;&#160;&#160;</td>
-   <td class="rtThreadCell" align="right">1894&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+   <td class="rtThreadCell" align="right">1894&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552760" class="rtLinkNew">Fri, Jul 28 2006 at 5:56 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a></td>
@@ -383,9 +383,9 @@
     
        <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=10098406" class="coderText">colau</a></td>
     
-   <td class="rtThreadCell" align="right">14&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-   <td class="rtThreadCell" align="right">652&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right">652&nbsp;&nbsp;&nbsp;&nbsp;</td>
    <td class="rtThreadCell"><b><A href="?module=Message&messageID=552721" class="rtLinkNew">Fri, Jul 28 2006 at 12:20 PM</A></b></td>
    
         <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22060726" class="coderText">Perseph0ne</a></td>
