@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.model;
 
+import com.topcoder.web.common.model.Base;
+
 import java.util.Collections;
 import java.util.Set;
 
@@ -8,7 +10,7 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 28, 2006
  */
-public class Prize {
+public class Prize extends Base implements Comparable {
     private Integer place;
     private Float amount;
     private Set contests;
@@ -55,6 +57,10 @@ public class Prize {
         this.type = type;
     }
 
+    public int compareTo(Object o) {
+        Prize other = (Prize) o;
+        return getPlace().compareTo(other);
+    }
 }
 
 
