@@ -8,6 +8,19 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.02.06<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      Downtime for scheduled maintenance: 08.03
+      </span><br><br>
+      TopCoder systems will be down for maintenance at 5PM on Thursday August 3rd, lasting approximately 2 hours.  All competition systems will be affected.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=MemberContact">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506081" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.01.06<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCCC06StudentReps">Student Rep Referral Leaderboard</A></span><br><br>
       The results of the TCCC06 Referral Program are now posted. Check back often to view updates.
@@ -178,19 +191,6 @@ Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed hi
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.19.06<br>12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">Announcing the 2006 TopCoder Collegiate Challenge</A></span><br><br>
-      The TCCC06 - with $200,000 in prizes - will be held November 14-17 in sunny San Diego, CA, USA. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about">details</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
