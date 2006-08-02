@@ -8,7 +8,7 @@
     <class name="Submission" table="submission">
         <id name="id" column="submission_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
-                <param name="sequence_name">CREATIVE_SUBMISSION_SEQ</param>
+                <param name="sequence_name">STUDIO_SUBMISSION_SEQ</param>
             </generator>
         </id>
         <many-to-one name="submitter" column="submitter_id" class="com.topcoder.web.common.model.User" access="field"/>

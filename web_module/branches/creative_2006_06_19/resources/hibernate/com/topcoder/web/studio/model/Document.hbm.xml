@@ -8,7 +8,7 @@
     <class name="Document" table="document">
         <id name="id" column="document_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
-                <param name="sequence_name">CREATIVE_DOCUMENT_SEQ</param>
+                <param name="sequence_name">STUDIO_DOCUMENT_SEQ</param>
             </generator>
         </id>
         <set name="contests" table="contest_document_xref" inverse="true" access="field">

@@ -8,7 +8,7 @@
     <class name="Prize" table="prize">
         <id name="id" column="prize_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
-                <param name="sequence_name">CREATIVE_PRIZE_SEQ</param>
+                <param name="sequence_name">STUDIO_PRIZE_SEQ</param>
             </generator>
         </id>
         <set name="contests" table="contest_prize_xref" inverse="true" access="field">
