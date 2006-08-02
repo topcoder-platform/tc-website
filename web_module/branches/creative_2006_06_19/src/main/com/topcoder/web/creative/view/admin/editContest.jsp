@@ -158,6 +158,22 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </c:forEach>
 </form>
 
+<c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
+<c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+
+    <p>
+    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
+        <br/></tc-webtag:errorIterator></span>
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
+            <br/></tc-webtag:errorIterator></span>
+        Place: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
+        <button name="submit" value="submit" type="submit">Add</button>
+    </p>
+</form>
+
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -170,6 +186,21 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <br/>
     </c:forEach>
 </form>
+
+
+<c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+
+    <p>
+    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${dsc}">${err}
+        <br/></tc-webtag:errorIterator></span>
+        <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
+    </p>
+</form>
+
+
 <jsp:include page="../creativeFoot.jsp"/>
 </div>
 
