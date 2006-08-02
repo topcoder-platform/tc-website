@@ -14,11 +14,11 @@
 
 <body>
 
-<jsp:include page="../creativeTop.jsp">
+<jsp:include page="../top.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
-<jsp:include page="../creativeLeft.jsp">
+<jsp:include page="../left.jsp">
     <jsp:param name="node" value="forums"/>
 </jsp:include>
 
@@ -49,7 +49,7 @@
     </td>
 </tr>
 <tr>
-   <td colspan="2" style="padding-bottom:3px;"><strong>
+   <td colspan="3" style="padding-bottom:3px;"><strong>
       <div style="float:right;">
       <span class="currentPage">1</span>
       <A href="?module=Thread&threadID=509704&start=15&mc=63&view=flat" class="rtbcLink">2</A>
@@ -162,7 +162,7 @@
 
 
 
-        <jsp:include page="../creativeFoot.jsp"/>
+        <jsp:include page="../foot.jsp"/>
     </div>
 </div>
 </body>
