@@ -7,18 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>TopCoder Studio</title>
 
-<jsp:include page="../style.jsp">
+<jsp:include page="style.jsp">
     <jsp:param name="key" value="tc_creative_forums"/>
 </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="top.jsp">
     <jsp:param name="section" value="default"/>
 </jsp:include>
 
-<jsp:include page="../left.jsp">
+<jsp:include page="left.jsp">
     <jsp:param name="node" value="forums"/>
 </jsp:include>
 
@@ -92,7 +92,7 @@ A forum with a <b>bold title</b> indicates it either has a new thread or has a t
 </div>
 
 
-        <jsp:include page="../foot.jsp"/>
+        <jsp:include page="foot.jsp"/>
     </div>
 </div>
 </body>
