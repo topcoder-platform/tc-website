@@ -68,16 +68,16 @@ Each team will be responsible for creating their working environment. The workin
 </ul>
 
 <div class="sectionHeader">Documentation</div>
-Documentation/Specification is available in the application forums <A href="">here</A>.<br><br>
+Documentation/Specification is available in the application forums <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23128845">here</A>.<br><br>
 
 <div class="sectionHeader">Payment</div>
 TopCoder will compensate the first- and second-place submissions.
 <br><br>
 <strong>Winning Team</strong><br>
-Total Payment - $8,000
+Total Payment - $10,000
 <br><br>
 <strong>Second Place Team</strong><br>
-Total Payment - $4,000
+Total Payment - $5,000
 <br><br>
 Initial payment for the winning team will be distributed in two installments corresponding to two project milestones:
 <ul>
@@ -99,7 +99,7 @@ If you do not reside in the United States:
 <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
 </ul>
 <div class="sectionHeader">Timeline</div>
-All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00PM EST.
+All submissions are required to be submitted by the end of Competition Phase. The end of each phase is at 9:00 AM EST.
 <br><br>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
@@ -107,23 +107,19 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">08.XX.2006</td><td align="right">08.XX.2006</td>
+      <td>Team Creation:</td><td align="right">08.03.2006</td><td align="right">08.10.2006</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">08.XX.2006</td><td align="right">08.XX.2006</td>
-   </tr>
-<%--   <tr>
-      <td>&#160;</td><td align="right">&#160;</td><td align="right">9:00 AM EST</td>
-   </tr>
---%>   
-   <tr>
-      <td>Test Challenge Phase:</td><td align="right">08.XX.2006</td><td align="right">08.XX.2006</td>
+      <td>Competition Phase:</td><td align="right">08.11.2006</td><td align="right">08.21.2006</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">08.XX.2006</td><td align="right">08.XX.2006</td>
+      <td>Test Challenge Phase:</td><td align="right">08.22.2006</td><td align="right">08.23.2006</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">08.XX.2006</td><td align="right">08.XX.2006</td>
+      <td>Review Phase:</td><td align="right">08.24.2006</td><td align="right">09.07.2006</td>
+   </tr>
+   <tr>
+      <td>Feedback Phase:</td><td align="right">09.08.2006</td><td align="right">09.09.2006</td>
    </tr>
 </table>
 </div>
