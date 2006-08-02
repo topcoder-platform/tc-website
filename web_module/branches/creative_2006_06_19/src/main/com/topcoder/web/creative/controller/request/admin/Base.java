@@ -16,15 +16,22 @@ import java.text.SimpleDateFormat;
 public abstract class Base extends ShortHibernateProcessor {
 
     protected void loadEditContestData(Contest contest) {
+        if (contest == null) {
+            throw new IllegalArgumentException("null contest specified");
+        }
         getRequest().setAttribute("contest", contest);
         getRequest().setAttribute("docTypes", CreativeDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
 
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
-        setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
-                contest.getOverview().getValue());
-        setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
-                contest.getPrizeDescription().getValue());
+        if (contest.getOverview() != null) {
+            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.CONTEST_OVERVIEW_TEXT,
+                    contest.getOverview().getValue());
+        }
+        if (contest.getPrizeDescription() != null) {
+            setDefault(Constants.CONTEST_PROPERTY + ContestProperty.PRIZE_DESCRIPTION,
+                    contest.getPrizeDescription().getValue());
+        }
 
         setDefault(Constants.CONTEST_ID, contest.getId());
         setDefault(Constants.CONTEST_NAME, contest.getName());

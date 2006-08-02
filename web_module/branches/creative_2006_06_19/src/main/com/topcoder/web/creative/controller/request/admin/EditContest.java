@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 public class EditContest extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
+        //todo forum id
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
         String startTime = getRequest().getParameter(Constants.START_TIME);
