@@ -80,6 +80,7 @@ public class ResponsibilityFixUtility extends DBUtility {
                         log.debug(logDebug);
                         fixed = false;
                     }
+                    logDebug = "";
 
                     respList.clear();
                     respList.add("4");
