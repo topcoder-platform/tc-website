@@ -25,7 +25,7 @@ public class ResponsibilityFixUtility extends DBUtility {
     /**
      * This variable holds the start date to analyze.
      */
-    private String startDate = null;
+    //private String startDate = null;
 
     /**
      * This variable tells if only an analysis is wanted.
@@ -48,10 +48,10 @@ public class ResponsibilityFixUtility extends DBUtility {
             query = new StringBuffer(200);
             query.append("select project_id, r_user_role_v_id, r_resp_id, login_id from r_user_role where  ");
             query.append("r_role_id = 3 and cur_version = 1 and (r_resp_id is null or r_resp_id in (4, 5, 6)) ");
-            query.append("and modify_date > ? ");
+            //query.append("and modify_date > ? ");
             query.append("order by project_id, r_resp_id desc");
             psSel = prepareStatement("tcs_catalog", query.toString());
-            psSel.setString(1, startDate);
+            //psSel.setString(1, startDate);
 
             query = new StringBuffer(200);
             query.append("update r_user_role set r_resp_id = ? ");
@@ -127,11 +127,11 @@ public class ResponsibilityFixUtility extends DBUtility {
     protected void processParams() {
         super.processParams();
 
-        startDate = (String) params.get("startDate");
+/*        startDate = (String) params.get("startDate");
         if (startDate == null)
             setUsageError("Please specify a startDate.\n");
 
-        params.remove("startDate");
+        params.remove("startDate");*/
 
         onlyAnalyze = (String) params.get("onlyAnalyze");
         if (onlyAnalyze == null)
@@ -139,7 +139,7 @@ public class ResponsibilityFixUtility extends DBUtility {
 
         params.remove("onlyAnalyze");
 
-        log.debug("startDate : " + startDate);
+        //log.debug("startDate : " + startDate);
         log.debug("onlyAnalyze : " + onlyAnalyze);
     }
 
@@ -154,7 +154,7 @@ public class ResponsibilityFixUtility extends DBUtility {
         sErrorMsg.append("ResponsibilityFixUtility:\n");
         sErrorMsg.append("   The following parameters should be included in the XML or the command line");
         sErrorMsg.append("   -sourcedb URL : URL of source database.\n");
-        sErrorMsg.append("   -startDate : the start date to analyze..\n");
+        //sErrorMsg.append("   -startDate : the start date to analyze..\n");
         sErrorMsg.append("   -onlyAnalyze : wheter to just analyze without updates.\n");
         fatal_error();
     }
