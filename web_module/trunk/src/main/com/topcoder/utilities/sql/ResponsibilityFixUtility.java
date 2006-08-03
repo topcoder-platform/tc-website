@@ -121,6 +121,7 @@ public class ResponsibilityFixUtility extends DBUtility {
                             psUpd.setLong(2, rs.getLong("r_user_role_v_id"));
                             if (!onlyAnalyze.equalsIgnoreCase("true")) {
                                 psUpd.executeUpdate();
+                                logDebug += "r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Fixed with resp_id = " + rRespId + "\n";
                             } else {
                                 logDebug += "r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId + "\n";
                             }
