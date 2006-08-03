@@ -600,6 +600,8 @@ if (action != null) {
         //if (publicForum != null && publicForum.equalsIgnoreCase("on")) {
         if (publicForum != null && publicForum.equalsIgnoreCase("1")) {
             ver.setPublicForum(true);
+        } else {
+            ver.setPublicForum(false);
         }
   	    initialSubmissionDate = "01/01/2000";
         finalSubmissionDate =  initialSubmissionDate;
