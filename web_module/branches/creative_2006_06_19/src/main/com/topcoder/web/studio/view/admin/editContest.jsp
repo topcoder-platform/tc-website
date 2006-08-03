@@ -58,7 +58,7 @@
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
                     <br/></tc-webtag:errorIterator></span>
-    Contest Start: <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
+    Contest Start: (Eastern Time) <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
     <button id="trigger<%=Constants.START_TIME%>">Set</button>
 </p>
 
@@ -66,7 +66,7 @@
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
                     <br/></tc-webtag:errorIterator></span>
 
-    Contest End: <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
+    Contest End: (Eastern Time) <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
     <button id="trigger<%=Constants.END_TIME%>">Set</button>
 </p>
 
