@@ -153,88 +153,93 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     <button name="submit" value="submit" type="submit">Save</button>
 </p>
 
+
+</form>
+
+
 <c:if test="${contest!=null && !contest.new}">
     <p>
         Click
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">here</a>
         to see what the contest details page will look like (only saved changed will be viewable).
     </p>
-</c:if>
 
 
-</form>
+    <br/><br/>
 
-<br/><br/>
+    <div class="header">Prizes</div>
 
-<div class="header">Prizes</div>
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.PRIZE_PLACE%>"/>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemovePrize"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.PRIZE_PLACE%>"/>
+        <p>
+            <c:forEach items="${contest.prizes}" var="prize">
+                Place: ${prize.place} Prize: <fmt:formatNumber value="${prize.amount}" type="currency"/>
+                <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
+                    Remove</button>
+                <br/>
+            </c:forEach>
+        </p>
+    </form>
 
-    <p>
-        <c:forEach items="${contest.prizes}" var="prize">
-            Place: ${prize.place} Prize: <fmt:formatNumber value="${prize.amount}" type="currency"/>
-            <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
-                Remove</button>
-            <br/>
-        </c:forEach>
-    </p>
-</form>
+    <c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
+    <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-<c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
-<c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
-    <p>
+        <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
         <br/></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
             <br/></tc-webtag:errorIterator></span>
-        Place #: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
-        <button name="submit" value="submit" type="submit">Add</button>
-    </p>
-</form>
-<br/><br/>
+            Place #: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
+            <button name="submit" value="submit" type="submit">Add</button>
+        </p>
+    </form>
+    <br/><br/>
 
-<div class="header">Documentation</div>
+    <div class="header">Documentation</div>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
 
-    <p>
-        <c:forEach items="${contest.documents}" var="document">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                    ${document.originalFileName}</a>
-            <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">Remove</button>
-            <br/>
-        </c:forEach>
-    </p>
-</form>
+        <p>
+            <c:forEach items="${contest.documents}" var="document">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                        ${document.originalFileName}</a>
+                <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                    Remove</button>
+                <br/>
+            </c:forEach>
+        </p>
+    </form>
 
 
-<c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
-<c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm" enctype="multipart/form-data">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
+    <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm" enctype="multipart/form-data">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-    <p>
+        <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
         <br/></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
             <br/></tc-webtag:errorIterator></span>
-        <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
-        <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
-        Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask around
-        to get it added.
-    </p>
-</form>
+            <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
+            <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
+            Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
+            around
+            to get it added.
+        </p>
+    </form>
+
+</c:if>
 
 
 <jsp:include page="../foot.jsp"/>
