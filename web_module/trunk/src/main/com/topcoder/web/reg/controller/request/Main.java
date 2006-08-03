@@ -81,7 +81,7 @@ public class Main extends Base {
                     c.setUser(u);
                 }
                 if (u.getCoder() == null && (requestedTypes.contains(regTypeDAO.getCompetitionType()) ||
-                        requestedTypes.contains(regTypeDAO.getCreativeType()))) {
+                        requestedTypes.contains(regTypeDAO.getStudioType()))) {
                     //we'll make a coder record for creative people..at least for now.  perhaps in the future
                     //we'll have competitor table rather than a coder table
                     Coder c = new Coder();

@@ -60,9 +60,9 @@ public class RegistrationTypeDAOHibernate extends Base implements RegistrationTy
         return find(RegistrationType.SOFTWARE_ID);
     }
 
-    public RegistrationType getCreativeType() {
+    public RegistrationType getStudioType() {
         //todo perhaps we should cache this
-        return find(RegistrationType.CREATIVE_ID);
+        return find(RegistrationType.STUDIO_ID);
     }
 
 }
