@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -74,7 +75,7 @@
                     <br/></tc-webtag:errorIterator></span>
 
     Forum:
-    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="${requestScope[forums]}" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}" useTopValue="false"/>
+    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}" useTopValue="false"/>
 
 </p>
 
