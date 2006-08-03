@@ -67,8 +67,10 @@ public class ResponsibilityFixUtility extends DBUtility {
             for (int i = 1; rs.next(); i++ ) {
 
                 if (lastProject != rs.getLong("project_id")) {
-                    if (respList.size() > 0) {
-                        throw new Exception("Error!, not all responsibilities updated.");
+                    if (!skipProject) {
+                        if (respList.size() > 0) {
+                            throw new Exception("Error!, not all responsibilities updated.");
+                        }
                     }
 
                     respList.clear();

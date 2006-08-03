@@ -3,7 +3,6 @@
     <sourcesList>
         <source name = "tcs_catalog" value = "jdbc:informix-sqli://172.16.214.52:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
     </sourcesList>
-    <startDate>2006-06-05 03:15:08.000</startDate>
     <onlyAnalyze>true</onlyAnalyze>
     <parameterList>
     </parameterList>
