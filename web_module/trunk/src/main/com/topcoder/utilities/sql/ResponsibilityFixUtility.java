@@ -61,9 +61,9 @@ public class ResponsibilityFixUtility extends DBUtility {
             rs = psSel.executeQuery();
             long lastProject = 0;
             List  respList = new ArrayList();
+            log.debug("");
+            log.debug("-----------------------------------------------");
             for (int i = 1; rs.next(); i++ ) {
-                log.debug("");
-                log.debug("-----------------------------------------------");
 
                 if (lastProject != rs.getLong("project_id")) {
                     if (respList.size() > 0) {
