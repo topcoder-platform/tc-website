@@ -406,8 +406,8 @@ public class ComponentManagerBean
 
         // look for the public forum flag
         try {
-            log.debug("******************* versionId: " + bean.getVersion());
-            versionId = bean.getVersion();
+            versionId = ((Long) bean.getPrimaryKey()).longValue();
+            log.debug("******************* versionId: " + versionId);
             Forum f = getForum(Forum.SPECIFICATION);
 
             PrincipalMgrRemote principalManager = principalmgrHome.create();
