@@ -805,6 +805,8 @@ public class ComponentManagerBean
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
 
+        log.debug("****************************************============= public: " + info.getPublicForum());
+
 
         if (info == null) {
             throw new CatalogException(
