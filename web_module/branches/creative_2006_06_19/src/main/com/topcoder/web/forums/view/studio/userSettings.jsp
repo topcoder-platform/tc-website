@@ -92,7 +92,7 @@ function toggleTabs(anchor,id) {
 <input type="hidden" name="module" value="Settings" />
 <input type="hidden" name="section" value="gen" />
 <input type="hidden" name="status" value="save" />
-<table cellpadding="0" cellspacing="0" class="rtTable" style="width:100%;">
+<table cellpadding="0" cellspacing="0" class="rtTable">
    <tr id="bodyGen1">
         <td class="rtHeader" colspan="2">General Settings</td>
    </tr>
@@ -444,8 +444,10 @@ function toggleTabs(anchor,id) {
    </tr>
 </table>
 
-<div style="float:right;">
-<input type="image" src="/i/roundTables/save.gif" alt="Save"/>
+<div>
+   <div style="float:right;">
+   <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
+   </div>
 </div>
 <span id="infoRate">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 </form>
