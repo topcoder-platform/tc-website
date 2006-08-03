@@ -106,7 +106,7 @@ public class ResponsibilityFixUtility extends DBUtility {
                     if (!onlyAnalyze.equalsIgnoreCase("true")) {
                         psUpd.executeUpdate();
                     } else {
-                        log.debug("Would have assigned resp_id = " + rRespId);
+                        log.debug("r_user_role_v_id " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
                     }
                 }
             }
