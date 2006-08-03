@@ -64,7 +64,9 @@ public class ResponsibilityFixUtility extends DBUtility {
             List  respList = new ArrayList();
             log.debug("");
             log.debug("-----------------------------------------------");
+            String logDebug = "";
             boolean skipProject = false;
+            boolean fixed = false;
             for (int i = 1; rs.next(); i++ ) {
 
                 if (lastProject != rs.getLong("project_id")) {
@@ -74,6 +76,11 @@ public class ResponsibilityFixUtility extends DBUtility {
                         }
                     }
 
+                    if (fixed) {
+                        log.debug(logDebug);
+                        fixed = false;
+                    }
+
                     respList.clear();
                     respList.add("4");
                     respList.add("5");
@@ -81,7 +88,7 @@ public class ResponsibilityFixUtility extends DBUtility {
 
                     lastProject = rs.getLong("project_id");
 
-                    log.debug("Fixing project: " + lastProject);
+                    logDebug += "Fixing project: " + lastProject + "\n";
                     skipProject = false;
                 }
 
@@ -93,11 +100,12 @@ public class ResponsibilityFixUtility extends DBUtility {
                         }
 
                         respList.remove(rRespId);
-                        log.debug("Skipping resp_id = " + rRespId);
+                        //log.debug("Skipping resp_id = " + rRespId);
                     } else {
                         if (rs.getString("login_id") != null) {
-                            log.debug("Warning!, resp_id null, login_id not null! r_user_role_v_id: " + rs.getLong("r_user_role_v_id"));
-                            log.debug("Project skipped!");
+                            logDebug += "Warning!, resp_id null, login_id not null! r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + "\n";
+                            logDebug += "Project skipped!" + "\n";
+                            fixed = true;
                             skipProject = true;
                         } else {
 
@@ -114,8 +122,9 @@ public class ResponsibilityFixUtility extends DBUtility {
                             if (!onlyAnalyze.equalsIgnoreCase("true")) {
                                 psUpd.executeUpdate();
                             } else {
-                                log.debug("r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
+                                logDebug += "r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId + "\n";
                             }
+                            fixed = true;
                         }
                     }
                 }
