@@ -200,6 +200,10 @@
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
             <tr><td class="left">Last Name: </td><td class="right">
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="lastname" size="15"/></td></tr>
+	        <tr><td class="left">Max days since site sisit:</td><td class="right">
+    	        <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincevisit" size="5"/></td></tr>               
+            <tr><td class="left">Phone Number: </td><td class="right">
+                <tc-webtag:textInput onKeyPress="submitEnter(event)" name="phone" size="15"/></td></tr>
             <tr><td class="left">Zipcode: </td><td class="right">
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="zipcode" size="5"/></td></tr>
             <tr><td class="left">City: </td><td class="right">
@@ -241,9 +245,13 @@
         <tr><td class="left">Algorithm Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxrating" size="5"/></td></tr>
+        <tr><td class="left">Max days since design competition:</td><td class="right">
+            <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincedes" size="5"/></td></tr>
         <tr><td class="left">Design Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindesrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdesrating" size="5"/></td></tr>
+        <tr><td class="left">Max days since development competition:</td><td class="right">
+            <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincedev" size="5"/></td></tr>
         <tr><td class="left">Dev. Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindevrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdevrating" size="5"/></td></tr>
