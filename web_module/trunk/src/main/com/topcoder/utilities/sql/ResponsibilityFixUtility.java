@@ -49,7 +49,7 @@ public class ResponsibilityFixUtility extends DBUtility {
             query.append("select project_id, r_user_role_v_id, r_resp_id, login_id from r_user_role where  ");
             query.append("r_role_id = 3 and cur_version = 1 and (r_resp_id is null or r_resp_id in (4, 5, 6)) ");
             //query.append("and modify_date > ? ");
-            query.append("and project_id in (22894700) ");
+            //query.append("and project_id in (22894700) ");
             query.append("order by project_id, r_resp_id desc");
             psSel = prepareStatement("tcs_catalog", query.toString());
             //psSel.setString(1, startDate);
