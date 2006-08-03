@@ -38,7 +38,7 @@
             <div align="left" style="width:500px;">
                 Thank you for accepting the terms of the contest. Please use the form below to upload your submission:
                 <br><br>
-                The maximum file size per submission is 2MB.
+                The maximum file size per submission is 2MB and it must be a PDF.
                 <br><br>
 
                 <div align="center">
