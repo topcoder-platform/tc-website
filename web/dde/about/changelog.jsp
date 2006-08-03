@@ -62,7 +62,7 @@
 <tr><td align="left" colspan="2" class="bodyText">
     <H3>TopCoder Software Web Site Change Log</H3>
     <p>
-        1.0.3 - 2006.08.XX
+        1.0.3 - 2006.08.03
         <ul>
             <li>RBoard registration bug fixed</li>
             <li>Added default responsibilities for design project's reviewers roles</li>
