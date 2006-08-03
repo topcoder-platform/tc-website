@@ -1602,6 +1602,10 @@ public class ProjectTrackerBean implements SessionBean {
             // Create user roles for project
             log.debug("Creating user roles");
             long revRespId = 1;
+            if (projectTypeId == ProjectType.ID_DESIGN) {
+                revRespId = 4;
+            }
+
             // TODO Change to references
             ps = conn.prepareStatement(
                     "INSERT INTO r_user_role "
@@ -1623,8 +1627,8 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setNull(4, Types.DECIMAL);
                     ps.setLong(5, paymentInfoIdArr[i]);
                 }
-                if (roleIdArr[i] == Role.ID_REVIEWER &&
-                        projectTypeId == ProjectType.ID_DEVELOPMENT) {
+                // change: save responsibility default for both development and design.
+                if (roleIdArr[i] == Role.ID_REVIEWER) {
                     ps.setLong(6, revRespId++);
                 } else {
                     ps.setNull(6, Types.DECIMAL);
