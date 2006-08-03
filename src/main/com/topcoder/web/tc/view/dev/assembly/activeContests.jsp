@@ -79,10 +79,8 @@
       08.21.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <%--
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506082">join a team</A>
       <br>
-      --%>
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23128845">discuss</A>
       </td>
    </tr>
@@ -117,10 +115,8 @@
       08.21.2006 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
-      <%--
-      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506064">join a team</A>
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506083">join a team</A>
       <br>
-      --%>
       <A href="https://software.topcoder.com/forum/c_forum.jsp?f=23128806">discuss</A>
       </td>
    </tr>
