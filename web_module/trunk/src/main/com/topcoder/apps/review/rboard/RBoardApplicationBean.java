@@ -301,11 +301,11 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            // gets project info
+            // gets project info.
             Map projectInfo = getProjectInfo(projectId, conn);
             String prefix = buildPrefix(projectInfo);
 
-            // gets UserRole info (First reviewer)
+            // gets UserRole info.
             ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
                     + "FROM r_user_role WHERE project_id = ? and login_id is null and cur_version = 1");
             ps.setLong(1, projectId);
@@ -334,8 +334,10 @@ public class RBoardApplicationBean extends BaseEJB {
                 long rUserRoleId = rs.getLong("r_user_role_id");
                 long rRoleId = rs.getLong("r_role_id");
                 long paymentInfoId = rs.getLong("payment_info_id");
+                long rRespId = rs.getLong("r_resp_id");
 
-                if (rRoleId == REVIEWER_ROLE_ID && !reviewerInserted) {
+                if (rRoleId == REVIEWER_ROLE_ID && !reviewerInserted &&
+                        reviewRespId == rRespId) {
                     // insert new UserRole
                     insertUserRole(conn, rUserRoleVId, userId, projectId, reviewRespId,
                             rUserRoleId, rRoleId, paymentInfoId);
