@@ -1751,8 +1751,8 @@
     </target>
 
 
-    <target name="build-creative-forums" depends="">
-        <antcall target="war-creative-forums"/>
+    <target name="build-studio-forums" depends="">
+        <antcall target="war-studio-forums"/>
         <antcall target="package-TCUser"/>
         <antcall target="package-TCAuth"/>
         <antcall target="package-TCFilters"/>
@@ -1760,14 +1760,19 @@
         <antcall target="package-EJB-ForumsBean"/>
     </target>
 
-    <target name="war-creative-forums" depends="compile_forums">
-        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/creative/web.xml">
-            <fileset dir="${java}/com/topcoder/web/forums/view/creative">
+    <target name="war-studio-forums" depends="compile_forums">
+        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/studio/web.xml">
+            <fileset dir="${java}/com/topcoder/web/forums/view/studio">
                 <include name="*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
-                <!-- included Creative jsps here -->
+            	<include name="style.jsp"/>
+            </fileset>
+        	<fileset dir="${java}/com/topcoder/web/studio/view">
+                <include name="top.jsp"/>
+            	<include name="left.jsp"/>
+        		<include name="foot.jsp"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/common/web/util/Conversion.class"/>
@@ -1782,20 +1787,20 @@
                 <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/web/forums/controller/*.class"/>
                 <include name="com/topcoder/web/forums/controller/request/*.class"/>
-                <include name="com/topcoder/web/forums/controller/request/creative/*.class"/>
+                <include name="com/topcoder/web/forums/controller/request/studio/*.class"/>
                 <include name="com/topcoder/web/forums/model/**/*.class"/>
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
                 <include name="com/topcoder/web/forums/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
-            <classes dir="${resources}/forums/creative">
+            <classes dir="${resources}/forums/studio">
                 <include name="jive_init.xml"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
             </webinf>
-            <webinf dir="${resources}/forums/creative">
+            <webinf dir="${resources}/forums/studio">
                 <include name="jboss-web.xml"/>
             </webinf>
             <lib dir="${jars.dir}">
