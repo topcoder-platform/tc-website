@@ -1,10 +1,8 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-
 import com.topcoder.web.common.dao.PreferenceDAO;
 import com.topcoder.web.common.model.Preference;
+import org.hibernate.Query;
 
 /**
  * @author cucu
@@ -13,21 +11,13 @@ import com.topcoder.web.common.model.Preference;
  */
 public class PreferenceDAOHibernate extends Base implements PreferenceDAO {
 
-    public PreferenceDAOHibernate() {
-        super();
-    }
-
-    public PreferenceDAOHibernate(Session session) {
-        super(session);
-    }
-
-    public Preference find(Long id) {
+    public Preference find(Integer id) {
         return (Preference) find(Preference.class, id);
     }
-    
+
     public Preference find(String name) {
-    	Query q = session.createQuery("from Preference p where p.name='" + name + "'");
-    	return (Preference) q.uniqueResult();
+        Query q = session.createQuery("from Preference p where p.name='" + name + "'");
+        return (Preference) q.uniqueResult();
     }
 
 

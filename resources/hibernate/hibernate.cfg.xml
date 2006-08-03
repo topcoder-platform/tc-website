@@ -6,19 +6,17 @@
 <hibernate-configuration>
 
     <!--
-        <session-factory>
+            <session-factory>
+                <property name="connection.username">coder</property>
+                <property name="connection.password">altec</property>
+                <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
+                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
     -->
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
         <!-- for testing-->
-        <!--
-                <property name="connection.username">coder</property>
-                <property name="connection.password">altec</property>
-                <property name="connection.url">jdbc:informix-sqli://65.112.118.221:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
-                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
-        -->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
@@ -57,13 +55,15 @@
         <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>        
-        <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/PreferenceGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
@@ -77,7 +77,7 @@
         <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>        
+        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

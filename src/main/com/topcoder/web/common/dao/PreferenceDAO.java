@@ -9,8 +9,8 @@ import com.topcoder.web.common.model.Preference;
  */
 public interface PreferenceDAO {
 
-    Preference find(Long id);
-    
+    Preference find(Integer id);
+
     Preference find(String name);
 
 

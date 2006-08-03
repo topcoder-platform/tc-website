@@ -8,10 +8,14 @@
     <class name="Preference" table="preference_lu" mutable="false">
         <id name="id" column="preference_id" access="field"/>
 
-        <property name="name" column="preference_name" access="field" />
-        <property name="desc" column="preference_desc" access="field" />
-        <property name="preferenceTypeId" column="preference_type_id" access="field" />
-        
-
+        <property name="name" column="preference_name" access="field"/>
+        <property name="description" column="preference_desc" access="field"/>
+        <property name="sort" column="sort_order" access="field"/>
+        <many-to-one name="type" column="preference_type_id" class="PreferenceType" access="field"/>
+        <many-to-one name="group" column="preference_group_id" class="PreferenceGroup" access="field"/>
+        <set name="values" inverse="true" access="field" sort="natural">
+            <key column="preference_id" not-null="true"/>
+            <one-to-many class="PreferenceValue"/>
+        </set>
     </class>
 </hibernate-mapping>

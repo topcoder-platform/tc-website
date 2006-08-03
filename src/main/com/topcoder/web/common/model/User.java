@@ -342,7 +342,7 @@ public class User extends Base {
         userPreferences.add(userPreference);
     }
 
-    public UserPreference getUserPreference(Long preferenceId) {
+    public UserPreference getUserPreference(Integer preferenceId) {
         for (Iterator it = userPreferences.iterator(); it.hasNext();) {
             UserPreference up = (UserPreference) it.next();
             if (up.getId().getPreference().getId().equals(preferenceId)) {

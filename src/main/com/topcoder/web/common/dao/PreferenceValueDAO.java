@@ -1,18 +1,18 @@
 package com.topcoder.web.common.dao;
 
-import java.util.List;
-
 import com.topcoder.web.common.model.PreferenceValue;
+
+import java.util.List;
 
 /**
  * @author cucu
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: July 6, 2006
  */
-public interface PreferenceValueDAO  {
+public interface PreferenceValueDAO {
 
-    PreferenceValue find(Long id);
-    
-    List findForPreference(Long preferenceId);
+    PreferenceValue find(Integer id);
+
+    List findForPreference(Integer preferenceId);
 
 }
