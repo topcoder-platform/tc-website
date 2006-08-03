@@ -62,7 +62,14 @@
 <tr><td align="left" colspan="2" class="bodyText">
     <H3>TopCoder Software Web Site Change Log</H3>
     <p>
-        1.0.2 - 2006.XX.XX
+        1.0.3 - 2006.08.XX
+        <ul>
+            <li>RBoard registration bug fixed</li>
+            <li>Added default responsibilities for design project's reviewers roles</li>
+        </ul>
+    </p>
+    <p>
+        1.0.2 - 2006.07.31
         <ul>
             <li>AOL logo added to TCS pages</li>
             <li>Reviewers automatic payment population fixed</li>
