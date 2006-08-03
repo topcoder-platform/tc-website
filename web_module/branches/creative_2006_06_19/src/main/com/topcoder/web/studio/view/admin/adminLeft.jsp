@@ -12,6 +12,7 @@
 
     SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     NavTree nav = new NavTree();
+    nav.addRoot(new NavNode(sessionInfo.getServletPath(), "TC Studio Home", "home"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests", "Contests", "contests"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContest", "Create Contest", "create_contest"));
     request.setAttribute("tree", nav);
