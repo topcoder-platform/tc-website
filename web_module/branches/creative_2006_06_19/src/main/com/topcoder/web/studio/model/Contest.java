@@ -4,7 +4,10 @@ import com.topcoder.web.common.model.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author dok
@@ -17,7 +20,7 @@ public class Contest extends Base {
     private Timestamp startTime;
     private Timestamp endTime;
     private Set config = new HashSet();
-    private SortedSet prizes = new TreeSet();
+    private Set prizes = new TreeSet();
     private Set documents = new HashSet();
     private ContestStatus status;
     private Integer forumId;
@@ -62,11 +65,11 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public SortedSet getPrizes() {
+    public Set getPrizes() {
         return prizes;
     }
 
-    public void setPrizes(SortedSet prizes) {
+    public void setPrizes(Set prizes) {
         this.prizes = prizes;
     }
 
