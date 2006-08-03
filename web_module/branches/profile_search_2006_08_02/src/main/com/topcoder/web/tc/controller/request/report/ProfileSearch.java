@@ -151,8 +151,7 @@ public class ProfileSearch extends Base {
                 headers.add("School");
             }
             
-            if (daysVisit != null && daysVisit.length() > 0) {
-            
+            if (daysVisit != null && daysVisit.length() > 0) {            
             	query.append("  , (select date(current) - date(last_site_hit_date) from user where user_id = c.coder_id) as days_since_visit\n");
             	headers.add("Days Since Visit");
             }
@@ -160,7 +159,7 @@ public class ProfileSearch extends Base {
             query.append("  , r.rating as Algorithm_Rating\n");
             query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
             query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");            
-            query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id) as email\n");
+            query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id and primary_ind=1) as email\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where n.note_type_id = 5 and unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
@@ -271,7 +270,9 @@ public class ProfileSearch extends Base {
         if (phone != null && phone.length() > 0) {
         	query.append(" AND EXISTS (select 1 from phone where user_id=c.coder_id " + stringMatcher(phone, "phone_number", false) + ") ");
         }
-        
+        if (daysVisit != null && daysVisit.length() > 0) {            
+        	query.append(" AND (select date(current) - date(last_site_hit_date) from user where user_id = c.coder_id) < " + daysVisit);
+        }
         for (int i = 0; i < constraints.size(); i++) {
             query.append("    AND ");
             query.append(constraints.get(i));

@@ -200,7 +200,7 @@
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
             <tr><td class="left">Last Name: </td><td class="right">
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="lastname" size="15"/></td></tr>
-	        <tr><td class="left">Max days since site sisit:</td><td class="right">
+	        <tr><td class="left">Max days since site visit:</td><td class="right">
     	        <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincevisit" size="5"/></td></tr>               
             <tr><td class="left">Phone Number: </td><td class="right">
                 <tc-webtag:textInput onKeyPress="submitEnter(event)" name="phone" size="15"/></td></tr>
