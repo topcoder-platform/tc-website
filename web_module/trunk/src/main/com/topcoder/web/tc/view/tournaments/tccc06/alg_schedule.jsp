@@ -27,14 +27,14 @@
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
 <span class="bodySubtitle">Registration</span><br>
-Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 18, and will close at 6:00PM EDT on Tuesday, September 12, 2006. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
+Registration for the 2006 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EDT on Monday, August 28, and will close at 6:00PM EDT on Tuesday, September 12, 2006. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
 <br><br>
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr valign="top">
       <td class="sidebarTitle" width="25%">Registration</td>
       <td class="sidebarTitle" width="75%">
-         OPENS: Monday, August 18, 2006 9:00AM EDT<br /><br/>
-         CLOSES: Tuesday, September 12, 2006 6:00PM EDT
+         OPENS: Monday, August 28, 2006 9:00 AM EDT<br /><br/>
+         CLOSES: Tuesday, September 12, 2006 6:00 PM EDT
       </td>
    </tr>
 </table>
@@ -79,7 +79,7 @@ There will be three Qualification Rounds available for those registered for the 
    </tr>
    <tr valign="top">
       <td class="sidebarText" nowrap="nowrap" colspan="4">
-      * NOTE: All times are Eastern Daylight Time (UTC/GMT -4).  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.
+      * NOTE: All times are Eastern Daylight Time (UTC/GMT -4). Click the times to find what time coding begins in other times zones. In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.
       </td>
    </tr>
 </table>
