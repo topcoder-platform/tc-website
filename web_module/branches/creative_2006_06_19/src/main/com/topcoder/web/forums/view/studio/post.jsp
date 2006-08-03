@@ -32,9 +32,12 @@
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
       <jsp:include page="searchHeader.jsp" />
     </td>
+    <td align="right" nowrap="nowrap" valign="top">
+        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+    </td>
 </tr>
 <tr>
-   <td colspan="2" style="padding-bottom:3px;"><strong>
+   <td colspan="3" style="padding-bottom:3px;"><strong>
       <A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >
       <A href="?module=Category&categoryID=13&mc=68059" class="rtbcLink">Round Tables</A> >
       <A href="?module=ThreadList&forumID=244237&mc=10360" class="rtbcLink">General Discussion</A> >
@@ -70,7 +73,7 @@
       </td>
    </tr>
    <tr>
-      <td class="rtFooter"><input src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'" type="image"><input src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'" type="image"></td>
+      <td class="rtFooter" colspan="2"><input src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'" type="image"><input src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'" type="image"></td>
    </tr>
 </tbody>
 </table>
