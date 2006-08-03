@@ -306,7 +306,7 @@ public class RBoardApplicationBean extends BaseEJB {
             String prefix = buildPrefix(projectInfo);
 
             // gets UserRole info.
-            ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id "
+            ps = conn.prepareStatement("SELECT r_user_role_v_id, r_user_role_id, r_role_id, payment_info_id, r_resp_id "
                     + "FROM r_user_role WHERE project_id = ? and login_id is null and cur_version = 1");
             ps.setLong(1, projectId);
             rs = ps.executeQuery();
