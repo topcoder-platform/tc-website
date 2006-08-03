@@ -87,35 +87,34 @@ public class ResponsibilityFixUtility extends DBUtility {
                 if (!skipProject) {
                     String rRespId = rs.getString("r_resp_id");
                     if (rRespId != null) {
-                        if (rs.getString("login_id") == null) {
+                        if (!respList.contains(rRespId)) {
+                            throw new Exception("Error!, resp_id already used: " + rRespId);
+                        }
+
+                        respList.remove(rRespId);
+                        log.debug("Skipping resp_id = " + rRespId);
+                    } else {
+                        if (rs.getString("login_id") != null) {
                             log.debug("Warning!, resp_id null, login_id not null! r_user_role_v_id: " + rs.getLong("r_user_role_v_id"));
                             log.debug("Project skipped!");
                             skipProject = true;
-                        }
+                        } else {
 
-                        if (!skipProject) {
-                            if (!respList.contains(rRespId)) {
-                                throw new Exception("Error!, resp_id already used: " + rRespId);
+                            if (respList.size() == 0) {
+                                throw new Exception("Error!, no resp_id left.");
                             }
 
+                            rRespId = (String)respList.get(0);
                             respList.remove(rRespId);
-                            log.debug("Skipping resp_id = " + rRespId);
-                        }
-                    } else {
-                        if (respList.size() == 0) {
-                            throw new Exception("Error!, no resp_id left.");
-                        }
 
-                        rRespId = (String)respList.get(0);
-                        respList.remove(rRespId);
-
-                        psUpd.clearParameters();
-                        psUpd.setString(1, rRespId);
-                        psUpd.setLong(2, rs.getLong("r_user_role_v_id"));
-                        if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                            psUpd.executeUpdate();
-                        } else {
-                            log.debug("r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
+                            psUpd.clearParameters();
+                            psUpd.setString(1, rRespId);
+                            psUpd.setLong(2, rs.getLong("r_user_role_v_id"));
+                            if (!onlyAnalyze.equalsIgnoreCase("true")) {
+                                psUpd.executeUpdate();
+                            } else {
+                                log.debug("r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
+                            }
                         }
                     }
                 }
