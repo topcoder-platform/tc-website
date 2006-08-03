@@ -88,7 +88,7 @@ public class ResponsibilityFixUtility extends DBUtility {
                     String rRespId = rs.getString("r_resp_id");
                     if (rRespId != null) {
                         if (rs.getString("login_id") == null) {
-                            log.debug("Warning!, resp_id null, login_id not null.");
+                            log.debug("Warning!, resp_id null, login_id not null! r_user_role_v_id: " + rs.getLong("r_user_role_v_id"));
                             log.debug("Project skipped!");
                             skipProject = true;
                         }
@@ -115,7 +115,7 @@ public class ResponsibilityFixUtility extends DBUtility {
                         if (!onlyAnalyze.equalsIgnoreCase("true")) {
                             psUpd.executeUpdate();
                         } else {
-                            log.debug("r_user_role_v_id " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
+                            log.debug("r_user_role_v_id: " + rs.getLong("r_user_role_v_id") + " Would have assigned resp_id = " + rRespId);
                         }
                     }
                 }
