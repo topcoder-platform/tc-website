@@ -426,13 +426,13 @@ public class ComponentManagerBean
             PolicyMgrRemote policyManager = policymgrHome.create();
             PermissionCollection perms = policyManager.getPermissions(userRole, null);
 
-            ForumPostPermission forumPerm = new ForumPostPermission(forumId);
+            GenericPermission forumPerm = new GenericPermission((new ForumPostPermission(forumId)).getName());
 
             log.debug("Looking for: " + forumPerm.getName());
             for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
                 Object itNext = it.next();
-                if (itNext instanceof ForumPostPermission) {
-                    ForumPostPermission itForum = (ForumPostPermission) itNext;
+                if (itNext instanceof GenericPermission) {
+                    GenericPermission itForum = (GenericPermission) itNext;
                     log.debug("Found: " + itForum.getName());
                     if (itForum.equals(forumPerm)) {
                         log.debug("Forum is public");
