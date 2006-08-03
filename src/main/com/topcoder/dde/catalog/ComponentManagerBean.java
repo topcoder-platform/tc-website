@@ -406,9 +406,23 @@ public class ComponentManagerBean
 
         // look for the public forum flag
         try {
+            long forumId = 0;
             versionId = ((Long) bean.getPrimaryKey()).longValue();
             log.debug("******************* versionId: " + versionId);
-            Forum f = getForum(Forum.SPECIFICATION);
+
+            Iterator forumIterator;
+            try {
+                forumIterator = compforumHome.
+                        findByCompVersIdAndType(versionId, Forum.SPECIFICATION).iterator();
+            } catch (FinderException impossible) {
+                throw new CatalogException("Could not find forum: " + impossible.toString());
+            }
+            if (forumIterator.hasNext()) {
+                forumId = ((LocalDDECompForumXref)
+                        forumIterator.next()).getForumId();
+            } else {
+                throw new CatalogException("Could not find forum");
+            }
 
             PrincipalMgrRemote principalManager = principalmgrHome.create();
             RolePrincipal userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
@@ -416,7 +430,7 @@ public class ComponentManagerBean
             PolicyMgrRemote policyManager = policymgrHome.create();
             PermissionCollection perms = policyManager.getPermissions(userRole, null);
 
-            ForumPostPermission forumPerm = new ForumPostPermission(f.getId());
+            ForumPostPermission forumPerm = new ForumPostPermission(forumId);
             log.debug("Looking for: " + forumPerm.getName());
             for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
                 ForumPostPermission itForum = (ForumPostPermission)it.next();
@@ -427,19 +441,15 @@ public class ComponentManagerBean
                 }
             }
         } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
             throw new CatalogException(
                 "Failed to obtain configuration data: " + exception.toString());
         } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
             throw new CatalogException(
                 "Failed to read forum public: " + exception.toString());
         } catch (GeneralSecurityException exception) {
-            ejbContext.setRollbackOnly();
             throw new CatalogException(
                 "Failed to read forum public: " + exception.toString());
         } catch (RemoteException exception) {
-            ejbContext.setRollbackOnly();
             throw new EJBException(exception.toString());
         }
 
