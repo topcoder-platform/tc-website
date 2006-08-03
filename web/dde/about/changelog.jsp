@@ -66,6 +66,7 @@
         <ul>
             <li>RBoard registration bug fixed</li>
             <li>Added default responsibilities for design project's reviewers roles</li>
+            <li>Fixed component version admin page to load the public forum flag</li>
         </ul>
     </p>
     <p>
