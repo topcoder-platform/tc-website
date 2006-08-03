@@ -194,7 +194,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <br/></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
             <br/></tc-webtag:errorIterator></span>
-        Place: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
+        Place #: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
         <button name="submit" value="submit" type="submit">Add</button>
     </p>
 </form>
@@ -231,6 +231,8 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             <br/></tc-webtag:errorIterator></span>
         <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
         <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
+        Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask around
+        to get it added.
     </p>
 </form>
 
