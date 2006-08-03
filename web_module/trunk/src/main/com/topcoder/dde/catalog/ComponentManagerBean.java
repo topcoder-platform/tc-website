@@ -404,7 +404,7 @@ public class ComponentManagerBean
         try {
             long forumId = 0;
             versionId = ((Long) bean.getPrimaryKey()).longValue();
-            log.debug("******************* versionId: " + versionId);
+            log.debug("versionId: " + versionId);
 
             Iterator forumIterator;
             try {
@@ -430,7 +430,6 @@ public class ComponentManagerBean
                     Object itNext = it.next();
                     if (itNext instanceof GenericPermission) {
                         GenericPermission itForum = (GenericPermission) itNext;
-                        //log.debug("Found: " + itForum.getName());
                         if (itForum.equals(forumPerm)) {
                             log.debug("Forum is public");
                             cvi.setPublicForum(true);
@@ -805,7 +804,7 @@ public class ComponentManagerBean
     public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
             throws CatalogException {
 
-        log.debug("****************************************============= public: " + info.getPublicForum());
+        log.debug("public: " + info.getPublicForum());
 
 
         if (info == null) {
