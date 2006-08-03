@@ -87,7 +87,7 @@ public class EditContest extends Base {
                 ResultSetContainer.ResultSetRow row;
                 for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
-                    found = row.getLongItem("forumId") == fid;
+                    found = row.getLongItem("forum_id") == fid;
                 }
                 if (!found) {
                     addError(Constants.FORUM_ID, "Please choose a valid forum");
