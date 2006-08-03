@@ -161,7 +161,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     <p>
         Click
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}" target="_blank">here</a>
-        to see what the contest details page will look like (only saved changed will be viewable).
+        to see what the contest details page will look like.
     </p>
 
 
