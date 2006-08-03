@@ -178,7 +178,8 @@ public class EditContest extends Base {
             }
             markForCommit();
 
-            setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=AdminViewContests");
+            setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
+                    "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
             setIsNextPageInContext(false);
         }
 
