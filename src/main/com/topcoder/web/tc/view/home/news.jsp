@@ -16,7 +16,7 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">learn more</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">sign up</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506084" message="discuss this" />&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">discuss this</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
