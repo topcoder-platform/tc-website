@@ -22,7 +22,7 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
          
-<span class="bigTitle">Algorithm Competition Schedule</span>
+<span class="bigTitle">Algorithm Competition Schedule*</span>
 <br><br>
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
@@ -79,7 +79,7 @@ There will be three Qualification Rounds available for those registered for the 
    </tr>
    <tr valign="top">
       <td class="sidebarText" nowrap="nowrap" colspan="4">
-      * NOTE: All times are Eastern Daylight Time (UTC/GMT -4). Click the times to find what time coding begins in other times zones. In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.
+      * NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.
       </td>
    </tr>
 </table>
@@ -165,12 +165,13 @@ There will be three Qualification Rounds available for those registered for the 
 
    <tr valign="top">
       <td class="sidebarText" colspan="4">
-      * NOTE:  All times are Eastern Daylight Time (GMT -4).  In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br>
+      * NOTE:  All times are Eastern Daylight Time (GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br>
       ** If less than 1,500 competitors qualify to compete in Online Round #1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
    </tr>
 </table>
 <br><br>
-<p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span></p>
+<span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span>
+<br><br>
 <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle" width="20%">Round</td>
@@ -232,7 +233,17 @@ There will be three Qualification Rounds available for those registered for the 
       </td>
    </tr>
 </table>
-
+<br><br>
+<span class="bodySubtitle">* Find start times in your time zone</span><br>
+Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone.
+<br><br>
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=7&min=0&sec=0&p1=179">7:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=9&min=0&sec=0&p1=179">9:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=13&min=0&sec=0&p1=179">1:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=14&min=30&sec=0&p1=179">2:30 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=16&min=0&sec=0&p1=179">4:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=18&min=0&sec=0&p1=179">6:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=21&min=0&sec=0&p1=179">9:00 PM</A>
       </div>
       </td>
       
