@@ -8,6 +8,20 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.03.06<br>12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Assembly Competition prizes top five figures</A></span><br><br>
+      This week's Assembly Competitions feature some of the biggest prizes in recent TopCoder history, with two top prizes of $10,000 and a total prize pool of $30,000.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=overview">learn more</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">sign up</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506084" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>08.02.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       Downtime for scheduled maintenance: 08.03
@@ -180,19 +194,6 @@ Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed hi
        <A href="/tc?module=Static&d1=match_editorials&d2=srm312">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="505987" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.20.06<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">Want to be a Student Representative for the TCCC06?</A></span><br><br>
-      Find out more details about how to become a Student Representative at your school, and how to get flyers to help you promote the Tournament.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=student_reps">details</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
