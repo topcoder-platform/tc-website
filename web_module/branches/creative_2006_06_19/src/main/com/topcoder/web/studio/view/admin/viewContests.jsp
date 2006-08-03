@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -60,9 +61,11 @@
                             <td class="value">${contest.name}</td>
                             <td class="value">${contest.status.description}</td>
                             <td class="valueC">
-                                <fmt:formatDate value="${contest.startTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
+                                <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                            </td>
                             <td class="valueC">
-                                <fmt:formatDate value="${contest.endTime}" pattern="<%=Constants.JAVA_DATE_FORMAT%>"/></td>
+                                <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                            </td>
                         </tr>
                     </c:forEach>
 
