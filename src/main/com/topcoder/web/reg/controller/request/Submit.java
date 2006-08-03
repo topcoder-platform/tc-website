@@ -62,11 +62,12 @@ public class Submit extends Base {
                 RegistrationType hs = dao.getHighSchoolType();
                 RegistrationType corp = dao.getCorporateType();
                 RegistrationType min = dao.getMinimalType();
+                RegistrationType studio = dao.getStudioType();
 
 
                 closeConversation();
                 try {
-                    sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min);
+                    sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio);
                 } catch (Exception e) {
                     //we don't want whatever happened to affect the registration.
                     e.printStackTrace();
