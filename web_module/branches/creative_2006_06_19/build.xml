@@ -1792,6 +1792,7 @@
                 <include name="com/topcoder/web/forums/util/**/*.class"/>
                 <include name="com/topcoder/web/forums/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
+            	<include name="com/topcoder/web/studio/Constants.class"/>
             </classes>
             <classes dir="${resources}/forums/studio">
                 <include name="jive_init.xml"/>

@@ -67,7 +67,7 @@
 
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
-        <url-pattern>/forums</url-pattern>
+        <url-pattern>/forums/</url-pattern>
     </servlet-mapping>
 
     <error-page>
