@@ -24,7 +24,7 @@ public class RegistrationType extends Base {
     public static final Integer HIGH_SCHOOL_ID = new Integer(3);
     public static final Integer MINIMAL_ID = new Integer(4);
     public static final Integer SOFTWARE_ID = new Integer(5);
-    public static final Integer CREATIVE_ID = new Integer(6);
+    public static final Integer STUDIO_ID = new Integer(6);
 
     protected RegistrationType() {
         this.notifications = new HashSet();
