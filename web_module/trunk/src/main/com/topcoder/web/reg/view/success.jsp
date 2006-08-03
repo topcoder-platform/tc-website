@@ -167,6 +167,24 @@
     <br><br>
 </c:if>
 
+<c:set value="<%=RegistrationType.STUDIO_ID%>" var="studio"/>
+<c:if test="${cf:contains(requestScope[regTypes], studio)}">
+    <div class="regHead">As a Registered TopCoder Studio Member</div>
+    <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
+        <tr>
+            <td class="image">
+                <A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/registration/corporate.jpg" alt="" border="0" style="border-bottom: 1px solid #999999;border-left: 1px solid #999999;border-right: 1px solid #999999;"/></A>
+            </td>
+            <td class="text" width="100%">
+                As a TopCoder Studio member you now have access to all
+                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">TopCoder Studio forums</a>. Enjoy.
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+</c:if>
+
 <div class="regHead">As a Registered TopCoder Member</div>
 <table cellpadding="0" cellspacing="0" border="0" class="whatToDo" style="width:400px; margin-right: 200px;">
     <tr>
