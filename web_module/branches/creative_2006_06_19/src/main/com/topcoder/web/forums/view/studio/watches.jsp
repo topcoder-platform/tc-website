@@ -66,8 +66,8 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
    <tr>
       <td class="rtThreadCellWrap"><a href="?module=Message&amp;messageID=553806" class="rtLinkOld">bmp files</a></td>
       <td class="rtThreadCell"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=15062676" class="coderText">sinn_md</a></td>
-      <td class="rtThreadCell" align="right">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">43&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="rtThreadCell" align="right">2</td>
+      <td class="rtThreadCell" align="right">43</td>
       <td class="rtThreadCell"><b>Aug 3, 2006 3:43 PM</b></td>
       <td class="rtThreadCell"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=21183970" class="coderText">ulzha</a></td>
       <td class="rtThreadCell" align="center"><input name="save512375" value="512375" onclick="Javascript:document.form1.delete512375.checked=false;" type="checkbox"></td>
