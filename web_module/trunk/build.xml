@@ -55,7 +55,7 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
-        
+
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -1634,12 +1634,10 @@
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
                 <include name="Address.jar"/>
-                <include name="Catalog.jar"/>
                 <include name="Coder.jar"/>
                 <include name="CoderSkill.jar"/>
                 <include name="CollegeTour.jar"/>
                 <include name="ComponentRegistrationServices.jar"/>
-                <include name="ddepersistence.jar"/>
                 <include name="Email.jar"/>
                 <include name="FileConversion.jar"/>
                 <include name="Image.jar"/>
@@ -1658,7 +1656,6 @@
                 <include name="ResumeServices.jar"/>
                 <include name="Survey.jar"/>
                 <include name="User.jar"/>
-                <include name="user.jar"/>
                 <!--
                                  <include name="UserEvent.jar"/>
                 -->
