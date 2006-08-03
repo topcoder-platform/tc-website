@@ -671,6 +671,7 @@ if (action != null) {
                     }
                 }
             }
+            log.debug("------------================ JSP, Public: " + ver.getPublicForum());
             componentManager.updateVersionInfo(ver, tcSubject, levelId);
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
