@@ -406,6 +406,7 @@ public class ComponentManagerBean
 
         // look for the public forum flag
         try {
+            log.debug("******************* versionId: " + bean.getVersion());
             versionId = bean.getVersion();
             Forum f = getForum(Forum.SPECIFICATION);
 
