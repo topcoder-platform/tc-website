@@ -97,10 +97,12 @@
       <td class="sidebarText">N/A</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText" colspan="4">* Eastern Standard Time (GMT -5)<br>** Eastern Daylight Time (GMT -4)</td>
+      <td class="sidebarText" colspan="4">* Eastern Standard Time (GMT -5). <%--Click <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=11&day=9&year=2006&hour=9&min=0&sec=0&p1=179">here</A> for your time zone.--%>
+      <br>** Eastern Daylight Time (GMT -4). <%--Click <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=8&day=17&year=2006&hour=9&min=0&sec=0&p1=179">here</A> for your time zone.--%></td>
    </tr>
 </table>
- 
+<br><br>
+
       </div>
       </td>
       

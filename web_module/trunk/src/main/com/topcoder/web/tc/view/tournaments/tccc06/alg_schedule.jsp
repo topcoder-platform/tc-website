@@ -22,7 +22,7 @@
       <td valign="top" align="center">
       <div class="bodySpacer">
          
-<span class="bigTitle">Algorithm Competition Schedule*</span>
+<span class="bigTitle">Algorithm Competition Schedule</span>
 <br><br>
 In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.
 <br><br>   
@@ -233,6 +233,7 @@ There will be three Qualification Rounds available for those registered for the 
       </td>
    </tr>
 </table>
+<%--
 <br><br>
 <span class="bodySubtitle">* Find start times in your time zone</span><br>
 Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone.
@@ -240,10 +241,9 @@ Below is a list of start times for the various rounds. Click the time that corre
 <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=7&min=0&sec=0&p1=179">7:00 AM</A>&#160;
 <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=9&min=0&sec=0&p1=179">9:00 AM</A>&#160;
 <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=13&min=0&sec=0&p1=179">1:00 PM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=14&min=30&sec=0&p1=179">2:30 PM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=16&min=0&sec=0&p1=179">4:00 PM</A>&#160;
 <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=18&min=0&sec=0&p1=179">6:00 PM</A>&#160;
 <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=21&min=0&sec=0&p1=179">9:00 PM</A>
+--%>
       </div>
       </td>
       
