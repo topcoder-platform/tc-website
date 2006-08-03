@@ -100,7 +100,7 @@
       <td class="sidebarText" colspan="4">* Eastern Standard Time (GMT -5)<br>** Eastern Daylight Time (GMT -4)</td>
    </tr>
 </table>
-
+ 
       </div>
       </td>
       
