@@ -6,11 +6,6 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
-import com.topcoder.apps.review.projecttracker.ProjectTracker;
-import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
-import com.topcoder.apps.review.projecttracker.ProjectType;
-import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.apps.review.projecttracker.User;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.dde.forum.ForumModeratePermission;
 import com.topcoder.dde.forum.ForumPostPermission;
@@ -27,6 +22,7 @@ import com.topcoder.security.admin.PolicyMgrRemote;
 import com.topcoder.security.admin.PolicyMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
@@ -431,13 +427,17 @@ public class ComponentManagerBean
             PermissionCollection perms = policyManager.getPermissions(userRole, null);
 
             ForumPostPermission forumPerm = new ForumPostPermission(forumId);
+
             log.debug("Looking for: " + forumPerm.getName());
             for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
-                ForumPostPermission itForum = (ForumPostPermission)it.next();
-                log.debug("Found: " + itForum.getName());
-                if (itForum.equals(forumPerm)) {
-                    log.debug("Forum is public");
-                    cvi.setPublicForum(true);
+                Object itNext = it.next();
+                if (itNext instanceof ForumPostPermission) {
+                    ForumPostPermission itForum = (ForumPostPermission) itNext;
+                    log.debug("Found: " + itForum.getName());
+                    if (itForum.equals(forumPerm)) {
+                        log.debug("Forum is public");
+                        cvi.setPublicForum(true);
+                    }
                 }
             }
         } catch (ConfigManagerException exception) {
