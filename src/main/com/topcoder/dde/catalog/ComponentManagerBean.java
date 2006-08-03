@@ -416,27 +416,25 @@ public class ComponentManagerBean
             if (forumIterator.hasNext()) {
                 forumId = ((LocalDDECompForumXref)
                         forumIterator.next()).getForumId();
-            } else {
-                throw new CatalogException("Could not find forum");
-            }
 
-            PrincipalMgrRemote principalManager = principalmgrHome.create();
-            RolePrincipal userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
+                PrincipalMgrRemote principalManager = principalmgrHome.create();
+                RolePrincipal userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
 
-            PolicyMgrRemote policyManager = policymgrHome.create();
-            PermissionCollection perms = policyManager.getPermissions(userRole, null);
+                PolicyMgrRemote policyManager = policymgrHome.create();
+                PermissionCollection perms = policyManager.getPermissions(userRole, null);
 
-            GenericPermission forumPerm = new GenericPermission((new ForumPostPermission(forumId)).getName());
+                GenericPermission forumPerm = new GenericPermission((new ForumPostPermission(forumId)).getName());
 
-            log.debug("Looking for: " + forumPerm.getName());
-            for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
-                Object itNext = it.next();
-                if (itNext instanceof GenericPermission) {
-                    GenericPermission itForum = (GenericPermission) itNext;
-                    log.debug("Found: " + itForum.getName());
-                    if (itForum.equals(forumPerm)) {
-                        log.debug("Forum is public");
-                        cvi.setPublicForum(true);
+                log.debug("Looking for: " + forumPerm.getName());
+                for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
+                    Object itNext = it.next();
+                    if (itNext instanceof GenericPermission) {
+                        GenericPermission itForum = (GenericPermission) itNext;
+                        //log.debug("Found: " + itForum.getName());
+                        if (itForum.equals(forumPerm)) {
+                            log.debug("Forum is public");
+                            cvi.setPublicForum(true);
+                        }
                     }
                 }
             }
