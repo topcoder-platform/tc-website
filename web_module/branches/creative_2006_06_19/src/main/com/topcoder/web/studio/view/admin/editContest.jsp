@@ -75,7 +75,7 @@
                     <br/></tc-webtag:errorIterator></span>
 
     Forum:
-    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}" useTopValue="false"/>
+    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}"/>
 
 </p>
 
