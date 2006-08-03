@@ -143,7 +143,7 @@ public class Submit extends Base {
 
     private void sendEmail(String activationCode, String email, Set regTypes, RegistrationType comp,
                            RegistrationType tcs, RegistrationType hs, RegistrationType corp,
-                           RegistrationType min) throws Exception {
+                           RegistrationType min, RegistrationType studio) throws Exception {
 
 
         TCSEmailMessage mail = new TCSEmailMessage();
@@ -169,15 +169,19 @@ public class Submit extends Base {
         msgText.append("between them.\n\n");
 
         if (regTypes.contains(comp) && !regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in events, as well as to the Component Competition Forums, where you can read about and discuss component projects.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in events, as well as to the Component Competition Forums, where you can read about and discuss component projects.\n\n");
         }
 
         if (regTypes.contains(comp) && regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the following areas within the TopCoder website: High School Competition Arena, where you can practice, chat, and compete in rated events; TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in those events; the Component Competition Forums, where you can read about and discuss component projects.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the following areas within the TopCoder website: High School Competition Arena, where you can practice, chat, and compete in rated events; TopCoder Marathon Match and Algorithm Competition Arenas, where you can practice, chat, and compete in those events; the Component Competition Forums, where you can read about and discuss component projects.\n\n");
         }
 
         if (!regTypes.contains(comp) && regTypes.contains(hs)) {
-            msgText.append("You may utilize your activated TopCoder handle and password in order to access your member home page on TopCoder's web site.  Your handle and password will also provide you with access to the High School Competition Arena, where you can practice, chat, and compete in rated events.\n\n");
+            msgText.append("You may utilize your activated TopCoder user name and password in order to access your member home page on TopCoder's web site.  Your user name and password will also provide you with access to the High School Competition Arena, where you can practice, chat, and compete in rated events.\n\n");
+        }
+
+        if (regTypes.contains(studio)) {
+            msgText.append("You may utilize your activated TopCoder Studio user name and password in order to access the TopCoder Studio web site.  Your user name and password will also provide you with access to the Active Contests posted on the TopCoder Studio website, where you can compete in design projects, as well as to the Forums, where you can read about and discuss the projects.\n\n");
         }
 
         if (regTypes.contains(hs)) {
