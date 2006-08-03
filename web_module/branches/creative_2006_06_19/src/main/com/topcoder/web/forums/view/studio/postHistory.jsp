@@ -38,6 +38,7 @@
    </tr>
    <tr>
       <td colspan="3" style="padding-bottom:3px;">
+      <strong>
          <div style="float:right;">
          [
          <span class="currentPage">1</span>
@@ -48,7 +49,6 @@
          ]
          &nbsp;&nbsp;&nbsp;<a href="?module=History&amp;userID=8416646&amp;sortField=9&amp;sortOrder=0&amp;start=25" class="rtbcLink">NEXT &gt;</a>
          </div>
-      <strong>
       <a class="rtbcLink" href="/">Forums</a>
       &gt; Post History: 
       <a class="coderText" href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=8416646">Kawigi</a> (2141 posts)
