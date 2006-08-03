@@ -69,6 +69,15 @@
     <button id="trigger<%=Constants.END_TIME%>">Set</button>
 </p>
 
+<p>
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>">${err}
+                    <br/></tc-webtag:errorIterator></span>
+
+    Forum:
+    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="${requestScope[forums]}" fieldText="name" fieldValue="forumid" selectedValue="${contest.forumId}" useTopValue="false"/>
+
+</p>
+
 
 <script language="javascript" type="text/javascript">
     <!--

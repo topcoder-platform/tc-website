@@ -14,6 +14,7 @@
         <property name="name" access="field"/>
         <property name="startTime" column="start_time" access="field"/>
         <property name="endTime" column="end_time" access="field"/>
+        <property name="forumId" column="forum_id" access="field"/>
         <set name="config" cascade="save-update" inverse="true" access="field">
             <key column="contest_id" not-null="true"/>
             <one-to-many class="ContestConfig"/>

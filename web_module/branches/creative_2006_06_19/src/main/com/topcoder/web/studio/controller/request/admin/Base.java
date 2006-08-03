@@ -1,5 +1,10 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -15,13 +20,23 @@ import java.text.SimpleDateFormat;
  */
 public abstract class Base extends ShortHibernateProcessor {
 
-    protected void loadGeneralEditContestData() {
+    protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
         getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
 
+        getRequest().setAttribute("forums", getForumList());
+
     }
 
-    protected void loadEditContestData(Contest contest) {
+    protected ResultSetContainer getForumList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("forum_list");
+        DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        return (ResultSetContainer) da.getData(r).get("forum_list");
+
+    }
+
+    protected void loadEditContestData(Contest contest) throws Exception {
         if (contest == null) {
             throw new IllegalArgumentException("null contest specified");
         }

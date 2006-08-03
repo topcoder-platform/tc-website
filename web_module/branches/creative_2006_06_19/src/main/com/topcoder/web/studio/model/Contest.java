@@ -20,6 +20,7 @@ public class Contest extends Base {
     private SortedSet prizes = new TreeSet();
     private Set documents = new HashSet();
     private ContestStatus status;
+    private Long forumId;
 
     public Long getId() {
         return id;
@@ -119,5 +120,12 @@ public class Contest extends Base {
         this.status = status;
     }
 
+    public Long getForumId() {
+        return forumId;
+    }
+
+    public void setForumId(Long forumId) {
+        this.forumId = forumId;
+    }
 
 }

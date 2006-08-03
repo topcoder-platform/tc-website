@@ -1,6 +1,6 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -17,22 +17,22 @@ import com.topcoder.web.studio.validation.StartTimeValidator;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 17, 2006
  */
-public class EditContest extends ShortHibernateProcessor {
+public class EditContest extends Base {
 
     protected void dbProcessing() throws Exception {
-        //todo forum id
-        //todo status
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
         String startTime = getRequest().getParameter(Constants.START_TIME);
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
+        String forumId = getRequest().getParameter(Constants.FORUM_ID);
 
         //validate
         ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
@@ -78,6 +78,24 @@ public class EditContest extends ShortHibernateProcessor {
             }
         }
 
+        long fid = 0;
+        if (!"".equals(StringUtils.checkNull(forumId))) {
+            try {
+                fid = Long.parseLong(forumId);
+                ResultSetContainer rsc = getForumList();
+                boolean found = false;
+                ResultSetContainer.ResultSetRow row;
+                for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
+                    row = (ResultSetContainer.ResultSetRow) it.next();
+                    found = row.getLongItem("forumId") == fid;
+                }
+                if (!found) {
+                    addError(Constants.FORUM_ID, "Please choose a valid forum");
+                }
+            } catch (NumberFormatException e) {
+                addError(Constants.FORUM_ID, "Please choose a valid forum");
+            }
+        }
 
         if (hasErrors()) {
             getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
@@ -116,6 +134,7 @@ public class EditContest extends ShortHibernateProcessor {
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
             contest.setStatus(status);
+            contest.setForumId(new Long(fid));
 
             ContestConfig overviewConfig;
             ContestProperty overviewProperty =
