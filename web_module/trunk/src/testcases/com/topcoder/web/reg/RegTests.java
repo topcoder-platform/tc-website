@@ -1,10 +1,9 @@
 package com.topcoder.web.reg;
 
-<<<<<<< RegTests.java
-import com.topcoder.web.reg.dao.UserDAOTestCase;
-=======
-import com.topcoder.web.reg.validation.TermsOfUseValidatorTestCase;
->>>>>>> 1.5.16.1
+import com.topcoder.web.common.dao.PreferenceDAOTestCase;
+import com.topcoder.web.common.dao.PreferenceGroupDAOTestCase;
+import com.topcoder.web.common.dao.PreferenceValueDAOTestCase;
+import com.topcoder.web.common.dao.UserPreferenceDAOTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -34,8 +33,13 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ReferralDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolDAOTestCase.class));
         suite.addTest(new TestSuite(SecurityGroupDAOTestCase.class));
-*/
         suite.addTest(new TestSuite(UserDAOTestCase.class));
+*/
+        suite.addTest(new TestSuite(PreferenceGroupDAOTestCase.class));
+        suite.addTest(new TestSuite(PreferenceDAOTestCase.class));
+        suite.addTest(new TestSuite(PreferenceValueDAOTestCase.class));
+        suite.addTest(new TestSuite(UserPreferenceDAOTestCase.class));
+
 /*
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(TimeZoneDAOTestCase.class));
@@ -75,15 +79,11 @@ public class RegTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ResumeValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolIdValidatorTestCase.class));
         suite.addTest(new TestSuite(SchoolNameValidatorTestCase.class));
-<<<<<<< RegTests.java
         suite.addTest(new TestSuite(SchoolTypeValidatorTestCase.class));
-        suite.addTest(new TestSuite(ReferralValidatorTestCase.class));
-=======
         suite.addTest(new TestSuite(ReferralDAOTestCase.class));
         suite.addTest(new TestSuite(ReferralValidatorTestCase.class));
->>>>>>> 1.5.16.1
-*/
         suite.addTest(new TestSuite(TermsOfUseValidatorTestCase.class));
+*/
 
 //        suite.addTest(new TestSuite(DetachedTestCase.class));
 

@@ -11,14 +11,14 @@ import com.topcoder.web.reg.TCHibernateTestCase;
 public class PreferenceDAOTestCase extends TCHibernateTestCase {
 
     public void testFindById() {
-        Preference p = DAOUtil.getFactory().getPreferenceDAO().find(new Long(24));
-        assertNotNull("could not find preference 24 (member contact)",  p);
-        assertTrue("name of the preference should not be empty or null",  p.getName() != null && p.getName().length() > 0);
+        Preference p = DAOUtil.getFactory().getPreferenceDAO().find(new Integer(24));
+        assertNotNull("could not find preference 24 (member contact)", p);
+        assertTrue("name of the preference should not be empty or null", p.getName() != null && p.getName().length() > 0);
     }
 
     public void testFindByName() {
         Preference p = DAOUtil.getFactory().getPreferenceDAO().find("unlock");
-        assertNotNull("could not find preference 'unlock'",  p);
+        assertNotNull("could not find preference 'unlock'", p);
         assertEquals("preference 'unlock' should have id 1", 1, p.getId().longValue());
     }
 

@@ -29,13 +29,15 @@ public interface DAOFactory {
     MemberContactMessageDAO getMemberContactMessageDAO();
 
     MemberContactBlackListDAO getMemberContactBlackListDAO();
-    
+
     NotificationDAO getNotificationDAO();
 
     PreferenceDAO getPreferenceDAO();
 
     PreferenceValueDAO getPreferenceValueDAO();
-    
+
+    PreferenceGroupDAO getPreferenceGroupDAO();
+
     RegistrationTypeDAO getRegistrationTypeDAO();
 
     ReferralDAO getReferralDAO();
@@ -57,6 +59,6 @@ public interface DAOFactory {
     TimeZoneDAO getTimeZoneDAO();
 
     UserDAO getUserDAO();
-    
-    UserPreferenceDAO getUserPreferenceDAO();    
+
+    UserPreferenceDAO getUserPreferenceDAO();
 }

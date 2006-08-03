@@ -1,12 +1,10 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-
 import com.topcoder.web.common.dao.PreferenceValueDAO;
 import com.topcoder.web.common.model.PreferenceValue;
+import org.hibernate.Query;
+
+import java.util.List;
 
 /**
  * @author cucu
@@ -15,21 +13,14 @@ import com.topcoder.web.common.model.PreferenceValue;
  */
 public class PreferenceValueDAOHibernate extends Base implements PreferenceValueDAO {
 
-    public PreferenceValueDAOHibernate() {
-        super();
-    }
 
-    public PreferenceValueDAOHibernate(Session session) {
-        super(session);
-    }
-
-    public PreferenceValue find(Long id) {
+    public PreferenceValue find(Integer id) {
         return (PreferenceValue) find(PreferenceValue.class, id);
     }
-    
-    public List findForPreference(Long preferenceId) {
-    	Query q = session.createQuery("from PreferenceValue where preference_id=" + preferenceId);
-    	return q.list();
+
+    public List findForPreference(Integer preferenceId) {
+        Query q = session.createQuery("from PreferenceValue where preference_id=" + preferenceId);
+        return q.list();
     }
 
 
