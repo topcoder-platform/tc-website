@@ -45,11 +45,14 @@
 <tr>
    <td colspan="3" style="padding-bottom:3px;"><strong>
       <div style="float:right;">
+      [
       <span class="currentPage">1</span>
       <A href="?module=Thread&threadID=509704&start=15&mc=63&view=flat" class="rtbcLink">2</A>
       <A href="?module=Thread&threadID=509704&start=30&mc=63&view=flat" class="rtbcLink">3</A>
       <A href="?module=Thread&threadID=509704&start=45&mc=63&view=flat" class="rtbcLink">4</A>
       <A href="?module=Thread&threadID=509704&start=60&mc=63&view=flat" class="rtbcLink">5</A>
+      ]
+      &nbsp;&nbsp;&nbsp;<a href="?module=History&amp;userID=8416646&amp;sortField=9&amp;sortOrder=0&amp;start=25" class="rtbcLink">NEXT &gt;</a>
       </div>
 
       <A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >
@@ -141,15 +144,15 @@
 
 
 <div>
-   <div style="float:right; text-align:right;">
-      <strong>
-      <span class="currentPage">1</span>
-      <A href="?module=Thread&threadID=509704&start=15&mc=63&view=flat" class="rtbcLink">2</A>
-      <A href="?module=Thread&threadID=509704&start=30&mc=63&view=flat" class="rtbcLink">3</A>
-      <A href="?module=Thread&threadID=509704&start=45&mc=63&view=flat" class="rtbcLink">4</A>
-      <A href="?module=Thread&threadID=509704&start=60&mc=63&view=flat" class="rtbcLink">5</A><br>
-      <a href=""><img border="none" src="/i/interface/btn_rss.gif"/></a>
-      </strong>
+   <div style="float:right;">
+   [
+   <span class="currentPage">1</span>
+   <A href="?module=Thread&threadID=509704&start=15&mc=63&view=flat" class="rtbcLink">2</A>
+   <A href="?module=Thread&threadID=509704&start=30&mc=63&view=flat" class="rtbcLink">3</A>
+   <A href="?module=Thread&threadID=509704&start=45&mc=63&view=flat" class="rtbcLink">4</A>
+   <A href="?module=Thread&threadID=509704&start=60&mc=63&view=flat" class="rtbcLink">5</A>
+   ]
+   &nbsp;&nbsp;&nbsp;<a href="?module=History&amp;userID=8416646&amp;sortField=9&amp;sortOrder=0&amp;start=25" class="rtbcLink">NEXT &gt;</a>
    </div>
 <strong>
 <A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >

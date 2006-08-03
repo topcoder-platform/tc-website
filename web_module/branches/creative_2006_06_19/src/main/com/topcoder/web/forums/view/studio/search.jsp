@@ -132,6 +132,8 @@
 </tbody>
 </table>
 
+<jsp:include page="searchResults.jsp" />
+
         <jsp:include page="foot.jsp"/>
     </div>
 </div>
