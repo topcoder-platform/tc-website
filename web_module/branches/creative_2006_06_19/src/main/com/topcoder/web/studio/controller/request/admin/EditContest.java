@@ -78,10 +78,10 @@ public class EditContest extends Base {
             }
         }
 
-        long fid = 0;
+        int fid = 0;
         if (!"".equals(StringUtils.checkNull(forumId))) {
             try {
-                fid = Long.parseLong(forumId);
+                fid = Integer.parseInt(forumId);
                 ResultSetContainer rsc = getForumList();
                 boolean found = false;
                 ResultSetContainer.ResultSetRow row;
@@ -134,7 +134,7 @@ public class EditContest extends Base {
             contest.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
             contest.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
             contest.setStatus(status);
-            contest.setForumId(new Long(fid));
+            contest.setForumId(new Integer(fid));
 
             ContestConfig overviewConfig;
             ContestProperty overviewProperty =

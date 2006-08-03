@@ -20,7 +20,7 @@ public class Contest extends Base {
     private SortedSet prizes = new TreeSet();
     private Set documents = new HashSet();
     private ContestStatus status;
-    private Long forumId;
+    private Integer forumId;
 
     public Long getId() {
         return id;
@@ -120,11 +120,11 @@ public class Contest extends Base {
         this.status = status;
     }
 
-    public Long getForumId() {
+    public Integer getForumId() {
         return forumId;
     }
 
-    public void setForumId(Long forumId) {
+    public void setForumId(Integer forumId) {
         this.forumId = forumId;
     }
 
