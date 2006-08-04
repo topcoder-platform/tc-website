@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">08.04.06 1:00 PM&#160;-&#160</td><td width="100%">$5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9995">315</A>, <A href="/tc?module=MatchDetails&rd=10002">322</A>, and <A href="/tc?module=MatchDetails&rd=10005">325</A>.</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.21.06 11:00 AM&#160;-&#160</td><td width="100%">$5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>, <A href="/tc?module=MatchDetails&rd=9997">317</A>, <A href="/tc?module=MatchDetails&rd=9999">319</A>, and <A href="/tc?module=MatchDetails&rd=10004">324</A>.</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.06.06 10:00 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=hs&d2=home">TopCoder High School</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.05.06 2:45 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=jan_06">MSN SRM sponsorship date changed</A></td></tr>
