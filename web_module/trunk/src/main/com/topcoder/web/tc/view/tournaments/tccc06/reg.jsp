@@ -36,8 +36,12 @@
                         your section preferences and <b>read and agree to</b> the terms listed below.</p>
 
                     <c:set value="<%=Constants.PREFERENCE_PREFIX%>" var="prefPrefix"/>
+                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prefPrefix}">${err}
+                        <br/></tc-webtag:errorIterator></span>
                     <c:forEach items="${group.preferences}" var="preference">
                         <c:set value="${prefPrefix}${preference.id}" var="prefParam"/>
+                        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prefParam}">${err}
+                            <br/></tc-webtag:errorIterator></span>
                         ${preference.description} :
                         <tc-webtag:objectSelect name="${prefParam}" list="${preference.values}" valueField="id" textField="value"/>
                         <br/>
