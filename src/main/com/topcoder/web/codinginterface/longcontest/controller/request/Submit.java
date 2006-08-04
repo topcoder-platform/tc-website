@@ -411,10 +411,7 @@ public class Submit extends Base {
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
         if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.LONG_ROUND_TYPE_ID) {
-            if (com.topcoder.shared.util.ApplicationServer.ENVIRONMENT != com.topcoder.shared.util.ApplicationServer.PROD)
-            {
-                ret.add(PythonLanguage.PYTHON_LANGUAGE);
-            }
+            ret.add(PythonLanguage.PYTHON_LANGUAGE);
         }
         return ret;
     }
