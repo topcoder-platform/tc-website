@@ -3,7 +3,7 @@
 <%--
 --%>
 <jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms" scope="request"/>
-<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCCC06AlgorithmTerms" scope="request"/>
+<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration" scope="request"/>
 <% Calendar now = Calendar.getInstance();
     now.setTime(new Date());
     if ((now.after(compTerms.getBeginning()) && now.before(compTerms.getEnd())) || (now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) {
