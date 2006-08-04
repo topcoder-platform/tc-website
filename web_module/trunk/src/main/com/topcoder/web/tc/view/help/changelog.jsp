@@ -43,7 +43,13 @@
 </jsp:include>
 
 <p>
-    5.4.1 - 2006.08.XX
+    5.4.2 - 2006.08.XX
+    <ul>
+        <li>DR Boards bug fix - didn't showed the current stage correctly.</li>
+    </ul>
+</p>
+<p>
+    5.4.1 - 2006.08.02
     <ul>
         <li>DR Boards updated to exclude non-rated projects.</li>
         <li>DR Boards tie break minor bug fix.</li>
