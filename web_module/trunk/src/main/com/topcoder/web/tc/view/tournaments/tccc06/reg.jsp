@@ -16,7 +16,7 @@
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp">
-    <jsp:param name="tabLev1" value="component"/>
+    <jsp:param name="tabLev1" value="algorithm"/>
     <jsp:param name="tabLev2" value="details"/>
     <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
@@ -33,7 +33,7 @@
 
                     <p align="left">To complete your registration for the 2006 TopCoder Collegiate Challenge you must
                         indicate
-                        your preferred sections and <b>read and agree to</b> the terms listed below.</p>
+                        your section preferences and <b>read and agree to</b> the terms listed below.</p>
 
                     <c:set value="<%=Constants.PREFERENCE_PREFIX%>" var="prefPrefix"/>
                     <c:forEach items="${group.preferences}" var="preference">
