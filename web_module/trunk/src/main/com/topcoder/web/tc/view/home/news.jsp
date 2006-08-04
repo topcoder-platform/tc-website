@@ -9,7 +9,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.04.06<br>1:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.07.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">AOL adds $5,000 prize purse to their sponsored SRMs</span><br><br>
       AOL will offer a $5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9995">315</A>, <A href="/tc?module=MatchDetails&rd=10002">322</A>, and <A href="/tc?module=MatchDetails&rd=10005">325</A>.
       </td>
