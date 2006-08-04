@@ -81,4 +81,15 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
         }
     }
 
+    protected void setNextPage() throws Exception {
+        if (hasErrors()) {
+            setNextPage("/tournaments/tccc06/reg.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            setNextPage("/tournaments/tccc06/regsuccess.jsp");
+            setIsNextPageInContext(true);
+        }
+    }
+
+
 }
