@@ -2,7 +2,8 @@
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.web.common.BaseProcessor" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
