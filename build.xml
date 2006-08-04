@@ -157,7 +157,7 @@
     </target>
 
 
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,jar_shared,jar_common">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
                 srcdir="${java}"
@@ -797,7 +797,7 @@
             </fileset>
         </copy>
     </target>
-    <target name="move-libs" depends="jar_common">
+    <target name="move-libs" depends="">
         <!--
              <copy todir="${jboss_lib}">
                  <fileset dir="${bin}">
@@ -1188,7 +1188,7 @@
         </war>
     </target>
 
-    <target name="deploy-reg" depends="war-reg">
+    <target name="deploy-reg" depends="war-reg,move-libs">
         <antcall target="expand-reg"/>
     </target>
 
