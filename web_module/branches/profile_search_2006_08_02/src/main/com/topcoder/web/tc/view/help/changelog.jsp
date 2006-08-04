@@ -43,6 +43,11 @@
 </jsp:include>
 
 <p>
+    5.4.1 - 2006.08.04
+    <ul>
+        <!-- <li>Added fields to the Profile Search page</li> -->
+    </ul>
+
     5.4.0 - 2006.07.31
     <ul>
         <li>Added Member Contact pages to send mails to other members and a black list.</li>
