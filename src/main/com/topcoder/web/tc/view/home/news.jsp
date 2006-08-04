@@ -6,6 +6,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.04.06<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">AOL adds $5,000 prize purse to their sponsored SRMs</span><br><br>
+      AOL will offer a $5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9995">315</A>, <A href="/tc?module=MatchDetails&rd=10002">322</A>, and <A href="/tc?module=MatchDetails&rd=10005">325</A>.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <tc-webtag:forumLink forumID="506086" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.04.06<br>10:45 AM</td>
@@ -177,7 +190,7 @@ Three questions with a few hidden tricks resulted in 83 failed solutions out of 
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%-----------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:15 PM</td>
       <td class="newsTextCell">
@@ -193,7 +206,7 @@ Three questions with a few hidden tricks resulted in 83 failed solutions out of 
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
  
-
+---------------------%>
 
 </table>
 <br><br>
