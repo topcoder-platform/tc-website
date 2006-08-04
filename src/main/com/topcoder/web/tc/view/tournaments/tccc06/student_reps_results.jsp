@@ -46,16 +46,14 @@
                             Qualification<br>
                             Participants
                         </td>
-                        <rsc:iterator list="<%=rsc%>" id="resultRow">
-                            <tr>
-                                <td class="sidebarHandle">
-                                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' darkBG="true"/></td>
-                                <td class="sidebarText" align="center">
-                                    <rsc:item name="total_count" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align="center">
-                                    <rsc:item name="total_comp_count" row="<%=resultRow%>"/></td>
-                            </tr>
-                        </rsc:iterator>
+                        <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
+                            <td class="sidebarHandle">
+                                <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' darkBG="true"/></td>
+                            <td class="sidebarText" align="center">
+                                <rsc:item name="total_count" row="<%=resultRow%>"/></td>
+                            <td class="sidebarText" align="center">
+                                <rsc:item name="total_comp_count" row="<%=resultRow%>"/></td>
+                        </tr></rsc:iterator>
                     </tr>
                 </table>
                 <br><br>
