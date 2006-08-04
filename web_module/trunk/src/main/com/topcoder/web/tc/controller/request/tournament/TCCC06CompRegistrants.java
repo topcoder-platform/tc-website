@@ -21,6 +21,7 @@ public class TCCC06CompRegistrants extends Base {
         Request r = new Request();
         r.setContentHandle("tccc06_comp_registrants");
 
+        //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("tccc06_comp_registrants");

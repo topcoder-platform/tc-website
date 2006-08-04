@@ -7,6 +7,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +20,7 @@ import java.util.Date;
 public abstract class Base extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
 
+        getRequest().setAttribute(Constants.TERMS_OF_USE_ID, String.valueOf(getTermsId()));
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
