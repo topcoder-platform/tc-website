@@ -75,12 +75,14 @@ public class ProfileSearch extends Base {
         List[] skills = buildSkillsQuery(request, skillsHeaders);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
-        List tables, constraints;
+        List tables, constraints; 
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
         String comp = request.getParameter("company");
         String title = request.getParameter("title");
         String sch = request.getParameter("school");
+        String daysVisit = request.getParameter("maxdayssincevisit");
+        
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
         boolean containsDesRating = !"".equals(StringUtils.checkNull(request.getParameter("mindesrating")))
@@ -148,16 +150,23 @@ public class ProfileSearch extends Base {
                 query.append("  , sch.name as School\n");
                 headers.add("School");
             }
+            
+            if (daysVisit != null && daysVisit.length() > 0) {            
+            	query.append("  , (select date(current) - date(last_site_hit_date) from user where user_id = c.coder_id) as days_since_visit\n");
+            	headers.add("Days Since Visit");
+            }
+            
             query.append("  , r.rating as Algorithm_Rating\n");
             query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
-            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");            
+            query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id and primary_ind=1) as email\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where n.note_type_id = 5 and unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
             query.append("  , '<a href=/tc?module=ViewNotes&uid=' || c.coder_id || '>Notes</a>'\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
             query.append("  , '<a href=/tc?module=MemberProfile&cr=' || c.coder_id || '>Public Profile</a>'\n");
-            headers.addAll(Arrays.asList(new String[]{"Algorithm Rating", "Design Rating", "Development Rating", "", "Notes", "", "", "", ""}));
+            headers.addAll(Arrays.asList(new String[]{"Algorithm Rating", "Design Rating", "Development Rating", "Email", "", "Notes", "", "", "", ""}));
             for (int i = 0; i < skills[2].size(); i++) {
                 query.append("  , ");
                 query.append((String) skills[2].get(i));
@@ -257,6 +266,13 @@ public class ProfileSearch extends Base {
             query.append("))\n");
         }
 
+        String phone = request.getParameter("phone");
+        if (phone != null && phone.length() > 0) {
+        	query.append(" AND EXISTS (select 1 from phone where user_id=c.coder_id " + stringMatcher(phone, "phone_number", false) + ") ");
+        }
+        if (daysVisit != null && daysVisit.length() > 0) {            
+        	query.append(" AND (select date(current) - date(last_site_hit_date) from user where user_id = c.coder_id) < " + daysVisit);
+        }
         for (int i = 0; i < constraints.size(); i++) {
             query.append("    AND ");
             query.append(constraints.get(i));
@@ -487,6 +503,32 @@ public class ProfileSearch extends Base {
             query.append("    AND c.coder_id IN (select up3.user_id FROM user_preference up3 WHERE up3.preference_value_id = 28)\n");
         }
 
+
+        String maxDaysDes = request.getParameter("maxdayssincedes");
+        if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            query.append("  AND (select rating_date from user u, ");
+            query.append("  tcs_catalog:user_rating ur, ");
+            query.append("  tcs_catalog:project p");
+            query.append("  where u.user_id = ur.user_id");
+            query.append("  and ur.last_rated_project_id = p.project_id"); 
+            query.append("  and cur_version=1 ");
+            query.append("  and phase_id = 112 ");
+            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDes + " units day ");
+        }
+        
+        String maxDaysDev = request.getParameter("maxdayssincedev");
+        if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            query.append("  AND (select rating_date from user u, ");
+            query.append("  tcs_catalog:user_rating ur, ");
+            query.append("  tcs_catalog:project p");
+            query.append("  where u.user_id = ur.user_id");
+            query.append("  and ur.last_rated_project_id = p.project_id"); 
+            query.append("  and cur_version=1 ");
+            query.append("  and phase_id = 113 ");
+            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDev + " units day ");
+ 
+        }
+
         return query.toString();
     }
 
@@ -510,7 +552,9 @@ public class ProfileSearch extends Base {
         Map skillMap = new HashMap();
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
-        String[] textFields = {"handle", "email", "firstname", "lastname", "zipcode", "city", "company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
+        String[] textFields = {"handle", "email", "firstname", "lastname", "maxdayssincevisit", "phone", "zipcode", "city",
+        					"company", "title", "school", "maxdayssincerating", "minevents", "mindays", "maxdays", "minrating", "maxrating", 
+        					"maxdayssincedes", "mindesrating", "maxdesrating", "maxdayssincedev", "mindevrating", "maxdevrating"};
         String[] checkBoxes = {"count", "pro", "stud", "resume", "travel", "auth", "casesensitive"};
         boolean[] checkBoxDefaults = {false, true, true, false, false, false, false};
         boolean revise = "on".equals(request.getParameter("revise"));
