@@ -31,12 +31,12 @@ public class StudioHandleTag extends TagSupport {
     public final static String COMPONENT = "component";
 
     private static final String[] lightStyles =
-            {"coderTextOrange", "coderTextRed", "coderTextRed",
-                    "coderTextRed", "coderTextRed", "coderTextRed", "coderTextRed"};
+            {"coderTextOrange", "coderText", "coderText",
+                    "coderText", "coderText", "coderText", "coderText"};
 
     private static final String[] darkStyles =
-            {"coderTextOrange", "coderTextRed", "coderTextRed",
-                    "coderTextRed", "coderTextRed", "coderTextRed", "coderTextRed"};
+            {"coderTextOrange", "coderText", "coderText",
+                    "coderText", "coderText", "coderText", "coderText"};
 
     public void setCoderId(long coderId) {
         //log.debug("setting coderid " + coderId);
