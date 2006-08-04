@@ -55,7 +55,7 @@
             <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
             <% if (algoTerms.isEligible()) { %>
             You are not registered for the <strong>TCCC Algorithm Competition</strong>, click
-            <a href="/tc?module=TCCC06AlgorithmTerms" class="tccc06MessageLink">here</a> to register.<br/>
+            <a href="/tc?module=TCCC06ViewAlgoReg" class="tccc06MessageLink">here</a> to register.<br/>
             <% } else { %>
             Sorry, you are not eligible to register for the TCCC Algorithm Competition.
             <% }
