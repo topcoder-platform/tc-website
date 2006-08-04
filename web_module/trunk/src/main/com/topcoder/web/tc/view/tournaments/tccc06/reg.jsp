@@ -37,8 +37,10 @@
 
                     <c:set value="<%=Constants.PREFERENCE_PREFIX%>" var="prefPrefix"/>
                     <c:forEach items="${group.preferences}" var="preference">
-                        <c:set value="${prefPrefix+preference.id}" var="prefParam"/>
+                        <c:set value="${prefPrefix}${preference.id}" var="prefParam"/>
+                        ${preference.description} :
                         <tc-webtag:objectSelect name="${prefParam}" list="${preference.values}" valueField="id" textField="value"/>
+                        <br/>
                     </c:forEach>
 
                     <div align="center">
