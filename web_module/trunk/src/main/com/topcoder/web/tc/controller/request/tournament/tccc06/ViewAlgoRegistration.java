@@ -45,7 +45,7 @@ public class ViewAlgoRegistration extends Base {
             setNextPage("/tournaments/tccc06/regsuccess.jsp");
             setIsNextPageInContext(true);
         } else {
-            setNextPage("/tournaments/tccc06/terms.jsp");
+            setNextPage("/tournaments/tccc06/reg.jsp");
             setIsNextPageInContext(true);
         }
     }
