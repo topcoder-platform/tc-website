@@ -29,6 +29,9 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
             for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
                 values.add(StringUtils.checkNull(getRequest().getParameter(Constants.PREFERENCE_PREFIX + ((Preference) it.next()).getId())));
             }
+            if (log.isDebugEnabled()) {
+                log.debug("values size: " + values.size() + " pref size:" + group.getPreferences().size() + " values: " + values.toString());
+            }
 
             if (values.size() != group.getPreferences().size()) {
                 addError(Constants.PREFERENCE_PREFIX, "Please indicate each of your preferences, you must choose each section once.");
