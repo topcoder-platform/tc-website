@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 com.topcoder.web.privatelabel.view.tag.DemographicInput,
@@ -75,6 +75,7 @@ function submitEnter(e) {
       </td>
       <td valign="top" rowspan="2"><jsp:include page="right_reg.jsp" /></td>
    </tr>
+    <tr>
       <td valign="top">
          <div class="regBreadOff">General</div>
          <div class="regBreadOn">Demographics</div>
@@ -84,75 +85,84 @@ function submitEnter(e) {
       </td>
       <td valign="top" width="100%">
 &#160;
-<%--
          <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_CONFIRM%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
-            <pl:questionIterator id="question" list="<%=questionList%>">
-                <tr>
-                    <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right">
-                    <%if(question.isRequired()) {%><span class="errorText">*</span><%}%>
-                        <%=question.getText()%>
-                    </td>
-                    <td align="left">
-                        <pl:demographicInput question="<%=question%>"/>
-                    </td>
-               </tr>
-            </pl:questionIterator>
-           <tr>
-                <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-           <tr>
-                <td align="right" nowra>
-                    Resume
-                </td>
-                <td align="left">
-                    <input type=file name="Resume">
-                </td>
-           </tr>
-            <tr>
-                <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span>
-                </td>
-                <td align="left" valign=bottom>
-                    &nbsp;
-                </td>
-            </tr>
-            <tr>
-               <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
-               </td>
-            </tr>
-         </form>
-         </table>
---%>         
+                            <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>"
+                                  method="POST" name="regForm" enctype="multipart/form-data">
+                                <input type="hidden" name="<%=Constants.MODULE_KEY%>"
+                                       value="<%=Constants.GOOGLE_EUROPE_06_REG_CONFIRM%>"/>
+                                <input type="hidden" name="<%=Constants.COMPANY_ID%>"
+                                       value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
+                                <input type="hidden" name="<%=Constants.EVENT_ID%>"
+                                       value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
+                                <pl:questionIterator id="question" list="<%=questionList%>">
+                                    <tr>
+                                        <td colspan="2" class="errorText" align="center">
+                                            <tc-webtag:errorIterator id="err"
+                                                                     name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%>
+                                                <br/></tc-webtag:errorIterator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <%if (question.isRequired()) {%><span class="errorText">*</span><%}%>
+                                            <%=question.getText()%>
+                                        </td>
+                                        <td align="left">
+                                            <pl:demographicInput question="<%=question%>"/>
+                                        </td>
+                                    </tr>
+                                </pl:questionIterator>
+                                <tr>
+                                    <td colspan="2" class="errorText" align="center">
+                                        <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/>
+                                        </tc-webtag:errorIterator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" nowra>
+                                        Resume
+                                    </td>
+                                    <td align="left">
+                                        <input type=file name="<%=Constants.RESUME%>">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign=bottom nowrap>
+                                        <span class="errorText">* Required</span>
+                                    </td>
+                                    <td align="left" valign=bottom>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <p align="center"><a href="javascript:document.regForm.submit();">Submit</a></p>
+                                    </td>
+                                </tr>
+</form>
+</table>
 </td>
 </tr>
 </table>
-         <br><br>
-         To find out more detailed information about the Google&#153; Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
-         <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
-         </div>
-      </td>
-      <td width="49%">&#160;</td>
-   <tr>
-   <tr>
-      <td colspan="3">
-         <div align="center">
-         <jsp:include page="foot.jsp" />
-         </div>
-      </td>
-   </tr>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br>
+To find out more detailed information about the Google&#153; Code Jam 2006, please read the
+<a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+<br><br>
+</div>
+</td>
+<td width="49%">&#160;</td>
+<tr>
 
+</tr>
+
+<tr>
+    <td colspan="3">
+        <div align="center">
+            <jsp:include page="foot.jsp"/>
+        </div>
+    </td>
+</tr>
 </table>
 </body>
 </html>
