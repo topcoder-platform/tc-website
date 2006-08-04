@@ -62,6 +62,20 @@ AOL is where the power of the Internet and your individual potential converge to
 <br><br>
 <b>Projects:</b> AOL's flagship set of web applications (Mail, Address Book, Calendar and Instant Messaging) - delivering the next generation of Web based communication for millions of AOL and AIM users every day. AOL Pictures is designing and implementing major subsystems using Java server technologies on Unix (Linux/Solaris) in support of new, improved functionality in the very competitive area of online digital picture management and sharing. AIM Pages is an exciting new way for you to create and share your own personalized web page. AIM Pages are made of modules - small web pages that can be embedded easily into other web pages.
 <br><br>
+Here are a few of the products we own or work on in Mountain View. &#8230;and in case you didn't know, all of these and more are free for AIM members.
+<ul>
+<li>Webmail with 2 gigabytes of storage, calendar and address book for AIM and unlimited mail storage for AOL users. Check out the highly acclaimed Web Suite at <A href="/?t=sponsor&c=link&link=http://mail.aol.com" target="_blank">http://mail.aol.com</A></li>
+<li>Connect with buddies, find friends, meet people and create a profile on <A href="/?t=sponsor&c=link&link=http://www.aimpages.com" target="_blank">http://www.aimpages.com</A></li>
+<li>AOL Pictures, which lets you share photo albums with anyone with unlimited storage. Get creative at <A href="/?t=sponsor&c=link&link=http://pictures.aol.com" target="_blank">http://pictures.aol.com</A></li>
+<li>AOL Journals, our blogging product for AIM and AOL users. Create a public or private blog at <A href="/?t=sponsor&c=link&link=http://journals.aol.com" target="_blank">http://journals.aol.com</A></li>
+<li>Alerts & Reminders - choose from hundreds of alerts and receive them via SMS, online or email, or set reminders for those important events. Give it a go at <A href="/?t=sponsor&c=link&link=http://alerts.aol.com" target="_blank">http://alerts.aol.com</A></li>
+<li>Uncut Video - upload that crazy video you've been wanting to share, and have a blast checking out videos from others. Let it roll at <A href="/?t=sponsor&c=link&link=http://communityvideo.aol.com" target="_blank">http://communityvideo.aol.com</A></li>
+<li>AIMPages Modules - we make a bunch of them, and you can too. Learn how at <A href="/?t=sponsor&c=link&link=http://developer.iamalpha.com" target="_blank">http://developer.iamalpha.com</A></li>
+<li>Take your favorite bookmarks with you with Favorites Plus! We'll even help you organize and associate RSS feeds with them. You can take it with you at <A href="/?t=sponsor&c=link&link=http://favorites.aol.com" target="_blank">http://favorites.aol.com</A></li>
+<li>Did we mention dogs and a <A href="/?t=sponsor&c=link&link=http://journals.aol.com/fishcammv/AOLMVFishCam" target="_blank">fishcam</A>? We've got those too.</li>
+<li>&#8230;and more on the way! Come talk to us and we'll fill you in!</li>
+</ul>
+
 <span class="bodySubtitleAOL">Team: AOL Wireless</span><br>
 <b>Location:</b> Seattle, WA<br>
 <A href="/?t=sponsor&c=link&link=http://www.tegic.com/about/" target="_blank">http://www.tegic.com/about/</A>
