@@ -162,7 +162,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         stage found: 
         <%=String.valueOf(resultRow.getLongItem("stage_id"))%>
         param: 
-        <%=request.getParameter(Constants.STAGE_ID))%>
+        <%=request.getParameter(Constants.STAGE_ID)%>
         <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
         <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
             selected
