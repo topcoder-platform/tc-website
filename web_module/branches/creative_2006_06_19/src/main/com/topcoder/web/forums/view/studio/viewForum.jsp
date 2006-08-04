@@ -1,5 +1,79 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.model.Paging,
+                 com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.WatchManager,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 java.util.Iterator,
+                 java.util.Enumeration"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
+<tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
+<tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+
+<%  WatchManager watchManager = forumFactory.getWatchManager();
+    ReadTracker readTracker = forumFactory.getReadTracker();
+    User user = (User)request.getAttribute("user");
+    String sortField = (String)request.getAttribute("sortField");
+    String sortOrder = (String)request.getAttribute("sortOrder");
+    String startIdx = (String)request.getAttribute("startIdx");
+    boolean isDefaultView = (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))
+        && sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))
+        && startIdx.equals("0"));
+
+    StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
+    linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
+
+    StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    threadLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.THREAD_NAME);
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    if (sortField.equals(String.valueOf(JiveConstants.THREAD_NAME))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    } else {  // default
+        threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+    }
+    if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        }
+    } else {  // default
+        dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+    }
+    String threadLink = threadLinkBuffer.toString();
+    String dateLink = dateLinkBuffer.toString();
+
+    if (!sortField.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(sortField);
+    }
+    if (!sortOrder.equals("")) {
+        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
+    }
+    String link = linkBuffer.toString();
+%>
 
 <html>
 <head>
@@ -32,188 +106,144 @@
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
       <jsp:include page="searchHeader.jsp" />
     </td>
-    <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+   <td align="right" nowrap="nowrap" valign="top">
+       <%   if (ForumsUtil.isAdmin(user)) { %>
+                 <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>&#160; |&#160;
+       <%   } %>
+      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   </td>
+</tr>
+<tr><td colspan="2" style="padding-bottom:3px;"><b>
+       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
+       </tc-webtag:iterator>
+        <jsp:getProperty name="forum" property="name"/>
     </td>
-</tr>
-<tr>
-   <td colspan="2" style="padding-bottom:3px;"><b>
-   <A href="main.html" class="rtbcLink">Forums</A> > 
-   <A href="main.html" class="rtbcLink">Round Tables</A> > 
-   General Discussion
-   </b></td>
-</tr>
+<% Page[] pages; %>
+<% if (paginator.getNumPages() > 1) { %>
+   <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
+      <%  if (paginator.getPreviousPage()) { %>
+         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+               << PREV</A>&#160;&#160;&#160;
+        <%  } %> [
+        <%  pages = paginator.getPages(5);
+            for (int i=0; i<pages.length; i++) {
+        %>  <%  if (pages[i] != null) { %>
+                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                       <span class="currentPage"><%= pages[i].getNumber() %></span>
+                 <%  } else { %>
+                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                         <%= pages[i].getNumber() %></A>
+                   <%  } %>
+            <%  } else { %> ... <%  } %>
+        <%  } %> ]
+      <%  if (paginator.getNextPage()) { %>
+         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
+        <%  } %>
+   </b></td></tr>
+<% } %>
 </table>
-
             
-
+<%  if (forum.getThreadCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<tbody>
-   <tr>
-      <td class="rtHeader" width="70%"><a href="?module=ThreadList&forumID=244237&sortField=5&sortOrder=1" class="rtbcLink">Thread</a></td>
-      <td class="rtHeader" width="10%">Author</td>
-      <td class="rtHeader" width="10%" align="right">Replies</td>
-      <td class="rtHeader" width="10%" align="right">Views</td>
-      <td class="rtHeader" align="center" colspan="2"><a href="?module=ThreadList&forumID=244237&sortField=9&sortOrder=1" class="rtbcLink">Last Post</a></td>
+<tr>
+<td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
+<td class="rtHeader" width="10%">Author</td>
+<td class="rtHeader" width="10%" align="right">Replies</td>
+<td class="rtHeader" width="10%" align="right">Views</td>
+<td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
+</tr>
+<%  if (startIdx.equals("0")) { %>
+<tc-webtag:iterator id="announcement" type="com.jivesoftware.forum.Announcement" iterator='<%=(Iterator)request.getAttribute("announcements")%>'>
+    <tr>
+    <td class="rtThreadCellWrap">
+        <div><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkBold"><img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%></A></div>
+    </td>
+    <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=announcement.getUser().getID()%>"/></td>
+    <td class="rtThreadCell"></td>
+    <td class="rtThreadCell"></td>
+    <td class="rtThreadCell"><b><A href="?module=Announcement&<%=ForumConstants.ANNOUNCEMENT_ID%>=<jsp:getProperty name="announcement" property="ID"/>" class="rtLinkNew"><tc-webtag:beanWrite name="announcement" property="startDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
+    <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=announcement.getUser().getID()%>"/></td>
+    </tr>
+</tc-webtag:iterator>
+<%  } %>
+<tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
+    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread);
+        String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
+            ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
+    <tr>
+    <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+    <td class="rtThreadCellWrap">
+        <%  if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
+            <%  if (!authToken.isAnonymous()) { %>
+            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } else { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } %>
+         <% Paginator threadPaginator;
+            ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+            resultFilter.setStartIndex(0);
+            int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage",
+                  ForumConstants.DEFAULT_MESSAGE_RANGE);
+            if (user != null) {
+                  try {
+                      range = Integer.parseInt(user.getProperty("jiveMessageRange"));
+                  } catch (Exception ignored) {}
+            }
+            resultFilter.setNumResults(range);
+            threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
+
+            if (threadPaginator.getNumPages() > 1) { %> [
+              <%  pages = threadPaginator.getPages(4);
+                  for (int i=0; i<pages.length; i++) {
+              %>  <%  if (pages[i] != null) { %>
+                       <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkOld">
+                         <%= pages[i].getNumber() %></A>
+                  <%  } %>
+              <%  } %>
+                <%  if (threadPaginator.getNumPages() > 4) { %>
+                    <%  if (threadPaginator.getNumPages()-4 > 1) { %> ... <%  } %>
+                    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>" class="rtLinkOld">
+                            <%= threadPaginator.getNumPages() %></A>
+                <%  } %> ]
+          <%  } %>
+      <%  } else { %>
+            <%  if (!authToken.isAnonymous()) { %>
+               <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } else { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } %>
+        <%  } %></td>
+    <% if (thread.getRootMessage().getUser() != null) { %>
+       <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+    <% } else { %>
+        <td class="rtThreadCell"></td>
+    <% } %>
+   <td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
+   <td class="rtThreadCell"><b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew"><tc-webtag:beanWrite name="thread" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></A></b></td>
+   <% if (lastPost.getUser() != null) { %>
+        <td class="rtThreadCell"><tc-webtag:studioHandle coderId="<%=lastPost.getUser().getID()%>"/></td>
+    <% } else { %>
+        <td class="rtThreadCell"></td>
+    <% } %>
    </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512296" class="rtLinkBold">why do people leave</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=7364893" class="coderText">rgrig</a></td>
-      <td class="rtThreadCell" align="right">46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1383&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553430" class="rtLinkNew">Wed, Aug 2 2006 at 9:35 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512330" class="rtLinkOld">TCCC T-Shirt : Show us your member quotes!</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=8520396" class="coderTextOrange">bettylee74</a></td>
-      <td class="rtThreadCell" align="right">56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">917&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553421" class="rtLinkNew">Wed, Aug 2 2006 at 9:13 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=251184" class="coderText">dplass</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512302" class="rtLinkBold">India has now more than 1000 topcoder members...</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
-      <td class="rtThreadCell" align="right">36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">827&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553420" class="rtLinkNew">Wed, Aug 2 2006 at 9:12 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=511641" class="rtLinkOld">Google Code Jam 2006</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=15062676" class="coderText">sinn_md</a></td>
-      <td class="rtThreadCell" align="right">39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1422&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553402" class="rtLinkNew">Wed, Aug 2 2006 at 8:38 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512239" class="rtLinkBold">The Pi SRM</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21931776" class="coderText">einstein41389</a></td>
-      <td class="rtThreadCell" align="right">15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1305&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553390" class="rtLinkNew">Wed, Aug 2 2006 at 7:44 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21464956" class="coderText">d000hg</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512312" class="rtLinkBold">IRC users</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
-      <td class="rtThreadCell" align="right">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">117&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553238" class="rtLinkNew">Tue, Aug 1 2006 at 2:37 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21414577" class="coderText">michaelr</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512313" class="rtLinkBold">AI Competition</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14846952" class="coderText">cep21</a></td>
-      <td class="rtThreadCell" align="right">11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">267&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553213" class="rtLinkNew">Tue, Aug 1 2006 at 1:17 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14846952" class="coderText">cep21</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512327" class="rtLinkOld">Unregistering from TCCC Component Competition</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21494813" class="coderText">dhoni</a></td>
-      <td class="rtThreadCell" align="right">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">61&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553186" class="rtLinkNew">Tue, Aug 1 2006 at 11:23 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=284038" class="coderText">aussie</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512175" class="rtLinkOld">Best Quote</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=21931776" class="coderText">einstein41389</a></td>
-      <td class="rtThreadCell" align="right">35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1656&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=553005" class="rtLinkNew">Mon, Jul 31 2006 at 4:59 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=11877201" class="coderText">Malkava</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512270" class="rtLinkBold">Difficult Java Problems ...</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14822038" class="coderText">Nikaustr</a></td>
-      <td class="rtThreadCell" align="right">18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">316&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552992" class="rtLinkNew">Sun, Jul 30 2006 at 8:06 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14822038" class="coderText">Nikaustr</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512280" class="rtLinkBold">Preparing for AI (Game Dev)</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14949023" class="coderText">god_shiva</a></td>
-      <td class="rtThreadCell" align="right">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">192&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552978" class="rtLinkNew">Sun, Jul 30 2006 at 5:35 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=14949023" class="coderText">god_shiva</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512289" class="rtLinkBold">TopCoder For Math</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22063254" class="coderText">webgoudarzi</a></td>
-      <td class="rtThreadCell" align="right">16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">359&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552950" class="rtLinkNew">Sun, Jul 30 2006 at 12:48 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=303185" class="coderText">Cosmin.ro</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=512258" class="rtLinkOld">Family</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22063254" class="coderText">webgoudarzi</a></td>
-      <td class="rtThreadCell" align="right">57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1543&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552923" class="rtLinkNew">Sun, Jul 30 2006 at 2:22 AM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=275640" class="coderText">sql_lall</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=509704" class="rtLinkBold">1000 post party!</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=8416646" class="coderText">Kawigi</a></td>
-      <td class="rtThreadCell" align="right">62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">1894&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552760" class="rtLinkNew">Fri, Jul 28 2006 at 5:56 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=Thread&threadID=511911" class="rtLinkOld">TCO prize money</A>
-      </td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=10098406" class="coderText">colau</a></td>
-      <td class="rtThreadCell" align="right">14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell" align="right">652&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="rtThreadCell"><b><A href="?module=Message&messageID=552721" class="rtLinkNew">Fri, Jul 28 2006 at 12:20 PM</A></b></td>
-      <td class="rtThreadCell"><a href="/tc?module=MemberProfile&cr=22060726" class="coderText">Perseph0ne</a></td>
-   </tr>
-</tbody>
+</tc-webtag:iterator>
 </table>
 
 <div>
-<div style="float:right;"><a href=""><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
-A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <A href="?module=Category&categoryID=13&markRead=t" class="rtbcLink">(Mark all as read)</A>
+<div style="float:right;"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
+A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><% } %>
 </div>
+<%  } else { %>
+    <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
+<%  } %>
+        <p><br/></p>
+        </td>
+<!-- Center Column Ends -->
 
+    </tr>
+</table>
 
         <jsp:include page="foot.jsp"/>
     </div>

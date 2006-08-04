@@ -1,7 +1,6 @@
-<%-- COMMENTED OUT CUZ IT WAS BOMBING THE PAGE
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
-                com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
                  java.util.*"
@@ -23,4 +22,3 @@
 <A href="?module=Search" class="rtbcLink">Advanced Search</A>
 <% if (errors != null && errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
 </form>
---%>

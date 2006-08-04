@@ -19,7 +19,10 @@
             <param-name>default_processor</param-name>
             <param-value>Main</param-value>
         </init-param>
-
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+        </init-param>
         <init-param>
             <param-name>login_servlet</param-name>
             <param-value>/tc</param-value>

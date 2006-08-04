@@ -12,7 +12,17 @@
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page contentType="text/html;charset=utf-8" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="deepCategories" name="deepCategories" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+
+<%  User user = (User)request.getAttribute("user"); 
+    ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
+    ReadTracker readTracker = forumFactory.getReadTracker(); 
+    WatchManager watchManager = forumFactory.getWatchManager();
+    String trackerClass = ""; %>
 
 <html>
 <head>
@@ -54,112 +64,92 @@
 </tr>
 </table>
 
-            
-
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tbody>
-   <tr>
-      <td class="rtHeader" width="100%">
-      <A href="?module=Category&categoryID=13" class="rtbcLink">Round Tables</A>
-      </td>
-      <td class="rtHeader"><div style="width:80px;">T./M.</div>      </td>
-      <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div>      </td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=244237" class="rtLinkOld">General Discussion</A>
-      <br/><div class="rtDescIndent">Discuss anything "TopCoder" that doesn't fit into the other categories.  </div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">765&nbsp;/&nbsp;9278      </td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 10:48 AM</b>      </td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=343655" class="coderText">Uranium-235</a>      </td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=7166" class="rtLinkOld">Bugs, Suggestions and General Feedback</A>
-      <br/><div class="rtDescIndent">Report bugs, request enhancements, provide general feedback on existing functionality.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">2206&nbsp;/&nbsp;10679      </td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 9:24 AM</b>      </td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=132456" class="coderTextOrange">dok</a>      </td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505803" class="rtLinkBold">Educational Discussion</A>
-      <br/><div class="rtDescIndent">Give and get helpful advice.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">315&nbsp;/&nbsp;2572      </td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 6:23 AM</b>      </td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=15447970" class="coderText">rajkon</a>      </td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=327735" class="rtLinkBold">Getting Started in TopCoder Studio Creative Competitions</A>
-      <br/><div class="rtDescIndent">Check here for help and advice on getting started as a competitor.</div>      </td>
-      <td class="rtThreadCell" style="width: 80px;">180&nbsp;/&nbsp;1282      </td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Sat, Jun 24 2006 at 8:05 PM</b>      </td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=282718" class="coderText">Rustyoldman</a>      </td>
-   </tr>
-</tbody>
-</table>
-<br>
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tbody>
-   <tr>
-      <td class="rtHeader" width="100%">
-      <A href="?module=Category&categoryID=14" class="rtbcLink">Creative Contests</A>
-      </td>
-      <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
-      <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505983" class="rtLinkBold">TC Studio 308</A>
-      </td>
-      <td class="rtThreadCell" style="width: 80px;">3&nbsp;/&nbsp;18      </td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 11:29 AM</b></td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=9958883" class="coderText">Minilek</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505982" class="rtLinkBold">TC Studio 307</A>
-      </td>
-      <td class="rtThreadCell" style="width: 80px;">16&nbsp;/&nbsp;147</td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Mon, Jun 26 2006 at 8:28 AM</b></td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=19786437" class="coderText">dskloet</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505607" class="rtLinkBold">TC Studio 168</A>
-      </td>
-      <td class="rtThreadCell" style="width: 80px;">1&nbsp;/&nbsp;1</td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Sun, Jun 25 2006 at 5:54 PM</b>
-      </td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=343655" class="coderText">Uranium-235</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505584" class="rtLinkOld">TC Studio 148</A>
-      </td>
-      <td class="rtThreadCell" style="width: 80px;">2&nbsp;/&nbsp;9</td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Wed, Jun 21 2006 at 12:31 AM</b></td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=22265897" class="coderText">NEG</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCellWrap">
-      <A href="?module=ThreadList&forumID=505740" class="rtLinkBold">TC Studio 249</A>
-      </td>
-      <td class="rtThreadCell" style="width: 80px;">1&nbsp;/&nbsp;5</td>
-      <td class="rtThreadCell" style="width: 190px;"><b>Fri, Jun 16 2006 at 6:20 PM</b></td>
-      <td class="rtThreadCell" style="width: 100px;"><a href="/tc?module=MemberProfile&cr=260828" class="coderText">Larry</a></td>
-   </tr>
-   <tr>
-      <td class="rtThreadCell" colspan="4"><A href="?module=Category&categoryID=14" class="rtLinkNew">...more</A>
-      </td>
-   </tr>
-</tbody>
-</table>
+<%  if (categories.size() > 0) {
+    	Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MILLISECOND, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 0); %>
+<tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
+<%  String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
+    if (!"0".equals(limit)) { %>
+        <%  Iterator itForums = null, itForumsCopy = null;
+            int numActiveForums = 0;
+            if (!"".equals(limit)) {
+                if (limit.endsWith("d")) {
+                    int numDays = Integer.parseInt(limit.substring(0, limit.length()-1));
+                    calendar.add(Calendar.DATE, numDays*-1);
+                    resultFilter.setModificationDateRangeMin(calendar.getTime());
+                    calendar.add(Calendar.DATE, numDays);
+                    resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
+                    itForums = category.getForums(resultFilter); itForumsCopy = category.getForums(resultFilter);
+                } else {
+                    //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
+                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                    ArrayList pageList = ForumsUtil.getForumsPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                    itForums = pageList.iterator(); itForumsCopy = pageList.iterator();
+                }
+            } else {
+                resultFilter.setNumResults(ResultFilter.NULL_INT);
+                itForums = category.getForums(resultFilter); itForumsCopy = category.getForums(resultFilter);
+            }
+            while (itForums.hasNext()) {
+                if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
+            }
+            if (numActiveForums > 0) { %>
+            <br><table cellpadding="0" cellspacing="0" class="rtTable">
+                    <tr>
+                       <td class="rtHeader" width="100%">
+                            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A>
+                       </td>
+                       <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
+                       <td class="rtHeader" align="center" colspan="2"><div style="width:300px;">Last Post</div></td>
+                    </tr>
+                    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
+                        <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
+                                || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
+                        <%  if (forum.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
+                           <tr>
+                              <td class="rtThreadCellWrap">
+                                   <%  if (user == null) { %>
+                                   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                                   <%  } else { %>
+                                   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="<%=trackerClass%>"><jsp:getProperty name="forum" property="name"/></A>
+                                   <%  } %>
+                                   <% if (forum.getDescription() != null) { %><br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div><% } %></td>
+                              <td class="rtThreadCell" style="width: 80px;"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
+                              <% if (forum.getMessageCount() > 0) { %>
+                                  <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+                                   <td class="rtThreadCell" style="width: 190px;"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="EEE, MMM d yyyy 'at' h:mm a"/></b></td>
+                                  <% if (message.getUser() != null) { %>
+                                       <td class="rtThreadCell" style="width: 100px;"><tc-webtag:studioHandle coderId="<%=message.getUser().getID()%>"/></td>
+                                  <% } else { %>
+                                       <td class="rtThreadCell" style="width: 100px;"></td>
+                                   <% } %>
+                               <% } else { %>
+                                  <td class="rtThreadCell" style="width: 190px;"></td>
+                                  <td class="rtThreadCell" style="width: 100px;"></td>
+                              <% } %>
+                          </tr>
+                       <%  } %>
+                    </tc-webtag:iterator>
+                    <%  if (!"".equals(limit)) {
+                            int limitCNT = -1;
+                            try {
+                                limitCNT = Integer.parseInt(limit);
+                            } catch (Exception e) {}
+                            if (category.getForumCount() >= limitCNT) { %>
+                                <tr><td class="rtThreadCell" colspan="4"><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtLinkNew">...more</A></td></tr>
+                        <%  } %>
+                    <%  } %>
+            </table>
+            <%  } %>
+    <%  } %>
+</tc-webtag:iterator>
+<%  } %>
 
 <div>
-<div style="float:right;"><a href=""><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
-A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <A href="?module=Main&markRead=t" class="rtbcLink">(Mark all as read)</A><br>
+<div style="float:right;"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
+A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=Main&markRead=t" class="rtbcLink">(Mark all as read)</A><% } %><br>
 The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.
 </div>
 
