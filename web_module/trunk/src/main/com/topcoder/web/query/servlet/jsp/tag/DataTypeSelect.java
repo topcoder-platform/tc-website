@@ -5,12 +5,14 @@ import com.topcoder.web.query.common.Constants;
 
 import javax.servlet.jsp.JspException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.TreeMap;
 
 public class DataTypeSelect extends SelectTag {
 
     private static final List list;
+
     static {
         list = new ArrayList();
         TreeMap m = null;
@@ -29,7 +31,7 @@ public class DataTypeSelect extends SelectTag {
         return ((TreeMap) o).get(((TreeMap) o).firstKey()).toString();
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 }
