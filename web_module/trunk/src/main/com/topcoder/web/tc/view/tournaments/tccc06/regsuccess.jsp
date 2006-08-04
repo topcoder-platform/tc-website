@@ -1,5 +1,4 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,16 +26,9 @@
             <div class=bodySpacer>
                 <p class=bigTitle>Registration</p>
 
-                <p align="left">To complete your registration for the 2006 TopCoder Collegiate Challenge you must <b>read
-                    and agree to</b> the terms listed below.</p>
+                <p align="left">
+                    You have successfully registered for the 2006 TopCoTopCoder Collegiate Challenge.</p>
 
-                <div align="center">
-                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID%>"></iframe>
-                </div>
-
-                <p align="center">
-                    <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC06ComponentTermsAgree">I
-                        agree</a> to these terms and wish to participate in the 2006 TopCoder Collegiate Challenge.
 
             </div>
         </td>
