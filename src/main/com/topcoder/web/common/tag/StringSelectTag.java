@@ -1,6 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import javax.servlet.jsp.JspException;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class StringSelectTag extends SelectTag {
         return o.toString();
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 

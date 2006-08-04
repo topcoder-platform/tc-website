@@ -4,7 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.tag.SelectTag;
 
 import javax.servlet.jsp.JspException;
-import java.util.List;
+import java.util.Collection;
 
 public class CommandGroupSelect extends SelectTag {
 
@@ -26,12 +26,12 @@ public class CommandGroupSelect extends SelectTag {
         return ((ResultSetContainer.ResultSetRow) o).getItem("command_group_name").toString();
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 
     protected void init() {
-        list=null;
+        list = null;
         super.init();
     }
 }

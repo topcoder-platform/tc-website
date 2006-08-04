@@ -4,6 +4,7 @@ import com.topcoder.web.common.tag.SelectTag;
 import com.topcoder.web.query.bean.QueryBean;
 
 import javax.servlet.jsp.JspException;
+import java.util.Collection;
 import java.util.List;
 
 public class QuerySelect extends SelectTag {
@@ -26,12 +27,12 @@ public class QuerySelect extends SelectTag {
         return ((QueryBean) o).getName();
     }
 
-    protected List getSelectOptions() throws JspException {
+    protected Collection getSelectOptions() throws JspException {
         return list;
     }
 
     protected void init() {
-        list=null;
+        list = null;
         super.init();
     }
 
