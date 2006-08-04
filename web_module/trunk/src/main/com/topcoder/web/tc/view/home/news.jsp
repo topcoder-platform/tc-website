@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.04.06<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">Python now supported in Marathon Matches</A> 
+      </span><br><br>
+      Starting with Marathon Match 4 we will be adding Python 2.4.3 as a supported language.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">details</A>&#160;|&#160;
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">discuss this</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>08.03.06<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=assembly&d3=activeContests">Assembly Competition prizes top five figures</A></span><br><br>
       This week's Assembly Competitions feature some of the biggest prizes in recent TopCoder history, with two top prizes of $10,000 and a total prize pool of $30,000.
@@ -178,23 +193,6 @@ Three questions with a few hidden tricks resulted in 83 failed solutions out of 
        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.24.06<br>9:20 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm312">SRM 312 - Problem Set & Analysis</A></span><br><br>
-Division 1 coders faced a 250-pointer that didn't stop them for long, but that was definitely not the case with the 500-pointer and the 1050-pointer. 
-Eventually <tc-webtag:handle coderId="16056363" context="algorithm"/> enjoyed his first win thanks to 4 successful challenges!
-      </td>
-      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm312">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505987" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
 
 
 </table>
