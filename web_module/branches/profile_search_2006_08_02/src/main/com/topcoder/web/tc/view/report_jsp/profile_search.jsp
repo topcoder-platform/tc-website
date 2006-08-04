@@ -245,12 +245,12 @@
         <tr><td class="left">Algorithm Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxrating" size="5"/></td></tr>
-        <tr><td class="left">Max days since design competition:</td><td class="right">
+        <tr><td class="left">Max days since Design competition:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincedes" size="5"/></td></tr>
         <tr><td class="left">Design Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindesrating" size="5"/> to
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdesrating" size="5"/></td></tr>
-        <tr><td class="left">Max days since development competition:</td><td class="right">
+        <tr><td class="left">Max days since Development competition:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincedev" size="5"/></td></tr>
         <tr><td class="left">Dev. Rating range:</td><td class="right">
             <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindevrating" size="5"/> to

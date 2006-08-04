@@ -75,7 +75,7 @@ public class ProfileSearch extends Base {
         List[] skills = buildSkillsQuery(request, skillsHeaders);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
-        List tables, constraints;
+        List tables, constraints; 
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
         String comp = request.getParameter("company");
