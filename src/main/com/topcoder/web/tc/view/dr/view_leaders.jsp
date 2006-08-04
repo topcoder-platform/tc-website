@@ -162,19 +162,12 @@ Design Cup Series Leaderboard<br>
 Please select a <strong>season</strong> and <strong>stage</strong><br>
 <SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="document.leaderBoardForm.submit()">
     <rsc:iterator list="<%=stages%>" id="resultRow">
-        <%System.out.println("stage found: ");
-        System.out.println(String.valueOf(resultRow.getLongItem("stage_id")));
-        System.out.println("param: ");
-        System.out.println((String)defaults.get(Constants.STAGE_ID));%>
-        
         <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals((String) defaults.get(Constants.STAGE_ID))) { %>
         <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
-            selected
             <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
             <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
         <% } else { %>
         <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>">
-            no selected
             <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
             <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
         <% } %>
