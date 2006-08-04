@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.PreferenceValueDAO;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.tc.Constants;
@@ -26,8 +27,15 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
             PreferenceGroup group = (PreferenceGroup) getRequest().getAttribute("group");
             HashSet values = new HashSet();
 
+            String key;
+            PreferenceValueDAO pvDao = DAOUtil.getFactory().getPreferenceValueDAO();
             for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
-                values.add(StringUtils.checkNull(getRequest().getParameter(Constants.PREFERENCE_PREFIX + ((Preference) it.next()).getId())));
+                key = Constants.PREFERENCE_PREFIX + ((Preference) it.next()).getId();
+                try {
+                    values.add(pvDao.find(new Integer(StringUtils.checkNull(getRequest().getParameter(key)))).getValue());
+                } catch (NumberFormatException e) {
+                    addError(key, "Please choose a valid section.");
+                }
             }
             if (log.isDebugEnabled()) {
                 log.debug("values size: " + values.size() + " pref size:" + group.getPreferences().size() + " values: " + values.toString());
@@ -36,29 +44,25 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
             if (values.size() != group.getPreferences().size()) {
                 addError(Constants.PREFERENCE_PREFIX, "Please indicate each of your preferences, you must choose each section once.");
             } else {
-                String value;
+                String valueId;
                 Preference curr;
                 PreferenceValue currValue;
                 UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
                 User user = userDAO.find(new Long(getUser().getId()));
                 for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
                     curr = (Preference) it.next();
-                    value = StringUtils.checkNull(getRequest().getParameter(Constants.PREFERENCE_PREFIX + curr.getId()));
+                    valueId = StringUtils.checkNull(getRequest().getParameter(Constants.PREFERENCE_PREFIX + curr.getId()));
                     boolean found = false;
-                    try {
-                        for (Iterator it1 = curr.getValues().iterator(); it1.hasNext() & !found;) {
-                            currValue = (PreferenceValue) it1.next();
-                            found = currValue.getId().equals(new Integer(value));
-                            if (found) {
-                                UserPreference up = new UserPreference();
-                                up.setPreferenceValue(currValue);
-                                up.getId().setPreference(curr);
-                                up.getId().setUser(user);
-                                user.addUserPreference(up);
-                            }
+                    for (Iterator it1 = curr.getValues().iterator(); it1.hasNext() & !found;) {
+                        currValue = (PreferenceValue) it1.next();
+                        found = currValue.getId().equals(new Integer(valueId));
+                        if (found) {
+                            UserPreference up = new UserPreference();
+                            up.setPreferenceValue(currValue);
+                            up.getId().setPreference(curr);
+                            up.getId().setUser(user);
+                            user.addUserPreference(up);
                         }
-                    } catch (NumberFormatException e) {
-                        //can just ignore, the next will check and see that it wasn't found
                     }
                     if (!found) {
                         addError(Constants.PREFERENCE_PREFIX + curr.getId(), "Please choose a valid section.");
