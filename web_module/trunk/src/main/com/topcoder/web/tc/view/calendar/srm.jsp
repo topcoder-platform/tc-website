@@ -340,7 +340,8 @@ A given competitor will only be eligible to win, at most, one random drawing.
             years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
             province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which
+            receive a prize, they will be asked to pick a
+            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
             to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
             which the ineligible member's prize will be paid.</li>
         <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win prizes
@@ -392,7 +393,8 @@ A given competitor will only be eligible to win, at most, one random drawing.
             years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec
             province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would
-            receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which
+            receive a prize, they will be asked to pick a
+            <a href="/tc?module=Static&amp;d1=help&amp;d2=charity">charity</a> to which
             to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to
             which the ineligible member's prize will be paid.</li>
     </UL>
