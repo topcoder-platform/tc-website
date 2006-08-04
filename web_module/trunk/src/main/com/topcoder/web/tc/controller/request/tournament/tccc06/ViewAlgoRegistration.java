@@ -41,12 +41,17 @@ public class ViewAlgoRegistration extends Base {
     }
 
     protected void setNextPage() throws Exception {
-        if (isRegistered()) {
-            setNextPage("/tournaments/tccc06/regsuccess.jsp");
-            setIsNextPageInContext(true);
-        } else {
+        if (hasErrors()) {
             setNextPage("/tournaments/tccc06/reg.jsp");
             setIsNextPageInContext(true);
+        } else {
+            if (isRegistered()) {
+                setNextPage("/tournaments/tccc06/regsuccess.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                setNextPage("/tournaments/tccc06/reg.jsp");
+                setIsNextPageInContext(true);
+            }
         }
     }
 
