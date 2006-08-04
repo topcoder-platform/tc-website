@@ -17,6 +17,7 @@
     if (nextpage == null) nextpage = "http://" + request.getServerName();
     String type = (String) request.getAttribute(Constants.TYPE_KEY);
     ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
+    HashMap defaults = (HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY);
 %>
 
 <html>
@@ -162,9 +163,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <%System.out.println("stage found: ");
         System.out.println(String.valueOf(resultRow.getLongItem("stage_id")));
         System.out.println("param: ");
-        System.out.println(request.getParameter(Constants.STAGE_ID));%>
+        System.out.println((String)defaults.get(Constants.STAGE_ID));%>
         
-        <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals(request.getParameter(Constants.STAGE_ID))) { %>
+        <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals((String) defaults.get(Constants.STAGE_ID))) { %>
         <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
             selected
             <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
