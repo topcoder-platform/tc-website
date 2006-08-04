@@ -94,17 +94,18 @@ public class StudioHandleTag extends TagSupport {
             } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
                 output.append(rsc.getStringItem(0, "handle"));
             } else {
-
+            	output.append("<span class=\"");	
+            	
                 //check for css override
                 boolean bCSSOverride = false;
                 if (cssclass != null && !cssclass.equals("")) {
                     bCSSOverride = true;
                 }
-                output.append("<a href=\"");
+                //output.append("<a href=\"");
                 if (link.equals("")) {
                     link = DEFAULT_LINK + coderId;
                 }
-                output.append(link);
+                //output.append(link);
                 if (algorithm && rsc.getIntItem(0, "algorithm_rating") > 0) {
                     output.append("&tab=alg");
                 } else if (hsAlgorithm && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
@@ -124,7 +125,7 @@ public class StudioHandleTag extends TagSupport {
                         }
                     }
                 }
-                output.append("\" class=\"");
+                //output.append("\" class=\"");
 
                 if (bCSSOverride) {
                     output.append(cssclass);
@@ -156,7 +157,8 @@ public class StudioHandleTag extends TagSupport {
 
                 output.append(rsc.getStringItem(0, "handle"));
 
-                output.append("</a>");
+                //output.append("</a>");
+                output.append("</span>");
             }
 
             pageContext.getOut().print(output.toString());
