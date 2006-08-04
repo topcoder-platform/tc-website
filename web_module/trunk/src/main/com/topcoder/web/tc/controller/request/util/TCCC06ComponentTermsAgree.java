@@ -99,8 +99,8 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
     }
 
     protected void setSuccessPage() {
-        setNextPage("/tc");
-        setIsNextPageInContext(false);
+        setNextPage("/tournaments/tccc06/regsuccess.jsp");
+        setIsNextPageInContext(true);
     }
 
     public boolean isEligible() throws Exception {
