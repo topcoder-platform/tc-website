@@ -3,6 +3,7 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.Constants,
+                 java.util.HashMap,
                  com.topcoder.web.common.BaseProcessor" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
