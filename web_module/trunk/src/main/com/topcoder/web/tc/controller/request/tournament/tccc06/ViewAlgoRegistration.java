@@ -40,10 +40,10 @@ public class ViewAlgoRegistration extends Base {
         return Constants.TCCC06_ALGORITHM_TERMS_OF_USE_ID;
     }
 
-    protected void setSuccessPage() throws Exception {
+    protected void setNextPage() throws Exception {
         if (isRegistered()) {
-            setNextPage("/tc");
-            setIsNextPageInContext(false);
+            setNextPage("/tournaments/tccc06/regsuccess.jsp");
+            setIsNextPageInContext(true);
         } else {
             setNextPage("/tournaments/tccc06/terms.jsp");
             setIsNextPageInContext(true);

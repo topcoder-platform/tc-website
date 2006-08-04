@@ -41,7 +41,7 @@ public abstract class Base extends ShortHibernateProcessor {
                     //dont' have anything to do really
                 }
             }
-
+            setNextPage();
         }
     }
 
@@ -69,7 +69,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     public abstract int getTermsId();
 
-    protected abstract void setSuccessPage() throws Exception;
+    protected abstract void setNextPage() throws Exception;
 
     public abstract boolean isEligible() throws Exception;
 

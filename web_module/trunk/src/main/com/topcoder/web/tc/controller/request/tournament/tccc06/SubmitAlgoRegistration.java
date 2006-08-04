@@ -68,4 +68,5 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
         }
     }
+
 }
