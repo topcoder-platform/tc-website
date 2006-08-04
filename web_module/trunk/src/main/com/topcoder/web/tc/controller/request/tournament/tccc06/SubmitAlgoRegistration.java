@@ -31,6 +31,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
             PreferenceValueDAO pvDao = DAOUtil.getFactory().getPreferenceValueDAO();
             for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
                 key = Constants.PREFERENCE_PREFIX + ((Preference) it.next()).getId();
+                setDefault(key, getRequest().getParameter(key));
                 try {
                     values.add(pvDao.find(new Integer(StringUtils.checkNull(getRequest().getParameter(key)))).getValue());
                 } catch (NumberFormatException e) {
@@ -71,6 +72,10 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
                 user.addTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(getTermsId())));
                 userDAO.saveOrUpdate(user);
             }
+            if (hasErrors()) {
+                setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
+            }
+
         } else {
             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
         }
