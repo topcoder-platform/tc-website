@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
@@ -9,6 +9,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
@@ -92,7 +93,7 @@ address provided during registration.
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
 <br><br>
-If you encounter any problems, please contact us at <A href="mailto:gcj06@topcoder.com">gcj06@topcoder.com</A>.
+If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj06@topcoder.com</A>.
 <br><br>
 Good luck to you in the Arena!
 
