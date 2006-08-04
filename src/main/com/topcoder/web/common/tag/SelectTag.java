@@ -2,8 +2,8 @@ package com.topcoder.web.common.tag;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 public abstract class SelectTag extends BaseTag {
     private String styleClass = null;
@@ -17,9 +17,10 @@ public abstract class SelectTag extends BaseTag {
     private String topValue = null;
     private String topText = null;
 
-    public void setUseTopValue(String s){
+    public void setUseTopValue(String s) {
         useTopValue = "true".equalsIgnoreCase(s);
     }
+
     public void setTopValue(String topValue) {
         this.topValue = topValue;
     }
@@ -90,7 +91,7 @@ public abstract class SelectTag extends BaseTag {
         this.multiple = null;
         this.topValue = null;
         this.topText = null;
-        this.useTopValue=true;
+        this.useTopValue = true;
     }
 
     String getSelected() throws JspException {
@@ -102,7 +103,7 @@ public abstract class SelectTag extends BaseTag {
         return getSelected(getSelectOptions());
     }
 
-    String getSelected(List options) {
+    String getSelected(Collection options) {
         Iterator it = options.iterator();
         for (; it.hasNext();) {
             Object option = it.next();
@@ -121,7 +122,7 @@ public abstract class SelectTag extends BaseTag {
         return buildSelect(getSelectOptions());
     }
 
-    String buildSelect(List options) throws JspException {
+    String buildSelect(Collection options) throws JspException {
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         if (name != null) {
@@ -140,7 +141,7 @@ public abstract class SelectTag extends BaseTag {
             s.append(" multiple=\"" + multiple + "\"");
         }
         s.append(">\n");
-        if(useTopValue){
+        if (useTopValue) {
             s.append("<option value=\"");
             s.append(topValue == null ? "" : topValue);
             s.append("\"");
@@ -166,7 +167,7 @@ public abstract class SelectTag extends BaseTag {
                 s.append("\"");
                 if (selectedValue != null && selectedValue.equals(optionValue) ||
                         selectedText != null && selectedText.equals(optionText)
-                ) {
+                        ) {
                     s.append(" selected");
                 }
                 s.append(">");
@@ -182,5 +183,5 @@ public abstract class SelectTag extends BaseTag {
 
     protected abstract String getOptionText(Object o);
 
-    protected abstract List getSelectOptions() throws JspException;
+    protected abstract Collection getSelectOptions() throws JspException;
 }
