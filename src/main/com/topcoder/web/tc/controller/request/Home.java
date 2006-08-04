@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration;
 import com.topcoder.web.tc.controller.request.util.TCCC06AlgorithmTerms;
 import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
@@ -89,7 +90,7 @@ public class Home extends Base {
             compTerms.setResponse(getResponse());
             compTerms.setAuthentication(getAuthentication());
 
-            TCCC06AlgorithmTerms algoTerms = new TCCC06AlgorithmTerms();
+            ViewAlgoRegistration algoTerms = new ViewAlgoRegistration();
             algoTerms.setRequest(getRequest());
             algoTerms.setResponse(getResponse());
             algoTerms.setAuthentication(getAuthentication());
