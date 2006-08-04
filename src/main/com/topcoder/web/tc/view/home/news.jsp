@@ -22,6 +22,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.04.06<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm314">SRM 314 - Problem Set & Analysis</A></span><br><br>
+This match was SRM number 314, which is the truncated decimal expansion of
+pi to two decimal places, putting it quite exclusive company -- only SRM 3
+(May 2001) and SRM 31 (September 2001) also start the decimal expansion of pi.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/antimatter_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275071" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=match_editorials&d2=srm314">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="505989" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.04.06<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&threadID=512394">Python now supported in Marathon Matches</A> 
@@ -189,22 +208,6 @@ Three questions with a few hidden tricks resulted in 83 failed solutions out of 
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">full story</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506030" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.24.06<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=072406">How long will this take, anyway?</A></span><br><br>
-      It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=features&d2=072406">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506078" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
 
