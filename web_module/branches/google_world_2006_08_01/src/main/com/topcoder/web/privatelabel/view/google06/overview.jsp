@@ -71,7 +71,7 @@ The competitors with the top 500 scores from Round 1 will advance to compete in 
 <br><br>
 The competitors with the top 100 scores from Round 2 will be invited to compete for $165,000 in cash and prizes at the onsite Championship Round at the Google Office in New York City, New York, United States. 
 <br><br>
-<%--
+<%--  
 Here's the line-by-line documentation:
 <br><br>
 <div class="indented">
