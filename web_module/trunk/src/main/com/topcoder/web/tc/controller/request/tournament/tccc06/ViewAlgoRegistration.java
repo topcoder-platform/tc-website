@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.tournament.tccc06;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.PreferenceGroup;
 import com.topcoder.web.tc.Constants;
@@ -27,8 +28,11 @@ public class ViewAlgoRegistration extends Base {
 
     public Calendar getBeginning() {
         Calendar beginning = Calendar.getInstance();
-        beginning.set(2006, Calendar.FEBRUARY, 13, 9, 0);
-        //beginning.set(2006, Calendar.AUGUST, 28, 9, 0);
+        if (ApplicationServer.ENVIRONMENT != ApplicationServer.PROD) {
+            beginning.set(2006, Calendar.FEBRUARY, 13, 9, 0);
+        } else {
+            beginning.set(2006, Calendar.AUGUST, 28, 9, 0);
+        }
         return beginning;
     }
 
