@@ -17,7 +17,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>ForumList</param-value>
+            <param-value>Main</param-value>
         </init-param>
 
         <init-param>
@@ -40,6 +40,7 @@
             <param-name>Admin</param-name>
             <param-value>com.topcoder.web.forums.controller.request.studio.Admin</param-value>
         </init-param>
+        <!--
 		<init-param>
             <param-name>Login</param-name>
             <param-value></param-value>
@@ -48,6 +49,7 @@
             <param-name>Logout</param-name>
             <param-value></param-value>
         </init-param>
+        -->
 		<!-- end parameters for ForumsServlet processor mapping -->
     </servlet>
 
