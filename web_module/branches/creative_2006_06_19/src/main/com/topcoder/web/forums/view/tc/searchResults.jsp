@@ -77,7 +77,7 @@
                <%  } else { %> ... <%  } %>
            <%  } %> ]
            <%  if (paginator.getNextPage()) { %>
-               &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+               &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
            <%  } %>
         </b></td>
     </tr>
@@ -124,7 +124,7 @@
                 <%  } else { %> ... <%  } %>
             <%  } %> ]
             <%  if (paginator.getNextPage()) { %>
-                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
             <%  } %>
         </b></td>
     </tr>

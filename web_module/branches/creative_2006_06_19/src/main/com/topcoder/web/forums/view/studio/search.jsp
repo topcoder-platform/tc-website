@@ -1,5 +1,38 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.BaseProcessor,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 com.jivesoftware.forum.Query,
+                 com.jivesoftware.util.StringUtils,
+                 java.util.*,
+                 java.text.SimpleDateFormat"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
+<tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%  User user = (User)request.getAttribute("user");
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+    Paginator paginator = (Paginator)request.getAttribute("paginator");
+    Query query = (Query)request.getAttribute("query");
+    String searchScope = (String)request.getAttribute("searchScope");
+    String dateRange = (String)request.getAttribute("dateRange");
+    String status = (String)request.getAttribute("status");
+    String mode = (String)request.getAttribute("mode");
+    Iterator results = (Iterator)request.getAttribute("results"); %>
+
+<script type="text/javascript">
+function noenter(e)
+{
+  var k = (window.event)? event.keyCode: e.which;
+  return !(k == 13);
+}
+</script>
 
 <html>
 <head>
@@ -31,108 +64,129 @@
 
 <div class="contentOuter">
    <div class="contentInner">
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-      <jsp:include page="searchHeader.jsp" />
-    </td>
-    <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-    </td>
+	<td class="categoriesBox" style="padding-right: 20px;">
+		<jsp:include page="categoriesHeader.jsp" />
+	</td>
+	<td align="right" nowrap="nowrap" width="100%" valign="top">   
+		<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+	</td>
 </tr>
 <tr>
-   <td colspan="3" style="padding-bottom:3px;"><strong>
-      <A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >
-      Search</strong>
-   </td>
+	<td colspan="3" style="padding-bottom:2px;">
+		<b><a href="" class="rtbcLink">Forums</a> > Search</b>
+	</td>
 </tr>
 </table>
 
-<table class="rtTable" cellpadding="0" cellspacing="0">
-<tbody><tr>
-<td class="rtHeader" colspan="2">Search Criteria</td>
-</tr>
-<tr>
-<td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
-<td class="rtTextCell100">
-<input name="query" size="50" maxlength="100" value="" id="query" type="text">
-<input name="Search" value="Search" alt="Search" onclick="" type="submit">
-&nbsp;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtLinkOld">Search Tips</a>
-</td>
-</tr>
-<tr>
-<td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
-<td class="rtTextCell100">
-<select size="1" name="scope" id="scope">
-<option value="all" selected="selected">All Forums</option>
-<option value="c13">Round Tables</option>
-<option value="f7126">&nbsp;&nbsp;&nbsp;Evolving Strategy</option>
-<option value="f7166">&nbsp;&nbsp;&nbsp;Bugs, Suggestions and General Feedback</option>
-<option value="f7167">&nbsp;&nbsp;&nbsp;Algorithm and High School Competitions Discussion</option>
-<option value="f148126">&nbsp;&nbsp;&nbsp;TopCoder Arena Plugins Discussion</option>
-<option value="f205768">&nbsp;&nbsp;&nbsp;Component Competition Discussion</option>
-<option value="f244237">&nbsp;&nbsp;&nbsp;General Discussion</option>
-<option value="f327735">&nbsp;&nbsp;&nbsp;Getting Started in TopCoder Competitions</option>
-<option value="f440104">&nbsp;&nbsp;&nbsp;General Employment Discussion</option>
-<option value="f505803">&nbsp;&nbsp;&nbsp;Educational Discussion</option>
-<option value="f506048">&nbsp;&nbsp;&nbsp;Marathon Match Discussion</option>
-<option value="c14">Algorithm Matches</option>
-<option value="c21">High School Matches</option>
-<option value="c19">Assembly Contests</option>
-<option value="c17">Marathon Matches</option>
-<option value="c8">News Discussions</option>
-<option value="c6">Sponsor Discussions</option>
-<option value="f505952">&nbsp;&nbsp;&nbsp;AMD Developer Central</option>
-<option value="f504997">&nbsp;&nbsp;&nbsp;Java(TM) Studio Creator Discussion</option>
-<option value="f505829">&nbsp;&nbsp;&nbsp;MSN Employment Discussion</option>
-<option value="f504996">&nbsp;&nbsp;&nbsp;VeriSign Employment Discussion</option>
-<option value="f504998">&nbsp;&nbsp;&nbsp;Yahoo! Employment Discussion</option>
-<option value="f504999">&nbsp;&nbsp;&nbsp;NSA Employment Discussion</option>
-<option value="f505918">&nbsp;&nbsp;&nbsp;UBS Employment Discussion</option>
-<option value="f506075">&nbsp;&nbsp;&nbsp;AOL Developer and Employment Discussion</option>
-<option value="f506076">&nbsp;&nbsp;&nbsp;Bloomberg Employment Discussion</option>
-</select>
-</td>
-</tr>
-<tr>
-<td class="rtTextCell" nowrap="nowrap"><strong>Date Range:</strong></td>
-<td class="rtTextCell100">
-<select size="1" name="dateRange" id="dateRange">
-<option value="all" selected="selected">All</option>
-<option value="dateYesterday">Yesterday (8/2/06)</option>
-<option value="dateLast7Days">Last 7 Days (7/27/06)</option>
-<option value="dateLast30Days">Last 30 Days (7/4/06)</option>
-<option value="dateLast90Days">Last 90 Days (5/5/06)</option>
-<option value="dateThisYear">This Year (1/1/06)</option>
-<option value="dateLastYear">Last Year (1/1/05)</option>
-</select>
-</td>
-</tr>
-<tr>
-<td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
-<td class="rtTextCell100">
-<input name="handle" size="20" maxlength="50" id="handle" value="" type="text">&nbsp;
-(Leave field blank to search all users)
-</td>
-</tr>
-<tr>
-<td class="rtTextCell" nowrap="nowrap"><strong>Results Per Page:</strong></td>
-<td class="rtTextCell100">
-<select size="1" name="resultSize" id="resultSize">
-<option value="10">10</option>
-<option value="20" selected="selected">20</option>
-<option value="30">30</option>
-<option value="50">50</option>
-</select>
-</td>
-</tr>
-</tbody>
-</table>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<tc-webtag:hiddenInput name="module" value="Search"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
+   <tr>
+      <td class="rtHeader" colspan="2">Search Criteria</td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
+      <td class="rtTextCell100">
+         <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="<%if (query != null) {%><%=StringUtils.escapeHTMLTags(query.getQueryString())%><%}%>" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
+         <input name="Search" value="Search" type="submit" alt="Search" onclick="">
+         &#160;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtLinkOld">Search Tips</a>
+         <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
+      </td>
+   </tr>
 
-<jsp:include page="searchResults.jsp" />
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
+      <td class="rtTextCell100">
+<select size="1" name="<%=ForumConstants.SEARCH_SCOPE%>" id="<%=ForumConstants.SEARCH_SCOPE%>">
+<%  if (searchScope == null || searchScope.equals("all")) { %>
+        <option value="all" selected>All Forums</option>
+<%  } else { %>
+        <option value="all">All Forums</option>
+<%  } %>
+<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+<%  String searchScopeValue = "f" + forum.getID();
+    if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
+        <option value="<%=searchScopeValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+    <%  } else { %>
+        <option value="<%=searchScopeValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+    <%  } %>
+</tc-webtag:iterator>
+<tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+<%  String categoryValue = "c" + category.getID();
+    if (searchScope != null && searchScope.equals(categoryValue)) { %>
+        <option value="<%=categoryValue%>" selected><jsp:getProperty name="category" property="name"/></option>
+    <%  } else { %>
+        <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
+    <%  } %>
+    <%  if (!"true".equals(category.getProperty(ForumConstants.PROPERTY_HIDE_SEARCH_FORUMS))) { %> 
+    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
+   <%  String forumValue = "f" + forum.getID();
+       if (searchScope != null && searchScope.equals(forumValue)) { %>
+           <option value="<%=forumValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+       <%  } else { %>
+           <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+       <%  } %>
+    </tc-webtag:iterator>
+    <%  } %>
+</tc-webtag:iterator>
+</select>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Date Range:</strong></td>
+      <td class="rtTextCell100">
+<select size="1" name="<%=ForumConstants.SEARCH_DATE_RANGE%>" id="<%=ForumConstants.SEARCH_DATE_RANGE%>">
+<%  if (dateRange == null || dateRange.equals("all")) { %>
+        <option value="all" selected>All</option>
+<%  } else { %>
+        <option value="all">All</option>
+<%  } %>
+<%  SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy");
+    for (int i=0; i<ForumConstants.SEARCH_DATES.length; i++) { %>
+        <%  if (dateRange != null && dateRange.equals(ForumConstants.SEARCH_DATES[i])) { %>
+                <option value="<%=ForumConstants.SEARCH_DATES[i]%>" selected>&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
+        <%  } else { %>
+                <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
+        <%  } %>
+<%  } %>
+</select>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
+      <td class="rtTextCell100">
+         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="<%if (query != null && query.getFilteredUser() != null){%><%=query.getFilteredUser().getUsername()%><%}%>" type="text"/>&#160;
+         (Leave field blank to search all users)
+         <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></span><% } %>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Results Per Page:</strong></td>
+      <td class="rtTextCell100">
+<select size="1" name="<%=ForumConstants.SEARCH_RESULT_SIZE%>" id="<%=ForumConstants.SEARCH_RESULT_SIZE%>">
+<%  int[] resultSizes = { 10, 20, 30, 50 };
+   for (int i=0; i<resultSizes.length; i++) {
+      if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) ||
+            (query == null && (authToken.isAnonymous() || user.getProperty("jiveSearchRange") == null) && resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RANGE) ||
+            (query == null && user != null && user.getProperty("jiveSearchRange") != null && resultSizes[i] == Integer.parseInt(user.getProperty("jiveSearchRange")))) { %>
+         <option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
+   <%   } else { %>
+         <option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>
+   <%   }
+   } %>
+</select>
+      </td>
+   </tr>
+</form>
+</table>
+<br>
+<% if ("search".equals(status)) { %>
+    <jsp:include page="searchResults.jsp"></jsp:include>
+<% } %>
 
         <jsp:include page="foot.jsp"/>
     </div>
