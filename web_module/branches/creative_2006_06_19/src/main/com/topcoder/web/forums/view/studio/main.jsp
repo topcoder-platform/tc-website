@@ -59,9 +59,6 @@
         <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
-<tr>
-   <td colspan="2" style="padding-bottom:3px;">&nbsp;</td>
-</tr>
 </table>
 
 <%  if (categories.size() > 0) {
