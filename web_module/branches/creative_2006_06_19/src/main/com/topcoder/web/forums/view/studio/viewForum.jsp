@@ -238,12 +238,6 @@ A forum with a <b>bold title</b> indicates it either has a new thread or has a t
 <%  } else { %>
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
-        <p><br/></p>
-        </td>
-<!-- Center Column Ends -->
-
-    </tr>
-</table>
 
         <jsp:include page="foot.jsp"/>
     </div>

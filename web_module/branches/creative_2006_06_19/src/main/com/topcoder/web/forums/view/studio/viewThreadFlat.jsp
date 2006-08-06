@@ -317,13 +317,6 @@ function displayVotes(messageID, posVotes, negVotes) {
    <%   }   %>
 </div>
 
-<!-- Center Column Ends -->
-
-        <p><br></p>
-        </td>
-    </tr>
-</table>
-
         <jsp:include page="foot.jsp"/>
     </div>
 </div>
