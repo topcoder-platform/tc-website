@@ -71,8 +71,6 @@ public class RBoardUtility extends DBUtility{
             rsUsers = psSelUsers.executeQuery();
             int i = 1;
             for (; rsUsers.next(); i++ ) {
-                log.debug("Possible conflict found: (" + i + ")");
-
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, 90);  // Days to analyze
                 psSelDetails.setInt(2, 80);  // score threshold
@@ -84,6 +82,10 @@ public class RBoardUtility extends DBUtility{
                 boolean alert = false;
                 long daysToBeDisqualified = 0;
                 long daysToBeDisqualified2 = 0;
+
+                log.debug("Analyzing user " + rsUsers.getLong("user_id") +
+                        " Project Type: " + rsUsers.getInt("project_type_id") +
+                        " Catalog Id: " + rsUsers.getLong("catalog_id"));
 
                 rsDetails90 = psSelDetails.executeQuery();
                 if (rsDetails90.next()) {
@@ -116,9 +118,9 @@ public class RBoardUtility extends DBUtility{
                         psUpd.executeUpdate();
                     }
                     log.debug("Reviewer: " + rsUsers.getLong("user_id") +
-                            "Project Type: " + rsUsers.getInt("project_type_id") +
-                            "Catalog Id: " + rsUsers.getLong("catalog_id") +
-                            "disqualified. (no submission in the last " + 90 + " days.");
+                            " Project Type: " + rsUsers.getInt("project_type_id") +
+                            " Catalog Id: " + rsUsers.getLong("catalog_id") +
+                            " disqualified. (no submission in the last " + 90 + " days.");
 
                     // send mail.
                 } else {
