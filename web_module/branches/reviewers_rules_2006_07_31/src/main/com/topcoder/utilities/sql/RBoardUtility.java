@@ -93,7 +93,7 @@ public class RBoardUtility extends DBUtility{
                                 rsDetails90.getDate("last_date").getTime()) / (1000*60*60*24);
 
                         psSelDetails.setInt(1, 356);  // Days to analyze
-                        rsDetails356 = psSelUsers.executeQuery();
+                        rsDetails356 = psSelDetails.executeQuery();
                         if (rsDetails356.next()) {
                             if (rsDetails356.getInt("num_projects") >= 4) {
                                 long pepe = rsDetails356.getDate("current_date").getTime();
