@@ -129,12 +129,6 @@
 
 <tr>
     <td colspan="2" class="errorText" align="center">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.MIDDLE_NAME%>">${err}<br></tc-webtag:errorIterator>
-    </td>
-</tr>
-
-<tr>
-    <td colspan="2" class="errorText" align="center">
         <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>">${err}<br></tc-webtag:errorIterator>
     </td>
 </tr>
@@ -271,17 +265,31 @@
         <tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="100"/>
     </td>
 </tr>
-<%--            <tr>
-                <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>">${err}<br></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right" nowrap>Province</td>
-                <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
-                </td>
-            </tr>--%>
+<tr>
+    <td colspan="2" class="errorText" align="center">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td align="right" nowrap>
+        State
+    </td>
+    <td align="left">
+        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="${stateList}" fieldText="state_name" fieldValue="state_code"/>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" class="errorText" align="center">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>">${err}<br></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td align="right" nowrap>Province</td>
+    <td align="left">
+        <tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="50"/>
+    </td>
+</tr>
 <tr>
     <td colspan="2" class="errorText" align="center">
         <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>">${err}<br></tc-webtag:errorIterator>
