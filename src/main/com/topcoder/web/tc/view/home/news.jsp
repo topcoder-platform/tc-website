@@ -6,6 +6,21 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.07.06<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&amp;d1=features&amp;d2=080706">The Intricate Art of Testing</A></span><br><br>
+      At some point, every coder experiences the intense feeling of disappointment that comes when you are told your carefully written solution has "Failed System Test." How can you keep from repeating such a mishap? The answer is quite simple: learn the art of testing.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&amp;d1=features&amp;d2=080706">article</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506087" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -180,7 +195,7 @@ Division 1 featured a surprisingly difficult medium problem that got the drop on
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
+<%-------------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.26.06<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></span><br><br>
@@ -192,7 +207,7 @@ Division 1 featured a surprisingly difficult medium problem that got the drop on
          <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
+-------%>
 
 </table>
 <br><br>
