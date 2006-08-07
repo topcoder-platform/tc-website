@@ -85,7 +85,7 @@ public class ProfileSearch extends Base {
         String phone = request.getParameter("phone");
         String maxDaysDes = request.getParameter("maxdayssincedes");
         String maxDaysDev = request.getParameter("maxdayssincedev");
-
+        String maxDaysAlgo = request.getParameter("maxdayssincerating");
 
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
                 || !"".equals(StringUtils.checkNull(request.getParameter("maxdevrating")));
@@ -205,7 +205,11 @@ public class ProfileSearch extends Base {
         query.append("    user_address_xref x,\n");
         query.append("    address a,\n");
         query.append("    rating r,\n");
-        query.append("    outer round_segment rs,\n");
+
+        if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
+            query.append("    round_segment rs,\n");
+       }
+
         if (containsDesRating) {
             query.append(" tcs_catalog:user_rating desr,\n");
 
@@ -251,11 +255,14 @@ public class ProfileSearch extends Base {
             query.append("    AND devr.user_id = c.coder_id\n");
             query.append("    AND devr.phase_id = 113\n");
         }
-        query.append("    AND r.round_id = rs.round_id\n");
-        query.append("    AND rs.segment_id = 2\n");
+
+        if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
+            query.append("    AND r.round_id = rs.round_id\n");
+            query.append("    AND rs.segment_id = 2\n");
+            query.append("    and rs.segment_id = 2\n");
+        }
+
         query.append("    AND r.coder_id = c.coder_id\n");
-        query.append("    and r.round_id = rs.round_id\n");
-        query.append("    and rs.segment_id = 2\n");
         query.append("    AND u.user_id = c.coder_id\n");
         query.append("    AND u.status = 'A'\n");
         query.append("    AND cry.country_code = a.country_code\n");
