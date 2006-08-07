@@ -128,38 +128,27 @@
 	</tr>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="stat">
     <tr>
-        <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
-        <td class="rtHeader" width="25%">Forum</td>
-        <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
-        <td class="rtHeader" align="right" width="5%">Replies</td>
-        <td class="rtHeader" align="right" width="5%">Edits</td>
+        <td class="header" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
+        <td class="header">Forum</td>
+        <td class="header"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
+        <td class="headerR">Replies</td>
+        <td class="headerR">Edits</td>
     </tr>
    <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-   <tr>
-         <td class="rtThreadCellWrap"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A>
+   <tr class="light">
+         <td class="value"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A>
          <%   if (message.getParentMessage() != null) { %>
             (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:studioHandle coderId="<%=message.getParentMessage().getUser().getID()%>"/> (<A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getParentMessage().getUser().getID()%>" alt="Post history for <%=message.getParentMessage().getUser().getUsername()%>" class="rtbcLink"/>history</A>)<%}%>)
       <%   } %></td>
-         <td class="rtThreadCell"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
-         <td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
-         <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
-         <td class="rtThreadCell" align="right"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A></td>
-    </tr>
+         <td class="value" nowrap="nowrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
+         <td class="value" nowrap="nowrap"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy h:mm a z"/></strong></td>
+         <td class="valueR"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
+         <td class="valueR"><A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A></td>
+   </tr>
    </tc-webtag:iterator>
 </table>
-
-<%  Group admins = forumFactory.getGroupManager().getGroup("TopCoder Admins");
-    Group architects = forumFactory.getGroupManager().getGroup("TopCoder Architects");
-    if ((admins != null && admins.isMember(historyUser)) || 
-        (architects != null && architects.isMember(historyUser))) { %>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr>
-        <td>Posts from internal and restricted forums are not displayed in post history.</td>
-    </tr>
-</table>
-<%  } %>
             
         <jsp:include page="foot.jsp"/>
     </div>
