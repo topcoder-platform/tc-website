@@ -40,7 +40,7 @@ int round_id = rsr.getIntItem("round_id");
    </jsp:include>
 
                     <% if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8069
-        || round_id == 8074 || round_id == 8083 || round_id == 8070 || round_id == 8073 || round_id == 8076 || round_id == 8080) { %>
+        || round_id == 8074 || round_id == 8083 || round_id == 8070 || round_id == 8073 || round_id == 8076 || round_id == 8080 || round_id == 9995 || round_id == 10005 || round_id == 10002) { %>
                                 <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
