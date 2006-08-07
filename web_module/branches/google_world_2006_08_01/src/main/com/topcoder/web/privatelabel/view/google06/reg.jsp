@@ -88,7 +88,7 @@
 </td>
 <td valign="top" width="100%">
 <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-<form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method="POST" name="regForm">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="regForm">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_06_REG_DEMOG%>"/>
 <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
 <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
