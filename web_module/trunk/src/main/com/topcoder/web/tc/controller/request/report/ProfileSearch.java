@@ -503,7 +503,7 @@ public class ProfileSearch extends Base {
             query.append("    AND ");
             query.append(value[i]);
             if (i < 3) {
-                query.append(" (current - " + b + " unit days)\n");
+                query.append(" (current - " + b + " units day)\n");
             } else {
                 query.append(b + '\n');
             }
