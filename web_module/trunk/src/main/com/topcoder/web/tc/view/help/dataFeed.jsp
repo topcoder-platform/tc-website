@@ -53,7 +53,6 @@
         <li>user id</li>
         <li>handle</li>
         <li>algorithm rating</li>
-        <li>algorithm rating</li>
         <li>algorithm volatility</li>
         <li>number of rated algorithm events</li>
         <li>design rating</li>
@@ -73,7 +72,6 @@
     <ul>
         <li>user id</li>
         <li>handle</li>
-        <li>algorithm rating</li>
         <li>algorithm rating</li>
         <li>algorithm volatility</li>
         <li>number of rated algorithm events</li>
