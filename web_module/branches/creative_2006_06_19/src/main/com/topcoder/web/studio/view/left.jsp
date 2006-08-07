@@ -13,7 +13,7 @@
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Home", "home"));
     nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_contests')", "Contests", "m_contests"));
     nav.search("m_contests").addChild(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewActiveContests", "Active Contests", "active_contests"));
-    nav.search("m_contests").addChild(new NavNode("#", "Past Contests", "past_contests"));
+    nav.search("m_contests").addChild(new NavNode(sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=ViewPastContests", "Past Contests", "past_contests"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Terms &amp; Conditions", "terms"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Forums", "forums"));
     nav.addRoot(new NavNode(sessionInfo.getServletPath(), "Support", "support"));

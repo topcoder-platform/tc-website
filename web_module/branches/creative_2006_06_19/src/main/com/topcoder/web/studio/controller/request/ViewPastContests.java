@@ -13,12 +13,12 @@ import com.topcoder.web.common.model.SortInfo;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 7, 2006
  */
-public class ViewPassedContests extends BaseProcessor {
+public class ViewPastContests extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         //load up the contests
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("passed_contests");
+        r.setContentHandle("past_contests");
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -26,15 +26,15 @@ public class ViewPassedContests extends BaseProcessor {
         if (!"".equals(col) && !"".equals(dir)) {
             r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            r.setProperty(DataAccessConstants.SORT_QUERY, "passed_contests");
+            r.setProperty(DataAccessConstants.SORT_QUERY, "past_contests");
         }
 
-        getRequest().setAttribute("contests", da.getData(r).get("passed_contests"));
+        getRequest().setAttribute("contests", da.getData(r).get("past_contests"));
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        setNextPage("/passedContests.jsp");
+        setNextPage("/pastContests.jsp");
         setIsNextPageInContext(true);
     }
 }
