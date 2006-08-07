@@ -51,16 +51,16 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>GZIPResponse</filter-name>
+        <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
+    </filter>
+
 
     <filter-mapping>
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>privatelabel</servlet-name>
     </filter-mapping>
-
-    <filter>
-        <filter-name>GZIPResponse</filter-name>
-        <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
-    </filter>
 
 
     <error-page>
