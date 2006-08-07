@@ -116,7 +116,7 @@ public class RBoardUtility extends DBUtility{
                         daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
                                 rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
-                        if (daysToBeDisqualified2 > daysToBeDisqualified) {
+                        if (daysToBeDisqualified2 < daysToBeDisqualified) {
                             daysToBeDisqualified = daysToBeDisqualified2;
                         }
                         disqualify = false;
