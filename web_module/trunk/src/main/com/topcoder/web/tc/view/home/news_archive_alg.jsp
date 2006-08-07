@@ -40,9 +40,7 @@
                 </jsp:include>
 
                 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-                    <%-- post monday am
                     <tr class="bodyText"><td nowrap="nowrap">08.07.06 9:00 AM&#160;-&#160</td><td width="100%">AOL adds $5000 prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9995">315</A>, <A href="/tc?module=MatchDetails&rd=10002">322</A>, and <A href="/tc?module=MatchDetails&rd=10005">325</A>.</td></tr>
-                    --%>
                     <tr class="bodyText"><td nowrap="nowrap">06.21.06 11:00 AM&#160;-&#160</td><td width="100%">$5000
                         prize purse per match for SRMs <A href="/tc?module=MatchDetails&rd=9992">312</A>,
                         <A href="/tc?module=MatchDetails&rd=9997">317</A>,
