@@ -113,6 +113,9 @@ public class RBoardUtility extends DBUtility{
                     for (;count < SUBMISSION_THRESHOLD_LAST_YEAR && rsDetails90.next(); count++);
 
                     if (count == SUBMISSION_THRESHOLD_LAST_YEAR) {
+                        log.debug(" === rsDetails356.getDate(current_date): " + rsDetails356.getDate("current_date"));
+                        log.debug(" === rsDetails356.getDate(rating_date): " + rsDetails356.getDate("rating_date"));
+
                         daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
                                 rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
                         log.debug(" === daysToBeDisqualified: " + daysToBeDisqualified);
