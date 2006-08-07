@@ -71,7 +71,7 @@ public class RBoardUtility extends DBUtility{
             rsUsers = psSelUsers.executeQuery();
             int i = 0;
             int disqualified = 0;
-            int warning = 0;
+            int warnings = 0;
             for (; rsUsers.next(); i++ ) {
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, 90);  // Days to analyze
@@ -117,6 +117,8 @@ public class RBoardUtility extends DBUtility{
                 }
 
                 if (disqualify) {
+                    disqualified++;
+
                     // this reviewer should be disqualified.
                     psUpd.clearParameters();
                     psUpd.setInt(1, 110);  // status
@@ -136,6 +138,7 @@ public class RBoardUtility extends DBUtility{
                 } else {
                     // alert
                     if (daysToBeDisqualified <= 30) {
+                        warnings++;
                         log.debug("Reviewer: " + rsUsers.getLong("user_id") +
                                 "Project Type: " + rsUsers.getInt("project_type_id") +
                                 "Catalog Id: " + rsUsers.getLong("catalog_id") +
@@ -148,7 +151,7 @@ public class RBoardUtility extends DBUtility{
             log.debug("-----------------------------------------------");
             log.debug("Successfully analyzed " + i + " active reviewers.");
             log.debug("Successfully disqualified " + disqualified + " reviewers.");
-            log.debug("Successfully warned " + warning + " reviewers.");
+            log.debug("Successfully warned " + warnings + " reviewers.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
