@@ -284,7 +284,7 @@
         </jar>
     </target>
 
-    <target name="jar_common" depends="compile">
+    <target name="jar_common" depends="">
         <jar jarfile="${common.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
