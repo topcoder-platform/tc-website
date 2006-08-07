@@ -46,8 +46,14 @@
     5.4.2 - 2006.08.XX
     <ul>
         <li>DR Boards bug fix - didn't showed the current stage correctly.</li>
+        <li>Google Code Jam Registration</li>
+        <li>Add Python to Marathon Matches</li>
+        <%--
+                <li>Super mega profile search, phone search, last dev/design rating, most recent site visit</li>
+        --%>
     </ul>
 </p>
+
 <p>
     5.4.1 - 2006.08.02
     <ul>
