@@ -358,7 +358,7 @@ A given competitor will only be eligible to win, at most, one random drawing.
         regulations</B></A>
 </TD></TR>
 
-<% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 || round_id == 9992 || round_id == 9999 || round_id == 10004) { %>
+<% } else if (round_id == 7223 || round_id == 8004 || round_id == 8005 || round_id == 7227 || round_id == 8007 || round_id == 8080 || round_id == 8069 || round_id == 8074 || round_id == 8083 || round_id == 9812 || round_id == 9815 || round_id == 9816 || round_id == 9820 || round_id == 9822 || round_id == 9997 || round_id == 9992 || round_id == 9999 || round_id == 10004 || round_id == 9995 || round_id == 10005 || round_id == 10002) { %>
 <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
     <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
     <B>Single Round Match Description</B>
