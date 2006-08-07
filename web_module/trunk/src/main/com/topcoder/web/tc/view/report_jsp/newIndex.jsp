@@ -139,25 +139,10 @@ Submission Reports
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submissions&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submission
             Detail</A></LI>
-    <%--
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submission_count&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Count Of Submissions</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submission_by_member&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submissions ID to Handle</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=upload_link&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submissions URL</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submission_handle&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submissions ID to Handle</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submissions&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Submission Detail</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=open_projects&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Open Projects</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=sample_inquiry&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Sample Inquiries</A></LI>
-    --%>
 </UL>
 <br/>
 Online Review Reports
 <UL>
-    <%--
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submit_review_testcases&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Online Review Test Case Review Status</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewer_status&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Online Review Reviewer Status</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=competitor_activity&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Competitor Status</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=project%20winners&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Project Winners</A></LI>
-    --%>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=roles_by_component&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Review
             Roles by Component</A></LI>
@@ -222,6 +207,15 @@ Other
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=logo_submissions&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Logo
             Submissions</A></LI>
 </UL>
+
+High School
+<ul>
+    <li>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=hs_reg&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Registration</A>
+    </li>
+
+</ul>
+
 
 Placement
 <UL>
