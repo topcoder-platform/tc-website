@@ -79,7 +79,6 @@ public class RBoardUtility extends DBUtility{
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
 
                 boolean disqualify = true;
-                boolean alert = false;
                 long daysToBeDisqualified = 0;
                 long daysToBeDisqualified2 = 0;
 
@@ -96,8 +95,12 @@ public class RBoardUtility extends DBUtility{
                         psSelDetails.setInt(1, 356);  // Days to analyze
                         rsDetails356 = psSelUsers.executeQuery();
                         if (rsDetails356.next() && rsDetails356.getInt("num_projects") >= 4) {
+                            long pepe = rsDetails356.getDate("current_date").getTime();
+                            pepe = rsDetails356.getDate("last_date").getTime();
+
                             daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
                                     rsDetails356.getDate("last_date").getTime()) / (1000*60*60*24);
+
                             if (daysToBeDisqualified2 > daysToBeDisqualified) {
                                 daysToBeDisqualified = daysToBeDisqualified2;
                             }
@@ -124,11 +127,12 @@ public class RBoardUtility extends DBUtility{
 
                     // send mail.
                 } else {
+                    // alert
                     if (daysToBeDisqualified <= 30) {
                         log.debug("Reviewer: " + rsUsers.getLong("user_id") +
                                 "Project Type: " + rsUsers.getInt("project_type_id") +
                                 "Catalog Id: " + rsUsers.getLong("catalog_id") +
-                                "will be disqualified in " + daysToBeDisqualified2 + " days.");
+                                "will be disqualified in " + daysToBeDisqualified + " days.");
                     }
 
                     // send mail.
