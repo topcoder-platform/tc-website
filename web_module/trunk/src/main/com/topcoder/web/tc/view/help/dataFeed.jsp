@@ -108,6 +108,19 @@
     http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_developer_list
 </p>
 
+<p><span class="bodySubtitle">Round List</span><br/>
+    This feed provides a list of algorithm rounds.
+    <ul>
+        <li>round id</li>
+        <li>full name</li>
+        <li>short name</li>
+        <li>round type</li>
+        <li>date</li>
+    </ul>
+    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_list
+</p>
+
+
 <p><span class="bodySubtitle">Round Results</span><br/>
     This feed provides details about all the competitors in an algorithm round.
     It includes the following fields:
@@ -187,18 +200,6 @@
     http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_rating_history&amp;cr=USER_ID
     <br/>
     You will need to replace "USER_ID" in the query string to get data about a particular competitor.
-</p>
-
-<p><span class="bodySubtitle">Round List</span><br/>
-    This feed provides a list of algorithm rounds.
-    <ul>
-        <li>round id</li>
-        <li>full name</li>
-        <li>short name</li>
-        <li>round type</li>
-        <li>date</li>
-    </ul>
-    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_round_list
 </p>
 
 <p><span class="bodySubtitle">Design Rating History</span><br/>
