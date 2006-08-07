@@ -33,7 +33,118 @@ public class RBoardUtility extends DBUtility{
      *
      */
     public void runUtility() throws Exception {
-        StringBuffer mail = new StringBuffer();
+        PreparedStatement psSelUsers = null;
+        PreparedStatement psSelDetails = null;
+        PreparedStatement psUpd = null;
+
+        ResultSet rsUsers = null;
+        ResultSet rsDetails90 = null;
+        ResultSet rsDetails356 = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(200);
+            query.append("select user_id, project_type_id, catalog_id, status_id, immune_ind ");
+            query.append("from rboard_user2 ru ");
+            query.append("where ru.immune_ind = 0 and status_id = ? ");
+            psSelUsers = prepareStatement("tcs_catalog", query.toString());
+            psSelUsers.setString(1, "100");
+
+            query = new StringBuffer(200);
+            query.append("select DATE(current) as current_date, DATE(min(p.rating_date)) as last_date, count(*) as num_projects ");
+            query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
+            query.append("where p.comp_vers_id = cv.comp_vers_id and ");
+            query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
+            query.append("p.cur_version = 1 and DATE(p.rating_date) >= DATE(current) - ? UNITS DAY and ");
+            query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and ");
+            query.append("p.project_type_id = ? and pr.user_id = ? and cac.catalog_id = ? ");
+            psSelDetails = prepareStatement("tcs_catalog", query.toString());
+
+            query = new StringBuffer(200);
+            query.append("update rboard_user2 ");
+            query.append("set status_id = ? ");
+            query.append("where user_id = ? and project_type_id = ? and catalog_id = ? ");
+            psUpd = prepareStatement("tcs_catalog", query.toString());
+
+            log.debug("");
+            log.debug("-----------------------------------------------");
+            rsUsers = psSelUsers.executeQuery();
+            int i = 1;
+            for (; rsUsers.next(); i++ ) {
+                log.debug("Possible conflict found: (" + i + ")");
+
+                psSelDetails.clearParameters();
+                psSelDetails.setInt(1, 90);  // Days to analyze
+                psSelDetails.setInt(2, 80);  // score threshold
+                psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
+                psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
+                psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
+
+                boolean disqualify = true;
+                boolean alert = false;
+                long daysToBeDisqualified = 0;
+                long daysToBeDisqualified2 = 0;
+
+                rsDetails90 = psSelDetails.executeQuery();
+                if (rsDetails90.next()) {
+                    if (rsDetails90.getInt("num_projects") > 0) {
+                        daysToBeDisqualified = 90 - (rsDetails90.getDate("current_date").getTime() -
+                                rsDetails90.getDate("last_date").getTime()) / (1000*60*60*24);
+
+                        psSelDetails.setInt(1, 356);  // Days to analyze
+                        rsDetails356 = psSelUsers.executeQuery();
+                        if (rsDetails356.next() && rsDetails356.getInt("num_projects") >= 4) {
+                            daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
+                                    rsDetails356.getDate("last_date").getTime()) / (1000*60*60*24);
+                            if (daysToBeDisqualified2 > daysToBeDisqualified) {
+                                daysToBeDisqualified = daysToBeDisqualified2;
+                            }
+                            disqualify = false;
+                        }
+                    }
+                }
+
+                if (disqualify) {
+                    // this reviewer should be disqualified.
+                    psUpd.clearParameters();
+                    psUpd.setInt(1, 110);  // status
+                    psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
+                    psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
+                    psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
+
+                    if (!onlyAnalyze.equalsIgnoreCase("true")) {
+                        psUpd.executeUpdate();
+                    }
+                    log.debug("Reviewer: " + rsUsers.getLong("user_id") +
+                            "Project Type: " + rsUsers.getInt("project_type_id") +
+                            "Catalog Id: " + rsUsers.getLong("catalog_id") +
+                            "disqualified. (no submission in the last " + 90 + " days.");
+
+                    // send mail.
+                } else {
+                    if (daysToBeDisqualified <= 30) {
+                        log.debug("Reviewer: " + rsUsers.getLong("user_id") +
+                                "Project Type: " + rsUsers.getInt("project_type_id") +
+                                "Catalog Id: " + rsUsers.getLong("catalog_id") +
+                                "will be disqualified in " + daysToBeDisqualified2 + " days.");
+                    }
+
+                    // send mail.
+                }
+            }
+            log.debug("-----------------------------------------------");
+            log.debug("Successfully analyzed " + i + " active reviewers.");
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
+        } finally {
+            DBMS.close(psSelUsers);
+            DBMS.close(psSelDetails);
+            DBMS.close(rsUsers);
+            DBMS.close(psUpd);
+        }
+
+        /*StringBuffer mail = new StringBuffer();
         mail.append("The following project: \n\n");
         mail.append("\n\nhas completed appeals phase with all");
         mail.append(" appeals responded.");
@@ -43,7 +154,7 @@ public class RBoardUtility extends DBUtility{
         String email = "pwolfus@topcoder.com";
 
         sendMail("autopilot@topcoder.com", email, emailSubject,
-                mail.toString());
+                mail.toString());*/
 
     }
 
