@@ -1824,6 +1824,8 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
     	
     	<copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
