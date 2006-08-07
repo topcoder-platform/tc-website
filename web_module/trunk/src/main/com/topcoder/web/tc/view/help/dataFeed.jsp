@@ -67,6 +67,22 @@
     http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list
 </p>
 
+<p><span class="bodySubtitle">Active Algorithm Coder List</span><br/>
+    This feed provides a list of coders who have been rated in an algorithm competition within the last 180 days.
+    It includes the following fields:
+    <ul>
+        <li>user id</li>
+        <li>handle</li>
+        <li>algorithm rating</li>
+        <li>algorithm rating</li>
+        <li>algorithm volatility</li>
+        <li>number of rated algorithm events</li>
+    </ul>
+
+    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_coder_list
+</p>
+
+
 <p><span class="bodySubtitle">Round Results</span><br/>
     This feed provides details about all the competitors in an algorithm round.
     It includes the following fields:
