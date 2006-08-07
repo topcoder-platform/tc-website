@@ -4,8 +4,6 @@
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session"/>
-<jsp:useBean id="responseList" class="java.util.List" scope="request"/>
-<jsp:useBean id="questionMap" class="java.util.Map" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -234,13 +232,13 @@
     </td>
 </tr>
 
-<pl:responseIterator id="resp" list="<%=responseList%>">
+<pl:responseIterator id="resp" list="${responseList}">
     <tr>
         <td align="right">
-            <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
+            <pl:demographicQuestionText questions="${questionMap}" response="<%=resp%>"/>
         </td>
         <td align="left">
-            <pl:demographicAnswerText questions="<%=questionMap%>" response="<%=resp%>"/>
+            <pl:demographicAnswerText questions="${questionMap}" response="<%=resp%>"/>
         </td>
     </tr>
 </pl:responseIterator>
