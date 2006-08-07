@@ -272,7 +272,6 @@ public class ProfileSearch extends Base {
             query.append("))\n");
         }
 
-        String phone = request.getParameter("phone");
         if (phone != null && phone.length() > 0) {
             query.append(" AND p.user_id = u.user_id");
             query.append(" AND p.primary_ind = 1");
