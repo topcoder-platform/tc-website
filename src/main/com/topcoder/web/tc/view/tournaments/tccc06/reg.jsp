@@ -37,15 +37,26 @@
 
                     <c:set value="<%=Constants.PREFERENCE_PREFIX%>" var="prefPrefix"/>
                     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prefPrefix}">${err}
-                        <br/></tc-webtag:errorIterator></span>
+                        <br></tc-webtag:errorIterator></span>
+                     <table cellpadding="3" cellspacing="0" border="0">
+                     <tbody>
                     <c:forEach items="${group.preferences}" var="preference">
+                        <tr>
+                           <td class="bodyText" align="right">
                         <c:set value="${prefPrefix}${preference.id}" var="prefParam"/>
                         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prefParam}">${err}
-                            <br/></tc-webtag:errorIterator></span>
+                            <br></tc-webtag:errorIterator></span>
                         ${preference.description} :
+                           </td>
+                           <td>
                         <tc-webtag:objectSelect name="${prefParam}" list="${preference.values}" valueField="id" textField="value"/>
-                        <br/>
+                        <br>
+                           </td>
+                        </tr>
                     </c:forEach>
+                     </tbody>
+                     </table>
+                     <br><br>
 
                     <div align="center">
                         <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tccc06&d3=terms_content&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCCC06_ALGORITHM_TERMS_OF_USE_ID%>"></iframe>
@@ -53,7 +64,7 @@
 
                     <p align="center">
             <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
-                <br/></tc-webtag:errorIterator></span>
+                <br></tc-webtag:errorIterator></span>
                         <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/>I agree
                         <br><br>
 
