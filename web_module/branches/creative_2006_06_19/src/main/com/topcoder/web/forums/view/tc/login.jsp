@@ -16,14 +16,6 @@
   if(message==null) message = "";
 %>
 
-<html>
-<head>
-<title>TopCoder | Login</title>
-    <jsp:include page="script.jsp" />
-        <jsp:include page="/style.jsp">
-          <jsp:param name="key" value="tc_forums"/>
-        </jsp:include>
-
 <SCRIPT type="text/javascript">
 function submitEnter(e) {
     var keycode;
@@ -37,6 +29,13 @@ function submitEnter(e) {
   }
 </SCRIPT>
 
+<html>
+<head>
+<title>TopCoder | Login</title>
+    <jsp:include page="script.jsp" />
+        <jsp:include page="/style.jsp">
+          <jsp:param name="key" value="tc_forums"/>
+        </jsp:include>
 </head>
 
 <body>
@@ -70,7 +69,7 @@ function submitEnter(e) {
                     <td class="bodyText" width="100%">
                         <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
                         <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/tc?&module=PasswordEmail" class="bodyText">click here</A>
+                        If you cannot remember your password, <A href="/tc?&module=PasswordEmail" class="bodyText">click here</A>
                         and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder?</b><br/>

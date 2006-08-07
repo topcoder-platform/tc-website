@@ -1,5 +1,33 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+       import="com.topcoder.web.common.BaseServlet,
+              com.topcoder.web.forums.controller.request.*,
+                java.util.*"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%
+  String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
+  if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
+  if(nextpage==null) nextpage = request.getHeader("Referer");
+  if(nextpage==null) nextpage = "http://"+request.getServerName();
+  String message = (String)request.getAttribute("message");
+  if(message==null) message = "";
+%>
+
+<SCRIPT type="text/javascript">
+function submitEnter(e) {
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     document.frmLogin.submit();
+     return false;
+    } else return true;
+  }
+</SCRIPT>
 
 <html>
 <head>
@@ -26,74 +54,66 @@
    <div class="contentInner">
 <h1>Login</h1>
 
-        <div align="center">
-            <div style="width: 500px;" align="left">
-                <strong>Forgot your password?</strong>
-                If you cannot remember your password
-                <a href="/tc?module=PasswordEmail" class="bodyText">click
-                    here</a> and we can
-                send it
-                to you via email.
+<div align="center">
+    <div style="width: 500px;" align="left">
+        <strong>Forgot your password?</strong>
+        If you cannot remember your password, <a href="/tc?module=PasswordEmail" class="bodyText">click here</a> and we can send it to you via email.
+        <br><br>
+
+        <strong>New to TopCoder?</strong><br>
+        <a href="https://www.branch3.topcoder.com/reg/">Register now</a>. After you complete the
+        registration process, we will send your account activation code via email.
+        <br><br>
+
+        <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+            <tc-webtag:hiddenInput name="module" value="Login"/>
+       		<tc-webtag:hiddenInput name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%=nextpage%>"/>
+
+            <div align="center">
+                <span class="bigRed"><%=message%></span>
+                <table border="0" cellpadding="2" cellspacing="0">
+                    <tbody><tr>
+                        <td class="name" align="right">
+                            Handle:
+                        </td>
+                        <td class="value">
+                            <input name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" type="text">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td class="name" align="right">
+                            Password:
+                        </td>
+                        <td class="value">
+                            <input name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" type="password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                        	<input name="<%=Login.REMEMBER_USER%>" type="checkbox">Remember Me
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button onclick="document.frmLogin.submit();return false;">Login</button>
+                        </td>
+                    </tr>
+                </tbody></table>
+
                 <br><br>
 
-                <strong>New to TopCoder?</strong><br>
-                <a href="https://www.branch3.topcoder.com/reg/">Register now</a>. After you complete the
-                registration process,
-                we
-                will send your account activation code via email.
-                <br><br>
+                <script type="text/javascript">
+                    document.frmLogin.<%=Login.USER_NAME%>.focus();
+                </script>
 
-                <form method="post" name="frmLogin" action="https://www.branch3.topcoder.com/">
-                    <input name="nextpage" value="/?module=ViewSubmission&amp;ct=1500" type="hidden">
-                    <input name="module" value="Login" type="hidden">
-
-                    <div align="center">
-
-                        <span class="bigRed">In order to continue, you must provide your user name and password.</span>
-                        <table border="0" cellpadding="2" cellspacing="0">
-                            <tbody><tr>
-                                <td class="name" align="right">
-                                    Handle:
-                                </td>
-                                <td class="value">
-                                    <input name="username" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" type="text">
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td class="name" align="right">
-                                    Password:
-                                </td>
-                                <td class="value">
-                                    <input name="password" value="" maxlength="15" size="12" onkeypress="submitEnter(event)" type="password">
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2" align="center"><input name="rem" type="checkbox">
-                                    Remember
-                                    Me</td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2" align="center">
-                                    <button onclick="document.frmLogin.submit();return false;">Login</button>
-
-                                </td>
-                            </tr>
-                        </tbody></table>
-
-                        <br><br>
-
-                        <script type="text/javascript">
-                            document.frmLogin.username.focus();
-                        </script>
-
-                    </div>
-
-                </form>
             </div>
-         </div>
+
+        </form>
+    </div>
+ </div>
 
         <jsp:include page="foot.jsp"/>
     </div>

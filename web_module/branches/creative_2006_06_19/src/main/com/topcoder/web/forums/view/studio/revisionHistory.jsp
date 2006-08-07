@@ -1,5 +1,22 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.forums.ForumConstants,
+                com.topcoder.web.forums.controller.ForumsUtil,
+                com.topcoder.web.common.StringUtils,
+                com.jivesoftware.base.User,
+                java.util.*"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
+<tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
+<tc-webtag:useBean id="revisionList" name="revisionList" type="java.util.ArrayList" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+
+<%  String threadView = (String)request.getAttribute("threadView"); 
+    User user = (User)request.getAttribute("user"); %>
 
 <html>
 <head>
@@ -27,77 +44,90 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-<td class="categoriesBox" style="padding-right: 20px;">
-<jsp:include page="categoriesHeader.jsp" />
-</td>
-<td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-<jsp:include page="searchHeader.jsp" />
-</td>
-<td align="right" nowrap="nowrap" valign="top">
-<A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-</td>
+   <td class="categoriesBox" style="padding-right: 20px;">
+      <jsp:include page="categoriesHeader.jsp" />
+   </td>
+   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+       <jsp:include page="searchHeader.jsp" ></jsp:include>
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">   
+       <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   </td>
 </tr>
 <tr>
-<td colspan="3" style="padding-bottom:3px;"><strong>
-<A href="?module=Category&categoryID=1&mc=84597" class="rtbcLink">Forums</A> >
-<A href="?module=Category&categoryID=13&mc=68059" class="rtbcLink">Round Tables</A> >
-<A href="?module=ThreadList&forumID=244237&mc=10360" class="rtbcLink">General Discussion</A> >
-1000 post party! (1 edit)</strong>
-</td>
+	<td colspan="3" style="padding-bottom:3px;">
+		<b><tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+			<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >  
+		</tc-webtag:iterator>
+        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> > 
+        <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A> >
+        Revision History 
+        <%  if (revisionList.size() == 1) { %> 
+                (1 edit) 
+        <%  } else { %> 
+                (<%=revisionList.size()%> edits) 
+        <%  } %>
+        </b><br>
+	</td>
 </tr>
 </table>
 
-<table class="rtTable" cellpadding="0" cellspacing="0">
-<tbody>
-   <tr>
-      <td class="rtHeader" colspan="2">
-      <div style="float: right; padding-left: 5px; white-space: nowrap;">
-      <a name="542236">May 18, 2006 at 8:23 AM EDT       
-      </a></div>
-      <a name="542236">Re: 1000 post party!</a>
-      (response to <a href="?module=Message&amp;messageID=542162" class="rtbcLink">post</a> by <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=8416646" class="coderTextRed">Kawigi</a>)
-      </td>
-   </tr>
-   <tr>
-      <td class="rtPosterCell">
-      <div class="rtPosterSpacer">
-      
-      <img src="/i/m/aussie_big.jpg" class="rtPhoto" border="0" height="61" width="55"><br>
-      
-      <span class="bodyText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=284038" class="coderTextYellow">aussie</a></span><br><a href="?module=History&amp;userID=284038">1857 posts</a>
-      </div>
-      </td>
-      <td class="rtTextCell" width="100%">Hmm, looks like I'm going to drop another place soon, you're only 20 posts behind me compared to about 150 two and a half months ago.<br><br>Edit: I said another because <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=7267401" class="coderTextOrange">TheFaxman</a> had overtaken me, but it seems I moved back ahead of him by a couple of posts (not for long though I suspect, there's another intel match running).
-      </td>
-      
-   </tr>
-</tbody>
-</table>
-         
-<table class="rtTable" cellpadding="0" cellspacing="0">
-<tbody>
+<%-------------POSTS---------------%>
+<table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">
          <div style="float: right; padding-left: 5px; white-space: nowrap;">
-         <a name="4666">May 18, 2006 at 8:22 AM EDT
-         </a></div>
-         <a name="4666">Re: 1000 post party!</a>
-         (response to <a href="?module=Message&amp;messageID=542162" class="rtbcLink">post</a> by <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=8416646" class="coderTextRed">Kawigi</a>)
+            <a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>       
+         </div>
+         <jsp:getProperty name="message" property="subject"/></a>
+         <%  if (message.getParentMessage() != null) { %>
+            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+         <%  } %>
       </td>
    </tr>
    <tr>
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
-         <img src="/i/m/aussie_big.jpg" class="rtPhoto" border="0" height="61" width="55"><br>
-         <span class="bodyText"><a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=284038" class="coderTextYellow">aussie</a></span><br><a href="?module=History&amp;userID=284038">1857 posts</a>
+            <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
+                <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+            <%  } %>
+             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
-      <td class="rtTextCell" width="100%">Hmm, looks like I'm going to drop another place soon, you're only 20 posts behind me compared to about 150 two and a half months ago.
+      <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/>
       </td>
-      </tr>
-   </tbody>
+   </tr>
 </table>
 
+<tc-webtag:iterator id="revision" type="com.topcoder.web.forums.model.Revision" iterator='<%=revisionList.iterator()%>'>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+   <tr>
+      <td class="rtHeader" colspan="2">
+         <div style="float: right; padding-left: 5px; white-space: nowrap;">
+            <a name=<jsp:getProperty name="revision" property="ID"/>><tc-webtag:beanWrite name="revision" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/>
+         </div>
+         <jsp:getProperty name="revision" property="subject"/></a>
+         <%  if (message.getParentMessage() != null) { %>
+            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+         <%  } %>
+         </a>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtPosterCell">
+         <div class="rtPosterSpacer">
+            <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
+                <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+            <%  } %>
+            <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%>
+         </div>
+      </td>
+      <td class="rtTextCell" width="100%"><jsp:getProperty name="revision" property="body"/>
+      </td>
+   </tr>
+</table>
+</tc-webtag:iterator>
+<%-------------POSTS END---------------%>
 
         <jsp:include page="foot.jsp"/>
     </div>
