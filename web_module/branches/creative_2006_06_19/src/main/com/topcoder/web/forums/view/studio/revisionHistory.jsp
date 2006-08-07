@@ -81,7 +81,7 @@
          </div>
          <jsp:getProperty name="message" property="subject"/></a>
          <%  if (message.getParentMessage() != null) { %>
-            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:studioHandle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
       </td>
    </tr>
@@ -91,7 +91,7 @@
             <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
                 <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
             <%  } %>
-             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
+             <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:studioHandle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>
       </td>
       <td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/>
@@ -108,7 +108,7 @@
          </div>
          <jsp:getProperty name="revision" property="subject"/></a>
          <%  if (message.getParentMessage() != null) { %>
-            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
+            (response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:studioHandle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
          <%  } %>
          </a>
       </td>
@@ -119,7 +119,7 @@
             <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
                 <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
             <%  } %>
-            <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%>
+            <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:studioHandle coderId="<%=message.getUser().getID()%>"/><%}%></span><br/><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A><%}%>
          </div>
       </td>
       <td class="rtTextCell" width="100%"><jsp:getProperty name="revision" property="body"/>

@@ -17,7 +17,7 @@
         </init-param>
         <init-param>
             <param-name>default_processor</param-name>
-            <param-value>ForumList</param-value>
+            <param-value>Main</param-value>
         </init-param>
         <init-param>
             <param-name>login_processor</param-name>

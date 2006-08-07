@@ -144,52 +144,6 @@
 </table>
 <% } %>
 
-
-
-
-
-
-
-
-<%--
-<div class="topLinksL">
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>) </span><br><br>
-</div>
-<div class="topLinksR">
-<%  if (user.getUsername() == historyUser.getUsername()) { %>
-<b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-<%  } else { %>
-<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-<%  } %>
-</div>
-
-<br><br>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-   <tr>
-<% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
-      <%  if (paginator.getPreviousPage()) { %>
-         <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
-               << PREV</A>&#160;&#160;&#160;
-        <%  } %> [
-        <%  Page[] pages = paginator.getPages(5);
-            for (int i=0; i<pages.length; i++) {
-        %>  <%  if (pages[i] != null) { %>
-                 <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-                       <span class="currentPage"><%= pages[i].getNumber() %></span>
-                 <%  } else { %>
-                        <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                         <%= pages[i].getNumber() %></A>
-                   <%  } %>
-            <%  } %>
-        <%  } %> ]
-      <%  if (paginator.getNextPage()) { %>
-         &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT></A>
-        <%  } %>
-   </b></td></tr>
-<% } %>
-</table>
---%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="100%"><a href="<%=messageLink%>" class="rtbcLink">Post</a></td>
