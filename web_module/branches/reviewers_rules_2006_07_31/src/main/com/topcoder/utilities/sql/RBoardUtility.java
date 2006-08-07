@@ -51,13 +51,14 @@ public class RBoardUtility extends DBUtility{
             psSelUsers.setString(1, "100");
 
             query = new StringBuffer(200);
-            query.append("select DATE(current) as current_date, DATE(min(p.rating_date)) as last_date, count(*) as num_projects ");
+            query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
             query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
             query.append("where p.comp_vers_id = cv.comp_vers_id and ");
             query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
             query.append("p.cur_version = 1 and DATE(p.rating_date) >= DATE(current) - ? UNITS DAY and ");
             query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and ");
             query.append("p.project_type_id = ? and pr.user_id = ? and cac.catalog_id = ? ");
+            query.append("order by DATE(p.rating_date) desc ");
             psSelDetails = prepareStatement("tcs_catalog", query.toString());
 
             query = new StringBuffer(200);
@@ -90,29 +91,28 @@ public class RBoardUtility extends DBUtility{
                         " Catalog Id: " + rsUsers.getLong("catalog_id"));
 
                 rsDetails90 = psSelDetails.executeQuery();
+
                 if (rsDetails90.next()) {
-                    if (rsDetails90.getInt("num_projects") > 0) {
-                        reason = " (no at least " + 4 + " submissions in the last " + 356 + " days.";
+                    reason = " (no at least " + 4 + " submissions in the last " + 356 + " days.";
 
-                        daysToBeDisqualified = 90 - (rsDetails90.getDate("current_date").getTime() -
-                                rsDetails90.getDate("last_date").getTime()) / (1000*60*60*24);
+                    daysToBeDisqualified = 90 - (rsDetails90.getDate("current_date").getTime() -
+                            rsDetails90.getDate("rating_date").getTime()) / (1000*60*60*24);
 
-                        psSelDetails.setInt(1, 356);  // Days to analyze
-                        rsDetails356 = psSelDetails.executeQuery();
-                        if (rsDetails356.next()) {
-                            if (rsDetails356.getInt("num_projects") >= 4) {
-                                long pepe = rsDetails356.getDate("current_date").getTime();
-                                pepe = rsDetails356.getDate("last_date").getTime();
+                    psSelDetails.setInt(1, 356);  // Days to analyze
+                    rsDetails356 = psSelDetails.executeQuery();
 
-                                daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
-                                        rsDetails356.getDate("last_date").getTime()) / (1000*60*60*24);
 
-                                if (daysToBeDisqualified2 > daysToBeDisqualified) {
-                                    daysToBeDisqualified = daysToBeDisqualified2;
-                                }
-                                disqualify = false;
-                            }
+                    int count = 0;
+                    for (;count < 4 && rsDetails90.next(); count++);
+
+                    if (count == 4) {
+                        daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
+                                rsDetails356.getDate("rating_date").getTime()) / (1000*60*60*24);
+
+                        if (daysToBeDisqualified2 > daysToBeDisqualified) {
+                            daysToBeDisqualified = daysToBeDisqualified2;
                         }
+                        disqualify = false;
                     }
                 }
 
@@ -140,9 +140,9 @@ public class RBoardUtility extends DBUtility{
                     if (daysToBeDisqualified <= 30) {
                         warnings++;
                         log.debug("Reviewer: " + rsUsers.getLong("user_id") +
-                                "Project Type: " + rsUsers.getInt("project_type_id") +
-                                "Catalog Id: " + rsUsers.getLong("catalog_id") +
-                                "will be disqualified in " + daysToBeDisqualified + " days.");
+                                " Project Type: " + rsUsers.getInt("project_type_id") +
+                                " Catalog Id: " + rsUsers.getLong("catalog_id") +
+                                " will be disqualified in " + daysToBeDisqualified + " days.");
                     }
 
                     // send mail.
