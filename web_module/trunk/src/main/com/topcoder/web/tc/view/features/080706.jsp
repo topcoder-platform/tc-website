@@ -183,8 +183,6 @@ The worst of all possible methods is so called "stochastic testing", i.e. runnin
 <span class="bodySubtitle">Test or Challenge?</span><br>
 Testing your solution can result in one more very useful effect. If you have found some special or boundary case which is not covered in the "Examples", and you believe that it's rather unobvious, you can make use of it in the Challenge Phase. A five-minute intermission can be just enough time to test your submitted solution once last time and invent some intricate test. Even if you find your mistake now, there's still time to redeem your position! You need only to devise a test to reveal this mistake and to use it as a challenge case. If you succeed, you could possibly score more points for that challenge case than you would have achieved for the correct submission.
 <br><br>
-For example, <tc-webtag:handle coderId="301395" />'s challenges are often much more impressive than his submissions. During TCO'05, Online Round 4, his Easy submission failed, but he got 350 points by challenging this problem.
-<br><br>
 <span class="bodySubtitle">Conclusion</span><br>
 No doubt there are mistakes that can only be found through the system tests. In the <A href="/stat?c=problem_statement&pm=5895&rd=8070">FallingCoconuts</A> (SRM 273, Div1 Easy, Div2 Medium) problem, it is difficult to determine whether the character which stands for a coconut is the numeral '0' (zero) or the capital letter 'O' (capital letter) while using the default font in the Arena. And if you miswrite the symbol, your otherwise correct solution will fail. In general though, taking the right approach to testing - and assuming that your own code is wrong -- will earn you many more points and help increase your rating.
 <br><br>
