@@ -133,7 +133,6 @@
             <include name="com/topcoder/project/**"/>
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
-            <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/web/common/*"/>
             <include name="com/topcoder/web/common/tag/HandleTag.java"/>
