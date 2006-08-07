@@ -537,7 +537,7 @@ public class ProfileSearch extends Base {
             */
             query.append("  and ur_des.last_rated_project_id = p_des.project_id");
             query.append("  and p_des.cur_version=1 ");
-            query.append("  and p_des.phase_id = 112 ");
+            query.append("  and ur_des.phase_id = 112 ");
             query.append(" AND ur_des.rating_date > (current - " + maxDaysDes + " units day) ");
 
         }
@@ -555,7 +555,7 @@ public class ProfileSearch extends Base {
 
             query.append("  and ur_dev.last_rated_project_id = p_dev.project_id");
             query.append("  and p_dev.cur_version=1 ");
-            query.append("  and p_dev.phase_id = 113 ");
+            query.append("  and ur_dev.phase_id = 113 ");
             query.append(" AND ur_dev.rating_date > (current - " + maxDaysDev + " units day) ");
 
         }
