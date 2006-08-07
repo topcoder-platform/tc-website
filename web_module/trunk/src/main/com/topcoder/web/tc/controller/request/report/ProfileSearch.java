@@ -535,11 +535,11 @@ public class ProfileSearch extends Base {
             query.append("  and phase_id = 112 ");
             query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDes + " units day ");
             */
-            query.append("  and ur_des.user_id = u.user_id");
-            query.append("  and ur_des.last_rated_project_id = p_des.project_id");
-            query.append("  and p_des.cur_version=1 ");
-            query.append("  and p_des.phase_id = 112 ");
-            query.append(" AND ur_des.rating_date > (current - " + maxDaysDes + " units day) ");
+            query.append("  and ur_des.user_id = u.user_id\n");
+            query.append("  and ur_des.last_rated_project_id = p_des.project_id\n");
+            query.append("  and p_des.cur_version=1 \n");
+            query.append("  and ur_des.phase_id = 112 \n");
+            query.append(" AND p_des.rating_date > (current - " + maxDaysDes + " units day) \n");
 
         }
 
@@ -554,11 +554,11 @@ public class ProfileSearch extends Base {
             query.append("  and phase_id = 113 ");
             query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDev + " units day ");*/
 
-            query.append("  and ur_dev.user_id = u.user_id");
-            query.append("  and ur_dev.last_rated_project_id = p_dev.project_id");
-            query.append("  and p_dev.cur_version=1 ");
-            query.append("  and p_dev.phase_id = 113 ");
-            query.append(" AND ur_dev.rating_date > (current - " + maxDaysDev + " units day) ");
+            query.append("  and ur_dev.user_id = u.user_id \n");
+            query.append("  and ur_dev.last_rated_project_id = p_dev.project_id \n");
+            query.append("  and p_dev.cur_version=1 \n");
+            query.append("  and ur_dev.phase_id = 113 \n");
+            query.append(" AND p_dev.rating_date > (current - " + maxDaysDev + " units day) \n");
 
         }
 
