@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&amp;d1=features&amp;d2=080706"><strong>The Intricate Art of Testing</strong></A>, by <tc-webtag:handle coderId="9927526" /><br>
+At some point, every coder experiences the intense feeling of disappointment that comes when you are told your carefully written solution has "Failed System Test." How can you keep from repeating such a mishap? The answer is quite simple: learn the art of testing.
+<li><A href="/tc?module=Static&d1=tutorials&d2=prototypePattern"><strong>Prototype Pattern</strong></A>, by <tc-webtag:handle coderId="119676" /><br>
+It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</li>
 <li><A href="/tc?module=Static&amp;d1=features&amp;d2=072406"><strong>How long will this take, anyway?</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
 It's Friday afternoon, about an hour before the end of the day. Monday morning is a national holiday, so there is a long weekend in your future &mdash; until the hot coffee breath on the back of your neck makes you think otherwise. It's the boss.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=071706"><strong>An Introduction to AJAX</strong></A>, by <tc-webtag:handle coderId="14995087"/><br>
-AJAX (Asynchronous JavaScript and XML) is the latest boom in the Web development world.&#8230;This article will explore the basics of AJAX programming and then build on it using practical examples.</li>
-<li><A href="/tc?module=Static&amp;d1=features&amp;d2=071006"><strong>Breaking software for fun and profit</strong></a>, by <tc-webtag:handle coderId="10353806" context="development"/><br>
-Were you the type of child who took apart your parents' appliance to see how they worked? If you like seeing how things work &mdash; and finding ways to make them stop &mdash; then testing might be for you.</li>
 </ul>
 <span class="bodySubtitle">From the archives:</span><br>
 <ul>
