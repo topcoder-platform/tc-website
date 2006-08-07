@@ -1,0 +1,36 @@
+<jboss>
+    <enterprise-beans>
+        <session>
+            <ejb-name>PrincipalMgrEJB</ejb-name>
+            <jndi-name>security/PrincipalMgr</jndi-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
+        <session>
+            <ejb-name>PolicyMgrEJB</ejb-name>
+            <jndi-name>security/PolicyMgr</jndi-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
+        <session>
+            <ejb-name>PolicyEJB</ejb-name>
+            <jndi-name>security/Policy</jndi-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
+        <session>
+            <ejb-name>LoginEJB</ejb-name>
+            <jndi-name>security/Login</jndi-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
+    </enterprise-beans>
+</jboss>
