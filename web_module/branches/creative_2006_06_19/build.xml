@@ -1825,17 +1825,10 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
-
     </target>
-
 
     <target name="package-EJB-RoundRegistrationBean" depends="compile">
         <jar jarfile="${ejb_jars}/RoundRegistration.jar">
