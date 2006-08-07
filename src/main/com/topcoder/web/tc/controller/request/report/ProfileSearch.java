@@ -83,6 +83,8 @@ public class ProfileSearch extends Base {
         String sch = request.getParameter("school");
         String daysVisit = request.getParameter("maxdayssincevisit");
         String phone = request.getParameter("phone");
+        String maxDaysDes = request.getParameter("maxdayssincedes");
+        String maxDaysDev = request.getParameter("maxdayssincedev");
 
 
         boolean containsDevRating = !"".equals(StringUtils.checkNull(request.getParameter("mindevrating")))
@@ -154,7 +156,7 @@ public class ProfileSearch extends Base {
             }
 
             if (daysVisit != null && daysVisit.length() > 0) {
-                query.append("  , (select date(current) - date(last_site_hit_date) from user where user_id = c.coder_id) as days_since_visit\n");
+                query.append("  , date(current) - date(u.last_site_hit_date) as days_since_visit\n");
                 headers.add("Days Since Visit");
             }
 
@@ -209,6 +211,16 @@ public class ProfileSearch extends Base {
 
         if (phone != null && phone.length() > 0) {
             query.append("    phone p,\n");
+        }
+
+        if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            query.append("  tcs_catalog:user_rating ur_des, ");
+            query.append("  tcs_catalog:project p_des, ");
+        }
+
+        if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            query.append("  tcs_catalog:user_rating ur_dev, ");
+            query.append("  tcs_catalog:project p_dev, ");
         }
 
         for (int i = 0; i < tables.size(); i++) {
@@ -513,6 +525,7 @@ public class ProfileSearch extends Base {
 
         String maxDaysDes = request.getParameter("maxdayssincedes");
         if (maxDaysDes != null && maxDaysDes.length() > 0) {
+            /*
             query.append("  AND (select rating_date from user u, ");
             query.append("  tcs_catalog:user_rating ur, ");
             query.append("  tcs_catalog:project p");
@@ -521,18 +534,29 @@ public class ProfileSearch extends Base {
             query.append("  and cur_version=1 ");
             query.append("  and phase_id = 112 ");
             query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDes + " units day ");
+            */
+            query.append("  and ur_des.last_rated_project_id = p_des.project_id");
+            query.append("  and p_des.cur_version=1 ");
+            query.append("  and p_des.phase_id = 112 ");
+            query.append(" AND ur_des.rating_date > (current - " + maxDaysDes + " units day) ");
+
         }
 
         String maxDaysDev = request.getParameter("maxdayssincedev");
         if (maxDaysDev != null && maxDaysDev.length() > 0) {
-            query.append("  AND (select rating_date from user u, ");
+/*            query.append("  AND (select rating_date from user u, ");
             query.append("  tcs_catalog:user_rating ur, ");
             query.append("  tcs_catalog:project p");
             query.append("  where u.user_id = ur.user_id");
             query.append("  and ur.last_rated_project_id = p.project_id");
             query.append("  and cur_version=1 ");
             query.append("  and phase_id = 113 ");
-            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDev + " units day ");
+            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDev + " units day ");*/
+
+            query.append("  and ur_dev.last_rated_project_id = p_dev.project_id");
+            query.append("  and p_dev.cur_version=1 ");
+            query.append("  and p_dev.phase_id = 113 ");
+            query.append(" AND ur_dev.rating_date > (current - " + maxDaysDev + " units day) ");
 
         }
 
