@@ -6,7 +6,6 @@ package com.topcoder.utilities.sql;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Enumeration;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
@@ -27,9 +26,9 @@ public class RBoardUtility extends DBUtility{
     private static final int SUBMISSION_THRESHOLD_LAST_YEAR = 4;
     private static final int MILLIS_IN_DAY = 1000*60*60*24;
     private static final int DAYS_THREE_MONTHS = 90;
-    private static final int DAYS_YEAR = 250;
+    private static final int DAYS_YEAR = 356;
     private static final int DISQUALIFIED_STATUS = 110;
-    private static final int DAYS_BEFORE_WARNING = 60;
+    private static final int DAYS_BEFORE_WARNING = 30;
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -113,13 +112,9 @@ public class RBoardUtility extends DBUtility{
                     for (;count < SUBMISSION_THRESHOLD_LAST_YEAR && rsDetails90.next(); count++);
 
                     if (count == SUBMISSION_THRESHOLD_LAST_YEAR) {
-                        log.debug(" === rsDetails356.getDate(current_date): " + rsDetails356.getDate("current_date"));
-                        log.debug(" === rsDetails356.getDate(rating_date): " + rsDetails356.getDate("rating_date"));
-
                         daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
                                 rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
-                        log.debug(" === daysToBeDisqualified: " + daysToBeDisqualified);
-                        log.debug(" === daysToBeDisqualified2: " + daysToBeDisqualified2);
+
                         if (daysToBeDisqualified2 < daysToBeDisqualified) {
                             daysToBeDisqualified = daysToBeDisqualified2;
                         }
