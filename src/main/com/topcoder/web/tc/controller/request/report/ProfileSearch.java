@@ -259,7 +259,6 @@ public class ProfileSearch extends Base {
         if (maxDaysAlgo != null && maxDaysAlgo.length() > 0) {
             query.append("    AND r.round_id = rs.round_id\n");
             query.append("    AND rs.segment_id = 2\n");
-            query.append("    and rs.segment_id = 2\n");
         }
 
         query.append("    AND r.coder_id = c.coder_id\n");
@@ -497,17 +496,16 @@ public class ProfileSearch extends Base {
             query.delete(query.length() - "    AND c.language_id IN ()\n".length(), query.length());
         }
         String[] bounds = {"maxdayssincerating", "mindays", "maxdays", "minevents", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
-        String[] value = {"current-rs.start_time <= \'", "current-c.member_since >= \'", "current-c.member_since <= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
+        String[] value = {"rs.start_time >= \'", "c.member_since <= \'", "c.member_since >= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for (int i = 0; i < bounds.length; i++) {
             String b = request.getParameter(bounds[i]);
             if (b == null || b.length() == 0) continue;
             query.append("    AND ");
             query.append(value[i]);
-            query.append(b);
             if (i < 3) {
-                query.append(" 00:00:00.0'\n");
+                query.append(" (current - " + b + " unit days)\n");
             } else {
-                query.append('\n');
+                query.append(b + '\n');
             }
         }
         boolean pro = "on".equals(request.getParameter("pro"));
