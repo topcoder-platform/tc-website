@@ -80,9 +80,22 @@
     http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_list
 </p>
 
+<p><span class="bodySubtitle">Active Designer List</span><br/>
+    This feed provides a list of coders who have been rated in design within the last 180 days.
+    It includes the following fields:
+    <ul>
+        <li>user id</li>
+        <li>handle</li>
+        <li>design rating</li>
+        <li>design volatility</li>
+        <li>number of rated design events</li>
+    </ul>
+
+    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_design_list
+</p>
 
 <p><span class="bodySubtitle">Active Developer List</span><br/>
-    This feed provides a list of coders who have been rated in Development within the last 180 days.
+    This feed provides a list of coders who have been rated in development within the last 180 days.
     It includes the following fields:
     <ul>
         <li>user id</li>
