@@ -69,7 +69,9 @@ public class RBoardUtility extends DBUtility{
             log.debug("");
             log.debug("-----------------------------------------------");
             rsUsers = psSelUsers.executeQuery();
-            int i = 1;
+            int i = 0;
+            int disqualified = 0;
+            int warning = 0;
             for (; rsUsers.next(); i++ ) {
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, 90);  // Days to analyze
@@ -81,6 +83,7 @@ public class RBoardUtility extends DBUtility{
                 boolean disqualify = true;
                 long daysToBeDisqualified = 0;
                 long daysToBeDisqualified2 = 0;
+                String reason = " (no submission in the last " + 90 + " days.";
 
                 log.debug("Analyzing user " + rsUsers.getLong("user_id") +
                         " Project Type: " + rsUsers.getInt("project_type_id") +
@@ -89,6 +92,8 @@ public class RBoardUtility extends DBUtility{
                 rsDetails90 = psSelDetails.executeQuery();
                 if (rsDetails90.next()) {
                     if (rsDetails90.getInt("num_projects") > 0) {
+                        reason = " (no at least " + 4 + " submissions in the last " + 356 + " days.";
+
                         daysToBeDisqualified = 90 - (rsDetails90.getDate("current_date").getTime() -
                                 rsDetails90.getDate("last_date").getTime()) / (1000*60*60*24);
 
@@ -125,7 +130,7 @@ public class RBoardUtility extends DBUtility{
                     log.debug("Reviewer: " + rsUsers.getLong("user_id") +
                             " Project Type: " + rsUsers.getInt("project_type_id") +
                             " Catalog Id: " + rsUsers.getLong("catalog_id") +
-                            " disqualified. (no submission in the last " + 90 + " days.");
+                            " disqualified." + reason);
 
                     // send mail.
                 } else {
@@ -142,6 +147,8 @@ public class RBoardUtility extends DBUtility{
             }
             log.debug("-----------------------------------------------");
             log.debug("Successfully analyzed " + i + " active reviewers.");
+            log.debug("Successfully disqualified " + disqualified + " reviewers.");
+            log.debug("Successfully warned " + warning + " reviewers.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
