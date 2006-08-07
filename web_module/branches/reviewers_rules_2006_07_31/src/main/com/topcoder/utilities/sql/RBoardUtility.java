@@ -27,7 +27,7 @@ public class RBoardUtility extends DBUtility{
     private static final int SUBMISSION_THRESHOLD_LAST_YEAR = 4;
     private static final int MILLIS_IN_DAY = 1000*60*60*24;
     private static final int DAYS_THREE_MONTHS = 90;
-    private static final int DAYS_YEAR = 356;
+    private static final int DAYS_YEAR = 250;
     private static final int DISQUALIFIED_STATUS = 110;
     private static final int DAYS_BEFORE_WARNING = 60;
     /**
@@ -58,7 +58,7 @@ public class RBoardUtility extends DBUtility{
             psSelUsers.setString(1, "100");
 
             query = new StringBuffer(200);
-            query.append("select DATE(current) + 30 UNITS DAY as current_date, DATE(p.rating_date) as rating_date ");
+            query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
             query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
             query.append("where p.comp_vers_id = cv.comp_vers_id and ");
             query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
