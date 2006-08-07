@@ -79,9 +79,23 @@
         <li>number of rated algorithm events</li>
     </ul>
 
-    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_coder_list
+    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_algorithm_list
 </p>
 
+
+<p><span class="bodySubtitle">Active Developer List</span><br/>
+    This feed provides a list of coders who have been rated in Development within the last 180 days.
+    It includes the following fields:
+    <ul>
+        <li>user id</li>
+        <li>handle</li>
+        <li>development rating</li>
+        <li>development volatility</li>
+        <li>number of rated development events</li>
+    </ul>
+
+    http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_developer_list
+</p>
 
 <p><span class="bodySubtitle">Round Results</span><br/>
     This feed provides details about all the competitors in an algorithm round.
