@@ -7,7 +7,7 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-<%----------------------POST MONDAY AM------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.07.06<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">AOL adds $5,000 prize purse to their sponsored SRMs</span><br><br>
@@ -18,7 +18,7 @@
          <tc-webtag:forumLink forumID="506086" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
-----------%>
+
 
 <%--------------------------------------------------------%>
    <tr>
@@ -191,23 +191,6 @@ Division 1 featured a surprisingly difficult medium problem that got the drop on
          <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">full story</A>&#160;|&#160;
          <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.25.06<br>12:05 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">TCHS SRM 8 - Problem Set & Analysis</A></span><br><br>
-Three questions with a few hidden tricks resulted in 83 failed solutions out of a total of 207 submissions for TCHS SRM 8, the second in the Delta Quadrant.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275640" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506030" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 
