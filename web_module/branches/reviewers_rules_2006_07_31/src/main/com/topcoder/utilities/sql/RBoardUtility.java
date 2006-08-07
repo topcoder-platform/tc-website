@@ -58,7 +58,7 @@ public class RBoardUtility extends DBUtility{
             psSelUsers.setString(1, "100");
 
             query = new StringBuffer(200);
-            query.append("select DATE(current) + 30 UNITS DAYS as current_date, DATE(p.rating_date) as rating_date ");
+            query.append("select DATE(current) + 30 UNITS DAY as current_date, DATE(p.rating_date) as rating_date ");
             query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
             query.append("where p.comp_vers_id = cv.comp_vers_id and ");
             query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
