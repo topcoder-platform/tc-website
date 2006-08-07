@@ -1821,12 +1821,15 @@
     <target name="deploy-forums" depends="">
         <antcall target="explode-forums"/>
 
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
     	<copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
     	<copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+    	<copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
     	
     	<copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
     	<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
