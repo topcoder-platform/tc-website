@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Enumeration;
 
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 
@@ -75,5 +77,14 @@ public class RBoardUtility extends DBUtility{
         sErrorMsg.append("   -endDate : the end date to analyze..\n");
         sErrorMsg.append("   -onlyAnalyze : wheter to just analyze without updates.\n");
         fatal_error();
+    }
+
+    private static void sendMail(String from, String to, String subject, String messageText) throws Exception {
+        TCSEmailMessage message = new TCSEmailMessage();
+        message.setFromAddress(from);
+        message.setToAddress(to, TCSEmailMessage.TO);
+        message.setSubject(subject);
+        message.setBody(messageText);
+        EmailEngine.send(message);
     }
 }
