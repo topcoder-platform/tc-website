@@ -161,8 +161,19 @@ public class ProfileSearch extends Base {
             }
 
             query.append("  , r.rating as Algorithm_Rating\n");
-            query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
-            query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+
+            if (maxDaysDev != null && maxDaysDev.length() > 0) {
+                query.append("  , ur_des.rating as Design_Rating\n");
+            } else {
+                query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
+            }
+
+            if (maxDaysDev != null && maxDaysDev.length() > 0) {
+                query.append("  , ur_dev.rating as Development_Rating\n");
+            } else {
+                query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+            }
+
             query.append("  , (select '<a href=mailto:' || address  || ' >' || address || '</a>' from email where user_id = c.coder_id and primary_ind=1) as email\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
             query.append("  , (select max(n.modify_date) from user_note_xref unx, note n where n.note_type_id = 5 and unx.user_id = c.coder_id and unx.note_id = n.note_id)\n");
@@ -525,16 +536,6 @@ public class ProfileSearch extends Base {
 
         String maxDaysDes = request.getParameter("maxdayssincedes");
         if (maxDaysDes != null && maxDaysDes.length() > 0) {
-            /*
-            query.append("  AND (select rating_date from user u, ");
-            query.append("  tcs_catalog:user_rating ur, ");
-            query.append("  tcs_catalog:project p");
-            query.append("  where u.user_id = ur.user_id");
-            query.append("  and ur.last_rated_project_id = p.project_id");
-            query.append("  and cur_version=1 ");
-            query.append("  and phase_id = 112 ");
-            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDes + " units day ");
-            */
             query.append("  and ur_des.user_id = u.user_id\n");
             query.append("  and ur_des.last_rated_project_id = p_des.project_id\n");
             query.append("  and p_des.cur_version=1 \n");
@@ -545,15 +546,6 @@ public class ProfileSearch extends Base {
 
         String maxDaysDev = request.getParameter("maxdayssincedev");
         if (maxDaysDev != null && maxDaysDev.length() > 0) {
-/*            query.append("  AND (select rating_date from user u, ");
-            query.append("  tcs_catalog:user_rating ur, ");
-            query.append("  tcs_catalog:project p");
-            query.append("  where u.user_id = ur.user_id");
-            query.append("  and ur.last_rated_project_id = p.project_id");
-            query.append("  and cur_version=1 ");
-            query.append("  and phase_id = 113 ");
-            query.append("  and u.user_id = c.coder_id) > current - " + maxDaysDev + " units day ");*/
-
             query.append("  and ur_dev.user_id = u.user_id \n");
             query.append("  and ur_dev.last_rated_project_id = p_dev.project_id \n");
             query.append("  and p_dev.cur_version=1 \n");
