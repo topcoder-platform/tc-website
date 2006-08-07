@@ -129,23 +129,18 @@ public class RBoardUtility extends DBUtility{
                     if (!onlyAnalyze.equalsIgnoreCase("true")) {
                         psUpd.executeUpdate();
                     }
-                    log.debug("Reviewer: " + rsUsers.getLong("user_id") +
-                            " Project Type: " + rsUsers.getInt("project_type_id") +
-                            " Catalog Id: " + rsUsers.getLong("catalog_id") +
-                            " disqualified." + reason);
+                    log.debug("... disqualified " + reason);
 
                     // send mail.
                 } else {
                     // alert
                     if (daysToBeDisqualified <= 30) {
                         warnings++;
-                        log.debug("Reviewer: " + rsUsers.getLong("user_id") +
-                                " Project Type: " + rsUsers.getInt("project_type_id") +
-                                " Catalog Id: " + rsUsers.getLong("catalog_id") +
-                                " will be disqualified in " + daysToBeDisqualified + " days.");
+                        log.debug("... will be disqualified in " + daysToBeDisqualified + " days");
+                        // send mail.
+                    } else {
+                        log.debug("... ok");
                     }
-
-                    // send mail.
                 }
             }
             log.debug("-----------------------------------------------");
