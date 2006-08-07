@@ -1825,7 +1825,8 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
         <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
-
+    	
+    	<copy todir="${jboss_deploy}" file="${jars.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
     </target>
