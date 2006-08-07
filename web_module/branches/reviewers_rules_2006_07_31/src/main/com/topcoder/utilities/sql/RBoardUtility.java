@@ -94,17 +94,19 @@ public class RBoardUtility extends DBUtility{
 
                         psSelDetails.setInt(1, 356);  // Days to analyze
                         rsDetails356 = psSelUsers.executeQuery();
-                        if (rsDetails356.next() && rsDetails356.getInt("num_projects") >= 4) {
-                            long pepe = rsDetails356.getDate("current_date").getTime();
-                            pepe = rsDetails356.getDate("last_date").getTime();
+                        if (rsDetails356.next()) {
+                            if (rsDetails356.getInt("num_projects") >= 4) {
+                                long pepe = rsDetails356.getDate("current_date").getTime();
+                                pepe = rsDetails356.getDate("last_date").getTime();
 
-                            daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
-                                    rsDetails356.getDate("last_date").getTime()) / (1000*60*60*24);
+                                daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
+                                        rsDetails356.getDate("last_date").getTime()) / (1000*60*60*24);
 
-                            if (daysToBeDisqualified2 > daysToBeDisqualified) {
-                                daysToBeDisqualified = daysToBeDisqualified2;
+                                if (daysToBeDisqualified2 > daysToBeDisqualified) {
+                                    daysToBeDisqualified = daysToBeDisqualified2;
+                                }
+                                disqualify = false;
                             }
-                            disqualify = false;
                         }
                     }
                 }
