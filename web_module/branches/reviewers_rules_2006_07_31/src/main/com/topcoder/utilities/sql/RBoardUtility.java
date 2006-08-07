@@ -23,6 +23,13 @@ import com.topcoder.shared.util.sql.DBUtility;
  * @version 1.0.0
  */
 public class RBoardUtility extends DBUtility{
+    private static final int SCORE_THRESHOLD = 80;
+    private static final int SUBMISSION_THRESHOLD_LAST_YEAR = 4;
+    private static final int MILLIS_IN_DAY = 1000*60*60*24;
+    private static final int DAYS_THREE_MONTHS = 90;
+    private static final int DAYS_YEAR = 356;
+    private static final int DISQUALIFIED_STATUS = 110;
+    private static final int DAYS_BEFORE_WARNING = 60;
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -75,8 +82,8 @@ public class RBoardUtility extends DBUtility{
             int warnings = 0;
             for (; rsUsers.next(); i++ ) {
                 psSelDetails.clearParameters();
-                psSelDetails.setInt(1, 90);  // Days to analyze
-                psSelDetails.setInt(2, 80);  // score threshold
+                psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
+                psSelDetails.setInt(2, SCORE_THRESHOLD);  // score threshold
                 psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
                 psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
@@ -84,7 +91,7 @@ public class RBoardUtility extends DBUtility{
                 boolean disqualify = true;
                 long daysToBeDisqualified = 0;
                 long daysToBeDisqualified2 = 0;
-                String reason = " (no submission in the last " + 90 + " days.";
+                String reason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
                 log.debug("Analyzing user " + rsUsers.getLong("user_id") +
                         " Project Type: " + rsUsers.getInt("project_type_id") +
@@ -93,21 +100,21 @@ public class RBoardUtility extends DBUtility{
                 rsDetails90 = psSelDetails.executeQuery();
 
                 if (rsDetails90.next()) {
-                    reason = " (no at least " + 4 + " submissions in the last " + 356 + " days.";
+                    reason = " (no at least " + SUBMISSION_THRESHOLD_LAST_YEAR + " submissions in the last " + DAYS_YEAR + " days.";
 
-                    daysToBeDisqualified = 90 - (rsDetails90.getDate("current_date").getTime() -
-                            rsDetails90.getDate("rating_date").getTime()) / (1000*60*60*24);
+                    daysToBeDisqualified = DAYS_THREE_MONTHS - (rsDetails90.getDate("current_date").getTime() -
+                            rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
-                    psSelDetails.setInt(1, 356);  // Days to analyze
+                    psSelDetails.setInt(1, DAYS_YEAR);  // Days to analyze
                     rsDetails356 = psSelDetails.executeQuery();
 
 
                     int count = 0;
-                    for (;count < 4 && rsDetails90.next(); count++);
+                    for (;count < SUBMISSION_THRESHOLD_LAST_YEAR && rsDetails90.next(); count++);
 
-                    if (count == 4) {
-                        daysToBeDisqualified2 = 356 - (rsDetails356.getDate("current_date").getTime() -
-                                rsDetails356.getDate("rating_date").getTime()) / (1000*60*60*24);
+                    if (count == SUBMISSION_THRESHOLD_LAST_YEAR) {
+                        daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
+                                rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                         if (daysToBeDisqualified2 > daysToBeDisqualified) {
                             daysToBeDisqualified = daysToBeDisqualified2;
@@ -121,7 +128,7 @@ public class RBoardUtility extends DBUtility{
 
                     // this reviewer should be disqualified.
                     psUpd.clearParameters();
-                    psUpd.setInt(1, 110);  // status
+                    psUpd.setInt(1, DISQUALIFIED_STATUS);  // status
                     psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
                     psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
                     psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
@@ -134,7 +141,7 @@ public class RBoardUtility extends DBUtility{
                     // send mail.
                 } else {
                     // alert
-                    if (daysToBeDisqualified <= 30) {
+                    if (daysToBeDisqualified <= DAYS_BEFORE_WARNING) {
                         warnings++;
                         log.debug("... will be disqualified in " + daysToBeDisqualified + " days");
                         // send mail.
