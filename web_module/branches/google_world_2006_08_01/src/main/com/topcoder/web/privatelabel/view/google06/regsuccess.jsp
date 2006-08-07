@@ -75,10 +75,10 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td valign="top">
-         <div class="regBreadOn">General</div>
+         <div class="regBreadOff">General</div>
          <div class="regBreadOff">Demographics</div>
          <div class="regBreadOff">Confirm</div>
-         <div class="regBreadOff">Success</div>
+         <div class="regBreadOn">Success</div>
          <div class="regBreadOff">Activation</div>
       </td>
       <td valign="top" width="100%">

@@ -9,6 +9,8 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/tcStyles.css"/>
+    <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
     <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/google06.css"/>
     <title>Google Code Jam 2006, Powered by TopCoder</title>
     <jsp:include page="../script.jsp"/>
@@ -76,11 +78,11 @@
 </tr>
 <tr>
 <td valign="top">
-    <div class="regBreadOn">General</div>
+    <div class="regBreadOff">General</div>
 
     <div class="regBreadOff">Demographics</div>
 
-    <div class="regBreadOff">Confirm</div>
+    <div class="regBreadOn">Confirm</div>
 
     <div class="regBreadOff">Success</div>
 
