@@ -4,7 +4,6 @@
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session"/>
-<jsp:useBean id="questionList" class="java.util.List" scope="request"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -98,7 +97,7 @@
                                    value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
                             <input type="hidden" name="<%=Constants.EVENT_ID%>"
                                    value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
-                            <pl:questionIterator id="question" list="<%=questionList%>">
+                            <pl:questionIterator id="question" list="${questionList}">
                                 <tr>
                                     <td colspan="2" class="errorText" align="center">
                                         <tc-webtag:errorIterator id="err"
