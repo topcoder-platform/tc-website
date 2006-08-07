@@ -496,7 +496,7 @@ public class ProfileSearch extends Base {
             query.delete(query.length() - "    AND c.language_id IN ()\n".length(), query.length());
         }
         String[] bounds = {"maxdayssincerating", "mindays", "maxdays", "minevents", "minrating", "maxrating", "mindesrating", "maxdesrating", "mindevrating", "maxdevrating"};
-        String[] value = {"rs.start_time >= \'", "c.member_since <= \'", "c.member_since >= \'", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
+        String[] value = {"rs.start_time >= ", "c.member_since <= ", "c.member_since >= ", "r.num_ratings >= ", "r.rating >= ", "r.rating <= ", "desr.rating >= ", "desr.rating <= ", "devr.rating >= ", "devr.rating <= "};
         for (int i = 0; i < bounds.length; i++) {
             String b = request.getParameter(bounds[i]);
             if (b == null || b.length() == 0) continue;
