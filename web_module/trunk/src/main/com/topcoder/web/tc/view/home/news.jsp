@@ -195,19 +195,6 @@ Division 1 featured a surprisingly difficult medium problem that got the drop on
        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%-------------------------------------------------
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.26.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">AOL SRM 312 chat session transcript</A></span><br><br>
-      AOL recently held a chat session in the arena, just prior to SRM 312.  Here's the chat transcript.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_072206">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
--------%>
 
 </table>
 <br><br>
