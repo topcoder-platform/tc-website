@@ -51,9 +51,19 @@ AOL is where the power of the Internet and your individual potential converge to
 </ul>
 <span class="bodySubtitleAOL">Lead the race with AOL and take your place on one of AOL's many technology teams to work on some of the most cutting edge projects today.</span>
 <br><br>
+<A href="#open">Open Services</A>&#160;|&#160;
+<A href="#audience">Audience Technologies</A>&#160;|&#160;
+<A href="#wireless">AOL Wireless</A>&#160;|&#160;
+<A href="#global">Global Technologies</A>&#160;|&#160;
+<A href="#ad">Advertising.com</A>
+<br><br>
+
+<A name="open"></A>
 <span class="bodySubtitleAOL">Open Services &mdash; Dulles, Virginia</span><br>
 <b>Projects:</b> text classification and entity linking, content/user targeting system, syndication framework, profile system, and search. AOL's new Open Services initiative enables developers to build customized third-party applications, plug-ins and mashups based on AOL's leading products and services. More information on AOL's range of developer resources and open APIs, including Open AIM&#174;, AOL&#174; Music Now Web Services and MapQuest&#174; OpenAPI, can be found at <A href="/?t=sponsor&c=link&link=http://developer.aol.com" target="_blank">http://developer.aol.com</A>.
 <br><br>
+
+<A name="audience"></A>
 <span class="bodySubtitleAOL">Team: Audience Technologies</span><br>
 <b>Location:</b> Mountain View, CA/ Dulles, VA<br>
 <A href="/?t=sponsor&c=link&link=http://developer.aol.com/" target="_blank">http://developer.aol.com/</A>
@@ -76,12 +86,31 @@ Here are a few of the products we own or work on in Mountain View. &#8230;and in
 <li>&#8230;and more on the way! Come talk to us and we'll fill you in!</li>
 </ul>
 
+<A name="wireless"></A>
 <span class="bodySubtitleAOL">Team: AOL Wireless</span><br>
 <b>Location:</b> Seattle, WA<br>
 <A href="/?t=sponsor&c=link&link=http://www.tegic.com/about/" target="_blank">http://www.tegic.com/about/</A>
 <br><br>
 <b>Projects:</b> The AOL Seattle office is 100% dedicated to wireless development, and we're working on cutting-edge wireless data solutions that will change the way people use their cell phones and hand held devices. We are building a unique startup-oriented team dedicated to creating a digital wireless infrastructure to connect consumers to information and content in an easy and user-friendly manner. As a solid team of just over 100, we can preserve the small-company atmosphere while still benefiting from the many corporate assets of AOL: a world-class technology infrastructure, extensive user base, the many AOL services such as AIM, AOL Music, etc., and the media assets of TimeWarner.
 <br><br>
+
+<A name="global"></A>
+<span class="bodySubtitleAOL">Team: Global Technologies</span><br>
+<b>Location:</b> Dublin, Ireland
+<br><br>
+<b>Projects:</b>
+<ul>
+<li><b>Personalization:</b><br>
+Personalization is about people, getting to know them and customizing their experiences to their likes, passive personalization is the process of learning about people from what they do, not what they say they do. Artificial Intelligence and its application in this space is an Edge Technology and not everything is known. For AOL, there are several advantages to Personalization, we will enable or empower our users to reach the "Long Tail" in what they are searching for, Create a sticky experience that gets people to what they want with minimum fuss, from the Advertising perspective there will be a model that will benefit from this information and offer users what they are interested in, making adverts relevant and less of a nuisance.</li>
+<li><b>MSRP (Modular Search Results Platform):</b><br>
+The MSRP platform is an open framework, web content delivery system. MSRP pages are made up of defined modules that will render content from various sources depending on the defined source for that content. MSRP controls data traffic from the user through the routing system and back, using any display generation format supported by the framework. MSRP uses a Response Analysis Engine (RAE )module to decide dynamically, how to arrange data from the data source infrastructure for any given user, thus brings the capability to customize each web page view by a user, dynamically.</li>
+<li><b>Search 7.0:</b><br>
+The latest version of AOL's search application, 7.0 is currently under development, this product will change dramatically the way search results are delivered, it is optimized for high-speed users who will get great Web search from Google, plus relevant multimedia results &mdash; pictures, videos, sound clips, local information and more all on one page. With the new AOL search the idea is that users will be able to search less and discover more.</li>
+<li><b>Quotes and Portfolios</b><br>
+This actually represents a collection of personal investment management tools for the AOL Money and Finance channel. These products deliver company stock price and detailed information almost 1 billion times per day, and provide portfolio management tools for 12 million portfolios, used each month by over 2 million of our users.</li>
+</ul>
+
+<A name="ad"></A>
 <span class="bodySubtitleAOL">AOL/Parent Company Name &mdash; Advertising.com</span><br>
 <b>Headquarters:</b> 1020 Hull Street, Baltimore, MD 21230<br>
 <b>Mt View Office location:</b> 888 Villa Street, Suite 300, Mountain View, CA 94041
