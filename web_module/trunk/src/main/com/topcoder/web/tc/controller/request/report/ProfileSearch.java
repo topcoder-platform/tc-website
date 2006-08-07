@@ -162,7 +162,7 @@ public class ProfileSearch extends Base {
 
             query.append("  , r.rating as Algorithm_Rating\n");
 
-            if (maxDaysDev != null && maxDaysDev.length() > 0) {
+            if (maxDaysDes != null && maxDaysDes.length() > 0) {
                 query.append("  , ur_des.rating as Design_Rating\n");
             } else {
                 query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
