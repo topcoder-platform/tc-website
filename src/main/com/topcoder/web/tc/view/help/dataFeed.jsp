@@ -41,6 +41,11 @@
 
 <h2>TopCoder Data Feeds</h2>
 
+<p>
+    TopCoder provides access to some of it's data in the form of XML. Below you will find a
+    listing of the available feeds. Please keep in mind that none of the feeds provide ordered data.
+</p>
+
 <p><span class="bodySubtitle">Coder List</span><br/>
     This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
     It includes the following fields:
