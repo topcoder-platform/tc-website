@@ -23,7 +23,7 @@
 </jsp:include>
 
 <jsp:include page="left.jsp">
-    <jsp:param name="node" value="active_contests"/>
+    <jsp:param name="node" value="past_contests"/>
 </jsp:include>
 
 <div class="contentOuter">
