@@ -244,9 +244,13 @@ public class RBoardUtility extends DBUtility{
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are sorry to inform you that you have been disqualified for performing additional ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
-        mail.append("This is a temporary inhabilitation. You no longer fulfill the rules to be a reviewer, ");
-        mail.append("but when this is fixed you will be able to performs reviews again.\n\n");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects, but you will still be ");
+        mail.append("able to complete current ones.\n\n");
+        mail.append("This is temporary . You no longer fulfill the rules to be a reviewer, ");
+        mail.append("but when this is fixed you will be able to perform reviews again.\n\n");
+        mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
+        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
+        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -269,8 +273,11 @@ public class RBoardUtility extends DBUtility{
     private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
-        mail.append("This mail is to warn you that in " + daysToBeDisqualified + " days you will be disqualified to perform ");
+        mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified to perform ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
+        mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
+        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
+        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
