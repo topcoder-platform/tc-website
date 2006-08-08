@@ -488,8 +488,9 @@ public class ReliabilityRating {
                             ps2.setNull(1, Types.DOUBLE);
                         }
                         ps2.setDouble(2, newReliability);
-                        ps2.setLong(3, rs.getLong("project_id"));
-                        ps2.setLong(4, userId);
+                        ps2.setInt(3, 0);
+                        ps2.setLong(4, rs.getLong("project_id"));
+                        ps2.setLong(5, userId);
                         ret += ps2.executeUpdate();
                     }
                 } finally {
