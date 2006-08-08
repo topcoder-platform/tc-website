@@ -355,7 +355,7 @@ public class RBoardUtility extends DBUtility{
     private static void sendMail(String from, String to, String subject, String messageText) throws Exception {
         TCSEmailMessage message = new TCSEmailMessage();
         message.setFromAddress(from);
-        log.debug
+        log.debug(to);
         message.setToAddress(to, TCSEmailMessage.TO);
         message.setSubject(subject);
         message.setBody(messageText);
