@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder FX</title>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
+        <jsp:param name="key" value="tc_studio_old"/>
     </jsp:include>
 
 </head>

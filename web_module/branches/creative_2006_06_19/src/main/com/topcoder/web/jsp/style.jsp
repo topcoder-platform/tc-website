@@ -35,13 +35,22 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css">
 <link type="text/css" rel="stylesheet" href="/css/stats.css">
 <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
-<% } else if (key.equals("tc_studio")) { %>
+<% } else if (key.equals("tc_studio_old")) { %>
 <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
 <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
 <link type="text/css" rel="stylesheet" href="/css/coders.css">
-<% } else if (key.equals("tc_creative_forums")) { %>
+<% } else if (key.equals("tc_studio_forums_old")) { %>
 <link type="text/css" rel="stylesheet" href="/css/creative/main.css">
 <link type="text/css" rel="stylesheet" href="/css/creative/stats.css">
 <link type="text/css" rel="stylesheet" href="/css/creative/forums.css">
+<link type="text/css" rel="stylesheet" href="/css/coders.css">
+<% } else if (key.equals("tc_studio")) { %>
+<link type="text/css" rel="stylesheet" href="/css/studio/main.css">
+<link type="text/css" rel="stylesheet" href="/css/studio/stats.css">
+<link type="text/css" rel="stylesheet" href="/css/coders.css">
+<% } else if (key.equals("tc_studio_forums")) { %>
+<link type="text/css" rel="stylesheet" href="/css/studio/main.css">
+<link type="text/css" rel="stylesheet" href="/css/studio/stats.css">
+<link type="text/css" rel="stylesheet" href="/css/studio/forums.css">
 <link type="text/css" rel="stylesheet" href="/css/coders.css">
 <% } %>

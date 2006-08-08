@@ -124,7 +124,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_creative_forums"/>
+    <jsp:param name="key" value="tc_studio_forums_old"/>
 </jsp:include>
 </head>
 
