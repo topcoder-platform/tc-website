@@ -45,7 +45,7 @@
         <div class="contentIn">
 
             <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="contests"/>
+                <jsp:param name="node" value="none"/>
             </jsp:include>
 
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>

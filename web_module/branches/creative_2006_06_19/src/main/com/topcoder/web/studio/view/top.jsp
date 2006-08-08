@@ -23,8 +23,12 @@
 <table cellpadding="1" cellspacing="0">
 <tbody>
    <tr>
-      <td><input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value="handle"/></td>
-      <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="15" type="password" value="password"/></td>
+      <td class="small">Handle:</td>
+      <td class="small">Password:</td>
+   </tr>
+   <tr>
+      <td><input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/></td>
+      <td><input name="<%=Login.PASSWORD%>" size="8" maxlength="15" type="password" value=""/></td>
       <td><input type="image" src="/i/studio/layout/btn_login.gif" onmouseover="this.src='/i/studio/layout/btn_login_on.gif'" onmouseout="this.src='/i/studio/layout/btn_login.gif'"></td>
    </tr>
 </tbody>
