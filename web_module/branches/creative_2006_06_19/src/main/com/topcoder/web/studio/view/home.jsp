@@ -16,17 +16,13 @@
 
 <div align="center">
    <div class="contentOut">
-
    <jsp:include page="top.jsp">
        <jsp:param name="section" value="default"/>
    </jsp:include>
-
       <div class="contentIn">
-
          <jsp:include page="topNav.jsp">
              <jsp:param name="node" value="home"/>
          </jsp:include>
-
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div style="text-align:left; padding: 0px 10px 0px 10px;">
 
@@ -38,9 +34,7 @@
          </div>
          <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
       </div>
-
       <jsp:include page="foot.jsp"/>
-
       <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
    </div>
 </div>

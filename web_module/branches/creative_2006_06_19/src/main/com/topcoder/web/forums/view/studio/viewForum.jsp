@@ -82,22 +82,25 @@
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums_old"/>
+    <jsp:param name="key" value="tc_studio_forums"/>
 </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
+   <jsp:include page="top.jsp">
+       <jsp:param name="section" value="default"/>
+   </jsp:include>
+      <div class="contentIn">
+         <jsp:include page="topNav.jsp">
+             <jsp:param name="node" value="forums"/>
+         </jsp:include>
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div style="text-align:left; padding: 0px 10px 0px 10px;">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
 
-<div class="contentOuter">
-   <div class="contentInner">
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td class="categoriesBox" style="padding-right: 20px;">
@@ -239,8 +242,14 @@ A forum with a <b>bold title</b> indicates it either has a new thread or has a t
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
 <%  } %>
 
-        <jsp:include page="foot.jsp"/>
-    </div>
+
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>

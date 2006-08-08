@@ -3,9 +3,9 @@
 %>
 
 <div id="topNav">
-    <A href="/"<% if (node.equals("home")) {%> class="highlight"<% } %>>Home</A>
-    <A href="/?module=ViewActiveContests"<% if (node.equals("contests")) {%> class="highlight"<% } %>>Contests</A>
-    <A href="/forums"<% if (node.equals("forums")) {%> class="highlight"<% } %>>Forums</A>
-    <A href="/?module=Static&d1=support&d2=getStarted"<% if (node.equals("support")) {%> class="highlight"<% } %>>Support</A>
-    <A href="/?module=Static&d1=about"<% if (node.equals("about_us")) {%> class="highlight"<% } %>>About Us</A>
+    <A<% if (node.equals("home")) {%> class="highlight"<% } %> href="/">Home</A>
+    <A<% if (node.equals("contests")) {%> class="highlight"<% } %> href="/?module=ViewActiveContests">Contests</A>
+    <A<% if (node.equals("forums")) {%> class="highlight"<% } %> href="/forums">Forums</A>
+    <A<% if (node.equals("support")) {%> class="highlight"<% } %> href="/?module=Static&d1=support&d2=getStarted">Support</A>
+    <A<% if (node.equals("about_us")) {%> class="highlight"<% } %> href="/?module=Static&d1=about">About Us</A>
 </div>
