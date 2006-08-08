@@ -12,42 +12,48 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="active_contests"/>
-</jsp:include>
+   <jsp:include page="top.jsp">
+       <jsp:param name="section" value="default"/>
+   </jsp:include>
 
-<div class="contentOuter">
-    <div class="contentInner">
+      <div class="contentIn">
 
-        <div class="breadcrumb">
-            Active Contests
-        </div>
+         <jsp:include page="topNav.jsp">
+             <jsp:param name="node" value="contests"/>
+         </jsp:include>
 
-        <h1>Active Contests</h1>
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div style="text-align:left; padding: 0px 10px 0px 10px;">
+
+            <div class="breadcrumb">
+               Active Contests
+            </div>
+
+           <h1>Active Contests</h1>
 
 
         <h2 align="right">Need help? Learn how to <strong><A href="">get started</A></strong></h2>
 
         <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
-        <div class="tableHolder">
-            <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+            <table class="stat" cellpadding="0" cellspacing="0" style="width:760px">
                 <tbody>
                     <tr>
-                        <td class="title" colspan="5">Active Contests</td>
+                        <td class="NW">&nbsp;</td>
+                        <td class="title" colspan="4">Active Contests</td>
+                        <td class="NE">&nbsp;</td>
                     </tr>
                     <tr>
-
-                        <td class="header" colspan="2">
+                        <td class="headerW"><div>&nbsp;</div></td>
+                        <td class="header">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
                         </td>
                         <td class="headerC">
@@ -56,30 +62,43 @@
                         <td class="headerC">
                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
                                 Date</a></td>
+                        <td class="header">&nbsp;</td>
+                        <td class="headerE"><div>&nbsp;</div></td>
                     </tr>
                     <% boolean even = true;%>
                     <rsc:iterator list="<%=contests%>" id="resultRow">
-                        <tr class="<%=even?"dark":"light"%>">
+                        <tr class="<%=even?"light":"dark"%>">
+                            <td class="valueW"><div>&nbsp;</div></td>
                             <td class="value">
                                 <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                     <rsc:item name="name" row="<%=resultRow%>"/></A></td>
                             <td class="valueC">
-                                <button onClick="window.location='${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>'">
-                                    Register /
-                                    Submit</button></td>
-                            <td class="valueC">
                                 <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                             <td class="valueC">
                                 <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+                            <td class="valueC">
+                                 <div align="right"><A href="Javascript:window.location='${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>'" class="btn_submit">&nbsp;</A></div>
+                            </td>
+                            <td class="valueE"><div>&nbsp;</div></td>
                         </tr>
                         <% even = !even;%>
                     </rsc:iterator>
+                  <tr>
+                     <td class="SW" colspan="5">&nbsp;</td>
+                     <td class="SE">&nbsp;</td>
+                  </tr>
                 </tbody>
             </table>
-        </div>
 
-        <jsp:include page="foot.jsp"/>
-    </div>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+
+      <jsp:include page="foot.jsp"/>
+
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>
