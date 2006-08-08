@@ -1226,9 +1226,6 @@
             <classes dir="${resources}/studio">
                 <include name="hibernate.cfg.xml"/>
             </classes>
-            <classes dir="${resources}/forums/studio">
-                <include name="jive_init.xml"/>
-            </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
                 <include name="com/topcoder/web/studio/model/**/*.xml"/>
@@ -1265,6 +1262,9 @@
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+
+        <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
+
 
         <delete file="${jboss_home}/server/all/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/all/deploy/studio.war/" overwrite="yes"/>
