@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <div class="topBox">
     <div class="logoBox">
         <A href="/"><img src="/i/studio/studio_logo.gif" alt="TopCoder Studio"/></A>
@@ -29,8 +30,8 @@
                     </c:when>
                     <c:otherwise>
                         <div align="center">
-                            Hello, HANDLE TAG HERE<br>
-                            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
+                            Hello, <tc-webtag:studioHandle coderId="${sessionInfo.userId}"/><br>
+                            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
                             | <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</A>
                         </div>
                     </c:otherwise>
