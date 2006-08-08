@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.08.06<br>3:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/longcontest/?module=ViewOverview&rd=10087">Intel&#174; Multi-Threading Competition 7 Results</A>
+      </span><br><br>
+      Congratulations to <tc-webtag:handle coderId="7504863" />!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+      <A href="/longcontest/?module=ViewOverview&rd=10087">results</A>&#160;|&#160;
+      <tc-webtag:forumLink forumID="506073" message="discuss this" />&#160;|&#160;
+      <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.08.06<br>3:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -167,22 +182,6 @@ message"</strong> link in their Member Profile.  You can also use <A href="/tc?m
          <tc-webtag:forumLink forumID="506080" message="discuss this" />&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.31.06<br>1:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=prototypePattern">Prototype Pattern</A></span><br><br>
-      Design patterns are similar to algorithms for developers.  A design pattern provides a reusable structure or approach to solve a common design problem.  This article will introduce you to a creational pattern called the "Prototype Pattern."</td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=tutorials&d2=prototypePattern">article</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="506079" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
