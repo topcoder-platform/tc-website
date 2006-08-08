@@ -100,7 +100,7 @@
 
                 <tr>
                     <td colspan="2" align="center">
-                        <button onclick="document.frmLogin.submit();return false;">Login</button>
+                        <input type="image" src="/i/studio/layout/btn_login.gif" onmouseover="this.src='/i/studio/layout/btn_login_on.gif'" onmouseout="this.src='/i/studio/layout/btn_login.gif'">
                     </td>
                 </tr>
             </table>
