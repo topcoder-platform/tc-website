@@ -79,7 +79,7 @@
                                     <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                                 <td class="valueC">
                                     <div align="right">
-                                        <A href="Javascript:window.location='${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
+                                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
                                             &nbsp;</A></div>
                                 </td>
                                 <td class="valueE"><div>&nbsp;</div></td>
