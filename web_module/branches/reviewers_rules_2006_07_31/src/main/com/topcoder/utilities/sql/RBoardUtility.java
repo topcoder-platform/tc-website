@@ -7,11 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.topcoder.message.email.EmailEngine;
-import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.DBMS;
-//import com.topcoder.shared.util.EmailEngine;
-//import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.sql.DBUtility;
 
 /**
