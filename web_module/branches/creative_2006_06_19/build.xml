@@ -192,8 +192,8 @@
             <include name="com/topcoder/web/tc/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
-        	<include name="com/topcoder/web/studio/Constants.java"/>
-        	<include name="com/topcoder/web/studio/view/tag/**"/>
+            <include name="com/topcoder/web/studio/Constants.java"/>
+            <include name="com/topcoder/web/studio/view/tag/**"/>
         </javac>
     </target>
 
@@ -1199,30 +1199,11 @@
     </target>
 
 
-    <target name="compile-studio" depends="jar_shared,init">
-        <javac
-                srcdir="${java}"
-                destdir="${classes}"
-                classpathref="class.path"
-                deprecation="${deprecation}"
-                debug="${debug}"
-                source="1.4"
-                target="1.4"
-                >
-            <include name="com/topcoder/web/studio/**"/>
-            <!--
-                        <include name="com/topcoder/web/common/**"/>
-            -->
-        </javac>
-    </target>
-
-    <target name="war-studio" depends="compile-studio">
+    <target name="war-studio" depends="compile">
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>
-                <!--
-                                <include name="com/topcoder/web/common/**/*.class"/>
-                -->
+                <include name="com/topcoder/web/forums/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
@@ -1231,6 +1212,9 @@
             </webinf>
             <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/forums/view/studio">
+                <include name="*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
@@ -1241,6 +1225,9 @@
             </webinf>
             <classes dir="${resources}/studio">
                 <include name="hibernate.cfg.xml"/>
+            </classes>
+            <classes dir="${resources}/forums/studio">
+                <include name="jive_init.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
@@ -1254,10 +1241,31 @@
     </target>
 
     <target name="deploy-studio" depends="war-studio">
+        <antcall target="package-TCUser"/>
+        <antcall target="package-TCAuth"/>
+        <antcall target="package-TCFilters"/>
+        <antcall target="package-EJB-MessageHistoryBean"/>
+        <antcall target="package-EJB-ForumsBean"/>
+
         <antcall target="expand-studio"/>
     </target>
 
     <target name="expand-studio" depends="">
+
+        <copy todir="${jboss_lib}" file="${bin}/shared.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+
         <delete file="${jboss_home}/server/all/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/all/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/all/deploy/studio.war/META-INF"/>
@@ -1752,67 +1760,6 @@
     </target>
 
 
-    <target name="build-studio-forums" depends="">
-        <antcall target="war-studio-forums"/>
-        <antcall target="package-TCUser"/>
-        <antcall target="package-TCAuth"/>
-        <antcall target="package-TCFilters"/>
-        <antcall target="package-EJB-MessageHistoryBean"/>
-        <antcall target="package-EJB-ForumsBean"/>
-    </target>
-
-    <target name="war-studio-forums" depends="compile_forums">
-        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/studio/web.xml">
-            <fileset dir="${java}/com/topcoder/web/forums/view/studio">
-                <include name="*.*"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-            	<include name="style.jsp"/>
-            </fileset>
-        	<fileset dir="${java}/com/topcoder/web/studio/view">
-                <include name="top.jsp"/>
-            	<include name="left.jsp"/>
-        		<include name="foot.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/common/web/util/Conversion.class"/>
-                <include name="com/topcoder/common/web/error/TCException.class"/>
-                <include name="com/topcoder/common/web/data/Navigation.class"/>
-                <include name="com/topcoder/common/web/data/User.class"/>
-                <include name="com/topcoder/common/web/data/SecureObject.class"/>
-                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
-                <include name="com/topcoder/common/web/data/UserType.class"/>
-                <include name="com/topcoder/common/web/data/Browser.class"/>
-                <include name="com/topcoder/common/web/data/Round.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/web/forums/controller/*.class"/>
-                <include name="com/topcoder/web/forums/controller/request/*.class"/>
-                <include name="com/topcoder/web/forums/controller/request/studio/*.class"/>
-                <include name="com/topcoder/web/forums/model/**/*.class"/>
-                <include name="com/topcoder/web/forums/util/**/*.class"/>
-                <include name="com/topcoder/web/forums/*.class"/>
-                <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
-            	<include name="com/topcoder/web/studio/Constants.class"/>
-            	<include name="com/topcoder/web/studio/view/tag/*.class"/>
-            </classes>
-            <classes dir="${resources}/forums/studio">
-                <include name="jive_init.xml"/>
-            </classes>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="nav.tld"/>
-            </webinf>
-            <webinf dir="${resources}/forums/studio">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <lib dir="${jars.dir}">
-                <include name="object_formatter.jar"/>
-            </lib>
-        </war>
-        <antcall target="explode-forums"/>
-    </target>
-
     <target name="explode-forums" depends="">
         <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
         <delete dir="${jboss_deploy}/forums.war/META-INF"/>
@@ -1825,14 +1772,14 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcauth.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcuser.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcfilters.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
-    	<copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
-    	
-    	<copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
-    	<copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jivebase.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/jiveforums.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/velocity-dep.jar"/>
+        <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
+
+        <copy todir="${jboss_deploy}" file="${jive.dir}/EditWAR.jar"/>
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
     </target>
