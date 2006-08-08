@@ -42,6 +42,10 @@
    <table width="100%" border="0" cellspacing="0" cellpadding="3">
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2"><strong>August</strong></td></tr>
+   <tr><td class="bodyText">08.07.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 10 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">Problem Set & Analysis</a></td></tr>
+
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>July</strong></td></tr>
    <tr><td class="bodyText">07.31.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 9 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm9">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">07.24.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 8 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm8">Problem Set & Analysis</a></td></tr>
@@ -49,6 +53,7 @@
    <tr><td class="bodyText">07.10.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 6 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm6">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">07.05.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 5 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm5">Problem Set & Analysis</a></td></tr>
 
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2"><strong>June</strong></td></tr>
    <tr><td class="bodyText">06.26.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 4 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm4">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">06.19.06</td><td class="bodyText" nowrap="0" width="100%">TCHS SRM 3 - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm3">Problem Set & Analysis</a></td></tr>
