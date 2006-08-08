@@ -173,20 +173,24 @@ public class RBoardUtility extends DBUtility{
                     }
                     log.debug("... disqualified " + reason);
 
-                    // send mail.
-                    sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                        rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                    if (warnings < 5) {
+                        // send mail.
+                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                    }
                 } else {
                     // alert
                     if (daysToBeDisqualified <= daysBeforeWarning) {
                         warnings++;
                         log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                         // send mail.
-                        if (daysToBeDisqualified % firstWarningInterval == 0 ||
-                            (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
-                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
-                                daysToBeDisqualified);
+                        if (warnings < 5) {
+                            if (daysToBeDisqualified % firstWarningInterval == 0 ||
+                                (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
+                                sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                    daysToBeDisqualified);
+                            }
                         }
                     } else {
                         log.debug("... ok");
