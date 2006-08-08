@@ -7,9 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
+//import com.topcoder.shared.util.EmailEngine;
+//import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.sql.DBUtility;
 
 /**
@@ -68,6 +70,9 @@ public class RBoardUtility extends DBUtility{
      */
     private String systemEmail = null;
 
+
+    private StringBuffer digestMail = new StringBuffer(500);
+
     /**
      * Runs the RBoardUtility.
      *
@@ -82,6 +87,7 @@ public class RBoardUtility extends DBUtility{
         ResultSet rsDetails356 = null;
         StringBuffer query = null;
 
+        digestMail.append("Disqualified users:\n");
         try {
             query = new StringBuffer(200);
             query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
@@ -173,6 +179,8 @@ public class RBoardUtility extends DBUtility{
                     }
                     log.debug("... disqualified " + reason);
 
+                    digestMail.append(rsUsers.getString("handle") + " for " + rsUsers.getString("catalog_name") + " " + rsUsers.getString("project_type_name") + " projects.\n");
+
                     if (warnings < 5) {
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
@@ -197,6 +205,15 @@ public class RBoardUtility extends DBUtility{
                     }
                 }
             }
+
+            digestMail.append("\n-----------------------------------------------\n");
+            digestMail.append("Successfully analyzed " + i + " active reviewers.\n");
+            digestMail.append("Successfully disqualified " + disqualified + " reviewers.\n");
+            digestMail.append("Successfully warned " + warnings + " reviewers.\n");
+
+            // send digest mail for admin.
+            sendDigestMail();
+
             log.debug("-----------------------------------------------");
             log.debug("Successfully analyzed " + i + " active reviewers.");
             log.debug("Successfully disqualified " + disqualified + " reviewers.");
@@ -209,6 +226,18 @@ public class RBoardUtility extends DBUtility{
             DBMS.close(psSelDetails);
             DBMS.close(rsUsers);
             DBMS.close(psUpd);
+        }
+    }
+
+    private void sendDigestMail() throws Exception {
+        if (digestMail != null) {
+            String emailSubject = "Review Board Digest";
+
+            try {
+                sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
+            } catch (Exception e) {
+                throw new Exception("Unable to send digest mail.", e);
+            }
         }
     }
 
@@ -250,7 +279,6 @@ public class RBoardUtility extends DBUtility{
                 log.debug("Warning!!! null email for: " + handle);
                 mail.insert(0, "Warning!!! null email for: " + handle + "\n********************** \n\n");
             }
-            sendMail(systemEmail, adminEmail, emailSubject, mail.toString());
         } catch (Exception e) {
             throw new Exception("Unable to send mails.", e);
         }
