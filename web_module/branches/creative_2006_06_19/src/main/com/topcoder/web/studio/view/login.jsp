@@ -22,7 +22,7 @@
         }
     </script>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
 </head>
 
@@ -35,84 +35,96 @@
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+    <div class="contentOut">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
+        <jsp:include page="top.jsp">
+            <jsp:param name="section" value="default"/>
+        </jsp:include>
 
-<div class="contentOuter">
-    <div class="contentInner">
+        <div class="contentIn">
 
-        <h1>Login</h1>
+            <jsp:include page="topNav.jsp">
+                <jsp:param name="node" value="contests"/>
+            </jsp:include>
+
+            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
+
+            <div style="text-align:left; padding: 0px 10px 0px 10px;">
+
+<h1>Login</h1>
+<div align="center">
+<div align="left" style="width:500px;">
+    <strong>Forgot your password?</strong>
+    If you cannot remember your password
+    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click
+        here</A> and we can
+    send it
+    to you via email.
+    <br><br>
+    <strong>New to TopCoder?</strong><br>
+    <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete the
+    registration process,
+    we
+    will send your account activation code via email.
+    <br><br>
+
+    <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+        <input type="hidden" name="module" value="Login">
 
         <div align="center">
-            <div align="left" style="width:500px;">
-                <strong>Forgot your password?</strong>
-                If you cannot remember your password
-                <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail" class="bodyText">click
-                    here</A> and we can
-                send it
-                to you via email.
-                <br><br>
-                <strong>New to TopCoder?</strong><br>
-                <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</A>. After you complete the
-                registration process,
-                we
-                will send your account activation code via email.
-                <br><br>
+            <span class="bigRed"><%= message %></span>
+            <table cellpadding="2" cellspacing="0" border="0">
+                <tr>
+                    <td class="name" align="right">
+                        Handle:
+                    </td>
+                    <td class="value">
+                        <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name" align="right">
+                        Password:
+                    </td>
+                    <td class="value">
+                        <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="checkbox" name="<%=Login.REMEMBER_USER%>">
+                        Remember
+                        Me</td>
+                </tr>
 
-                <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
-                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="module" value="Login">
+                <tr>
+                    <td colspan="2" align="center">
+                        <button onclick="document.frmLogin.submit();return false;">Login</button>
+                    </td>
+                </tr>
+            </table>
 
-                    <div align="center">
-                        <span class="bigRed"><%= message %></span>
-                        <table cellpadding="2" cellspacing="0" border="0">
-                            <tr>
-                                <td class="name" align="right">
-                                    Handle:
-                                </td>
-                                <td class="value">
-                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="name" align="right">
-                                    Password:
-                                </td>
-                                <td class="value">
-                                    <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="center"><input type="checkbox" name="<%=Login.REMEMBER_USER%>">
-                                    Remember
-                                    Me</td>
-                            </tr>
+            <br><br>
 
-                            <tr>
-                                <td colspan="2" align="center">
-                                    <button onclick="document.frmLogin.submit();return false;">Login</button>
-                                </td>
-                            </tr>
-                        </table>
+            <script type="text/javascript">
+                document.frmLogin.<%=Login.USER_NAME%>.focus();
+            </script>
 
-                        <br><br>
+        </div>
+    </form>
+</div>
+</div>
 
-                        <script type="text/javascript">
-                            document.frmLogin.<%=Login.USER_NAME%>.focus();
-                        </script>
-
-                    </div>
-                </form>
             </div>
+            <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
         <jsp:include page="foot.jsp"/>
+
+        <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
+
 </body>
 </html>
