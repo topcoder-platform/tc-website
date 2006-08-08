@@ -29,7 +29,7 @@ public class ResponseBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            ps = conn.prepareStatement("INSERT INTO demographic_response (coder_id, demographic_question_id, demographic_answer_id) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO demographic_response (user_id, demographic_question_id, demographic_answer_id) VALUES (?,?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, questionId);
             ps.setLong(3, answerId);
@@ -63,7 +63,7 @@ public class ResponseBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            ps = conn.prepareStatement("INSERT INTO demographic_response (coder_id, demographic_question_id, demographic_response) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO demographic_response (user_id, demographic_question_id, demographic_response) VALUES (?,?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, questionId);
             ps.setString(3, answerText);
