@@ -95,17 +95,17 @@ public class Submit extends ResumeRegSubmit {
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in Google Code Jam.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM EDT (GMT/UTC 04) on August 14, 2006 through 4:00PM EDT (GMT/UTC -4) on October 27, 2006.\n\n");
 
-                buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/googlecodejam and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can access the practice rooms by navigating to http://").append(getSessionInfo().getServerName()).append("/codejam2006 and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
                 buf.append("You may participate in the Qualification Round at any time between Tuesday, September 5 at 12 noon EDT (GMT/UTC -4) and Wednesday, September 6 at 12 noon EDT (GMT/UTC -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
 
                 buf.append("LAUNCHING THE ARENA\n");
-                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/googlecodejam and clicking on the Competition Arena tab.\n\n");
+                buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://").append(getSessionInfo().getServerName()).append("/codejam2006 and clicking on the Competition Arena tab.\n\n");
 
                 buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
 
-                buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/googlecodejam and clicking the Instructions link at the top.\n\n");
+                buf.append("We also suggest that you read up on the competition process by navigating to http://").append(getSessionInfo().getServerName()).append("/codejam2006 and clicking the Instructions link at the top.\n\n");
 
                 buf.append("If you have any questions about how to participate, please email them to gcj@topcoder.com.\n\n");
 
