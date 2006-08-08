@@ -21,7 +21,7 @@
                             <input type="hidden" name="module" value="Login">
 
                             <input name="<%=Login.USER_NAME%>" size="10" maxlength="15" type="text" value=""/>
-                            <input name="<%=Login.PASSWORD%>" size="10" maxlength="15" type="text" value=""/>
+                            <input name="<%=Login.PASSWORD%>" size="10" maxlength="15" type="password" value=""/>
                             <button onclick="document.frmLogin.submit();return false;">Login</button><br/>
                             <span class="small"><input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>"/>Remember me&nbsp;&nbsp;&nbsp;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=PasswordEmail">Forgot
                                 your password?</A></span>
