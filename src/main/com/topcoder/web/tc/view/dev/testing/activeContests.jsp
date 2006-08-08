@@ -54,7 +54,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectAdmin">Online Review Project Admin and Details Tests</A>
       </td>
       <td class="valueC">
+      registration closed
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Project Admin and Details Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       &#160;
@@ -85,7 +88,10 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_reviewProjectReview">Online Review Project Review Tests</A>
       </td>
       <td class="valueC">
+      registration closed
+      <%--
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Online Review Project Review Tests">register</A>
+      --%>
       </td>
       <td class="valueC">
       &#160;
