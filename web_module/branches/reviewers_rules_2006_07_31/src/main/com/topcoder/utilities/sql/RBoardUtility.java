@@ -85,7 +85,7 @@ public class RBoardUtility extends DBUtility{
         ResultSet rsDetails356 = null;
         StringBuffer query = null;
 
-        digestMail.append("Disqualified users:\n");
+        digestMail.append("Today's Disqualified reviewers:\n");
         try {
             query = new StringBuffer(200);
             query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
@@ -190,7 +190,7 @@ public class RBoardUtility extends DBUtility{
                         warnings++;
                         log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                         // send mail.
-                        if (daysToBeDisqualified % firstWarningInterval == 0 ||
+                        if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
                             (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
                             sendWarningMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
                                     rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
@@ -247,7 +247,7 @@ public class RBoardUtility extends DBUtility{
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("This is a temporary inhabilitation. You no longer fulfill the rules to be a reviewer, ");
         mail.append("but when this is fixed you will be able to performs reviews again.\n\n");
-        mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
+        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Disqualification";
@@ -271,7 +271,7 @@ public class RBoardUtility extends DBUtility{
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " days you will be disqualified to perform ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
-        mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
+        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Warning";
