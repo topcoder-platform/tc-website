@@ -89,7 +89,7 @@ public class RBoardUtility extends DBUtility{
         try {
             query = new StringBuffer(200);
             query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
-            query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1 and e.status_id = 1) as email_address ");
+            query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
             query.append("from rboard_user2 ru, project_type pt, user u, catalog c ");
             query.append("where ru.immune_ind = 0 and ru.status_id = ? and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
             query.append("and c.catalog_id = ru.catalog_id ");
@@ -177,8 +177,6 @@ public class RBoardUtility extends DBUtility{
                     }
                     log.debug("... disqualified " + reason);
 
-                    digestMail.append(rsUsers.getString("handle") + " for " + rsUsers.getString("catalog_name") + " " + rsUsers.getString("project_type_name") + " projects.\n");
-
                     if (warnings < 5) {
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
@@ -242,8 +240,8 @@ public class RBoardUtility extends DBUtility{
     private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
-        mail.append("We are sorry to inform you that you have been disqualified for performing additional");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + "s projects.\n\n");
+        mail.append("We are sorry to inform you that you have been disqualified for performing additional ");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("This is a temporary inhabilitation. You no longer fulfill the rules to be a reviewer, ");
         mail.append("but when this is fixed you will be able to performs reviews again.\n\n");
         mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
@@ -252,7 +250,14 @@ public class RBoardUtility extends DBUtility{
         String emailSubject = "Review Board: Disqualification";
 
         try {
-            sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+            digestMail.append(handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            if (userEmail != null && userEmail != ""){
+                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                log.debug("Sending disq. mail to: " + userEmail);
+            } else{
+                log.debug("Warning!!! null email for: " + handle);
+                digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
+            }
         } catch (Exception e) {
             throw new Exception("Unable to send mails.", e);
         }
@@ -262,19 +267,19 @@ public class RBoardUtility extends DBUtility{
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " days you will be disqualified to perform ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + "s projects.\n\n");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
         mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Warning";
 
         try {
-            if (userEmail != null){
+            if (userEmail != null && userEmail != ""){
                 sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                 log.debug("Sending warning mail to: " + userEmail);
             } else{
                 log.debug("Warning!!! null email for: " + handle);
-                mail.insert(0, "Warning!!! null email for: " + handle + "\n********************** \n\n");
+                digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
             }
         } catch (Exception e) {
             throw new Exception("Unable to send mails.", e);
