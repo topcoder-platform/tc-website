@@ -124,22 +124,24 @@ function displayVotes(messageID, posVotes, negVotes) {
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">
-    <jsp:param name="key" value="tc_studio_forums_old"/>
+    <jsp:param name="key" value="tc_studio_forums"/>
 </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
+   <jsp:include page="top.jsp">
+       <jsp:param name="section" value="default"/>
+   </jsp:include>
+      <div class="contentIn">
+         <jsp:include page="topNav.jsp">
+             <jsp:param name="node" value="forums"/>
+         </jsp:include>
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div style="text-align:left; padding: 0px 10px 0px 10px;">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-
-<div class="contentOuter">
-   <div class="contentInner">
    
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -279,8 +281,13 @@ function displayVotes(messageID, posVotes, negVotes) {
    <td width=1% align="right" valign="top"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>
    
-        <jsp:include page="foot.jsp"/>
-    </div>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>
