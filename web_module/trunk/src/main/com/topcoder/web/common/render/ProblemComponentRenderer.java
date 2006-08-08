@@ -5,6 +5,7 @@ import com.topcoder.shared.problem.*;
 
 /**
  * Handles the display of a <code>com.topcoder.shared.problem.ProblemComponent</code>
+ *
  * @author Greg Paul
  */
 public class ProblemComponentRenderer extends BaseRenderer implements ElementRenderer {
@@ -19,6 +20,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
 
     /**
      * Takes the <code>ProblemComponent</code> to be rendered.
+     *
      * @param problemComponent
      */
     public ProblemComponentRenderer(ProblemComponent problemComponent) {
@@ -31,6 +33,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
 
     /**
      * Render the <code>Problem</code> in HTML.
+     *
      * @param language the language for all language specific information in the problem statement.
      * @return the problem component in html
      */
@@ -132,7 +135,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
 
 
         int methodCount = problemComponent.getAllMethodNames().length;
-        for (int i=methodCount>1?1:0; i<methodCount; i++) {
+        for (int i = methodCount > 1 ? 1 : 0; i < methodCount; i++) {
             buf.append("<tr><td");
             if (getTdClass() != null) {
                 buf.append(" class=\"");
@@ -217,16 +220,16 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
                 buf.append(getTdClass());
                 buf.append("\"");
             }
-            if (i==methodCount-1) {
+            if (i == methodCount - 1) {
                 buf.append(">(be sure your method");
-                if (methodCount>2) {
+                if (methodCount > 2) {
                     buf.append("s are");
                 } else {
-                    buf.append("is");
+                    buf.append(" is");
                 }
                 buf.append(" public)</td></tr>");
             }
-            if (methodCount>2&&i<methodCount-1) {
+            if (methodCount > 2 && i < methodCount - 1) {
                 buf.append("<tr><td>&nbsp;</td></tr>");
             }
         }
@@ -234,12 +237,6 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         buf.append("</table>");
         buf.append("</td>");
         buf.append("</tr>");
-
-
-
-
-
-
 
         /* Spec */
         if (problemComponent.getSpec() != null) {
@@ -443,8 +440,9 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
     /**
      * Adds an html tag and some context to a <code>StringBuffer</code>.
      * ex: &lt;tag_name&gt;content&lt;/tag_name&gt;
-     * @param buf the <code>StringBuffer</code>
-     * @param tag the tag to add
+     *
+     * @param buf     the <code>StringBuffer</code>
+     * @param tag     the tag to add
      * @param content the content to add
      */
     static void appendTag(StringBuffer buf, String tag, String content) {
@@ -486,6 +484,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
 
     /**
      * Render the <code>Problem</code> in plain text.
+     *
      * @param language the language for all language specific information in the problem statement.
      * @return the problem component in plain text
      */
@@ -503,37 +502,28 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         text.append(problemComponent.getClassName());
 
 
-
-
-
         int methodCount = problemComponent.getAllMethodNames().length;
-        for (int i=(methodCount)>1?1:0; i<methodCount; i++) {
+        for (int i = (methodCount) > 1 ? 1 : 0; i < methodCount; i++) {
 
-        text.append("\nMethod:");
-        text.append(problemComponent.getAllMethodNames()[i]);
-        text.append("\nParameters:");
-        DataType[] paramTypes = problemComponent.getAllParamTypes()[i];
-        for (int j = 0; j < paramTypes.length; j++) {
-            if (j > 0)
-                text.append(", ");
-            text.append(new DataTypeRenderer(paramTypes[j]).toPlainText(language));
+            text.append("\nMethod:");
+            text.append(problemComponent.getAllMethodNames()[i]);
+            text.append("\nParameters:");
+            DataType[] paramTypes = problemComponent.getAllParamTypes()[i];
+            for (int j = 0; j < paramTypes.length; j++) {
+                if (j > 0)
+                    text.append(", ");
+                text.append(new DataTypeRenderer(paramTypes[j]).toPlainText(language));
+            }
+            text.append("\nReturns:");
+            text.append(new DataTypeRenderer(problemComponent.getAllReturnTypes()[i]).toPlainText(language));
+
+            text.append("\nMethod signature:");
+            text.append(language.getMethodSignature(problemComponent.getAllMethodNames()[i],
+                    problemComponent.getAllReturnTypes()[i],
+                    problemComponent.getAllParamTypes()[i],
+                    problemComponent.getAllParamNames()[i]));
+            text.append("\n");
         }
-        text.append("\nReturns:");
-        text.append(new DataTypeRenderer(problemComponent.getAllReturnTypes()[i]).toPlainText(language));
-
-        text.append("\nMethod signature:");
-        text.append(language.getMethodSignature(problemComponent.getAllMethodNames()[i],
-                problemComponent.getAllReturnTypes()[i],
-                problemComponent.getAllParamTypes()[i],
-                problemComponent.getAllParamNames()[i]));
-        text.append("\n");
-        }
-
-
-
-
-
-
 
         /* Spec */
         if (problemComponent.getSpec() != null)
