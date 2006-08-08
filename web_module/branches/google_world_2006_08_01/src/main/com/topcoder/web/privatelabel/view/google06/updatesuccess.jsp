@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -14,19 +11,6 @@
 </head>
 
 <body>
-
-<SCRIPT type="text/javascript">
-    function submitEnter(e) {
-        var keycode;
-        if (window.event) keycode = window.event.keyCode;
-        else if (e) keycode = e.which;
-        else return true;
-        if (keycode == 13) {
-            document.frmLogin.submit();
-            return false;
-        } else return true;
-    }
-</SCRIPT>
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
     <tr>
