@@ -178,7 +178,7 @@
                         while (itForums.hasNext()) {
                             if (((Forum)itForums.next()).getMessageCount() > 0) numActiveForums++;
                         }
-                        if (numActiveForums > 0) { %>
+                        if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
                         <br><table cellpadding="0" cellspacing="0" class="rtTable">
                                 <tr>
                                    <td class="rtHeader" width="100%">
