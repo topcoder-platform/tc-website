@@ -146,7 +146,7 @@ public class ResponseBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(500);
-            query.append("DELETE FROM demographic_response WHERE demographic_question_id = ? AND coder_id = ?");
+            query.append("DELETE FROM demographic_response WHERE demographic_question_id = ? AND user_id = ?");
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, questionId);
