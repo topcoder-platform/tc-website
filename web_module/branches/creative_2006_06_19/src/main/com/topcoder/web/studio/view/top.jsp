@@ -30,7 +30,7 @@
                     <c:otherwise>
                         <div align="center">
                             Hello, HANDLE TAG HERE<br>
-                            <A href="${sessionInfo.servletPath}/?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
+                            <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Logout">Logout</A>
                             | <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">Update my profile</A>
                         </div>
                     </c:otherwise>
