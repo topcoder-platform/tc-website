@@ -206,6 +206,9 @@ Other
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=logo_submissions&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Logo
             Submissions</A></LI>
+    <LI>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=member_contact_report&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Member
+            Contact</A></LI>
 </UL>
 
 High School
