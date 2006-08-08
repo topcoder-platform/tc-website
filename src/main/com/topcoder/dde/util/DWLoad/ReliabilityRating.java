@@ -159,7 +159,7 @@ public class ReliabilityRating {
                                 ps2.setDouble(1, instance.getRecentOldReliability());
                             }
                             ps2.setDouble(2, instance.getRecentNewReliability());
-                            ps2.setInt(3, 1);
+                            ps2.setInt(3, instance.isIncluded() ? 1 : 0);
                             ps2.setLong(4, instance.getProjectId());
                             ps2.setLong(5, userId);
                             ret += ps2.executeUpdate();
@@ -223,7 +223,7 @@ public class ReliabilityRating {
                     " order by ci.create_time asc";
 
     private class ReliabilityHistory {
-        private List history = new ArrayList();
+        private List history = new ArrayList(10000);
 
         private ReliabilityHistory(Connection conn, long userId, long phaseId, int historyLength) throws SQLException {
 
@@ -259,7 +259,6 @@ public class ReliabilityRating {
                     int reliableCount = 0;
                     int projectCount = 0;
 
-//                    System.out.println("i: " + i + " ");
                     int j = (i - historyLength + 1) < 0 ? 0 : i - historyLength + 1;
                     for (; j <= i; j++) {
                         projectCount++;
@@ -267,8 +266,8 @@ public class ReliabilityRating {
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
+                        cur.setIncluded(true);
                         newRel = (double) reliableCount / (double) (projectCount);
-//                        System.out.print("j: " + j + " new " + newRel + " count " + reliableCount + " pcount " + projectCount + "\n");
                     }
 
                     if (i > 0) {
@@ -280,7 +279,6 @@ public class ReliabilityRating {
                     ((ReliabilityInstance) history.get(i)).setRecentNewReliability(newRel);
                     ((ReliabilityInstance) history.get(i)).setNewReliability(fullNewRel);
 
-                    //System.out.println(history.get(i).toString());
                 }
 
             } finally {
@@ -290,6 +288,12 @@ public class ReliabilityRating {
 
         }
 
+        /**
+         * return the history of reliability data.  it will only include
+         * records that are marked as part of the reliability calculation
+         *
+         * @return the history
+         */
         Iterator getHistory() {
             return history.iterator();
         }
@@ -305,6 +309,7 @@ public class ReliabilityRating {
         private double recentOldReliability = 0.0d;
         private double recentNewReliability = 0.0d;
         private boolean first = false;
+        private boolean included = false;
 
 
         private ReliabilityInstance(long projectId, long userId, boolean reliable, boolean afterStart) {
@@ -370,6 +375,14 @@ public class ReliabilityRating {
             this.first = first;
         }
 
+        public boolean isIncluded() {
+            return included;
+        }
+
+        public void setIncluded(boolean included) {
+            this.included = included;
+        }
+
         public String toString() {
             StringBuffer buf = new StringBuffer(1000);
             buf.append(projectId);
@@ -389,6 +402,8 @@ public class ReliabilityRating {
             buf.append(recentNewReliability);
             buf.append(" ");
             buf.append(first);
+            buf.append(" ");
+            buf.append(included);
             return buf.toString();
 
 
