@@ -177,10 +177,12 @@ public class RBoardUtility extends DBUtility{
                     }
                     log.debug("... disqualified " + reason);
 
-                    if (warnings < 5) {
+                    if (disqualified < 5) {
                         // send mail.
-                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                            rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                        sendDisqualificationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+//                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+//                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                     }
                 } else {
                     // alert
@@ -188,13 +190,14 @@ public class RBoardUtility extends DBUtility{
                         warnings++;
                         log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                         // send mail.
-                        if (warnings < 5) {
-                            if (daysToBeDisqualified % firstWarningInterval == 0 ||
-                                (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
-                                sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                        if (daysToBeDisqualified % firstWarningInterval == 0 ||
+                            (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
+                            sendWarningMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
                                     rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                     daysToBeDisqualified);
-                            }
+//                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+//                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+//                                    daysToBeDisqualified);
                         }
                     } else {
                         log.debug("... ok");
@@ -250,7 +253,7 @@ public class RBoardUtility extends DBUtility{
         String emailSubject = "Review Board: Disqualification";
 
         try {
-            digestMail.append(handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            digestMail.append(" - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
                 sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                 log.debug("Sending disq. mail to: " + userEmail);
