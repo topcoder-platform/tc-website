@@ -20,31 +20,25 @@
 
 <div align="center">
     <div class="contentOut">
-
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="default"/>
         </jsp:include>
-
         <div class="contentIn">
-
             <jsp:include page="topNav.jsp">
                 <jsp:param name="node" value="contests"/>
             </jsp:include>
-
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
-
             <div style="text-align:left; padding: 0px 10px 0px 10px;">
-
                 <div class="breadcrumb">
                     Active Contests
                 </div>
 
+
                 <h1>Active Contests</h1>
 
 
-                <h2 align="right">Need help? Learn how to <strong><A href="">get started</A></strong></h2>
+                <h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get started</A></strong></h2>
 
-                <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:760px">
                     <tbody>
                         <tr>
@@ -93,12 +87,11 @@
                     </tbody>
                 </table>
 
+
             </div>
             <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
-
         <jsp:include page="foot.jsp"/>
-
         <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
