@@ -8,33 +8,25 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.RequestTracker;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.LightAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
 import java.util.Set;
 
 /**
@@ -44,6 +36,13 @@ import java.util.Set;
  */
 public class ForumsServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(ForumsServlet.class);
+
+    private static String AUTHENTICATION_IMPLEMENTATION;
+
+    public synchronized void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        AUTHENTICATION_IMPLEMENTATION = config.getInitParameter("authentication_implementation");
+    }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
@@ -108,7 +107,7 @@ public class ForumsServlet extends BaseServlet {
 
                     String processorName = getProcessor(cmd);
                     if (processorName.indexOf(".") == -1) {
-                    	processorName = PATH + (PATH.endsWith(".") ? "" : ".") + processorName;
+                        processorName = PATH + (PATH.endsWith(".") ? "" : ".") + processorName;
                     }
 
                     log.debug("creating request processor for " + processorName);
@@ -204,7 +203,11 @@ public class ForumsServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
+        Class authClass = Class.forName(AUTHENTICATION_IMPLEMENTATION);
+        Constructor c = authClass.getDeclaredConstructor(
+                new Class[]{Persistor.class, TCRequest.class, TCResponse.class});
+        return (WebAuthentication) c.newInstance(
+                new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
 

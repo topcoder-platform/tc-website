@@ -38,11 +38,11 @@
             <param-value>/errorPage.jsp</param-value>
         </init-param>
         <!-- end parameters required by BaseServlet -->
-
-		<!-- begin parameters for ForumsServlet processor mapping -->
-		<!-- end parameters for ForumsServlet processor mapping -->
+        <init-param>
+            <param-name>authentication_implementation</param-name>
+            <param-value>com.topcoder.web.common.security.TCForumsAuthentication</param-value>
+        </init-param>
     </servlet>
-
 
 
     <filter>
@@ -56,21 +56,20 @@
     </filter-mapping>
 
 
-
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <error-page>
-         <error-code>404</error-code>
-         <location>/errorPage.jsp</location>
+        <error-code>404</error-code>
+        <location>/errorPage.jsp</location>
     </error-page>
 
 
     <error-page>
-         <error-code>404</error-code>
-         <location>/errorPage.jsp</location>
+        <error-code>404</error-code>
+        <location>/errorPage.jsp</location>
     </error-page>
 
 
