@@ -104,14 +104,12 @@ public class ResponseBean extends BaseEJB {
             query.append("     , dr.demographic_response");
             query.append("     , dass.sort");
             query.append("  FROM demographic_response dr");
-            query.append("     , user u");
             query.append("     , coder c");
             query.append("     , demographic_assignment dass");
             query.append(" WHERE dass.demographic_question_id = dr.demographic_question_id");
-            query.append("   AND c.coder_id = u.user_id");
+            query.append("   AND c.coder_id = dr.user_id");
             query.append("   AND c.coder_type_id = dass.coder_type_id");
-            query.append("   AND dr.coder_id = ?");
-            query.append("   AND dr.coder_id = u.user_id");
+            query.append("   AND dr.user_id = ?");
             query.append(" ORDER BY dass.sort ASC");
 
             ps = conn.prepareStatement(query.toString());
