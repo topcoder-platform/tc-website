@@ -8,6 +8,25 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.08.06<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">TCHS SRM 10 - Problem Set & Analysis</A></span><br><br>
+One more match has passed under the banner "burunduk's the best."
+Burunduk is the Russian word for chipmunk,
+so one could say it was a regular "chipmunk day" on TopCoder.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm10">full story</A>&#160;|&#160;
+       <tc-webtag:forumLink forumID="506032" message="discuss this" />&#160;|&#160;
+       <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>08.07.06<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -162,37 +181,6 @@ message"</strong> link in their Member Profile.  You can also use <A href="/tc?m
        <A href="/tc?module=Static&d1=tutorials&d2=prototypePattern">article</A>&#160;|&#160;
        <tc-webtag:forumLink forumID="506079" message="discuss this" />&#160;|&#160;
        <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.31.06<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=TCCC06ComponentTerms">TCCC06 CDDC registration is now open</A></span><br><br>
-      Register now for the 2006 TopCoder Collegiate Challenge Component Design and Development Competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=TCCC06ComponentTerms">full story</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506074" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.28.06<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm313">SRM 313 - Problem Set & Analysis</A></span><br><br>
-SRM 313 attracted 928 participants from 62 different countries.
-Division 1 featured a surprisingly difficult medium problem that got the drop on almost 400 of the competitors.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=match_editorials&d2=srm313">full story</A>&#160;|&#160;
-       <tc-webtag:forumLink forumID="505988" message="discuss this" />&#160;|&#160;
-       <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 
