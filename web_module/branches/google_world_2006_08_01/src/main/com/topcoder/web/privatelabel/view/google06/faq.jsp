@@ -95,7 +95,7 @@
                 all participants indicating whether or not each has advanced.
                 <br><br>
                 Questions not addressed here should be directed to
-                <A href="mailto:gcj06@topcoder.com?subject=Question regarding Google Code Jam">gcj06@topcoder.com</A>.
+                <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam">gcj@topcoder.com</A>.
                 <br><br>
                 Good luck!
                 <br><br>

@@ -86,7 +86,7 @@
 
                             You may practice for the contest by clicking the Competition Arena link above.
                             <br><br>
-                            If you encounter any problems, please contact us at <A href="mailto:gcj06@topcoder.com">gcj06@topcoder.com</A>.
+                            If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj@topcoder.com</A>.
 
 
                             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

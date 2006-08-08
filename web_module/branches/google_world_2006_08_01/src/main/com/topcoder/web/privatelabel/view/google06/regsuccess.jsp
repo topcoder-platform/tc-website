@@ -93,7 +93,7 @@ address provided during registration.
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.
 <br><br>
-If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj06@topcoder.com</A>.
+If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj@topcoder.com</A>.
 <br><br>
 Good luck to you in the Arena!
 

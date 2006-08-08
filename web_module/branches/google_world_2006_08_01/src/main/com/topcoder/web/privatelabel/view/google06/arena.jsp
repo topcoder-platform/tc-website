@@ -85,7 +85,7 @@
                     Applet</A>.
                 <br><br>
                 If you experience problems loading or running the Competition Arena please contact
-                <A href="mailto:gcj06@topcoder.com?subject=Question regarding Google Code Jam 2006">gcj06@topcoder.com</A>.
+                <A href="mailto:gcj@topcoder.com?subject=Question regarding Google Code Jam 2006">gcj@topcoder.com</A>.
 
 
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
