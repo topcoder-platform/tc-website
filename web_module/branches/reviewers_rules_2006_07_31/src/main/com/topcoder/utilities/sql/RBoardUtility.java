@@ -253,7 +253,6 @@ public class RBoardUtility extends DBUtility{
 
         try {
             sendMail(systemEmail, userEmail, emailSubject, mail.toString());
-            sendMail(systemEmail, adminEmail, emailSubject, mail.toString());
         } catch (Exception e) {
             throw new Exception("Unable to send mails.", e);
         }
@@ -356,6 +355,7 @@ public class RBoardUtility extends DBUtility{
     private static void sendMail(String from, String to, String subject, String messageText) throws Exception {
         TCSEmailMessage message = new TCSEmailMessage();
         message.setFromAddress(from);
+        log.debug
         message.setToAddress(to, TCSEmailMessage.TO);
         message.setSubject(subject);
         message.setBody(messageText);
