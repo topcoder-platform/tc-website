@@ -4,12 +4,12 @@
         <source name = "tcs_catalog" value = "jdbc:informix-sqli://172.16.214.52:1526/tcs_catalog:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
     </sourcesList>
     <onlyAnalyze>true</onlyAnalyze>
-    <secondWarningInterval>2<secondWarningInterval>
-    <daysBeforeWarning>30<daysBeforeWarning>
-    <scoreThreshold>80<scoreThreshold>
-    <submissionThresholdLastYear>4<submissionThresholdLastYear>
-    <adminEmail>pwolfus@topcoder.com<adminEmail>
-    <systemEmail>autopilot@topcoder.com<systemEmail>
+    <secondWarningInterval>2</secondWarningInterval>
+    <daysBeforeWarning>30</daysBeforeWarning>
+    <scoreThreshold>80</scoreThreshold>
+    <submissionThresholdLastYear>4</submissionThresholdLastYear>
+    <adminEmail>pwolfus@topcoder.com</adminEmail>
+    <systemEmail>autopilot@topcoder.com</systemEmail>
     <parameterList>
     </parameterList>
   </rboardUtil>

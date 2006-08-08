@@ -22,17 +22,51 @@ import com.topcoder.shared.util.sql.DBUtility;
  * @version 1.0.0
  */
 public class RBoardUtility extends DBUtility{
-    private static final int SCORE_THRESHOLD = 80;
-    private static final int SUBMISSION_THRESHOLD_LAST_YEAR = 4;
     private static final int MILLIS_IN_DAY = 1000*60*60*24;
     private static final int DAYS_THREE_MONTHS = 90;
     private static final int DAYS_YEAR = 356;
     private static final int DISQUALIFIED_STATUS = 110;
-    private static final int DAYS_BEFORE_WARNING = 30;
+    private static final int QUALIFIED_STATUS = 100;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private int firstWarningInterval = 7;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private int secondWarningInterval = 2;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private int daysBeforeWarning = 30;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private int scoreThreshold = 80;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private int submissionThresholdLastYear = 4;
+
     /**
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private String adminEmail = null;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private String systemEmail = null;
 
     /**
      * Runs the RBoardUtility.
@@ -50,11 +84,13 @@ public class RBoardUtility extends DBUtility{
 
         try {
             query = new StringBuffer(200);
-            query.append("select user_id, project_type_id, catalog_id, status_id, immune_ind ");
-            query.append("from rboard_user2 ru ");
-            query.append("where ru.immune_ind = 0 and status_id = ? ");
+            query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
+            query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1 and e.status_id = 1) as email_address ");
+            query.append("from rboard_user2 ru, project_type pt, user u, catalog c ");
+            query.append("where ru.immune_ind = 0 and ru.status_id = ? and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
+            query.append("and c.catalog_id = ru.catalog_id ");
             psSelUsers = prepareStatement("tcs_catalog", query.toString());
-            psSelUsers.setString(1, "100");
+            psSelUsers.setInt(1, QUALIFIED_STATUS);
 
             query = new StringBuffer(200);
             query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
@@ -82,7 +118,7 @@ public class RBoardUtility extends DBUtility{
             for (; rsUsers.next(); i++ ) {
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
-                psSelDetails.setInt(2, SCORE_THRESHOLD);  // score threshold
+                psSelDetails.setInt(2, scoreThreshold);  // score threshold
                 psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
                 psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
@@ -99,7 +135,7 @@ public class RBoardUtility extends DBUtility{
                 rsDetails90 = psSelDetails.executeQuery();
 
                 if (rsDetails90.next()) {
-                    reason = " (no at least " + SUBMISSION_THRESHOLD_LAST_YEAR + " submissions in the last " + DAYS_YEAR + " days.";
+                    reason = " (no at least " + submissionThresholdLastYear + " submissions in the last " + DAYS_YEAR + " days.";
 
                     daysToBeDisqualified = DAYS_THREE_MONTHS - (rsDetails90.getDate("current_date").getTime() -
                             rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
@@ -109,9 +145,9 @@ public class RBoardUtility extends DBUtility{
 
 
                     int count = 0;
-                    for (;count < SUBMISSION_THRESHOLD_LAST_YEAR && rsDetails90.next(); count++);
+                    for (;count < submissionThresholdLastYear && rsDetails90.next(); count++);
 
-                    if (count == SUBMISSION_THRESHOLD_LAST_YEAR) {
+                    if (count == submissionThresholdLastYear) {
                         daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
                                 rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
@@ -138,12 +174,20 @@ public class RBoardUtility extends DBUtility{
                     log.debug("... disqualified " + reason);
 
                     // send mail.
+                    sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                        rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                 } else {
                     // alert
-                    if (daysToBeDisqualified <= DAYS_BEFORE_WARNING) {
+                    if (daysToBeDisqualified <= daysBeforeWarning) {
                         warnings++;
                         log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                         // send mail.
+                        if (daysToBeDisqualified % firstWarningInterval == 0 ||
+                            (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
+                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                daysToBeDisqualified);
+                        }
                     } else {
                         log.debug("... ok");
                     }
@@ -162,19 +206,50 @@ public class RBoardUtility extends DBUtility{
             DBMS.close(rsUsers);
             DBMS.close(psUpd);
         }
+    }
 
-        /*StringBuffer mail = new StringBuffer();
-        mail.append("The following project: \n\n");
-        mail.append("\n\nhas completed appeals phase with all");
-        mail.append(" appeals responded.");
-        String emailSubject =
-            "AutoPilotTimer: Appeals Notification (All Appeals responded)";
+    private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
+        StringBuffer mail = new StringBuffer();
+        mail.append("Hello " + handle + ",\n\n");
+        mail.append("We are sorry to inform you that you have been disqualified for performing additional");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + "s projects.\n\n");
+        mail.append("This is a temporary inhabilitation. You no longer fulfill the rules to be a reviewer, ");
+        mail.append("but when this is fixed you will be able to performs reviews again.\n\n");
+        mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
+        mail.append("Thank you, \nTopCoder Software.\n");
 
-        String email = "pwolfus@topcoder.com";
+        String emailSubject = "Review Board: Disqualification";
 
-        sendMail("autopilot@topcoder.com", email, emailSubject,
-                mail.toString());*/
+        try {
+            sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+            sendMail(systemEmail, adminEmail, emailSubject, mail.toString());
+        } catch (Exception e) {
+            throw new Exception("Unable to send mails.", e);
+        }
+    }
 
+    private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified) throws Exception {
+        StringBuffer mail = new StringBuffer();
+        mail.append("Hello " + handle + ",\n\n");
+        mail.append("This mail is to warn you that in " + daysToBeDisqualified + " days you will be disqualified to perform ");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + "s projects.\n\n");
+        mail.append("If you have questions, please contact service@topcodersoftware.com.\n\n");
+        mail.append("Thank you, \nTopCoder Software.\n");
+
+        String emailSubject = "Review Board: Warning";
+
+        try {
+            if (userEmail != null){
+                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                log.debug("Sending warning mail to: " + userEmail);
+            } else{
+                log.debug("Warning!!! null email for: " + handle);
+                mail.insert(0, "Warning!!! null email for: " + handle + "\n********************** \n\n");
+            }
+            sendMail(systemEmail, adminEmail, emailSubject, mail.toString());
+        } catch (Exception e) {
+            throw new Exception("Unable to send mails.", e);
+        }
     }
 
     /**
@@ -186,8 +261,47 @@ public class RBoardUtility extends DBUtility{
         onlyAnalyze = (String) params.get("onlyAnalyze");
         if (onlyAnalyze == null)
             setUsageError("Please specify a onlyAnalyze.\n");
-
         params.remove("onlyAnalyze");
+
+        adminEmail = (String) params.get("adminEmail");
+        if (adminEmail == null)
+            setUsageError("Please specify a adminEmail.\n");
+        params.remove("adminEmail");
+
+        systemEmail = (String) params.get("systemEmail");
+        if (systemEmail == null)
+            setUsageError("Please specify a systemEmail.\n");
+        params.remove("systemEmail");
+
+        String temp = (String) params.get("firstWarningInterval");
+        if (temp == null)
+            setUsageError("Please specify a firstWarningInterval.\n");
+        firstWarningInterval = Integer.parseInt(temp);
+        params.remove("firstWarningInterval");
+
+        temp = (String) params.get("secondWarningInterval");
+        if (temp == null)
+            setUsageError("Please specify a secondWarningInterval.\n");
+        secondWarningInterval = Integer.parseInt(temp);
+        params.remove("secondWarningInterval");
+
+        temp = (String) params.get("daysBeforeWarning");
+        if (temp == null)
+            setUsageError("Please specify a daysBeforeWarning.\n");
+        daysBeforeWarning = Integer.parseInt(temp);
+        params.remove("daysBeforeWarning");
+
+        temp = (String) params.get("scoreThreshold");
+        if (temp == null)
+            setUsageError("Please specify a scoreThreshold.\n");
+        scoreThreshold = Integer.parseInt(temp);
+        params.remove("scoreThreshold");
+
+        temp = (String) params.get("submissionThresholdLastYear");
+        if (temp == null)
+            setUsageError("Please specify a submissionThresholdLastYear.\n");
+        submissionThresholdLastYear = Integer.parseInt(temp);
+        params.remove("submissionThresholdLastYear");
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
     }
