@@ -15,6 +15,7 @@ import java.util.StringTokenizer;
 /**
  * Provides some basic functionality for the different processors
  * involved in a simple registration process.
+ *
  * @author gpaul 06.26.2003
  */
 public abstract class SimpleRegBase extends RegistrationBase {
@@ -188,7 +189,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
 
 
     protected boolean userExists(String handle) throws Exception {
-        User user = (User)createEJB(getInitialContext(), User.class);
+        User user = (User) createEJB(getInitialContext(), User.class);
         return user.userExists(handle, db) || user.userExists(handle, DBMS.OLTP_DATASOURCE_NAME);
 
     }
@@ -203,9 +204,6 @@ public abstract class SimpleRegBase extends RegistrationBase {
         return !rsc.isEmpty();
 
     }
-
-    
-
 
 
 }
