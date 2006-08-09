@@ -53,7 +53,7 @@ public class Main extends ForumsProcessor {
         getRequest().setAttribute("resultFilter", resultFilter);
 
         if (markRead.equals("t")) {
-        	setNextPage(getHttpRequest().getPathInfo() + "?module=Main");
+        	setNextPage(getSessionInfo().getServletPath() + "?module=Main");
         	setIsNextPageInContext(false);
         } else {
         	setNextPage("/main.jsp");

@@ -55,7 +55,7 @@ public class Post extends ForumsProcessor {
             }
             if (postMode.equals("Edit")) {
             	if (!message.getUser().equals(user)) {
-                    setNextPage(getHttpRequest().getPathInfo() + "?module=Main");
+                    setNextPage(getSessionInfo().getServletPath() + "?module=Main");
                     setIsNextPageInContext(false);
                     return;
                 }

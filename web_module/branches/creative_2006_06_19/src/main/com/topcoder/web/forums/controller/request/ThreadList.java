@@ -81,7 +81,7 @@ public class ThreadList extends ForumsProcessor {
         getRequest().setAttribute("announcements", itAnnounce);
 
         if (markRead.equals("t")) {
-            setNextPage(getHttpRequest().getPathInfo()
+            setNextPage(getSessionInfo().getServletPath()
             		+ "?module=ThreadList&" + ForumConstants.FORUM_ID + "=" + forum.getID());
             setIsNextPageInContext(false);
         } else {

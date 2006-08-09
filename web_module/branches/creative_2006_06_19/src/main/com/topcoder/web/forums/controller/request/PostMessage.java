@@ -146,7 +146,7 @@ public class PostMessage extends ForumsProcessor {
             }
 		}
 
-		setNextPage(getHttpRequest().getPathInfo() + 
+		setNextPage(getSessionInfo().getServletPath() + 
 				"?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID());
 		setIsNextPageInContext(false);
 	}

@@ -45,6 +45,9 @@ public abstract class ForumsProcessor extends BaseProcessor {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
 
+        log.info("#######path info: " + getHttpRequest().getPathInfo());
+        log.info("#######servlet path: " + getSessionInfo().getServletPath());
+        
         setUnreadCategories();
     }
     
