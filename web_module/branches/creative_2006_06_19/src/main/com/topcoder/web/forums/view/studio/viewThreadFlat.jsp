@@ -179,7 +179,7 @@ function displayVotes(messageID, posVotes, negVotes) {
    </td>
 </tr>
 
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
+<tr><td colspan="3" style="padding-bottom:3px;"><b>
    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
         <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
    </tc-webtag:iterator>
