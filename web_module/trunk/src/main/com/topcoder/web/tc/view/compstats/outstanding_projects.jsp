@@ -60,18 +60,6 @@ z-index: 1;
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
-
-        <TD WIDTH="180">
-<!-- Left nav begins -->
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_competitions"/>
-         </jsp:include>
-<!-- Left nav ends -->
-        </TD>
-
-<!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
-
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
   if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
@@ -82,15 +70,32 @@ z-index: 1;
   String phaseId = (String)request.getParameter(Constants.PHASE_ID);
   String coderId = (String)request.getParameter(Constants.CODER_ID);
 %>
+        <TD WIDTH="180">
+<!-- Left nav begins -->
+<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="m_dev_competitions"/>
+    </jsp:include>
+<% } else { %>
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="m_des_competitions"/>
+    </jsp:include>
+<% } %>
+<!-- Left nav ends -->
+        </TD>
+
+<!-- Center Column Begins -->
+<td class="statTableSpacer" width="100%" valign="top">
+
 
 <% if(phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))){ %>
     <jsp:include page="../page_title.jsp" >
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="comp_development"/>
     <jsp:param name="title" value="Component Development Current Contests"/>
     </jsp:include>
 <% } else { %>
     <jsp:include page="../page_title.jsp" >
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="comp_design"/>
     <jsp:param name="title" value="Component Design Current Contests"/>
     </jsp:include>
 <% } %>
@@ -106,6 +111,7 @@ z-index: 1;
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition History</A>
  | Current Contests
+ | <A HREF="/tc?module=ReliabilityDetail&ph=<%=phaseId%>&uid=<%=coderId%>" class="bcLink">Reliability Detail</A>
    </span>
 
 <div class="pagingBox" style="clear:both;">&#160;</div>
