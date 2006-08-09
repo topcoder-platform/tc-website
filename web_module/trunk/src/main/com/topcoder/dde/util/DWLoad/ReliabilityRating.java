@@ -266,7 +266,9 @@ public class ReliabilityRating {
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
-                        cur.setIncluded(true);
+                        if (j >= history.size() - historyLength) {
+                            cur.setIncluded(true);
+                        }
                         newRel = (double) reliableCount / (double) (projectCount);
                     }
 
