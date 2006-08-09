@@ -96,6 +96,26 @@ public class Submit extends Base {
 
     }
 
+    /**
+     * if there was an exception, the security user record wouldn't be rolled back because it's not part of the
+     * transaction, so we'll remove it here.  certainly not the best of solutions
+     */
+    protected void exceptionCallBack() {
+        User u = (User) getRequest().getAttribute(Constants.USER);
+        if (u != null && u.getId() != null) {
+            try {
+                Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemote pmr = pmrh.create();
+                pmr.removeUser(new UserPrincipal("", u.getId().longValue()), new TCSubject(132456));
+
+            } catch (Throwable e) {
+                log.error("problem in exception callback for user: " + u.getId() + " " + e.getMessage());
+            }
+        }
+
+    }
+
 
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
         Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
