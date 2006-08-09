@@ -112,12 +112,12 @@
 
 <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
 <jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="comp_development"/>
     <jsp:param name="title" value="Component Development Competition History"/>
 </jsp:include>
 <% } else { %>
 <jsp:include page="../page_title.jsp">
-    <jsp:param name="image" value="statistics_w"/>
+    <jsp:param name="image" value="comp_design"/>
     <jsp:param name="title" value="Component Design Competition History"/>
 </jsp:include>
 <% } %>
