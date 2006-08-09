@@ -107,9 +107,9 @@
                 </td>
                 <td class="value">
                     <% if (resultRow.getIntItem("viewable") == 1) { %>
-                    <span class="smallText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">
+                    <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">
                         <rsc:item name="component_name" row="<%=resultRow%>"/>
-                        <rsc:item name="version_text" row="<%=resultRow%>"/></A></span>
+                        <rsc:item name="version_text" row="<%=resultRow%>"/></A>
                     <% } else { %>
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
