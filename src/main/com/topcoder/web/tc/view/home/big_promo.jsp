@@ -34,7 +34,7 @@
 <area shape="rect" alt="" coords="1,120,249,149" href="/tc?module=TCCC06ComponentTerms" />
 <area shape="rect" alt="" coords="251,1,499,149" href="/tc?module=Static&d1=digital_run&d2=description" />
 </map>
-<IMG SRC="/i/home/tccc06_cddc_reg_digital_run.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
+<IMG SRC="/i/home/tccc06_cddc_digital_run.gif" border="0" alt="TCCC06 CDDC REGISTRATION OPEN & THE DIGITAL RUN" usemap="#tccc_cddc_dr" />
 
 <%-- Digital Run 
 <map name="digital_run">
