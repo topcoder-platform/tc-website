@@ -79,10 +79,10 @@ public class ReliabilityRating {
             log.info(incExMarked + " records marked for inclusion/exclusion");
 
             Set developers = tmp.getIncludedUsers(c, 113);
-            log.debug("there are " + developers.size() + " developers included");
+            log.info("there are " + developers.size() + " developers included");
 
             Set designers = tmp.getIncludedUsers(c, 112);
-            log.debug("there are " + designers.size() + " designers included");
+            log.info("there are " + designers.size() + " designers included");
 
             int newMarked = tmp.markNewReliableResults(c);
             log.info(newMarked + " new records marked");
@@ -274,9 +274,6 @@ public class ReliabilityRating {
 
                 //set the most recent historyLength records as included in the current reliablity calculation
                 for (int i = size - 1, j = 0; i >= 0 && j < historyLength; i--, j++) {
-                    if (userId == 252022) {
-                        log.debug("i: " + i + " j: " + j);
-                    }
                     ((ReliabilityInstance) history.get(i)).setIncluded(true);
                 }
 
