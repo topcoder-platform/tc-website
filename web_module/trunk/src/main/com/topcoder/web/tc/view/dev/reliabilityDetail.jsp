@@ -104,8 +104,8 @@
                     <% } %>
                 </td>
                 <td class="value">
-                    <rsc:item name="component_name" row="<%=resultRow%>"/>
-                    <rsc:item name="version_text" row="<%=resultRow%>"/>
+                    <A href=""><rsc:item name="component_name" row="<%=resultRow%>"/>
+                    <rsc:item name="version_text" row="<%=resultRow%>"/></A>
                 </td>
                 <td class="valueC">
                     <rsc:item name="reliable" row="<%=resultRow%>"/>
