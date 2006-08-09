@@ -101,16 +101,18 @@ function AllowTabCharacter() {
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
+   <jsp:include page="top.jsp">
+       <jsp:param name="section" value="default"/>
+   </jsp:include>
+   <jsp:include page="topNav.jsp">
+       <jsp:param name="node" value="none"/>
+   </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="forums"/>
-</jsp:include>
-
-<div class="contentOuter">
-   <div class="contentInner">
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 	<tr>
 	   <td class="categoriesBox" style="padding-right: 20px;">
@@ -185,8 +187,13 @@ function AllowTabCharacter() {
 <%  } %>
 <font color="red"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></font>
 
-        <jsp:include page="foot.jsp"/>
-    </div>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>
