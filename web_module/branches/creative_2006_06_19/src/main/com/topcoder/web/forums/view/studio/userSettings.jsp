@@ -60,7 +60,12 @@ function toggleTabs(anchor,id) {
 }
 //-->
 </script>
-</head>
+
+<style type="text/css">
+<!--
+.rtDesc { font-size: 11px; }
+-->
+</style>
 
 <body onload="toggleTabs('','gen')">
 
@@ -444,7 +449,7 @@ function toggleTabs(anchor,id) {
    </tr>
 </table>
 
-<span id="infoRate" class="stat">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
+<span id="infoRate" class="rtDesc">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
 <div>
    <div style="float:right;">
    <input type="image" src="/i/roundTables/save.gif" alt="Save"/>

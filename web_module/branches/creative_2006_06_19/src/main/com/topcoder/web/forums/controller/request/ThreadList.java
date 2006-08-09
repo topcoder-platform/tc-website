@@ -81,7 +81,8 @@ public class ThreadList extends ForumsProcessor {
         getRequest().setAttribute("announcements", itAnnounce);
 
         if (markRead.equals("t")) {
-            setNextPage("?module=ThreadList&" + ForumConstants.FORUM_ID + "=" + forum.getID());
+            setNextPage(getSessionInfo().getServletPath()
+            		+ "?module=ThreadList&" + ForumConstants.FORUM_ID + "=" + forum.getID());
             setIsNextPageInContext(false);
         } else {
     		setNextPage("/viewForum.jsp");

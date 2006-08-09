@@ -26,7 +26,7 @@ public class Category extends ForumsProcessor {
 
         long categoryID = Long.parseLong(getRequest().getParameter(ForumConstants.CATEGORY_ID));
         if (categoryID == 1) {
-            setNextPage("?module=Main");
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }
@@ -140,7 +140,8 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("sortOrder", sortOrder);
 
         if (markRead.equals("t")) {
-        	setNextPage("?module=Category&" + ForumConstants.CATEGORY_ID + "=" + forumCategory.getID());
+        	setNextPage(getSessionInfo().getServletPath() + 
+        			"?module=Category&" + ForumConstants.CATEGORY_ID + "=" + forumCategory.getID());
         	setIsNextPageInContext(false);
         } else {
         	setNextPage("/viewCategory.jsp");
