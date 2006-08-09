@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.development;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -24,6 +25,11 @@ public class ReliabilityDetail extends Base {
                 getRequest().setAttribute("contests", getDataAccess().getData(r).get("reliability_detail"));
 
                 getRequest().setAttribute(Constants.PHASE_ID, phaseId);
+                getRequest().setAttribute(Constants.CODER_ID, userId);
+                getRequest().setAttribute(Constants.TYPE_KEY,
+                        (getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) ?
+                                HandleTag.DEVELOPMENT : HandleTag.DESIGN));
+
 
                 setNextPage("/dev/reliabilityDetail.jsp");
                 setIsNextPageInContext(true);
