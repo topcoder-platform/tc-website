@@ -262,6 +262,9 @@ public class ReliabilityRating {
 
                 //set the most recent historyLength records as included in the current reliablity calculation
                 for (int i = size - 1, j = 0; i >= 0 && j < historyLength; i--, j++) {
+                    if (userId == 252022) {
+                        log.debug("i: " + i + " j: " + j);
+                    }
                     ((ReliabilityInstance) history.get(i)).setIncluded(true);
                 }
 
