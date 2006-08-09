@@ -72,7 +72,7 @@
                 Catalog
             </td>
             <td class="header" width="50%">
-                Contest
+                Component
             </td>
             <td class="headerC" width="50%">
                 Reliable
