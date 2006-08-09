@@ -263,12 +263,19 @@ public class ReliabilityRating {
 
                     int j = (i - historyLength + 1) < 0 ? 0 : i - historyLength + 1;
                     for (; j <= i; j++) {
+                        //iterate through the records that count based on the
+                        //history length and calculate the reliability information
                         projectCount++;
                         cur = (ReliabilityInstance) history.get(j);
                         if (cur.isReliable()) {
                             reliableCount++;
                         }
                         if (j >= history.size() - historyLength) {
+                            //if we're into the chunk that is actually gonna count for the current reliability
+                            //mark them as such
+                            if (log.isDebugEnabled()) {
+                                log.debug("marking project " + cur.projectId + " user: " + cur.getUserId() + " phase: " + phaseId + " included");
+                            }
                             cur.setIncluded(true);
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
