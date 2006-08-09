@@ -74,20 +74,20 @@ public class ReliabilityRating {
             c = DriverManager.getConnection(connectionURL);
 
             int incExMarked = tmp.markForInclusionAndExclusion(c);
+            System.out.println(incExMarked + " records marked for inclusion/exclusion");
             Set developers = tmp.getIncludedUsers(c, 113);
             Set designers = tmp.getIncludedUsers(c, 112);
             int newMarked = tmp.markNewReliableResults(c);
-            int oldMarked = tmp.markOldReliableResults(c);
-            int oldUpdated = tmp.updateOldProjectResult(c);
-            int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
-            int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
-
-            System.out.println(incExMarked + " records marked for inclusion/exclusion");
             System.out.println(newMarked + " new records marked");
+            int oldMarked = tmp.markOldReliableResults(c);
             System.out.println(oldMarked + " old records marked");
-            System.out.println(oldUpdated + " old project result records updated");
+            int oldUpdated = tmp.updateOldProjectResult(c);
+            System.out.println(oldUpdated + " old records updated");
+            int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
             System.out.println(designersUpdated + " new project result designer records updated");
+            int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
             System.out.println(developersUpdated + " new project result developer records updated");
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -413,6 +413,7 @@ public class ReliabilityRating {
 
     }
 
+    //
     private static final String oldReliabilityData =
             " select pr.reliable_submission_ind" +
                     " , ci.create_time" +
@@ -431,6 +432,7 @@ public class ReliabilityRating {
                     " and pr.reliable_submission_ind is not null" +
                     " order by ci.create_time asc";
 
+    //all the people that became part of the reliability process prior to the change date
     private static final String oldReliabilityUsers =
             " select distinct pr.user_id" +
                     " from project_result pr" +
@@ -443,6 +445,8 @@ public class ReliabilityRating {
                     " and pr.reliability_ind = 1";
 
     /**
+     * calculate and set all the reliability information for projects before the change date
+     * <p/>
      * this can be sped up if there is a speed issue.  we'll need to trim what is gettig updated
      * there is no reason to update all this old data repeatedly.
      *
