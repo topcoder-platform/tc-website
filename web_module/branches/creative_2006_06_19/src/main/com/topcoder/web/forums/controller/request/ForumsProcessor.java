@@ -12,8 +12,6 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -46,7 +44,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
-        
+
         setUnreadCategories();
     }
     
@@ -138,9 +136,5 @@ public abstract class ForumsProcessor extends BaseProcessor {
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
-    }
-
-    protected SessionInfo getSessionInfo() {
-    	return (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
     }
 }

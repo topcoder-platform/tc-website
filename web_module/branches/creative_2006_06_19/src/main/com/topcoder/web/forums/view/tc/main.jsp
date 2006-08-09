@@ -102,8 +102,8 @@
                                 <td class="rtThreadCell"></td>
                             <% } %>
                         <% } else { %>
-                            <td class="rtThreadCell"></td>
-                            <td class="rtThreadCell"></td>
+                            <td class="rtThreadCell">&nbsp;</td>
+                            <td class="rtThreadCell">&nbsp;</td>
                         <% } %>
                     </tr>
                 </tc-webtag:iterator>
@@ -137,8 +137,8 @@
                                 <td class="rtThreadCell"></td>
                             <% } %>
                         <% } else { %>
-                            <td class="rtThreadCell"></td>
-                            <td class="rtThreadCell"></td>
+                            <td class="rtThreadCell">&nbsp;</td>
+                            <td class="rtThreadCell">&nbsp;</td>
                         <% } %>
                     </tr>
                 </tc-webtag:iterator>
@@ -209,8 +209,8 @@
                                                    <td class="rtThreadCell" style="width: 100px;"></td>
                                                <% } %>
                                            <% } else { %>
-                                              <td class="rtThreadCell" style="width: 190px;"></td>
-                                              <td class="rtThreadCell" style="width: 100px;"></td>
+                                              <td class="rtThreadCell" style="width: 190px;">&nbsp;</td>
+                                              <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
                                           <% } %>
                                       </tr>
                                    <%  } %>

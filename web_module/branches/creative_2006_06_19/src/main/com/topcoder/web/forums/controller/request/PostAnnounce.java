@@ -30,7 +30,7 @@ public class PostAnnounce extends ForumsProcessor {
         }
    
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+            setNextPage(getHttpRequest().getPathInfo() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }

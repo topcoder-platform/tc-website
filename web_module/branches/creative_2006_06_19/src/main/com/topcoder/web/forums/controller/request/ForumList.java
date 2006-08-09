@@ -20,7 +20,7 @@ public class ForumList extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 
-        setNextPage(getSessionInfo().getServletPath() + "?module=Category&" + ForumConstants.CATEGORY_ID + "=1");
+        setNextPage(getHttpRequest().getPathInfo() + "?module=Category&" + ForumConstants.CATEGORY_ID + "=1");
         setIsNextPageInContext(false);
         
         /*

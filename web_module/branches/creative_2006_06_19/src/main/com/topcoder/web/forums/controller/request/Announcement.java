@@ -47,7 +47,7 @@ public class Announcement extends ForumsProcessor {
             announcement.setEndDate(null);
         } else if (annCmd.equals("Delete")) {
             announcementManager.deleteAnnouncement(announcement);
-            StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath());
+            StringBuffer urlNext = new StringBuffer(getHttpRequest().getPathInfo());
             if (forum != null) {
             	urlNext.append("?module=ThreadList&forumID=").append(forum.getID()).
             		append("&mc=").append(forum.getMessageCount());

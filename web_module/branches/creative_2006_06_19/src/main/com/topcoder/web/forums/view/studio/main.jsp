@@ -24,6 +24,12 @@
     WatchManager watchManager = forumFactory.getWatchManager();
     String trackerClass = ""; %>
 
+<style type="text/css">
+<!--
+.rtDesc { font-size: 11px; }
+-->
+</style>
+
 <html>
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -126,8 +132,8 @@
                                        <td class="rtThreadCell" style="width: 100px;"></td>
                                    <% } %>
                                <% } else { %>
-                                  <td class="rtThreadCell" style="width: 190px;"></td>
-                                  <td class="rtThreadCell" style="width: 100px;"></td>
+                                  <td class="rtThreadCell" style="width: 190px;">&nbsp;</td>
+                                  <td class="rtThreadCell" style="width: 100px;">&nbsp;</td>
                               <% } %>
                           </tr>
                        <%  } %>
@@ -152,7 +158,6 @@
 </div>
 A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=Main&markRead=t" class="rtbcLink">(Mark all as read)</A><% } %><br>
 The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.
-
 
          </div>
          <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />

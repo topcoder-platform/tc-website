@@ -25,7 +25,7 @@ public class Message extends ForumsProcessor {
 		ForumMessage message = forumFactory.getMessage(messageID);
 		ForumThread thread = message.getForumThread();
 
-		StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath());
+		StringBuffer urlNext = new StringBuffer(getHttpRequest().getPathInfo());
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
 		if (isSelectedView(threadView, "flat") || isSelectedView(threadView, "flat_new")) {
 			int messageIdx = 0;
