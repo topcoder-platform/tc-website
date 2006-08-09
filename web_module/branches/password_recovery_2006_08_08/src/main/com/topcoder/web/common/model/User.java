@@ -34,6 +34,8 @@ public class User extends Base {
     private Coder coder;
     private Contact contact;
     private Set terms;
+    private SecretQuestion secretQuestion;
+    
     /**
      * hoke: used for making changes
      */
@@ -356,5 +358,13 @@ public class User extends Base {
         UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
         return up == null ? false : String.valueOf(true).equals(up.getValue());
     }
+
+	public SecretQuestion getSecretQuestion() {
+		return secretQuestion;
+	}
+
+	public void setSecretQuestion(SecretQuestion secretQuestion) {
+		this.secretQuestion = secretQuestion;
+	}
 
 }

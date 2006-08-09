@@ -56,6 +56,9 @@ public class Constants implements WebConstants {
     public static String LAST_NAME;
     public static final String COMPANY_NAME = "compName";
 
+    public static String CURRENT_EMAIL;
+    public static String REGISTERED_EMAIL;
+    
     public static String NOTE_ID;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
@@ -118,6 +121,9 @@ public class Constants implements WebConstants {
     public static String EMAIL_ACTIVATE;
     public static String EMAIL_ACTIVATE_CONFIRM;
     public static String RECOVER_PASSWORD;
+    public static String SECRET_QUESTION;
+    public static String RESET_PASSWORD;
+    public static String RECOVER_PASSWORD_CONFIRM;
     public static String EMAIL_SENT;
 
     public static String SIMPLE_SEARCH_RESULTS;

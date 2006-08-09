@@ -1,17 +1,23 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Restrictions;
+
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * @author dok
@@ -61,6 +67,30 @@ public class UserDAOHibernate extends Base implements UserDAO {
 
     }
 
+    public List find(String handle, String firstName, String lastName, String email) {
+    	Criteria crit = session.createCriteria(User.class);
+        if (handle != null && handle.length() > 0) {
+        	crit.add(Restrictions.sqlRestriction("lower({alias}.handle)=lower(?)", handle, Hibernate.STRING));
+        }
+
+        if (email != null && email.length() > 0) {
+	    	crit.createCriteria("emailAddresses")
+	    		.add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING));
+        }
+        
+        if (firstName != null && firstName.length() > 0) {
+        	crit.add(Restrictions.sqlRestriction("lower({alias}.first_name)=lower(?)", firstName, Hibernate.STRING));
+        }
+
+        if (lastName != null && lastName.length() > 0) {
+        	crit.add(Restrictions.sqlRestriction("lower({alias}.last_name)=lower(?)", lastName, Hibernate.STRING));
+        }
+
+    	//crit.add(Expression.eq("u.emailAddresses.address", email));
+    	return crit.list();
+    	//return session.createQuery("from User u where u.emailAddresses.address='amarcu@gmail.com' ").list();
+    }
+    
     public void saveOrUpdate(User u) {
 //        boolean isNew = u.isNew();
 

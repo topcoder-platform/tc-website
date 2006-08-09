@@ -1,58 +1,79 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.tc.controller.request.authentication.Login,
+                 com.topcoder.web.tc.controller.request.authentication.FindUser,                 
                  com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
-<title>TopCoder</title>
-
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_reg"/>
-</jsp:include>
-
-<SCRIPT type="text/javascript">
-function submitEnter(e) {
-    var keycode;
-    if (window.event) keycode = window.event.keyCode;
-    else if (e) keycode = e.which;
-    else return true;
-    if (keycode == 13) {
-     document.frmPass.submit();
-     return false;
-    } else return true;
-  }
-</SCRIPT>
-
+<title>Password Recovery</title>
 </head>
 
 <body>
-<div align="center" style="padding:6px 0px 6px; 0px;">
-<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /></A>
-</div>
-<div align="center">
-   <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
-
-     <jsp:include page="/page_title.jsp">
-         <jsp:param name="image" value="registration_w"/>
-         <jsp:param name="title" value="&#160;"/>
-     </jsp:include>
-
-   <strong>Forgot your password?</strong><br>
-   Have you forgotten your password?  Enter the information below. This must be the <strong>same information</strong> you used when you registered. We will immediately email your password to you.
-   <br><br>
-
-<form method="post" name="frmPass" action="/tc">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
+<form method="post" name="frm1" action="/tc">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
+If you still have access to the email address you used when registering, please enter it here:
 
 <div align="center">
+
 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
    <tr>
       <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
+         <tc-webtag:errorIterator id="err" name="<%=FindUser.GOOD_EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         E-mail:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.CURRENT_EMAIL%>" size="30" maxlength="30"/>
+      </td>
+   </tr>
+<% if (request.getAttribute(FindUser.NEEDS_HANDLE) != null { %>
+   <tr>
+      <td class="name">
+         Handle:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <% } %>
+   <tr>
+      <td class="value">
+         &#160;
+      </td>
+      <td class="value">
+         <a href="JavaScript:document.frm1.submit()" class="bodyText">Submit</a>
+      </td>
+   </tr>
+   
+</table>
+</div>
+</form>
+
+<form method="post" name="frm2" action="/tc">
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
+
+If you don't have access any more to the address you used when registering, please provide as much information as possible:
+
+<div align="center">
+
+<table cellpadding="0" cellspacing="0" border="0" class="regFields">
+   <tr>
+      <td colspan="2"><span class="bigRed">
+         <tc-webtag:errorIterator id="err" name="<%=FindUser.LOST_EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+         Handle:
+      </td>
+      <td class="value">
+         <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
@@ -64,11 +85,6 @@ function submitEnter(e) {
       </td>
    </tr>
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
       <td class="name">
          Last Name:
       </td>
@@ -77,16 +93,11 @@ function submitEnter(e) {
       </td>
    </tr>
    <tr>
-      <td colspan="2"><span class="bigRed">
-         <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator></span>
-      </td>
-   </tr>
-   <tr>
       <td class="name">
          Email Address:
       </td>
       <td class="value">
-         <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
+         <tc-webtag:textInput name="<%=Constants.REGISTERED_EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/>
       </td>
    </tr>
    <tr>
@@ -94,7 +105,7 @@ function submitEnter(e) {
          &#160;
       </td>
       <td class="value">
-         <a href="JavaScript:document.frmPass.submit()" class="bodyText">Submit</a>
+         <a href="JavaScript:document.frm2.submit()" class="bodyText">Submit</a>
       </td>
    </tr>
 </table>

@@ -60,6 +60,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new NotificationDAOHibernate();
     }
 
+    public PasswordRecoveryDAO getPasswordRecoveryDAO() {
+ 	   return new PasswordRecoveryDAOHibernate();
+    }
+    
     public PreferenceDAO getPreferenceDAO() {
         return new PreferenceDAOHibernate();
     }
