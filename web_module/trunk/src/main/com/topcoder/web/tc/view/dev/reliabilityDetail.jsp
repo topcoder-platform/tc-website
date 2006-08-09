@@ -80,6 +80,10 @@
             <td class="headerC" nowrap="nowrap">
                 Reliable
             </td>
+            <td class="header" nowrap="nowrap">
+                Registration Date
+            </td>
+
         </tr>
 
         <% boolean even = false; %>
@@ -106,8 +110,11 @@
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
                     <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </td>
-                <td class="value">
+                <td class="valueC">
                     <rsc:item name="reliable" row="<%=resultRow%>"/>
+                </td>
+                <td class="value">
+                    <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
                 </td>
             </tr>
             <% even = !even;%>
