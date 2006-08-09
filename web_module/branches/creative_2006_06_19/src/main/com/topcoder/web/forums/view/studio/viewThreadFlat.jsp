@@ -139,7 +139,7 @@ function displayVotes(messageID, posVotes, negVotes) {
    </jsp:include>
       <div class="contentIn">
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
-         <div style="text-align:left; padding: 0px 10px 0px 10px;">
+         <div class="contentSpacer">
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr>
@@ -179,15 +179,11 @@ function displayVotes(messageID, posVotes, negVotes) {
    </td>
 </tr>
 
-<tr><td colspan="3" style="padding-bottom:3px;"><b>
-   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
-   </tc-webtag:iterator>
-   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >
-   <jsp:getProperty name="thread" property="name"/></b>
-   </td>
+<tr>
+<td colspan="3" style="padding-bottom:3px;">
+<b>
 <% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
+   <div style="float:right;" class="rtbc"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
@@ -206,8 +202,15 @@ function displayVotes(messageID, posVotes, negVotes) {
       <%  if (paginator.getNextPage()) { %>
          &#160;&#160;&#160;<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">NEXT ></A>
         <%  } %>
-   </b></td>
+   </b>
+   </div>
 <% } %>
+   <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
+   </tc-webtag:iterator>
+   <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >
+   <jsp:getProperty name="thread" property="name"/></b>
+</td>
 </tr></table>
 
 <%-------------POSTS---------------%>
@@ -272,7 +275,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 
 <div><b>
 <% if (paginator.getNumPages() > 1) { %>
-   <div style="float:right; text-align:right;" class="rtbc"><b>
+   <div style="float:right; text-align:right; class="rtbc"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
