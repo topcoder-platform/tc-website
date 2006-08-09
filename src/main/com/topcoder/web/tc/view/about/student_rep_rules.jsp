@@ -57,7 +57,7 @@
 		<br><br>
 		<span class="bigRed">Contestants must not cheat.  Contestants must abide by the TopCoder Terms of Use.  All new registrants must be actual people who are different from the student representative and each new member may register and compete with only one account.  Student representative may not abuse the use of email (i.e., "spam") in solicitation of new registrants.</span>
 		<br><br>
-		Prizewinner will be notified via email by 5:00 PM EDT on Monday, September 18, 2006 that he/she has won the prize.
+		Prizewinner will be notified via email by 5:00 PM EDT on Monday, September 25, 2006 that he/she has won the prize.
 		<br><br>
 		By participating in the contest and redeeming the prize, the winner releases and agrees to hold harmless TopCoder, its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in the contest, or participation in any contest-related activity, or the receipt, use or misuse of the prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard to, any prize given.
 		<br><br>
