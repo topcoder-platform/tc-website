@@ -979,9 +979,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, selectPaymentHeaders.toString(), true);
-            if (rsc.getRowCount() == 0) {
-                throw new NoObjectFoundException("Payments not found");
-            }
 
             HashMap hm = new HashMap();
             hm.put(PAYMENT_HEADER_LIST, rsc);
