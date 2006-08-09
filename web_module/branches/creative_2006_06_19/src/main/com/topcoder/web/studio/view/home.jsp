@@ -16,12 +16,12 @@
 
 <div align="center">
    <div class="contentOut">
-   <jsp:include page="top.jsp">
-       <jsp:param name="section" value="default"/>
-   </jsp:include>
-   <jsp:include page="topNav.jsp">
-       <jsp:param name="node" value="home"/>
-   </jsp:include>
+      <jsp:include page="top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="topNav.jsp">
+          <jsp:param name="node" value="home"/>
+      </jsp:include>
       <div class="contentIn">
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">

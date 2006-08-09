@@ -27,31 +27,46 @@
         <div class="contentIn">
 
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div style="text-align:left; padding: 0px 10px 0px 10px;">
+            <div class="contentSpacer">
 
 <h1>Contact Us</h1>
-<strong>Corporate Address</strong><br>
-TopCoder, Inc.<br>
-703 Hebron Avenue<br>
-Glastonbury, CT 06033 U.S.A.<br>
-tel: 860.633.5540<br>
-fax: 860.657.4276
-<br><br>
-<a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br>
-Paul Moriarty<br>
-tel: 860.633.5540<br>
-fax: 860.657.4276<br>
-<br><br>
-<a href="mailto:jmckeown@topcoder.com" class="bodyText">Public Relations</a><br>
-Jim McKeown<br>
-tel: 860.633.5540<br>
-fax: 860.657.4276
-<br><br>
-<a href="mailto:jdamato@topcoder.com" class="bodyText">Events</a><br>
-Jessie D'Amato<br>
-tel: 860.633.5540<br>
-fax: 860.657.4276
+
+<div align="center" style="margin-bottom:20px;">
+<table cellpadding="10" cellspacing="0">
+<tbody>
+   <tr>
+      <td colspan="2">
+      <strong>Corporate Address</strong><br>
+      TopCoder, Inc.<br>
+      703 Hebron Avenue<br>
+      Glastonbury, CT 06033 U.S.A.<br>
+      tel: 860.633.5540<br>
+      fax: 860.657.4276
+      </td>
+   </tr>
+   <tr>
+      <td>
+      <strong>Membership</strong><br>
+      Email: <A href="mailto:service@topcoder.com">service@topcoder.com</A>
+      </td>
+      <td>
+      <strong>Competition Tech Support</strong><br>
+      Email:  <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>
+      </td>
+   </tr>
+   <tr>
+      <td>
+      <strong>General questions</strong><br>
+      Email:  <A href="mailto:service@topcoder.com">service@topcoder.com</A>
+      </td>
+      <td>
+      <strong>Sales</strong><br>
+      Email:  <A href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</A>
+      </td>
+   </tr>
+</tbody>
+</table>
+</div>
 
 
 
