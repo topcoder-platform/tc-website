@@ -749,7 +749,7 @@ public class ReliabilityRating {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
-        ResultSet rs = null;
+        ResultSet unmarked = null;
         int ret = 0;
         try {
 
@@ -761,27 +761,30 @@ public class ReliabilityRating {
 
             ps2 = conn.prepareStatement(getUnmarked);
             ps2.setInt(1, MIN_PASSING_SCORE);
-            rs = ps2.executeQuery();
+            unmarked = ps2.executeQuery();
 
             ps3 = conn.prepareStatement(setReliability);
-            while (rs.next()) {
+            while (unmarked.next()) {
                 ps3.clearParameters();
-                ps3.setLong(2, rs.getLong("project_id"));
-                ps3.setLong(3, rs.getLong("user_id"));
-                int[] info = getPriorProjects(conn, rs.getLong("user_id"), rs.getLong("project_id"), rs.getInt("project_type_id"));
+                ps3.setLong(2, unmarked.getLong("project_id"));
+                ps3.setLong(3, unmarked.getLong("user_id"));
+                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"), unmarked.getLong("project_id"), unmarked.getInt("project_type_id"));
                 if (info[RELIABLE_COUNT_IDX] > 0) {
+                    //if they have previously had projects that were reliable, then this one counts
                     ps3.setInt(1, 1);
                     ret += ps3.executeUpdate();
                 } else if (info[PROJECT_COUNT_IDX] == info[MARKED_COUNT_IDX]) {
-                    //if all are not included in reliability, this one shouldn't either
+                    //if all prior projects are not included in reliability, this one shouldn't either
                     ps3.setInt(1, 0);
                     ret += ps3.executeUpdate();
                 } else {
-                    log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + rs.getLong("user_id") + " " + rs.getLong("project_id"));
+                    //we don't know enough yet to mark them as either included or excluded.  basically, they have at least
+                    //one project prior to this one that isn't complete, so we can't decide on this one yet.
+                    //log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
                 }
             }
         } finally {
-            close(rs);
+            close(unmarked);
             close(ps);
             close(ps2);
             close(ps3);
