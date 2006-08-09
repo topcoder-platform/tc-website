@@ -32,7 +32,7 @@ If you still have access to the email address you used when registering, please 
          <tc-webtag:textInput name="<%=Constants.CURRENT_EMAIL%>" size="30" maxlength="30"/>
       </td>
    </tr>
-<% if (request.getAttribute(FindUser.NEEDS_HANDLE) != null { %>
+<% if (request.getAttribute(FindUser.NEEDS_HANDLE) != null) { %>
    <tr>
       <td class="name">
          Handle:
