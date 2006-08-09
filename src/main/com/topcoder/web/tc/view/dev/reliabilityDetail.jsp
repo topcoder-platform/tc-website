@@ -1,7 +1,7 @@
-<%@ page language="java" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -10,8 +10,10 @@
 <% String type = (String) request.getAttribute(Constants.TYPE_KEY);
     String phaseId = (String) request.getAttribute(Constants.PHASE_ID);
     String coderId = (String) request.getAttribute(Constants.CODER_ID);%>
+<html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Statistics</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -61,7 +63,7 @@
                     | Reliability Detail
             </span>
 
-   <div class="pagingBox" style="clear:both;">&nbsp;</div>
+    <div class="pagingBox" style="clear:both;">&nbsp;</div>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -104,8 +106,14 @@
                     <% } %>
                 </td>
                 <td class="value">
-                    <A href=""><rsc:item name="component_name" row="<%=resultRow%>"/>
-                    <rsc:item name="version_text" row="<%=resultRow%>"/></A>
+                    <% if (resultRow.getIntItem("viewable") == 1) { %>
+                    <span class="smallText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&ver=<rsc:item row="<%=resultRow%>" name="version"/>">
+                        <rsc:item name="component_name" row="<%=resultRow%>"/>
+                        <rsc:item name="version_text" row="<%=resultRow%>"/></A></span>
+                    <% } else { %>
+                    <rsc:item name="component_name" row="<%=resultRow%>"/>
+                    <rsc:item name="version_text" row="<%=resultRow%>"/>
+                    <% } %>
                 </td>
                 <td class="valueC">
                     <rsc:item name="reliable" row="<%=resultRow%>"/>
@@ -117,6 +125,17 @@
             <% even = !even;%>
         </rsc:iterator>
     </table>
+
+    <p>
+        <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+        Learn more about how <a href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">reliability rating</a>
+        works.
+        <% } else { %>
+        Learn more about how <a href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">reliability rating</a>
+        works.
+        <% } %>
+
+    </p>
 
     <p><br/></p>
 
