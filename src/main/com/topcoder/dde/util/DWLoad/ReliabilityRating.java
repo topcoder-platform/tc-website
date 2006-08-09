@@ -78,7 +78,9 @@ public class ReliabilityRating {
             int incExMarked = tmp.markForInclusionAndExclusion(c);
             log.info(incExMarked + " records marked for inclusion/exclusion");
             Set developers = tmp.getIncludedUsers(c, 113);
+            log.debug("there are " + developers.size() + " developers included");
             Set designers = tmp.getIncludedUsers(c, 112);
+            log.debug("there are " + designers.size() + " designers included");
             int newMarked = tmp.markNewReliableResults(c);
             log.info(newMarked + " new records marked");
             int oldMarked = tmp.markOldReliableResults(c);
@@ -273,9 +275,11 @@ public class ReliabilityRating {
                         if (j >= history.size() - historyLength) {
                             //if we're into the chunk that is actually gonna count for the current reliability
                             //mark them as such
+/*
                             if (log.isDebugEnabled()) {
                                 log.debug("marking project " + cur.projectId + " user: " + cur.getUserId() + " phase: " + phaseId + " included");
                             }
+*/
                             cur.setIncluded(true);
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
