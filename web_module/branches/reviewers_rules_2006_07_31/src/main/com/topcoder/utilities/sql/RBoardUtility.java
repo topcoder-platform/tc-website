@@ -90,7 +90,7 @@ public class RBoardUtility extends DBUtility{
             query = new StringBuffer(200);
             query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
             query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
-            query.append("from rboard_user2 ru, project_type pt, user u, catalog c ");
+            query.append("from rboard_user ru, project_type pt, user u, catalog c ");
             query.append("where ru.immune_ind = 0 and ru.status_id = ? and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
             query.append("and c.catalog_id = ru.catalog_id ");
             psSelUsers = prepareStatement("tcs_catalog", query.toString());
@@ -108,7 +108,7 @@ public class RBoardUtility extends DBUtility{
             psSelDetails = prepareStatement("tcs_catalog", query.toString());
 
             query = new StringBuffer(200);
-            query.append("update rboard_user2 ");
+            query.append("update rboard_user ");
             query.append("set status_id = ? ");
             query.append("where user_id = ? and project_type_id = ? and catalog_id = ? ");
             psUpd = prepareStatement("tcs_catalog", query.toString());
