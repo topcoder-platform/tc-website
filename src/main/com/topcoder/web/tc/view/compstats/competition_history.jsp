@@ -227,7 +227,7 @@
                     <% } %>
                 </TD>
                 <TD class="valueR">
-                    $&nbsp;<rsc:item name="payment" row="<%=resultRow%>" format="0.00" ifNull=""/>
+                    &nbsp;<rsc:item name="payment" row="<%=resultRow%>" format="$0.00" ifNull=""/>
                 </TD>
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>
