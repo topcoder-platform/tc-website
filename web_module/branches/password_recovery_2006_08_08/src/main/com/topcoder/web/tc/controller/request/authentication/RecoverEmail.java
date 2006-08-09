@@ -60,7 +60,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
 		try {
 	        TCSEmailMessage mail = new TCSEmailMessage();
 	        mail.setSubject("TopCoder Password Recovery");
-	        mail.setBody(hash);
+	        mail.setBody("<a href='/tc?module=ResetPassword&pr=" + pr.getId() + "&hc=" + hash);
 	        mail.setToAddress(pr.getRecoveryAddress(), TCSEmailMessage.TO);
 	        mail.setFromAddress("no_reply@topcoder.com");
 	        EmailEngine.send(mail);

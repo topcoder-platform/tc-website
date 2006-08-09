@@ -10,11 +10,11 @@ import java.util.Date;
  */
 public class PasswordRecovery extends Base {
 	
-	private Long id;
-	private User user;
-	private String recoveryAddress;
-	private Date expireDate;
-	private boolean used;
+	private Long id = null;
+	private User user = null;
+	private String recoveryAddress = null;
+	private Date expireDate = null;
+	private boolean used = false;
 	
 	public Date getExpireDate() {
 		return expireDate;
