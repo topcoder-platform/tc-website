@@ -124,7 +124,12 @@
             </tr>
             <% even = !even;%>
         </rsc:iterator>
-    </table>
+    </table><br>
+    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+   <div class="bodySubtitle" align="center">Have a question about <A href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">reliability ratings</A>?</div>
+    <% } else { %>
+   <div class="bodySubtitle" align="center">Have a question about <A href="/tc?module=Static&d1=dev&d2=support&d3=desReliability">reliability ratings</A>?</div>
+    <% } %>
 
     <p>
         <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>

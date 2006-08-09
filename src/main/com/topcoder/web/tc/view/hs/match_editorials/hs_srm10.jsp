@@ -192,12 +192,12 @@ Java code follows:
 
 <pre>
 public int fractile(int[] x, int p) {
-	int n, z;
-	Arrays.sort(x);
-	n = x.length;
-	z = n * p / 100;
-	if (n * p % 100 == 0 && z > 0) z--;
-	return x[z];
+   int n, z;
+   Arrays.sort(x);
+   n = x.length;
+   z = n * p / 100;
+   if (n * p % 100 == 0 && z > 0) z--;
+   return x[z];
 }
 </pre>
 
@@ -320,27 +320,27 @@ Java code follows:
 
 <pre>
 static public String getDirections(int[] x, int[] y) {
-	int n, i, j;
-	String ret;
-	n = x.length;
-	ret = "";
-	for (i = 0; i < n; i++) {
-		// try down ('D')
-		for (j = 0; j < n; j++) if (j != i) if (x[j] == x[i] && y[j] < y[i]) break;
-		if (j >= n) { ret += "D"; continue; }
-		// try left ('L')
-		for (j = 0; j < n; j++) if (j != i) if (y[j] == y[i] && x[j] < x[i]) break;
-		if (j >= n) { ret += "L"; continue; }
-		// try right ('R')
-		for (j = 0; j < n; j++) if (j != i) if (y[j] == y[i] && x[j] > x[i]) break;
-		if (j >= n) { ret += "R"; continue; }
-		// try up ('U')
-		for (j = 0; j < n; j++) if (j != i) if (x[j] == x[i] && y[j] > y[i]) break;
-		if (j >= n) { ret += "U"; continue; }
-		// no solution
-		return "";
-	}
-	return ret;
+   int n, i, j;
+   String ret;
+   n = x.length;
+   ret = "";
+   for (i = 0; i < n; i++) {
+      // try down ('D')
+      for (j = 0; j < n; j++) if (j != i) if (x[j] == x[i] && y[j] < y[i]) break;
+      if (j >= n) { ret += "D"; continue; }
+      // try left ('L')
+      for (j = 0; j < n; j++) if (j != i) if (y[j] == y[i] && x[j] < x[i]) break;
+      if (j >= n) { ret += "L"; continue; }
+      // try right ('R')
+      for (j = 0; j < n; j++) if (j != i) if (y[j] == y[i] && x[j] > x[i]) break;
+      if (j >= n) { ret += "R"; continue; }
+      // try up ('U')
+      for (j = 0; j < n; j++) if (j != i) if (x[j] == x[i] && y[j] > y[i]) break;
+      if (j >= n) { ret += "U"; continue; }
+      // no solution
+      return "";
+   }
+   return ret;
 }
 </pre>
 
