@@ -91,10 +91,10 @@
    <jsp:include page="top.jsp">
        <jsp:param name="section" value="default"/>
    </jsp:include>
+   <jsp:include page="topNav.jsp">
+       <jsp:param name="node" value="forums"/>
+   </jsp:include>
       <div class="contentIn">
-         <jsp:include page="topNav.jsp">
-             <jsp:param name="node" value="forums"/>
-         </jsp:include>
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div style="text-align:left; padding: 0px 10px 0px 10px;">
 
