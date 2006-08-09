@@ -150,7 +150,7 @@ public class ReliabilityRating {
             insert = conn.prepareStatement(insertUserReliability);
             update = conn.prepareStatement(updateUserReliability);
             clear = conn.prepareStatement(clearCurrentReliability);
-            clear.setInt(1, phaseId);
+            clear.setLong(1, phaseId);
 
             clear.executeUpdate();
 
