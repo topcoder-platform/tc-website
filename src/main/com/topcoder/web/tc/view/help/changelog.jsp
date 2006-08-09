@@ -43,10 +43,18 @@
 </jsp:include>
 
 <p>
-    5.4.2 - 2006.08.XX
+    5.4.3 - 2006.08.09
+    <ul>
+        <li>Google Code Jam Registration</li>
+        <li>Fix bug in registration process where data wasn't cleaned up when there is an error</li>
+        <li>Add reliability detail page</li>
+    </ul>
+</p>
+
+<p>
+    5.4.2 - 2006.08.07
     <ul>
         <li>DR Boards bug fix - didn't showed the current stage correctly.</li>
-        <li>Google Code Jam Registration</li>
         <li>Add Python to Marathon Matches</li>
         <%--
                 <li>Super mega profile search, phone search, last dev/design rating, most recent site visit</li>
