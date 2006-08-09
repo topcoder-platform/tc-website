@@ -121,7 +121,7 @@ public class ReliabilityRating {
     private static final String insertUserReliability =
             "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
 
-    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = null where project_id in " +
+    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
             "(select project_id from project where project_type_id+111 = ? and cur_version = 1)";
 
     /**
