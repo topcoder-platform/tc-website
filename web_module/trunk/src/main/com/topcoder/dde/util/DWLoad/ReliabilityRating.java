@@ -258,11 +258,18 @@ public class ReliabilityRating {
                     ((ReliabilityInstance) history.get(0)).setFirst(true);
                 }
 
+                int size = history.size();
+
+                //set the most recent historyLength records as included in the current reliablity calculation
+                for (int i = size - 1, j = 0; i >= 0 && j < historyLength; i--, j++) {
+                    ((ReliabilityInstance) history.get(i)).setIncluded(true);
+                }
+
                 //calculate/populate reliabilities for the given history length. that means only incuode historyLength records
                 ReliabilityInstance cur;
                 double fullNewRel;
                 int fullReliableCount = 0;
-                for (int i = 0; i < history.size(); i++) {
+                for (int i = 0; i < size; i++) {
                     if (((ReliabilityInstance) history.get(i)).isReliable()) {
                         fullReliableCount++;
                     }
@@ -280,16 +287,6 @@ public class ReliabilityRating {
                         cur = (ReliabilityInstance) history.get(j);
                         if (cur.isReliable()) {
                             reliableCount++;
-                        }
-                        if (j >= history.size() - historyLength) {
-                            //if we're into the chunk that is actually gonna count for the current reliability
-                            //mark them as such
-/*
-                            if (log.isDebugEnabled()) {
-                                log.debug("marking project " + cur.projectId + " user: " + cur.getUserId() + " phase: " + phaseId + " included");
-                            }
-*/
-                            cur.setIncluded(true);
                         }
                         newRel = (double) reliableCount / (double) (projectCount);
                     }
