@@ -1,7 +1,11 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.GregorianCalendar;
 
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -38,7 +42,33 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
     	
     	log.info("id = " + pr.getId());
-    	
+
+    	String hash;
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+	        byte[] plain = (pr.getId().toString() + u.getHandle() + expire.toString()).getBytes();
+	        byte[] raw = md.digest(plain);
+	        StringBuffer hex = new StringBuffer();
+	        for (int i = 0; i < raw.length; i++)
+	            hex.append(Integer.toHexString(raw[i] & 0xff));
+	        
+	        hash = hex.toString();
+		} catch (NoSuchAlgorithmException e) {
+			throw new TCWebException("Can't hash with md5.", e);
+		}
+		
+		try {
+	        TCSEmailMessage mail = new TCSEmailMessage();
+	        mail.setSubject("TopCoder Password Recovery");
+	        mail.setBody(hash);
+	        mail.setToAddress(pr.getRecoveryAddress(), TCSEmailMessage.TO);
+	        mail.setFromAddress("no_reply@topcoder.com");
+	        EmailEngine.send(mail);
+		} catch (Exception e) {
+			throw new TCWebException("Couldn't send the email to the user.", e);
+		}
+
+
         setNextPage(Constants.RECOVER_PASSWORD);
         setIsNextPageInContext(true);
     }

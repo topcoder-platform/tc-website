@@ -44,7 +44,7 @@ public class FindUser extends ShortHibernateProcessor {
 		     		getRequest().setAttribute(NEEDS_HANDLE, "true");
 	        	}
                 setNextPage(Constants.RECOVER_PASSWORD);
-                setIsNextPageInContext(false);
+                setIsNextPageInContext(true);
         	}
 
         } else {
@@ -61,7 +61,7 @@ public class FindUser extends ShortHibernateProcessor {
         		}
         		getRequest().setAttribute("", u.getSecretQuestion().getQuestion());
                 setNextPage(Constants.SECRET_QUESTION);
-                setIsNextPageInContext(false);
+                setIsNextPageInContext(true);
         	} else {       	
          	    if(l.size() == 0) { 
 	        	    addError(LOST_EMAIL, "No user found."); 
@@ -69,7 +69,7 @@ public class FindUser extends ShortHibernateProcessor {
 		     		addError(LOST_EMAIL, "More than one user found. Please provide additional data.");
 	        	}
                 setNextPage(Constants.RECOVER_PASSWORD);
-                setIsNextPageInContext(false);
+                setIsNextPageInContext(true);
 
         	}
 
