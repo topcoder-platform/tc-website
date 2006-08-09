@@ -77,18 +77,25 @@ public class ReliabilityRating {
 
             int incExMarked = tmp.markForInclusionAndExclusion(c);
             log.info(incExMarked + " records marked for inclusion/exclusion");
+
             Set developers = tmp.getIncludedUsers(c, 113);
             log.debug("there are " + developers.size() + " developers included");
+
             Set designers = tmp.getIncludedUsers(c, 112);
             log.debug("there are " + designers.size() + " designers included");
+
             int newMarked = tmp.markNewReliableResults(c);
             log.info(newMarked + " new records marked");
+
             int oldMarked = tmp.markOldReliableResults(c);
             log.info(oldMarked + " old records marked");
+
             int oldUpdated = tmp.updateOldProjectResult(c);
             log.info(oldUpdated + " old records updated");
+
             int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
             log.info(designersUpdated + " new project result designer records updated");
+
             int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
             log.info(developersUpdated + " new project result developer records updated");
 
@@ -114,7 +121,7 @@ public class ReliabilityRating {
     private static final String insertUserReliability =
             "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
 
-    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0";
+    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = null";
 
     /**
      * go through the list of users and do two things.
