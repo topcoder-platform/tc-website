@@ -12,42 +12,63 @@ import com.topcoder.shared.util.sql.DBUtility;
 
 /**
  * <strong>Purpose</strong>:
- * Utility to maintain review boards.
+ * Utility to qualify/disqualify reviewers sistematically.
  *
- * This utility analyze the rboard and disqualify the users that cannot be reviewers anymore.
+ * This utility analyzes the reviwers for a set of rules and decide whether to qualify
+ * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
+ * and warnings for reviewers that are "about" to be disqualified.
  *
  * @author pulky
  * @version 1.0.0
  */
-public class ApplyRBoardRules extends DBUtility{
+public class ApplyRBoardRules extends DBUtility {
+    /**
+     * Milliseconds in a day.
+     */
     private static final int MILLIS_IN_DAY = 1000*60*60*24;
+
+    /**
+     * Days assumed for the three months rule.
+     */
     private static final int DAYS_THREE_MONTHS = 90;
+
+    /**
+     * Days assumed for the year rule.
+     */
     private static final int DAYS_YEAR = 356;
+
+    /**
+     * Status of disqualified reviewers.
+     */
     private static final int DISQUALIFIED_STATUS = 110;
+
+    /**
+     * Status of active reviewers.
+     */
     private static final int QUALIFIED_STATUS = 100;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells the first day's interval in which send warning mails.
      */
     private int firstWarningInterval = 7;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells the day's interval to send warning mails after first interval has been reached.
      */
     private int secondWarningInterval = 2;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells the minimum amount of days to be disqualified to send a warning.
      */
     private int daysBeforeWarning = 30;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells the project's minimum score to be taken into consideration for the restrictions.
      */
     private int scoreThreshold = 80;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells how many submissions should be in the last year.
      */
     private int submissionThresholdLastYear = 4;
 
@@ -57,75 +78,62 @@ public class ApplyRBoardRules extends DBUtility{
     private String onlyAnalyze = null;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable tells if the process should send mails.
      */
     private String sendMails = null;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable stores the admin email address.
      */
     private String adminEmail = null;
 
     /**
-     * This variable tells if only an analysis is wanted.
+     * This variable stores the system email address.
      */
     private String systemEmail = null;
 
-
+    /**
+     * This variable stores the digest mail text to be sent to the admin.
+     */
     private StringBuffer digestMail = new StringBuffer(500);
 
     /**
-     * Runs the RBoardUtility.
+     * Runs the ApplyRBoardRules utility.
+     *
+     * This utility analyzes the reviwers for a set of rules and decide whether to qualify
+     * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
+     * and warnings for reviewers that are "about" to be disqualified.
      *
      */
     public void runUtility() throws Exception {
         PreparedStatement psSelUsers = null;
         PreparedStatement psSelDetails = null;
-        PreparedStatement psUpd = null;
 
         ResultSet rsUsers = null;
         ResultSet rsDetails90 = null;
         ResultSet rsDetails356 = null;
-        StringBuffer query = null;
 
-        digestMail.append("Today's reviewer movements:\n");
+        digestMail.append("Today's reviewer movements:\n\n");
         try {
-            query = new StringBuffer(200);
-            query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
-            query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
-            query.append("from rboard_user ru, project_type pt, user u, catalog c ");
-            query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
-            query.append("and c.catalog_id = ru.catalog_id ");
-            psSelUsers = prepareStatement("tcs_catalog", query.toString());
-            psSelUsers.setInt(1, QUALIFIED_STATUS);
-            psSelUsers.setInt(2, DISQUALIFIED_STATUS);
-
-            query = new StringBuffer(200);
-            query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
-            query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
-            query.append("where p.comp_vers_id = cv.comp_vers_id and ");
-            query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
-            query.append("p.cur_version = 1 and DATE(p.rating_date) >= DATE(current) - ? UNITS DAY and ");
-            query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and ");
-            query.append("p.project_type_id = ? and pr.user_id = ? and cac.catalog_id = ? ");
-            query.append("order by DATE(p.rating_date) desc ");
-            psSelDetails = prepareStatement("tcs_catalog", query.toString());
-
-            query = new StringBuffer(200);
-            query.append("update rboard_user ");
-            query.append("set status_id = ? ");
-            query.append("where user_id = ? and project_type_id = ? and catalog_id = ? ");
-            psUpd = prepareStatement("tcs_catalog", query.toString());
+            psSelUsers = prepareUsersStatement();
+            psSelDetails = prepareDetailsStatement();
 
             log.debug("");
             log.debug("-----------------------------------------------");
             rsUsers = psSelUsers.executeQuery();
-            int i = 0;
-            int j = 0;
-            int disqualified = 0;
-            int qualified = 0;
-            int warnings = 0;
+
+            // some counters interesting for statistics.
+            int activeReviewersCount = 0;
+            int inactiveReviewersCount = 0;
+            int disqualifiedReviewersCount = 0;
+            int qualifiedReviewersCount = 0;
+            int warnedReviewersCount = 0;
+
             while (rsUsers.next()) {
+                boolean disqualify = true;
+                long daysToBeDisqualified = 0;
+                long daysToBeDisqualified2 = 0;
+
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
                 psSelDetails.setInt(2, scoreThreshold);  // score threshold
@@ -133,10 +141,7 @@ public class ApplyRBoardRules extends DBUtility{
                 psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
 
-                boolean disqualify = true;
-                long daysToBeDisqualified = 0;
-                long daysToBeDisqualified2 = 0;
-                String reason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
+                String possibleDisqualificationReason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
                 log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
@@ -146,47 +151,51 @@ public class ApplyRBoardRules extends DBUtility{
                 rsDetails90 = psSelDetails.executeQuery();
 
                 if (rsDetails90.next()) {
-                    reason = " (no at least " + submissionThresholdLastYear + " submissions in the last " + DAYS_YEAR + " days.";
+                    // passed the 90 days rule successfully.
 
+                    possibleDisqualificationReason = " (no at least " + submissionThresholdLastYear + " submissions in the last " + DAYS_YEAR + " days.";
+
+                    // calculates how many days will be needed to be disqualified with the 90 days rule.
                     daysToBeDisqualified = DAYS_THREE_MONTHS - (rsDetails90.getDate("current_date").getTime() -
-                            rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
+                        rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                     psSelDetails.setInt(1, DAYS_YEAR);  // Days to analyze
                     rsDetails356 = psSelDetails.executeQuery();
 
-
+                    // counts submissions
                     int count = 0;
                     for (;count < submissionThresholdLastYear && rsDetails90.next(); count++);
 
                     if (count == submissionThresholdLastYear) {
+                        // passed the last year rule successfully.
+
+                        // calculates how many days will be needed to be disqualified with the last year rule.
                         daysToBeDisqualified2 = DAYS_YEAR - (rsDetails356.getDate("current_date").getTime() -
                                 rsDetails356.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
+                        // The interesting amount is the lowest one. This will be the min days that the rev. will
+                        // be disqualified.
                         if (daysToBeDisqualified2 < daysToBeDisqualified) {
                             daysToBeDisqualified = daysToBeDisqualified2;
                         }
+
+                        // the reviewer passed both rules, he shouldn't get disqualified.
                         disqualify = false;
                     }
                 }
 
                 if (rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) {
-                    j++;
+                    inactiveReviewersCount++;
                     if (!disqualify) {
-                        qualified++;
-
-                        // this reviewer should be activated.
-                        psUpd.clearParameters();
-                        psUpd.setInt(1, QUALIFIED_STATUS);  // status
-                        psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
-                        psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                        psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
-
-                        if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                            psUpd.executeUpdate();
-                        }
+                        // if the reviewer is inactive, but after the analysis he shouldn't be disqualified, it means
+                        // he had reached again the requirements to be a reviewer, so he should be activated.
+                        qualifiedReviewersCount++;
+                        updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"),
+                            rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
                         log.debug("... activated!!! ");
 
-                        if (qualified < 5) {
+                        // TODO: take out the < 5 restriction
+                        if (qualifiedReviewersCount < 5) {
                             // send mail.
                             sendActivationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
                                     rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
@@ -195,23 +204,17 @@ public class ApplyRBoardRules extends DBUtility{
                         }
                     }
                 } else {
-                    i++;
+                    activeReviewersCount++;
                     if (disqualify) {
-                        disqualified++;
+                        // if the reviewer is active, but after the analysis he doesn't fulfill the requirements
+                        // he should be disqualified.
+                        disqualifiedReviewersCount++;
+                        updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"),
+                            rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
+                        log.debug("... disqualified " + possibleDisqualificationReason);
 
-                        // this reviewer should be disqualified.
-                        psUpd.clearParameters();
-                        psUpd.setInt(1, DISQUALIFIED_STATUS);  // status
-                        psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
-                        psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                        psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
-
-                        if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                            psUpd.executeUpdate();
-                        }
-                        log.debug("... disqualified " + reason);
-
-                        if (disqualified < 5) {
+                        // TODO: take out the < 5 restriction
+                        if (disqualifiedReviewersCount < 5) {
                             // send mail.
                             sendDisqualificationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
                                     rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
@@ -219,9 +222,10 @@ public class ApplyRBoardRules extends DBUtility{
     //                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                         }
                     } else {
-                        // alert
+                        // reviewer shouldn't be disqualified, but maybe a warning mail is appropriate if he is
+                        // near to be disqualified.
                         if (daysToBeDisqualified <= daysBeforeWarning) {
-                            warnings++;
+                            warnedReviewersCount++;
                             log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                             // send mail.
                             if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
@@ -240,22 +244,23 @@ public class ApplyRBoardRules extends DBUtility{
                 }
             }
 
+            // complete digest mail with statistics
             digestMail.append("\n-----------------------------------------------\n");
-            digestMail.append("Successfully analyzed " + i + " active reviewers.\n");
-            digestMail.append("Successfully analyzed " + j + " inactive reviewers.\n");
-            digestMail.append("Successfully disqualified " + disqualified + " reviewers.\n");
-            digestMail.append("Successfully qualified " + qualified + " reviewers.\n");
-            digestMail.append("Successfully warned " + warnings + " reviewers.\n");
+            digestMail.append("Successfully analyzed " + activeReviewersCount + " active reviewers.\n");
+            digestMail.append("Successfully analyzed " + inactiveReviewersCount + " inactive reviewers.\n");
+            digestMail.append("Successfully disqualified " + disqualifiedReviewersCount + " reviewers.\n");
+            digestMail.append("Successfully qualified " + qualifiedReviewersCount + " reviewers.\n");
+            digestMail.append("Successfully warned " + warnedReviewersCount + " reviewers.\n");
 
             // send digest mail for admin.
             sendDigestMail();
 
             log.debug("-----------------------------------------------");
-            log.debug("Successfully analyzed " + i + " active reviewers.");
-            log.debug("Successfully analyzed " + j + " inactive reviewers.");
-            log.debug("Successfully disqualified " + disqualified + " reviewers.");
-            log.debug("Successfully qualified " + qualified + " reviewers.");
-            log.debug("Successfully warned " + warnings + " reviewers.");
+            log.debug("Successfully analyzed " + activeReviewersCount + " active reviewers.");
+            log.debug("Successfully analyzed " + inactiveReviewersCount + " inactive reviewers.");
+            log.debug("Successfully disqualified " + disqualifiedReviewersCount + " reviewers.");
+            log.debug("Successfully qualified " + qualifiedReviewersCount + " reviewers.");
+            log.debug("Successfully warned " + warnedReviewersCount + " reviewers.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("PaymentFixUtility failed.\n" + sqle.getMessage());
@@ -263,10 +268,12 @@ public class ApplyRBoardRules extends DBUtility{
             DBMS.close(psSelUsers);
             DBMS.close(psSelDetails);
             DBMS.close(rsUsers);
-            DBMS.close(psUpd);
         }
     }
 
+    /**
+     * Private helper method to send the digest mail.
+     */
     private void sendDigestMail() throws Exception {
         if (digestMail != null) {
             String emailSubject = "Review Board Digest";
@@ -282,6 +289,14 @@ public class ApplyRBoardRules extends DBUtility{
         }
     }
 
+    /**
+     * Private helper method to send activation mails.
+     *
+     * @param handle the reviewer's handle.
+     * @param userEmail the reviewer's email address.
+     * @param projectTypeName the project's type.
+     * @param catalogName the catalogs description.
+     */
     private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -311,6 +326,14 @@ public class ApplyRBoardRules extends DBUtility{
         }
     }
 
+    /**
+     * Private helper method to send disqualification mails.
+     *
+     * @param handle the reviewer's handle.
+     * @param userEmail the reviewer's email address.
+     * @param projectTypeName the project's type.
+     * @param catalogName the catalogs description.
+     */
     private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -343,6 +366,15 @@ public class ApplyRBoardRules extends DBUtility{
         }
     }
 
+    /**
+     * Private helper method to send warning mails.
+     *
+     * @param handle the reviewer's handle.
+     * @param userEmail the reviewer's email address.
+     * @param projectTypeName the project's type.
+     * @param catalogName the catalogs description.
+     * @param daysToBeDisqualified the days left to be disqualified.
+     */
     private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -440,10 +472,86 @@ public class ApplyRBoardRules extends DBUtility{
         sErrorMsg.append(msg + "\n");
         sErrorMsg.append("PaymentFixUtility:\n");
         sErrorMsg.append("   The following parameters should be included in the XML or the command line");
-        sErrorMsg.append("   -sourcedb URL : URL of source database.\n");
-        sErrorMsg.append("   -startDate : the start date to analyze..\n");
-        sErrorMsg.append("   -endDate : the end date to analyze..\n");
-        sErrorMsg.append("   -onlyAnalyze : wheter to just analyze without updates.\n");
+        sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
+        sErrorMsg.append("   -sendMails : whether to send mails or not.\n");
+        sErrorMsg.append("   -firstWarningInterval : first day's interval in which send warning mails.\n");
+        sErrorMsg.append("   -secondWarningInterval : day's interval to send warning mails after first interval has been reached.\n");
+        sErrorMsg.append("   -daysBeforeWarning : minimum amount of days to be disqualified to send a warning.\n");
+        sErrorMsg.append("   -scoreThreshold : project's minimum score to be taken into consideration for the restrictions.\n");
+        sErrorMsg.append("   -submissionThresholdLastYear : how many submissions should be in the last year.\n");
+        sErrorMsg.append("   -adminEmail : admin email address.\n");
+        sErrorMsg.append("   -systemEmail : system email address.\n");
         fatal_error();
     }
+
+    /**
+     * Helper method to prepare user's statement
+     *
+     * @return the users PreparedStatement
+     */
+    private PreparedStatement prepareUsersStatement() throws SQLException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
+        query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
+        query.append("from rboard_user ru, project_type pt, user u, catalog c ");
+        query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
+        query.append("and c.catalog_id = ru.catalog_id ");
+
+        PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
+        ps.setInt(1, QUALIFIED_STATUS);
+        ps.setInt(2, DISQUALIFIED_STATUS);
+        return ps;
+    }
+
+    /**
+     * Helper method to prepare user's detail statement
+     *
+     * @return the details PreparedStatement
+     */
+    private PreparedStatement prepareDetailsStatement() throws SQLException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
+        query.append("from project p, project_result pr, comp_versions cv, comp_catalog cc, category_catalog cac ");
+        query.append("where p.comp_vers_id = cv.comp_vers_id and ");
+        query.append("cc.component_id = cv.component_id and p.project_id = pr.project_id and ");
+        query.append("p.cur_version = 1 and DATE(p.rating_date) >= DATE(current) - ? UNITS DAY and ");
+        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and ");
+        query.append("p.project_type_id = ? and pr.user_id = ? and cac.catalog_id = ? ");
+        query.append("order by DATE(p.rating_date) desc ");
+        PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
+        return ps;
+    }
+
+    /**
+     * Helper method to update a reviewer status
+     *
+     * @param statusId the status id to update.
+     * @param userId the reviewer's ID.
+     * @param projectTypeId the project's type ID.
+     * @param catalogId the catalog ID.
+     */
+    private void updateReviewerStatus(int statusId, long userId, int projectTypeId, long catalogId) throws SQLException {
+        StringBuffer query = new StringBuffer(200);
+        query.append("update rboard_user ");
+        query.append("set status_id = ? ");
+        query.append("where user_id = ? and project_type_id = ? and catalog_id = ? ");
+
+        PreparedStatement psUpd = null;
+        try {
+            psUpd = prepareStatement("tcs_catalog", query.toString());
+
+            psUpd.clearParameters();
+            psUpd.setInt(1, statusId);
+            psUpd.setLong(2, userId);
+            psUpd.setInt(3, projectTypeId);
+            psUpd.setLong(4, catalogId);
+
+            if (!onlyAnalyze.equalsIgnoreCase("true")) {
+                psUpd.executeUpdate();
+            }
+        } finally {
+            DBMS.close(psUpd);
+        }
+    }
+
 }
