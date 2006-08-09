@@ -1,5 +1,6 @@
 package com.topcoder.dde.util.DWLoad;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
@@ -10,6 +11,7 @@ import java.sql.Date;
 import java.util.*;
 
 public class ReliabilityRating {
+    protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
 
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
@@ -74,19 +76,19 @@ public class ReliabilityRating {
             c = DriverManager.getConnection(connectionURL);
 
             int incExMarked = tmp.markForInclusionAndExclusion(c);
-            System.out.println(incExMarked + " records marked for inclusion/exclusion");
+            log.info(incExMarked + " records marked for inclusion/exclusion");
             Set developers = tmp.getIncludedUsers(c, 113);
             Set designers = tmp.getIncludedUsers(c, 112);
             int newMarked = tmp.markNewReliableResults(c);
-            System.out.println(newMarked + " new records marked");
+            log.info(newMarked + " new records marked");
             int oldMarked = tmp.markOldReliableResults(c);
-            System.out.println(oldMarked + " old records marked");
+            log.info(oldMarked + " old records marked");
             int oldUpdated = tmp.updateOldProjectResult(c);
-            System.out.println(oldUpdated + " old records updated");
+            log.info(oldUpdated + " old records updated");
             int designersUpdated = tmp.updateReliability(c, designers, Integer.parseInt(historyLength), 112);
-            System.out.println(designersUpdated + " new project result designer records updated");
+            log.info(designersUpdated + " new project result designer records updated");
             int developersUpdated = tmp.updateReliability(c, developers, Integer.parseInt(historyLength), 113);
-            System.out.println(developersUpdated + " new project result developer records updated");
+            log.info(developersUpdated + " new project result developer records updated");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,10 +96,10 @@ public class ReliabilityRating {
             try {
                 if (c != null) c.close();
             } catch (Exception e1) {
-                System.out.println("exception B: " + e1);
+                log.info("exception B: " + e1);
             }
         }
-        System.out.println("ran in " + (float) (System.currentTimeMillis() - start) / (float) 1000 + " seconds");
+        log.info("ran in " + (float) (System.currentTimeMillis() - start) / (float) 1000 + " seconds");
     }
 
     private static final String updateProjectResult =
@@ -122,7 +124,7 @@ public class ReliabilityRating {
      * @return the number of records updated/inserted
      */
     public int updateReliability(Connection conn, Set users, int historyLength, long phaseId) throws SQLException {
-        //System.out.println("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
+        //log.info("updateReliability(conn, users, " + historyLength + ", " + phaseId + ") called");
         int ret = 0;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -150,7 +152,7 @@ public class ReliabilityRating {
                     ReliabilityInstance instance = null;
                     for (Iterator records = rh.getHistory(); records.hasNext();) {
                         instance = (ReliabilityInstance) records.next();
-                        //System.out.println(" xxx " + instance.toString());
+                        //log.info(" xxx " + instance.toString());
                         if (instance.isAfterStart()) {
                             ps2.clearParameters();
                             if (instance.isFirst()) {
@@ -181,7 +183,7 @@ public class ReliabilityRating {
                             insert.setLong(3, phaseId);
                             insert.executeUpdate();
                         }
-                        //System.out.println("reliability for " + userId + " set to " + instance.getRecentNewReliability());
+                        //log.info("reliability for " + userId + " set to " + instance.getRecentNewReliability());
                     }
 
                 } finally {
@@ -775,7 +777,7 @@ public class ReliabilityRating {
                     ps3.setInt(1, 0);
                     ret += ps3.executeUpdate();
                 } else {
-                    System.out.println("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + rs.getLong("user_id") + " " + rs.getLong("project_id"));
+                    log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + rs.getLong("user_id") + " " + rs.getLong("project_id"));
                 }
             }
         } finally {
