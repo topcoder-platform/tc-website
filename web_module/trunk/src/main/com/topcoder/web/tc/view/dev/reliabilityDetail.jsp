@@ -12,7 +12,7 @@
     String coderId = (String) request.getAttribute(Constants.CODER_ID);%>
 
 <head>
-    <title>Contest Status</title>
+    <title>TopCoder Statistics</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
@@ -37,12 +37,8 @@
 </td>
 <!-- Left Column Ends -->
 
-<!-- Gutter Begins -->
-<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Center Column Begins -->
-<td width="100%" align="center" class="bodyText">
+<td class="statTableSpacer" width="100%" valign="top">
 
     <jsp:include page="/page_title.jsp">
         <jsp:param name="image" value="<%= String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId) ? "comp_design" : "comp_development"%>"/>
@@ -65,6 +61,7 @@
                     | Reliability Detail
             </span>
 
+   <div class="pagingBox" style="clear:both;">&nbsp;</div>
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -74,13 +71,13 @@
             <td class="headerC">
                 Catalog
             </td>
-            <td class="header">
+            <td class="header" width="50%">
                 Contest
             </td>
-            <td class="headerC" nowrap="nowrap">
+            <td class="headerC" width="50%">
                 Reliable
             </td>
-            <td class="header" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap">
                 Registration Date
             </td>
 
@@ -113,7 +110,7 @@
                 <td class="valueC">
                     <rsc:item name="reliable" row="<%=resultRow%>"/>
                 </td>
-                <td class="value">
+                <td class="valueC" nowrap="nowrap">
                     <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
                 </td>
             </tr>
@@ -126,10 +123,6 @@
 
 </td>
 <!-- Center Column Ends -->
-
-<!-- Gutter -->
-<td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
-<!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
 <td width="180">
