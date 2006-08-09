@@ -216,6 +216,35 @@
             </xs:sequence>
             </xs:complexType>
         </xs:element>
+        <xs:element name="exposed_class" type="xs:token" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="exposed_method" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:token"/>
+                <xs:element name="return">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="type"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="params">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="param" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="type" type="tctype"/>
+                                        <xs:element name="name" type="xs:token"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            </xs:complexType>
+        </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:element>
