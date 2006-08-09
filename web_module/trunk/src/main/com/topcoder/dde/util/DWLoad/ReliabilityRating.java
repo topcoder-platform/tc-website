@@ -115,6 +115,9 @@ public class ReliabilityRating {
             "UPDATE project_result SET old_reliability = ?, new_reliability = ?, current_reliability_ind = ? " +
                     " WHERE project_id = ? and user_id = ? ";
 
+    private static final String updateCurrentReliability = "update project_result set current_reliability_ind = ? " +
+            " WHERE project_id = ? and user_id = ? ";
+
     private static final String updateUserReliability =
             "update user_reliability set rating = ? where user_id = ? and phase_id = ?";
 
@@ -141,6 +144,7 @@ public class ReliabilityRating {
         PreparedStatement insert = null;
         PreparedStatement update = null;
         PreparedStatement clear = null;
+        PreparedStatement currUpdate = null;
         ResultSet rs = null;
 
         try {
@@ -149,6 +153,7 @@ public class ReliabilityRating {
             ps2 = conn.prepareStatement(updateProjectResult);
             insert = conn.prepareStatement(insertUserReliability);
             update = conn.prepareStatement(updateUserReliability);
+            currUpdate = conn.prepareStatement(updateCurrentReliability);
             clear = conn.prepareStatement(clearCurrentReliability);
             clear.setLong(1, phaseId);
 
@@ -176,6 +181,12 @@ public class ReliabilityRating {
                             ps2.setLong(4, instance.getProjectId());
                             ps2.setLong(5, userId);
                             ret += ps2.executeUpdate();
+                        } else {
+                            currUpdate.clearParameters();
+                            currUpdate.setInt(1, instance.isIncluded() ? 1 : 0);
+                            currUpdate.setLong(2, instance.getProjectId());
+                            currUpdate.setLong(3, userId);
+                            ret += currUpdate.executeUpdate();
                         }
 
                     }
@@ -207,6 +218,7 @@ public class ReliabilityRating {
             close(ps2);
             close(insert);
             close(update);
+            close(currUpdate);
             close(clear);
         }
 
