@@ -139,6 +139,7 @@
     <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
  | Competition History
  | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&ph=<%=phaseId%>" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=ReliabilityDetail&ph=<%=phaseId%>&uid=<%=coderId%>" class="bcLink">Reliability Detail</A>
 </span>
 
 
