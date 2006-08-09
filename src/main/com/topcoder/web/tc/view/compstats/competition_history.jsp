@@ -172,9 +172,11 @@
             <TD CLASS="headerR" WIDTH="9%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a>
             </TD>
-            <TD CLASS="headerC" WIDTH="9%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("current_reliability_ind")%>" includeParams="true"/>">Reliable</a>
-            </TD>
+            <%--
+                        <TD CLASS="headerC" WIDTH="9%">
+                            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("current_reliability_ind")%>" includeParams="true"/>">Reliable</a>
+                        </TD>
+            --%>
             <TD CLASS="headerC" WIDTH="9%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Passed<br>
                     Review</a></TD>
@@ -211,7 +213,9 @@
                     <% } %>
                 </TD>
                 <TD class="valueR"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
-                <TD class="valueC"><rsc:item name="current_reliability_ind" row="<%=resultRow%>" ifNull=""/></TD>
+                    <%--
+                                    <TD class="valueC"><rsc:item name="current_reliability_ind" row="<%=resultRow%>" ifNull=""/></TD>
+                    --%>
                 <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
