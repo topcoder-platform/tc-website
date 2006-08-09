@@ -173,7 +173,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a>
             </TD>
             <TD CLASS="headerC" WIDTH="9%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("current_reliability_ind")%>" includeParams="true"/>">Reliability</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("current_reliability_ind")%>" includeParams="true"/>">Reliable</a>
             </TD>
             <TD CLASS="headerC" WIDTH="9%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Passed<br>
