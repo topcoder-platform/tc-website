@@ -68,7 +68,7 @@
 
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-            <td class="title" colspan="3">Reliability Detail</td>
+            <td class="title" colspan="4">Reliability Detail</td>
         </tr>
         <tr>
             <td class="headerC">
