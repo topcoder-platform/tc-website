@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-package com.topcoder.utilities.sql;
+package com.topcoder.utilities.tcs;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import com.topcoder.shared.util.sql.DBUtility;
  * @author pulky
  * @version 1.0.0
  */
-public class RBoardUtility extends DBUtility{
+public class ApplyRBoardRules extends DBUtility{
     private static final int MILLIS_IN_DAY = 1000*60*60*24;
     private static final int DAYS_THREE_MONTHS = 90;
     private static final int DAYS_YEAR = 356;
