@@ -135,10 +135,10 @@ public class RBoardUtility extends DBUtility{
                 long daysToBeDisqualified2 = 0;
                 String reason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
-                log.debug("Analyzing " + ((rsUsers.getInt("ru.status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
-                        " user " + rsUsers.getLong("user_id") +
-                        " Project Type: " + rsUsers.getInt("project_type_id") +
-                        " Catalog Id: " + rsUsers.getLong("catalog_id"));
+                log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+                        " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
+                        " Project Type: " + rsUsers.getString("project_type_name") +
+                        " Catalog Id: " + rsUsers.getString("catalog_name"));
 
                 rsDetails90 = psSelDetails.executeQuery();
 
@@ -166,7 +166,7 @@ public class RBoardUtility extends DBUtility{
                     }
                 }
 
-                if (rsUsers.getInt("ru.status_id") == DISQUALIFIED_STATUS) {
+                if (rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) {
                     j++;
                     if (!disqualify) {
                         qualified++;
