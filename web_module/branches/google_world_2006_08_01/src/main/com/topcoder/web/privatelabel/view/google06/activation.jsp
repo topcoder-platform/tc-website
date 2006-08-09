@@ -89,12 +89,11 @@
                             If you encounter any problems, please contact us at <A href="mailto:gcj@topcoder.com">gcj@topcoder.com</A>.
 
 
-                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         </td>
                     </tr>
                 </table>
-                To find out more detailed information about Google Code Jam 2006, including a list of the prizes, please
-                read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+                To find out more detailed information about Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
             </td>
     </tr>
 </table>

@@ -95,7 +95,7 @@
 <% if (regInfo.isNew()) { %>
 <tr>
     <td colspan="2" class="errorText" align="center">
-        It is against the rules to create more than one account for this event.
+        It is against the rules to create more <br>than one account for this event.
     </td>
 </tr>
 <% } %>
@@ -351,7 +351,7 @@
 </td>
 </tr>
 </table>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 <br><br>
 To find out more detailed information about the Google&#153; Code Jam 2006, please read the
 <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.

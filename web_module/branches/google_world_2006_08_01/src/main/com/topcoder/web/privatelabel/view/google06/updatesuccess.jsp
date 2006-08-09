@@ -73,23 +73,16 @@
 
                             You have successfully updated your account.
 
-                            <br><br>
-                            <br><br><br><br><br>
-                        </td>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+					    </td>
                     </tr>
                 </table>
-                To find out more detailed information about Google Code Jam 2006, including a list of the prizes, please
-                read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
-
+			To find out more detailed information about Google Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
+            </div>
         </td>
     </tr>
 </table>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br>
-To find out more detailed information about the Google&#153; Code Jam 2006, please read the
-<a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
-<br><br>
-</div>
 </td>
 <td width="49%">&#160;</td>
 <tr>
