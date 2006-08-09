@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.sql.DBUtility;
 
 /**
@@ -57,6 +55,11 @@ public class RBoardUtility extends DBUtility{
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
+
+    /**
+     * This variable tells if only an analysis is wanted.
+     */
+    private String sendMails = null;
 
     /**
      * This variable tells if only an analysis is wanted.
@@ -181,7 +184,7 @@ public class RBoardUtility extends DBUtility{
                         if (!onlyAnalyze.equalsIgnoreCase("true")) {
                             psUpd.executeUpdate();
                         }
-                        log.debug("... qualified ");
+                        log.debug("... activated!!! ");
 
                         if (qualified < 5) {
                             // send mail.
@@ -269,7 +272,10 @@ public class RBoardUtility extends DBUtility{
             String emailSubject = "Review Board Digest";
 
             try {
-                sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
+                if (!sendMails.equalsIgnoreCase("true")) {
+                    sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
+                    log.debug("Sending digest mail.");
+                }
             } catch (Exception e) {
                 throw new Exception("Unable to send digest mail.", e);
             }
@@ -292,8 +298,10 @@ public class RBoardUtility extends DBUtility{
         try {
             digestMail.append(" Activated - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
-                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
-                log.debug("Sending disq. mail to: " + userEmail);
+                if (!sendMails.equalsIgnoreCase("true")) {
+                    sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                    log.debug("Sending disq. mail to: " + userEmail);
+                }
             } else{
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
@@ -322,8 +330,10 @@ public class RBoardUtility extends DBUtility{
         try {
             digestMail.append(" Disqualified - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
-                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
-                log.debug("Sending disq. mail to: " + userEmail);
+                if (!sendMails.equalsIgnoreCase("true")) {
+                    sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                    log.debug("Sending disq. mail to: " + userEmail);
+                }
             } else{
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
@@ -348,8 +358,10 @@ public class RBoardUtility extends DBUtility{
 
         try {
             if (userEmail != null && userEmail != ""){
-                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
-                log.debug("Sending warning mail to: " + userEmail);
+                if (!sendMails.equalsIgnoreCase("true")) {
+                    sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                    log.debug("Sending warning mail to: " + userEmail);
+                }
             } else{
                 log.debug("Warning!!! null email for: " + handle);
                 digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
@@ -369,6 +381,11 @@ public class RBoardUtility extends DBUtility{
         if (onlyAnalyze == null)
             setUsageError("Please specify a onlyAnalyze.\n");
         params.remove("onlyAnalyze");
+
+        sendMails = (String) params.get("sendMails");
+        if (sendMails == null)
+            setUsageError("Please specify a sendMails.\n");
+        params.remove("sendMails");
 
         adminEmail = (String) params.get("adminEmail");
         if (adminEmail == null)
@@ -428,15 +445,5 @@ public class RBoardUtility extends DBUtility{
         sErrorMsg.append("   -endDate : the end date to analyze..\n");
         sErrorMsg.append("   -onlyAnalyze : wheter to just analyze without updates.\n");
         fatal_error();
-    }
-
-    private static void sendMail(String from, String to, String subject, String messageText) throws Exception {
-        TCSEmailMessage message = new TCSEmailMessage();
-        message.setFromAddress(from);
-        log.debug(to);
-        message.setToAddress(to, TCSEmailMessage.TO);
-        message.setSubject(subject);
-        message.setBody(messageText);
-        EmailEngine.send(message);
     }
 }
