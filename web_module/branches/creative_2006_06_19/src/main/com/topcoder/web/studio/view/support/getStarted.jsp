@@ -15,16 +15,16 @@
 <body>
 
 <div align="center">
-    <div class="contentOut">
-        <jsp:include page="../top.jsp">
-            <jsp:param name="section" value="default"/>
-        </jsp:include>
-        <div class="contentIn">
-            <jsp:include page="../topNav.jsp">
-                <jsp:param name="node" value="support"/>
-            </jsp:include>
-            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
-            <div style="text-align:left; padding: 0px 10px 0px 10px;">
+   <div class="contentOut">
+   <jsp:include page="../top.jsp">
+       <jsp:param name="section" value="default"/>
+   </jsp:include>
+   <jsp:include page="../topNav.jsp">
+       <jsp:param name="node" value="support"/>
+   </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
       <div style="float:left; padding: 0px 10px 10px 0px; margin: 0px 10px 10px 0px; border-right: 1px dashed #CCCCCC;">
       <img src="/i/creative/home/bnr_its_easy.png" alt="It's easy to get started" /><br>

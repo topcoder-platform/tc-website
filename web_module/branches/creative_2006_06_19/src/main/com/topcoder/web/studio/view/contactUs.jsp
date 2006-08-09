@@ -20,12 +20,11 @@
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="default"/>
         </jsp:include>
+         <jsp:include page="topNav.jsp">
+             <jsp:param name="node" value="about_us"/>
+         </jsp:include>
 
         <div class="contentIn">
-
-            <jsp:include page="topNav.jsp">
-                <jsp:param name="node" value="about_us"/>
-            </jsp:include>
 
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
 
