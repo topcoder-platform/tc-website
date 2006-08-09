@@ -272,7 +272,7 @@ public class RBoardUtility extends DBUtility{
             String emailSubject = "Review Board Digest";
 
             try {
-                if (!sendMails.equalsIgnoreCase("true")) {
+                if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, adminEmail, emailSubject, digestMail.toString());
                     log.debug("Sending digest mail.");
                 }
@@ -298,7 +298,7 @@ public class RBoardUtility extends DBUtility{
         try {
             digestMail.append(" Activated - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
-                if (!sendMails.equalsIgnoreCase("true")) {
+                if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending disq. mail to: " + userEmail);
                 }
@@ -330,7 +330,7 @@ public class RBoardUtility extends DBUtility{
         try {
             digestMail.append(" Disqualified - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
-                if (!sendMails.equalsIgnoreCase("true")) {
+                if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending disq. mail to: " + userEmail);
                 }
@@ -358,7 +358,7 @@ public class RBoardUtility extends DBUtility{
 
         try {
             if (userEmail != null && userEmail != ""){
-                if (!sendMails.equalsIgnoreCase("true")) {
+                if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                     log.debug("Sending warning mail to: " + userEmail);
                 }
