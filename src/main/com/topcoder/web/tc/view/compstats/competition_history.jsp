@@ -211,7 +211,7 @@
                     <% } %>
                 </TD>
                 <TD class="valueR"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
-                <TD class="valueC"><rsc:item name="current_reliability_ind" row="<%=resultRow%>"/></TD>
+                <TD class="valueC"><rsc:item name="current_reliability_ind" row="<%=resultRow%>" ifNull=""/></TD>
                 <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
                 <TD class="valueC"><rsc:item name="placed" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
