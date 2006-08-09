@@ -51,11 +51,6 @@
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
     <br>
-    <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
-    <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
-    <% } else { %>
-    <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-    <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
              | <A HREF="/tc?module=CompetitionHistory&ph=<%=phaseId%>&cr=<%=coderId%>" class="bcLink">Competition
