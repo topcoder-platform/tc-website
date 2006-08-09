@@ -88,17 +88,6 @@
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR valign="top">
 
-<TD WIDTH="180">
-    <!-- Left nav begins -->
-    <jsp:include page="/includes/global_left.jsp">
-        <jsp:param name="node" value="m_competitions"/>
-    </jsp:include>
-    <!-- Left nav ends -->
-</TD>
-
-<!-- Center Column Begins -->
-<td class="statTableSpacer" width="100%" valign="top">
-
 <%
     String nextpage = (String) request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
     if (nextpage == null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
@@ -109,6 +98,23 @@
     String phaseId = (String) request.getParameter(Constants.PHASE_ID);
     String coderId = (String) request.getParameter(Constants.CODER_ID);
 %>
+
+<TD WIDTH="180">
+    <!-- Left nav begins -->
+<% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="m_dev_competitions"/>
+    </jsp:include>
+<% } else { %>
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="m_des_competitions"/>
+    </jsp:include>
+<% } %>
+    <!-- Left nav ends -->
+</TD>
+
+<!-- Center Column Begins -->
+<td class="statTableSpacer" width="100%" valign="top">
 
 <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) { %>
 <jsp:include page="../page_title.jsp">
