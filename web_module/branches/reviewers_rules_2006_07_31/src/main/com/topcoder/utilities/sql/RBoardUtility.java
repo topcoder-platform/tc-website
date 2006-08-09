@@ -85,16 +85,17 @@ public class RBoardUtility extends DBUtility{
         ResultSet rsDetails356 = null;
         StringBuffer query = null;
 
-        digestMail.append("Today's Disqualified reviewers:\n");
+        digestMail.append("Today's reviewer movements:\n");
         try {
             query = new StringBuffer(200);
             query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind, pt.project_type_name, c.catalog_name, ");
             query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address ");
             query.append("from rboard_user ru, project_type pt, user u, catalog c ");
-            query.append("where ru.immune_ind = 0 and ru.status_id = ? and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
+            query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and pt.project_type_id = ru.project_type_id and ru.user_id = u.user_id ");
             query.append("and c.catalog_id = ru.catalog_id ");
             psSelUsers = prepareStatement("tcs_catalog", query.toString());
             psSelUsers.setInt(1, QUALIFIED_STATUS);
+            psSelUsers.setInt(2, DISQUALIFIED_STATUS);
 
             query = new StringBuffer(200);
             query.append("select DATE(current) as current_date, DATE(p.rating_date) as rating_date ");
@@ -117,9 +118,11 @@ public class RBoardUtility extends DBUtility{
             log.debug("-----------------------------------------------");
             rsUsers = psSelUsers.executeQuery();
             int i = 0;
+            int j = 0;
             int disqualified = 0;
+            int qualified = 0;
             int warnings = 0;
-            for (; rsUsers.next(); i++ ) {
+            while (rsUsers.next()) {
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
                 psSelDetails.setInt(2, scoreThreshold);  // score threshold
@@ -132,7 +135,8 @@ public class RBoardUtility extends DBUtility{
                 long daysToBeDisqualified2 = 0;
                 String reason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
 
-                log.debug("Analyzing user " + rsUsers.getLong("user_id") +
+                log.debug("Analyzing " + ((rsUsers.getInt("ru.status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+                        " user " + rsUsers.getLong("user_id") +
                         " Project Type: " + rsUsers.getInt("project_type_id") +
                         " Catalog Id: " + rsUsers.getLong("catalog_id"));
 
@@ -162,52 +166,82 @@ public class RBoardUtility extends DBUtility{
                     }
                 }
 
-                if (disqualify) {
-                    disqualified++;
+                if (rsUsers.getInt("ru.status_id") == DISQUALIFIED_STATUS) {
+                    j++;
+                    if (!disqualify) {
+                        qualified++;
 
-                    // this reviewer should be disqualified.
-                    psUpd.clearParameters();
-                    psUpd.setInt(1, DISQUALIFIED_STATUS);  // status
-                    psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
-                    psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                    psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
+                        // this reviewer should be activated.
+                        psUpd.clearParameters();
+                        psUpd.setInt(1, QUALIFIED_STATUS);  // status
+                        psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
+                        psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
+                        psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
 
-                    if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                        psUpd.executeUpdate();
-                    }
-                    log.debug("... disqualified " + reason);
+                        if (!onlyAnalyze.equalsIgnoreCase("true")) {
+                            psUpd.executeUpdate();
+                        }
+                        log.debug("... qualified ");
 
-                    if (disqualified < 5) {
-                        // send mail.
-                        sendDisqualificationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
-//                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-//                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                        if (qualified < 5) {
+                            // send mail.
+                            sendActivationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
+                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+    //                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+    //                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+                        }
                     }
                 } else {
-                    // alert
-                    if (daysToBeDisqualified <= daysBeforeWarning) {
-                        warnings++;
-                        log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
-                        // send mail.
-                        if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
-                            (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
-                            sendWarningMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
-                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
-                                    daysToBeDisqualified);
-//                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-//                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
-//                                    daysToBeDisqualified);
+                    i++;
+                    if (disqualify) {
+                        disqualified++;
+
+                        // this reviewer should be disqualified.
+                        psUpd.clearParameters();
+                        psUpd.setInt(1, DISQUALIFIED_STATUS);  // status
+                        psUpd.setLong(2, rsUsers.getLong("user_id"));  // user_id
+                        psUpd.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
+                        psUpd.setLong(4, rsUsers.getLong("catalog_id"));  // catalog_id
+
+                        if (!onlyAnalyze.equalsIgnoreCase("true")) {
+                            psUpd.executeUpdate();
+                        }
+                        log.debug("... disqualified " + reason);
+
+                        if (disqualified < 5) {
+                            // send mail.
+                            sendDisqualificationMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
+                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
+    //                        sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+    //                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"));
                         }
                     } else {
-                        log.debug("... ok");
+                        // alert
+                        if (daysToBeDisqualified <= daysBeforeWarning) {
+                            warnings++;
+                            log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
+                            // send mail.
+                            if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
+                                (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
+                                sendWarningMail(rsUsers.getString("handle"), "pwolfus@topcoder.com",
+                                        rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                        daysToBeDisqualified);
+    //                            sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
+    //                                    rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+    //                                    daysToBeDisqualified);
+                            }
+                        } else {
+                            log.debug("... ok");
+                        }
                     }
                 }
             }
 
             digestMail.append("\n-----------------------------------------------\n");
             digestMail.append("Successfully analyzed " + i + " active reviewers.\n");
+            digestMail.append("Successfully analyzed " + j + " inactive reviewers.\n");
             digestMail.append("Successfully disqualified " + disqualified + " reviewers.\n");
+            digestMail.append("Successfully qualified " + qualified + " reviewers.\n");
             digestMail.append("Successfully warned " + warnings + " reviewers.\n");
 
             // send digest mail for admin.
@@ -215,7 +249,9 @@ public class RBoardUtility extends DBUtility{
 
             log.debug("-----------------------------------------------");
             log.debug("Successfully analyzed " + i + " active reviewers.");
+            log.debug("Successfully analyzed " + j + " inactive reviewers.");
             log.debug("Successfully disqualified " + disqualified + " reviewers.");
+            log.debug("Successfully qualified " + qualified + " reviewers.");
             log.debug("Successfully warned " + warnings + " reviewers.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -240,6 +276,33 @@ public class RBoardUtility extends DBUtility{
         }
     }
 
+    private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
+        StringBuffer mail = new StringBuffer();
+        mail.append("Hello " + handle + ",\n\n");
+        mail.append("We are pleased to inform you that you have been reactivated for performing ");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
+        mail.append("Remember that to stay active you must complete at least one project ");
+        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
+        mail.append("development or design with a score equal or higher to 80 in each one.\n\n");
+        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
+        mail.append("Thank you, \nTopCoder Software.\n");
+
+        String emailSubject = "Review Board: Activation";
+
+        try {
+            digestMail.append(" Activated - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            if (userEmail != null && userEmail != ""){
+                sendMail(systemEmail, userEmail, emailSubject, mail.toString());
+                log.debug("Sending disq. mail to: " + userEmail);
+            } else{
+                log.debug("Warning!!! null email for: " + handle);
+                digestMail.append("Warning!!! null email for: " + handle + "\n********************** \n\n");
+            }
+        } catch (Exception e) {
+            throw new Exception("Unable to send mails.", e);
+        }
+    }
+
     private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName) throws Exception {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -257,7 +320,7 @@ public class RBoardUtility extends DBUtility{
         String emailSubject = "Review Board: Disqualification";
 
         try {
-            digestMail.append(" - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            digestMail.append(" Disqualified - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != ""){
                 sendMail(systemEmail, userEmail, emailSubject, mail.toString());
                 log.debug("Sending disq. mail to: " + userEmail);
