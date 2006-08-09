@@ -6,7 +6,7 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("reliability_detail");%>
+<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 
 <head>
     <title>Contest Status</title>
@@ -54,7 +54,7 @@
                     <td class="headerC">
                         Catalog
                     </td>
-                    <td class="header" colspan="2">
+                    <td class="header">
                         Contest
                     </td>
                     <td class="headerC" nowrap="nowrap">
