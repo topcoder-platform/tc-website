@@ -8,8 +8,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 <% String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    String phaseId = (String) request.getParameter(Constants.PHASE_ID);
-    String coderId = (String) request.getParameter(Constants.CODER_ID);%>
+    String phaseId = (String) request.getAttribute(Constants.PHASE_ID);
+    String coderId = (String) request.getAttribute(Constants.CODER_ID);%>
 
 <head>
     <title>Contest Status</title>
