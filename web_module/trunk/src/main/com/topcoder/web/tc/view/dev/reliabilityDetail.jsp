@@ -4,10 +4,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% ResultSetContainer contests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("reliability_detail");%>
+<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("reliability_detail");%>
 
 <head>
     <title>Contest Status</title>
