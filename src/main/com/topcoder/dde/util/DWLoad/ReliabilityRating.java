@@ -121,7 +121,8 @@ public class ReliabilityRating {
     private static final String insertUserReliability =
             "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
 
-    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = null";
+    private static final String clearCurrentReliability = "update project_result set current_reliability_ind = null where project_id in " +
+            "(select project_id from project where project_type_id+111 = ? and cur_version = 1)";
 
     /**
      * go through the list of users and do two things.
@@ -149,6 +150,7 @@ public class ReliabilityRating {
             insert = conn.prepareStatement(insertUserReliability);
             update = conn.prepareStatement(updateUserReliability);
             clear = conn.prepareStatement(clearCurrentReliability);
+            clear.setInt(1, phaseId);
 
             clear.executeUpdate();
 
