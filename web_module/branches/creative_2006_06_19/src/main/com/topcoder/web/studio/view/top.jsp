@@ -17,6 +17,9 @@
                 <c:choose>
                     <c:when test="${sessionInfo.anonymous}">
 
+<div style="float:right;" class="small">
+<A href="/reg/">Register now!</A>
+</div>
 <strong>Member Login:</strong><br>
 <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
 <input type="hidden" name="module" value="Login">
