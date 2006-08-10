@@ -35,7 +35,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
             if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                 Date now = new Date();
-                if (contest.getStartTime().before(now) && contest.getEndTime().after(now)) {
+                if (contest.getStartTime().before(now)) {
                     getRequest().setAttribute("contest", contest);
                 } else {
                     throw new NavigationException("Inactive contest specified.");
