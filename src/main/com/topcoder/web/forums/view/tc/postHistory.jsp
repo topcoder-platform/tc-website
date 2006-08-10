@@ -104,7 +104,7 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <div class="topLinksL">
-   <strong><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong> 
+   <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong> 
    </div>
    <div class="topLinksR">
    <%  if (user.getUsername() == historyUser.getUsername()) { %>
