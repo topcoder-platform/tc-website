@@ -34,7 +34,7 @@
 
                 <div class="breadcrumb">
                     <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A> &gt;
-                    Contest Name
+                    ${contest.name}
                 </div>
 
                 <h1>Submit Your Design</h1>

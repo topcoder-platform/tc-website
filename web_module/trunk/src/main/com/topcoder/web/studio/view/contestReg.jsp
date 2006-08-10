@@ -32,7 +32,7 @@
 
                 <div class="breadcrumb">
                     <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A>
-                    > Contest Name
+                    &gt; ${contest.name}
                 </div>
 
                 <h1>Contest Registration</h1>
