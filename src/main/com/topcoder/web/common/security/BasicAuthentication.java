@@ -37,6 +37,7 @@ public class BasicAuthentication implements WebAuthentication {
     private User guest = SimpleUser.createGuest();
     protected Resource defaultCookiePath;
     protected String dataSource;
+    private boolean knownUser;
 
     public static final Resource CORP_SITE = new SimpleResource("corp");
     public static final Resource MAIN_SITE = new SimpleResource("main");
