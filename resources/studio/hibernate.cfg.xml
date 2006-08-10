@@ -53,9 +53,15 @@
         <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
@@ -69,6 +75,7 @@
         <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
