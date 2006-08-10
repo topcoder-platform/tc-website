@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
  */
-package com.topcoder.utilities.sql;
+package com.topcoder.utilities.tcs;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
