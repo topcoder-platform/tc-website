@@ -154,6 +154,10 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE =
         "No user exists with the specified handle.";
+    public final static String ERR_NO_POLL_ANSWER = 
+    	"Please select an answer.";
+    public final static String ERR_NO_POLL_ANSWERS = 
+    	"Please select one or more answers.";
 
     // Occur when attempting to change the query string while posting a message
     public final static String ERR_POST_MODE_UNRECOGNIZED = "Post mode unrecognized.";
