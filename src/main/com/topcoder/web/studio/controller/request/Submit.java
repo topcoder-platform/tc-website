@@ -126,6 +126,7 @@ public class Submit extends ShortHibernateProcessor {
                     cFactory.getSubmissionDAO().saveOrUpdate(s);
                     markForCommit();
 
+                    getRequest().setAttribute("contest", c);
                     setNextPage("/submissionSuccess.jsp");
                     setIsNextPageInContext(true);
                 }
