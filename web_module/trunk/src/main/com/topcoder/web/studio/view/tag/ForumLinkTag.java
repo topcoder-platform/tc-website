@@ -14,8 +14,13 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 
 public class ForumLinkTag extends TagSupport {
-    private long forumID = -1;
-    private String message = "";
+    private long forumID;
+    private String message;
+
+    public ForumLinkTag() {
+        super();
+        init();
+    }
 
     public int doStartTag() throws JspException {
         StringBuffer ret = new StringBuffer(150);
@@ -53,8 +58,7 @@ public class ForumLinkTag extends TagSupport {
     }
 
     public int doEndTag() throws JspException {
-        forumID = -1;
-        message = "";
+        init();
         return super.doEndTag();
     }
 }
