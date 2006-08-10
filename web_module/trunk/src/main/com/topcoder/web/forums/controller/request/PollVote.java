@@ -8,6 +8,7 @@ import com.jivesoftware.base.Poll;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import java.util.Iterator;
 
 /**
  * @author mtong
@@ -41,13 +42,22 @@ public class PollVote extends ForumsProcessor {
 		
 		int[] voteCounts = new int[poll.getOptionCount()];
 		for (int i=0; i<voteCounts.length; i++) {
-			voteCounts[i] = poll.getUserVoteCount(i);	// not working properly in Jive 4.2.5 - look for update
+			voteCounts[i] = poll.getUserVoteCount(i);	
+		}
+		
+		// In Jive 4.2.5, poll.getUserVoteCount() does not return the number of users who have voted, but
+		// the total number of votes. It should be used instead of the following block after being updated.
+		int numVoters = 0;	
+		Iterator itUserVotes = poll.getUserVotes();
+		while (itUserVotes.hasNext()) {
+			numVoters++;
+			itUserVotes.next();
 		}
 		
 		getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
         getResponse().getOutputStream().write(ForumsUtil.asciiGetBytes
-                (getXML(pollID, poll.getUserVoteCount(), voteCounts)));
+                (getXML(pollID, numVoters, voteCounts)));
         getResponse().flushBuffer();
 	}
 	
