@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="studio.tld" prefix="studio" %>
 
 <html>
 <head>
@@ -12,44 +13,46 @@
 </head>
 
 <div align="center">
-   <div class="contentOut">
-      <jsp:include page="top.jsp">
-          <jsp:param name="section" value="default"/>
-      </jsp:include>
-      <jsp:include page="topNav.jsp">
-          <jsp:param name="node" value="contests"/>
-      </jsp:include>
-      <div class="contentIn">
-         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
-         <div class="contentSpacer">
+    <div class="contentOut">
+        <jsp:include page="top.jsp">
+            <jsp:param name="section" value="default"/>
+        </jsp:include>
+        <jsp:include page="topNav.jsp">
+            <jsp:param name="node" value="contests"/>
+        </jsp:include>
+        <div class="contentIn">
+            <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
 
-        <div class="linkBox"><A href="">discuss this</A></div>
+            <div class="contentSpacer">
 
-        <div class="breadcrumb">
-            <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A>
-            > Contest Name
-        </div>
+                <div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
-        <h1>Submission Successfully Uploaded</h1>
+                <div class="breadcrumb">
+                    <A href="${sessionInfo.servletPath}?module=Static&d1=activeContests">Active Contests</A>
+                    > Contest Name
+                </div>
 
-        <div align="center">
-            <div align="left" style="width:500px;">
-                Your Submission Has Been Uploaded
-                <br><br>
-                Please allow at least 24 hours for processing. If your submission does not pass screening, you will receive an
-                email with a list of any requirements that it failed to meet.
-                <br><br>
-                Thank you.
-                <br><br>
+                <h1>Submission Successfully Uploaded</h1>
+
+                <div align="center">
+                    <div align="left" style="width:500px;">
+                        Your Submission Has Been Uploaded
+                        <br><br>
+                        Please allow at least 24 hours for processing. If your submission does not pass screening, you
+                        will receive an
+                        email with a list of any requirements that it failed to meet.
+                        <br><br>
+                        Thank you.
+                        <br><br>
+                    </div>
+                </div>
+
             </div>
+            <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
-
-         </div>
-         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
-      </div>
-      <jsp:include page="foot.jsp"/>
-      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
-   </div>
+        <jsp:include page="foot.jsp"/>
+        <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+    </div>
 </div>
 
 </body>

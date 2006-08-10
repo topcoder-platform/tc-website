@@ -11,6 +11,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 
+import java.util.Date;
 import java.util.Iterator;
 
 /**
@@ -32,8 +33,13 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
 
-            if (ContestStatus.ACTIVE.equals(contest.getStatus().getId()) || isAdmin()) {
-                getRequest().setAttribute("contest", contest);
+            if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
+                Date now = new Date();
+                if (contest.getStartTime().before(now) && contest.getEndTime().after(now)) {
+                    getRequest().setAttribute("contest", contest);
+                } else {
+                    throw new NavigationException("Inactive contest specified.");
+                }
             } else {
                 throw new NavigationException("Invalid contest specified.");
             }
