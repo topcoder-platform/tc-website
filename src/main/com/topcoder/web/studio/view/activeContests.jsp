@@ -37,12 +37,15 @@
                 <h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get
                     started</A></strong></h2>
 
-<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
-  <tr>
-      <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>Active Contests</span></A></td>
-      <td width="50%"><A href="/?module=ViewPastContests" class="statTabLinkOff"><span>Past Contests</span></A></td>
-  </tr>
-</table>
+                <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
+                    <tr>
+                        <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>Active Contests</span></A>
+                        </td>
+                        <td width="50%">
+                            <A href="/?module=ViewPastContests" class="statTabLinkOff"><span>Past Contests</span></A>
+                        </td>
+                    </tr>
+                </table>
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
                     <tbody>
                         <tr>
@@ -79,7 +82,7 @@
                                 <td class="valueC">
                                     <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
                                 <td class="valueR">
-                                    <rsc:item name="end_time" row="<%=resultRow%>" format="$0.00" ifNull=""/></td>
+                                    <rsc:item name="amount" row="<%=resultRow%>" format="$0.00" ifNull=""/></td>
                                 <td class="valueC">
                                     <div align="right">
                                         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
