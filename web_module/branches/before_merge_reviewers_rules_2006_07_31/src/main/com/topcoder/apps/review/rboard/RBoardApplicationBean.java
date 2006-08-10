@@ -46,10 +46,16 @@ import com.topcoder.shared.util.logging.Logger;
  * Bean was moved from tc to tcs site and was updated to centralize all RBoard operations.
  * </li>
  * </ol>
+ * Version 1.0.2 Change notes:
+ * <ol>
+ * <li>
+ * Schema was changed to allow reviewers for particular technologies.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.1
+ * @version 1.0.2
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int FINAL_REVIEWER_ROLE_ID = 5;
@@ -57,12 +63,6 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int PRIMARY_SCREENER_ROLE_ID = 2;
     private static final int REVIEWER_ROLE_ID = 3;
     private static final int INTERNAL_ADMIN_USER = 100129;
-    private static final int JAVA_CATALOG_ID = 5801776;
-    private static final int DOT_NET_CATALOG_ID = 5801777;
-    private static final int CUSTOM_JAVA_CATALOG_ID = 5801778;
-    private static final int CUSTOM_DOT_NET_CATALOG_ID = 5801779;
-    private static final int FLASH_CATALOG_ID = 8459260;
-    private static final int APPLICATIONS_CATALOG_ID = 9926572;
     private static final int ACTIVE_REVIEWER = 100;
     private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
 
@@ -490,7 +490,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param phaseId the type of the project
      * @throws RBoardRegistrationException when validations fails
      */
-    public void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
+    public void validateUser(String dataSource, int rootCategory, int reviewTypeId, long userId, int phaseId) throws RBoardRegistrationException {
 
         log.debug("validateUser called...");
 
@@ -502,11 +502,18 @@ public class RBoardApplicationBean extends BaseEJB {
             Map reviewRespMap = null;
             reviewRespMap = getReviewRespInfo(conn);
 
+            long catalogId = 0;
+            try {
+                catalogId = getCatalogId(conn, rootCategory);
+            } catch (RowNotFoundException rnfe) {
+                throw new RBoardRegistrationException("Invalid request. Unknown review category.");
+            }
+
             long status = 0;
             try {
-                status = getStatus(conn, userId, phaseId);
+                status = getStatus(conn, userId, phaseId, catalogId);
             } catch (RowNotFoundException rnfe) {
-                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
+                throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId) + " reviewer.  Please contact TopCoder if you would like to become one.");
             }
 
             if (status != ACTIVE_REVIEWER) {
@@ -516,34 +523,6 @@ public class RBoardApplicationBean extends BaseEJB {
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
                     !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
                 throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-            }
-
-            try {
-                if (catalog == JAVA_CATALOG_ID || catalog == CUSTOM_JAVA_CATALOG_ID) {
-                    if (!canReviewJava(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Java reviewer");
-                    }
-                } else if (catalog == DOT_NET_CATALOG_ID || catalog == CUSTOM_DOT_NET_CATALOG_ID) {
-                    if (!canReviewDotNet(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a .Net reviewer");
-                    }
-                } else if (catalog == FLASH_CATALOG_ID) {
-                    if (!canReviewFlash(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Flash reviewer");
-                    }
-                } else if (catalog == APPLICATIONS_CATALOG_ID) {
-                    if (!canReviewApplication(conn, userId, phaseId)) {
-                        throw new RBoardRegistrationException("Sorry, you can not review this project because " +
-                                "you are not a Application reviewer");
-                    }
-                } else {
-                    throw new EJBException("unknown catalog found " + catalog);
-                }
-            } catch (RowNotFoundException enfe) {
-                throw new RBoardRegistrationException("Sorry, you are not a reviewer.  Please contact TopCoder if you would like to become one.");
             }
         } catch (SQLException sqle) {
             throw (new EJBException(sqle));
@@ -711,88 +690,58 @@ public class RBoardApplicationBean extends BaseEJB {
         return returnMap;
     }
 
+
+    /**
+     * Retrieves a particular category's catalog id.
+     *
+     * @param conn the connection being used
+     * @param catalogId the category being inspected
+     * @return the catalog's ID.
+     *
+     * @since 1.0.2
+     */
+    private long getCatalogId(Connection conn, long categoryId) {
+        return selectLong(conn,
+            "catalog_category_xref ccx",
+            "catalog_id",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(categoryId)}).intValue();
+    }
+
+
+    /**
+     * Retrieves a particular catalog name.
+     *
+     * @param conn the connection being used
+     * @param catalogId the catalog's ID
+     * @return the catalog's name.
+     *
+     * @since 1.0.2
+     */
+    private String getCatalogName(Connection conn, long catalogId) {
+        return selectString(conn,
+            "catalog",
+            "catalog_name",
+            new String[] { "category_id" },
+            new String[] { String.valueOf(catalogId)});
+    }
+
     /**
      * Retrieves the reviewer status of a particular user
      *
      * @param conn the connection being used
      * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
+     * @param projectType the project type to inspect
+     * @param projectType the catalogId to review
      * @return the status of the reviewer
      */
-    private long getStatus(Connection conn, long userId, int phaseId) {
+    private long getStatus(Connection conn, long userId, int projectType, long catalogId) {
         return selectLong(conn,
-            "rboard_user",
+            "rboard_user2",
             "status_id",
-            new String[] { "user_id", "phase_id" },
-            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue();
-    }
-
-    /**
-     * Retrieves if a particular user can review Java
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review Java
-     */
-    private boolean canReviewJava(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-            "rboard_user",
-            "java_ind",
-            new String[] { "user_id", "phase_id" },
-            new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-    }
-
-    /**
-     * Retrieves if a particular user can review DotNet
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review DotNet
-     */
-    private boolean canReviewDotNet(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "net_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
-    }
-
-    /**
-     * Retrieves if a particular user can review Flash
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review Flash
-     */
-    private boolean canReviewFlash(Connection conn, long userId, int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "flash_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
-    }
-
-    /**
-     * Retrieves if a particular user can review applications
-     *
-     * @param conn the connection being used
-     * @param userId the user id to inspect
-     * @param phaseId the project type to inspect
-     * @return true if the user can review applications
-     */
-    private boolean canReviewApplication(Connection conn, long userId,
-            int phaseId) {
-        return selectLong(conn,
-                "rboard_user",
-                "application_ind",
-                new String[] { "user_id", "phase_id" },
-                new String[] { String.valueOf(userId), String.valueOf(phaseId) }).intValue() == 1;
-
+            new String[] { "user_id", "project_type_id", "catalog_id" },
+            new String[] { String.valueOf(userId), String.valueOf(projectType),
+                String.valueOf(catalogId)}).intValue();
     }
 
     /**
