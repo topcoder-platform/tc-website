@@ -24,12 +24,6 @@
     WatchManager watchManager = forumFactory.getWatchManager();
     String trackerClass = ""; %>
 
-<style type="text/css">
-<!--
-.rtDesc { font-size: 11px; }
--->
-</style>
-
 <html>
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>

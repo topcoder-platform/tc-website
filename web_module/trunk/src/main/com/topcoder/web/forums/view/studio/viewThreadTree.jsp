@@ -256,7 +256,7 @@ function displayVotes(messageID, posVotes, negVotes) {
       <td class="rtThreadCellWrap">
       <%  boolean active = message.getID() == activeMessage.getID();
          int depth=thread.getTreeWalker().getMessageDepth(message);
-         int width=Math.min(depth*10, 500);
+         int width=Math.min(depth*10, 400);
       if (depth > 0) { %><img src="/images/clear.gif" width="<%=width%>" height="1"/><% } %>
       <% if (active) { %>
          <b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></b></td>

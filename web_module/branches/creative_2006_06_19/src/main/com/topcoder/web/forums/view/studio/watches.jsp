@@ -55,10 +55,10 @@
 </tr>
 </table>
 
-<b><A href="" class="rtbcLink">Forums</A> > My Watches (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
-<br>All watch updates will be emailed to your email address: <b><jsp:getProperty name="user" property="email"/></b>.
+<b><A href="?module=Main" class="rtbcLink">Forums</A> > My Watches (<%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%> threads)</b>
+<br><span class="small">All watch updates will be emailed to your email address: <b><jsp:getProperty name="user" property="email"/></b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list.
-To prevent any watch from being automatically deleted, toggle the "save" option.
+To prevent any watch from being automatically deleted, toggle the "save" option.</span>
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Watches"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCHLIST_STATUS%>"/>

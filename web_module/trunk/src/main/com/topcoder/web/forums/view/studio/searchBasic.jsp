@@ -77,7 +77,7 @@ function noenter(e)
 	</td>
 </tr>
 </table>
-<b><a href="" class="rtbcLink">Forums</a> > Search</b><br><br>
+<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b><br><br>
 
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp"></jsp:include>
