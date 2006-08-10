@@ -29,17 +29,13 @@
         <div class="contentIn">
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
             <div class="contentSpacer">
-                <div class="breadcrumb">
-                    Active Contests
-                </div>
+
+<h1>Active Contests</h1>
 
 
-                <h1>Active Contests</h1>
+<h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get started</A></strong></h2>
 
-
-                <h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get started</A></strong></h2>
-
-<table class="stat" cellpadding="0" cellspacing="0" style="width:760px">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
   <tbody>
       <tr>
           <td class="NW">&nbsp;</td>
