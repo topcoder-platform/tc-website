@@ -77,7 +77,7 @@ function noenter(e)
 </tr>
 <tr>
 	<td colspan="3" style="padding-bottom:2px;">
-		<b><a href="" class="rtbcLink">Forums</a> > Search</b>
+		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
 	</td>
 </tr>
 </table>

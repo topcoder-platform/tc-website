@@ -95,7 +95,7 @@ function toggleTabs(anchor,id) {
 </tr>
 <tr>
 	<td colspan="2" style="padding-bottom:3px;">
-		<b><A href="" class="rtbcLink">Forums</A> > User Settings</b>
+		<b><A href="?module=Main" class="rtbcLink">Forums</A> > User Settings</b>
 	</td>
 </tr>
 </table>

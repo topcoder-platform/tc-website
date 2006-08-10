@@ -57,7 +57,7 @@
    </tr>
    <tr>
       <td colspan="3" style="padding-bottom:3px;"><b>
-		<a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Administration
+		<a href="?module=Main" class="rtbcLink">Forums</a> > Administration
       </b></td>
    </tr>
 </table>

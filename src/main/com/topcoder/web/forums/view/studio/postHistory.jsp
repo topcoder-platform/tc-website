@@ -102,7 +102,7 @@
 	</tr>
 	<tr>
 	   <td colspan="2" style="padding-bottom:3px;">
-			<strong><a href="" class="rtbcLink">Forums</a> > Post History: <tc-webtag:studioHandle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
+			<strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History: <tc-webtag:studioHandle coderId="<%=historyUser.getID()%>"/> (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
 	   </td>
 	   <% if (paginator.getNumPages() > 1) { %>
 	   <td class="rtbc" width="100%" align="right" nowrap="nowrap" style="padding-bottom:3px;"><b>
