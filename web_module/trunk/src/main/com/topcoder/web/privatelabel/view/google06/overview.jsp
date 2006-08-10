@@ -64,7 +64,7 @@
          The tournament is a timed contest where all participants compete online to solve the same problems under the
          same time constraints.
          <br><br>
-         The competition is available in five programming languages - Java, C++, C#, VB.net and Python.
+         The competition is available in five programming languages - Java, C++, C#, VB.NET and Python.
          <br><br>
          Learn how to participate by reading the
          <a href="/pl/?&module=Static&d1=google06&d2=instructions">instructions</a>.

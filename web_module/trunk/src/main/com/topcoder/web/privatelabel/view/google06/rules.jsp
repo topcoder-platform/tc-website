@@ -166,6 +166,11 @@
 The use of external TopCoder Arena plugins or any modifications to the TopCoder Arena functionality is strictly
 prohibited.
 <br><br>
+<b>Languages</b><br>
+The competition is available in five programming languages - Java, C++, C#, VB.NET and Python.
+<br><br>
+<b>NOTE:</b> All submissions have a maximum of 2 seconds of runtime per test case.  This limit is used in harder problems to force submissions to be of a certain complexity.  Because of the inherent speed differences between Python and the other offered languages is large, some problems may require extra optimization or not be solvable using the Python language.
+<br><br>
 <b>Online Elimination Rounds</b><br>
 Everyone who competes in the online elimination rounds must log in to the TopCoder Competition Arena no later than ten
 minutes prior to the start of the online round. All start times will be communicated as EDT (GMT/UTC -4), so contestants
