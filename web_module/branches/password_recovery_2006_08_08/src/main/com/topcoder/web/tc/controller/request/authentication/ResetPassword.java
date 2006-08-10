@@ -36,7 +36,7 @@ public class ResetPassword extends ShortHibernateProcessor {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
 
-	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString()).getBytes();
+	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().getTime()).getBytes();
 	        byte[] raw = md.digest(plain);
 	        StringBuffer hex = new StringBuffer();
 	        for (int i = 0; i < raw.length; i++)
@@ -47,7 +47,7 @@ public class ResetPassword extends ShortHibernateProcessor {
 			throw new TCWebException("Can't hash with md5.", e);
 		}
 		
-		if (hash != hc) {
+		if (hash.equals(hc)) {
 			throw new TCWebException("Invalid hashcode.");
 		}
 		

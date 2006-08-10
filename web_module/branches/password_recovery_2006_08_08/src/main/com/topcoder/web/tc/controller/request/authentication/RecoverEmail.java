@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.GregorianCalendar;
 
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.ShortHibernateProcessor;
@@ -45,7 +46,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
-	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString()).getBytes();
+	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().getTime()).getBytes();
 	        byte[] raw = md.digest(plain);
 	        StringBuffer hex = new StringBuffer();
 	        for (int i = 0; i < raw.length; i++)
@@ -57,9 +58,16 @@ public class RecoverEmail extends ShortHibernateProcessor {
 		}
 		
 		try {
+            StringBuffer msgText = new StringBuffer(1000);
+            msgText.append("In order to reactivate your account please go to the following URL: \n\n");
+            msgText.append("http://");
+            msgText.append(ApplicationServer.SERVER_NAME);
+            msgText.append("/tc?module=Static&d1=authentication&d2=resetPassword&pr=" + pr.getId() + "&hc=" + hash);
+            
 	        TCSEmailMessage mail = new TCSEmailMessage();
 	        mail.setSubject("TopCoder Password Recovery");
-	        mail.setBody("www.topcoder.com/tc?module=Static&d1=authentication&d2=resetPassword&pr=" + pr.getId() + "&hc=" + hash);
+	        mail.setBody(msgText.toString());
+	        		
 	        mail.setToAddress(pr.getRecoveryAddress(), TCSEmailMessage.TO);
 	        mail.setFromAddress("no_reply@topcoder.com");
 	        EmailEngine.send(mail);
