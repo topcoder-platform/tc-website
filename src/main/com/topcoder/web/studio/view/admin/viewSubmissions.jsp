@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder FX</title>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script language="JavaScript"><!--
     function next() {
@@ -43,21 +43,21 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
-
-<jsp:include page="adminLeft.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
-
-<div class="contentOuter">
-<div class="contentInner">
+<div align="center">
+   <div class="contentOut">
+      <jsp:include page="../top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="../topNav.jsp">
+          <jsp:param name="node" value="contests"/>
+      </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
 <h1>Submission List</h1>
 
 <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
-<div class="tableHolder">
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="GET" name="subForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminViewSubmissions"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -69,7 +69,7 @@
 <input type="hidden" name="<%=Constants.HANDLE%>" value=""/>
 
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
 <tbody>
 <tr>
     <td class="title" colspan="7">Showing ${count} Submissions for ${contest.name}</td>
@@ -215,10 +215,14 @@
 
 </tbody>
 </table>
+
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="../foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
 
-<jsp:include page="../foot.jsp"/>
-</div>
-</div>
 </body>
 </html>
