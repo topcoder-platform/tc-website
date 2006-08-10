@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page contentType="text/html;charset=utf-8" %>

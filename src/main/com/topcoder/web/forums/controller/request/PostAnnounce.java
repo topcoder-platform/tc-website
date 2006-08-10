@@ -8,7 +8,6 @@ import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.Announcement;
 import com.jivesoftware.forum.AnnouncementManager;
-import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ForumNotFoundException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -31,7 +30,7 @@ public class PostAnnounce extends ForumsProcessor {
         }
    
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage("?module=ForumList");
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }

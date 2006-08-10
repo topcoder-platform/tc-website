@@ -2,7 +2,6 @@ package com.topcoder.web.common.tag;
 
 
 public class TextAreaTag extends BaseTag {
-    private String id = null;
     private int cols = -1;
     private int rows = -1;
     private String wrap = null;
@@ -63,10 +62,6 @@ public class TextAreaTag extends BaseTag {
         return SKIP_BODY;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-    
     public void setCols(int cols) {
         this.cols = cols;
     }
@@ -86,11 +81,11 @@ public class TextAreaTag extends BaseTag {
     public void setOnChange(String onChange) {
         this.onChange = onChange;
     }
-    
+
     public void setOnKeyDown(String onKeyDown) {
         this.onKeyDown = onKeyDown;
     }
-    
+
     public void setOnKeyUp(String onKeyUp) {
         this.onKeyUp = onKeyUp;
     }
@@ -104,7 +99,6 @@ public class TextAreaTag extends BaseTag {
     }
 
     protected void init() {
-        this.id = null;
         this.cols = -1;
         this.rows = -1;
         this.wrap = null;

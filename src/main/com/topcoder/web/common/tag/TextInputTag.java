@@ -1,14 +1,14 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
-import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.StringUtils;
 
-import java.util.Date;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 public class TextInputTag extends BaseTag {
@@ -40,6 +40,9 @@ public class TextInputTag extends BaseTag {
             }
             if (styleClass != null) {
                 ret.append("class=\"").append(styleClass).append("\" ");
+            }
+            if (id != null) {
+                ret.append("id=\"").append(id).append("\" ");
             }
             if (onKeyPress != null) {
                 ret.append("onKeyPress=\"").append(onKeyPress).append("\" ");
@@ -78,26 +81,27 @@ public class TextInputTag extends BaseTag {
                         new NumberFormatMethod(format), true);
             } else if (object instanceof Date) {
                 Calendar cal = Calendar.getInstance();
-                if (timeZone!=null) {
-                    object = DateUtils.getConvertedDate((Date)object, timeZone);
+                if (timeZone != null) {
+                    object = DateUtils.getConvertedDate((Date) object, timeZone);
                     cal.setTimeZone(TimeZone.getTimeZone(timeZone));
                 } else {
                     cal.setTimeZone(TimeZone.getDefault());
                 }
-                cal.setTime((Date)object);
+                cal.setTime((Date) object);
                 object = cal;
                 formatter.setFormatMethodForClass(Calendar.class,
                         new CalendarDateFormatMethod(format), true);
             }
         }
         formatter.setFormatMethodForClass(new Object().getClass(),
-                    FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+                FormatMethodFactory.getDefaultObjectFormatMethod(), true);
         if (escapeHtml) return StringUtils.htmlEncode(formatter.format(object));
         return formatter.format(object);
     }
 
     /**
      * Sets the value.
+     *
      * @param value The value to set
      */
     public void setValue(String value) {
@@ -106,6 +110,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the maxlength.
+     *
      * @param maxlength The maxlength to set
      */
     public void setMaxlength(int maxlength) {
@@ -114,6 +119,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the size.
+     *
      * @param size The size to set
      */
     public void setSize(int size) {
@@ -122,6 +128,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the passw.
+     *
      * @param passw The passw to set
      */
     public void setPassw(boolean passw) {
@@ -130,6 +137,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the aclass.
+     *
      * @param aclass The aclass to set
      */
     public void setStyleClass(String aclass) {
@@ -138,6 +146,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the onKeyPress.
+     *
      * @param onKeyPress The onKeyPress to set
      */
     public void setOnKeyPress(String onKeyPress) {
@@ -146,6 +155,7 @@ public class TextInputTag extends BaseTag {
 
     /**
      * Sets the editable.
+     *
      * @param edit The editable to set
      */
     public void setEditable(String edit) {
@@ -159,11 +169,11 @@ public class TextInputTag extends BaseTag {
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
     }
-    
+
     public void setEscapeHtml(boolean escapeHtml) {
         this.escapeHtml = escapeHtml;
     }
-    
+
     public void setEscapeHtml(String escapeHtml) {
         this.escapeHtml = String.valueOf(true).equalsIgnoreCase(escapeHtml);
     }
@@ -176,7 +186,7 @@ public class TextInputTag extends BaseTag {
         this.styleClass = null;
         this.onKeyPress = null;
         this.editable = true;
-        this.format =null;
+        this.format = null;
         this.escapeHtml = true;
     }
 

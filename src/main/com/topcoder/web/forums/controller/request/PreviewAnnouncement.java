@@ -26,7 +26,7 @@ public class PreviewAnnouncement extends ForumsProcessor {
         }
         
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage("?module=ForumList");
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }

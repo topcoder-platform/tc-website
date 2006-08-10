@@ -52,7 +52,12 @@ public class Main extends ForumsProcessor {
         getRequest().setAttribute("deepCategories", deepCategoryList);
         getRequest().setAttribute("resultFilter", resultFilter);
 
-        setNextPage("/main.jsp");
-        setIsNextPageInContext(true);
+        if (markRead.equals("t")) {
+        	setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+        	setIsNextPageInContext(false);
+        } else {
+        	setNextPage("/main.jsp");
+        	setIsNextPageInContext(true);
+        }
 	}
 }

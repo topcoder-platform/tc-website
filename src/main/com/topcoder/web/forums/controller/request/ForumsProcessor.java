@@ -139,6 +139,4 @@ public abstract class ForumsProcessor extends BaseProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
-
-
 }

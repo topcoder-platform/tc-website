@@ -68,6 +68,11 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 
     </tag>
     <tag>
@@ -432,6 +437,38 @@
     <tag>
         <name>handle</name>
         <tag-class>com.topcoder.web.common.tag.HandleTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>coderId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>darkBG</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>link</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>context</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+    
+    <tag>
+        <name>studioHandle</name>
+        <tag-class>com.topcoder.web.studio.view.tag.StudioHandleTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>coderId</name>

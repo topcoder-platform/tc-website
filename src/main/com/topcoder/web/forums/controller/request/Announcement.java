@@ -47,13 +47,16 @@ public class Announcement extends ForumsProcessor {
             announcement.setEndDate(null);
         } else if (annCmd.equals("Delete")) {
             announcementManager.deleteAnnouncement(announcement);
+            StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath());
             if (forum != null) {
-                setNextPage("?module=ThreadList&forumID=" + forum.getID() + "&mc=" + forum.getMessageCount());
+            	urlNext.append("?module=ThreadList&forumID=").append(forum.getID()).
+            		append("&mc=").append(forum.getMessageCount());
             } else if (forumCategory != null) {
-                setNextPage("?module=Category&categoryID=" + forumCategory.getID());
+            	urlNext.append("?module=Category&categoryID=").append(forumCategory.getID());
             } else {
-                setNextPage("?module=ForumList");
-            }            
+            	urlNext.append("?module=Main");
+            }        
+            setNextPage(urlNext.toString());
             setIsNextPageInContext(false);
             return;
         }

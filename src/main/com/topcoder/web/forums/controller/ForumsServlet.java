@@ -8,24 +8,27 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.StudioForumsAuthentication;
+import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Constructor;
 import java.util.Set;
 
 /**
@@ -35,6 +38,13 @@ import java.util.Set;
  */
 public class ForumsServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(ForumsServlet.class);
+
+    private static String AUTHENTICATION_IMPLEMENTATION;
+
+    public synchronized void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        AUTHENTICATION_IMPLEMENTATION = config.getInitParameter("authentication_implementation");
+    }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
@@ -111,7 +121,10 @@ public class ForumsServlet extends BaseServlet {
                     if (!isLegalCommand(cmd))
                         throw new NavigationException();
 
-                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+                    String processorName = getProcessor(cmd);
+                    if (processorName.indexOf(".") == -1) {
+                        processorName = PATH + (PATH.endsWith(".") ? "" : ".") + processorName;
+                    }
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating request processor for " + processorName);
@@ -131,7 +144,11 @@ public class ForumsServlet extends BaseServlet {
                         log.debug("caught PermissionException");
                     }
                     if (authentication.getUser().isAnonymous()) {
-                        handleLogin(request, response, info);
+                    	if (authentication instanceof TCForumsAuthentication) {
+                    		handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
+                    	} else if (authentication instanceof StudioForumsAuthentication) {
+                    		handleLogin(request, response, info, request.getServerName());
+                    	}
                         return;
                     } else {
                         if (log.isDebugEnabled()) {
@@ -166,10 +183,11 @@ public class ForumsServlet extends BaseServlet {
         }
     }
 
-    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+    protected void handleLogin(HttpServletRequest request, HttpServletResponse response,
+    		SessionInfo info, String serverName) throws Exception {
         /* forward to the login page, with a message and a way back */
-        StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.SERVER_NAME).append(LOGIN_SERVLET).append("?module=Login");
-
+        StringBuffer nextPage = new StringBuffer("http://").append(serverName).append(LOGIN_SERVLET).
+        	append("?module=").append(LOGIN_PROCESSOR);
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);
@@ -212,9 +230,12 @@ public class ForumsServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
+        Class authClass = Class.forName(AUTHENTICATION_IMPLEMENTATION);
+        Constructor c = authClass.getDeclaredConstructor(
+                new Class[]{Persistor.class, TCRequest.class, TCResponse.class});
+        return (WebAuthentication) c.newInstance(
+                new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
 
 }
-

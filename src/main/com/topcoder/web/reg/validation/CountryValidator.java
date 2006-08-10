@@ -24,4 +24,3 @@ public class CountryValidator implements Validator {
         }
     }
 }
-

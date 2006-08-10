@@ -9,8 +9,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 public class SortTag extends TagSupport {
 
@@ -40,25 +41,10 @@ public class SortTag extends TagSupport {
 
     public void setExcludeParams(String exclude) {
         //log.debug("exclude is " + exclude);
-
-        exclude = exclude + ";";
-        excludeParams = new HashSet();
-
-        int from = 0;
-        while(true) {
-           int pos = exclude.indexOf(";", from);
-
-           if(pos < 0) break;
-
-            //log.debug("adding " + exclude.substring(from,pos));
-           excludeParams.add(exclude.substring(from,pos));
-
-           from = pos + 1;
-
+        StringTokenizer st = new StringTokenizer(exclude, ";, ");
+        while (st.hasMoreTokens()) {
+            excludeParams.add(st.nextToken());
         }
-
-
-
     }
 
     public int doStartTag() throws JspException {
@@ -113,14 +99,16 @@ public class SortTag extends TagSupport {
                     String[] sArray = null;
                     if (value instanceof String) {
                         //don't add the sort params from the old request
-                        if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
+                        if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION))
+                        {
                             add(buf, key, value.toString());
                         }
                     } else if (value.getClass().isArray()) {
                         sArray = (String[]) value;
                         for (int i = 0; i < sArray.length; i++) {
                             //don't add the sort params from the old request
-                            if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION)) {
+                            if (!key.equals(DataAccessConstants.SORT_COLUMN) && !key.equals(DataAccessConstants.SORT_DIRECTION))
+                            {
                                 add(buf, key, sArray[i]);
                             }
                         }
