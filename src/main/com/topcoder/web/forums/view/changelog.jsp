@@ -48,7 +48,7 @@
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
     
-		<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Change Log</span>
+		<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Change Log</span>
 
 		<!-- Links to versions -->
 		
