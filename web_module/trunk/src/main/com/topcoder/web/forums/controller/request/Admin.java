@@ -3,9 +3,11 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.*;
-import com.jivesoftware.forum.*;
-import com.topcoder.common.web.data.Round;
+import com.jivesoftware.base.Log;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumMessageIterator;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -18,6 +20,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import com.jivesoftware.forum.ForumCategory;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;
@@ -40,7 +43,7 @@ public class Admin extends ForumsProcessor {
         }
 
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage("?module=ForumList");
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
             setIsNextPageInContext(false);
             return;
         }
