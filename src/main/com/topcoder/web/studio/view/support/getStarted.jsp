@@ -48,7 +48,7 @@ Once the project documentation has been completed by the client and formatted ap
 Anyone interested in participating in TopCoder Studio can read through the Active Contest page - no prior registration is necessary.  If there is a contest that you think a friend, co-worker or fellow designer might be interested in, please send them a link to the Active Contests page.</li>
 
 <li><strong>Registered TopCoder Studio members can download the full Project Specifications</strong><br>
-In order to read the specifications provided by the client, you must be a registered TopCoder Studio member.  Registration is free and easy and can be completed here.</li>
+In order to read the specifications provided by the client, you must be a registered TopCoder Studio member.  Registration is free and easy and can be completed <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">here</A>.</li>
 
 <li><strong>Registered TopCoder Studio members can submit their design(s)</strong><br>
 Once you've read through a Project's overview and specifications, it's time to work on your submission.  Designs can be submitted from the Project Details page and must conform to the requirements:
