@@ -1,7 +1,7 @@
 package com.topcoder.web.studio.view.tag;
 
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.common.WebConstants;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -13,7 +13,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  * Returns a link to the given forum, displaying its message count.
  */
 
-public class StudioForumLinkTag extends TagSupport {
+public class ForumLinkTag extends TagSupport {
     private long forumID = -1;
     private String message = "";
 
@@ -23,7 +23,7 @@ public class StudioForumLinkTag extends TagSupport {
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.STUDIO_SERVER_NAME).append("/forums");
-        url.append("?module=ThreadList&").append(ForumConstants.FORUM_ID).append("=").append(forumID);
+        url.append("?module=ThreadList&").append(WebConstants.FORUM_ID).append("=").append(forumID);
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
 
