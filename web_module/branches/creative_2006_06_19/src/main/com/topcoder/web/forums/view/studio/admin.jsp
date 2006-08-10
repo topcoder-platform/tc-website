@@ -1,5 +1,22 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.User,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.topcoder.common.web.data.Round,
+           		 java.util.Iterator,
+                 java.util.Enumeration"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%--  com.jivesoftware.base.PresenceManager presenceManager = forumFactory.getPresenceManager(); 
+    Iterator itOnline = presenceManager.getOnlineUsers(); --%>
 
 <html>
 <head>
@@ -39,80 +56,45 @@
        </td>
    </tr>
    <tr>
-      <td colspan="3" style="padding-bottom:3px;">
-      <strong>
-      <a class="rtbcLink" href="/">Forums</a>
-      &gt; Administration
-      </strong>
-      </td>
+      <td colspan="3" style="padding-bottom:3px;"><b>
+		<a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> > Administration
+      </b></td>
    </tr>
 </table>
 
-
-<form name="form1" method="post" action="/">
-<input name="module" value="Admin" type="hidden">
-<table class="rtTable" cellpadding="0" cellspacing="0">
-   <tbody><tr>
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<tc-webtag:hiddenInput name="module" value="Admin"/>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+   <tr>
       <td class="rtHeader" colspan="2">Admin Console</td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Command:</strong></td>
       <td class="rtTextCell100">
-
-        <select size="1" name="cmd">
-        
-                <option value="htmlEscape">Change angle brackets in old messages to HTML equivalents</option>
-        
-                <option value="Add test forums">Add test forums</option>
-        
-                <option value="Delete test forums">Delete test forums</option>
-        
-                <option value="createForumsAlgo">Create algorithm forums</option>
-        
-                <option value="deleteForumsAlgo">Delete empty algorithm forums</option>
-
-        
-                <option value="Create forum from EJB">Create forum from EJB</option>
-        
-                <option value="enableRatings">Enable ratings</option>
-        
-                <option value="enableRatingPerms">Enable rating permissions</option>
-        
+        <select size="1" name="<%=ForumConstants.ADMIN_COMMAND%>">
+        <%  String[] commandNames = { "Enable ratings" };
+            String[] commandValues = { ForumConstants.ADMIN_ENABLE_RATINGS };
+            for (int i=0; i<commandNames.length; i++) { %>
+                <option value="<%=commandValues[i]%>"><%=commandNames[i]%></option>
+        <%  } %>
         </select>
       </td>
    </tr>
+   <%--
    <tr>
-
-      <td class="rtTextCell" nowrap="nowrap"><strong>Contest:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Online users:</strong></td>
       <td class="rtTextCell100">
-        <select size="1" name="match">
-        
-                <option value="9994">SRM 314</option>
-        
-                <option value="9993">SRM 313</option>
-        
-                <option value="9992">SRM 312</option>
-        
-                <option value="9991">SRM 311</option>
-
-        
-                <option value="9990">SRM 310</option>
-        
-                <option value="9989">SRM 309</option>
-        
-                <option value="9988">SRM 308</option>
-        
-                <option value="9987">SRM 307</option>
-        </select>
+        <%  while (itOnline.hasNext()) { %>
+            <%  User u = (User)itOnline.next(); %>
+            <tc-webtag:handle coderId="<%=u.getID()%>"/><%  if (itOnline.hasNext()) { %>, <% } %>
+        <%  } %>
       </td>
    </tr>
-</tbody>
+   --%>
 </table>
-
 <div align="right">
-<input src="/i/roundTables/update.gif" alt="Update" type="image">
+<input type="image" src="/i/roundTables/update.gif" alt="Update" />
 </div></form>
-
             
          </div>
          <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />

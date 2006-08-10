@@ -156,8 +156,8 @@
 <div style="float:right;">
    <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img border="none" src="/i/interface/btn_rss.gif"/></a>
 </div>
-A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=Main&markRead=t" class="rtbcLink">(Mark all as read)</A><% } %><br>
-The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.
+<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=Main&markRead=t" class="rtbcLink">(Mark all as read)</A><% } %><br>
+The five most recent forums are displayed for each category other than Round Tables. Click a category's name to view its complete forum list.</span>
 
          </div>
          <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />

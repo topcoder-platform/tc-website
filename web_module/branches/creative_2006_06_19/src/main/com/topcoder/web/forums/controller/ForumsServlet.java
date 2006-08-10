@@ -16,6 +16,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.StudioForumsAuthentication;
+import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
@@ -124,7 +126,11 @@ public class ForumsServlet extends BaseServlet {
                 } catch (PermissionException pe) {
                     log.debug("caught PermissionException");
                     if (authentication.getUser().isAnonymous()) {
-                        handleLogin(request, response, info);
+                    	if (authentication instanceof TCForumsAuthentication) {
+                    		handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
+                    	} else if (authentication instanceof StudioForumsAuthentication) {
+                    		handleLogin(request, response, info, request.getServerName());
+                    	}
                         return;
                     } else {
                         log.debug("already logged in, rethrowing");
@@ -157,10 +163,11 @@ public class ForumsServlet extends BaseServlet {
         }
     }
 
-    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, 
+    		SessionInfo info, String serverName) throws Exception {
         /* forward to the login page, with a message and a way back */
-        StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.SERVER_NAME).append(LOGIN_SERVLET).append("?module=Login");
-
+        StringBuffer nextPage = new StringBuffer("http://").append(serverName).append(LOGIN_SERVLET).
+        	append("?module=").append(LOGIN_PROCESSOR);
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);

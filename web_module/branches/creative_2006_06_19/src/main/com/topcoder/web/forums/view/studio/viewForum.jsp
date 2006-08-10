@@ -236,7 +236,7 @@
 
 <div>
 <div style="float:right;"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="/i/interface/btn_rss.gif"/></a></div>
-A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><% } %>
+<span class="small">A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings. <%if (user!=null) {%><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark all as read)</A><% } %></span>
 </div>
 <%  } else { %>
     <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="bigRed">Be the first to post in this forum!</A></span>
