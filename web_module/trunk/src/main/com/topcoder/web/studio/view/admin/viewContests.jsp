@@ -47,7 +47,7 @@
                         <td class="header">Status</td>
                         <td class="headerC">Start</td>
                         <td class="headerC">End</td>
-                        <td class="headerC"></td>
+                        <td class="headerC">Submissions</td>
                         <td class="headerC"></td>
                          <td class="headerE"><div>&nbsp;</div></td>
                     </tr>
@@ -64,10 +64,10 @@
                                 <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
                             </td>
                             <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">5</a>
                             </td>
                             <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
+                                <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
                             </td>
                             <td class="valueE"><div>&nbsp;</div></td>
                         </tr>

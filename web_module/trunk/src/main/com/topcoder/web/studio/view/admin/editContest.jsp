@@ -83,7 +83,7 @@
    </tr>
    <tr>
       <td class="name" nowrap="nowrap">
-      Contest Start (Eastern Time):
+      Contest Start<br>(YYYY/MM/DD HH:MM Eastern Time):
       </td>
       <td class="value">
       <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/><button id="trigger<%=Constants.START_TIME%>">Set</button>
@@ -96,7 +96,7 @@
    </tr>
    <tr>
       <td class="name" nowrap="nowrap">
-      Contest End (Eastern Time):
+      Contest End<br>(YYYY/MM/DD HH:MM Eastern Time):
       </td>
       <td class="value">
       <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/><button id="trigger<%=Constants.END_TIME%>">Set</button>
