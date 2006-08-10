@@ -133,6 +133,8 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.SURNAME, getTrimmedParameter(Constants.SURNAME));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
+        ret.put(Constants.SECRET_QUESTION, getTrimmedParameter(Constants.SECRET_QUESTION));
+        ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
         ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
@@ -273,6 +275,12 @@ abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
         setDefault(Constants.PASSWORD, u.getPassword());
         setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
+        
+        if (u.getSecretQuestion() != null) {
+        	setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
+        	setDefault(Constants.SECRET_QUESTION_RESPONSE, u.getSecretQuestion().getResponse());
+        }
+        
         setDefault(Constants.HANDLE, u.getHandle());
         if (u.getContact() != null) {
             if (u.getContact().getCompany() != null) {
