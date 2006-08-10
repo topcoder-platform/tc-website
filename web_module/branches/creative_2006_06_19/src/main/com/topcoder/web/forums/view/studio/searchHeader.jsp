@@ -10,6 +10,7 @@
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     String queryTerms = com.topcoder.web.common.StringUtils.checkNull(request.getParameter("queryTerms")); %>
+<div style="margin-bottom:6px;">
 <form name="formSearch" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
@@ -22,3 +23,4 @@
 <A href="?module=Search" class="rtbcLink">Advanced Search</A>
 <% if (errors != null && errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
 </form>
+</div>

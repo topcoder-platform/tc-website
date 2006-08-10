@@ -110,21 +110,17 @@
       <jsp:include page="searchHeader.jsp" />
     </td>
    <td align="right" nowrap="nowrap" valign="top">
+      <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
        <%   if (ForumsUtil.isAdmin(user)) { %>
-                 <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A>&#160; |&#160;
+                 <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post Announcement</A> | 
        <%   } %>
-      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+      <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A><br>
    </td>
 </tr>
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
-       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
-       </tc-webtag:iterator>
-        <jsp:getProperty name="forum" property="name"/>
-    </td>
+<tr><td colspan="3" style="padding-bottom:3px;"><b>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
-   <td class="rtbc" align="right" style="padding-bottom:3px;"><b>
+   <div style="float:right;" class="rtbc"><b>
       <%  if (paginator.getPreviousPage()) { %>
          <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                << PREV</A>&#160;&#160;&#160;
@@ -143,8 +139,14 @@
       <%  if (paginator.getNextPage()) { %>
          &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT ></A>
         <%  } %>
-   </b></td></tr>
+      </b>
+   </div>
 <% } %>
+       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
+          <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> >
+       </tc-webtag:iterator>
+        <jsp:getProperty name="forum" property="name"/>
+    </td>
 </table>
             
 <%  if (forum.getThreadCount() > 0) { %>

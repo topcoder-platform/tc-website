@@ -106,22 +106,14 @@
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
        <jsp:include page="searchHeader.jsp" ></jsp:include>
     </td>
-    <td align="right" nowrap="nowrap" valign="top">
+    <td align="right" valign="top" nowrap="nowrap">
         <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
     </td>
 </tr>
-<tr><td colspan="2" style="padding-bottom:3px;"><b>
-    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-        <%  if (category.getID() != forumCategory.getID()) { %>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
-        <%  } else { %>
-            <jsp:getProperty name="category" property="name"/>
-        <%  } %> 
-    </tc-webtag:iterator>
-    </b></td>
+<tr><td colspan="3" style="padding-bottom:3px;"><b>
    <% Page[] pages; %>
    <% if (paginator.getNumPages() > 1) { %>
-      <td class="rtbc" align="right"><b>
+   <div style="float:right;" class="rtbc"><b>
          <%  if (paginator.getPreviousPage()) { %>
             <A href="<%=prevLink%>" class="rtbcLink">
                   << PREV</A>&#160;&#160;&#160;
@@ -140,8 +132,17 @@
          <%  if (paginator.getNextPage()) { %>
              &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
          <%  } %>
-      </b></td></tr>
+      </b>
+   </div>
    <% } %>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+        <%  if (category.getID() != forumCategory.getID()) { %>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<jsp:getProperty name="category" property="ID"/>" class="rtbcLink"><jsp:getProperty name="category" property="name"/></A> > 
+        <%  } else { %>
+            <jsp:getProperty name="category" property="name"/>
+        <%  } %> 
+    </tc-webtag:iterator>
+    </b></td>
 </tr>
 </table>
 
