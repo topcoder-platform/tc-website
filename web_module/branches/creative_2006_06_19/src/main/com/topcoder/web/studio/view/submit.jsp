@@ -9,22 +9,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
     <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
 </head>
 
 <body>
 
-<jsp:include page="top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
+      <jsp:include page="top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="topNav.jsp">
+          <jsp:param name="node" value="contests"/>
+      </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
-<jsp:include page="left.jsp">
-    <jsp:param name="node" value="active_contests"/>
-</jsp:include>
-
-<div class="contentOuter">
-    <div class="contentInner">
 
         <div class="linkBox"><A href="">discuss this</A></div>
 
@@ -48,7 +50,7 @@
 
                         <b>My design:</b><br><input type="file" name="<%=Constants.SUBMISSION%>">
                         <br><br>
-                        <button name="submit" value="submit" type="submit">Submit</button>
+                        <input type="image" src="/i/studio/layout/btn_submit.gif" onmouseover="this.src='/i/studio/layout/btn_submit_on.gif'" onmouseout="this.src='/i/studio/layout/btn_submit.gif'">
                         <br><br>
                         <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">${err}
                             <br></tc-webtag:errorIterator></span>
@@ -58,8 +60,13 @@
             </div>
         </div>
 
-        <jsp:include page="foot.jsp"/>
-    </div>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>
