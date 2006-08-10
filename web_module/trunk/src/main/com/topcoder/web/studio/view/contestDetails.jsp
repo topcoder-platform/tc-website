@@ -36,7 +36,7 @@
 <div class="contentSpacer">
 
 
-<div class="linkBox"><studio:forumLink forumID="${contest.forumId}%>"/></div>
+<div class="linkBox"><studio:forumLink forumID="${contest.forumId}"/></div>
 
 <div class="breadcrumb">
     <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A>
