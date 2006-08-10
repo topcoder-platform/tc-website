@@ -123,6 +123,7 @@ public class Constants implements WebConstants {
     public static String RECOVER_PASSWORD;
     public static String SECRET_QUESTION;
     public static String RESET_PASSWORD;
+    public static String RESET_PASSWORD_CONFIRM;
     public static String RECOVER_PASSWORD_CONFIRM;
     public static String EMAIL_SENT;
 

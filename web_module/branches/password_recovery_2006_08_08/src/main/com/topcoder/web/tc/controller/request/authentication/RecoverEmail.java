@@ -68,7 +68,8 @@ public class RecoverEmail extends ShortHibernateProcessor {
 		}
 
 
-        setNextPage(Constants.RECOVER_PASSWORD);
+		getRequest().setAttribute("email", pr.getRecoveryAddress());
+        setNextPage(Constants.RECOVER_PASSWORD_CONFIRM);
         setIsNextPageInContext(true);
     }
 

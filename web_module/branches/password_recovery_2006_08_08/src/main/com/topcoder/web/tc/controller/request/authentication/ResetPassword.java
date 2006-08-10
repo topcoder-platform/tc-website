@@ -59,8 +59,7 @@ public class ResetPassword extends ShortHibernateProcessor {
 		u.setPassword(pw);
 		DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 
-		getRequest().setAttribute("confirm", "true");
-        setNextPage(Constants.RESET_PASSWORD);
+        setNextPage(Constants.RESET_PASSWORD_CONFIRM);
         setIsNextPageInContext(true);
     }
 
