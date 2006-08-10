@@ -16,6 +16,8 @@
                 com.jivesoftware.forum.ReadTracker,
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
+                java.text.NumberFormat,
+                java.text.DecimalFormat,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -42,6 +44,7 @@
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
+    NumberFormat formatter = new DecimalFormat("0.00");
 
     String cmd = "";
     String watchMessage = "";
@@ -102,30 +105,45 @@ function rate(messageID, voteValue) {
 function poll(pollID, hasMultipleOptions, numOptions) {
 	var url = "?module=PollVote";
 	if (window.XMLHttpRequest) {
-       req = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-       req = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+		req = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+	}
     
-    var reqStr = "pollID="+pollID+"&";
-    if (hasMultipleOptions) {
-    	for (var i=0; i<numOptions; i++) {
-    		var el = document.getElementById("q"+poll.getID()+","+i);
-            if (el.checked) {
-               reqstr += el.name + "=" + el.value + "&";
-            }
-    	}
-    } else {
-        var el = document.getElementById("q"+poll.getID());
-        if (el.checked) {
-           reqstr += el.name + "=" + el.value + "&";
-        }
-    }
-	
-	req.open("POST", url, true);
-    req.onreadystatechange = callbackPollVote;
-    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	req.send(reqStr);
+	var reqStr = "pollID="+pollID+"&";
+	var answered = false;
+	if (hasMultipleOptions) {
+		for (var i=0; i<numOptions; i++) {
+			var el = document.getElementById("q"+pollID+","+i);
+ 			if (el.checked) {
+ 				reqStr += el.name + "=" + el.value + "&";
+ 				answered = true;
+  			}
+		}
+	} else {
+		var els = document.getElementsByName("q"+pollID);
+		for (var i=0; i<els.length; i++) {
+			if (els[i].checked) {
+				reqStr += els[i].name + "=" + els[i].value + "&";
+				answered = true;
+			}
+		}
+	}
+
+	if (answered) {
+		req.open("POST", url, true);
+		req.onreadystatechange = callbackPollVote;
+		req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		req.send(reqStr);
+	} else {
+		var pollVotingErrorID = 'pollVotingError'+pollID;
+		var pollVotingErrorEl = document.getElementById(pollVotingErrorID);
+		if (hasMultipleOptions) {
+			pollVotingErrorEl.innerHTML = 'Please select one or more answers.';
+		} else {
+			pollVotingErrorEl.innerHTML = 'Please select an answer.';
+		}
+	}
 }
 
 function callbackRating() {
@@ -141,30 +159,32 @@ function callbackRating() {
 
 function callbackPollVote() {
 	if (req.readyState == 4) {
-        if (req.status == 200) {
-            var pollID = req.responseXML.getElementsByTagName("pollID")[0].firstChild.nodeValue;
-            var numVoters = req.responseXML.getElementsByTagName("numVoters")[0].firstChild.nodeValue;
-            var voteCounts = req.responseXML.getElementsByTagName("voteCount");
-            for (var i=0; i<voteCounts.length; i++) {
-            	var voteCount = voteCounts[i].firstChild.nodeValue;                       
-	            var voteCountEl = document.getElementById("voteCount"+pollID+"_"+i);
-	    		voteCountEl.innerHTML = voteCount;
-	    		var votePctEl = document.getElementById("votePct"+pollID+"_"+i);
-	    		Number votePct = 100.0 * voteCount / numVoters;
-	    		votePctEl.innerHTML = votePct;
-	    		var votePctBarEl = document.getElementById("votePctBar"+pollID+"_"+i);
-	    		var votePctBarStr = "width:"+(Integer)votePct+"px;";
-	    		if ((Integer)votePct > 0) {
-	    			votePctBarEl.innerHTML = '<div class="resultsBar" style="' + votePctBarStr + '"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>';
-	    		} else {
-	    			votePctBarEl.innerHTML = '';
-	    		}
+		if (req.status == 200) {
+			var pollID = req.responseXML.getElementsByTagName("pollID")[0].firstChild.nodeValue;
+			var numVoters = req.responseXML.getElementsByTagName("numVoters")[0].firstChild.nodeValue;
+			var voteCounts = req.responseXML.getElementsByTagName("voteCount");
+			for (var i=0; i<voteCounts.length; i++) {
+				var voteCount = voteCounts[i].firstChild.nodeValue;                       
+				var voteCountEl = document.getElementById("voteCount"+pollID+"_"+i);
+				voteCountEl.innerHTML = voteCount;
+				var votePctEl = document.getElementById("votePct"+pollID+"_"+i);
+				var votePct = 100.0 * voteCount / numVoters;
+				votePctEl.innerHTML = votePct.toFixed(2) + "%";
+				var votePctBarEl = document.getElementById("votePctBar"+pollID+"_"+i);
+				var votePctBarStr = "width:"+parseInt(votePct)+"px;";
+				if (parseInt(votePct) > 0) {
+					votePctBarEl.innerHTML = '<div class="resultsBar" style="' + votePctBarStr + '"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>';
+				} else {
+					votePctBarEl.innerHTML = '';
+				}
 	            
-	            displayPoll(pollID, 'results');
-	            pollResultsFooterEl.style.display = 'none';
-	        }
-        }
-    }
+				displayPoll(pollID, 'results');
+				var pollResultsFooterID = 'pollResultsFooter'+pollID;
+				var pollResultsFooterEl = document.getElementById(pollResultsFooterID);
+				pollResultsFooterEl.style.display = 'none';
+			}
+		}
+	}
 }
 
 function displayVotes(messageID, posVotes, negVotes) {
@@ -365,6 +385,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
            			String pollVotingID = "pollVoting" + poll.getID(); 
            			String pollResultsID = "pollResults" + poll.getID();
            			String pollResultsFooterID = "pollResultsFooter" + poll.getID();
+        			String pollVotingErrorID = "pollVotingError" + poll.getID();
            			String pollVotingDisplay = (user != null && !poll.hasUserVoted(user))?"":"display:none";
            			String pollResultsDisplay = (user != null && !poll.hasUserVoted(user))?"display:none":"";
            			String pollResultsFooterDisplay = "display:none"; 
@@ -383,17 +404,18 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 	                        </td>
 	                        <td align="right">
 	                        	<%	if (poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)) { %>
-	                        		<input type="checkbox" name="<%="q"+poll.getID()+","+i%>"/>
+	                        		<input type="checkbox" id="<%="q"+poll.getID()+","+i%>" name="<%="q"+poll.getID()+","+i%>"/>
 	                        	<%	} else { %>
-	                            	<input type="radio" name="<%="q"+poll.getID()%>" value="<%=i%>"/>
+	                            	<input type="radio" id="<%="q"+poll.getID()%>" name="<%="q"+poll.getID()%>" value="<%=i%>"/>
 	                            <%	} %>
 	                        </td>
 	                     </tr>
 	                 <%	 } %>
 	                 <tr>
                      	<td colspan="2">
-                     		<img class="pointer" src="/i/answer.gif" alt="Vote" onclick="poll('<%=poll.getID()%>', <%=poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)%>, '<%=poll.getOptionCount()%>')"/>
-                     		<img class="pointer" src="/i/results.gif" alt="Results" onclick="displayPoll('<%=poll.getID()%>','results')"/>
+                     		<img style="vertical-align: middle" class="pointer" src="/i/answer.gif" alt="Vote" onclick="poll('<%=poll.getID()%>', <%=poll.isModeEnabled(Poll.MULTIPLE_SELECTIONS_ALLOWED)%>, <%=poll.getOptionCount()%>)"/>
+                     		<img style="vertical-align: middle" class="pointer" src="/i/results.gif" alt="Results" onclick="displayPoll('<%=poll.getID()%>','results')"/>
+                     		&#160;&#160;<span id="<%=pollVotingErrorID%>" class="bigRed"></span>
                      	</td>
                      </tr>  
                     </table>
@@ -419,17 +441,17 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         <td class="value" style="padding-bottom: 10px;">
                         	<%=poll.getOption(i)%>
                         </td>
-                        <td class="valueR" id="<%=voteCountID%>>
+                        <td class="valueR" id="<%=voteCountID%>">
                         	<%=poll.getUserVoteCount(i)%>
                         </td>
-                        <td class="valueR" id="<%=votePctID%>>
+                        <td class="valueR" id="<%=votePctID%>">
                         	<%	if (poll.getUserVoteCount() > 0) { 
                         			double votePct = 100.0*(double)poll.getUserVoteCount(i)/(double)poll.getUserVoteCount(); 
                         			votePctBarWidth = (int)votePct; %>
-                        			<%=votePct%>%
+                        			<%=formatter.format(votePct)%>%
                         	<%	} %>
                         </td>
-                        <td class="value" valign="top" id="<%=votePctBarID%>>
+                        <td class="value" valign="top" id="<%=votePctBarID%>">
                         	<%	String votePctBarStr = "width:"+votePctBarWidth+"px;";
                         		if (votePctBarWidth > 0) { %>
                         			<div class="resultsBar" style="<%=votePctBarStr%>"><img src="/i/clear.gif" alt="bar" width="1" height="13" border="0" /></div>
