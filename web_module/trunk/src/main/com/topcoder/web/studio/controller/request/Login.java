@@ -71,6 +71,7 @@ public class Login extends ShortHibernateProcessor {
                             } else {
                                 log.debug("user active");
                                 String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+                                nextPage = StringUtils.replace(StringUtils.checkNull(nextPage), "&", "%26");
                                 if (nextPage != null && !nextPage.equals("")) {
                                     setNextPage(nextPage);
                                     setIsNextPageInContext(false);
@@ -121,6 +122,7 @@ public class Login extends ShortHibernateProcessor {
         if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextpage == null) nextpage = getRequest().getHeader("Referer");
         if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
+        nextpage = StringUtils.replace(StringUtils.checkNull(nextpage), "&", "%26");
         getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
         setNextPage("/login.jsp");
         setIsNextPageInContext(true);
