@@ -37,10 +37,10 @@
                 <h2 align="right">Need help? Learn how to <strong><A href="/?module=Static&d1=support&d2=getStarted">get
                     started</A></strong></h2>
 
-<table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
+<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
   <tr>
-      <td width="50%"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests" class="tabLinkOn"><span>Active Contests</span></A></td>
-      <td width="50%"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests" class="tabLinkOff"><span>Past Contests</span></A></td>
+      <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>Active Contests</span></A></td>
+      <td width="50%"><A href="/?module=ViewPastContests" class="statTabLinkOff"><span>Past Contests</span></A></td>
   </tr>
 </table>
                 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
