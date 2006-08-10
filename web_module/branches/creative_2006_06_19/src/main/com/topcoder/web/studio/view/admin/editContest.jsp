@@ -45,39 +45,88 @@
 
 <div class="header">Contest Details</div>
 
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    Contest Name: <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
-</p>
-
-<p>
-    Status:        <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
-    <br/></tc-webtag:errorIterator></span>
-    <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id" textField="description"/>
-</p>
-
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    Contest Start: (Eastern Time) <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-    <button id="trigger<%=Constants.START_TIME%>">Set</button>
-</p>
-
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
-
-    Contest End: (Eastern Time) <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-    <button id="trigger<%=Constants.END_TIME%>">Set</button>
-</p>
-
-<p>
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>">${err}
-                    <br/></tc-webtag:errorIterator></span>
-
-    Forum:
-    <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}"/>
+<table cellpadding="0" cellspacing="0" class="input">
+<tbody>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Contest Name:
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>"/>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+       Status:
+      </td>
+      <td class="value">
+      <tc-webtag:objectSelect name="<%=Constants.CONTEST_STATUS_ID%>" list="${contestStatuses}" valueField="id" textField="description"/>
+      </td>
+   </tr>
+   <tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name" nowrap="nowrap">
+      Contest Start (Eastern Time):
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/><button id="trigger<%=Constants.START_TIME%>">Set</button>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name" nowrap="nowrap">
+      Contest End (Eastern Time):
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/><button id="trigger<%=Constants.END_TIME%>">Set</button>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>">${err}<br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Forum:
+      </td>
+      <td class="value">
+      <tc-webtag:rscSelect name="<%=Constants.FORUM_ID%>" list="<%=(ResultSetContainer)request.getAttribute("forums")%>" fieldText="name" fieldValue="forum_id" selectedValue="${contest.forumId}"/>
+      </td>
+   </tr>
+<%--
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      </td>
+      <td class="value">
+      </td>
+   </tr>
+--%>
+</tbody>
+</table>
 
 </p>
 
@@ -112,9 +161,9 @@ Calendar.setup(
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    Contest Overview: You may include HTML, the content entered here is exactly what will be inserted into the contest
-    details page.<br/>
+                    <br></tc-webtag:errorIterator></span>
+    <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted into the contest
+    details page.<br><br>
     <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
@@ -133,10 +182,11 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
-                    <br/></tc-webtag:errorIterator></span>
-    Prize Description: You may include HTML, the content entered here is exactly what will be inserted into the contest
+                    <br></tc-webtag:errorIterator></span>
+    <strong>Prize Description:</strong> You may include HTML, the content entered here is exactly what will be inserted into the contest
     details page.
-    <br/><tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
+    <br><br>
+   <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
 <script language="javascript" type="text/javascript">
@@ -167,7 +217,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </p>
 
 
-    <br/><br/>
+    <br><br>
 
     <div class="header">Prizes</div>
 
@@ -181,7 +231,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                 Place: ${prize.place} Prize: <fmt:formatNumber value="${prize.amount}" type="currency"/>
                 <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
                     Remove</button>
-                <br/>
+                <br>
             </c:forEach>
         </p>
     </form>
@@ -192,16 +242,35 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-        <p>
-    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
-        <br/></tc-webtag:errorIterator></span>
-        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
-            <br/></tc-webtag:errorIterator></span>
-            Place #: <tc-webtag:textInput name="${prizePlace}"/> Amount: <tc-webtag:textInput name="${prizeValue}"/>
-            <button name="submit" value="submit" type="submit">Add</button>
-        </p>
+<table cellpadding="0" cellspacing="0" class="input">
+   <tr>
+      <td colspan="2"><span class="bigRed">
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
+      <br></tc-webtag:errorIterator></span>
+      <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
+      <br></tc-webtag:errorIterator></span>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Place #:
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="${prizePlace}"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="name">
+      Amount: 
+      </td>
+      <td class="value">
+      <tc-webtag:textInput name="${prizeValue}"/><button name="submit" value="submit" type="submit">Add</button>
+      </td>
+   </tr>
+</table>
+
     </form>
-    <br/><br/>
+    <br><br>
 
     <div class="header">Documentation</div>
 
@@ -216,7 +285,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                         ${document.originalFileName}</a>
                 <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                     Remove</button>
-                <br/>
+                <br>
             </c:forEach>
         </p>
     </form>
@@ -230,11 +299,13 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
         <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br/></tc-webtag:errorIterator></span>
+        <br></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-            <br/></tc-webtag:errorIterator></span>
+            <br></tc-webtag:errorIterator></span>
             <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
-            <input type="file" name="${doc}"> <button name="submit" value="submit" type="submit">Add</button>
+            <input type="file" name="${doc}"> 
+            <button name="submit" value="submit" type="submit">Add</button>
+            <br><br>
             Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
             around
             to get it added.
