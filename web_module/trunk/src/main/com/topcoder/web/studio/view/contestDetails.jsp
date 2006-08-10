@@ -31,7 +31,7 @@
       <div class="contentIn">
 
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
-         <div style="text-align:left; padding: 0px 10px 0px 10px;">
+         <div class="contentSpacer">
 
 
 <div class="linkBox"><A href="">discuss this</A></div>
