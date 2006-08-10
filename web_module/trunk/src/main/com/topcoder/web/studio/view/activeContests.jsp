@@ -43,7 +43,7 @@
   <tbody>
       <tr>
           <td class="NW">&nbsp;</td>
-          <td class="title" colspan="4">Active Contests</td>
+          <td class="title" colspan="5">Active Contests</td>
           <td class="NE">&nbsp;</td>
       </tr>
       <tr>
@@ -57,6 +57,7 @@
           <td class="headerC">
               <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
                   Date</a></td>
+          <td class="headerR">Payment</td>
           <td class="header">&nbsp;</td>
           <td class="headerE"><div>&nbsp;</div></td>
       </tr>
@@ -71,6 +72,7 @@
                   <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
               <td class="valueC">
                   <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="${sessionInfo.timezone}"/></td>
+              <td class="valueR">$2000.00</td>
               <td class="valueC">
                   <div align="right">
                       <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="btn_submit">
@@ -81,7 +83,7 @@
           <% even = !even;%>
       </rsc:iterator>
       <tr>
-          <td class="SW" colspan="5">&nbsp;</td>
+          <td class="SW" colspan="6">&nbsp;</td>
           <td class="SE">&nbsp;</td>
       </tr>
   </tbody>
