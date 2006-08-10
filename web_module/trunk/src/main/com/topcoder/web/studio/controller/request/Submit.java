@@ -78,6 +78,7 @@ public class Submit extends ShortHibernateProcessor {
 
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
+                    getRequest().setAttribute("contest", c);
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);
                 } else {
