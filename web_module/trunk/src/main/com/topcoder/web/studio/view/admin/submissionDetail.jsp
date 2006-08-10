@@ -9,9 +9,9 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder FX</title>
+    <title>TopCoder Studio</title>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <c:set value="<%=Constants.REVIEW_STATUS_ID%>" var="reviewStatus"/>
@@ -43,63 +43,53 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
+<div align="center">
+   <div class="contentOut">
+      <jsp:include page="../top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="../topNav.jsp">
+          <jsp:param name="node" value="contests"/>
+      </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
-<jsp:include page="adminLeft.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
-
-<div class="contentOuter">
-    <div class="contentInner">
-
-        <h1>Submission Detail</h1>
-
-        <div class="tableHolder">
-            <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
-                <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
-
-                <p>
-
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a> &gt;
-                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
-                    &gt;
-                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">submissions</a>
-                    &gt;
-                    ${submission.submitter.handle} - ${submission.originalFileName}
-                </p>
-
-                <p>
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
-                        Submission</a>
-                </p>
-
-                <p>Reviewer: ${submissionReview.reviewer.handle}</p>
-
-
-                <p>Status:
-                    <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/></p>
-
-                <p>
-                    Dear ${submission.submitter.handle},<br/><br/>
-                    This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
-                </p>
-
-                <p><tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="10" cols="80"/></p>
-
-                <p>
-                    Sincerely,<br/>
-                    ${currentUser.firstName} ${currentUser.lastName}<br/>
-                    TopCoder Studio
-                </p>
-                <button name="submit" value="submit" type="submit">Submit</button>
-            </form>
-        </div>
-
-        <jsp:include page="../foot.jsp"/>
-    </div>
+<div class="breadcrumb">
+   <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">Contests</a> 
+   &gt; <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">${submission.contest.name}</a>
+   &gt; <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${submission.contest.id}">Submissions</a>
+   &gt; ${submission.submitter.handle} - ${submission.originalFileName}
 </div>
+
+<h1>Submission Detail</h1>
+
+   <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="reviewForm">
+       <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSubmitReview"/>
+       <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+
+      <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View Submission</a><br>
+      Reviewer: ${submissionReview.reviewer.handle}<br>
+      Status: <tc-webtag:objectSelect name="<%=Constants.REVIEW_STATUS_ID%>" list="${reviewStatuses}" valueField="id" textField="description" onChange="choose()"/>
+      <br><br>      
+      Dear ${submission.submitter.handle},<br><br>
+      This email is in regards to your submission ${submission.originalFileName} at &lt;time&gt;
+      <br><br>
+      <tc-webtag:textArea name="<%=Constants.SUBMISSION_REVIEW_TEXT%>" rows="10" cols="80"/>
+      <br><br>
+      Sincerely,<br>
+      ${currentUser.firstName} ${currentUser.lastName}<br>
+      TopCoder Studio<br>
+      <button name="submit" value="submit" type="submit">Submit</button>
+   </form>
+
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="../foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
+</div>
+
 </body>
 </html>
