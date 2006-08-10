@@ -59,7 +59,8 @@ public class FindUser extends ShortHibernateProcessor {
                     setIsNextPageInContext(false);
                     return;
         		}
-        		getRequest().setAttribute("", u.getSecretQuestion().getQuestion());
+        		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
+        		getRequest().setAttribute("cr", u.getId().toString());
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
         	} else {       	
