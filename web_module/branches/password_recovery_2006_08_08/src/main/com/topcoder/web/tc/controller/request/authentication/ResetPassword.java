@@ -2,10 +2,8 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.GregorianCalendar;
+import java.util.Date;
 
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -27,10 +25,17 @@ public class ResetPassword extends ShortHibernateProcessor {
         	throw new TCWebException("Row not found in password_recovery: " + prId);
         }
         
+        // fix, display error?
+        if (pr.isUsed() || pr.getExpireDate().after(new Date())) {
+        	throw new TCWebException("The password recovery was already used or has expired" + prId);
+        }
+        
         // fix refactor
     	String hash;
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
+			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
+
 	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString()).getBytes();
 	        byte[] raw = md.digest(plain);
 	        StringBuffer hex = new StringBuffer();

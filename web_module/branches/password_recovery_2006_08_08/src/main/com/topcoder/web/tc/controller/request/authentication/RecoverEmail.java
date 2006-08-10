@@ -44,7 +44,8 @@ public class RecoverEmail extends ShortHibernateProcessor {
     	String hash;
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
-	        byte[] plain = (pr.getId().toString() + u.getHandle() + expire.toString()).getBytes();
+			log.info("hashing: "+pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString());
+	        byte[] plain = (pr.getId().toString() + pr.getUser().getHandle() + pr.getExpireDate().toString()).getBytes();
 	        byte[] raw = md.digest(plain);
 	        StringBuffer hex = new StringBuffer();
 	        for (int i = 0; i < raw.length; i++)
