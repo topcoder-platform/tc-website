@@ -53,7 +53,7 @@
         </init-param>
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/tc</param-value>
+            <param-value>/</param-value>
         </init-param>
 
         <init-param>
