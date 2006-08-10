@@ -22,6 +22,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import com.topcoder.common.web.data.Round;
 
 import javax.naming.InitialContext;
 import java.util.ArrayList;
