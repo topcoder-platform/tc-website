@@ -25,11 +25,8 @@ public class ResetPassword extends ShortHibernateProcessor {
         	throw new TCWebException("Row not found in password_recovery: " + prId);
         }
         
-        // fix, display error?
         if (pr.isUsed()) {
         	addError("error", "The password was already changed.");
-            setNextPage(Constants.RESET_PASSWORD);
-            setIsNextPageInContext(true);
         }
         
         log.info("expires: " + pr.getExpireDate());
@@ -37,9 +34,12 @@ public class ResetPassword extends ShortHibernateProcessor {
         
         if (pr.getExpireDate().before(new Date())) {
         	addError("error", "The time for changing the password has expired. Please require password change again.");
+        }
+        
+        if (hasErrors()) {
             setNextPage(Constants.RESET_PASSWORD);
             setIsNextPageInContext(true);
-        	
+        	return;        	
         }
         
         // fix refactor

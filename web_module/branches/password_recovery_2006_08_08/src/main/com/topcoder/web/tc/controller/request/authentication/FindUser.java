@@ -60,6 +60,7 @@ public class FindUser extends ShortHibernateProcessor {
                     return;
         		}
         		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
+        		log.info("secret question:" + u.getSecretQuestion().getQuestion());
         		getRequest().setAttribute("cr", u.getId().toString());
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
