@@ -188,7 +188,8 @@ public class ForumsServlet extends BaseServlet {
         /* forward to the login page, with a message and a way back */
         StringBuffer nextPage = new StringBuffer("http://").append(serverName).append(LOGIN_SERVLET).
         	append("?module=").append(LOGIN_PROCESSOR);
-        nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
+        String fromPage = StringUtils.replace(StringUtils.checkNull(info.getRequestString()), "&", "%26");
+        nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(fromPage);
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);
 
