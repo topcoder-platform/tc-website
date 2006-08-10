@@ -16,7 +16,7 @@
     </jsp:include>
 </head>
 
-body>
+<body>
 
 <div align="center">
     <div class="contentOut">
@@ -30,14 +30,14 @@ body>
             <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;"/>
             <div class="contentSpacer">
 
-<h1>Passed Contests</h1>
+<h1>Past Contests</h1>
 
 <h2 align="right">Need help? Learn how to <strong><A href="">get started</A></strong></h2>
 
-<table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
+<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
   <tr>
-      <td width="50%"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests" class="tabLinkOff"><span>Active Contests</span></A></td>
-      <td width="50%"><A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests" class="tabLinkOn"><span>Past Contests</span></A></td>
+      <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOff"><span>Active Contests</span></A></td>
+      <td width="50%"><A href="/?module=ViewPastContests" class="statTabLinkOn"><span>Past Contests</span></A></td>
   </tr>
 </table>
 
