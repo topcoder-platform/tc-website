@@ -227,7 +227,7 @@
          learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the
          Competition Arena link above.
          <br><br>
-         * All submissions have a maximum of 2 seconds of runtime per test case.  This limit is used in harder problems
+         *<b>NOTE:</b> All submissions have a maximum of 2 seconds of runtime per test case.  This limit is used in harder problems
          to force submissions to be of a certain complexity.  Because of the inherent speed differences between Python
          and the other offered languages is large, some problems may require extra optimization or not be solvable using
          the Python language.
