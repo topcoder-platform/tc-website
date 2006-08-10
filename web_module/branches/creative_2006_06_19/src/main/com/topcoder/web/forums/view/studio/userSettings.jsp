@@ -67,7 +67,7 @@ function toggleTabs(anchor,id) {
 -->
 </style>
 
-<body>
+<body onload="toggleTabs('','gen')">
 
 <div align="center">
    <div class="contentOut">
