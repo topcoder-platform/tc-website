@@ -37,7 +37,7 @@
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
-<div class="linkBox"><A href="/?module=AdminViewContests">back to Contests</A></div>
+<div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to Contests</A></div>
 
 <h1>Edit Contest Details</h1>
 
