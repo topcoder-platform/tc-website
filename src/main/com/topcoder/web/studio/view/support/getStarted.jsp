@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -28,13 +29,13 @@
 
       <div style="float:right; padding: 0px 0px 10px 10px; margin: 0px 0px 10px 10px; border-left: 1px dashed #CCCCCC;">
       <img src="/i/creative/home/bnr_its_easy.png" alt="It's easy to get started" /><br>
-      <A href=""><img src="/i/creative/home/bnr_register.png" alt="Register" /></A><br>
-      <A href=""><img src="/i/creative/home/bnr_be_creative.png" alt="Get Creative" style="margin-top: 10px;" /></A><br>
-      <A href=""><img src="/i/creative/home/bnr_win.png" alt="Win" style="margin-top: 10px;" /></A>
+      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/creative/home/bnr_register.png" alt="Register" /></A><br>
+      <img src="/i/creative/home/bnr_be_creative.png" alt="Get Creative" style="margin-top: 10px;" /><br>
+      <img src="/i/creative/home/bnr_win.png" alt="Win" style="margin-top: 10px;" />
       </div>
 
-      <h1>Getting Started</h1>
-      <h3>Creative and exciting projects that pay off big.</h3>
+<h1>Getting Started</h1>
+<h3>Creative and exciting projects that pay off big.</h3>
 TopCoder Studio is the meeting place for clients who need creative work done and creative designers looking to compete for that work.  Here's how it happens:
 <ol>
 <li><strong>Client contacts TopCoder Studio with project</strong><br>
@@ -67,7 +68,7 @@ It is at the client's sole discretion which design is selected as the contest wi
 In order for the winning designer to be compensated for their work, she/he must submit to TopCoder Studio a vector-based file of the winning design.  Once TopCoder Studio receives the vector-based file, the winning designer will be paid the amount specified in the Project Details.  Should the client want any changes made to or additional work done for the project, the client will contact the winning designer directly and further compensation will be decided between the client and the winning designer.
 </li>
 </ol>
-Get started now by checking out the current Active Contests! [Link "Active Contests" to the Active Contest page]
+Get started now by checking out the current <A href="/?module=ViewActiveContests">Active Contests</A>!
 <br><br>
 Questions about the process can be directed to <A href="mailto:studioadmin@topcoder.com">studioadmin@topcoder.com</A>.
 
