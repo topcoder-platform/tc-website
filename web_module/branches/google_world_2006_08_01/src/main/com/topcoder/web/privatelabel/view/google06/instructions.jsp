@@ -119,10 +119,10 @@ The top pane of the coding window contains the problem statement in its entirety
 <span class="bigRed">NOTE: All problem statements will be presented in English.</span>
 <br><br>
 <strong>Choosing a Language</strong><br>
-The Google Code Jam 2006 allows coders to utilize Java, C++, C#, VB.NET or Python as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
+The Google Code Jam 2006 allows coders to utilize Java, C++, C#, VB.NET or Python* as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
 <br><br>
 <strong>Creating a Solution</strong><br>
-The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, VB.NET and Python:
+The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, VB.NET and Python*:
 <br><br>
 <b>Java Code Template</b><br>
 <pre>import &lt;necessary classes&gt;
@@ -177,7 +177,7 @@ End Class
 </pre>
 
 
-<b>Python Template</b><br>
+<b>Python* Template</b><br>
 <pre>
 import &lt;necessary-classes&gt;
 class &lt;class-name&gt;:
@@ -188,6 +188,8 @@ class &lt;class-name&gt;:
 <br>
 
 A wizard with C but rusty with C++? Don't worry! We've got it covered. Check out the <A href="/pl/?&module=Static&d1=google06&d2=cpp">C++ for C Programmers page</A> that shows you the basics of learning C++ for the competition. Also, be sure to spend time in the Practice Rooms by clicking on the Competition Arena link above.
+<br><br>
+* All submissions have a maximum of 2 seconds of runtime per test case.  This limit is used in harder problems to force submissions to be of a certain complexity.  Because of the inherent speed differences between Python and the other offered languages is large, some problems may require extra optimization or not be solvable using the Python language.
 <br><br>
 <strong>Compiling</strong><br>
 Code compilations from within the coding window will take place on TopCoder servers. The language that is chosen in the coding window at the time of the compilation will dictate to which language compiler the compilation request is sent. A compilation request will send the code that is currently in the coding window to the TopCoder compiler. If a compilation is successful, you will be notified of such. If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window. Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server. Any user test or code submission will always utilize the most recent successfully compiled code.  The following is an example of an unsuccessful Java compilation attempt:

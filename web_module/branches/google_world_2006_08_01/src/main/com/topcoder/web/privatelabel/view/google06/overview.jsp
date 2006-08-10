@@ -60,7 +60,7 @@ Want a chance at $165,000?  Here's how:  Google Code Jam 2006.  This competition
 <br><br>
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. 
 <br><br>
-The competition is available in five programming languages - Java, C++, C#, VB.net and Python. 
+The competition is available in five programming languages - Java, C++, C#, VB.net and Python*. 
 <br><br>
 Learn how to participate by reading the <a href="/pl/?&module=Static&d1=google06&d2=instructions">instructions</a>.  
 <br><br><br>
@@ -179,7 +179,8 @@ The top 250 participants in Round 2 will receive a "Google Code Jam 2006" t-shir
       <td class="boxText" colspan="2">* Winners must be present at the onsite round to receive prize.</td>
    </tr>
 </table>
-<br>
+<br><br>
+* All submissions have a maximum of 2 seconds of runtime per test case.  This limit is used in harder problems to force submissions to be of a certain complexity.  Because of the inherent speed differences between Python and the other offered languages is large, some problems may require extra optimization or not be solvable using the Python language.
 
          <br><br>
          To find out more detailed information about the Google&#153; Code Jam 2006, please read the <a href="/pl/?&module=Static&d1=google06&d2=rules">Terms and Conditions</a>.
