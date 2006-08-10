@@ -26,8 +26,20 @@ public class ResetPassword extends ShortHibernateProcessor {
         }
         
         // fix, display error?
-        if (pr.isUsed() || pr.getExpireDate().after(new Date())) {
-        	throw new TCWebException("The password recovery was already used or has expired" + prId);
+        if (pr.isUsed()) {
+        	addError("error", "The password was already changed.");
+            setNextPage(Constants.RESET_PASSWORD);
+            setIsNextPageInContext(true);
+        }
+        
+        log.info("expires: " + pr.getExpireDate());
+        log.info("now: " + new Date());
+        
+        if (pr.getExpireDate().before(new Date())) {
+        	addError("error", "The time for changing the password has expired. Please require password change again.");
+            setNextPage(Constants.RESET_PASSWORD);
+            setIsNextPageInContext(true);
+        	
         }
         
         // fix refactor

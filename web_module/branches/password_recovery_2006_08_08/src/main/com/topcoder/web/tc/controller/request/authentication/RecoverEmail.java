@@ -59,7 +59,7 @@ public class RecoverEmail extends ShortHibernateProcessor {
 		
 		try {
             StringBuffer msgText = new StringBuffer(1000);
-            msgText.append("In order to reactivate your account please go to the following URL: \n\n");
+            msgText.append("In order to reset your password please go to the following URL: \n\n");
             msgText.append("http://");
             msgText.append(ApplicationServer.SERVER_NAME);
             msgText.append("/tc?module=Static&d1=authentication&d2=resetPassword&pr=" + pr.getId() + "&hc=" + hash);

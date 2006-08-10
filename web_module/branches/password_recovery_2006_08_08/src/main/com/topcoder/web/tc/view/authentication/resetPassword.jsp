@@ -33,6 +33,10 @@ function setPassword() {
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ResetPassword"/>
 <input type="hidden" name="pr" value='<%= request.getParameter("pr")%>'/>
 <input type="hidden" name="hc" value='<%= request.getParameter("hc")%>'/>
+
+         <tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></span>
+<br>
+
 Enter your password: <input type="password" name="password">
 <br>
 Retype your password: <input type="password" name="passwordVerif">
