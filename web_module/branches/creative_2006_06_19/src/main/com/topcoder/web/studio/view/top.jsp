@@ -18,7 +18,7 @@
                     <c:when test="${sessionInfo.anonymous}">
 
 <div style="float:right;" class="small">
-<A href="/reg/">Register now!</A>
+<A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now!</A>
 </div>
 <strong>Member Login:</strong><br>
 <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
