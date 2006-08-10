@@ -1,11 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.forums.ForumConstants;
-
-//import com.jivesoftware.base.AuthFactory;
-//import com.jivesoftware.forum.ForumFactory;
-//import com.jivesoftware.forum.Forum;
+import com.topcoder.web.common.WebConstants;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -27,10 +23,10 @@ public class ForumLinkTag extends TagSupport {
         ret.append("<A");
         StringBuffer url = new StringBuffer();
         url.append("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/");
-        url.append("?module=ThreadList&").append(ForumConstants.FORUM_ID).append("=").append(forumID);
+        url.append("?module=ThreadList&").append(WebConstants.FORUM_ID).append("=").append(forumID);
         ret.append(" HREF=\"").append(url).append("\"");
         ret.append(">");
-        
+
         /*
         ForumFactory forumFactory = ForumFactory.getInstance(AuthFactory.getAnonymousAuthToken());
         try {
@@ -58,7 +54,7 @@ public class ForumLinkTag extends TagSupport {
     public void setForumID(long forumID) {
         this.forumID = forumID;
     }
-    
+
     public void setMessage(String message) {
         this.message = message;
     }
@@ -67,7 +63,7 @@ public class ForumLinkTag extends TagSupport {
         forumID = -1;
         message = "Discuss this";
     }
-    
+
     public int doEndTag() throws JspException {
         forumID = -1;
         message = "";
