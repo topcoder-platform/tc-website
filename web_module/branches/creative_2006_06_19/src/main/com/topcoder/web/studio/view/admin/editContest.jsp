@@ -18,22 +18,24 @@
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
 
 </head>
 
 <body>
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
 
-<jsp:include page="adminLeft.jsp">
-    <jsp:param name="node" value="create_contest"/>
-</jsp:include>
-
-<div class="contentOuter">
-<div class="contentInner">
+<div align="center">
+   <div class="contentOut">
+      <jsp:include page="../top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="../topNav.jsp">
+          <jsp:param name="node" value="contests"/>
+      </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
 <h1>Edit Contest Details</h1>
 
@@ -242,9 +244,13 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </c:if>
 
 
-<jsp:include page="../foot.jsp"/>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="../foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
 
-</div>
 </body>
 </html>

@@ -11,70 +11,83 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder FX</title>
     <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio_old"/>
+        <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
 
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp">
-    <jsp:param name="section" value="default"/>
-</jsp:include>
-
-<jsp:include page="adminLeft.jsp">
-    <jsp:param name="node" value="home"/>
-</jsp:include>
-
-<div class="contentOuter">
-    <div class="contentInner">
+<div align="center">
+   <div class="contentOut">
+      <jsp:include page="../top.jsp">
+          <jsp:param name="section" value="default"/>
+      </jsp:include>
+      <jsp:include page="../topNav.jsp">
+          <jsp:param name="node" value="contests"/>
+      </jsp:include>
+      <div class="contentIn">
+         <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
+         <div class="contentSpacer">
 
         <h1>Contest List</h1>
 
-        <%-- without this div, the table inside stretches way outside the window, only in IE of course --%>
-        <div class="tableHolder">
-            <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+            <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
                 <tbody>
                     <tr>
-                        <td class="title" colspan="6">Contests</td>
-                    </tr>
-                    <tr>
-                        <td class="header" colspan="6">
+                         <td class="NW">&nbsp;</td>
+                        <td class="title" colspan="5">Contests</td>
+                        <td class="titleR">
                             <a href="${sessionInfo.servletPath}?module=AdminViewContest">add</a></td>
+                         <td class="NE">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="headerC"></td>
-                        <td class="headerC"></td>
+                         <td class="headerW"><div>&nbsp;</div></td>
                         <td class="header">Name</td>
                         <td class="header">Status</td>
                         <td class="headerC">Start</td>
                         <td class="headerC">End</td>
+                        <td class="headerC"></td>
+                        <td class="headerC"></td>
+                         <td class="headerE"><div>&nbsp;</div></td>
                     </tr>
+                     <% boolean even = true;%>
                     <c:forEach items="${contests}" var="contest">
-                        <tr class="light">
+                        <tr class="<%=even?"light":"dark"%>">
+                            <td class="valueW"><div>&nbsp;</div></td>
+                            <td class="value"><strong>${contest.name}</strong></td>
+                            <td class="value">${contest.status.description}</td>
+                            <td class="valueC">
+                                <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at<br>' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                            </td>
+                            <td class="valueC">
+                                <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
+                            </td>
                             <td class="valueC">
                                 <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
                             </td>
                             <td class="valueC">
                                 <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">submissions</a>
                             </td>
-                            <td class="value">${contest.name}</td>
-                            <td class="value">${contest.status.description}</td>
-                            <td class="valueC">
-                                <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                            </td>
-                            <td class="valueC">
-                                <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at' hh:mm a z" timeZone="${sessionInfo.timezone}"/>
-                            </td>
+                            <td class="valueE"><div>&nbsp;</div></td>
                         </tr>
+                     <% even = !even;%>
                     </c:forEach>
+                        <tr>
+                            <td class="SW" colspan="7">&nbsp;</td>
+                            <td class="SE">&nbsp;</td>
+                        </tr>
 
                 </tbody>
             </table>
-        </div>
 
-        <jsp:include page="../foot.jsp"/>
-    </div>
+         </div>
+         <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
+      </div>
+      <jsp:include page="../foot.jsp"/>
+      <img src="/i/studio/layout/contentOutS.gif" alt="" style="display:block;"/>
+   </div>
 </div>
+
 </body>
 </html>
