@@ -61,18 +61,22 @@ public class ResetPassword extends ShortHibernateProcessor {
 		pr.setUsed(true);
 		DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(pr);
 		
-		// todo, validate pwd
 		User u = pr.getUser();
 		u.setPassword(pw);
-		Set s = u.getEmailAddresses();
-		for (Iterator it = s.iterator(); it.hasNext(); ) {
-            Email e = (Email) it.next();
-            if (e.isPrimary()) {
-            	e.setAddress(pr.getRecoveryAddress());
-            	break;
-            }
+
+		if (!u.getPrimaryEmailAddress().equals(pr.getRecoveryAddress())) {
+			Set s = u.getEmailAddresses();
+			for (Iterator it = s.iterator(); it.hasNext(); ) {
+	            Email e = (Email) it.next();
+	            if (e.isPrimary()) {
+	            	e.setAddress(pr.getRecoveryAddress());
+	            	break;
+	            }
+			}
+			u.setEmailAddresses(s);
+			getRequest().setAttribute("email", pr.getRecoveryAddress());
 		}
-		u.setEmailAddresses(s);
+		
 		
 		DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 

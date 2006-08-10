@@ -43,7 +43,8 @@ public class FindUser extends ShortHibernateProcessor {
 		     		addError(GOOD_EMAIL, "More than one user found with this email address.  Please provide the handle.");
 		     		getRequest().setAttribute(NEEDS_HANDLE, "true");
 	        	}
-                setNextPage(Constants.RECOVER_PASSWORD);
+         	    setDefault(Constants.CURRENT_EMAIL, currEmail);
+         	    setNextPage(Constants.RECOVER_PASSWORD);
                 setIsNextPageInContext(true);
         	}
 
@@ -56,11 +57,10 @@ public class FindUser extends ShortHibernateProcessor {
         		if (u.getSecretQuestion() == null) {
 	        	    addError(LOST_EMAIL, "You don't have a secret question. Password recovery is not possible."); 
                     setNextPage(Constants.RECOVER_PASSWORD);
-                    setIsNextPageInContext(false);
+                    setIsNextPageInContext(true);
                     return;
         		}
         		getRequest().setAttribute("sq", u.getSecretQuestion().getQuestion());
-        		log.info("secret question:" + u.getSecretQuestion().getQuestion());
         		getRequest().setAttribute("cr", u.getId().toString());
                 setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);

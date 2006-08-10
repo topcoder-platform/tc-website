@@ -7,6 +7,9 @@
 
 <body>
 Your password has been reseted.
+<% if (request.getParameter("email") != null) { %>
+Your email address has ben set to <%= request.getParameter("email") %>.
+<% } %>
 <a href="/tc?module=Login">Login</a>
 </body>
 </html>
