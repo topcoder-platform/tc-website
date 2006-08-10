@@ -55,7 +55,7 @@ The Warehouse Functions portion of the application covers all the movements of a
 Application administration will also be included here. These are simply screens set up to maintain item and location attributes.
 <br><br>
 <span class="bodySubtitle">Competition Overview</span><br>
-This assembly competition will consist of creating projects, editing projects, viewing projects, performing various project operations (i.e. performing submission, screenings, uploading test cases), ending phases and posting deliverables.
+This testing competition will consist of creating projects, editing projects, viewing projects, performing various project operations (i.e. performing submission, screenings, uploading test cases), ending phases and posting deliverables.
 <br><br>
 <div class="sectionHeader">Technologies</div>
 <ul>
@@ -96,7 +96,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">08.09.2006</td><td align="center">08.16.2006</td>
+      <td>Registration Phase:</td><td align="center">08.10.2006</td><td align="center">08.16.2006</td>
    </tr>
    <tr>
       <td>Test Submission:</td><td align="center">08.16.2006</td><td align="center">08.23.2006</td>
