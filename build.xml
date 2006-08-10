@@ -1211,6 +1211,7 @@
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
+                <include name="studio.tld"/>
             </webinf>
             <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
