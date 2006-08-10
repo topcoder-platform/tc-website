@@ -37,6 +37,8 @@
          <img src="/i/studio/layout/contentInN.gif" alt="" style="display:block;" />
          <div class="contentSpacer">
 
+<div class="linkBox"><A href="/?module=AdminViewContests">back to Contests</A></div>
+
 <h1>Edit Contest Details</h1>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
