@@ -8,6 +8,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>08.09.06<br>4:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">AOL SRM 315 chat session transcript</A>
+      </span><br><br>
+      AOL recently spoke with competitors in the arena just prior to SRM 315.  Here's the transcript of that chat session.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=aol_chat_080906">view</A>&#160;|&#160;
+         <tc-webtag:forumLink forumID="506075" message="discuss this" />&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/marathon.gif" alt="Marathon Match News" border="0" /><br>08.08.06<br>3:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
       <A href="/longcontest/?module=ViewOverview&rd=10087">Intel&#174; Multi-Threading Competition 7 Results</A>
@@ -161,27 +176,6 @@ first two problems and more than a half of them submitted the hard.
        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.31.06<br>7:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=MemberContact">Member Contacting now available</A>
-      </span><br><br>
-Have you ever wanted to send a message to another TopCoder member
-without using the forums or the TopCoder Arena?  Well, now you can.
-Rated TopCoder members now have the ability to send email messages to
-other members who have elected to receive such messages.  If you wish to
-allow other rated TopCoder members to send email messages to you, update
-your TopCoder member profile and check the box labeled <strong>"Enable Member
-Contact"</strong>.  Your email address will not be revealed to other members. You must be rated in at
-least one of TopCoder's rating categories to send email messages.  Any member who has enabled messages will have a <strong>"Send a
-message"</strong> link in their Member Profile.  You can also use <A href="/tc?module=MemberContact">this link</A> to send messages.
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=MemberContact">view</A>&#160;|&#160;
-         <tc-webtag:forumLink forumID="506080" message="discuss this" />&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
