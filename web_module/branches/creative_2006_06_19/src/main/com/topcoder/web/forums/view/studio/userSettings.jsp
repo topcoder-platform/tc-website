@@ -107,12 +107,12 @@ function toggleTabs(anchor,id) {
 
 <table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
   <tr>
-      <td width="20%"><A id="tabGen" href="javascript:void(0)" onclick="toggleTabs(this,'gen')" class="tabLinkOff"><div>General Settings</div></A></td>
-      <td width="20%"><A id="tabWatch" href="javascript:void(0)" onclick="toggleTabs(this,'watch')" class="tabLinkOff"><div>Watch Preferences</div></A></td>
-      <td width="20%"><A id="tabRate" href="javascript:void(0)" onclick="toggleTabs(this,'rate')" class="tabLinkOff"><div>Rating Preferences</div></A></td>
+      <td width="20%"><A id="tabGen" href="javascript:void(0)" onclick="toggleTabs(this,'gen')" class="tabLinkOff"><span>General Settings</span></A></td>
+      <td width="20%"><A id="tabWatch" href="javascript:void(0)" onclick="toggleTabs(this,'watch')" class="tabLinkOff"><span>Watch Preferences</span></A></td>
+      <td width="20%"><A id="tabRate" href="javascript:void(0)" onclick="toggleTabs(this,'rate')" class="tabLinkOff"><span>Rating Preferences</span></A></td>
       <td width="40%"></td>
   </tr>
-
+</table>
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_SECTION%>" value="gen"/>
@@ -452,14 +452,14 @@ function toggleTabs(anchor,id) {
 </table>
 
 <span id="infoRate" class="rtDesc">TopCoder provides the ability to rate posts.  You may click the [+] next to the thread title if you think it is of high quality.   Similarly, you may click the [-] if it is of low quality.  We recommend that you also post your comments if you agree or disagree with the content of a post. Also, when ratings are enabled, you may click on a post's subject to expand or collapse the post.</span>
+
 <div>
    <div style="float:right;">
-   <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
+   <input type="image" src="/i/studio/layout/btn_save.gif" onmouseover="this.src='/i/studio/layout/btn_save_on.gif'" onmouseout="this.src='/i/studio/layout/btn_save.gif'">
    </div>
 </div>
 </form>
-</table>
-
+<br><br><br>
          </div>
          <img src="/i/studio/layout/contentInS.gif" alt="" style="display:block;" />
       </div>
